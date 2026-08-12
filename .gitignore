@@ -1,0 +1,5 @@
+CODEX.md
+backend/data/
+.venv/
+__pycache__/
+.pytest_cache/
