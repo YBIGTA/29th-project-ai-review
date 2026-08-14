@@ -24,7 +24,10 @@ def test_material_upload_and_mock_review(tmp_path):
 
     processing_response = client.get(f"/api/materials/{pdf_id}/status")
     assert processing_response.status_code == 200
-    assert processing_response.json()["status"] == "completed"
+    processing_body = processing_response.json()
+    assert processing_body["pdf_id"] == pdf_id
+    assert processing_body["filename"] == "lecture"
+    assert processing_body["status"] == "completed"
 
     review_response = client.post(
         "/api/reviews/submit",

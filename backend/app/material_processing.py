@@ -20,10 +20,11 @@ class MaterialProcessingStore:
         self._statuses: dict[str, dict[str, str]] = {}
         self._lock = Lock()
 
-    def start(self, pdf_id: str) -> None:
+    def start(self, pdf_id: str, filename: str) -> None:
         with self._lock:
             self._statuses[pdf_id] = {
                 "pdf_id": pdf_id,
+                "filename": filename,
                 "status": "processing",
                 "message": "학습 자료를 분석하고 있습니다.",
             }
@@ -31,6 +32,7 @@ class MaterialProcessingStore:
     def complete(self, pdf_id: str) -> None:
         with self._lock:
             self._statuses[pdf_id] = {
+                **self._statuses.get(pdf_id, {}),
                 "pdf_id": pdf_id,
                 "status": "completed",
                 "message": "학습 자료 분석이 완료되었습니다.",
@@ -39,6 +41,7 @@ class MaterialProcessingStore:
     def fail(self, pdf_id: str, error: str) -> None:
         with self._lock:
             self._statuses[pdf_id] = {
+                **self._statuses.get(pdf_id, {}),
                 "pdf_id": pdf_id,
                 "status": "failed",
                 "message": "학습 자료 분석에 실패했습니다.",

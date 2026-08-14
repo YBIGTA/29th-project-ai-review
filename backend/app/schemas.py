@@ -12,6 +12,7 @@ class MaterialUploadResponse(BaseModel):
 
 class MaterialStatusResponse(BaseModel):
     pdf_id: str
+    filename: str | None = None
     status: str
     message: str
     error: str | None = None

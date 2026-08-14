@@ -67,15 +67,16 @@ def create_app(storage_root: str | Path | None = None) -> FastAPI:
                 detail="유효한 PDF 파일이 아닙니다.",
             )
 
+        response_filename = _uploaded_pdf_stem(filename)
         pdf_id, _stored_filename = await app.state.storage.save_material(pdf_file)
-        app.state.material_statuses.start(pdf_id)
+        app.state.material_statuses.start(pdf_id, response_filename)
         background_tasks.add_task(
             process_material,
             pdf_id,
             app.state.storage.material_path(pdf_id),
             app.state.material_statuses,
         )
-        return MaterialUploadResponse(pdf_id=pdf_id, filename=_uploaded_pdf_stem(filename))
+        return MaterialUploadResponse(pdf_id=pdf_id, filename=response_filename)
 
     @app.get(
         "/api/materials/{pdf_id}/status",
