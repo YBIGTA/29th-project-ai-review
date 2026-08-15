@@ -1,0 +1,11 @@
+faster-whisper>=1.2.1,<2   # hotwords 파라미터는 1.2.1부터 지원
+pymupdf>=1.24                # PDF 텍스트 추출 (C-core라 대용량에 강함, page.get_text()로 충분;
+                              #   pdfplumber는 표 추출 특화라 이 용도엔 불필요)
+pydantic>=2
+pyyaml>=6
+requests>=2.31               # Groq OpenAI 호환 엔드포인트 호출
+python-dotenv>=1
+
+# dev/test
+pytest>=8
+pytest-mock>=3
