@@ -1,10 +1,23 @@
-CODEX.md
-backend/data/
-data/
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+
+# Secrets
+.env
+
+# Generated / local-only data
+data/term_dbs/*.json
+data/samples/
+data/pdfs/*.pdf
+data/voice/*.m4a
+data/voice/*.wav
+data/voice/*.mp3
+data/reference/
 results/
 *.json
-*.pdf
-*.m4a
-.venv/
-__pycache__/
-.pytest_cache/

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from uuid import uuid4
+
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -18,13 +20,13 @@ def create_app() -> FastAPI:
 
     @app.post("/api/reviews/submit", response_model=ReviewSubmitResponse, status_code=status.HTTP_201_CREATED)
     def submit_review(request: ReviewSubmitRequest) -> ReviewSubmitResponse:
-        evaluation = mock_evaluation(request.corrected_transcript)
+        evaluation = mock_evaluation(request.transcript_corrected)
         return ReviewSubmitResponse(
-            review_id=request.review_id,
+            review_id=f"review-{uuid4().hex[:12]}",
             session_id=request.session_id,
             score=evaluation["score"],
-            transcript=request.transcript,
-            corrected_transcript=request.corrected_transcript,
+            transcript=request.transcript_raw,
+            corrected_transcript=request.transcript_corrected,
             feedback={key: evaluation[key] for key in ("summary", "strengths", "missing_points", "suggestions")},
             status="mock",
         )

@@ -1,0 +1,7 @@
+particles: ["로", "가", "는", "은", "을", "를", "의", "에", "이"]
+content_word_homophones: ["키", "셋", "원"]
+known_terms:   # 수동 curated 테이블 — 항상 최우선
+  Row: {korean: "로우", label: particle_collision}
+  Key: {korean: "키", label: content_word_collision}
+  Set: {korean: "셋", label: content_word_collision}
+  One: {korean: "원", label: content_word_collision}

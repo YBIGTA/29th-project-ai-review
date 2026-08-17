@@ -26,10 +26,11 @@ class Feedback(BaseModel):
 
 
 class ReviewSubmitRequest(BaseModel):
-    review_id: str
     session_id: str
-    transcript: str
-    corrected_transcript: str
+    topic: str
+    transcript_raw: str
+    transcript_corrected: str
+    term_db_used: dict[str, list[str]]
 
 
 class ReviewSubmitResponse(BaseModel):
