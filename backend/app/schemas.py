@@ -25,6 +25,28 @@ class Feedback(BaseModel):
     suggestions: list[str]
 
 
+class ScoreDetail(BaseModel):
+    score: int = Field(ge=0)
+    max_score: int = Field(gt=0)
+    rubric_level: int = Field(ge=0, le=4)
+    reason: str
+
+
+class QuantitativeEvaluation(BaseModel):
+    concept_recall: float = Field(ge=0, le=1)
+    concept_precision: float = Field(ge=0, le=1)
+    concept_f1: float = Field(ge=0, le=1)
+    scores: dict[str, ScoreDetail]
+    total: ScoreDetail
+
+
+class QualitativeEvaluation(BaseModel):
+    missing_concepts: list[str]
+    incorrect_concepts: list[str]
+    misconnected_concepts: list[str]
+    review_suggestions: list[str]
+
+
 class ReviewSubmitRequest(BaseModel):
     session_id: str
     topic: str
@@ -39,5 +61,6 @@ class ReviewSubmitResponse(BaseModel):
     score: int = Field(ge=0, le=100)
     transcript: str
     corrected_transcript: str
-    feedback: Feedback
+    quantitative: QuantitativeEvaluation
+    qualitative: QualitativeEvaluation
     status: str

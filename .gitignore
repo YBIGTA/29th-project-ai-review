@@ -18,6 +18,13 @@ data/pdfs/*.pdf
 data/voice/*.m4a
 data/voice/*.wav
 data/voice/*.mp3
+backend/data/audio/*.m4a
+backend/data/audio/*.wav
+backend/data/audio/*.webm
 data/reference/
 results/
+outputs/
 *.json
+!frontend/fe/package.json
+!frontend/fe/package-lock.json
+!frontend/fe/tsconfig.json

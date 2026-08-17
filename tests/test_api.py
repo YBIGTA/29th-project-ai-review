@@ -22,6 +22,10 @@ def test_review_accepts_stt_result_and_returns_mock_evaluation():
     assert body["corrected_transcript"] == "corrected transcript"
     assert body["status"] == "mock"
     assert body["session_id"] == "db-session-01"
+    assert body["quantitative"]["scores"]["accuracy"]["max_score"] == 40
+    assert body["quantitative"]["scores"]["coverage"]["max_score"] == 40
+    assert body["quantitative"]["scores"]["structural_understanding"]["max_score"] == 20
+    assert body["qualitative"]["missing_concepts"]
 
 
 def test_review_requires_stt_result_fields():

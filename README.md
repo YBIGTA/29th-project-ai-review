@@ -1,39 +1,26 @@
 # 29th-project-ai-review
 
-YBIGTA 신입기수 교육세션을 말로 복습하고, 전사 결과를 바탕으로 학습 내용을 평가하는 AI 구술 복습 서비스입니다.
+YBIGTA 교육 세션을 사용자가 말로 복습하고, 전사 결과를 RAG 모델 바탕으로 평가하는 AI 구술 복습 서비스입니다.
 
-현재 `dev`에는 다음 범위가 통합되어 있습니다.
+- FE 브라우저에서 음성 녹음
+- BE에서 Faster-Whisper `medium`, `beam_size=2`로 STT 수행
+- Groq LLM을 이용한 전문용어 및 문맥 보정
+- 보정된 STT JSON을 평가 API로 전달
 
-- STT: M4A/WAV/WebM 오디오를 Faster-Whisper로 한국어 전사
-- STT 후처리: Groq LLM을 사용한 전문용어 및 문맥 보정
-- BE: STT 결과 JSON을 받는 FastAPI submit API
-- 평가: 연결 확인을 위한 Mock 점수 및 피드백
-
-RAG의 PDF 구조화, Embedding, ChromaDB 검색 파이프라인은 현재 `feat/rag-pipeline` 브랜치에서 개발 중입니다. STT 후처리 결과를 RAG 평가에 전달하는 형식과 충실성/연결성/포괄성 평가 방식은 아직 팀 합의가 필요한 상태입니다.
+PDF 업로드는 현재 사용하지 않습니다. 세션 자료와 용어 DB는 사전에 준비되어 있다는 전제입니다.
 
 ## 전체 흐름
 
 ```text
-브라우저 오디오 녹음
-    |
-    v
-STT-research: Faster-Whisper 전사
-    |
-    v
-Groq LLM: 전문용어 및 문맥 보정
-    |
-    v
-STT 결과 JSON
-    |
-    v
-BE POST /api/reviews/submit
-    |
-    v
-현재: Mock 평가 JSON
-향후: RAG 기반 평가 JSON
-    |
-    v
-FE 점수 및 피드백 표시
+FE 브라우저 음성 녹음
+  -> POST /api/stt/transcribe
+  -> BE 오디오 로컬 저장
+  -> Faster-Whisper medium, beam=2 전사
+  -> Groq LLM 2차 보정
+  -> transcript_raw / transcript_corrected 반환
+  -> POST /api/reviews/submit
+  -> Mock 평가 JSON 반환
+  -> FE에서 전사문, 점수, 피드백 표시
 ```
 
 ## 디렉터리 구조
@@ -41,38 +28,52 @@ FE 점수 및 피드백 표시
 ```text
 .
 ├── backend/
-│   └── app/
-│       ├── config.py          # CORS 등 BE 설정
-│       ├── integrations.py    # 현재 Mock 평가, 향후 RAG adapter 위치
-│       ├── main.py            # FastAPI 앱과 API route
-│       ├── schemas.py         # STT 요청 및 평가 응답 Pydantic schema
-│       ├── material_processing.py # 기존 자료 처리 adapter
-│       └── storage.py          # 기존 로컬 저장 helper
-├── src/
-│   └── sttcorrect/
-│       ├── cli/
-│       │   ├── build_term_db.py # PDF 기반 전문용어 DB 생성
-│       │   └── run_pipeline.py  # 오디오 전사 및 LLM 보정 실행
-│       ├── stt/whisper_backend.py # Faster-Whisper wrapper
-│       ├── llm/groq_client.py     # Groq LLM client
-│       ├── term_db/                # PDF 용어 추출 및 분류
-│       ├── pipeline.py             # STT -> 보정 orchestration
-│       └── schema.py               # STT 결과 및 term DB schema
-├── data/
-│   ├── pdfs/                     # 로컬 테스트용 PDF, Git 제외
-│   ├── term_dbs/                 # 생성된 용어 DB, Git 제외
-│   └── voice/                    # 로컬 테스트용 오디오, Git 제외
-├── results/                      # STT 결과 JSON, Git 제외
-├── tests/                        # STT/BE 단위 테스트
-├── .env.example                  # 환경변수 예시
-└── requirements.txt
+│   ├── app/
+│   │   ├── config.py              # 환경변수 및 CORS 설정
+│   │   ├── integrations.py        # 현재 Mock 평가 adapter
+│   │   ├── main.py                # FastAPI 앱 및 API route
+│   │   ├── material_processing.py # 기존 자료 처리 helper
+│   │   ├── schemas.py             # Request/Response Pydantic schema
+│   │   └── storage.py             # 오디오 로컬 저장 helper
+│   └── data/audio/                # 요청 오디오 임시 저장 위치
+├── frontend/fe/
+│   ├── app/                       # Next.js 진입점 및 전역 스타일
+│   ├── components/ReviewApp.tsx   # 녹음, API 호출, 결과 표시 UI
+│   ├── lib/api.ts                 # BE API client와 TypeScript 타입
+│   ├── package.json               # FE 의존성과 실행 명령어
+│   ├── package-lock.json          # npm 의존성 버전 고정
+│   └── tsconfig.json              # TypeScript 설정
+├── src/sttcorrect/
+│   ├── cli/                       # term DB 생성 및 로컬 pipeline CLI
+│   ├── llm/groq_client.py         # Groq API client
+│   ├── stt/whisper_backend.py     # Faster-Whisper wrapper
+│   ├── term_db/                   # 용어 추출 및 prompt 생성
+│   ├── pipeline.py                # STT -> LLM 보정 orchestration
+│   └── schema.py                  # STT 결과 및 term DB schema
+├── data/                          # PDF, term DB, 테스트 음성; Git 제외
+├── results/                       # STT 결과 JSON; Git 제외
+├── tests/                         # BE/STT 단위 테스트
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
 ```
 
-실제 PDF, 오디오, 결과 JSON, term DB는 저장소에 올리지 않습니다. `.gitignore`에 의해 `data/`, `results/`, `*.pdf`, `*.m4a`, `*.json`이 제외됩니다.
+
+## 기술 스택
+
+| 영역 | 기술 | 역할 |
+|---|---|---|
+| FE | Next.js, React, TypeScript | 녹음, API 호출, 결과 화면 |
+| 음성 입력 | MediaRecorder API | WebM 오디오 생성 |
+| BE | FastAPI, Uvicorn, Pydantic | API, 파일 저장, schema 검증 |
+| STT | Faster-Whisper | 한국어/영어 음성 전사 |
+| 보정 | Groq API | 전문용어, 띄어쓰기, 문장부호 보정 |
+| 평가 | Mock adapter | RAG 연결 전 통합 검증 |
 
 ## 설치
 
-macOS/Linux 기준입니다.
+프로젝트 루트에서 실행합니다.
 
 ```bash
 python3 -m venv .venv
@@ -80,40 +81,38 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-STT 패키지를 `src` 경로에서 실행하려면 다음 중 하나를 사용합니다.
+FE 의존성:
 
 ```bash
-PYTHONPATH=src python -m sttcorrect.cli.run_pipeline --help
-```
-
-또는 프로젝트 설정에 따라 editable install을 사용할 수 있습니다.
-
-```bash
-pip install -e .
+cd frontend/fe
+npm install
+cd ../..
 ```
 
 ## 환경변수
-
-`.env.example`을 복사해 `.env`를 만들고 API 키를 입력합니다.
 
 ```bash
 cp .env.example .env
 ```
 
-STT 보정에는 다음 값이 필요합니다.
+루트 `.env`:
 
 ```env
-GROQ_API_KEY=...
-GROQ_MODEL=openai/gpt-oss-120b
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=llama-3.3-70b-versatile
 ```
 
-Groq 모델명은 계정에서 사용 가능한 모델이어야 합니다. API 키와 `.env`는 Git에 커밋하지 않습니다.
+`frontend/fe/.env.local`:
 
-## STT 실행
+```env
+NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
+```
 
-### 전문용어 DB 생성
+환경변경 후에는 해당 서버를 재시작합니다. `.env`와 `.env.local`은 커밋하지 않습니다.
 
-PDF에서 영어 전문용어, 약어, 한글 발음 정보를 추출합니다.
+## 용어 DB 준비
+
+BE STT API는 `data/term_dbs/db_course.json`을 읽습니다. 파일이 없으면 로컬 PDF를 준비한 뒤 생성합니다.
 
 ```bash
 PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
@@ -122,79 +121,65 @@ PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
   --out data/term_dbs/db_course.json
 ```
 
-### 전사 및 2차 보정
+생성된 term DB는 PDF와 API key에 의존하므로 Git에 올리지 않습니다.
+
+## 서버 실행
+
+BE는 프로젝트 루트에서 실행합니다.
 
 ```bash
-PYTHONPATH=src python -m sttcorrect.cli.run_pipeline \
-  --audio data/voice/DB_test_hard.m4a \
-  --term-db data/term_dbs/db_course.json \
-  --topic DB \
-  --session-id test-medium-beam2 \
-  --model-size medium \
-  --beam-size 2 \
-  --out results/test-medium-beam2.json
+source .venv/bin/activate
+uvicorn backend.app.main:app --reload
 ```
 
-파이프라인은 다음 순서로 실행됩니다.
+- API: `http://127.0.0.1:8000`
+- Swagger: `http://127.0.0.1:8000/docs`
+- Health check: `http://127.0.0.1:8000/health`
 
-1. term DB에서 `initial_prompt`와 `hotwords`를 생성합니다.
-2. Faster-Whisper로 오디오를 전사해 `transcript_raw`를 생성합니다.
-3. Groq LLM에 전사 결과와 term DB를 전달합니다.
-4. 전문용어, 띄어쓰기, 문장부호 등을 보정해 `transcript_corrected`를 생성합니다.
-5. 최종 결과를 JSON으로 저장합니다.
+FE는 별도 터미널에서 실행합니다.
 
-`medium-beam2`를 사용하려면 반드시 `--model-size medium --beam-size 2`를 지정합니다. M4A는 Faster-Whisper가 지원하는 코덱이라면 별도 WAV 변환 없이 사용할 수 있습니다.
+```bash
+cd frontend/fe
+npm run dev
+```
 
-## STT 결과 JSON
+브라우저에서 `http://localhost:3000`을 엽니다.
+
+## API 계약
+
+### `POST /api/stt/transcribe`
+
+`multipart/form-data`로 다음 필드를 받습니다.
+
+```text
+session_id: string
+topic: string (기본값 DB)
+audio_file: .wav, .webm, .m4a
+```
+
+처리 순서는 오디오 저장, Faster-Whisper `medium`/`beam_size=2` 전사, Groq 보정입니다.
 
 ```json
 {
-  "session_id": "test-medium-beam2",
+  "session_id": "demo-session",
   "topic": "DB",
-  "transcript_raw": "Whisper 원본 전사 결과",
-  "transcript_corrected": "Groq 보정 결과",
+  "transcript_raw": "원본 전사 결과",
+  "transcript_corrected": "보정된 전사 결과",
   "term_db_used": {
-    "safe": ["RDBMS", "MongoDB"],
-    "content_word_collision": ["Key"],
-    "particle_collision": ["Row"]
+    "safe": ["RDBMS"],
+    "content_word_collision": [],
+    "particle_collision": []
   }
 }
 ```
 
-FE/BE 통합 시 평가 입력으로 사용할 텍스트는 `transcript_corrected`입니다. `transcript_raw`는 원본 비교와 오류 분석을 위해 보존합니다.
-
-## BE 실행
-
-```bash
-uvicorn backend.app.main:app --reload
-```
-
-서버 확인:
-
-```text
-http://127.0.0.1:8000/health
-http://127.0.0.1:8000/docs
-```
-
-`/health`의 정상 응답:
-
-```json
-{
-  "status": "ok"
-}
-```
-
-## BE API 계약
-
 ### `POST /api/reviews/submit`
 
-STT 결과 JSON 전체를 Request body로 받습니다. 현재는 `transcript_corrected`를 Mock 평가에 전달합니다.
-
-Request:
+STT 결과 JSON을 Request body로 받습니다. 현재 평가 부분은 Mock입니다.
 
 ```json
 {
-  "session_id": "test-medium-beam2",
+  "session_id": "demo-session",
   "topic": "DB",
   "transcript_raw": "원본 전사 결과",
   "transcript_corrected": "보정된 전사 결과",
@@ -206,147 +191,85 @@ Request:
 }
 ```
 
-Response:
+응답은 원본/보정 전사와 함께 다음 평가 구조를 포함합니다.
 
 ```json
 {
   "review_id": "review-abc123",
-  "session_id": "test-medium-beam2",
-  "score": 78,
+  "session_id": "demo-session",
+  "score": 75,
   "transcript": "원본 전사 결과",
   "corrected_transcript": "보정된 전사 결과",
-  "feedback": {
-    "summary": "Mock 평가가 정상적으로 생성되었습니다.",
-    "strengths": ["핵심 주제를 언급했습니다."],
-    "missing_points": ["세부 근거와 예시가 아직 반영되지 않았습니다."],
-    "suggestions": ["핵심 개념 사이의 관계를 한 문장씩 설명해 보세요."]
+  "quantitative": {
+    "concept_recall": 0.72,
+    "concept_precision": 0.84,
+    "concept_f1": 0.77,
+    "scores": {
+      "accuracy": {"score": 32, "max_score": 40, "rubric_level": 3, "reason": "..."},
+      "coverage": {"score": 29, "max_score": 40, "rubric_level": 3, "reason": "..."},
+      "structural_understanding": {"score": 14, "max_score": 20, "rubric_level": 3, "reason": "..."}
+    },
+    "total": {"score": 75, "max_score": 100, "rubric_level": 3, "reason": "..."}
+  },
+  "qualitative": {
+    "missing_concepts": ["세부 근거와 예시"],
+    "incorrect_concepts": [],
+    "misconnected_concepts": [],
+    "review_suggestions": ["핵심 개념 사이의 관계를 설명해 보세요."]
   },
   "status": "mock"
 }
 ```
 
-정상 처리 상태 코드는 `201 Created`입니다. `status`가 `mock`이면 아직 실제 RAG 평가가 연결되지 않은 상태입니다.
+점수 배점은 정확도 40점, 충족도 40점, 구조적 이해도 20점입니다. `201 Created`와 `status: "mock"`이면 현재 Mock 평가까지 정상 처리된 것입니다.
 
-### Swagger에서 확인
+## 로컬 통합 테스트
 
-1. 서버를 실행합니다.
-2. `http://127.0.0.1:8000/docs`에 접속합니다.
-3. `POST /api/reviews/submit`의 `Try it out`을 클릭합니다.
-4. `results/test-medium-beam2.json`의 전체 내용을 Request body에 붙여넣습니다.
-5. `Execute`를 클릭하고 `201` 응답과 `status: "mock"`을 확인합니다.
+1. BE를 실행하고 `/health`에서 `{"status":"ok"}`를 확인합니다.
+2. FE를 실행해 `http://localhost:3000`에 접속합니다.
+3. 브라우저에서 녹음을 시작하고 종료합니다.
+4. 전사 원문과 보정문이 FE에 표시되는지 확인합니다.
+5. 점수와 정성 피드백이 표시되는지 확인합니다.
 
-macOS에서는 JSON 파일을 클립보드에 복사할 수 있습니다.
+Swagger에서 직접 테스트하려면 `http://127.0.0.1:8000/docs`에서 `POST /api/stt/transcribe`를 먼저 실행하고, 반환된 JSON을 `POST /api/reviews/submit`의 Request body에 넣습니다.
+
+## 테스트 및 정적 검증
+
+프로젝트 루트:
 
 ```bash
-pbcopy < results/test-medium-beam2.json
+source .venv/bin/activate
+pytest -q
+python -m compileall -q backend src
 ```
 
-## RAG 통합 예정 범위
+FE:
 
-`feat/rag-pipeline`에는 다음 PDF 기반 파이프라인이 구현되어 있습니다.
+```bash
+cd frontend/fe
+npm run lint
+npx tsc --noEmit
+```
+
+단위 테스트와 정적 검증은 외부 API 및 Whisper 모델 호출까지 보장하지 않습니다. 실제 통합 검증은 BE와 FE를 실행한 뒤 별도로 진행합니다.
+
+## 향후 RAG 통합
+
+현재 `backend/app/integrations.py`의 Mock 평가를 실제 RAG 평가 adapter로 교체합니다.
 
 ```text
-PDF 페이지 텍스트 추출 + 이미지 렌더링
--> Vision 기반 페이지 구조화
--> Chunk JSON 생성
--> 핵심 개념 JSON 생성
--> OpenAI Embedding
--> ChromaDB 저장 및 검색
+사전 구축된 세션 자료
+  -> 텍스트/이미지 처리
+  -> 개념 및 평가 기준 구조화
+  -> 임베딩 및 벡터 저장
+  -> transcript_corrected 평가
+  -> 정량 점수 및 정성 피드백 반환
 ```
 
-현재 `dev`의 BE는 RAG 구현 세부사항을 알지 않고 STT 결과 JSON을 받습니다. RAG 통합 시 BE 내부의 Mock adapter를 실제 평가 함수로 교체하는 것을 목표로 합니다.
+통합 전 확정할 항목은 다음과 같습니다.
 
-아직 합의가 필요한 항목:
-
-- STT 보정 결과를 RAG 평가용으로 추가 가공할지 여부
-- `lecture_id`와 `topic`의 매핑 방식
-- 핵심 개념별 충실성 평가 기준
-- 개념 간 연결성 평가 기준
-- 전체 주제 포괄성 평가 기준
-- 점수 및 피드백 JSON 최종 형식
-
-RAG evaluator가 확정되면 다음과 같은 경계로 연결할 수 있습니다.
-
-```python
-evaluation = evaluate_speech(
-    transcript=request.transcript_corrected,
-    topic=request.topic,
-    term_db_used=request.term_db_used,
-)
-```
-
-FE는 RAG 내부 구현을 직접 호출하지 않고, BE가 반환하는 평가 JSON만 표시합니다.
-
-## 테스트
-
-BE/STT 단위 테스트:
-
-```bash
-pytest -q tests/test_api.py
-```
-
-STT 관련 테스트까지 포함한 테스트:
-
-```bash
-PYTHONPATH=src pytest -q
-```
-
-실제 Whisper/Groq/API 호출은 비용과 실행 시간이 발생할 수 있으므로, 일반 단위 테스트와 분리해 수동으로 실행합니다.
-
-## FE 전달사항
-
-FE는 다음 순서로 구현하면 됩니다.
-
-1. 사용자가 세션 또는 주제를 선택합니다.
-2. 브라우저 마이크 권한을 요청합니다.
-3. `MediaRecorder`로 녹음을 시작하고, 사용자가 녹음을 종료하면 오디오 Blob을 생성합니다.
-4. 녹음된 오디오 파일을 STT 실행 계층에 전달합니다.
-5. STT 실행 결과 JSON을 받습니다.
-6. 결과 JSON 전체를 `POST /api/reviews/submit`으로 전송합니다.
-7. BE 응답의 `score`, `corrected_transcript`, `feedback`을 화면에 표시합니다.
-8. `status: "mock"`인 동안에는 실제 평가가 아닌 임시 결과임을 구분합니다.
-
-### 브라우저 녹음 포맷
-
-브라우저의 `MediaRecorder`가 생성하는 포맷은 브라우저마다 다를 수 있습니다. 일반적으로 Chrome 계열은 `audio/webm;codecs=opus`를 우선 사용하고, Safari는 M4A/MP4 계열 지원 여부를 확인해야 합니다.
-
-FE는 녹음 시작 전에 지원 포맷을 확인하는 것이 좋습니다.
-
-```javascript
-const mimeTypes = [
-  "audio/webm;codecs=opus",
-  "audio/webm",
-  "audio/mp4",
-];
-
-const mimeType = mimeTypes.find((type) => MediaRecorder.isTypeSupported(type));
-if (!mimeType) {
-  throw new Error("지원되는 녹음 포맷이 없습니다.");
-}
-
-const recorder = new MediaRecorder(stream, { mimeType });
-```
-
-녹음이 끝나면 `Blob`을 파일로 감싸 STT 계층에 전달합니다. 파일 확장자는 실제 MIME 타입과 일치시켜야 합니다. 현재 BE의 로컬 오디오 업로드 검증은 WAV, WebM, M4A를 지원하지만, 현재 `dev`의 submit API는 STT 결과 JSON을 받으므로 오디오 파일을 직접 `POST /api/reviews/submit`에 보내는 구조는 아닙니다.
-
-브라우저 녹음의 권장 흐름은 다음과 같습니다.
-
-```text
-MediaRecorder
--> audio Blob
--> STT 실행 계층
--> transcript JSON
--> POST /api/reviews/submit
-```
-
-FE에서 함께 구현해야 할 상태:
-
-- 마이크 권한 요청 중
-- 녹음 중
-- 녹음 완료 및 업로드 중
-- STT 처리 중
-- 평가 요청 중
-- 평가 완료
-- 권한 거부/녹음 실패/API 실패
-
-현재 FE가 알아야 할 API는 `POST /api/reviews/submit`이며, PDF 업로드 API는 현재 개발 범위에 포함하지 않습니다. 강의자료는 사전에 RAG에 구축하는 방향입니다.
+- `topic`과 RAG 자료의 매핑 방식
+- RAG 평가 함수의 입력 형식
+- 정확도, 충족도, 구조적 이해도의 세부 루브릭
+- `quantitative`와 `qualitative` 응답의 최종 형식
+- STT 보정 결과의 추가 후처리 여부
