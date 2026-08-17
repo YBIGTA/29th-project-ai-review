@@ -25,11 +25,18 @@ class Feedback(BaseModel):
     suggestions: list[str]
 
 
+class ReviewSubmitRequest(BaseModel):
+    review_id: str
+    session_id: str
+    transcript: str
+    corrected_transcript: str
+
+
 class ReviewSubmitResponse(BaseModel):
     review_id: str
-    pdf_id: str
-    audio_filename: str
+    session_id: str
     score: int = Field(ge=0, le=100)
     transcript: str
+    corrected_transcript: str
     feedback: Feedback
     status: str

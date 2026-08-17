@@ -6,3 +6,4 @@ httpx>=0.27,<1.0
 # Optional document text extraction dependency. OCR and vector DB clients are
 # connected by the RAG team behind backend/app/material_processing.py.
 PyMuPDF>=1.24,<2.0
+python-dotenv>=1.0,<2.0
