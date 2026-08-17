@@ -1,173 +1,352 @@
 # 29th-project-ai-review
-# 신입기수 교육세션 AI 구술 복습 서비스
 
-# 1. 프로젝트 설명
-## 문제 정의 및 프로젝트 목표, 의의
+YBIGTA 신입기수 교육세션을 말로 복습하고, 전사 결과를 바탕으로 학습 내용을 평가하는 AI 구술 복습 서비스입니다.
 
-어떻게 하면 효율적이고 즐겁게 복습할 수 있을까?
-어떤 내용을 배운 직후 -> 해당 자료를 프로그램에 미리 업로드 (해당 시간을 초기 학습 시점으로 지정), 주제에 대해 카메라를 보고 2~3분 정도 아는 내용을 최대한 많이 말해보는 방식으로 복습.
+현재 `dev`에는 다음 범위가 통합되어 있습니다.
 
-사용자의 음성/영상 데이터를 모델이 평가.
+- STT: M4A/WAV/WebM 오디오를 Faster-Whisper로 한국어 전사
+- STT 후처리: Groq LLM을 사용한 전문용어 및 문맥 보정
+- BE: STT 결과 JSON을 받는 FastAPI submit API
+- 평가: 연결 확인을 위한 Mock 점수 및 피드백
 
-<user 예시>
+RAG의 PDF 구조화, Embedding, ChromaDB 검색 파이프라인은 현재 `feat/rag-pipeline` 브랜치에서 개발 중입니다. STT 후처리 결과를 RAG 평가에 전달하는 형식과 충실성/연결성/포괄성 평가 방식은 아직 팀 합의가 필요한 상태입니다.
 
-7월 31일 21시 30분 정도에 CV에 대한 내용을 배운 후 해당 자료를 웹에 업로드해둠.
-하루 뒤인 8월 1일 밤에 해당 서비스에 접속하면 CV라는 토픽에 대해서 2~3분 정도 카메라를 보고 자유롭게 아는 내용을 말함.
-말하는 도중에 힌트 버튼을 누르면 해당 토픽의 핵심적인 단어나 내용들이 팝업처럼 나와서 사용자가 참고할 수 있도록 설정.
-미리 업로드한 학습 자료를 기반으로 얼마나 내용을 기억하고 있는지 / 어떤 핵심적인 내용들을 놓쳤는지 등을 평가하는 점수를 알려줌. (RAG로 미리 자료 학습)
-이후 학습시점 기준 2일 뒤, 일주일 뒤와 같이 기간을 설정, 동일한 토픽으로 한 복습 사이클을 만드는 식으로 진행.
+## 전체 흐름
 
-## 필요한 데이터
+```text
+브라우저 오디오 녹음
+    |
+    v
+STT-research: Faster-Whisper 전사
+    |
+    v
+Groq LLM: 전문용어 및 문맥 보정
+    |
+    v
+STT 결과 JSON
+    |
+    v
+BE POST /api/reviews/submit
+    |
+    v
+현재: Mock 평가 JSON
+향후: RAG 기반 평가 JSON
+    |
+    v
+FE 점수 및 피드백 표시
+```
 
-업로드한 학습 자료 기반 RAG 데이터셋
-사용자가 말한 내용을 STT 텍스트 전사한 데이터
-(가능하다면) 웹캠 영상 프레임 데이터 (시선 처리 / 표정 분석도 활용 여지가 있을 것 같음)
-모델 및 흐름도
-STT: Faster-Whisper
-평가: LLM 모델 중에 예산 안에서 선택 필요.
+## 디렉터리 구조
 
-## 필요 기능
+```text
+.
+├── backend/
+│   └── app/
+│       ├── config.py          # CORS 등 BE 설정
+│       ├── integrations.py    # 현재 Mock 평가, 향후 RAG adapter 위치
+│       ├── main.py            # FastAPI 앱과 API route
+│       ├── schemas.py         # STT 요청 및 평가 응답 Pydantic schema
+│       ├── material_processing.py # 기존 자료 처리 adapter
+│       └── storage.py          # 기존 로컬 저장 helper
+├── src/
+│   └── sttcorrect/
+│       ├── cli/
+│       │   ├── build_term_db.py # PDF 기반 전문용어 DB 생성
+│       │   └── run_pipeline.py  # 오디오 전사 및 LLM 보정 실행
+│       ├── stt/whisper_backend.py # Faster-Whisper wrapper
+│       ├── llm/groq_client.py     # Groq LLM client
+│       ├── term_db/                # PDF 용어 추출 및 분류
+│       ├── pipeline.py             # STT -> 보정 orchestration
+│       └── schema.py               # STT 결과 및 term DB schema
+├── data/
+│   ├── pdfs/                     # 로컬 테스트용 PDF, Git 제외
+│   ├── term_dbs/                 # 생성된 용어 DB, Git 제외
+│   └── voice/                    # 로컬 테스트용 오디오, Git 제외
+├── results/                      # STT 결과 JSON, Git 제외
+├── tests/                        # STT/BE 단위 테스트
+├── .env.example                  # 환경변수 예시
+└── requirements.txt
+```
 
-- 로그인/회원가입 기능 (구글/카카오 API 연동)
-- 토픽 구술 기능 (카메라 / 음성 / 카운트다운 타이머 / 힌트 볼 수 있는 팝업 등)
-- 구술한 내용에 대한 평가 기능 (오디오 STT 처리, RAG 모델 필요)
-- FE/BE 구현
-
-# sttcorrect
-
-강의 음성(한국어, CS 전문용어 혼재)을 `faster-whisper`로 한국어 전사한 뒤, 강의 PDF에서 추출한
-영어 전문용어 DB를 STT 힌트(`initial_prompt`/`hotwords`)와 LLM 문맥 보정 참고자료로 활용해
-최종 텍스트를 보정하는 파이프라인이다. 설계 배경과 근거는 `IMPLEMENTATION_PLAN.md`를 참고한다.
-
-## 사전 준비물
-
-- Python 3.10 이상
-- [Groq](https://console.groq.com/) API 키 (LLM 문맥 보정 호출용)
-- 강의 PDF 1개 이상, 그 강의를 녹음한 오디오 파일 1개 이상 (wav/m4a 등 `faster-whisper`가
-  디코딩 가능한 포맷이면 된다 — 내부적으로 PyAV/ffmpeg를 거치므로 wav로 직접 변환할
-  필요는 없다)
-
-PDF는 `data/pdfs/`, 오디오는 `data/voice/`에 모아 관리한다 (두 폴더 모두 git에
-추적되지만, 안의 실제 파일은 `.gitignore`로 제외된다 — 저작권 있는 강의자료/녹음을
-커밋하지 않기 위함).
+실제 PDF, 오디오, 결과 JSON, term DB는 저장소에 올리지 않습니다. `.gitignore`에 의해 `data/`, `results/`, `*.pdf`, `*.m4a`, `*.json`이 제외됩니다.
 
 ## 설치
 
-```powershell
-python -m venv venv
-venv\Scripts\Activate.ps1   # Windows PowerShell (macOS/Linux는 source venv/bin/activate)
+macOS/Linux 기준입니다.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-pip install -e .            # src/sttcorrect 패키지를 편집 가능 모드로 설치 (CLI/테스트 import용)
-Copy-Item .env.example .env # 생성된 .env 파일에 GROQ_API_KEY=... 를 채워넣는다
 ```
 
-## 사용법 — 처음부터 끝까지 실행하는 절차
+STT 패키지를 `src` 경로에서 실행하려면 다음 중 하나를 사용합니다.
 
-파이프라인은 **"PDF → 용어 DB 빌드"(1회, 재사용 가능)** 와 **"오디오 → 전사+보정"(강의마다
-반복)** 두 단계로 나뉜다. 아래는 실제로 실행하는 순서다.
-
-### 1단계 — 강의 자료 준비 (PDF + 오디오)
-
-강의자료 PDF는 `data/pdfs/`에, 녹음 오디오는 `data/voice/`에 넣는다.
-
-```powershell
-Copy-Item ~\Downloads\lecture.pdf data\pdfs\lecture.pdf
-Copy-Item ~\Downloads\lecture.m4a data\voice\lecture.m4a
+```bash
+PYTHONPATH=src python -m sttcorrect.cli.run_pipeline --help
 ```
 
-### 2단계 — PDF에서 용어 DB 생성 (`build_term_db`)
+또는 프로젝트 설정에 따라 editable install을 사용할 수 있습니다.
 
-```powershell
-python -m sttcorrect.cli.build_term_db `
-  --pdf data/pdfs/lecture.pdf `
-  --topic DB `
+```bash
+pip install -e .
+```
+
+## 환경변수
+
+`.env.example`을 복사해 `.env`를 만들고 API 키를 입력합니다.
+
+```bash
+cp .env.example .env
+```
+
+STT 보정에는 다음 값이 필요합니다.
+
+```env
+GROQ_API_KEY=...
+GROQ_MODEL=openai/gpt-oss-120b
+```
+
+Groq 모델명은 계정에서 사용 가능한 모델이어야 합니다. API 키와 `.env`는 Git에 커밋하지 않습니다.
+
+## STT 실행
+
+### 전문용어 DB 생성
+
+PDF에서 영어 전문용어, 약어, 한글 발음 정보를 추출합니다.
+
+```bash
+PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
+  --pdf data/pdfs/DB.pdf \
+  --topic DB \
   --out data/term_dbs/db_course.json
 ```
 
-내부적으로 일어나는 일:
+### 전사 및 2차 보정
 
-1. PyMuPDF로 PDF의 모든 페이지 텍스트를 추출하고, 슬라이드 헤더/푸터처럼 여러 페이지에
-   반복되는 줄을 제거한다.
-2. 대문자 단어/약어/영숫자 혼합 패턴으로 영어 전문용어 후보를 뽑는다
-   (`RDBMS`, `DBMS`, `Key` 등).
-3. `RDBMS(알디비엠에스)`처럼 본문에 병기된 한글 발음이 있으면 함께 추출해 각 용어에
-   붙인다.
-4. `config/seed_collision_terms.yaml`의 curated 규칙으로 각 용어를 `safe` /
-   `content_word_collision`(예: `Key`→"키") / `particle_collision`(예: `Row`→"로우")
-   3가지로 분류한다.
-5. 결과를 `--out` 경로에 JSON으로 저장한다.
-
-한 과목의 PDF를 학기 동안 여러 개(주차별) 처리해 하나의 누적 term DB로 합치려면 `--merge`
-플래그를 주고 매번 같은 `--out` 경로를 지정한다:
-
-```powershell
-# 1주차 — 파일이 아직 없으므로 --merge를 줘도 새로 생성될 뿐이다
-python -m sttcorrect.cli.build_term_db --pdf data/pdfs/db_week1.pdf --topic DB `
-  --out data/term_dbs/db_course.json --merge
-
-# 2주차 이후 — 동일 --out에 --merge를 주면 기존 term DB와 병합해 누적한다
-python -m sttcorrect.cli.build_term_db --pdf data/pdfs/db_week2.pdf --topic DB `
-  --out data/term_dbs/db_course.json --merge
+```bash
+PYTHONPATH=src python -m sttcorrect.cli.run_pipeline \
+  --audio data/voice/DB_test_hard.m4a \
+  --term-db data/term_dbs/db_course.json \
+  --topic DB \
+  --session-id test-medium-beam2 \
+  --model-size medium \
+  --beam-size 2 \
+  --out results/test-medium-beam2.json
 ```
 
-`--merge` 없이 실행하면 기존과 동일하게 `--out`을 덮어쓴다.
+파이프라인은 다음 순서로 실행됩니다.
 
-### 3단계 — 오디오 전사 + 보정 (`run_pipeline`)
+1. term DB에서 `initial_prompt`와 `hotwords`를 생성합니다.
+2. Faster-Whisper로 오디오를 전사해 `transcript_raw`를 생성합니다.
+3. Groq LLM에 전사 결과와 term DB를 전달합니다.
+4. 전문용어, 띄어쓰기, 문장부호 등을 보정해 `transcript_corrected`를 생성합니다.
+5. 최종 결과를 JSON으로 저장합니다.
 
-```powershell
-python -m sttcorrect.cli.run_pipeline `
-  --audio data/voice/lecture.m4a `
-  --term-db data/term_dbs/db_course.json `
-  --topic DB `
-  --session-id abc123 `
-  --out result.json
-```
+`medium-beam2`를 사용하려면 반드시 `--model-size medium --beam-size 2`를 지정합니다. M4A는 Faster-Whisper가 지원하는 코덱이라면 별도 WAV 변환 없이 사용할 수 있습니다.
 
-내부적으로 일어나는 일:
-
-1. `term_db`에서 STT 힌트(`initial_prompt`, `hotwords`)를 만들어 `faster-whisper`에
-   전달하고, 오디오를 한국어로 전사한다 (`transcript_raw`).
-2. `term_db`를 `safe`/`content_word_collision`/`particle_collision` 3분류로 변환한다
-   (`term_db_used`).
-3. `transcript_raw`와 `term_db_used`를 Groq LLM에 보내 발음이 잘못 인식된 전문용어를
-   문맥에 맞게 교정한다 (`transcript_corrected`).
-4. 위 결과를 `TranscriptionResult` JSON으로 `--out` 경로에 저장한다.
-
-`--term-db` 대신 `--pdf`를 주면 이 실행 시점에 즉석으로 용어 DB를 빌드한다 (매번 PDF를
-다시 파싱하므로, 같은 PDF로 여러 오디오를 처리할 계획이라면 2단계에서 미리 만들어둔
-`--term-db`를 재사용하는 쪽이 빠르다):
-
-```powershell
-python -m sttcorrect.cli.run_pipeline `
-  --audio data/voice/lecture.m4a --pdf data/pdfs/lecture.pdf --topic DB `
-  --session-id abc123 --out result.json
-```
-
-### 4단계 — 결과 확인
-
-`--out`으로 저장된 JSON은 다음 구조다:
+## STT 결과 JSON
 
 ```json
 {
-  "session_id": "abc123",
+  "session_id": "test-medium-beam2",
   "topic": "DB",
-  "transcript_raw": "STT가 전사한 원본 텍스트",
-  "transcript_corrected": "LLM이 전문용어를 교정한 최종 텍스트",
+  "transcript_raw": "Whisper 원본 전사 결과",
+  "transcript_corrected": "Groq 보정 결과",
   "term_db_used": {
-    "safe": ["..."],
-    "content_word_collision": ["..."],
-    "particle_collision": ["..."]
+    "safe": ["RDBMS", "MongoDB"],
+    "content_word_collision": ["Key"],
+    "particle_collision": ["Row"]
   }
 }
 ```
 
-`transcript_corrected`가 최종 결과물이고, `term_db_used`는 이번 보정에 실제로 참고된
-용어 목록이라 결과가 이상할 때 원인 추적(어떤 용어가 힌트로 안 들어갔는지 등)에 쓴다.
+FE/BE 통합 시 평가 입력으로 사용할 텍스트는 `transcript_corrected`입니다. `transcript_raw`는 원본 비교와 오류 분석을 위해 보존합니다.
+
+## BE 실행
+
+```bash
+uvicorn backend.app.main:app --reload
+```
+
+서버 확인:
+
+```text
+http://127.0.0.1:8000/health
+http://127.0.0.1:8000/docs
+```
+
+`/health`의 정상 응답:
+
+```json
+{
+  "status": "ok"
+}
+```
+
+## BE API 계약
+
+### `POST /api/reviews/submit`
+
+STT 결과 JSON 전체를 Request body로 받습니다. 현재는 `transcript_corrected`를 Mock 평가에 전달합니다.
+
+Request:
+
+```json
+{
+  "session_id": "test-medium-beam2",
+  "topic": "DB",
+  "transcript_raw": "원본 전사 결과",
+  "transcript_corrected": "보정된 전사 결과",
+  "term_db_used": {
+    "safe": [],
+    "content_word_collision": [],
+    "particle_collision": []
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "review_id": "review-abc123",
+  "session_id": "test-medium-beam2",
+  "score": 78,
+  "transcript": "원본 전사 결과",
+  "corrected_transcript": "보정된 전사 결과",
+  "feedback": {
+    "summary": "Mock 평가가 정상적으로 생성되었습니다.",
+    "strengths": ["핵심 주제를 언급했습니다."],
+    "missing_points": ["세부 근거와 예시가 아직 반영되지 않았습니다."],
+    "suggestions": ["핵심 개념 사이의 관계를 한 문장씩 설명해 보세요."]
+  },
+  "status": "mock"
+}
+```
+
+정상 처리 상태 코드는 `201 Created`입니다. `status`가 `mock`이면 아직 실제 RAG 평가가 연결되지 않은 상태입니다.
+
+### Swagger에서 확인
+
+1. 서버를 실행합니다.
+2. `http://127.0.0.1:8000/docs`에 접속합니다.
+3. `POST /api/reviews/submit`의 `Try it out`을 클릭합니다.
+4. `results/test-medium-beam2.json`의 전체 내용을 Request body에 붙여넣습니다.
+5. `Execute`를 클릭하고 `201` 응답과 `status: "mock"`을 확인합니다.
+
+macOS에서는 JSON 파일을 클립보드에 복사할 수 있습니다.
+
+```bash
+pbcopy < results/test-medium-beam2.json
+```
+
+## RAG 통합 예정 범위
+
+`feat/rag-pipeline`에는 다음 PDF 기반 파이프라인이 구현되어 있습니다.
+
+```text
+PDF 페이지 텍스트 추출 + 이미지 렌더링
+-> Vision 기반 페이지 구조화
+-> Chunk JSON 생성
+-> 핵심 개념 JSON 생성
+-> OpenAI Embedding
+-> ChromaDB 저장 및 검색
+```
+
+현재 `dev`의 BE는 RAG 구현 세부사항을 알지 않고 STT 결과 JSON을 받습니다. RAG 통합 시 BE 내부의 Mock adapter를 실제 평가 함수로 교체하는 것을 목표로 합니다.
+
+아직 합의가 필요한 항목:
+
+- STT 보정 결과를 RAG 평가용으로 추가 가공할지 여부
+- `lecture_id`와 `topic`의 매핑 방식
+- 핵심 개념별 충실성 평가 기준
+- 개념 간 연결성 평가 기준
+- 전체 주제 포괄성 평가 기준
+- 점수 및 피드백 JSON 최종 형식
+
+RAG evaluator가 확정되면 다음과 같은 경계로 연결할 수 있습니다.
+
+```python
+evaluation = evaluate_speech(
+    transcript=request.transcript_corrected,
+    topic=request.topic,
+    term_db_used=request.term_db_used,
+)
+```
+
+FE는 RAG 내부 구현을 직접 호출하지 않고, BE가 반환하는 평가 JSON만 표시합니다.
 
 ## 테스트
 
+BE/STT 단위 테스트:
+
 ```bash
-pytest tests/ --ignore=tests/integration
+pytest -q tests/test_api.py
 ```
 
-`tests/integration/`은 실제 오디오/모델이 필요한 스모크 테스트로, 기본 실행에서는 제외된다.
+STT 관련 테스트까지 포함한 테스트:
+
+```bash
+PYTHONPATH=src pytest -q
+```
+
+실제 Whisper/Groq/API 호출은 비용과 실행 시간이 발생할 수 있으므로, 일반 단위 테스트와 분리해 수동으로 실행합니다.
+
+## FE 전달사항
+
+FE는 다음 순서로 구현하면 됩니다.
+
+1. 사용자가 세션 또는 주제를 선택합니다.
+2. 브라우저 마이크 권한을 요청합니다.
+3. `MediaRecorder`로 녹음을 시작하고, 사용자가 녹음을 종료하면 오디오 Blob을 생성합니다.
+4. 녹음된 오디오 파일을 STT 실행 계층에 전달합니다.
+5. STT 실행 결과 JSON을 받습니다.
+6. 결과 JSON 전체를 `POST /api/reviews/submit`으로 전송합니다.
+7. BE 응답의 `score`, `corrected_transcript`, `feedback`을 화면에 표시합니다.
+8. `status: "mock"`인 동안에는 실제 평가가 아닌 임시 결과임을 구분합니다.
+
+### 브라우저 녹음 포맷
+
+브라우저의 `MediaRecorder`가 생성하는 포맷은 브라우저마다 다를 수 있습니다. 일반적으로 Chrome 계열은 `audio/webm;codecs=opus`를 우선 사용하고, Safari는 M4A/MP4 계열 지원 여부를 확인해야 합니다.
+
+FE는 녹음 시작 전에 지원 포맷을 확인하는 것이 좋습니다.
+
+```javascript
+const mimeTypes = [
+  "audio/webm;codecs=opus",
+  "audio/webm",
+  "audio/mp4",
+];
+
+const mimeType = mimeTypes.find((type) => MediaRecorder.isTypeSupported(type));
+if (!mimeType) {
+  throw new Error("지원되는 녹음 포맷이 없습니다.");
+}
+
+const recorder = new MediaRecorder(stream, { mimeType });
+```
+
+녹음이 끝나면 `Blob`을 파일로 감싸 STT 계층에 전달합니다. 파일 확장자는 실제 MIME 타입과 일치시켜야 합니다. 현재 BE의 로컬 오디오 업로드 검증은 WAV, WebM, M4A를 지원하지만, 현재 `dev`의 submit API는 STT 결과 JSON을 받으므로 오디오 파일을 직접 `POST /api/reviews/submit`에 보내는 구조는 아닙니다.
+
+브라우저 녹음의 권장 흐름은 다음과 같습니다.
+
+```text
+MediaRecorder
+-> audio Blob
+-> STT 실행 계층
+-> transcript JSON
+-> POST /api/reviews/submit
+```
+
+FE에서 함께 구현해야 할 상태:
+
+- 마이크 권한 요청 중
+- 녹음 중
+- 녹음 완료 및 업로드 중
+- STT 처리 중
+- 평가 요청 중
+- 평가 완료
+- 권한 거부/녹음 실패/API 실패
+
+현재 FE가 알아야 할 API는 `POST /api/reviews/submit`이며, PDF 업로드 API는 현재 개발 범위에 포함하지 않습니다. 강의자료는 사전에 RAG에 구축하는 방향입니다.
