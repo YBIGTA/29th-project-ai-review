@@ -1,0 +1,148 @@
+from __future__ import annotations
+
+import os
+import unicodedata
+from dataclasses import dataclass
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+
+@dataclass(frozen=True)
+class LectureConfig:
+    lecture_id: str
+    lecture_name: str
+    source_names: tuple[str, ...]
+
+
+LECTURES: dict[str, LectureConfig] = {
+    "basic_statistics": LectureConfig(
+        lecture_id="basic_statistics",
+        lecture_name="기초통계",
+        source_names=("basic_statistics.pdf", "기초통계.pdf"),
+    ),
+    "crawling": LectureConfig(
+        lecture_id="crawling",
+        lecture_name="크롤링",
+        source_names=("crawling.pdf", "크롤링.pdf"),
+    ),
+    "eda_fe": LectureConfig(
+        lecture_id="eda_fe",
+        lecture_name="EDA / FE",
+        source_names=("eda_fe.pdf", "EDA&FE.pdf", "EDA_FE.pdf"),
+    ),
+    "visualization": LectureConfig(
+        lecture_id="visualization",
+        lecture_name="시각화",
+        source_names=("visualization.pdf", "시각화.pdf"),
+    ),
+}
+
+
+@dataclass(frozen=True)
+class Settings:
+    project_root: Path
+    raw_data_dir: Path
+    legacy_data_dir: Path
+    processed_dir: Path
+    cache_dir: Path
+    core_concepts_dir: Path
+    logs_dir: Path
+    vector_db_path: Path
+    collection_name: str
+    openai_api_key: str | None
+    llm_model: str
+    embedding_model: str
+    top_k: int
+    max_retries: int
+    embedding_batch_size: int
+    max_page_chars: int
+    page_render_dpi: int
+    vision_detail: str
+
+    @classmethod
+    def from_env(cls, *, require_api_key: bool = False) -> "Settings":
+        load_dotenv(PROJECT_ROOT / ".env")
+        api_key = os.getenv("OPENAI_API_KEY") or None
+        if require_api_key and not api_key:
+            raise RuntimeError(
+                "OPENAI_API_KEY가 없습니다. project/.env에 설정한 뒤 다시 실행하세요."
+            )
+
+        vector_path = Path(os.getenv("VECTOR_DB_PATH", "./vector_db"))
+        if not vector_path.is_absolute():
+            vector_path = PROJECT_ROOT / vector_path
+
+        return cls(
+            project_root=PROJECT_ROOT,
+            raw_data_dir=PROJECT_ROOT / "data" / "raw",
+            legacy_data_dir=PROJECT_ROOT / "data",
+            processed_dir=PROJECT_ROOT / "data" / "processed",
+            cache_dir=PROJECT_ROOT / "outputs" / "cache",
+            core_concepts_dir=PROJECT_ROOT / "outputs" / "core_concepts",
+            logs_dir=PROJECT_ROOT / "outputs" / "logs",
+            vector_db_path=vector_path,
+            collection_name=os.getenv("CHROMA_COLLECTION", "lecture_chunks"),
+            openai_api_key=api_key,
+            llm_model=os.getenv("LLM_MODEL", "gpt-5.6-luna"),
+            embedding_model=os.getenv(
+                "EMBEDDING_MODEL", "text-embedding-3-small"
+            ),
+            top_k=_positive_int("TOP_K", 5),
+            max_retries=_positive_int("MAX_RETRIES", 3),
+            embedding_batch_size=_positive_int("EMBEDDING_BATCH_SIZE", 64),
+            max_page_chars=_positive_int("MAX_PAGE_CHARS", 16_000),
+            page_render_dpi=_positive_int("PAGE_RENDER_DPI", 160),
+            vision_detail=_vision_detail(),
+        )
+
+    def ensure_output_dirs(self) -> None:
+        for path in (
+            self.raw_data_dir,
+            self.processed_dir,
+            self.cache_dir,
+            self.core_concepts_dir,
+            self.logs_dir,
+            self.vector_db_path,
+        ):
+            path.mkdir(parents=True, exist_ok=True)
+
+
+def _positive_int(name: str, default: int) -> int:
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    value = int(raw)
+    if value < 1:
+        raise ValueError(f"{name}은 1 이상의 정수여야 합니다.")
+    return value
+
+
+def _vision_detail() -> str:
+    value = os.getenv("VISION_DETAIL", "original").strip().lower()
+    allowed = {"low", "high", "original", "auto"}
+    if value not in allowed:
+        raise ValueError(f"VISION_DETAIL은 다음 중 하나여야 합니다: {sorted(allowed)}")
+    return value
+
+
+def _normalized(value: str) -> str:
+    return unicodedata.normalize("NFC", value).casefold()
+
+
+def resolve_pdf_path(settings: Settings, lecture: LectureConfig) -> Path:
+    search_dirs = (settings.raw_data_dir, settings.legacy_data_dir)
+    expected = {_normalized(name) for name in lecture.source_names}
+    for directory in search_dirs:
+        if not directory.exists():
+            continue
+        for candidate in directory.glob("*.pdf"):
+            if _normalized(candidate.name) in expected:
+                return candidate
+    names = ", ".join(lecture.source_names)
+    raise FileNotFoundError(
+        f"{lecture.lecture_name} PDF를 찾을 수 없습니다. 예상 파일명: {names}"
+    )
