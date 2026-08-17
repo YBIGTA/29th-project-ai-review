@@ -1,34 +1,90 @@
-# 29th-project-ai-review
-# 신입기수 교육세션 AI 구술 복습 서비스
+# AI 구술 복습 서비스 - RAG
 
-### 문제 정의 및 프로젝트 목표, 의의
+강의안 PDF 4개를 페이지별로 구조화하고, Chunk를 Embedding하여 ChromaDB에서
+검색할 수 있게 만드는 MVP 파이프라인입니다.
 
-어떻게 하면 효율적이고 즐겁게 복습할 수 있을까?
-어떤 내용을 배운 직후 -> 해당 자료를 프로그램에 미리 업로드 (해당 시간을 초기 학습 시점으로 지정), 주제에 대해 카메라를 보고 2~3분 정도 아는 내용을 최대한 많이 말해보는 방식으로 복습.
+## 범위
 
-사용자의 음성/영상 데이터를 모델이 평가.
+- PDF 페이지별 텍스트 추출 및 전체 페이지 고해상도 PNG 렌더링
+- 텍스트와 페이지 이미지를 함께 보는 OpenAI Vision Structured Output 구조화
+- 페이지 캐시 및 재시도
+- 강의별 핵심 개념 JSON 생성
+- OpenAI Embedding 생성
+- ChromaDB 영구 저장
+- 전체 강의 또는 특정 강의 검색 CLI
 
-<user 예시>
+STT, 프론트엔드, 로그인, 최종 평가 점수 산정은 포함하지 않습니다.
 
-7월 31일 21시 30분 정도에 CV에 대한 내용을 배운 후 해당 자료를 웹에 업로드해둠.
-하루 뒤인 8월 1일 밤에 해당 서비스에 접속하면 CV라는 토픽에 대해서 2~3분 정도 카메라를 보고 자유롭게 아는 내용을 말함.
-말하는 도중에 힌트 버튼을 누르면 해당 토픽의 핵심적인 단어나 내용들이 팝업처럼 나와서 사용자가 참고할 수 있도록 설정.
-미리 업로드한 학습 자료를 기반으로 얼마나 내용을 기억하고 있는지 / 어떤 핵심적인 내용들을 놓쳤는지 등을 평가하는 점수를 알려줌. (RAG로 미리 자료 학습)
-이후 학습시점 기준 2일 뒤, 일주일 뒤와 같이 기간을 설정, 동일한 토픽으로 한 복습 사이클을 만드는 식으로 진행.
+## 환경 설정
 
-### 필요한 데이터
+Python 3.11 이상을 권장합니다.
 
-업로드한 학습 자료 기반 RAG 데이터셋
-사용자가 말한 내용을 STT 텍스트 전사한 데이터
-(가능하다면) 웹캠 영상 프레임 데이터 (시선 처리 / 표정 분석도 활용 여지가 있을 것 같음)
-모델 및 흐름도
-STT: Faster-Whisper
-평가: LLM 모델 중에 예산 안에서 선택 필요.
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
+준비된 `.env`의 `OPENAI_API_KEY`를 설정합니다. 파일이 없다면
+`.env.example`을 복사해 만듭니다. API 키를 저장소에 커밋하지 마세요.
 
-### 필요 기능
+## PDF 위치
 
-- 로그인/회원가입 기능 (구글/카카오 API 연동)
-- 토픽 구술 기능 (카메라 / 음성 / 카운트다운 타이머 / 힌트 볼 수 있는 팝업 등)
-- 구술한 내용에 대한 평가 기능 (오디오 STT 처리, RAG 모델 필요)
-- FE/BE 구현
+권장 위치는 `data/raw/`이지만, 현재 프로젝트와의 호환을 위해 `data/` 바로
+아래의 기존 한글 PDF 파일도 자동으로 찾습니다. 원본 PDF는 수정하지 않습니다.
+
+## 실행
+
+먼저 PDF 텍스트 추출 상태를 확인합니다.
+
+```bash
+python scripts/inspect_pdfs.py
+```
+
+한 강의의 앞 페이지 하나로 API 연결을 점검합니다.
+
+```bash
+python scripts/process_one.py basic_statistics --max-pages 1 --skip-core-concepts --skip-index
+```
+
+한 강의를 전체 처리합니다.
+
+```bash
+python scripts/process_one.py basic_statistics
+```
+
+4개 강의를 모두 처리합니다.
+
+```bash
+python scripts/process_all.py
+```
+
+검색합니다.
+
+```bash
+python scripts/test_search.py "평균은 극단적으로 큰 값의 영향을 받을 수 있다"
+python scripts/test_search.py "결측치와 이상치를 확인한다" --lecture-id eda_fe
+```
+
+`--force`를 주지 않으면 원문 해시와 모델이 같은 페이지 캐시를 재사용합니다.
+
+모든 페이지는 텍스트 유무나 이미지 감지 결과와 관계없이 비전 분석을 거칩니다.
+기본 렌더링은 160 DPI이고 `VISION_DETAIL=original`을 사용합니다. 이미지에서만
+확인되는 표, 그래프, 수식, 다이어그램, 스크린샷의 정보는 각 Chunk의
+`visual_description`과 `content`에 반영됩니다.
+
+## 주요 출력
+
+```text
+data/processed/{lecture_id}.json
+outputs/cache/{lecture_id}/page_XXX.json
+outputs/core_concepts/{lecture_id}.json
+outputs/logs/pipeline.log
+vector_db/
+```
+
+## 테스트
+
+```bash
+pytest -q
+```
