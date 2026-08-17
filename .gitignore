@@ -18,3 +18,6 @@ data/pdfs/*.pdf
 data/voice/*.m4a
 data/voice/*.wav
 data/voice/*.mp3
+data/reference/
+results/
+*.json

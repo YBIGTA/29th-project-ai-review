@@ -1,6 +1,7 @@
 import argparse
 
 from sttcorrect.pipeline import run_pipeline
+from sttcorrect.stt.whisper_backend import SttConfig, WhisperSttBackend
 from sttcorrect.term_db.builder import build_term_db, load_term_db
 
 
@@ -12,6 +13,8 @@ def main() -> None:
     parser.add_argument("--topic", required=True, help="과목/주제 이름 (예: DB)")
     parser.add_argument("--session-id", required=True, help="세션 ID")
     parser.add_argument("--out", required=True, help="출력 result.json 경로")
+    parser.add_argument("--model-size", default="small", help="faster-whisper 모델 크기")
+    parser.add_argument("--beam-size", type=int, default=2, help="faster-whisper beam size")
     args = parser.parse_args()
 
     if not args.term_db and not args.pdf:
@@ -27,6 +30,7 @@ def main() -> None:
         term_db=term_db,
         session_id=args.session_id,
         topic=args.topic,
+        stt=WhisperSttBackend(SttConfig(model_size=args.model_size, beam_size=args.beam_size)),
     )
 
     with open(args.out, "w", encoding="utf-8") as f:
