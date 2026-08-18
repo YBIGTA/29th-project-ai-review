@@ -128,7 +128,7 @@ def _run_transcription_job(app: FastAPI, job_id: str, audio_path: str, term_db_p
 
         term_db = load_term_db(term_db_path)
         initial_prompt, hotwords = build_stt_hints(term_db)
-        stt = WhisperSttBackend(SttConfig(model_size="medium", beam_size=2))
+        stt = WhisperSttBackend(SttConfig(model_size="medium", beam_size=5))
         raw = stt.transcribe(audio_path, initial_prompt=initial_prompt, hotwords=hotwords)
         job["transcript_raw"] = raw
         job["status"] = "correcting"
