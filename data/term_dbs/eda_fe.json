@@ -1,0 +1,851 @@
+{
+  "course_id": null,
+  "topic": "EDA/FE",
+  "entries": [
+    {
+      "term": "PR",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Dummy",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "BoW",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SMOTE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Lasso",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Random",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Train",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PCA",
+      "korean_variants": [
+        "상관된",
+        "레이블"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Component",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Loss",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Reduction",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Exploratory",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Augmentation",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Focal",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Forest",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "BERT",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Recursive",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Under",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Filter",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Accuracy",
+      "korean_variants": [
+        "정확도"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Contamination",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Selection",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Class",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature",
+      "korean_variants": [
+        "변수"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DBSCAN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Ordinal",
+      "korean_variants": [
+        "순서형"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ADASYN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Dense",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Problem",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Question",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Blur",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "L1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Over",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Dimensionality",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Standard",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vectorization",
+      "korean_variants": [
+        "텍스트를"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Score",
+      "korean_variants": [
+        "정밀도와"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AutoEncoder",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Right",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tree",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Factor",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Precision",
+      "korean_variants": [
+        "정밀도"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Analysis",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Recall",
+      "korean_variants": [
+        "재현율"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Q1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Sharpening",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Elimination",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Target",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VIF",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Split",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Rolling",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Principal",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Leakage",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ANN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "KNN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Importance",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sampling",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Decision",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Interview",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Curse",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "F1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Q3",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Resize",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Wrapper",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bagging",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Imbalance",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Label",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Embedding",
+      "korean_variants": [
+        "문맥"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "IQR",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Crop",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Minority",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Standardization",
+      "korean_variants": [
+        "표준화"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Imputation",
+      "korean_variants": [
+        "대체"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "How",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Inner",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tokenization",
+      "korean_variants": [
+        "텍스트를"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Lin",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "API",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Curve",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Buda",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Introduction",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "TomekLinks",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Data",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Min",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Wrap",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Boosting",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Extraction",
+      "korean_variants": [
+        "파생변수"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Inflation",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "EDA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Preprocessing",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Variance",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Normalization",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "INTERVIEW",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Object",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RFE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Robust",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Deviation",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Detection",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Engineering",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Merge",
+      "korean_variants": [
+        "조인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AUC",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Ridge",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Encoding",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PC1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "FE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Scaling",
+      "korean_variants": [
+        "정규화"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Max",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Solving",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "XGBoost",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "One",
+      "korean_variants": [],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Outer",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Grouping",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Lag",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "TF",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Left",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Garbage",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Embedded",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SVM",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "IDF",
+      "korean_variants": [
+        "단어의"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "LDA",
+      "korean_variants": [
+        "클래스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Test",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "set",
+      "korean_variants": [
+        "빨강",
+        "초록"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "accuracy",
+      "korean_variants": [
+        "정확도"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "PR Curve",
+      "korean_variants": [
+        "곡선"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "Curse of Dimensionality",
+      "korean_variants": [
+        "저주"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "Dimensionality Reduction",
+      "korean_variants": [
+        "축소"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "token",
+      "korean_variants": [
+        "단위"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "Class Imbalance",
+      "korean_variants": [
+        "불균형"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "ex",
+      "korean_variants": [
+        "이상탐지",
+        "평균"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    }
+  ]
+}

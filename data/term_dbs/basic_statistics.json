@@ -1,0 +1,572 @@
+{
+  "course_id": null,
+  "topic": "기초통계",
+  "entries": [
+    {
+      "term": "Quantile",
+      "korean_variants": [
+        "분위수"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Interaction",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "PCA",
+      "korean_variants": [
+        "기존의"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Testing",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Multiple",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MSW",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "SST",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Test",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Definition",
+      "korean_variants": [
+        "이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Assumptions",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ANOVA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Genearlized",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Ridge",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Common",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Poisson",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tukey",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Term",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Confidence",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "mu1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Value",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Type",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Solution",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Brief",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SSW",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Review",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "One",
+      "korean_variants": [],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "VIF",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Watson",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Difference",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Variable",
+      "korean_variants": [
+        "분산"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Cov",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step4",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "SNS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Wallis",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Theorem",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Welch",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Important",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Rj",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Xj",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step3",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Hypothesis",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "How",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "x1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "VA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Example",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bartlett",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CLT",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Durbin",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bias",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step5",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "SSB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "H1",
+      "korean_variants": [
+        "그녀도",
+        "적어도"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Residual",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GLM",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Levene",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Motivation",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SSR",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Regression",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "x2",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Bayes",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Linear",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Interval",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Logistic",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Structure",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tradeoff",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Why",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Ordinal",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MSB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "HSD",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Kruskal",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Odds",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "TV",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "H0",
+      "korean_variants": [
+        "관심없다",
+        "표본의"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Analysis",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Key",
+      "korean_variants": [],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Model",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step2",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Honestly",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Basic",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "mu2",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Expected",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Shapiro",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Plot",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Two",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Expected Value",
+      "korean_variants": [
+        "기댓값"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "definition",
+      "korean_variants": [
+        "귀무가설이"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "idea",
+      "korean_variants": [
+        "모든"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    }
+  ]
+}

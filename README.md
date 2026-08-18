@@ -14,7 +14,8 @@ PDF 업로드는 현재 사용하지 않습니다. 세션 자료와 용어 DB는
 ```text
 FE 브라우저 음성 녹음
   -> POST /api/stt/transcribe
-  -> BE 오디오 로컬 저장
+  -> job_id 반환
+  -> GET /api/stt/transcribe/{job_id} polling
   -> Faster-Whisper medium, beam=2 전사
   -> Groq LLM 2차 보정
   -> transcript_raw / transcript_corrected 반환
@@ -112,16 +113,40 @@ NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
 
 ## 용어 DB 준비
 
-BE STT API는 `data/term_dbs/db_course.json`을 읽습니다. 파일이 없으면 로컬 PDF를 준비한 뒤 생성합니다.
+BE는 FE가 보낸 `topic`에 따라 다음 Term DB 파일 중 하나를 선택합니다.
+
+| FE topic | 입력 PDF | Term DB 파일 |
+|---|---|---|
+| `기초통계` | `기초통계.pdf` | `basic_statistics.json` |
+| `크롤링` | `크롤링.pdf` | `crawling.json` |
+| `EDA/FE` | `EDA&FE.pdf` | `eda_fe.json` |
+| `시각화` | `시각화.pdf` | `visualization.json` |
+
+각 PDF별로 Term DB를 생성합니다.
 
 ```bash
 PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
-  --pdf data/pdfs/DB.pdf \
-  --topic DB \
-  --out data/term_dbs/db_course.json
+  --pdf data/pdfs/기초통계.pdf \
+  --topic 기초통계 \
+  --out data/term_dbs/basic_statistics.json
+
+PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
+  --pdf data/pdfs/크롤링.pdf \
+  --topic 크롤링 \
+  --out data/term_dbs/crawling.json
+
+PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
+  --pdf 'data/pdfs/EDA&FE.pdf' \
+  --topic EDA/FE \
+  --out data/term_dbs/eda_fe.json
+
+PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
+  --pdf data/pdfs/시각화.pdf \
+  --topic 시각화 \
+  --out data/term_dbs/visualization.json
 ```
 
-생성된 term DB는 PDF와 API key에 의존하므로 Git에 올리지 않습니다.
+생성된 Term DB는 PDF에 의존하는 로컬 산출물이므로 Git에 올리지 않습니다. 파일명이 매핑표와 다르면 BE가 해당 topic의 Term DB를 찾지 못합니다.
 
 ## 서버 실행
 
@@ -157,10 +182,34 @@ topic: string (기본값 DB)
 audio_file: .wav, .webm, .m4a
 ```
 
-처리 순서는 오디오 저장, Faster-Whisper `medium`/`beam_size=2` 전사, Groq 보정입니다.
+오디오를 저장한 뒤 백그라운드 작업을 시작하고 `202 Accepted`와 `job_id`를 즉시 반환합니다. 처리 순서는 Faster-Whisper `medium`/`beam_size=2` 전사, Groq 보정입니다.
+
+Response:
 
 ```json
 {
+  "job_id": "job-abc123",
+  "session_id": "demo-session",
+  "topic": "DB",
+  "status": "transcribing"
+}
+```
+
+### `GET /api/stt/transcribe/{job_id}`
+
+FE는 이 endpoint를 주기적으로 조회해 진행 상태를 확인합니다.
+
+```text
+transcribing -> correcting -> corrected
+```
+
+`corrected` 상태가 되면 `transcript_raw`와 `transcript_corrected`가 포함됩니다. 오류가 발생하면 `status`가 `failed`가 되고 `error`가 포함됩니다.
+
+Response:
+
+```json
+{
+  "job_id": "job-abc123",
   "session_id": "demo-session",
   "topic": "DB",
   "transcript_raw": "원본 전사 결과",
@@ -179,6 +228,7 @@ STT 결과 JSON을 Request body로 받습니다. 현재 평가 부분은 Mock입
 
 ```json
 {
+  "job_id": "job-abc123",
   "session_id": "demo-session",
   "topic": "DB",
   "transcript_raw": "원본 전사 결과",

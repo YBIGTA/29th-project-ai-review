@@ -48,6 +48,7 @@ class QualitativeEvaluation(BaseModel):
 
 
 class ReviewSubmitRequest(BaseModel):
+    job_id: str | None = None
     session_id: str
     topic: str
     transcript_raw: str
@@ -64,3 +65,20 @@ class ReviewSubmitResponse(BaseModel):
     quantitative: QuantitativeEvaluation
     qualitative: QualitativeEvaluation
     status: str
+
+
+class TranscriptionJobResponse(BaseModel):
+    job_id: str
+    session_id: str
+    topic: str
+    status: str
+
+
+class TranscriptionStatusResponse(BaseModel):
+    job_id: str
+    session_id: str
+    topic: str
+    status: str
+    transcript_raw: str | None = None
+    transcript_corrected: str | None = None
+    error: str | None = None

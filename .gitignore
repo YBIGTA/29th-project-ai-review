@@ -25,6 +25,10 @@ data/reference/
 results/
 outputs/
 *.json
+!data/term_dbs/basic_statistics.json
+!data/term_dbs/crawling.json
+!data/term_dbs/eda_fe.json
+!data/term_dbs/visualization.json
 !frontend/fe/package.json
 !frontend/fe/package-lock.json
 !frontend/fe/tsconfig.json
