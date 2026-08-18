@@ -1,0 +1,647 @@
+{
+  "lecture_id": "visualization",
+  "lecture_name": "시각화",
+  "source_file": "시각화.pdf",
+  "chunks": [
+    {
+      "chunk_id": "visualization_p1_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 1,
+      "topic": "시각화 강의 표지",
+      "concepts": [
+        "데이터 시각화"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\n시각화\n\n\n\n\n\n                            28기 남건우",
+      "visual_description": "2026 Summer YBIGTA 시각화 강의 표지이며 발표자는 28기 남건우로 표시된다.",
+      "content": "2026 Summer YBIGTA 데이터 시각화 강의의 표지이다."
+    },
+    {
+      "chunk_id": "visualization_p2_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 2,
+      "topic": "시각화 강의 목차",
+      "concepts": [
+        "Intro",
+        "방법",
+        "실습 및 사례",
+        "정리 및 결론"
+      ],
+      "raw_text": "목 차\n\n\n\n 1.  Intro\n\n 2. 방법\n\n 3. 실습 및 사례\n\n 4. 정리 및 결론",
+      "visual_description": "Intro, 방법, 실습 및 사례, 정리 및 결론의 네 섹션이 번호와 함께 배치된다.",
+      "content": "강의는 시각화의 의미, 설계 방법, Plotly 실습 사례, 결론 순으로 구성된다."
+    },
+    {
+      "chunk_id": "visualization_p3_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 3,
+      "topic": "Intro 섹션",
+      "concepts": [
+        "Intro"
+      ],
+      "raw_text": "Intro",
+      "visual_description": "Intro라는 큰 제목만 배치된 구분 슬라이드이다.",
+      "content": "데이터 분석과 시각화의 정의 및 활용을 소개하는 섹션의 시작 페이지이다."
+    },
+    {
+      "chunk_id": "visualization_p4_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 4,
+      "topic": "데이터 분석과 시각화",
+      "concepts": [
+        "Data",
+        "Information",
+        "Data Analytics",
+        "의사결정"
+      ],
+      "raw_text": "Intro\n데이터 분석이란?\n\n\n                                Data≠Information\n\n                          수집한 데이터에서 정보를 얻고 싶다!\n\n                               ⇒ 데이터가 의미있는 정보가 되기 위해서는 데이터 분석 과정이 필요\n\n\n                    데이터 분석(Data Analytics)이란?\n\n                                          Raw data를 이해하는 과정\n                             이를 기반으로 우리가 찾고자하는 정보를 얻거나,\n                             합리적 근거를 통해 의사결정을 내리는데 사용\n\n                             ⇒ 이 과정에서 시각화는 데이터를 빠르고 효과적으로 이해하도록 도움",
+      "visual_description": "운영 환경에서 수집·가공·분석을 거쳐 Data가 Information과 Intelligence로 좁혀지는 깔때기형 도식이 있다.",
+      "content": "데이터는 그 자체로 정보가 아니며, 원자료를 이해하고 필요한 정보를 찾아 의사결정 근거로 만드는 데이터 분석 과정이 필요하다. 시각화는 이 과정을 빠르고 효과적으로 이해하게 돕는다."
+    },
+    {
+      "chunk_id": "visualization_p5_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 5,
+      "topic": "데이터 시각화의 정의",
+      "concepts": [
+        "시각화",
+        "데이터 시각화",
+        "차트",
+        "그래프",
+        "맵"
+      ],
+      "raw_text": "Intro\n시각화란?\n\n\n\n\n\n             by Wikipedia시각화\n\n무언가를 시각적으로 나타내는 것\n\n\n데이터 시각화\n\n데이터를 쉽게 이해할 수 있도록\n시각적으로 표현하고 전달하는 과정\n\n\n☑️ 데이터를 차트, 그래프, 맵과 같은 시각적 요소를\n  이용해 명확하고 효과적으로 전달하는 것",
+      "visual_description": "정의 문장 옆에 파이차트·선그래프·사용자 카드가 있는 대시보드 일러스트가 배치된다.",
+      "content": "데이터 시각화는 데이터를 쉽게 이해하도록 차트, 그래프, 지도 같은 시각 요소로 명확하고 효과적으로 표현하고 전달하는 과정이다."
+    },
+    {
+      "chunk_id": "visualization_p6_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 6,
+      "topic": "데이터 시각화의 이점",
+      "concepts": [
+        "직관적 이해",
+        "스토리텔링",
+        "의사결정",
+        "비정형 데이터"
+      ],
+      "raw_text": "Intro\n데이터 시각화의 이점\n\n\n\n\n\n                            2024년 1월부터 6월까지의 각 월별 웹사이트 방문자 수는 다\n                   음과 같습니다. 1월에는 12,453명이었고, 2월에는 13,892명으\n                   로 증가했습니다. 3월에는 15,105명, 4월에는 14,875명으로\n                   소폭 감소했습니다. 5월에는 다시 증가하여 16,201명을 기록                       했으며, 6월에는 17,900명으로 최고치를 기록했습니다. 평균   데이터 시각화의 이점\n                    방문자 수는 약 15,071명이며, 증가율은 1월 대비 6월에 약\n                                              43.7% 상승했습니다. ....\n                                            ☑️ 직관적인 데이터 이해\n                                            ☑️ 대용량 데이터의 특성을 짧고 빠르게 전달\n                                            ☑️ 데이터 기반 의사결정 및 스토리텔링 가능\n                    월별 웹사이트 방문자 수\n                                            ☑️ 비계량, 비정형 데이터를 도식화하여 이해                                                                             1월    2월    3월    4월    5월    6월\n\n                                                                20000\n\n\n\n\n                                                                    15000\n\n\n\n\n                                                                   10000\n\n\n\n\n                                                                5000\n\n\n\n\n                                                                  0\n                                                                   1월         2월         3월         4월         5월         6월",
+      "visual_description": "월별 방문자 수를 긴 문장으로 표현한 경우와 1~6월 막대그래프로 표현한 경우를 대비하며, 1월 12,453명에서 6월 17,900명으로 증가하는 흐름을 보여준다.",
+      "content": "시각화는 대용량 데이터의 특성을 짧고 빠르게 전달하고, 직관적 이해와 데이터 기반 의사결정·스토리텔링을 돕고, 비계량·비정형 정보도 도식화할 수 있다."
+    },
+    {
+      "chunk_id": "visualization_p7_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 7,
+      "topic": "분석 과정에서의 시각화",
+      "concepts": [
+        "문제 정의",
+        "데이터 수집",
+        "데이터 가공",
+        "데이터 분석",
+        "결과 도출"
+      ],
+      "raw_text": "Intro\n시각화 활용 단계\n\n\n<데이터 분석 STEP>\n\n\n  문제 정의       데이터 수집      데이터 가공      데이터 분석       결과 도출\n\n\n\n\n           Ref 1. A 식품회사 데이터 이상치 탐지                           Ref 2. B 커머스 매출 분석",
+      "visual_description": "문제 정의→수집→가공→분석→결과 도출의 5단계 흐름 아래 이상치 탐지와 매출 분석 사례의 적용 위치를 표시한다.",
+      "content": "시각화는 데이터 가공부터 분석과 결과 도출까지 사용된다. 강의는 수집 데이터 이상치 탐지와 커머스 매출 분석을 예로 든다."
+    },
+    {
+      "chunk_id": "visualization_p8_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 8,
+      "topic": "시각화 활용 사례",
+      "concepts": [
+        "이상치 탐지",
+        "대시보드",
+        "매출 분석",
+        "유입경로"
+      ],
+      "raw_text": "Intro\n         Ref 1. A 식품회사 수집 데이터 이상치 탐지                          Ref 2. B 커머스 매출 분석시각화 활용 단계\n\n   유저의 유입경로를 판단하기 위하여 “root_path” 라는 객체 존재\n\n             root의 수집값은 4가지로 정해져있는 상황\n<데이터 분석 STEP>            QA 시에는 문제없이 수집됨을 확인\n\n\n\n\n                                 ???\n               D         0.8%\n                   14.6%  문제 정의       데이터 수집      데이터 가공      데이터 분석       결과 도출                                                      대시보드를 통하여 매출 성과 파악\n\n                                             A\n                                                      32.5%                                     멤버등급별 매출 트렌드                      의문의 데이터가 수집되고 있음\n                       을 확인하였고, 개발 상 조치                       프로모션 성과 분석\n                                                      쿠폰 성과 분석 등\n     C                     → 확인하지 못했다면     23.6%\n                         금전적 손실 발생\n\n\n\n\n\n                                B\n                                    28.5%\n\n\n       시각화는 데이터 가공부터 결과도출까지 분석의 전 과정에서 사용됨\n             분석의 근거를 강화하는 매우 강력한 툴",
+      "visual_description": "왼쪽 원그래프에서 root_path의 미정의 값 0.8%를 빨간 상자로 강조하고, 오른쪽에는 여러 매출 지표를 담은 대시보드를 보여준다.",
+      "content": "시각화로 예상된 네 범주 외의 유입경로 0.8%를 발견해 개발 조치를 할 수 있고, 대시보드로 멤버등급별 매출 트렌드·프로모션·쿠폰 성과를 파악할 수 있다. 분석 근거를 강화하는 도구라는 점을 강조한다."
+    },
+    {
+      "chunk_id": "visualization_p9_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 9,
+      "topic": "시각화 역량의 활용처: 데이터 분석",
+      "concepts": [
+        "Data Analytics",
+        "공모전",
+        "채용"
+      ],
+      "raw_text": "Intro\nWhy me?",
+      "visual_description": "데이터 활용·시각화 공모전 포스터와 토스 데이터 분석가 및 쿠팡 Business Analyst 채용공고를 나란히 제시하고 시각화·대시보드 역량 문구를 강조한다.",
+      "content": "시각화 역량은 분석 공모전뿐 아니라 데이터 분석가와 비즈니스 분석가 채용에서 인사이트 시각화와 BI 대시보드 경험으로 요구된다."
+    },
+    {
+      "chunk_id": "visualization_p10_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 10,
+      "topic": "시각화 역량의 활용처: 데이터 과학",
+      "concepts": [
+        "Data Science",
+        "논문 그래프",
+        "BERT",
+        "ViT"
+      ],
+      "raw_text": "Intro\nWhy me?",
+      "visual_description": "BERT의 사전학습 단계별 정확도 선그래프와 ViT 계열 모델의 계산량 대비 정확도 산점도 등 논문 Figure를 비교한다.",
+      "content": "데이터 과학에서는 모델의 학습 단계, 계산량, 성능 비교를 논문 그래프로 명료하게 전달하므로 시각화가 연구 결과 해석과 소통에 필요하다."
+    },
+    {
+      "chunk_id": "visualization_p11_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 11,
+      "topic": "시각화 역량의 활용처: 데이터 엔지니어링",
+      "concepts": [
+        "Data Engineering",
+        "ELK",
+        "Grafana",
+        "모니터링 대시보드"
+      ],
+      "raw_text": "Intro\nWhy me?",
+      "visual_description": "ELK의 로그 분석 대시보드와 Grafana의 CPU·메모리·디스크 모니터링 대시보드 화면을 나란히 보여준다.",
+      "content": "데이터 엔지니어링에서도 로그, 시스템 자원, 장애 징후를 대시보드로 관찰하므로 시각화가 운영 모니터링에 활용된다."
+    },
+    {
+      "chunk_id": "visualization_p12_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 12,
+      "topic": "방법 섹션",
+      "concepts": [
+        "시각화 방법"
+      ],
+      "raw_text": "방법",
+      "visual_description": "방법이라는 큰 제목만 배치된 구분 슬라이드이다.",
+      "content": "목적과 데이터에 맞는 차트·색상·도구 선택 방법을 다루는 섹션의 시작이다."
+    },
+    {
+      "chunk_id": "visualization_p13_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 13,
+      "topic": "시각화 차트 종류",
+      "concepts": [
+        "Bar Chart",
+        "Line Chart",
+        "Pie Chart",
+        "Scatter Plot",
+        "Histogram",
+        "Heatmap",
+        "Treemap",
+        "Violin Plot"
+      ],
+      "raw_text": "방법\n시각화 차트 종류\n\n\n\n\n\n                     허거더거덩스",
+      "visual_description": "막대·선·파이·도넛·산점도·버블·누적막대·영역·박스·히스토그램·히트맵·트리맵·게이지·바이올린·타임라인·워터폴·퍼널·레이더·점 도표 아이콘을 한눈에 모아 놓았다.",
+      "content": "데이터의 양, 분포, 비율, 관계, 시간 흐름 등 목적에 따라 다양한 차트 유형을 선택할 수 있음을 개괄한다."
+    },
+    {
+      "chunk_id": "visualization_p14_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 14,
+      "topic": "시각화 설계 절차",
+      "concepts": [
+        "목적 설정",
+        "데이터 파악",
+        "차트 선택",
+        "독자 중심"
+      ],
+      "raw_text": "방법\n시각화 방법 개요\n\n\n\n\n\n    목적을 이해하기         데이터 파악하기         시각화 설계하기\n\n   데이터로부터 확인하고 싶은 목표 설정         데이터 변수 및 특성 파악         데이터간의 관계, 변수 특성에 따른 차트 선택\n            ex) 연령/성별 분석을 통한 페르소나 정의                    ex) 성별은 남/녀의 2가지 경우의 수                 ex) 전체 유저에 대한 분석이므로 시계열보다는 합산 차트\n                                    이 때 남자 모수가 여자보다 적음                  남/녀 대구분이 존재하니 바차트\n                                연령대는 데이터가 생년월일로 수집되고 있는 상황         연령대는 버킷화하여 세부바로 나타내기   분석 목표에 따른 가설 혹은 질문 설정\n                   ex) 여성이 남성보다 프로모션에\n                                              시각화를 볼 타인을 생각하자!              민감하게 반응할 것이다",
+      "visual_description": "목적을 이해하기→데이터 파악하기→시각화 설계하기의 세 칸에 성별·연령별 페르소나 분석 예시를 연결한다.",
+      "content": "먼저 확인할 목표와 가설을 세우고 변수의 유형·분포·표본 수를 파악한 뒤 관계와 특성에 맞는 차트를 고른다. 결과를 볼 사람의 관점도 설계에 반영해야 한다."
+    },
+    {
+      "chunk_id": "visualization_p15_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 15,
+      "topic": "Matplotlib 구성 요소와 플롯 원칙",
+      "concepts": [
+        "Matplotlib",
+        "Figure",
+        "Axes",
+        "Legend",
+        "Grid",
+        "Label"
+      ],
+      "raw_text": "방법\nMatplotlib 요소\n\n\n\n\n                           플롯 틀 잡기 팁\n\n                                            ✔️ 배경은 지양\n                                            ✔️ 그리드는 최소화\n                                            ✔️ 카테고리가 하나면 범례는 굳이...?\n                                            ✔️ 범례 대신 직접 라벨링도 고려\n                                            ✔️ 이중축은 정말 명확한 관계성이 있을 때만\n                                            ✔️ 불필요한 그래픽효과(like 그림자) 지양",
+      "visual_description": "Matplotlib Figure의 title, axis, tick, grid, line, marker, legend, spine 등 구성요소를 해부한 그림이 있다.",
+      "content": "배경과 그리드, 불필요한 범례·그림자 효과를 줄이고 직접 라벨링을 고려한다. 이중축은 관계가 명확할 때만 사용해 해석 혼란을 막는다."
+    },
+    {
+      "chunk_id": "visualization_p16_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 16,
+      "topic": "수량 시각화",
+      "concepts": [
+        "Amounts",
+        "Bar Plot",
+        "Dot Plot",
+        "Heatmap",
+        "Stacked Bar"
+      ],
+      "raw_text": "방법\n시각화 종류\n\n\n[Amounts]\n\n                           수량의 시각화 팁\n\n                                            ✔️ 명목형 - 데이터 크기대로 그래프 정렬\n                                            ✔️ 순서형 - 순서 그대로 그래프 정렬\n                                            ✔️ 라벨이 길면 horizontal bar plot\n                                            ✔️ 그룹핑 vs plot 분리\n                                            ✔️ 스태킹은 total이 중요할때만\n                                            ✔️ dot plot과 heatmap도 고려",
+      "visual_description": "세로·가로 막대, 점, 그룹 막대, 누적 막대, 히트맵 예시를 작은 패널로 비교한다.",
+      "content": "명목형은 크기순, 순서형은 본래 순서로 정렬하고 긴 라벨에는 가로 막대를 쓴다. 그룹핑과 분리 플롯을 비교하고 전체가 중요할 때만 누적하며 dot plot과 heatmap도 고려한다."
+    },
+    {
+      "chunk_id": "visualization_p17_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 17,
+      "topic": "분포 시각화",
+      "concepts": [
+        "Distribution",
+        "Histogram",
+        "Density Plot",
+        "ECDF",
+        "Boxplot",
+        "Violin Plot"
+      ],
+      "raw_text": "방법\n시각화 종류\n\n\n[Distribution]\n\n                           분포의 시각화 팁\n\n                                            ✔️ Smoothing은 데이터 수가 충분할 때만\n                                            ✔️ 히스토그램, 밀도 도표는 적절한 width를\n                                            ✔️ 데이터 왜곡이 싫으면 ECDF 활용\n                                            ✔️ 데이터가 Highly Skewed면 로그변환 고려\n                                            ✔️ 한번에 여러개 분포를 나타내야 하면 boxplot,\n                                                                    violin plot 등등",
+      "visual_description": "히스토그램·밀도·누적분포·Q-Q·박스·바이올린·strip·sina·겹친 밀도·ridgeline 등 분포 차트를 격자로 보여준다.",
+      "content": "스무딩은 표본이 충분할 때 쓰고 히스토그램 bin 폭과 밀도 bandwidth를 적절히 정한다. 왜곡을 줄이려면 ECDF, 심한 왜도에는 로그변환, 여러 분포 비교에는 boxplot·violin plot을 고려한다."
+    },
+    {
+      "chunk_id": "visualization_p18_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 18,
+      "topic": "비율 시각화",
+      "concepts": [
+        "Proportions",
+        "Pie Chart",
+        "Grouped Bar",
+        "Mosaic Plot",
+        "Treemap"
+      ],
+      "raw_text": "방법\n시각화 종류\n\n\n[Proportions]\n\n                           비율의 시각화 팁\n\n                                            ✔️ Pie Chart는 직관적 비율을 나타낼 때 효과적\n                                            ✔️ 카테고리가 너무 많거나 각 카테고리가 비슷한\n                              비율을 가지면 Pie Chart는 지양\n                                            ✔️ 시간에 따라 분포 변화는 side-by-side bars\n                                            ✔️ 범주가 겹치는 경우 (ex. 중복응답)는 Mosaic\n                                             Plot이나 Treemap",
+      "visual_description": "파이·막대·누적막대·누적밀도·모자이크·트리맵·parallel sets 예시를 격자로 비교한다.",
+      "content": "파이차트는 범주가 적고 비율 차이가 직관적일 때 유효하다. 범주가 많거나 비율이 비슷하면 피하고, 시간별 변화는 병렬 막대, 겹치는 범주는 mosaic plot이나 treemap 등을 고려한다."
+    },
+    {
+      "chunk_id": "visualization_p19_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 19,
+      "topic": "변수 관계 시각화",
+      "concepts": [
+        "x-y Relationships",
+        "Scatterplot",
+        "Bubble Chart",
+        "PCA",
+        "t-SNE",
+        "UMAP",
+        "Smoothing",
+        "Detrending"
+      ],
+      "raw_text": "방법\n시각화 종류\n\n\n[x-y Relationships]\n\n                                         x-y 관계의 시각화 팁\n\n                                            ✔️ 변수가 3개 이상이면 버블차트, 다른 색 활용\n                                            ✔️ 데이터셋이 너무 고차원이면 차원축소\n                                            ✔️ 차원축소는 PCA, t-SNE, UMAP 모두 고려\n                                            ✔️ 시계열은 Line graph\n                                            ✔️ 추세를 파악하려면 smoothing\n                                            ✔️ 장기적인 추세 제거에는 detrending",
+      "visual_description": "산점도·버블·paired scatter·slopegraph·density contour·2D/hex bin·correlogram·선그래프와 smoothing 예시가 있다.",
+      "content": "세 변수 이상은 크기나 색을 추가하고, 고차원 데이터는 PCA·t-SNE·UMAP으로 축소할 수 있다. 시계열은 선그래프를 쓰고 추세에는 smoothing, 장기 추세 제거에는 detrending을 고려한다."
+    },
+    {
+      "chunk_id": "visualization_p20_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 20,
+      "topic": "지도와 불확실성 시각화",
+      "concepts": [
+        "Map",
+        "Choropleth",
+        "Cartogram",
+        "Uncertainty",
+        "Error Bar",
+        "Confidence Band"
+      ],
+      "raw_text": "방법\n시각화 종류\n\n\n[x-y Relationships]                          [Uncertainty]\n\n\n\n\n\n** 참고할만한 사이트\n\n 더 많은 팁들\n → Fundamentals of Data Visualization\n\n 목적에 따른 차트 선택\n → https://datavizcatalogue.com/search.html",
+      "visual_description": "지도·등치지역도·카토그램과 함께 error bar, confidence strip, eye plot, quantile dot plot, confidence band 등 불확실성 표현을 보여준다.",
+      "content": "공간 데이터에는 지도 계열을, 추정치의 불확실성에는 오차막대·신뢰띠·분위수 점도표 등을 사용한다. 추가 차트 선택 자료로 Fundamentals of Data Visualization과 Data Viz Catalogue를 안내한다."
+    },
+    {
+      "chunk_id": "visualization_p21_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 21,
+      "topic": "색상 척도 선택",
+      "concepts": [
+        "Color Scale",
+        "Qualitative",
+        "Sequential",
+        "Diverging",
+        "ColorBrewer",
+        "Viridis"
+      ],
+      "raw_text": "방법\nColor Scales\n\n이산/범주형 - 정성형 배합     연속형 - 순차형 배합        대칭/대립형 - 양방향 배합",
+      "visual_description": "범주형 정성 배합, 연속형 순차 배합, 기준점 양쪽을 표현하는 양방향 배합의 팔레트와 적용 차트를 비교한다.",
+      "content": "범주는 서로 구분되는 정성형 색, 크기·강도는 밝기가 순차적으로 변하는 색, 평균이나 0을 중심으로 대립하는 값은 양방향 색상척도를 사용한다."
+    },
+    {
+      "chunk_id": "visualization_p22_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 22,
+      "topic": "파이썬 시각화 라이브러리 비교",
+      "concepts": [
+        "matplotlib",
+        "seaborn",
+        "plotly",
+        "altair",
+        "bokeh",
+        "folium"
+      ],
+      "raw_text": "방법\n시각화 툴 - 파이썬 라이브러리",
+      "visual_description": "여섯 라이브러리의 다운로드 규모, 장점, 단점, 비고를 표로 비교한다.",
+      "content": "matplotlib은 범용성과 커스터마이징, seaborn은 간결한 통계 그래프, plotly·bokeh는 인터랙티브 웹 시각화, altair는 선언형 문법, folium은 지도 시각화에 강점이 있다."
+    },
+    {
+      "chunk_id": "visualization_p23_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 23,
+      "topic": "시각화 소프트웨어 비교",
+      "concepts": [
+        "Tableau",
+        "Power BI",
+        "Google Analytics",
+        "FineReport",
+        "D3.js"
+      ],
+      "raw_text": "방법\n시각화 툴 - 시각화 소프트웨어",
+      "visual_description": "각 소프트웨어의 로고와 주요 특징을 표로 정리한다.",
+      "content": "Tableau는 대중적인 BI 도구, Power BI는 Microsoft 생태계 연동, Google Analytics는 웹·앱 트래픽, FineReport는 비즈니스 리포트, D3.js는 HTML·SVG·CSS 기반 맞춤 시각화에 쓰인다."
+    },
+    {
+      "chunk_id": "visualization_p24_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 24,
+      "topic": "시각화 검수 체크리스트",
+      "concepts": [
+        "Content",
+        "Color",
+        "Labels",
+        "Arrangement",
+        "피드백"
+      ],
+      "raw_text": "방법\n체크리스트\n\n\nex) Data Visualization Checklist by UCB\n\nContent                                               Color\n☐ Data Visual is clear and concise                ☐ Intentional color scheme, not random\n☐ Data Visual is audience-centric.                ☐ Color is used to highlight key patterns.\n☐ Tells the story\n☐ Data selected carefully.                                   Labels & Lines\n                               ☐ Graphs don't contain much text, so existing text encapsulates☐ Graphs and charts used for big data, not little data.\n                                                                your message and packs a punch.☐ The type of graph is appropriate for data & level of precision.\n                               ☐ Descriptive title is left-justified in upper left corner.☐ Sufficient documentation provided.\n                               ☐ Text is scannable.\n                               ☐ Labels are clear and used sparingly.Arrangement\n☐ Spatial flow is intuitive to the reader.\n                        시각화가 완료되면 결과를 다시 점검해보자!☐ Proportions are accurate.\n☐ Display is free from distractions.            다른 사람들의 의견도 들어보고 피드백을 받아보자!",
+      "visual_description": "UCB Data Visualization Checklist를 내용·색상·라벨과 선·배치 영역으로 나누어 체크박스로 제시한다.",
+      "content": "시각화는 명료성, 독자 중심성, 스토리, 데이터·차트 적합성, 문서화, 의도적인 색, 핵심 패턴 강조, 제목·라벨 가독성, 공간 흐름과 비율, 방해요소 여부를 점검하고 다른 사람의 피드백을 받아야 한다."
+    },
+    {
+      "chunk_id": "visualization_p25_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 25,
+      "topic": "실습 및 사례 섹션",
+      "concepts": [
+        "실습",
+        "사례"
+      ],
+      "raw_text": "실습 및 사례",
+      "visual_description": "실습 및 사례라는 큰 제목만 배치된 구분 슬라이드이다.",
+      "content": "Plotly와 가상 이커머스 로그를 이용해 시각화 스토리를 만드는 섹션의 시작이다."
+    },
+    {
+      "chunk_id": "visualization_p26_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 26,
+      "topic": "Plotly 개요와 구조",
+      "concepts": [
+        "Plotly",
+        "Figure",
+        "Data",
+        "Trace",
+        "Layout",
+        "Dash"
+      ],
+      "raw_text": "실습 및 사례\nPlotly 실습\n\nMatplotlib 말고 새로운 걸 배워봅시다\n\n                                 Plotly란?\n\n                                      ☑️ 인터렉티브한 시각화가 가능한 파이썬 그래픽 라이브러리\n                                      ☑️ 40개 이상의 차트 타입을 제공하는 오픈소스\n                                      ☑️ 인터렉티브한 대시보드를 위해 Dash 또는 Chart Studio와 같은 라이브러리와\n                          통합 및 확장이 가능\n\n\n                                     Plotly 기본구조\n\n                                                 Figure : 작업의 기본 단위, data와 layout을 입력받고 그래프를 그림\n                                                     Data: Figure가 표현할 데이터, Trace들의 리스트라고 보면 됨\n                                                           Trace: 데이터의 개별 계층, 하나의 그래프 항목(선, 막대 등) 의미\n                                                    Layout: 그래의 레이아웃과 스타일을 정의",
+      "visual_description": "Plotly 로고, 설치 명령, Figure·Data·Trace·Layout의 계층 설명이 배치된다.",
+      "content": "Plotly는 40개 이상의 차트를 제공하는 인터랙티브 파이썬 그래픽 라이브러리다. Figure는 data와 layout으로 구성되고, data는 개별 그래프 항목인 trace의 목록이며 Dash·Chart Studio와 확장할 수 있다."
+    },
+    {
+      "chunk_id": "visualization_p27_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 27,
+      "topic": "이커머스 매출 급증 시나리오",
+      "concepts": [
+        "매출",
+        "시나리오",
+        "이상 징후"
+      ],
+      "raw_text": "실습 및 사례\n시나리오\n\n\n“7월 동안 데이터 이관의 이슈로, 데이터 분석이 불가능 했던 M사. 8월 1일이 되어서야 지난 7월의 매출 실적을 보게 되었는데...”\n\n\n\n\n\n     “홀리몰리. 전월 대비 매출 300% 증가\"              M사 데이터분석가, 개구리씨",
+      "visual_description": "상승 막대 아이콘과 개구리 사진을 사용해 전월 대비 매출 300% 증가를 발견한 분석가 상황을 표현한다.",
+      "content": "데이터 이관 문제로 7월 분석을 못 한 M사가 8월 1일에 전월 대비 매출 300% 증가를 발견하고 원인을 추적하는 시나리오이다."
+    },
+    {
+      "chunk_id": "visualization_p28_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 28,
+      "topic": "이커머스 로그 데이터셋",
+      "concepts": [
+        "ecommerce_log.csv",
+        "user_Id",
+        "product_Id",
+        "traffic_source",
+        "event_flag",
+        "purchased"
+      ],
+      "raw_text": "실습 및 사례\n데이터셋 설명\n\n              M 패션 이커머스사의 7월 고객 행동 로그데이터\n\n\n\n                                 ecommerce_log.csv\n\n\n\n            date                        로그 데이터가 기록된 날짜\n\n            user_Id                        유저가 가지는 고유한 ID\n\n          product_Id                         제품별 고유 ID\n\n          gender                            성별\n\n         age_group                           연령대\n\n         traffic_source       고객의 페이지 유입 경로 (organic - 자발적, paid - 광고매체, social, referral, email 등)\n\n          event_flag                    해당 제품의 이벤트 진행 여부 (0, 1)\n\n         purchased                      해당 제품 구매 여부 (0, 1)",
+      "visual_description": "CSV 파일 아이콘 아래 date, user_Id, product_Id, gender, age_group, traffic_source, event_flag, purchased의 의미를 표로 설명한다.",
+      "content": "M 패션 이커머스의 7월 고객 행동 로그에는 날짜, 사용자·제품 ID, 성별·연령대, 유입경로, 이벤트 여부, 구매 여부가 포함된다."
+    },
+    {
+      "chunk_id": "visualization_p29_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 29,
+      "topic": "일별 방문수 분석",
+      "concepts": [
+        "방문수",
+        "방문자 수",
+        "시계열",
+        "이상치"
+      ],
+      "raw_text": "실습 및 사례\n1. 일별 사이트 방문수/방문자 수\n\n\n\n\n\n                    음? 7월 11일부터 갑자기 방문 수가 폭등하네?\n                   저 때 무슨 일이 있었던거지...\n                     제품 판매량을 봐야겠어.",
+      "visual_description": "고유 방문자 수와 총 방문 수의 두 선을 그린 그래프에서 7월 12일 고유 방문자 2,148명, 총 방문 6,442회의 급증을 툴팁으로 강조한다.",
+      "content": "7월 11일부터 방문 수가 급증한 패턴을 발견하고, 다음 분석 질문을 제품 판매량으로 좁힌다."
+    },
+    {
+      "chunk_id": "visualization_p30_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 30,
+      "topic": "일별 판매 Top3 분석",
+      "concepts": [
+        "Top3 제품",
+        "제품 26",
+        "판매량",
+        "누적 막대"
+      ],
+      "raw_text": "실습 및 사례\n2. 일별 판매 Top3 제품\n\n\n\n\n\n              어? 딱 방문자 수가 증가한 4일동안, 제품 26번의 판매량이 급증했어\n              갑자기 제품 26번의 수요가 높아진건데... 무슨 일이지?\n                           26번 제품만 한 번 더 봐야겠다.",
+      "visual_description": "날짜별 판매 상위 3개 제품 누적 막대그래프에서 제품 26이 422개 팔린 시점을 툴팁으로 강조한다.",
+      "content": "방문자 수가 증가한 약 4일 동안 제품 26의 판매량이 급증했음을 찾아 해당 제품의 조회와 판매를 더 자세히 본다."
+    },
+    {
+      "chunk_id": "visualization_p31_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 31,
+      "topic": "제품 26 조회·판매 분석",
+      "concepts": [
+        "제품 26",
+        "조회수",
+        "판매량",
+        "품절",
+        "재고"
+      ],
+      "raw_text": "실습 및 사례\n3. ID 26번 제품 일별 조회 수/판매량\n\n\n\n\n\n            아아 11일부터 엄청 팔리다가 14일날 재고가 떨어지면서 품절됐구나\n               아니 근데 그럼 우리가 이 제품을 광고를 엄청했었나?\n                       광고 효과인가?",
+      "visual_description": "왼쪽 일별 조회수에서 3,205회, 오른쪽 일별 판매량에서 422개가 정점이며 11~14일 이후 판매가 거의 사라지는 두 막대그래프를 비교한다.",
+      "content": "제품 26은 11일부터 조회와 판매가 폭증했지만 14일 재고가 소진되어 품절된 흐름으로 해석한다. 다음으로 광고 효과 여부를 확인한다."
+    },
+    {
+      "chunk_id": "visualization_p32_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 32,
+      "topic": "유입경로별 비율 분석",
+      "concepts": [
+        "Traffic Source",
+        "organic",
+        "paid",
+        "Stacked Bar"
+      ],
+      "raw_text": "실습 및 사례\n4. Traffic Source별 유입비율\n\n\n\n\n\n                에??? 광고(paid)가 아니라 대부분 직접검색(organic)으로 들어온거야?\n                   말도 안 돼. 이게 무슨 일이야 ㅜㅜ",
+      "visual_description": "email·organic·paid·referral·social의 일별 100% 누적 막대에서 급증 기간의 organic 비중이 약 60%로 커진 구간을 검은 상자로 표시한다.",
+      "content": "급증 기간 유입은 광고 paid보다 직접검색 organic이 대부분이어서 광고가 원인이라는 가설을 약화시키고 외부 원인을 찾게 한다."
+    },
+    {
+      "chunk_id": "visualization_p33_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 33,
+      "topic": "정성 조사로 외부 요인 확인",
+      "concepts": [
+        "정성 조사",
+        "외부 요인",
+        "도메인 지식",
+        "2025-07-11"
+      ],
+      "raw_text": "실습 및 사례\n5. 정성 조사 결과\n\n\n                        [연예] 탑스타 T씨, M사 신발 애용하는 것으로 알려져...\n\n                      날짜 : 2025.07.11",
+      "visual_description": "탑스타가 M사 신발을 애용한다는 가상 기사 문구와 운동화를 신은 상어 합성 이미지를 제시한다.",
+      "content": "정성 조사 결과 7월 11일 유명인의 제품 착용 보도가 있었음을 찾아, 시각화만으로 알 수 없던 매출 급증의 외부 원인을 설명한다."
+    },
+    {
+      "chunk_id": "visualization_p34_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 34,
+      "topic": "시각화 시나리오 흐름",
+      "concepts": [
+        "스토리텔링",
+        "방문자 수",
+        "판매 Top3",
+        "유입 경로",
+        "정성 조사"
+      ],
+      "raw_text": "실습 및 사례\n시나리오 정리\n\n\n\n<분석 STEP>\n\n\n  방문자 수       판매 Top3       26번 제품 판매      유입 경로       정성조사\n\n\n\n\n\n                    시각화의 흐름이 존재",
+      "visual_description": "방문자 수→판매 Top3→제품 26 판매→유입 경로→정성조사의 다섯 상자를 화살표로 연결한다.",
+      "content": "하나의 이상 현상에서 질문을 단계적으로 좁혀 정성 조사까지 이어지는 분석 스토리가 존재한다. 대시보드와 보고서는 이 흐름을 독자가 따라갈 수 있게 구성해야 한다."
+    },
+    {
+      "chunk_id": "visualization_p35_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 35,
+      "topic": "시각화 역량과 데이터 하이라키",
+      "concepts": [
+        "데이터 하이라키",
+        "대시보드",
+        "Top-down",
+        "Bottom-up",
+        "스토리"
+      ],
+      "raw_text": "실습 및 사례\n시각화 역량\n\n\n                      “너. 시각화 좀 치는구나?”\n\n                                        데이터에 대한 높은 이해를 기반으로\n         시각화 코드를 빠르게 작성하는가? → X\n                                       스토리 있는 대시보드를 생성하는가? - O\n\n\n데이터 하이라키\n\n\n            매출                                                ☑️ 데이터 간의 계층 구조\n                                                ☑️ 탑 다운 or 바텀 업 방식으로의 데이터 분석 및 시각화\n        제품       프로모션\n                                                ☑️ 대시보드가 스토리를 가지게 되고 이는 대시보드를 보는 사람이\n                                 부가설명 없이도 시각화 결과를 이해하게 됨\n   광고       가격      퀄리티",
+      "visual_description": "매출 아래 제품·프로모션, 제품 아래 광고·가격·퀄리티가 연결된 계층도와 상하 방향 화살표를 보여준다.",
+      "content": "시각화 역량은 코드를 빨리 쓰는 능력보다 데이터의 계층 구조를 이해하고 top-down 또는 bottom-up 흐름으로 부가설명 없이도 이해되는 스토리 있는 대시보드를 만드는 능력이다."
+    },
+    {
+      "chunk_id": "visualization_p36_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 36,
+      "topic": "정리 및 결론 섹션",
+      "concepts": [
+        "정리",
+        "결론"
+      ],
+      "raw_text": "정리 및 결론",
+      "visual_description": "정리 및 결론이라는 큰 제목만 배치된 구분 슬라이드이다.",
+      "content": "시각화의 의의와 실천 원칙을 요약하는 마지막 섹션의 시작이다."
+    },
+    {
+      "chunk_id": "visualization_p37_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 37,
+      "topic": "시각화의 의의와 과정",
+      "concepts": [
+        "인사이트",
+        "의사결정",
+        "목적",
+        "데이터",
+        "차트 선택",
+        "스토리"
+      ],
+      "raw_text": "정리 및 결론\n정리 및 결론\n\n\n시각화의 의의\n\n  결국 데이터의 분석 결과를 제3자에게 가장 효과적으로 나타낼 수 있는 방법 → 이해 못 시키면 시각화할 이유가 없다!\n  데이터로부터 이끌어낸 인사이트와, 이를 기반으로 하는 의사결정을 뒷받침하기 위한 근거로 작용\n\n\n\n시각화 과정\n\n  시각화를 통해 보고자 하는 것이 무엇인가 (목적과 의도)\n  그것을 확인하기 위해 필요한 데이터는 무엇인가\n  어떻게 표현해 전달할 것인가 (라이브러리, 툴 선택 및 차트 선정)\n  시각화의 스토리를 어떻게 구성할 것인가",
+      "visual_description": "시각화의 의의와 과정을 두 묶음의 글머리표로 정리한다.",
+      "content": "시각화는 분석 결과를 제3자에게 효과적으로 전달하고 인사이트 기반 의사결정을 뒷받침한다. 목적과 의도, 필요한 데이터, 표현 도구·차트, 스토리 구성의 순서로 설계한다."
+    },
+    {
+      "chunk_id": "visualization_p38_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 38,
+      "topic": "시각화 실천 원칙",
+      "concepts": [
+        "디자인",
+        "AI 활용",
+        "정성 조사",
+        "도메인 지식",
+        "한계"
+      ],
+      "raw_text": "정리 및 결론\n정리 및 결론\n\n\n전해드리고 싶은 말\n\n\n  시각화는 어렵다!\n    시각화는 몇 개의 그림을 나열하여서 분석의 목적, 결과를 모두 보여주어야 하는 과정\n    설득력을 높이기 위해서 디자인적인 요소는 반드시 고려되어야 합니다. (ex. 고객사의 톤앤매너 맞추기)\n    코드를 잘 짜는 것이 시각화의 역량은 아니라고 생각합니다. 시각화 할 때는 AI 적극 사용하자!\n\n\n  시각화는 정답이 없습니다. 많-이 생각하고 많-이 그리면서 데이터에 맞는 시각화 방식을 찾는 것이 중요합니다.\n\n\n  데이터 시각화를 통해 모든 결과를 확인하고, 모든 문제의 원인을 파악할 수는 없습니다.\n    시나리오처럼 결국에는 내부 요인이 아닌 외부 요인에 의한, 즉 시각화로는 알 수 없는 요인이 변수가 될 수도 있음\n    시각화 + 정성적 조사(도메인 지식 등)을 결합한다면 더욱 분석결과를 합리적이고 효과적으로 나타낼 수 있지 않나합니다!",
+      "visual_description": "전하고 싶은 말을 긴 글머리표로 정리하며 시각화의 어려움, 디자인, AI 활용, 정답의 부재, 정성 조사 결합을 강조한다.",
+      "content": "몇 개의 그림만으로 목적과 결과를 전달해야 하므로 디자인과 청중의 톤앤매너가 중요하다. 코딩만이 역량은 아니며 AI를 활용할 수 있다. 시각화로 모든 원인을 알 수 없으므로 도메인 지식과 정성 조사를 결합해야 한다."
+    },
+    {
+      "chunk_id": "visualization_p39_01",
+      "lecture_id": "visualization",
+      "lecture_name": "시각화",
+      "page": 39,
+      "topic": "시각화 강의 마무리",
+      "concepts": [
+        "데이터 시각화"
+      ],
+      "raw_text": "감사합니다",
+      "visual_description": "감사합니다라는 큰 문구로 강의를 마무리한다.",
+      "content": "데이터 시각화 강의의 종료 페이지이다."
+    }
+  ]
+}

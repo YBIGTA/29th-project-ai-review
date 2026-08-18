@@ -114,6 +114,7 @@ def process_lecture(
         store = LectureVectorStore(
             path=settings.vector_db_path,
             collection_name=settings.collection_name,
+            embedding_model=settings.embedding_model,
         )
         indexed_chunks = store.upsert_lecture(document, embeddings)
         LOGGER.info("ChromaDB 저장: %s chunks", indexed_chunks)

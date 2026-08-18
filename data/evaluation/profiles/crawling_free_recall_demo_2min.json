@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "crawling_free_recall_demo_2min",
+  "lecture_id": "crawling",
+  "mode": "free_recall",
+  "target_seconds": 105,
+  "max_seconds": 120,
+  "description": "중간발표용 최대 2분 크롤링 자유 설명 평가 범위",
+  "objective_groups": [
+    {"group_id": "crawling_concepts", "title": "크롤링의 목적과 스크래핑 비교", "weight": 20, "minimum_objectives": 1, "candidate_objective_ids": ["crawling.purpose", "crawling.scraping_comparison"]},
+    {"group_id": "crawling_pipeline", "title": "웹 구조와 수집 도구 선택", "weight": 60, "minimum_objectives": 2, "candidate_objective_ids": ["crawling.html_structure", "crawling.http_requests", "crawling.beautifulsoup_pipeline", "crawling.selenium_automation", "crawling.tool_selection"]},
+    {"group_id": "crawling_responsibility", "title": "책임 있는 데이터 수집", "weight": 20, "minimum_objectives": 1, "candidate_objective_ids": ["crawling.responsible_collection"]}
+  ],
+  "relation_groups": [
+    {"group_id": "crawling_pipeline_relations", "title": "HTML·HTTP·도구 선택 흐름", "weight": 65, "minimum_relations": 1, "candidate_relation_ids": ["crawling.r2", "crawling.r3", "crawling.r4", "crawling.r5", "crawling.r6"]},
+    {"group_id": "crawling_safety_relations", "title": "수집 과정과 책임 연결", "weight": 35, "minimum_relations": 1, "candidate_relation_ids": ["crawling.r7", "crawling.r8", "crawling.r9"]}
+  ],
+  "chain_groups": [
+    {"group_id": "crawling_any_chain", "title": "크롤링 핵심 설명 체인", "weight": 100, "minimum_chains": 1, "candidate_chain_ids": ["crawling.chain_static", "crawling.chain_tool_choice"]}
+  ]
+}

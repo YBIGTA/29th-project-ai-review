@@ -86,3 +86,32 @@ class SearchHit(StrictModel):
     topic: str
     content: str
     distance: float
+
+
+class TranscriptSegment(StrictModel):
+    segment_id: str = Field(min_length=1)
+    index: int = Field(ge=1)
+    text: str = Field(min_length=1)
+
+
+class SegmentSearchResult(StrictModel):
+    segment: TranscriptSegment
+    hits: list[SearchHit]
+
+
+class EvidenceHit(StrictModel):
+    rank: int = Field(ge=1)
+    chunk_id: str = Field(min_length=1)
+    lecture_id: str = Field(min_length=1)
+    lecture_name: str = Field(min_length=1)
+    page: int = Field(ge=1)
+    topic: str = Field(min_length=1)
+    content: str = Field(min_length=1)
+    best_distance: float
+    matched_segment_ids: list[str] = Field(min_length=1)
+
+
+class TranscriptSearchResult(StrictModel):
+    lecture_id: str = Field(min_length=1)
+    segment_results: list[SegmentSearchResult] = Field(min_length=1)
+    evidence: list[EvidenceHit]

@@ -1,0 +1,664 @@
+{
+  "lecture_id": "basic_statistics",
+  "lecture_name": "기초통계",
+  "source_file": "기초통계.pdf",
+  "chunks": [
+    {
+      "chunk_id": "basic_statistics_p1_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 1,
+      "topic": "기초 통계 강의 표지",
+      "concepts": [
+        "기초 통계"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\n기초 통계\n\n\n\n\n\n                               28기 전영찬",
+      "visual_description": "2026 Summer YBIGTA 기초 통계 강의 표지이며 발표자는 28기 전영찬으로 표시된다.",
+      "content": "2026 Summer YBIGTA 기초 통계 강의의 표지이다."
+    },
+    {
+      "chunk_id": "basic_statistics_p2_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 2,
+      "topic": "기초 통계 강의 목차",
+      "concepts": [
+        "확률 복습",
+        "가설검정",
+        "회귀분석"
+      ],
+      "raw_text": "목 차\n\n 1.  Review\n\n 2. Hypothesis Testing\n\n 3. Regression Analysis",
+      "visual_description": "Review, Hypothesis Testing, Regression Analysis의 세 섹션이 번호와 함께 배치되어 있다.",
+      "content": "강의는 확률·통계 복습, 가설검정, 회귀분석 순서로 구성된다."
+    },
+    {
+      "chunk_id": "basic_statistics_p3_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 3,
+      "topic": "확률·통계 복습",
+      "concepts": [
+        "확률",
+        "통계"
+      ],
+      "raw_text": "Review",
+      "visual_description": "Review 섹션의 시작을 알리는 구분 슬라이드이다.",
+      "content": "확률변수, 표본, 공분산, 조건부확률을 복습하는 섹션의 시작 페이지이다."
+    },
+    {
+      "chunk_id": "basic_statistics_p4_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 4,
+      "topic": "확률변수와 기댓값·분산",
+      "concepts": [
+        "확률변수",
+        "기댓값",
+        "분산",
+        "표준편차"
+      ],
+      "raw_text": "주제1\nBrief Review\n\n확률변수 : 표본공간 (발생 가능한 사건의 집합)의 원소를 실수로 대응시키는 함수\n\n기댓값(Expected Value) : 어떤 시행을 무한히 반복했을 때 얻을 수 있는 값들의 평균\n\n분산 (Variable) : 데이터가 평균에서 얼마나 떨어져 있는지를 나타내는 수치",
+      "visual_description": "동전 표본공간을 확률변수 값으로 대응시키는 도식, 이산·연속 기댓값 공식, 평균은 같지만 표준편차가 다른 두 정규분포 곡선이 제시된다.",
+      "content": "확률변수는 표본공간의 결과를 수치에 대응한다. 기댓값은 확률가중평균이고, 분산과 표준편차는 평균 주변의 퍼짐을 나타낸다."
+    },
+    {
+      "chunk_id": "basic_statistics_p5_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 5,
+      "topic": "모집단과 표본",
+      "concepts": [
+        "모집단",
+        "표본",
+        "표본추출",
+        "군집표본",
+        "층화표본",
+        "단순무작위표본"
+      ],
+      "raw_text": "주제1\n모집단과 표본\n\n\n                              표본추출을 통해 모집단을 “추정”한다.\n\n\n                              표본분포의 특성에 따라\n                                                                cluster sampling, stratified sampling,\n                                                        simple random sampling 등의 방법을\n                                   선택한다.\n\n\n                              일부를 통해 전체를 평가하는 것이\n                              타당한 접근인가....?????>?>>?",
+      "visual_description": "큰 모집단 원 안에 작은 표본 원을 겹쳐 일부 고객으로 모든 고객을 추정하는 관계를 나타낸다.",
+      "content": "표본추출로 모집단을 추정한다. 표본분포의 특성에 따라 군집표본추출, 층화표본추출, 단순무작위표본추출 등을 선택하며 표본의 대표성을 검토해야 한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p6_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 6,
+      "topic": "공분산과 상관계수",
+      "concepts": [
+        "공분산",
+        "상관계수",
+        "상관관계",
+        "인과관계"
+      ],
+      "raw_text": "주제1\n공분산과 상관계수\n\nCov(x,y) = E(xy)-E(x)E(y). => 스케일링 : 상관계수\n\n  공분산이 0이면 두 확률변수는 서로 독립이다.\n  통계적 상관관계는 인과관계와 다르다 !!!!!!!!!!",
+      "visual_description": "양의 관계, 음의 관계, 관계 없음의 세 산점도가 사분면별 점 분포로 비교되고 공분산과 상관계수 공식이 함께 제시된다.",
+      "content": "공분산은 두 변수의 함께 변하는 방향을 나타내고 상관계수는 이를 -1과 1 사이로 스케일링한다. 상관관계는 인과관계와 다르다. 강의안에는 공분산이 0이면 독립이라고 서술되어 있어 원문 검토가 필요하다."
+    },
+    {
+      "chunk_id": "basic_statistics_p7_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 7,
+      "topic": "조건부확률과 베이즈 정리",
+      "concepts": [
+        "조건부확률",
+        "베이즈 정리",
+        "전체확률법칙",
+        "전체기댓값법칙"
+      ],
+      "raw_text": "주제1\n조건부확률과 독립성\n\n                           Bayes Theorem\n                             P(A|B)P(B) = P(B|A)P(A)\n\n                사건 간의 연결고리를 잘 생각해 보자. 어느정도 직관적\n                사고가 있으면 좋음!\n                내가 모르는 사건을 아는 사건으로 접근하는 데 도움을\n                     준다.\n                             ex. law of total probability\n                              E(X) = E(E(X|Y))\n                     => X를 모르니까.. given Y에서 X의 분포를 구하고, 이 조\n              건부 분포의 평균은 Y에 대한 식이니까, 이 식에 대한 평균\n              을 한번 더 때려주는 것 !!!",
+      "visual_description": "조건부확률 공식과 A·B 사건의 벤다이어그램, 베이즈 정리와 반복기댓값 공식이 함께 배치된다.",
+      "content": "조건부확률은 알려진 사건 B 아래에서 A의 확률을 계산한다. 베이즈 정리는 조건의 방향을 바꾸고, 전체기댓값법칙은 조건부 기댓값을 다시 평균낸다."
+    },
+    {
+      "chunk_id": "basic_statistics_p8_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 8,
+      "topic": "가설검정 섹션",
+      "concepts": [
+        "가설검정"
+      ],
+      "raw_text": "Hypothesis Testing",
+      "visual_description": "Hypothesis Testing이라는 큰 제목의 구분 슬라이드이다.",
+      "content": "가설 설정, 오류, p-value, 신뢰구간과 ANOVA를 다루는 섹션의 시작 페이지이다."
+    },
+    {
+      "chunk_id": "basic_statistics_p9_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 9,
+      "topic": "가설검정 절차",
+      "concepts": [
+        "귀무가설",
+        "유의수준",
+        "검정통계량",
+        "p-value"
+      ],
+      "raw_text": "주제2\nStructure\n\n                                          Step1. 귀무 대립가설 세우기\n\n                                        Step2. 유의수준 선택\n\n                                        Step3. 검정통계량 계산\n\n                                       Step4. p-value 계산\n\n                                        Step5. 귀무가설에 대한 판단\n                                            (accept? reject?)",
+      "visual_description": "왼쪽에는 자료 유형과 정규성에 따른 검정법 선택 트리가 있고, 오른쪽에는 가설검정의 다섯 단계가 나열된다.",
+      "content": "가설검정은 귀무·대립가설 설정, 유의수준 선택, 검정통계량 계산, p-value 계산, 귀무가설 판단의 순서로 진행한다. 자료 특성과 가정에 따라 검정법을 선택한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p10_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 10,
+      "topic": "귀무가설을 기각하는 구조",
+      "concepts": [
+        "귀무가설",
+        "대립가설",
+        "귀류법"
+      ],
+      "raw_text": "주제2\nWhy??\n\n왜 하필 “귀무가설을 기각“하는 구조일까?\n→ 특정 가설이 참임을 데이터로 직접 입증하는 건 논리적으로 불가능에 가깝다.\n 귀류법을 사용하여 결론의 모순을 찾는 방식으로 접근한다.\n\n\n귀무가설은 왜 “차이 없음“이 기본값인가? (H0 : mu1 - mu2 =0)\n→목표는 귀무가설 하에서 ~~~임을 보이는 것 - 귀무가설은 적어도 계산이 가능해야 한다\n   : 차이 없음 (딱 하나의 분포)으로 둠으로써 계산을 용이하게 만드는 것",
+      "visual_description": "텍스트로 귀무가설을 기본값으로 두는 논리를 질문과 화살표로 설명한다.",
+      "content": "특정 가설을 직접 증명하기 어렵기 때문에 귀무가설 아래에서 관측 결과의 모순을 찾는 귀류법적 구조를 사용한다. 차이 없음은 하나의 분포로 계산 가능한 기본값 역할을 한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p11_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 11,
+      "topic": "1종 오류와 2종 오류",
+      "concepts": [
+        "1종 오류",
+        "2종 오류",
+        "alpha",
+        "beta",
+        "검정력"
+      ],
+      "raw_text": "주제2\nType 1, 2 error\n\n\n                          1종오류 : 귀무가설이 실제로 참이지만, 귀무\n                      가설을 기각하는 오류\n                      → 실제 음성인 것을 양성으로 판정\n                      → 가설검정에서의 alpha\n\n\n                         2종오류 : 귀무가설이 실제로 거짓이지만, 귀\n                      무가설을 채택하는 오류\n                      → 실제 양성인 것을 음성으로 채택하는 오류\n                      → beta (power..)",
+      "visual_description": "임신 여부를 잘못 판정하는 두 사진으로 false positive와 false negative를 대비한다.",
+      "content": "1종 오류는 참인 귀무가설을 기각하는 오류로 alpha와 연결되고, 2종 오류는 거짓 귀무가설을 기각하지 못하는 오류로 beta 및 검정력과 연결된다."
+    },
+    {
+      "chunk_id": "basic_statistics_p12_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 12,
+      "topic": "오류의 트레이드오프",
+      "concepts": [
+        "1종 오류",
+        "2종 오류",
+        "의사결정 임계값",
+        "트레이드오프"
+      ],
+      "raw_text": "주제2\nTradeoff\n\n                        H0 : 관심없다! H1 : 그녀도 나를 좋아한다\n                        H0 기각 : 고백한다 / 채택 : 가만히 있는다\n\n                    1종오류 : 관심없는데 고백해서 차임..\n                            (H0 참, H0 기각) → 눈에 보이는 .. 즉각적인 아픔\n                   2종오류 : 그녀도 나를 좋아하는데 못 알아채고 놓침\n                            (H0 거짓, H0 채택) → 애초에 놓쳤다는 사실조차 모른다\n                                                  : 안 보이는 기회비용\n\n\n  확신이 서야만 고백한다는 기준을 빡빡하게 잡을수록, 차일 위험은 줄어들지만 (1종오류 줄어듬) 진\n  짜 기회를 놓치는 경우 (2종오류) 가 늘어난다\n  조금이라도 신호가 있으면 고백한다로 잡으면.. 차일 위험은 늘어나고 (1종오류 증가)\n  기회를 덜 놓칠 수 있다 (2종오류 감소)!!",
+      "visual_description": "고백 여부와 상대의 호감 여부를 2×2 표로 나타낸 연애 비유와 두 오류의 비용이 설명된다.",
+      "content": "판정 기준을 엄격하게 잡으면 1종 오류는 줄지만 2종 오류가 늘고, 느슨하게 잡으면 반대가 된다. 어떤 오류가 더 비싼지에 따라 임계값을 정해야 한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p13_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 13,
+      "topic": "1종·2종 오류의 분포 표현",
+      "concepts": [
+        "귀무가설 분포",
+        "대립가설 분포",
+        "1종 오류",
+        "2종 오류"
+      ],
+      "raw_text": "주제2",
+      "visual_description": "겹치는 두 종 모양 분포에서 귀무가설과 대립가설을 표시하고, 경계 양쪽의 1종 오류 영역은 빨강, 2종 오류 영역은 청록으로 칠했다.",
+      "content": "귀무가설과 대립가설의 분포가 겹치면 하나의 판정 경계에서 1종 오류와 2종 오류가 동시에 발생할 수 있으며 두 영역 사이에 트레이드오프가 생긴다."
+    },
+    {
+      "chunk_id": "basic_statistics_p14_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 14,
+      "topic": "p-value의 정의와 해석",
+      "concepts": [
+        "p-value",
+        "귀무가설",
+        "극단성"
+      ],
+      "raw_text": "주제2\nP-value는 “극단성의 척도”\n\n\n                                                           definition: 귀무가설이 참이라 가정했을 때, 지금 관측한\n                              데이터(혹은 그보다 더 극단적인 데이터) 가 나올 확률\n\n                           가정은 이미 고정된 상태에서, 데이터가 그 가정과 얼마나\n                           안 어울리는지를 재는 숫자\n\n                                       P value가 작다\n                           → (1) 진짜 귀무가설이 틀렸다\n                                                             (2) 귀무가설이 맞는데.. 우연히 드문 사건이 발생했다\n\n                                       P value가 작다는 것은, 가정과 데이터 사이에 긴장이 크\n                           다는 신호일 뿐이다.\n                           증거나 데이터가 불충분하다는 것..\n해외 법정에서.. guilty/innocent가 아니라\ngulity/ not guilty로 부르는 이유와 같다!",
+      "visual_description": "귀무가설 분포의 꼬리 영역을 초록색 p-value로 표시하고 관측값 위치와 가능성이 낮은 영역을 함께 나타낸다.",
+      "content": "p-value는 귀무가설이 참이라고 가정했을 때 지금 관측한 데이터 또는 더 극단적인 데이터가 나올 확률이다. 작다는 것은 가정과 데이터 사이의 긴장이 크다는 뜻이지 귀무가설이 거짓일 확률 그 자체가 아니다."
+    },
+    {
+      "chunk_id": "basic_statistics_p15_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 15,
+      "topic": "검정통계량과 표본크기",
+      "concepts": [
+        "검정통계량",
+        "표준오차",
+        "표본크기",
+        "p-value"
+      ],
+      "raw_text": "주제2\n그러나...\n\nBasic format of\n            =>                      표준오차 : 표본크기가 커지면, 작아진다Test statistics\n\n=> n(표본크기) up => 검정통계량 커짐 => p-value가 자연스럽게 작아질 수 밖에...\n\n\n가설검정은 만능이 아니다 - 항상 의심하고 또 의심해야 함\n\n즉,, 언제나\np-value, 신뢰구간 모두를 다 살펴보아야 한다!",
+      "visual_description": "관측된 차이를 그 차이의 불확실성인 표준오차로 나누는 검정통계량 기본형이 제시된다.",
+      "content": "표본크기가 커지면 표준오차가 작아지고 검정통계량이 커져 p-value가 작아지기 쉬우므로, p-value만으로 효과의 실질적 크기를 판단하면 안 된다."
+    },
+    {
+      "chunk_id": "basic_statistics_p16_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 16,
+      "topic": "p-value의 흔한 오류",
+      "concepts": [
+        "p-value",
+        "조건부확률",
+        "통계적 유의성"
+      ],
+      "raw_text": "주제2\nCommon fallacies\n\n   1. p값은 모수에 대한 확률이 아니다\n  p값을 효과가 있다는 대립가설이 틀릴 확률.. 이런 식으로 이해하면 안 된다.\n  확률은 확률변수에나 쓰는 것.. 여기서의 모수는 unknown constant이다.\n\n\n 2.p값은 귀무가설에 대한 믿음의 “정도”를 주지 않는다\n  p값이 0.03이다 <=> 귀무가설이 참일 확률이 3%다????????????????\n\n           중간 다리\n P-value : P(데이터|귀무가설)           하나 빠짐!\n\n 귀무가설이 참일 확률이 ~다 : P(귀무가설|데이터)",
+      "visual_description": "P(데이터|귀무가설)과 P(귀무가설|데이터)를 큰 빨간 글씨와 밈 이미지로 구분한다.",
+      "content": "p-value는 모수에 대한 확률이나 귀무가설이 참일 믿음의 정도가 아니다. P(데이터|귀무가설)와 P(귀무가설|데이터)의 조건 방향을 바꾸어 해석하면 안 된다."
+    },
+    {
+      "chunk_id": "basic_statistics_p17_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 17,
+      "topic": "신뢰구간",
+      "concepts": [
+        "신뢰구간",
+        "점추정",
+        "불확실성",
+        "신뢰수준"
+      ],
+      "raw_text": "주제2\n Confidence Interval\n\n  Definition : 이 구간을 만드는 절차를 무한히 반복했을 때, 그렇게 만들어진 구간들 중 ~~%가\n  true parameter를 포함한다.\n  점추정치는 표본이 바뀔 때 마다 값이 바뀌는 확률변수 - 추정의 확실성에 대한 정보가 없다.\n→ 신뢰구간은 추정의 불확실성을 구간의 폭으로 정량화한다.\n\n  정확도와 정보량은 서로 트레이드오프 관계\n 정확도 (신뢰수준) 을 올리면 임계값이 커져서 구간이 넓어진다 →\n 극단적으로, 100% 신뢰구간은 (-무한, 무한) : 아무 정보도 없는 구간.......... 정보량 down\n\n  두 집단 간의 신뢰구간을 비교하려면.........\n\n  V(x1-x2) = V(x1) + V(x2) - 2Cov(x1, x2) → x1,x2의 신뢰구간을 따로 보면,\n  x1-x2의 신뢰구간과 다른 결과가 나올 수도 있다.",
+      "visual_description": "신뢰구간의 반복표집 정의와 정확도·정보량의 트레이드오프, 두 집단 차이의 분산 공식이 텍스트와 수식으로 제시된다.",
+      "content": "신뢰구간은 동일한 생성 절차를 무한히 반복했을 때 정해진 비율의 구간이 참 모수를 포함하도록 만드는 절차이다. 신뢰수준을 높이면 구간은 넓어지며, 두 집단 차이는 각 집단 구간을 단순 비교하지 말고 차이의 분산으로 계산해야 한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p18_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 18,
+      "topic": "신뢰구간의 흔한 오류",
+      "concepts": [
+        "신뢰구간",
+        "신뢰수준",
+        "구간 폭"
+      ],
+      "raw_text": "주제2\nCommon fallacies\n\n 이 신뢰구간에 모수가 있을 확률이 95%다 ???????????????????\n\n\n 95% 신뢰구간이 90% 신뢰구간보다 항상 더 유용하다????????????????????\n신뢰수준을 올리는 것은 더 좋은게 아니라 더 안전하지만 덜 구체적인 것\n\n 구간이 좁으면 무조건 다 좋은 추정이다?????????????????????????????\n\n신뢰수준을 고정하지 않고 폭만 비교하면 의미가 없다\n\n잘 알고 쓰는 멋진 와빅인이 됩시다..",
+      "visual_description": "잘못된 해석을 질문 형식으로 제시하고 핵심 교정 문장을 빨간색으로 강조한다.",
+      "content": "계산된 특정 95% 신뢰구간에 모수가 있을 확률이 95%라고 해석하면 안 된다. 신뢰수준이 높으면 더 안전하지만 덜 구체적이고, 신뢰수준을 고정하지 않은 채 폭만 비교하는 것도 의미가 없다."
+    },
+    {
+      "chunk_id": "basic_statistics_p19_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 19,
+      "topic": "분산분석의 목적",
+      "concepts": [
+        "ANOVA",
+        "집단 간 변동",
+        "집단 내 변동"
+      ],
+      "raw_text": "주제2\nANOVA\n              분산분석     alysis            rianceAN     Of VA\n→ 두개 이상 그룹의 평균 비교를 분산을 통해 분석한다!\n\nQ. 평균 차이를 검정하는데, 왜 분산을 쓰는데?\n그룹 평균을 직접 비교하는 것이 아니라, 데이터 전체의 변동을 두 가지로 쪼개서 비교한다\n\n그룹 간 변동 : 각 그룹의 평균들이 전체 평균으로부터 얼마나 떨어져 있는가?\n그룹 내 변동 : 같은 그룹 내에서 개별 관측치들이 그룹 평균으로부터 얼마나 떨어져 있는가?\n       (순수한 잡음)\n\n그래서 왜 분산인가 - 평균 차이 자체는 항상 존재하는데,\n“이 차이가 잡음 대비 충분히 큰가?” 를 보는 것이 중요하다\n→ 그룹 내 변동 자체가 분산이라서, 분산을 보는 것이 필요함",
+      "visual_description": "ANOVA의 영문 철자를 크게 분해해 보여주고 평균 차이를 왜 분산으로 검정하는지 설명한다.",
+      "content": "ANOVA는 두 개 이상 집단의 평균 차이를 전체 변동을 집단 간 변동과 집단 내 변동으로 나누어 분석한다. 집단 간 차이가 집단 내 잡음에 비해 충분히 큰지를 본다."
+    },
+    {
+      "chunk_id": "basic_statistics_p20_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 20,
+      "topic": "ANOVA의 F 통계량",
+      "concepts": [
+        "SST",
+        "SSB",
+        "SSW",
+        "자유도",
+        "F 통계량"
+      ],
+      "raw_text": "주제2\n구조\nStep1. 총변동을 분해\nSST = SSB + SSW (증명은 어렵지 않아요 ㅎㅎㅎ)\n\nStep2. 자유도로 정규화\n각 변동을 자유도로 나누어 평균적인 변동 크기로 만들어 준다.\nMSB : SSB/k-1, MSW : SSW/n-k\n\nStep3. ratio(F statistics) 계산하기\nF : MSB/MSW\n\nF가 크다 : 그룹 간 신호가 그룹 내 잡음보다 훨씬 크다\n→ 우연으로 보기 어렵다 → 유의성 판단해보자!!",
+      "visual_description": "총변동 분해, 자유도 정규화, F 비율 계산을 Step 1~3으로 크게 배치한다.",
+      "content": "ANOVA는 SST=SSB+SSW로 변동을 분해하고 자유도로 나눈 MSB와 MSW를 구한다. F=MSB/MSW가 크면 집단 간 신호가 집단 내 잡음보다 크다고 판단한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p21_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 21,
+      "topic": "ANOVA의 주요 가정",
+      "concepts": [
+        "독립성",
+        "정규성",
+        "등분산성",
+        "F 검정"
+      ],
+      "raw_text": "주제2\n Important Assumptions\n1.독립성\n 관측치끼리 서로 영향을 주면 안 된다.\n\n2.정규성\n F분포는 카이제곱분포의 비율 → 카이제곱분포는 표준정규분포의 제곱\n → 정규성이 깨지면 f test 자체가 불가능\n\n3.등분산성\n 모든 그룹의 모분산이 같아야 한다. 한 그룹이 다른 그룹을 방해해선 안 된다.",
+      "visual_description": "독립성, 정규성, 등분산성의 세 가정을 번호로 나열한 텍스트 중심 슬라이드이다.",
+      "content": "ANOVA의 F 검정을 위해 관측치 독립성, 집단별 정규성, 집단 간 등분산성을 점검해야 한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p22_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 22,
+      "topic": "독립성 가정 점검",
+      "concepts": [
+        "독립성",
+        "Durbin-Watson",
+        "자기상관",
+        "연구 설계"
+      ],
+      "raw_text": "주제2\n검정은 어떻게?\n1.독립성\n독립성은 대부분 검정보다는 연구 설계 단계에서 확보하는 가정\n(독립성 위반 : 데이터의 수집 방식 / 인접 관측치들의 영향에서 기인함).\n\n시계열처럼 순서가 있는 경우 : Durbin-Watson 검정으로 autocorrelation 확인\n일반적인 경우 : 데이터 수집 과정 자체를 점검하자.",
+      "visual_description": "독립성은 주로 연구 설계에서 확보한다는 설명과 시계열·일반 자료의 점검법이 구분되어 있다.",
+      "content": "독립성은 데이터 수집과 연구 설계에서 확보하는 것이 우선이다. 순서가 있는 시계열은 Durbin-Watson으로 자기상관을 확인하고 일반 자료는 수집 과정을 점검한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p23_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 23,
+      "topic": "정규성 가정 점검",
+      "concepts": [
+        "Shapiro-Wilk",
+        "Q-Q plot",
+        "정규성",
+        "검정력"
+      ],
+      "raw_text": "2.정규성                                                     주제2\n                        표본 크기가 작을 때 많이 쓴다  1) Shapiro-wilk test\n                          (표본이 아주 크면 아주 작은 정규성 이탈에도 유의\n    H0 : 표본의 모집단이 정규분포를 따른다\n                      함 → 검정력이 너무 좋아지기 때문)\n      Shapiro.test() 메서드를 쓴다                      근데 ? 너무 작아도 검정력이 부족해서 못 잡아냄..\n\n\n  2) Q-Q plot               내 데이터의 Quantile(분위수)와 이론적 분포의 분위수를 짝지어서\n               산점도로 나타낸 것\n               (이론적 분포의 분위수 → 모집단이 정규분포“였다면”, 이놈의 이론적 분위수는\n                        이 정도였을거다! F-1 (pi)를 구하는 것\n\n               산점도가 직선에 가까울수록 정규성 가정이 성립한다.",
+      "visual_description": "Shapiro-Wilk 설명 옆에 이론적 분위수와 표본 분위수가 직선에 가까운 Q-Q plot이 제시된다.",
+      "content": "소표본에서는 Shapiro-Wilk 검정을 사용할 수 있고, Q-Q plot의 점들이 기준 직선에 가까운지 시각적으로 확인한다. 너무 큰 표본과 너무 작은 표본 모두 검정력 해석에 주의한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p24_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 24,
+      "topic": "Kruskal-Wallis 검정",
+      "concepts": [
+        "Kruskal-Wallis",
+        "비모수 검정",
+        "순위",
+        "ANOVA 대안"
+      ],
+      "raw_text": "아근데정규성이없다는데요....어떠카죠...                               주제2\n\nKruskal-Wallis test를 쓰자\n\n  평균이 아니라 rank 기반으로 비교하는 비모수적 검정법\n  원 자료를 순위로 변환하면, 분포의 모양에 의존하지 않고도 그룹 간 위치를\n  검정할 수 있겠다! 라는 아이디어에서 시작한 것\n\n\n항상 분포 가정이 성립한다! 라고 단정짓기는 어렵다\n비모수적 검정법도 알아는 두면? 언젠가 쓸 상황이 오지 않을까요",
+      "visual_description": "정규성이 없을 때 Kruskal-Wallis를 쓰자는 문구가 크게 강조된다.",
+      "content": "Kruskal-Wallis는 원자료를 순위로 바꿔 세 개 이상 독립 집단의 위치 차이를 비교하는 비모수 검정으로, one-way ANOVA의 대안이 될 수 있다."
+    },
+    {
+      "chunk_id": "basic_statistics_p25_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 25,
+      "topic": "Kruskal-Wallis 절차 참고자료",
+      "concepts": [
+        "Kruskal-Wallis",
+        "순위합",
+        "H 통계량"
+      ],
+      "raw_text": "한번\n읽어보세요!",
+      "visual_description": "영문 인포그래픽이 검정의 가정, 모든 관측값 순위화, 집단별 순위합, H 통계량과 활용 예시를 한 장에 정리한다.",
+      "content": "Kruskal-Wallis 검정은 모든 집단의 관측값을 합쳐 순위를 매기고 동순위는 평균순위를 부여한 뒤 집단별 순위합으로 H 통계량을 계산한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p26_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 26,
+      "topic": "등분산성 검정",
+      "concepts": [
+        "Levene 검정",
+        "Bartlett 검정",
+        "등분산성",
+        "정규성"
+      ],
+      "raw_text": "3.등분산성                                                   주제2\n  1) Levene’s test\n\n   각 관측치를 그룹 평균으로부터의 절댓값 편차로 변환한 뒤, 그 편차들에 대해 ANOVA를 돌린다\n\n\n\n\n  2) Bartlett’s test\n\n      Levene’s test 보다 검정력은 높다\n\n     근데.. 정규성 가정에 훨씬 민감하다\n\n     그래서.. 정규성이 의심스러우면 Levene이 좀 더 안전한 선택",
+      "visual_description": "Levene 검정의 절대편차 변환 절차와 Bartlett 검정의 장단점을 위아래로 비교한다.",
+      "content": "Levene 검정은 각 관측값을 집단 평균으로부터의 절대편차로 바꾸어 ANOVA를 적용해 분산을 비교한다. Bartlett 검정은 검정력이 높지만 정규성 위반에 민감하므로 의심스러우면 Levene 검정이 안전하다."
+    },
+    {
+      "chunk_id": "basic_statistics_p27_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 27,
+      "topic": "Welch ANOVA",
+      "concepts": [
+        "Welch ANOVA",
+        "이분산성",
+        "자유도 조정"
+      ],
+      "raw_text": "아근데등분산성도없다는데..어떡함??진짜어캄??                         주제2\n\nWelch’s ANOVA\n\n\n일반 ANOVA는 SSW 계산 시 모든 그룹이 같은 분산을 공유한다고 가정\n\n웰치스는 그룹별로 분산이 다르다는 걸 이정하고, 자유도 자체를 조정한다!\n\n\n핵심은.. 같다고 가정 → 어 같지 않네? → 아 그럼 각 그룹 특성 살려서 조정하자\n\n이 아이디어..",
+      "visual_description": "Welch 주스병 이미지를 말장난으로 사용하고 일반 ANOVA와 Welch ANOVA의 차이를 설명한다.",
+      "content": "등분산성이 성립하지 않으면 Welch ANOVA를 사용한다. 그룹별 분산이 다름을 인정하고 그 특성을 반영해 자유도를 조정한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p28_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 28,
+      "topic": "One-way와 Two-way ANOVA",
+      "concepts": [
+        "One-way ANOVA",
+        "Two-way ANOVA",
+        "주효과",
+        "교호작용"
+      ],
+      "raw_text": "주제2\nOne-way anova, Two-way anova\n     One-way                            Two-way\n     마케팅 채널에 따라                            마케팅 채널 x 고객 연령대에 따라                 분석 질문   고객의 평균 금액이 다른가?                             평균 금액이 다른가?\n\n      마케팅 채널(1개)                               마케팅 채널, 연령대                  요인\n\n                                         각 요인 단독 + Interaction Term        TV/SNS/이메일         수준\n\n\n\n                                      Interaction 체크가\n                    필요한 상황..",
+      "visual_description": "마케팅 채널 하나만 보는 질문과 채널×연령대를 보는 질문, 금액 표와 교호작용 수식을 좌우로 비교한다.",
+      "content": "One-way ANOVA는 한 요인의 수준별 평균을 비교한다. Two-way ANOVA는 두 요인의 주효과와 한 요인의 효과가 다른 요인 수준에 따라 달라지는 교호작용을 함께 검정한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p29_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 29,
+      "topic": "Tukey HSD 사후검정",
+      "concepts": [
+        "사후검정",
+        "Tukey HSD",
+        "다중비교",
+        "가족오류율"
+      ],
+      "raw_text": "사후검정                                                      주제2\n\nWhy? - H1 : 적어도 하나는 다르다 ! → 뭐가 다른데?? 어디가 다른데??\n      F test는 그룹들 간 차이가 있다! 만 알려줄 뿐, 어느 쌍이 다른지는 안알려줌\n\n                              다른 방법도 있긴 있는데.. 얘를 제일 많이 씀Tukey HSD (Honestly significant Difference)\n\nKey idea : 모든 쌍 중 가장 크게 벌어진 차이를 기준으로 삼아,\n전체 오류율을 5%로 통제하면서 모든 쌍을 동시에 비교\n\n\n\n\n\n                                                                #코드는이런식으로다가..\n                                                                                                                             import pandas as pd\n                                                                                                                   from statsmodels.stats.multicomp import pairwise_tukeyhsd\n\n                                                                                        # data: 'value' 컬럼(반응변수), 'group' 컬럼(그룹 라벨)\n                                                                                                                         tukey = pairwise_tukeyhsd(endog=data['value'],\n                                                                                                                                                  groups=data['group'],\n                                                                                                                                          alpha=0.05)\n\n                                                                                                                                      print(tukey)\n                                                                                                                                tukey.plot_simultaneous() # 신뢰구간 시각화",
+      "visual_description": "Tukey HSD 판단식과 statsmodels의 pairwise_tukeyhsd 코드 예시가 함께 제시된다.",
+      "content": "ANOVA의 F 검정은 차이가 존재한다는 것만 알려주므로 어떤 집단 쌍이 다른지 사후검정이 필요하다. Tukey HSD는 전체 가족오류율을 통제하며 모든 쌍을 동시에 비교한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p30_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 30,
+      "topic": "Tukey HSD 예제",
+      "concepts": [
+        "Tukey HSD",
+        "iris",
+        "petal_length",
+        "species"
+      ],
+      "raw_text": "Example                                                     주제2",
+      "visual_description": "주피터 노트북 화면에 iris 세 종의 petal_length를 비교하는 코드와 meandiff, p-adj, 신뢰구간, reject 열의 결과표가 보인다.",
+      "content": "iris 자료의 세 species 간 petal_length 평균을 Tukey HSD로 비교한 결과 모든 쌍이 유의하며 setosa와 virginica의 평균 차이가 가장 크게 나타난다."
+    },
+    {
+      "chunk_id": "basic_statistics_p31_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 31,
+      "topic": "회귀분석 섹션",
+      "concepts": [
+        "회귀분석"
+      ],
+      "raw_text": "Regression Analysis",
+      "visual_description": "Regression Analysis라는 큰 제목의 구분 슬라이드이다.",
+      "content": "선형회귀의 원리, 가정, 진단, 다중공선성, 일반화선형모형을 다루는 섹션의 시작 페이지이다."
+    },
+    {
+      "chunk_id": "basic_statistics_p32_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 32,
+      "topic": "상관관계와 회귀분석",
+      "concepts": [
+        "상관계수",
+        "회귀분석",
+        "변화율"
+      ],
+      "raw_text": "주제3\nMotivation\n\n상관계수는 두 변수 관계의 방향과 강도만 말해줄 뿐..\nX가 1만큼 늘어나면 Y가 얼마나 변하는지? 에 대한 정량적 변화율은 말해주지 않는다.\n\n이 변화율을 추정해주는 것이 회귀분석!! 이다....",
+      "visual_description": "같은 양의 관계 산점도를 상관관계와 선형회귀로 나란히 보여주며 회귀 쪽에는 적합 직선이 추가된다.",
+      "content": "상관계수는 변수 관계의 방향과 강도를 요약하지만 X가 변할 때 Y가 얼마나 변하는지 직접 말하지 않는다. 회귀분석은 이 정량적 변화율을 추정한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p33_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 33,
+      "topic": "최소제곱 회귀 추정",
+      "concepts": [
+        "선형모형",
+        "오차항",
+        "최소제곱",
+        "정규방정식"
+      ],
+      "raw_text": "주제3\nHow?",
+      "visual_description": "모델 설정, 제곱오차 목적함수, 행렬 미분과 정규방정식 해를 3단계 설명 상자로 제시한다.",
+      "content": "선형회귀는 Y=Xβ+ε로 모델을 설정하고 잔차제곱합을 최소화한다. 미분한 정규방정식에서 X'X가 가역이면 β̂=(X'X)^(-1)X'Y를 얻으며, 비가역성은 다중공선성과 연결된다."
+    },
+    {
+      "chunk_id": "basic_statistics_p34_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 34,
+      "topic": "단순·다중 선형회귀 해",
+      "concepts": [
+        "단순 선형회귀",
+        "다중 선형회귀",
+        "SSE",
+        "OLS"
+      ],
+      "raw_text": "주제3\n선형회귀",
+      "visual_description": "왼쪽은 단순회귀의 SSE 미분과 기울기·절편 공식을, 오른쪽은 행렬형 다중회귀의 미분과 닫힌해를 빨간 상자로 비교한다.",
+      "content": "단순회귀와 다중회귀 모두 SSE를 계수에 대해 미분해 0으로 두는 최소제곱법으로 추정한다. 단순회귀는 기울기와 절편 공식, 다중회귀는 행렬 정규방정식으로 표현된다."
+    },
+    {
+      "chunk_id": "basic_statistics_p35_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 35,
+      "topic": "선형회귀 가정",
+      "concepts": [
+        "선형성",
+        "외생성",
+        "등분산성",
+        "독립성",
+        "정규성"
+      ],
+      "raw_text": "주제3\n가정\n\n  선형성 : y는 x에 대해 선형이다 (Y=x2 이런 것도 선형.. 파라미터에 대해 선형)\n\n  등분산성 (잔차) → 위배 시 S.E, p-value, t-stat이 다 틀리게 나옴\n\n  정규성 (잔차) → 소표본 검정에서 챙겨야 할 것 / 대표본에서는 CLT 덕분에 근사적으로\n  정규분포가 되어서 ㄱㅊ\n\n  독립성 (잔차) → 오차들끼리 서로 상관성이 없어야 한다는 것",
+      "visual_description": "다섯 가정을 글머리표로 설명하고 위반 시 문제와 확인 도구를 요약한 표를 배치한다.",
+      "content": "선형회귀는 선형성, 오차의 외생성, 등분산성, 독립성, 정규성 가정을 점검한다. 위반하면 계수 왜곡, 표준오차와 p-value 오류, 해석 문제 등이 생기며 잔차도·순서도·Q-Q plot으로 진단한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p36_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 36,
+      "topic": "잔차도 진단",
+      "concepts": [
+        "잔차",
+        "잔차도",
+        "등분산성",
+        "선형성"
+      ],
+      "raw_text": "주제3\nResidual Plot\n\n             잔차는 “설명되지 못한” 부분 - 랜덤성을 가진다.\n\n             잔차를 plot으로 그렸을 때, 패턴이 보인다면\n             → 잔차에 대한 가정이 많이 흔들리는 것\n\n\n\n                                     Y = 결정론적 + 확률론적\n\n                        결정론적 → 우리가 만드는 모델\n                        확률론적 → 모델이 설명하지 못한 부분.. 잔차..!\n                              잔차가 어떤 패턴을 가지면 안 된다.",
+      "visual_description": "좋은 무작위 잔차도와 깔때기형·곡선형의 부적절한 잔차도를 비교하며 각각 등분산성과 선형성 위반으로 표시한다.",
+      "content": "잔차는 모델이 설명하지 못한 확률적 부분이어야 하므로 잔차도에 패턴이 없어야 한다. 깔때기 모양은 이분산성, 곡선 패턴은 선형성 위반 신호이다."
+    },
+    {
+      "chunk_id": "basic_statistics_p37_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 37,
+      "topic": "결정계수",
+      "concepts": [
+        "R²",
+        "조정 R²",
+        "SST",
+        "SSR",
+        "SSE"
+      ],
+      "raw_text": "주제3\n결정계수\n\nR2 : 결정계수 = SSR/SST\n\n\n\n 종속변수 분산 중 모델이 설명하는 비율\n\n 주의할 것들\n 1.변수를 추가하면 R2 는 절대 안 줄어든다 → adjusted R2 사용\n2.R2 가 높다고 예측력 / 인과관계가 보장되지 않는다 : R2 는 in-sample, 인과관계도 아님\n3.R2 는 관측된 X의 분산 범위에 의존적이다 → 다른 연구나 표본의 R2 를 단순 비교하는건 위험",
+      "visual_description": "SST=SSR+SSE 분해와 R² 및 조정 R² 공식이 제시된다.",
+      "content": "R²=SSR/SST는 종속변수 분산 중 모델이 설명한 비율이다. 변수를 추가하면 감소하지 않으므로 조정 R²를 함께 보고, 높은 R²가 예측력이나 인과성을 보장하지 않으며 표본의 X 분산 범위에도 영향을 받는다는 점을 주의한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p38_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 38,
+      "topic": "다중공선성",
+      "concepts": [
+        "다중공선성",
+        "VIF",
+        "PCA",
+        "Ridge",
+        "누락변수편향"
+      ],
+      "raw_text": "주제3\n다중공선성\n\n              설명변수 간 상관관계가 높을 때 발생하는 문제\n               (설명변수들끼리 서로를 설명해 버리는 상황)\n                      XTX → nearly nonsingular... 계수 계산이 불가능하거나\n              계산이 매우 어렵다\n                                                             VIF>10이면 심각한 다중공선성이다.                      VIF로 진단\n                                             (다중공선성 없을 때 분산) * VIF = (있을 때 분산)\n\n                             Rj2 : Xj를 나머지 설명변수들로 회귀했을 때 결정계수\n\n  해결방법 : 문제는 변수 간 상관이 존재한다는 것 → 상관을 제거하자!\n  대표적인 방법이 PCA - 기존의 차원을 직교하는 주성분 차원으로 축소하는 방법\n   Ridge → 계수 공간을 축소, 분산을 줄인다 : bias up (Bias-variance tradeoff)\n  변수 제거도 방법이긴 한데 omitted variable bias의 우려가 있음",
+      "visual_description": "상관행렬 히트맵과 VIF 공식이 제시되고 해결법이 글머리표로 정리된다.",
+      "content": "설명변수끼리 상관이 높으면 X'X가 거의 특이해져 계수 분산과 계산 불안정성이 커진다. VIF로 진단하고 PCA, Ridge, 변수 제거 등을 고려하되 변수 제거에는 누락변수편향 위험이 있다."
+    },
+    {
+      "chunk_id": "basic_statistics_p39_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 39,
+      "topic": "예측력과 해석가능성",
+      "concepts": [
+        "다중공선성",
+        "비편향 추정량",
+        "예측",
+        "해석"
+      ],
+      "raw_text": "주제3\n예측력과 해석가능성\n  다중공선성이 있어도 계수는 여전히 unbiased estimator\n  편향이 생기는 것이 아니라, 분산이 폭증하는 것\n\n\n  결국, 다중공선성은 전체 모델의 예측력에는 크게 영향을 주지 않을 수도 있다\n\n   문제는.. 개별 계수 beta_j를 Xj 하나만의 고유한 효과로 해석하려 할 때 발생\n→ 표준오차가 커서 통계적으로 유의하지 않거나, 계수 부호가 이론적 기대와 반대일 수 있음\n\n\n(정리하면)\n예측이 목적일 때 다중공선성은 상대적으로 덜 치명적이지만,, 개별 변수의 인과적/구조적 해석이 목적\n이면 치명적이다.",
+      "visual_description": "예측 목적과 개별 계수 해석 목적을 텍스트로 대비한다.",
+      "content": "다중공선성은 계수의 편향보다 분산을 키운다. 전체 예측에는 영향이 작을 수 있지만 개별 계수의 고유 효과를 인과적·구조적으로 해석하려면 치명적일 수 있어 목적에 따라 다르게 판단한다."
+    },
+    {
+      "chunk_id": "basic_statistics_p40_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 40,
+      "topic": "일반화선형모형",
+      "concepts": [
+        "GLM",
+        "로지스틱 회귀",
+        "포아송 회귀",
+        "순서형 회귀"
+      ],
+      "raw_text": "주제3\nGLM(Genearlized Linear Model)\n  선형회귀의 가정을 만족시킬 수 없는 경우\n    (Multiple linear regression의 일반화)\n\n\n    Logistic Regression, Poisson Regression, Ordinal Regression\n    등등등......!!",
+      "visual_description": "GLM 제목 아래 선형회귀 가정을 만족시키기 어려운 경우와 대표 모형들을 나열한다.",
+      "content": "일반화선형모형은 다중선형회귀를 일반화해 반응변수의 분포와 연결함수를 달리한다. 로지스틱, 포아송, 순서형 회귀 등이 포함된다."
+    },
+    {
+      "chunk_id": "basic_statistics_p41_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 41,
+      "topic": "로지스틱 회귀",
+      "concepts": [
+        "로지스틱 회귀",
+        "이진 종속변수",
+        "시그모이드",
+        "오즈",
+        "최대우도"
+      ],
+      "raw_text": "주제3\n로지스틱 회귀\n                           종속변수가 Binary일 때 (0 또는 1)\n                           우리가 원하는 것은 확률 = [0,1]!! → 일반 선형회귀는\n                                               0~1 사이의 값만 정확히 뽑아내기 어렵다\n\n                                                     Solution : sigmoid\n\n\n\n\n   Odds ratio              이걸 풀면\n\n\n\n\n 좌변 : 성공 확률 대 실패 확률의 비\n                                                  계수의 추정은\n                                                                                                gradient descent나 mle로 할 수 있다\n 계수의 해석 : X가 1만큼 증가할 때, odds가    배가 된다",
+      "visual_description": "선형회귀 직선과 로지스틱 S자 곡선을 비교하고 시그모이드 확률식, 로그 오즈식, 계수 해석을 수식으로 연결한다.",
+      "content": "이진 종속변수에서는 시그모이드로 예측값을 0과 1 사이 확률로 제한한다. 로그 오즈는 선형예측자와 같고 X가 1 증가하면 오즈는 exp(β1)배가 된다. 계수는 최대우도나 경사하강법으로 추정할 수 있다."
+    },
+    {
+      "chunk_id": "basic_statistics_p42_01",
+      "lecture_id": "basic_statistics",
+      "lecture_name": "기초통계",
+      "page": 42,
+      "topic": "기초 통계 강의 마무리",
+      "concepts": [
+        "기초 통계"
+      ],
+      "raw_text": "감사합니다",
+      "visual_description": "'감사합니다'라는 큰 문구로 강의를 마무리한다.",
+      "content": "기초 통계 강의의 종료 페이지이다."
+    }
+  ]
+}

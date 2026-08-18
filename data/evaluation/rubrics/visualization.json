@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0.0",
+  "lecture_id": "visualization",
+  "lecture_name": "시각화",
+  "evaluation_scope": "시각화의 목적, 데이터·질문에 맞는 표현 선택, 독자 중심 설계와 분석 스토리텔링",
+  "learning_objectives": [
+    {
+      "objective_id": "viz.meaning_benefits",
+      "title": "데이터 시각화의 의미와 이점",
+      "summary": "원자료를 이해 가능한 정보와 의사결정 근거로 전달하는 시각화의 역할을 설명한다.",
+      "importance": 5,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.data_to_information", "text": "원자료는 그 자체로 정보가 아니며 분석을 통해 필요한 정보를 찾아 의사결정 근거로 만들어야 한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 4, "chunk_id": "visualization_p4_01"}]},
+        {"claim_id": "viz.definition", "text": "데이터 시각화는 데이터를 쉽게 이해하도록 차트·그래프·지도 같은 시각 요소로 명확하고 효과적으로 표현하고 전달하는 과정이다.", "essential": true, "weight": 1.4, "evidence": [{"page": 5, "chunk_id": "visualization_p5_01"}]},
+        {"claim_id": "viz.benefits", "text": "시각화는 대용량 데이터의 특성을 빠르게 전달하고 직관적 이해, 의사결정, 스토리텔링을 돕는다.", "essential": true, "weight": 1.3, "evidence": [{"page": 6, "chunk_id": "visualization_p6_01"}]},
+        {"claim_id": "viz.analysis_evidence", "text": "시각화는 이상치나 패턴을 발견하고 분석 근거를 강화하는 도구로 사용할 수 있다.", "essential": true, "weight": 1.0, "evidence": [{"page": 7, "chunk_id": "visualization_p7_01"}, {"page": 8, "chunk_id": "visualization_p8_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.decoration_only", "text": "시각화는 분석이 끝난 뒤 결과를 예쁘게 꾸미는 작업일 뿐이다.", "correction": "데이터 가공·탐색·분석·결과 전달 전반에서 패턴과 근거를 이해하는 데 사용한다.", "severity": "major"}
+      ]
+    },
+    {
+      "objective_id": "viz.design_process",
+      "title": "목적·데이터·독자 중심 설계 절차",
+      "summary": "질문과 가설을 정하고 데이터 특성 및 독자를 파악한 뒤 표현 방식을 선택한다.",
+      "importance": 5,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.set_goal", "text": "시각화 전에 확인하려는 목표와 가설을 먼저 정한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 14, "chunk_id": "visualization_p14_01"}]},
+        {"claim_id": "viz.inspect_data", "text": "변수 유형·분포·표본 수를 파악한 뒤 관계와 특성에 맞는 차트를 선택한다.", "essential": true, "weight": 1.4, "evidence": [{"page": 14, "chunk_id": "visualization_p14_01"}]},
+        {"claim_id": "viz.audience", "text": "결과를 볼 독자의 관점과 배경을 시각화 설계에 반영한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 14, "chunk_id": "visualization_p14_01"}]},
+        {"claim_id": "viz.end_to_end", "text": "시각화는 목적과 의도, 필요한 데이터, 차트와 도구, 스토리 구성의 순서로 설계한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 37, "chunk_id": "visualization_p37_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.chart_first", "text": "먼저 보기 좋은 차트를 고른 다음 그 차트에 맞는 질문을 만든다.", "correction": "목적과 데이터 특성을 먼저 정한 뒤 적합한 차트를 선택한다.", "severity": "major"}
+      ]
+    },
+    {
+      "objective_id": "viz.visual_clarity",
+      "title": "불필요한 요소를 줄인 명료한 표현",
+      "summary": "Figure 구성요소를 이해하고 라벨·범례·그리드·이중축을 목적에 맞게 제한한다.",
+      "importance": 4,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.reduce_clutter", "text": "배경·그리드·불필요한 범례와 그림자 효과를 줄여 핵심 데이터가 드러나게 한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 15, "chunk_id": "visualization_p15_01"}]},
+        {"claim_id": "viz.direct_label", "text": "독자가 범례를 반복해 확인하지 않도록 상황에 따라 직접 라벨링을 고려한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 15, "chunk_id": "visualization_p15_01"}]},
+        {"claim_id": "viz.dual_axis", "text": "이중축은 두 지표의 관계가 명확하고 오해를 만들지 않을 때 제한적으로 사용한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 15, "chunk_id": "visualization_p15_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.more_elements_better", "text": "범례·그리드·그림자·색상을 많이 넣을수록 정보 전달력이 높아진다.", "correction": "정보를 방해하는 요소를 줄이고 핵심 패턴과 라벨의 가독성을 우선한다.", "severity": "minor"}
+      ]
+    },
+    {
+      "objective_id": "viz.amounts_distributions",
+      "title": "수량과 분포에 맞는 차트 선택",
+      "summary": "범주 수량과 연속형 분포의 질문에 맞춰 막대·점·히스토그램·ECDF·박스·바이올린 등을 선택한다.",
+      "importance": 5,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.amount_order", "text": "명목형 범주는 크기순, 순서형 범주는 본래 순서로 정렬하고 긴 라벨에는 가로 막대를 고려한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 16, "chunk_id": "visualization_p16_01"}]},
+        {"claim_id": "viz.stacked_condition", "text": "누적 막대는 개별 범주보다 전체 크기와 구성비가 중요할 때 사용한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 16, "chunk_id": "visualization_p16_01"}]},
+        {"claim_id": "viz.histogram_bandwidth", "text": "히스토그램 bin 폭과 밀도 그래프 bandwidth는 분포가 왜곡되지 않도록 적절히 선택한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 17, "chunk_id": "visualization_p17_01"}]},
+        {"claim_id": "viz.distribution_alternatives", "text": "분포 왜곡을 줄이려면 ECDF, 심한 왜도에는 로그변환, 여러 분포 비교에는 boxplot이나 violin plot을 고려한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 17, "chunk_id": "visualization_p17_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.histogram_bins_irrelevant", "text": "히스토그램의 bin 폭은 분포 해석에 영향을 주지 않는다.", "correction": "bin 폭에 따라 보이는 분포 모양이 달라질 수 있어 적절한 설정이 필요하다.", "severity": "major"}
+      ]
+    },
+    {
+      "objective_id": "viz.proportions",
+      "title": "비율 시각화의 조건과 대안",
+      "summary": "범주 수·비율 차이·시간 변화 여부에 따라 파이·막대·모자이크·트리맵을 선택한다.",
+      "importance": 4,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.pie_condition", "text": "파이차트는 범주가 적고 비율 차이가 직관적으로 구분될 때 유효하다.", "essential": true, "weight": 1.2, "evidence": [{"page": 18, "chunk_id": "visualization_p18_01"}]},
+        {"claim_id": "viz.avoid_pie", "text": "범주가 많거나 비율이 비슷하면 파이차트를 피하고 비교하기 쉬운 다른 표현을 고려한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 18, "chunk_id": "visualization_p18_01"}]},
+        {"claim_id": "viz.proportion_alternatives", "text": "시간별 비율 변화에는 병렬·누적 막대, 계층·겹침 관계에는 mosaic plot이나 treemap 같은 대안을 고려한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 18, "chunk_id": "visualization_p18_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.pie_for_many", "text": "범주 수와 비율 차이에 상관없이 파이차트가 비율 비교에 항상 가장 좋다.", "correction": "범주가 많거나 비율이 유사하면 각도 비교가 어려워 다른 차트를 선택한다.", "severity": "major"}
+      ]
+    },
+    {
+      "objective_id": "viz.relationships_uncertainty",
+      "title": "변수 관계·공간·불확실성 표현",
+      "summary": "관계의 차원과 데이터 형태에 맞게 위치·크기·색·지도·오차 표현을 선택한다.",
+      "importance": 4,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.multivariate", "text": "세 변수 이상 관계는 산점도의 위치 외에 크기나 색을 추가해 표현할 수 있다.", "essential": true, "weight": 1.0, "evidence": [{"page": 19, "chunk_id": "visualization_p19_01"}]},
+        {"claim_id": "viz.dimension_reduction", "text": "고차원 데이터는 PCA·t-SNE·UMAP 등으로 차원을 낮춰 시각화할 수 있다.", "essential": false, "weight": 0.8, "evidence": [{"page": 19, "chunk_id": "visualization_p19_01"}]},
+        {"claim_id": "viz.time_series", "text": "시계열에는 선그래프를 사용하고 추세를 보기 위한 smoothing이나 장기 추세를 제거하는 detrending을 고려한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 19, "chunk_id": "visualization_p19_01"}]},
+        {"claim_id": "viz.map_uncertainty", "text": "공간 데이터에는 지도 계열을 사용하고 추정치의 불확실성은 오차막대·신뢰띠·분위수 점도표 등으로 함께 표현한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 20, "chunk_id": "visualization_p20_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.hide_uncertainty", "text": "추정값만 표시하면 충분하며 불확실성은 시각화에서 생략하는 것이 좋다.", "correction": "오차막대나 신뢰띠 등으로 추정의 불확실성을 함께 전달한다.", "severity": "major"}
+      ]
+    },
+    {
+      "objective_id": "viz.color_scale",
+      "title": "데이터 의미에 맞는 색상 척도",
+      "summary": "범주·크기·중심 기준의 차이를 정성형·순차형·양방향 색상척도로 표현한다.",
+      "importance": 4,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.qualitative", "text": "서열 없는 범주는 서로 구분되는 정성형 색상척도를 사용한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 21, "chunk_id": "visualization_p21_01"}]},
+        {"claim_id": "viz.sequential", "text": "값의 크기나 강도에는 밝기 등이 순차적으로 변하는 순차형 색상척도를 사용한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 21, "chunk_id": "visualization_p21_01"}]},
+        {"claim_id": "viz.diverging", "text": "평균이나 0 같은 중심값 양쪽의 대립을 표현할 때는 양방향 색상척도를 사용한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 21, "chunk_id": "visualization_p21_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.color_decorative", "text": "색상은 데이터 의미와 무관하게 장식적으로 선택하면 된다.", "correction": "범주, 순서, 중심 기준 등 데이터 의미에 맞는 색상척도를 선택한다.", "severity": "major"}
+      ]
+    },
+    {
+      "objective_id": "viz.tool_selection",
+      "title": "목적에 맞는 시각화 도구 선택",
+      "summary": "정적·통계·인터랙티브·지도·BI·맞춤형 요구에 따라 라이브러리와 소프트웨어를 선택한다.",
+      "importance": 3,
+      "required": false,
+      "reference_claims": [
+        {"claim_id": "viz.python_tools", "text": "matplotlib은 범용성과 커스터마이징, seaborn은 간결한 통계 그래프, plotly·bokeh는 인터랙티브 웹 시각화, altair는 선언형 문법, folium은 지도에 강점이 있다.", "essential": true, "weight": 1.2, "evidence": [{"page": 22, "chunk_id": "visualization_p22_01"}]},
+        {"claim_id": "viz.software_tools", "text": "Tableau·Power BI·Google Analytics·FineReport·D3.js는 BI, 생태계 연동, 트래픽 분석, 리포트, 맞춤 웹 시각화 등 서로 다른 목적에 사용된다.", "essential": false, "weight": 0.9, "evidence": [{"page": 23, "chunk_id": "visualization_p23_01"}]},
+        {"claim_id": "viz.plotly_structure", "text": "Plotly Figure는 trace 목록인 data와 표현 설정인 layout으로 구성된다.", "essential": false, "weight": 0.8, "evidence": [{"page": 26, "chunk_id": "visualization_p26_01"}]}
+      ],
+      "misconceptions": []
+    },
+    {
+      "objective_id": "viz.review_checklist",
+      "title": "시각화 검수와 피드백",
+      "summary": "내용·색상·라벨·배치·문서화·독자 관점으로 결과를 검수한다.",
+      "importance": 4,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.content_fit", "text": "시각화가 명료하고 독자 중심이며 데이터와 차트가 목적에 맞는지 확인한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 24, "chunk_id": "visualization_p24_01"}]},
+        {"claim_id": "viz.labels_colors", "text": "색이 의도적으로 사용되고 핵심 패턴이 강조되며 제목과 라벨을 읽기 쉬운지 확인한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 24, "chunk_id": "visualization_p24_01"}]},
+        {"claim_id": "viz.arrangement_feedback", "text": "공간 흐름과 비율, 방해 요소, 문서화를 점검하고 다른 사람의 피드백을 받아 개선한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 24, "chunk_id": "visualization_p24_01"}]}
+      ],
+      "misconceptions": []
+    },
+    {
+      "objective_id": "viz.storytelling_limits",
+      "title": "분석 스토리텔링과 시각화의 한계",
+      "summary": "이상 현상에서 질문을 좁혀 원인을 탐색하되 외부·도메인 정보와 정성 조사를 결합한다.",
+      "importance": 5,
+      "required": true,
+      "reference_claims": [
+        {"claim_id": "viz.question_narrowing", "text": "이상 현상을 발견하면 방문자, 제품 판매, 조회·재고, 유입경로처럼 질문을 단계적으로 좁혀 원인 후보를 탐색한다.", "essential": true, "weight": 1.4, "evidence": [{"page": 29, "chunk_id": "visualization_p29_01"}, {"page": 30, "chunk_id": "visualization_p30_01"}, {"page": 31, "chunk_id": "visualization_p31_01"}, {"page": 32, "chunk_id": "visualization_p32_01"}]},
+        {"claim_id": "viz.qualitative_research", "text": "시각화에서 확인되지 않는 외부 원인은 정성 조사와 도메인 지식을 결합해 확인한다.", "essential": true, "weight": 1.4, "evidence": [{"page": 33, "chunk_id": "visualization_p33_01"}, {"page": 38, "chunk_id": "visualization_p38_01"}]},
+        {"claim_id": "viz.story_flow", "text": "대시보드와 보고서는 독자가 분석 질문의 흐름을 따라갈 수 있도록 스토리와 데이터 계층을 구성한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 34, "chunk_id": "visualization_p34_01"}, {"page": 35, "chunk_id": "visualization_p35_01"}]},
+        {"claim_id": "viz.not_causality_alone", "text": "시각화만으로 모든 원인을 확정할 수 없으며 도메인 지식과 추가 조사가 필요하다.", "essential": true, "weight": 1.3, "evidence": [{"page": 38, "chunk_id": "visualization_p38_01"}]}
+      ],
+      "misconceptions": [
+        {"misconception_id": "viz.proves_cause", "text": "차트에서 함께 변하는 패턴을 발견하면 원인이 확정된다.", "correction": "시각화는 패턴과 가설을 제시하지만 외부 요인과 도메인 정보를 추가로 확인해야 한다.", "severity": "major"}
+      ]
+    }
+  ],
+  "relations": [
+    {"relation_id": "viz.r1", "source_objective_id": "viz.meaning_benefits", "target_objective_id": "viz.design_process", "relation_type": "supports", "statement": "시각화의 목적이 정보 전달과 의사결정 지원이므로 설계 전에 질문과 독자를 먼저 정의한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 5, "chunk_id": "visualization_p5_01"}, {"page": 14, "chunk_id": "visualization_p14_01"}]},
+    {"relation_id": "viz.r2", "source_objective_id": "viz.design_process", "target_objective_id": "viz.amounts_distributions", "relation_type": "sequence", "statement": "목적과 데이터 유형·분포를 파악한 뒤 수량 또는 분포에 적합한 차트를 선택한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 14, "chunk_id": "visualization_p14_01"}, {"page": 16, "chunk_id": "visualization_p16_01"}, {"page": 17, "chunk_id": "visualization_p17_01"}]},
+    {"relation_id": "viz.r3", "source_objective_id": "viz.design_process", "target_objective_id": "viz.proportions", "relation_type": "sequence", "statement": "비율 비교라는 목적에서도 범주 수와 시간 변화 여부를 파악한 뒤 파이·막대·모자이크·트리맵을 선택한다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 18, "chunk_id": "visualization_p18_01"}]},
+    {"relation_id": "viz.r4", "source_objective_id": "viz.design_process", "target_objective_id": "viz.relationships_uncertainty", "relation_type": "sequence", "statement": "변수 관계·공간·불확실성 중 무엇을 보여줄지 정한 뒤 적합한 시각적 표현을 선택한다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 19, "chunk_id": "visualization_p19_01"}, {"page": 20, "chunk_id": "visualization_p20_01"}]},
+    {"relation_id": "viz.r5", "source_objective_id": "viz.color_scale", "target_objective_id": "viz.visual_clarity", "relation_type": "supports", "statement": "데이터 의미에 맞는 색상척도와 불필요한 장식 제거가 핵심 패턴을 명확하게 전달한다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 15, "chunk_id": "visualization_p15_01"}, {"page": 21, "chunk_id": "visualization_p21_01"}]},
+    {"relation_id": "viz.r6", "source_objective_id": "viz.design_process", "target_objective_id": "viz.tool_selection", "relation_type": "sequence", "statement": "표현 목적과 상호작용·지도·BI 요구를 정한 뒤 구현 도구를 선택한다.", "directional": true, "importance": 3, "required": false, "evidence": [{"page": 22, "chunk_id": "visualization_p22_01"}, {"page": 23, "chunk_id": "visualization_p23_01"}]},
+    {"relation_id": "viz.r7", "source_objective_id": "viz.visual_clarity", "target_objective_id": "viz.review_checklist", "relation_type": "part_of", "statement": "명료한 라벨·범례·배치와 방해 요소 제거는 최종 시각화 검수의 핵심 항목이다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 15, "chunk_id": "visualization_p15_01"}, {"page": 24, "chunk_id": "visualization_p24_01"}]},
+    {"relation_id": "viz.r8", "source_objective_id": "viz.design_process", "target_objective_id": "viz.storytelling_limits", "relation_type": "sequence", "statement": "분석 목적에서 출발해 질문을 단계적으로 좁히고 독자가 따라갈 수 있는 스토리로 결과를 구성한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 14, "chunk_id": "visualization_p14_01"}, {"page": 34, "chunk_id": "visualization_p34_01"}]},
+    {"relation_id": "viz.r9", "source_objective_id": "viz.storytelling_limits", "target_objective_id": "viz.meaning_benefits", "relation_type": "condition_for", "statement": "시각화가 의사결정 근거가 되려면 보이는 패턴만으로 원인을 확정하지 않고 정성 조사와 도메인 지식으로 보완해야 한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 33, "chunk_id": "visualization_p33_01"}, {"page": 38, "chunk_id": "visualization_p38_01"}]},
+    {"relation_id": "viz.r10", "source_objective_id": "viz.storytelling_limits", "target_objective_id": "viz.review_checklist", "relation_type": "supports", "statement": "분석 흐름과 데이터 계층이 독자에게 자연스럽게 전달되는지 검수하고 피드백으로 개선한다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 24, "chunk_id": "visualization_p24_01"}, {"page": 35, "chunk_id": "visualization_p35_01"}]}
+  ],
+  "relation_chains": [
+    {"chain_id": "viz.chain_design", "title": "시각화 목적에서 데이터 기반 차트 선택까지", "relation_ids": ["viz.r1", "viz.r2"], "importance": 5, "required": true},
+    {"chain_id": "viz.chain_story", "title": "질문 설정에서 분석 스토리와 검수까지", "relation_ids": ["viz.r8", "viz.r10"], "importance": 5, "required": true},
+    {"chain_id": "viz.chain_evidence", "title": "시각적 패턴에서 추가 조사와 의사결정 근거까지", "relation_ids": ["viz.r9", "viz.r1"], "importance": 4, "required": true}
+  ],
+  "excluded_source_claims": [
+    "특정 차트나 라이브러리가 모든 상황에서 최선이라는 식의 절대적 우열은 정답 기준으로 사용하지 않는다.",
+    "시각적 동시 변화만으로 외부 원인이나 인과관계가 확정된다고 평가하지 않는다."
+  ]
+}

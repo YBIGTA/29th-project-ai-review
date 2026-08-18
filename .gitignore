@@ -5,8 +5,11 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 tmp/
-data/processed/
 outputs/cache/
 outputs/core_concepts/
 outputs/logs/
+outputs/indexing/
+outputs/evaluation_inputs/
+outputs/evaluations/
+outputs/scores/
 vector_db/
