@@ -1,19 +1,22 @@
 fastapi>=0.115,<1.0
 uvicorn[standard]>=0.30,<1.0
 python-multipart>=0.0.9,<1.0
-pytest>=8.0,<9.0
 httpx>=0.27,<1.0
-# Optional document text extraction dependency. OCR and vector DB clients are
-# connected by the RAG team behind backend/app/material_processing.py.
 
-faster-whisper>=1.2.1,<2   # hotwords 파라미터는 1.2.1부터 지원
-pymupdf>=1.24                # PDF 텍스트 추출 (C-core라 대용량에 강함, page.get_text()로 충분;
-                              #   pdfplumber는 표 추출 특화라 이 용도엔 불필요)
-pydantic>=2
+# STT and Groq correction
+faster-whisper>=1.2.1,<2
+requests>=2.31
+
+# RAG preprocessing, embeddings, and evaluation
+openai>=1.66.0,<3
+PyMuPDF>=1.24.0,<2
+chromadb>=1.0.0,<2
+
+# Shared configuration and schemas
+pydantic>=2.8.0,<3
+python-dotenv>=1.0.0,<2
 pyyaml>=6
-requests>=2.31               # Groq OpenAI 호환 엔드포인트 호출
-python-dotenv>=1
 
-# dev/test
-pytest>=8
+# Tests
+pytest>=8.0.0,<10
 pytest-mock>=3

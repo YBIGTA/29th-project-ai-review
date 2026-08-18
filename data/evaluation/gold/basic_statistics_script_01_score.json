@@ -1,0 +1,19 @@
+{
+  "case_id": "basic_statistics_script_01",
+  "transcript_source": "../../../../기초통계_대본.txt",
+  "assessment_file": "basic_statistics_script_01_assessment.json",
+  "profile_id": "basic_statistics_free_recall_demo_2min",
+  "review_type": "human_gold_draft",
+  "scores": {
+    "concept_accuracy": 17.26,
+    "core_fulfillment": 27.6,
+    "structural_understanding": 16.0,
+    "total": 60.86
+  },
+  "duration_check": {
+    "word_units": 279,
+    "estimated_minutes_from_stt_scripts": "약 3.2~4.3분",
+    "demo_limit_seconds": 120,
+    "warning": "원문 전체는 2분 데모 제한을 초과할 가능성이 높다. 실제 녹음 전 축약하거나 실제 2분 전사문을 다시 골드 판정해야 한다."
+  }
+}

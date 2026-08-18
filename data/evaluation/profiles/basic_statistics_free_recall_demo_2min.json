@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "basic_statistics_free_recall_demo_2min",
+  "lecture_id": "basic_statistics",
+  "mode": "free_recall",
+  "target_seconds": 105,
+  "max_seconds": 120,
+  "description": "중간발표용 최대 2분 기초통계 자유 설명 평가 범위",
+  "objective_groups": [
+    {"group_id": "stats_hypothesis", "title": "가설검정과 불확실성 해석", "weight": 45, "minimum_objectives": 1, "candidate_objective_ids": ["stats.hypothesis_testing_workflow", "stats.test_errors_power", "stats.p_value_interpretation", "stats.confidence_interval"]},
+    {"group_id": "stats_anova", "title": "ANOVA 원리와 대안", "weight": 25, "minimum_objectives": 1, "candidate_objective_ids": ["stats.anova_logic", "stats.anova_assumptions_alternatives"]},
+    {"group_id": "stats_regression", "title": "회귀분석과 진단", "weight": 30, "minimum_objectives": 1, "candidate_objective_ids": ["stats.regression_ols", "stats.regression_diagnostics", "stats.multicollinearity", "stats.glm_logistic"]}
+  ],
+  "relation_groups": [
+    {"group_id": "stats_testing_relations", "title": "가설검정·ANOVA 판단 흐름", "weight": 60, "minimum_relations": 1, "candidate_relation_ids": ["stats.r2", "stats.r3", "stats.r4", "stats.r5", "stats.r6"]},
+    {"group_id": "stats_regression_relations", "title": "상관·회귀·진단 연결", "weight": 40, "minimum_relations": 1, "candidate_relation_ids": ["stats.r7", "stats.r8", "stats.r9", "stats.r10"]}
+  ],
+  "chain_groups": [
+    {"group_id": "stats_any_chain", "title": "기초통계 핵심 설명 체인", "weight": 100, "minimum_chains": 1, "candidate_chain_ids": ["stats.chain_hypothesis_test", "stats.chain_anova", "stats.chain_regression"]}
+  ]
+}

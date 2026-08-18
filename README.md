@@ -1,325 +1,217 @@
-# 29th-project-ai-review
+# AI 구술 복습 서비스 - RAG
 
-YBIGTA 교육 세션을 사용자가 말로 복습하고, 전사 결과를 RAG 모델 바탕으로 평가하는 AI 구술 복습 서비스입니다.
+강의안 PDF 4개를 페이지별로 구조화하고, Chunk를 Embedding하여 ChromaDB에서
+검색할 수 있게 만드는 MVP 파이프라인입니다.
 
-- FE 브라우저에서 음성 녹음
-- BE에서 Faster-Whisper `medium`, `beam_size=2`로 STT 수행
-- Groq LLM을 이용한 전문용어 및 문맥 보정
-- 보정된 STT JSON을 평가 API로 전달
+## 범위
 
-PDF 업로드는 현재 사용하지 않습니다. 세션 자료와 용어 DB는 사전에 준비되어 있다는 전제입니다.
+- PDF 페이지별 텍스트 추출 및 전체 페이지 고해상도 PNG 렌더링
+- 텍스트와 페이지 이미지를 함께 보는 OpenAI Vision Structured Output 구조화
+- 페이지 캐시 및 재시도
+- 강의별 핵심 개념 JSON 생성
+- OpenAI Embedding 생성
+- ChromaDB 영구 저장
+- 전체 강의 또는 특정 강의 검색 CLI
 
-## 전체 흐름
+STT, 프론트엔드, 로그인, LLM 평가 API 호출은 포함하지 않습니다. 다만 평가 API가
+반환한 의미 판정을 40·40·20점으로 계산하기 위한 rubric, 출력 스키마와 결정론적
+점수 계산기는 `data/evaluation/`과 `src/evaluation.py`에 준비되어 있습니다.
 
-```text
-FE 브라우저 음성 녹음
-  -> POST /api/stt/transcribe
-  -> job_id 반환
-  -> GET /api/stt/transcribe/{job_id} polling
-  -> Faster-Whisper medium, beam=2 전사
-  -> Groq LLM 2차 보정
-  -> transcript_raw / transcript_corrected 반환
-  -> POST /api/reviews/submit
-  -> Mock 평가 JSON 반환
-  -> FE에서 전사문, 점수, 피드백 표시
-```
+## 환경 설정
 
-## 디렉터리 구조
-
-```text
-.
-├── backend/
-│   ├── app/
-│   │   ├── config.py              # 환경변수 및 CORS 설정
-│   │   ├── integrations.py        # 현재 Mock 평가 adapter
-│   │   ├── main.py                # FastAPI 앱 및 API route
-│   │   ├── material_processing.py # 기존 자료 처리 helper
-│   │   ├── schemas.py             # Request/Response Pydantic schema
-│   │   └── storage.py             # 오디오 로컬 저장 helper
-│   └── data/audio/                # 요청 오디오 임시 저장 위치
-├── frontend/fe/
-│   ├── app/                       # Next.js 진입점 및 전역 스타일
-│   ├── components/ReviewApp.tsx   # 녹음, API 호출, 결과 표시 UI
-│   ├── lib/api.ts                 # BE API client와 TypeScript 타입
-│   ├── package.json               # FE 의존성과 실행 명령어
-│   ├── package-lock.json          # npm 의존성 버전 고정
-│   └── tsconfig.json              # TypeScript 설정
-├── src/sttcorrect/
-│   ├── cli/                       # term DB 생성 및 로컬 pipeline CLI
-│   ├── llm/groq_client.py         # Groq API client
-│   ├── stt/whisper_backend.py     # Faster-Whisper wrapper
-│   ├── term_db/                   # 용어 추출 및 prompt 생성
-│   ├── pipeline.py                # STT -> LLM 보정 orchestration
-│   └── schema.py                  # STT 결과 및 term DB schema
-├── data/                          # PDF, term DB, 테스트 음성; Git 제외
-├── results/                       # STT 결과 JSON; Git 제외
-├── tests/                         # BE/STT 단위 테스트
-├── .env.example
-├── .gitignore
-├── requirements.txt
-└── README.md
-```
-
-
-## 기술 스택
-
-| 영역 | 기술 | 역할 |
-|---|---|---|
-| FE | Next.js, React, TypeScript | 녹음, API 호출, 결과 화면 |
-| 음성 입력 | MediaRecorder API | WebM 오디오 생성 |
-| BE | FastAPI, Uvicorn, Pydantic | API, 파일 저장, schema 검증 |
-| STT | Faster-Whisper | 한국어/영어 음성 전사 |
-| 보정 | Groq API | 전문용어, 띄어쓰기, 문장부호 보정 |
-| 평가 | Mock adapter | RAG 연결 전 통합 검증 |
-
-## 설치
-
-프로젝트 루트에서 실행합니다.
+Python 3.11 이상을 권장합니다.
 
 ```bash
-python3 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-FE 의존성:
+준비된 `.env`의 `OPENAI_API_KEY`를 설정합니다. 파일이 없다면
+`.env.example`을 복사해 만듭니다. API 키를 저장소에 커밋하지 마세요.
+
+## PDF 위치
+
+권장 위치는 `data/raw/`이지만, 현재 프로젝트와의 호환을 위해 `data/` 바로
+아래의 기존 한글 PDF 파일도 자동으로 찾습니다. 원본 PDF는 수정하지 않습니다.
+
+## 실행
+
+### 이미 구조화된 JSON으로 ChromaDB 만들기
+
+현재 저장된 구조화 JSON을 사용할 때는 `process_all.py`를 다시 실행하지 않습니다.
+먼저 API를 호출하지 않는 dry-run으로 선별 결과를 확인합니다. 인자를 생략해도
+dry-run이 기본값입니다.
 
 ```bash
-cd frontend/fe
-npm install
-cd ../..
+python scripts/build_vector_db.py --dry-run
 ```
 
-## 환경변수
+선별 기준은 `data/indexing/embedding_manifest.json`에 Chunk ID와 제외 이유를
+명시했습니다. 원본 144개 Chunk는 그대로 보존하고 표지, 목차, 내용 없는 섹션
+구분, 종료 페이지 27개만 인덱싱에서 제외하여 117개를 대상으로 사용합니다.
+
+API 키와 모델 연결은 Chunk 하나로 확인할 수 있습니다. 이 명령은 임베딩 API를
+한 번 호출하지만 ChromaDB에는 쓰지 않습니다.
 
 ```bash
-cp .env.example .env
+python scripts/build_vector_db.py --smoke-test --lecture-id basic_statistics
 ```
 
-루트 `.env`:
-
-```env
-GROQ_API_KEY=your_groq_api_key
-GROQ_MODEL=llama-3.3-70b-versatile
-```
-
-`frontend/fe/.env.local`:
-
-```env
-NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
-```
-
-환경변경 후에는 해당 서버를 재시작합니다. `.env`와 `.env.local`은 커밋하지 않습니다.
-
-## 용어 DB 준비
-
-BE는 FE가 보낸 `topic`에 따라 다음 Term DB 파일 중 하나를 선택합니다.
-
-| FE topic | 입력 PDF | Term DB 파일 |
-|---|---|---|
-| `기초통계` | `기초통계.pdf` | `basic_statistics.json` |
-| `크롤링` | `크롤링.pdf` | `crawling.json` |
-| `EDA/FE` | `EDA&FE.pdf` | `eda_fe.json` |
-| `시각화` | `시각화.pdf` | `visualization.json` |
-
-각 PDF별로 Term DB를 생성합니다.
+확인이 끝난 뒤 선택된 Chunk 전체를 임베딩하고 ChromaDB에 저장합니다.
 
 ```bash
-PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
-  --pdf data/pdfs/기초통계.pdf \
-  --topic 기초통계 \
-  --out data/term_dbs/basic_statistics.json
-
-PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
-  --pdf data/pdfs/크롤링.pdf \
-  --topic 크롤링 \
-  --out data/term_dbs/crawling.json
-
-PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
-  --pdf 'data/pdfs/EDA&FE.pdf' \
-  --topic EDA/FE \
-  --out data/term_dbs/eda_fe.json
-
-PYTHONPATH=src python -m sttcorrect.cli.build_term_db \
-  --pdf data/pdfs/시각화.pdf \
-  --topic 시각화 \
-  --out data/term_dbs/visualization.json
+python scripts/build_vector_db.py --execute
 ```
 
-생성된 Term DB는 PDF에 의존하는 로컬 산출물이므로 Git에 올리지 않습니다. 파일명이 매핑표와 다르면 BE가 해당 topic의 Term DB를 찾지 못합니다.
+한 강의만 구축하려면 `--lecture-id basic_statistics`처럼 제한할 수 있습니다.
+`--execute`를 명시하지 않으면 API 호출과 DB 변경이 발생하지 않습니다. 실제 실행
+기록은 `outputs/indexing/last_index_run.json`에 모델, 입력 해시, 벡터 차원과
+Chunk 수를 남깁니다.
 
-## 서버 실행
+### PDF부터 다시 구조화하기
 
-BE는 프로젝트 루트에서 실행합니다.
+먼저 PDF 텍스트 추출 상태를 확인합니다.
 
 ```bash
-source .venv/bin/activate
-uvicorn backend.app.main:app --reload
+python scripts/inspect_pdfs.py
 ```
 
-- API: `http://127.0.0.1:8000`
-- Swagger: `http://127.0.0.1:8000/docs`
-- Health check: `http://127.0.0.1:8000/health`
-
-FE는 별도 터미널에서 실행합니다.
+한 강의의 앞 페이지 하나로 API 연결을 점검합니다.
 
 ```bash
-cd frontend/fe
-npm run dev
+python scripts/process_one.py basic_statistics --max-pages 1 --skip-core-concepts --skip-index
 ```
 
-브라우저에서 `http://localhost:3000`을 엽니다.
+한 강의를 전체 처리합니다.
 
-## API 계약
+```bash
+python scripts/process_one.py basic_statistics
+```
 
-### `POST /api/stt/transcribe`
+4개 강의를 모두 처리합니다.
 
-`multipart/form-data`로 다음 필드를 받습니다.
+```bash
+python scripts/process_all.py
+```
+
+위 `process_one.py`와 `process_all.py`는 PDF 로드, 페이지 이미지 분석, 구조화 JSON
+생성, 핵심 개념 생성과 인덱싱을 묶은 전체 파이프라인입니다. 기존 구조화 JSON으로
+임베딩만 할 때는 사용하지 마세요.
+
+검색합니다.
+
+```bash
+python scripts/test_search.py "평균은 극단적으로 큰 값의 영향을 받을 수 있다"
+python scripts/test_search.py "결측치와 이상치를 확인한다" --lecture-id eda_fe
+```
+
+2~3분 STT 답변은 한 벡터로 평균내지 않고 의미 단위로 나누어 검색합니다.
+
+```bash
+python scripts/test_long_answer_search.py \
+  --file ../기초통계_대본.txt \
+  --lecture-id basic_statistics \
+  --segment-only
+
+python scripts/test_long_answer_search.py \
+  --file ../기초통계_대본.txt \
+  --lecture-id basic_statistics \
+  --top-k-per-segment 5 \
+  --max-evidence 12
+```
+
+분할은 문단, 문장부호와 `다음으로`, `반면`, `마지막으로` 같은 주제 전환 표현을
+사용하므로 별도 LLM 호출이 없습니다. 모든 의미 단위는 한 번의 Embedding 배치로
+처리하고, 구간별 검색 결과는 중복 Chunk를 제거하면서 각 구간의 근거가 골고루
+남도록 합칩니다. `--show-segment-hits`를 추가하면 구간별 원본 순위도 확인할 수
+있습니다. `--segment-only`는 API를 호출하지 않고 분할 결과만 보여줍니다. 거리
+기준은 교정 사례를 충분히 모으기 전까지 기본적으로 강제하지 않으며, 필요하면
+`--max-distance 0.55`처럼 실험할 수 있습니다.
+
+검색이 검증되면 평가 LLM에 보낼 입력을 준비합니다. 이 단계는 의미 구간 임베딩과
+ChromaDB 검색까지만 수행하며, 평가 LLM 자체는 아직 호출하지 않습니다.
+
+```bash
+python scripts/prepare_evaluation_input.py \
+  --file ../기초통계_대본.txt \
+  --lecture-id basic_statistics \
+  --profile 2min
+```
+
+`--profile 2min`은 중간발표용, `--profile 3min`은 실제 서비스용입니다. 결과는
+기본적으로 `outputs/evaluation_inputs/{lecture_id}_{profile}.json`에 저장됩니다.
+이 파일에는 원문 STT, 의미 구간, 최종 검색 근거, 전체 강의 Rubric, 활성 프로필,
+판정 규칙과 `EvaluationAssessment` 출력 스키마가 포함됩니다. API 키는 저장하지
+않습니다.
+
+준비된 입력을 평가 LLM에 보내 구조화 판정 JSON을 생성합니다.
+
+```bash
+python scripts/evaluate_prepared_input.py \
+  --input outputs/evaluation_inputs/basic_statistics_2min.json
+```
+
+이 명령은 준비 파일에 기록된 모델로 OpenAI Responses API를 한 번 호출합니다.
+결과는 `outputs/evaluations/basic_statistics_2min_assessment.json`에 저장되며, Rubric의
+모든 주장·학습목표·관계·관계 체인 ID가 정확히 한 번씩 반환되지 않으면 저장하지
+않습니다.
+
+구조화 판정 결과를 40·40·20 기준으로 계산합니다. 이 단계는 로컬 계산이며 API를
+호출하지 않습니다.
+
+```bash
+python scripts/score_evaluation_result.py \
+  --assessment outputs/evaluations/basic_statistics_2min_assessment.json \
+  --lecture-id basic_statistics \
+  --profile 2min
+```
+
+점수는 기본적으로 `outputs/scores/{assessment_file_stem}_score.json`에 저장됩니다.
+
+`--force`를 주지 않으면 원문 해시와 모델이 같은 페이지 캐시를 재사용합니다.
+
+모든 페이지는 텍스트 유무나 이미지 감지 결과와 관계없이 비전 분석을 거칩니다.
+기본 렌더링은 160 DPI이고 `VISION_DETAIL=original`을 사용합니다. 이미지에서만
+확인되는 표, 그래프, 수식, 다이어그램, 스크린샷의 정보는 각 Chunk의
+`visual_description`과 `content`에 반영됩니다.
+
+## 주요 출력
 
 ```text
-session_id: string
-topic: string (기본값 DB)
-audio_file: .wav, .webm, .m4a
+data/processed/{lecture_id}.json
+data/indexing/embedding_manifest.json
+outputs/cache/{lecture_id}/page_XXX.json
+outputs/core_concepts/{lecture_id}.json
+outputs/logs/pipeline.log
+outputs/indexing/last_index_run.json
+vector_db/
 ```
 
-오디오를 저장한 뒤 백그라운드 작업을 시작하고 `202 Accepted`와 `job_id`를 즉시 반환합니다. 처리 순서는 Faster-Whisper `medium`/`beam_size=2` 전사, Groq 보정입니다.
-
-Response:
-
-```json
-{
-  "job_id": "job-abc123",
-  "session_id": "demo-session",
-  "topic": "DB",
-  "status": "transcribing"
-}
-```
-
-### `GET /api/stt/transcribe/{job_id}`
-
-FE는 이 endpoint를 주기적으로 조회해 진행 상태를 확인합니다.
-
-```text
-transcribing -> correcting -> corrected
-```
-
-`corrected` 상태가 되면 `transcript_raw`와 `transcript_corrected`가 포함됩니다. 오류가 발생하면 `status`가 `failed`가 되고 `error`가 포함됩니다.
-
-Response:
-
-```json
-{
-  "job_id": "job-abc123",
-  "session_id": "demo-session",
-  "topic": "DB",
-  "transcript_raw": "원본 전사 결과",
-  "transcript_corrected": "보정된 전사 결과",
-  "term_db_used": {
-    "safe": ["RDBMS"],
-    "content_word_collision": [],
-    "particle_collision": []
-  }
-}
-```
-
-### `POST /api/reviews/submit`
-
-STT 결과 JSON을 Request body로 받습니다. 현재 평가 부분은 Mock입니다.
-
-```json
-{
-  "job_id": "job-abc123",
-  "session_id": "demo-session",
-  "topic": "DB",
-  "transcript_raw": "원본 전사 결과",
-  "transcript_corrected": "보정된 전사 결과",
-  "term_db_used": {
-    "safe": [],
-    "content_word_collision": [],
-    "particle_collision": []
-  }
-}
-```
-
-응답은 원본/보정 전사와 함께 다음 평가 구조를 포함합니다.
-
-```json
-{
-  "review_id": "review-abc123",
-  "session_id": "demo-session",
-  "score": 75,
-  "transcript": "원본 전사 결과",
-  "corrected_transcript": "보정된 전사 결과",
-  "quantitative": {
-    "concept_recall": 0.72,
-    "concept_precision": 0.84,
-    "concept_f1": 0.77,
-    "scores": {
-      "accuracy": {"score": 32, "max_score": 40, "rubric_level": 3, "reason": "..."},
-      "coverage": {"score": 29, "max_score": 40, "rubric_level": 3, "reason": "..."},
-      "structural_understanding": {"score": 14, "max_score": 20, "rubric_level": 3, "reason": "..."}
-    },
-    "total": {"score": 75, "max_score": 100, "rubric_level": 3, "reason": "..."}
-  },
-  "qualitative": {
-    "missing_concepts": ["세부 근거와 예시"],
-    "incorrect_concepts": [],
-    "misconnected_concepts": [],
-    "review_suggestions": ["핵심 개념 사이의 관계를 설명해 보세요."]
-  },
-  "status": "mock"
-}
-```
-
-점수 배점은 정확도 40점, 충족도 40점, 구조적 이해도 20점입니다. `201 Created`와 `status: "mock"`이면 현재 Mock 평가까지 정상 처리된 것입니다.
-
-## 로컬 통합 테스트
-
-1. BE를 실행하고 `/health`에서 `{"status":"ok"}`를 확인합니다.
-2. FE를 실행해 `http://localhost:3000`에 접속합니다.
-3. 브라우저에서 녹음을 시작하고 종료합니다.
-4. 전사 원문과 보정문이 FE에 표시되는지 확인합니다.
-5. 점수와 정성 피드백이 표시되는지 확인합니다.
-
-Swagger에서 직접 테스트하려면 `http://127.0.0.1:8000/docs`에서 `POST /api/stt/transcribe`를 먼저 실행하고, 반환된 JSON을 `POST /api/reviews/submit`의 Request body에 넣습니다.
-
-## 테스트 및 정적 검증
-
-프로젝트 루트:
+## 테스트
 
 ```bash
-source .venv/bin/activate
 pytest -q
-python -m compileall -q backend src
 ```
 
-FE:
+## 평가 기준 데이터 검증
+
+평가 기준은 키워드 출현 횟수가 아니라 학습목표, 의미 단위 주장, 개념 관계를
+사용합니다. 모든 근거 페이지와 Chunk 참조를 검사하려면 다음을 실행합니다.
 
 ```bash
-cd frontend/fe
-npm run lint
-npx tsc --noEmit
+python scripts/validate_evaluation_data.py
 ```
 
-단위 테스트와 정적 검증은 외부 API 및 Whisper 모델 호출까지 보장하지 않습니다. 실제 통합 검증은 BE와 FE를 실행한 뒤 별도로 진행합니다.
+공통 채점 정책은 `data/evaluation/scoring_policy.json`, 강의별 기준은
+`data/evaluation/rubrics/`, 대표 교정 사례는
+`data/evaluation/calibration_cases.jsonl`에 있습니다.
 
-## 향후 RAG 통합
+자유 복습 평가 범위는 `data/evaluation/profiles/`에서 선택합니다.
 
-현재 `backend/app/integrations.py`의 Mock 평가를 실제 RAG 평가 adapter로 교체합니다.
+- `*_free_recall_3min.json`: 실제 서비스용 최대 3분 표준 프로필
+- `*_free_recall_demo_2min.json`: 중간발표용 최대 2분 데모 프로필
 
-```text
-사전 구축된 세션 자료
-  -> 텍스트/이미지 처리
-  -> 개념 및 평가 기준 구조화
-  -> 임베딩 및 벡터 저장
-  -> transcript_corrected 평가
-  -> 정량 점수 및 정성 피드백 반환
-```
-
-통합 전 확정할 항목은 다음과 같습니다.
-
-- `topic`과 RAG 자료의 매핑 방식
-- RAG 평가 함수의 입력 형식
-- 정확도, 충족도, 구조적 이해도의 세부 루브릭
-- `quantitative`와 `qualitative` 응답의 최종 형식
-- STT 보정 결과의 추가 후처리 여부
+두 프로필 모두 40·40·20점 체계를 사용하며, 2분 프로필은 강의 영역을 없애는
+대신 각 영역에서 기대하는 설명 수만 줄입니다. 발화 시간 자체에는 점수를 주지
+않습니다.
