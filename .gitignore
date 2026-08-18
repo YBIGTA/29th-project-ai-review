@@ -12,4 +12,3 @@ outputs/indexing/
 outputs/evaluation_inputs/
 outputs/evaluations/
 outputs/scores/
-vector_db/
