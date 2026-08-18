@@ -3,6 +3,8 @@ import os
 import requests
 from dotenv import load_dotenv
 
+from sttcorrect.llm.correction import SYSTEM_INSTRUCTION
+
 
 class GroqLLMClient:
     """Groq의 OpenAI 호환 chat/completions 엔드포인트(https://api.groq.com/openai/v1)를
@@ -22,8 +24,11 @@ class GroqLLMClient:
             headers={"Authorization": f"Bearer {self._api_key}"},
             json={
                 "model": self._model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.2,
+                "messages": [
+                    {"role": "system", "content": SYSTEM_INSTRUCTION},
+                    {"role": "user", "content": prompt},
+                ],
+                "temperature": 0.0,
             },
             timeout=self._timeout,
         )

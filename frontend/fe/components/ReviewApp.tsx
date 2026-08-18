@@ -166,16 +166,10 @@ export default function ReviewApp() {
       setPhase("completed");
     } catch (error) {
       console.error("STT 또는 BE 요청 실패:", error);
-      const transcript = "STT 요청에 실패했습니다.";
-      setReport({
-        ...fallbackReport,
-        session_id: sessionId,
-        transcript,
-        corrected_transcript: transcript,
-      });
-      setStatusText("STT 또는 백엔드 연결에 실패해 mock 결과를 표시합니다.");
-      setProcessStage("complete");
-      setPhase("completed");
+      setReport(null);
+      setStatusText("STT 또는 RAG 평가 연결에 실패했습니다. 백엔드 로그를 확인해 주세요.");
+      setProcessStage("idle");
+      setPhase("idle");
     } finally {
       setIsSubmitting(false);
     }
@@ -374,9 +368,9 @@ export default function ReviewApp() {
               <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
                 <h3 className="mb-3 text-lg font-semibold text-emerald-300">평가 근거</h3>
                 <div className="space-y-3 text-sm leading-6 text-slate-300">
-                  <p><strong className="text-slate-100">정확도:</strong> {report.quantitative.scores.accuracy.reason}</p>
-                  <p><strong className="text-slate-100">충족도:</strong> {report.quantitative.scores.coverage.reason}</p>
-                  <p><strong className="text-slate-100">구조적 이해도:</strong> {report.quantitative.scores.structural_understanding.reason}</p>
+                  <div><strong className="text-slate-100">정확도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.accuracy.reason}</p></div>
+                  <div><strong className="text-slate-100">충족도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.coverage.reason}</p></div>
+                  <div><strong className="text-slate-100">구조적 이해도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.structural_understanding.reason}</p></div>
                 </div>
               </div>
             </div>
@@ -407,10 +401,11 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
     const audioContext = new AudioContext();
     const analyser = audioContext.createAnalyser();
     const source = audioContext.createMediaStreamSource(stream);
-    const values = new Uint8Array(analyser.frequencyBinCount);
     let animationFrame = 0;
 
-    analyser.fftSize = 128;
+    analyser.fftSize = 256;
+    analyser.smoothingTimeConstant = 0.72;
+    const values = new Uint8Array(analyser.fftSize);
     source.connect(analyser);
 
     const draw = () => {
@@ -420,17 +415,39 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
       if (context) {
         context.fillStyle = "#020617";
         context.fillRect(0, 0, width, height);
-        analyser.getByteFrequencyData(values);
-        const barWidth = width / values.length;
+        analyser.getByteTimeDomainData(values);
+        // Render the recent time-domain samples from left to right. This makes
+        // both ends respond to the microphone instead of mapping frequency
+        // bins to the horizontal position.
+        const barCount = 96;
+        const barWidth = width / barCount;
 
-        values.forEach((value, index) => {
-          const barHeight = Math.max(4, (value / 255) * height * 0.8);
-          const gradient = context.createLinearGradient(0, height, 0, height - barHeight);
+        for (let index = 0; index < barCount; index += 1) {
+          const start = Math.floor((index / barCount) * values.length);
+          const end = Math.max(
+            start + 1,
+            Math.floor(((index + 1) / barCount) * values.length),
+          );
+          let energy = 0;
+          for (let sample = start; sample < end; sample += 1) {
+            const normalized = (values[sample] - 128) / 128;
+            energy += normalized * normalized;
+          }
+          const amplitude = Math.sqrt(energy / (end - start));
+          // Keep a visible bar in every horizontal slot while preserving the
+          // relative movement of quiet and loud portions of the input.
+          const barHeight = Math.min(height * 0.86, 12 + amplitude * height * 1.8);
+          const gradient = context.createLinearGradient(0, height / 2, 0, height / 2 - barHeight / 2);
           gradient.addColorStop(0, active ? "#fb7185" : "#22d3ee");
           gradient.addColorStop(1, active ? "#fda4af" : "#a5f3fc");
           context.fillStyle = gradient;
-          context.fillRect(index * barWidth, (height - barHeight) / 2, Math.max(2, barWidth - 2), barHeight);
-        });
+          context.fillRect(
+            index * barWidth,
+            (height - barHeight) / 2,
+            Math.max(1, barWidth - 1),
+            barHeight,
+          );
+        }
       }
       animationFrame = requestAnimationFrame(draw);
     };
@@ -568,6 +585,7 @@ function FeedbackPanel({
     <div className={`rounded-2xl border p-5 ${colorMap[tone]}`}>
       <h3 className="mb-4 text-lg font-semibold">{title}</h3>
       <ul className="space-y-3 text-sm leading-6 text-slate-200">
+        {items.length === 0 && <li className="text-slate-400">해당 항목이 발견되지 않았습니다.</li>}
         {items.map((item) => (
           <li key={item} className="flex gap-2">
             <span className="mt-1 h-2 w-2 rounded-full bg-current" />

@@ -26,7 +26,7 @@ class Feedback(BaseModel):
 
 
 class ScoreDetail(BaseModel):
-    score: int = Field(ge=0)
+    score: float = Field(ge=0)
     max_score: int = Field(gt=0)
     rubric_level: int = Field(ge=0, le=4)
     reason: str
@@ -59,7 +59,7 @@ class ReviewSubmitRequest(BaseModel):
 class ReviewSubmitResponse(BaseModel):
     review_id: str
     session_id: str
-    score: int = Field(ge=0, le=100)
+    score: float = Field(ge=0, le=100)
     transcript: str
     corrected_transcript: str
     quantitative: QuantitativeEvaluation

@@ -7,7 +7,7 @@ from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, UploadF
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
-from .integrations import mock_evaluation
+from .integrations import evaluate_with_rag
 from .schemas import (
     ReviewSubmitRequest,
     ReviewSubmitResponse,
@@ -81,7 +81,22 @@ def create_app() -> FastAPI:
         job = app.state.transcription_jobs.get(request.job_id) if request.job_id else None
         if job is not None:
             job["status"] = "evaluating"
-        evaluation = mock_evaluation(request.transcript_corrected)
+        from openai import OpenAI, OpenAIError
+        from src.config import Settings
+
+        try:
+            rag_settings = Settings.from_env(require_api_key=True)
+            evaluation = evaluate_with_rag(
+                transcript=request.transcript_corrected,
+                topic=request.topic,
+                settings=rag_settings,
+                client=OpenAI(api_key=rag_settings.openai_api_key),
+            )
+        except (FileNotFoundError, RuntimeError, ValueError, OpenAIError) as exc:
+            if job is not None:
+                job["status"] = "failed"
+                job["error"] = str(exc)
+            raise HTTPException(status_code=502, detail=f"RAG 평가에 실패했습니다: {exc}") from exc
         response = ReviewSubmitResponse(
             review_id=f"review-{uuid4().hex[:12]}",
             session_id=request.session_id,
@@ -90,7 +105,7 @@ def create_app() -> FastAPI:
             corrected_transcript=request.transcript_corrected,
             quantitative=evaluation["quantitative"],
             qualitative=evaluation["qualitative"],
-            status="mock",
+            status="evaluated",
         )
         if job is not None:
             job["status"] = "evaluated"
