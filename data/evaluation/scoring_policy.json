@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "total_score": 100,
+  "criteria": {
+    "concept_accuracy": {
+      "max_score": 40,
+      "unit": "사용자가 실제로 표현한 의미 단위 주장",
+      "judgments": {
+        "correct": 1.0,
+        "mostly_correct": 0.75,
+        "partial": 0.5,
+        "incorrect": 0.0,
+        "not_addressed": null
+      },
+      "formula": "40 * weighted_mean(addressed_claim_judgment)",
+      "rules": [
+        "키워드 출현이나 임베딩 유사도를 정확도 점수로 직접 사용하지 않는다.",
+        "표현이 달라도 기준 주장과 의미가 같으면 인정한다.",
+        "조건·적용 범위를 빠뜨렸지만 핵심이 맞으면 mostly_correct 또는 partial로 판단한다.",
+        "잘못된 주장은 연결된 기준 주장을 incorrect로 판정하고 별도 음수 점수는 부여하지 않는다.",
+        "평가 가능한 주장이 하나도 없으면 정확도 점수는 0점으로 처리한다."
+      ]
+    },
+    "core_fulfillment": {
+      "max_score": 40,
+      "unit": "required=true인 학습목표 블록",
+      "judgments": {
+        "complete": 1.0,
+        "substantial": 0.8,
+        "partial": 0.5,
+        "name_only": 0.2,
+        "absent": 0.0
+      },
+      "formula": "40 * sum(objective_importance * fulfillment) / sum(required_objective_importance)",
+      "rules": [
+        "용어를 직접 말하지 않아도 핵심 의미를 설명했으면 인정한다.",
+        "용어만 나열한 경우 name_only를 초과할 수 없다.",
+        "required=false인 보조·사례 목표는 분모에 넣지 않고 피드백과 정확도 근거로만 사용한다.",
+        "자유 복습 평가에서는 활성 프로필의 영역별 후보 중 minimum_objectives만큼 잘 설명한 항목을 반영한다.",
+        "3분 표준과 2분 데모는 점수 비중은 같고 영역별 기대 개념 수만 다르다."
+      ]
+    },
+    "structural_understanding": {
+      "max_score": 20,
+      "relation_score": 16,
+      "chain_score": 4,
+      "relation_judgments": {
+        "explicit_correct": 1.0,
+        "implicit_correct": 0.5,
+        "co_occurrence_only": 0.0,
+        "incorrect": 0.0,
+        "absent": 0.0
+      },
+      "formula": "16 * profile_grouped_relation_match + 4 * profile_grouped_chain_match",
+      "rules": [
+        "두 개념이 함께 등장한 것만으로 관계를 인정하지 않는다.",
+        "관계의 방향·조건·비교 기준이 의미상 맞아야 한다.",
+        "틀린 관계는 구조 점수를 받지 못하며 사실 오류는 개념 정확도에서도 판정한다.",
+        "관계 체인은 relation_ids가 나타내는 두 단계 이상의 흐름이 일관되게 설명될 때 인정한다."
+      ]
+    }
+  },
+  "retrieval_and_judging": {
+    "embedding_role": "사용자 발화와 관련된 주장·학습목표·관계 후보 탐색",
+    "llm_role": "후보와 사용자 발화 간 의미 일치, 조건 충족, 모순 여부 판정 및 근거 구간 추출",
+    "code_role": "확정된 판정값과 중요도를 이용한 결정론적 점수 계산",
+    "required_scan": "검색 누락으로 충족도 점수가 부풀지 않도록 required 학습목표와 관계는 검색 결과와 무관하게 모두 검사한다."
+  },
+  "duration_policy": {
+    "standard_profile": "최대 180초, 권장 120~180초",
+    "demo_profile": "중간발표 최대 120초",
+    "scoring_rule": "실제 발화 시간 자체에는 가산점이나 감점을 주지 않고 활성 프로필의 내용 범위를 적용한다.",
+    "short_answer_rule": "짧은 답변도 제출 가능하지만 다루지 않은 평가 영역의 충족도는 낮아진다.",
+    "long_answer_rule": "제한 시간을 채웠다는 이유로 가산하지 않고 반복 내용은 한 번만 인정한다."
+  },
+  "output_requirements": [
+    "항목별 점수와 총점",
+    "판정에 사용한 사용자 발화 근거 구간",
+    "충족한 핵심 학습목표",
+    "누락한 핵심 학습목표",
+    "잘못 이해한 주장과 교정 피드백",
+    "올바르게 연결한 관계와 누락한 핵심 관계",
+    "참조한 강의안 페이지"
+  ]
+}

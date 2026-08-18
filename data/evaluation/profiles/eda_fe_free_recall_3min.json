@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "eda_fe_free_recall_3min",
+  "lecture_id": "eda_fe",
+  "mode": "free_recall",
+  "target_seconds": 150,
+  "max_seconds": 180,
+  "description": "EDA/FE 강의 전체를 평균 2~3분, 최대 3분 동안 자유롭게 설명하는 표준 평가 범위",
+  "objective_groups": [
+    {"group_id": "eda_process", "title": "EDA·전처리·특성공학의 역할과 탐색 흐름", "weight": 20, "minimum_objectives": 1, "candidate_objective_ids": ["eda.process_roles", "eda.exploration_workflow"]},
+    {"group_id": "eda_preprocessing", "title": "데이터 품질과 전처리 판단", "weight": 35, "minimum_objectives": 2, "candidate_objective_ids": ["eda.missing_outliers", "eda.categorical_encoding", "eda.class_imbalance", "eda.multicollinearity_scaling"]},
+    {"group_id": "eda_feature_engineering", "title": "특성 선택·생성과 누수 방지", "weight": 45, "minimum_objectives": 2, "candidate_objective_ids": ["eda.feature_reduction", "eda.selection_methods", "eda.feature_creation", "eda.data_leakage"]}
+  ],
+  "relation_groups": [
+    {"group_id": "eda_pipeline_relations", "title": "탐색에서 전처리까지의 흐름", "weight": 35, "minimum_relations": 1, "candidate_relation_ids": ["eda.r1", "eda.r2", "eda.r3", "eda.r4", "eda.r5"]},
+    {"group_id": "eda_feature_relations", "title": "특성 축소·선택·생성 연결", "weight": 30, "minimum_relations": 1, "candidate_relation_ids": ["eda.r6", "eda.r7", "eda.r8"]},
+    {"group_id": "eda_leakage_relations", "title": "처리·특성 생성과 누수 방지", "weight": 35, "minimum_relations": 1, "candidate_relation_ids": ["eda.r9", "eda.r10", "eda.r11"]}
+  ],
+  "chain_groups": [
+    {"group_id": "eda_any_chain", "title": "EDA/FE 핵심 설명 체인", "weight": 100, "minimum_chains": 1, "candidate_chain_ids": ["eda.chain_analysis", "eda.chain_feature_engineering", "eda.chain_no_leakage"]}
+  ]
+}

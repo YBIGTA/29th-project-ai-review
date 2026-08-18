@@ -1,0 +1,374 @@
+{
+  "course_id": null,
+  "topic": "시각화",
+  "entries": [
+    {
+      "term": "Color",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PCA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Raw",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Scales",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Content",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ECDF",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Graphs",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Data",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Treemap",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Spatial",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Descriptive",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Relationships",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Trace",
+      "korean_variants": [
+        "데이터의"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tells",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Display",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Figure",
+      "korean_variants": [
+        "작업의"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Uncertainty",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "QA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Text",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Ref",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Matplotlib",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Information",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Pie",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SNE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Plotly",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Visualization",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Traffic",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Intentional",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Intro",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Dash",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Visual",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Wikipedia",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sufficient",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Line",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Amounts",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Mosaic",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Labels",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Arrangement",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Lines",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Checklist",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "STEP",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "AI",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Highly",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Top3",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Layout",
+      "korean_variants": [
+        "그래의"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "UCB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "UMAP",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Distribution",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fundamentals",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Why",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Chart",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Analytics",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ID",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Proportions",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Data Analytics",
+      "korean_variants": [
+        "분석"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "paid",
+      "korean_variants": [
+        "광고",
+        "광고매체"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "organic",
+      "korean_variants": [
+        "직접검색",
+        "자발적"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    }
+  ]
+}

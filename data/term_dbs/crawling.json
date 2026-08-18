@@ -1,0 +1,134 @@
+{
+  "course_id": null,
+  "topic": "크롤링",
+  "entries": [
+    {
+      "term": "Attributes",
+      "korean_variants": [
+        "속성"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Selenium",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Elements",
+      "korean_variants": [
+        "엘리먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agent",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tags",
+      "korean_variants": [
+        "태그"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Web",
+      "korean_variants": [
+        "웹"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "h1",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "HyperTextMarkupLanguage",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "POST",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "REQUESTS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "HTML",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CAPTCHA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Chrome",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GET",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "BeautifulSoup",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "HyperText",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "User",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Crawling",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    }
+  ]
+}
