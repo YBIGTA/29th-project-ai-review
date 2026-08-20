@@ -1,6 +1,7 @@
+import json
 from pathlib import Path
 
-from sttcorrect.schema import TermDB
+from sttcorrect.schema import TermDB, TermEntry
 from sttcorrect.term_db import builder
 from sttcorrect.term_db.collision import CollisionSeed
 
@@ -8,45 +9,118 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SEED_PATH = REPO_ROOT / "config" / "seed_collision_terms.yaml"
 
 SAMPLE_TEXT = (
-    "The RDBMS(알디비엠에스)를 구성하는 핵심 개념은 Table과 Row이다. "
-    "Row - 로우, 각 행을 의미한다. "
+    "The RDBMS 는 관계형 데이터베이스이고, Table 그리고 Row 두 요소로 구성된다. "
     "Neo4j 는 그래프 DB의 예시이다."
 )
 
 
-def test_build_term_db_merges_candidates_with_mapping_pairs(monkeypatch):
+def test_build_term_db_attaches_llm_generated_pronunciation(fake_llm_client, monkeypatch):
     monkeypatch.setattr(builder, "extract_and_dedup", lambda pdf_path: SAMPLE_TEXT)
+    fake_llm_client.response = json.dumps({"RDBMS": "알디비엠에스", "Row": "로우"}, ensure_ascii=False)
 
-    term_db = builder.build_term_db("dummy.pdf", topic="DB", seed_path=str(SEED_PATH))
+    term_db = builder.build_term_db(
+        "dummy.pdf", topic="DB", seed_path=str(SEED_PATH), llm=fake_llm_client
+    )
     entries_by_term = {e.term: e for e in term_db.entries}
 
-    # candidate + mapping-pair 병합: RDBMS는 candidate로도, 괄호 병기로도 등장 -> 하나로 합쳐지고
-    # korean_variants에 "알디비엠에스"가 부착돼야 한다.
-    assert "RDBMS" in entries_by_term
-    assert "알디비엠에스" in entries_by_term["RDBMS"].korean_variants
+    assert entries_by_term["RDBMS"].korean_variants == ["알디비엠에스"]
     assert entries_by_term["RDBMS"].source == "acronym"
 
-    # Row는 candidate + dash 병기 두 군데서 관찰되고, curated 테이블에 의해 particle_collision
-    assert "로우" in entries_by_term["Row"].korean_variants
+    # Row는 LLM이 준 발음이 붙고, curated seed 테이블에 의해 particle_collision으로 분류된다
+    assert entries_by_term["Row"].korean_variants == ["로우"]
     assert entries_by_term["Row"].collision_label == "particle_collision"
 
-    # Neo4j는 alphanumeric candidate로만 존재 (병기 없음)
+    # Neo4j는 LLM 응답에 없으므로 korean_variants가 빈 채로 남는다 (크래시 없이)
     assert entries_by_term["Neo4j"].source == "alphanumeric"
     assert entries_by_term["Neo4j"].korean_variants == []
 
     assert term_db.topic == "DB"
 
 
-def test_build_term_db_creates_mapping_pair_only_entry(monkeypatch):
-    # candidate 정규식으로는 안 걸리는 소문자 영어 용어가 괄호 병기에만 등장하는 경우
-    text = "hello world(헬로월드)는 예시 문장이다."
-    monkeypatch.setattr(builder, "extract_and_dedup", lambda pdf_path: text)
+def test_build_term_db_ignores_llm_hallucinated_term_not_in_candidates(fake_llm_client, monkeypatch):
+    # LLM이 후보 목록에 없는 "Foo"를 지어내 응답에 포함시켜도 최종 DB에 들어가면 안 된다
+    monkeypatch.setattr(builder, "extract_and_dedup", lambda pdf_path: SAMPLE_TEXT)
+    fake_llm_client.response = json.dumps({"RDBMS": "알디비엠에스", "Foo": "푸"}, ensure_ascii=False)
 
-    term_db = builder.build_term_db("dummy.pdf", seed_path=str(SEED_PATH))
+    term_db = builder.build_term_db("dummy.pdf", seed_path=str(SEED_PATH), llm=fake_llm_client)
     entries_by_term = {e.term: e for e in term_db.entries}
-    assert "world" in entries_by_term
-    assert entries_by_term["world"].source == "mapping_pair"
-    assert entries_by_term["world"].korean_variants == ["헬로월드"]
+    assert "Foo" not in entries_by_term
+
+
+def test_fold_case_variants_merges_acronym_and_capitalized_form():
+    entries_by_term = {
+        "Key": TermEntry(term="Key", korean_variants=["키"], collision_label="safe", source="capitalized"),
+        "KEY": TermEntry(term="KEY", korean_variants=["케이"], collision_label="safe", source="acronym"),
+    }
+    folded = builder._fold_case_variants(entries_by_term)
+    # acronym이 capitalized보다 우선순위가 높으므로 canonical 표기는 "KEY"
+    assert list(folded.keys()) == ["KEY"]
+    assert folded["KEY"].korean_variants == ["케이", "키"]
+
+
+def test_fold_case_variants_preserves_agreeing_particle_collision_label():
+    # Row/ROW 둘 다 이미 particle_collision인 케이스 — 병합이 라벨을 깨지 않아야 한다는 sanity check
+    entries_by_term = {
+        "Row": TermEntry(
+            term="Row", korean_variants=["로우"], collision_label="particle_collision", source="capitalized"
+        ),
+        "ROW": TermEntry(term="ROW", korean_variants=[], collision_label="particle_collision", source="acronym"),
+    }
+    folded = builder._fold_case_variants(entries_by_term)
+    assert list(folded.keys()) == ["ROW"]
+    assert folded["ROW"].korean_variants == ["로우"]
+
+
+def test_build_term_db_case_folds_before_calling_llm(fake_llm_client, monkeypatch):
+    # KEY(acronym 후보)와 Key(capitalized 후보)가 같은 텍스트에 섞여 있어도 fold가 먼저 실행돼
+    # LLM에는 canonical 표기 "KEY" 하나로만 물어봐야 한다 (중복 API 호출 낭비 방지)
+    text = "The KEY and Key are important terms."
+    monkeypatch.setattr(builder, "extract_and_dedup", lambda pdf_path: text)
+    fake_llm_client.response = json.dumps({"KEY": "키"}, ensure_ascii=False)
+
+    term_db = builder.build_term_db("dummy.pdf", seed_path=str(SEED_PATH), llm=fake_llm_client)
+    entries_by_term = {e.term: e for e in term_db.entries}
+
+    assert "Key" not in entries_by_term
+    assert "용어 목록: KEY" in fake_llm_client.last_prompt  # fold 후 딱 1개만 LLM에 전달됐는지
+    assert entries_by_term["KEY"].korean_variants == ["키"]
+
+
+def test_build_term_db_includes_compound_term_with_curated_collision_label(fake_llm_client, monkeypatch):
+    text = "PRIMARY KEY는 테이블에서 각 행을 유일하게 식별한다."
+    monkeypatch.setattr(builder, "extract_and_dedup", lambda pdf_path: text)
+    fake_llm_client.response = json.dumps({"PRIMARY KEY": "프라이머리 키"}, ensure_ascii=False)
+
+    term_db = builder.build_term_db("dummy.pdf", seed_path=str(SEED_PATH), llm=fake_llm_client)
+    entries_by_term = {e.term: e for e in term_db.entries}
+
+    assert entries_by_term["PRIMARY KEY"].source == "compound"
+    # seed_collision_terms.yaml의 curated 규칙으로 content_word_collision 분류
+    assert entries_by_term["PRIMARY KEY"].collision_label == "content_word_collision"
+
+
+def test_build_term_db_adds_derived_acronym_when_literal_never_appears(fake_llm_client, monkeypatch):
+    text = "Data Control Language 는 데이터베이스 사용 권한을 관리한다. Transaction Control Language 는 트랜잭션을 제어한다."
+    monkeypatch.setattr(builder, "extract_and_dedup", lambda pdf_path: text)
+    fake_llm_client.response = json.dumps({}, ensure_ascii=False)
+
+    term_db = builder.build_term_db("dummy.pdf", seed_path=str(SEED_PATH), llm=fake_llm_client)
+    entries_by_term = {e.term: e for e in term_db.entries}
+
+    assert entries_by_term["DCL"].source == "derived_acronym"
+    assert entries_by_term["TCL"].source == "derived_acronym"
+
+
+def test_build_term_db_skips_derived_acronym_when_literal_already_present(fake_llm_client, monkeypatch):
+    text = "DDL: 데이터베이스 정의(스키마)를 정의/변경하는 언어이다. Data Definition Language 는 스키마를 정의한다."
+    monkeypatch.setattr(builder, "extract_and_dedup", lambda pdf_path: text)
+    fake_llm_client.response = json.dumps({}, ensure_ascii=False)
+
+    term_db = builder.build_term_db("dummy.pdf", seed_path=str(SEED_PATH), llm=fake_llm_client)
+    entries_by_term = {e.term: e for e in term_db.entries}
+
+    assert [t for t in entries_by_term if t.upper() == "DDL"] == ["DDL"]  # 중복 없음
+    assert entries_by_term["DDL"].source == "acronym"  # 리터럴 source 유지
 
 
 def test_save_and_load_term_db_roundtrip(tmp_path):

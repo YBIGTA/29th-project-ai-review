@@ -17,11 +17,20 @@ class TranscriptionResult(BaseModel):
     term_db_used: TermDBUsed
 
 
+class OrganizedTranscript(BaseModel):
+    """오디오 전사/1차 보정(run_pipeline)과는 별개의 2차 후보정 단계
+    (cli/organize_transcript.py)의 출력. TranscriptionResult와 다른 파일에 저장된다."""
+
+    session_id: str
+    topic: str
+    organized_text: str
+
+
 class TermEntry(BaseModel):
     term: str
     korean_variants: list[str] = Field(default_factory=list)
     collision_label: Literal["safe", "content_word_collision", "particle_collision"]
-    source: Literal["capitalized", "acronym", "alphanumeric", "mapping_pair"]
+    source: Literal["capitalized", "acronym", "alphanumeric", "mapping_pair", "compound", "derived_acronym"]
 
 
 class TermDB(BaseModel):
