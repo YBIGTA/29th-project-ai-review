@@ -113,3 +113,9 @@ class StudySessionResponse(BaseModel):
     hint_used: bool
     started_at: str
     completed_at: str | None = None
+
+
+class HintResponse(BaseModel):
+    session_id: str
+    lecture_id: str
+    key_objectives: list[str]

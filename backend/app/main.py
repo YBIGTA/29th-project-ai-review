@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import logging
 import hashlib
+import json
 import secrets
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 import httpx
 from fastapi import BackgroundTasks, Cookie, FastAPI, File, Form, HTTPException, Response, UploadFile, status
@@ -13,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .database import get_session
-from .models import AuthSession, User, StudySession
+from .models import AuthSession, AudioFile, Evaluation, Transcription, User, StudySession
 from sqlalchemy import select, update
 from .integrations import evaluate_with_rag
 from .schemas import (
@@ -25,6 +26,7 @@ from .schemas import (
     GoogleLoginRequest,
     StudySessionCreateRequest,
     StudySessionResponse,
+    HintResponse,
     UserResponse,
 )
 from .storage import LocalStorage
@@ -123,6 +125,26 @@ def create_app() -> FastAPI:
             rows = db.scalars(select(StudySession).where(StudySession.user_id == user.id).order_by(StudySession.created_at.desc())).all()
             return [_study_session_response(row) for row in rows]
 
+    @app.get("/api/study-sessions/{session_id}/hint", response_model=HintResponse)
+    def get_study_hint(session_id: str, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> HintResponse:
+        user = _get_user_from_cookie(session_cookie)
+        study_session_id = _parse_uuid(session_id)
+        if study_session_id is None:
+            raise HTTPException(status_code=400, detail="session_id는 UUID 형식이어야 합니다.")
+        with get_session() as db:
+            study_session = db.scalar(select(StudySession).where(StudySession.id == study_session_id, StudySession.user_id == user.id))
+            if study_session is None:
+                raise HTTPException(status_code=404, detail="study_session을 찾을 수 없습니다.")
+            rubric_path = Path("data/evaluation/rubrics") / f"{study_session.lecture_id}.json"
+            if not rubric_path.exists():
+                raise HTTPException(status_code=404, detail="해당 lecture의 평가 기준 파일을 찾을 수 없습니다.")
+            rubric = json.loads(rubric_path.read_text(encoding="utf-8"))
+            objectives = rubric.get("learning_objectives", [])
+            key_objectives = [item["title"] for item in objectives if item.get("importance") == 5 and item.get("title")]
+            study_session.hint_used = True
+            db.commit()
+        return HintResponse(session_id=str(study_session_id), lecture_id=study_session.lecture_id, key_objectives=key_objectives)
+
     @app.post("/api/stt/transcribe", response_model=TranscriptionJobResponse, status_code=status.HTTP_202_ACCEPTED)
     async def transcribe_audio(
         background_tasks: BackgroundTasks,
@@ -137,6 +159,7 @@ def create_app() -> FastAPI:
         if term_db_path is None:
             raise HTTPException(status_code=400, detail=f"지원하지 않는 topic입니다: {topic}")
         _review_id, stored_filename = await app.state.storage.save_audio(audio_file)
+        audio_file_id = _persist_audio_file(app, session_id, stored_filename, audio_file)
         job_id = f"job-{uuid4().hex[:12]}"
         app.state.transcription_jobs[job_id] = {
             "job_id": job_id,
@@ -146,6 +169,8 @@ def create_app() -> FastAPI:
             "transcript_raw": None,
             "transcript_corrected": None,
             "error": None,
+            "audio_file_id": audio_file_id,
+            "transcription_id": None,
         }
         background_tasks.add_task(
             _run_transcription_job,
@@ -194,6 +219,7 @@ def create_app() -> FastAPI:
             qualitative=evaluation["qualitative"],
             status="evaluated",
         )
+        _persist_evaluation(request, evaluation, job)
         if job is not None:
             job["status"] = "evaluated"
         return response
@@ -225,6 +251,7 @@ def _run_transcription_job(app: FastAPI, job_id: str, audio_path: str, term_db_p
         if not corrected.strip():
             raise RuntimeError("LLM이 빈 보정 결과를 반환했습니다.")
         job["transcript_corrected"] = corrected
+        job["transcription_id"] = _persist_transcription(job)
         job["status"] = "corrected"
         LOGGER.info("보정 완료: job_id=%s chars=%s", job_id, len(corrected))
     except Exception as exc:
@@ -235,6 +262,56 @@ def _run_transcription_job(app: FastAPI, job_id: str, audio_path: str, term_db_p
 
 def _hash_token(token: str) -> str:
     return hashlib.sha256(token.encode()).hexdigest()
+
+
+def _parse_uuid(value: str | None) -> UUID | None:
+    try:
+        return UUID(value) if value else None
+    except ValueError:
+        return None
+
+
+def _persist_audio_file(app: FastAPI, session_id: str, stored_filename: str, upload: UploadFile) -> str | None:
+    study_session_id = _parse_uuid(session_id)
+    if study_session_id is None:
+        return None
+    with get_session() as db:
+        if db.get(StudySession, study_session_id) is None:
+            raise HTTPException(status_code=404, detail="study_session을 찾을 수 없습니다.")
+        study_session = db.get(StudySession, study_session_id)
+        study_session.status = "processing"
+        row = AudioFile(study_session_id=study_session_id, storage_key=str(app.state.storage.audio_path(stored_filename)), original_filename=upload.filename, mime_type=upload.content_type or "application/octet-stream")
+        db.add(row)
+        db.commit()
+        return str(row.id)
+
+
+def _persist_transcription(job: dict) -> str | None:
+    study_session_id = _parse_uuid(job.get("session_id"))
+    audio_file_id = _parse_uuid(job.get("audio_file_id"))
+    if study_session_id is None or audio_file_id is None:
+        return None
+    with get_session() as db:
+        row = Transcription(study_session_id=study_session_id, audio_file_id=audio_file_id, raw_text=job["transcript_raw"], corrected_text=job["transcript_corrected"], stt_model="faster-whisper-medium", beam_size=5, correction_model="groq")
+        db.add(row)
+        db.commit()
+        return str(row.id)
+
+
+def _persist_evaluation(request: ReviewSubmitRequest, evaluation: dict, job: dict | None) -> None:
+    study_session_id = _parse_uuid(request.session_id)
+    transcription_id = _parse_uuid(job.get("transcription_id") if job else None)
+    if study_session_id is None or transcription_id is None:
+        return
+    scores = evaluation["quantitative"]["scores"]
+    total_score = float(evaluation["quantitative"]["total"]["score"])
+    with get_session() as db:
+        db.add(Evaluation(study_session_id=study_session_id, transcription_id=transcription_id, accuracy_score=scores["accuracy"]["score"], coverage_score=scores["coverage"]["score"], structural_score=scores["structural_understanding"]["score"], total_score=total_score, pass_status="P" if total_score >= settings.pass_score_threshold else "NP", evaluation_json=evaluation))
+        study_session = db.get(StudySession, study_session_id)
+        if study_session is not None:
+            study_session.status = "completed"
+            study_session.completed_at = datetime.now(UTC).replace(tzinfo=None)
+        db.commit()
 
 
 def _get_user_from_cookie(session_cookie: str | None) -> User:
