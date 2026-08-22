@@ -82,3 +82,41 @@ class TranscriptionStatusResponse(BaseModel):
     transcript_raw: str | None = None
     transcript_corrected: str | None = None
     error: str | None = None
+
+
+class GoogleLoginRequest(BaseModel):
+    authorization_code: str = Field(min_length=1)
+    redirect_uri: str = Field(min_length=1)
+
+
+class UserResponse(BaseModel):
+    id: str
+    google_user_id: str
+    nickname: str | None = None
+    profile_image_url: str | None = None
+
+
+class AuthResponse(BaseModel):
+    user: UserResponse
+    expires_at: str
+
+
+class StudySessionCreateRequest(BaseModel):
+    lecture_id: str = Field(min_length=1, max_length=100)
+
+
+class StudySessionResponse(BaseModel):
+    id: str
+    lecture_id: str
+    status: str
+    pass_status: str
+    hint_used: bool
+    started_at: str
+    completed_at: str | None = None
+    total_score: float | None = None
+
+
+class HintResponse(BaseModel):
+    session_id: str
+    lecture_id: str
+    key_objectives: list[str]
