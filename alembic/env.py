@@ -1,10 +1,12 @@
 from logging.config import fileConfig
 from alembic import context
+from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
 from backend.app.models import Base
 from backend.app.database import database_url
 
 config = context.config
+load_dotenv()
 if config.config_file_name:
     fileConfig(config.config_file_name)
 url = database_url() or "postgresql://invalid:invalid@localhost/invalid"

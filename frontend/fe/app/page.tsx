@@ -1,5 +1,5 @@
-import ReviewApp from "@/components/ReviewApp";
+import AuthGate from "@/components/AuthGate";
 
 export default function Home() {
-  return <ReviewApp />;
+  return <AuthGate />;
 }

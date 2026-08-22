@@ -100,7 +100,7 @@ def create_app() -> FastAPI:
         user = _get_user_from_cookie(session_cookie)
         return UserResponse(id=str(user.id), google_user_id=user.google_user_id, nickname=user.nickname, profile_image_url=user.profile_image_url)
 
-    @app.post("/api/auth/logout", status_code=status.HTTP_204_NO_CONTENT)
+    @app.post("/api/auth/logout", response_model=None, status_code=status.HTTP_204_NO_CONTENT)
     def logout(response: Response, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> None:
         if session_cookie:
             with get_session() as db:
