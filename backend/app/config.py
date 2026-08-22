@@ -21,6 +21,7 @@ class Settings:
     google_client_secret: str = os.getenv("GOOGLE_CLIENT_SECRET", "")
     auth_cookie_name: str = os.getenv("AUTH_COOKIE_NAME", "ai_review_session")
     auth_cookie_secure: bool = os.getenv("AUTH_COOKIE_SECURE", "false").lower() == "true"
+    pass_score_threshold: float = float(os.getenv("PASS_SCORE_THRESHOLD", "60"))
 
 
 settings = Settings()
