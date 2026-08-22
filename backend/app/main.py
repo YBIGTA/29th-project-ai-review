@@ -122,8 +122,13 @@ def create_app() -> FastAPI:
     def list_study_sessions(session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> list[StudySessionResponse]:
         user = _get_user_from_cookie(session_cookie)
         with get_session() as db:
-            rows = db.scalars(select(StudySession).where(StudySession.user_id == user.id).order_by(StudySession.created_at.desc())).all()
-            return [_study_session_response(row) for row in rows]
+            rows = db.execute(
+                select(StudySession, Evaluation.total_score)
+                .outerjoin(Evaluation, Evaluation.study_session_id == StudySession.id)
+                .where(StudySession.user_id == user.id)
+                .order_by(StudySession.created_at.desc())
+            ).all()
+            return [_study_session_response(row, total_score) for row, total_score in rows]
 
     @app.get("/api/study-sessions/{session_id}/hint", response_model=HintResponse)
     def get_study_hint(session_id: str, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> HintResponse:
@@ -324,5 +329,5 @@ def _get_user_from_cookie(session_cookie: str | None) -> User:
     return user
 
 
-def _study_session_response(row: StudySession) -> StudySessionResponse:
-    return StudySessionResponse(id=str(row.id), lecture_id=row.lecture_id, status=row.status, pass_status=row.pass_status, hint_used=row.hint_used, started_at=row.started_at.isoformat(), completed_at=row.completed_at.isoformat() if row.completed_at else None)
+def _study_session_response(row: StudySession, total_score: float | None = None) -> StudySessionResponse:
+    return StudySessionResponse(id=str(row.id), lecture_id=row.lecture_id, status=row.status, pass_status=row.pass_status, hint_used=row.hint_used, started_at=row.started_at.isoformat(), completed_at=row.completed_at.isoformat() if row.completed_at else None, total_score=float(total_score) if total_score is not None else None)

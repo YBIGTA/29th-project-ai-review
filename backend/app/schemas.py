@@ -113,6 +113,7 @@ class StudySessionResponse(BaseModel):
     hint_used: bool
     started_at: str
     completed_at: str | None = None
+    total_score: float | None = None
 
 
 class HintResponse(BaseModel):

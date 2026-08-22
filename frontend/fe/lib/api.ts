@@ -45,6 +45,38 @@ export async function logout(): Promise<void> {
   if (!response.ok) throw new Error("로그아웃에 실패했습니다.");
 }
 
+export type StudySession = {
+  id: string;
+  lecture_id: string;
+  status: string;
+  pass_status: "P" | "NP";
+  hint_used: boolean;
+  started_at: string;
+  completed_at: string | null;
+  total_score: number | null;
+};
+
+export async function createStudySession(lectureId: string): Promise<StudySession> {
+  const response = await fetch(apiEndpoint("/api/study-sessions"), {
+    method: "POST",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ lecture_id: lectureId }),
+  });
+  if (!response.ok) throw new Error("복습 세션을 생성하지 못했습니다.");
+  return response.json();
+}
+
+export async function getStudySessions(): Promise<StudySession[]> {
+  const response = await fetch(apiEndpoint("/api/study-sessions"), {
+    credentials: "include",
+    cache: "no-store",
+  });
+  if (response.status === 401) return [];
+  if (!response.ok) throw new Error("복습 기록을 불러오지 못했습니다.");
+  return response.json();
+}
+
 export type ReviewSubmission = {
   job_id?: string;
   session_id: string;

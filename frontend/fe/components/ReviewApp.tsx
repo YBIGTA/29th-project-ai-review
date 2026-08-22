@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { getTranscriptionStatus, logout, submitReview, transcribeAudio, type ReviewReport, type TranscriptionResult, type User } from "@/lib/api";
+import { createStudySession, getTranscriptionStatus, logout, submitReview, transcribeAudio, type ReviewReport, type TranscriptionResult, type User } from "@/lib/api";
 
 const topics = [
   "기초통계",
@@ -10,7 +10,6 @@ const topics = [
   "시각화",
   "GIT",
   "CS",
-  "PYTHON",
   "PYTHON개발환경",
   "네트워크 기초",
   "WEB",
@@ -164,7 +163,6 @@ export default function ReviewApp({ user }: { user: User }) {
     setProcessStage("transcribing");
     setStatusText("STT 전사 중입니다...");
     setIsSubmitting(true);
-    const sessionId = `session-${Date.now()}`;
 
     try {
       const recorder = recorderRef.current;
@@ -175,9 +173,10 @@ export default function ReviewApp({ user }: { user: User }) {
       recorder.stream.getTracks().forEach((track) => track.stop());
       await stopped;
 
+      const studySession = await createStudySession(selectedTopic);
       const job = await transcribeAudio(
         recordedBlobRef.current ?? new Blob(),
-        sessionId,
+        studySession.id,
         selectedTopic,
       );
       const transcription = await waitForTranscription(job.job_id);
@@ -259,6 +258,13 @@ export default function ReviewApp({ user }: { user: User }) {
             <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">YBIGTA AI REVIEW</p>
             <h1 className="mt-2 text-3xl font-bold">구술 복습 서비스</h1>
           </div>
+          <a
+            href="/history"
+            className="ml-auto flex shrink-0 items-center gap-3 rounded-full border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-cyan-400/70 hover:text-cyan-200"
+          >
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-amber-300 text-sm font-black text-slate-950" aria-hidden="true">↺</span>
+            <span className="hidden sm:block">복습 기록</span>
+          </a>
           <div className="relative">
             <button
               type="button"
