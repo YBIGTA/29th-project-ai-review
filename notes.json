@@ -1,5 +1,0 @@
-{
-  "session_id": "abc123",
-  "topic": "DB",
-  "organized_text": "데이터를 다루는 작업에는 크게 두 가지 성격이 있습니다. OLTP, Online Transaction Processing은 실시간의 대량의 Transaction을 처리해서 서비스 운영에 필요한 데이터의 일건성과 신뢰성을 보장하고요. OLAP, Online Analytical Processing은 복잡한 Query와 데이터 분석을 위해 설계되어서 다 차원 분석에 주로 쓰입니다. RDBMS는 Scale Out이 어렵고, Schema 변경이 복잡하다는 한계가 있어서 NoSQL이 등장하게 됩니다. NoSQL은 Document Store, Key Value Store, Wide Column Store, Graph Store로 나뉘는데, MongoDB는 Document Store의 대표적인 예시이고, Redis는 Key Value Store의 대표적인 예시입니다. Vector DB는 비정형 데이터, 특히 고차원 데이터 처리에 최적화된 데이터베이스로 유사도 검색에 주로 사용됩니다."
-}
