@@ -1,6 +1,12 @@
 import json
 
-from sttcorrect.schema import TermDB, TermDBUsed, TermEntry, TranscriptionResult
+from sttcorrect.schema import (
+    OrganizedTranscript,
+    TermDB,
+    TermDBUsed,
+    TermEntry,
+    TranscriptionResult,
+)
 
 
 def test_transcription_result_matches_spec_json_shape():
@@ -42,6 +48,20 @@ def test_transcription_result_dumps_korean_without_escaping():
     )
     dumped_json = result.model_dump_json(ensure_ascii=False, indent=2)
     assert "한국어" in dumped_json
+    assert "\\uud55c" not in dumped_json
+
+
+def test_organized_transcript_matches_expected_json_shape():
+    organized = OrganizedTranscript(session_id="abc123", topic="DB", organized_text="정리된 텍스트")
+    dumped = json.loads(organized.model_dump_json())
+    assert set(dumped.keys()) == {"session_id", "topic", "organized_text"}
+    assert dumped["organized_text"] == "정리된 텍스트"
+
+
+def test_organized_transcript_dumps_korean_without_escaping():
+    organized = OrganizedTranscript(session_id="s1", topic="DB", organized_text="한국어 정리본")
+    dumped_json = organized.model_dump_json(ensure_ascii=False, indent=2)
+    assert "한국어 정리본" in dumped_json
     assert "\\uud55c" not in dumped_json
 
 
