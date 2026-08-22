@@ -17,6 +17,10 @@ class Settings:
         ).split(",")
         if origin.strip()
     )
+    google_client_id: str = os.getenv("GOOGLE_CLIENT_ID", "")
+    google_client_secret: str = os.getenv("GOOGLE_CLIENT_SECRET", "")
+    auth_cookie_name: str = os.getenv("AUTH_COOKIE_NAME", "ai_review_session")
+    auth_cookie_secure: bool = os.getenv("AUTH_COOKIE_SECURE", "false").lower() == "true"
 
 
 settings = Settings()

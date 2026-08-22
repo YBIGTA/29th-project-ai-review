@@ -1,23 +1,37 @@
 from __future__ import annotations
 
+import logging
+import hashlib
+import secrets
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, UploadFile, status
+import httpx
+from fastapi import BackgroundTasks, Cookie, FastAPI, File, Form, HTTPException, Response, UploadFile, status
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
+from .database import get_session
+from .models import AuthSession, User, StudySession
+from sqlalchemy import select, update
 from .integrations import evaluate_with_rag
 from .schemas import (
     ReviewSubmitRequest,
     ReviewSubmitResponse,
     TranscriptionJobResponse,
     TranscriptionStatusResponse,
+    AuthResponse,
+    GoogleLoginRequest,
+    StudySessionCreateRequest,
+    StudySessionResponse,
+    UserResponse,
 )
 from .storage import LocalStorage
 
 AUDIO_SUFFIXES = {".wav", ".webm", ".m4a"}
 AUDIO_CONTENT_TYPES = {"audio/wav", "audio/x-wav", "audio/webm", "video/webm", "audio/mp4", "audio/m4a", "audio/x-m4a"}
+LOGGER = logging.getLogger(__name__)
 TERM_DB_BY_TOPIC = {
     "기초통계": "data/term_dbs/basic_statistics.json",
     "크롤링": "data/term_dbs/crawling.json",
@@ -35,6 +49,79 @@ def create_app() -> FastAPI:
     @app.get("/health")
     def health() -> dict[str, str]:
         return {"status": "ok"}
+
+    @app.post("/api/auth/google", response_model=AuthResponse)
+    async def google_login(request: GoogleLoginRequest, response: Response) -> AuthResponse:
+        if not settings.google_client_id:
+            raise HTTPException(status_code=503, detail="GOOGLE_CLIENT_ID가 설정되지 않았습니다.")
+        token_payload = {
+            "grant_type": "authorization_code",
+            "client_id": settings.google_client_id,
+            "redirect_uri": request.redirect_uri,
+            "code": request.authorization_code,
+        }
+        if settings.google_client_secret:
+            token_payload["client_secret"] = settings.google_client_secret
+        async with httpx.AsyncClient(timeout=10) as client:
+            token_response = await client.post("https://oauth2.googleapis.com/token", data=token_payload)
+            if token_response.is_error:
+                raise HTTPException(status_code=401, detail="Google authorization code 교환에 실패했습니다.")
+            access_token = token_response.json().get("access_token")
+            user_response = await client.get(
+                "https://openidconnect.googleapis.com/v1/userinfo",
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+        if user_response.is_error:
+            raise HTTPException(status_code=401, detail="Google 사용자 정보 조회에 실패했습니다.")
+        google_user = user_response.json()
+        google_user_id = str(google_user["sub"])
+        with get_session() as db:
+            user = db.scalar(select(User).where(User.google_user_id == google_user_id))
+            if user is None:
+                user = User(google_user_id=google_user_id)
+                db.add(user)
+            user.nickname = google_user.get("name") or google_user.get("email")
+            user.profile_image_url = google_user.get("picture")
+            user.last_login_at = datetime.now(UTC).replace(tzinfo=None)
+            db.flush()
+            db.commit()
+        raw_token = secrets.token_urlsafe(32)
+        expires_at = datetime.now(UTC) + timedelta(days=7)
+        with get_session() as db:
+            db.add(AuthSession(user_id=user.id, session_token_hash=_hash_token(raw_token), expires_at=expires_at.replace(tzinfo=None)))
+            db.commit()
+        response.set_cookie(settings.auth_cookie_name, raw_token, httponly=True, secure=settings.auth_cookie_secure, samesite="lax", max_age=7 * 24 * 60 * 60)
+        return AuthResponse(user=UserResponse(id=str(user.id), google_user_id=user.google_user_id, nickname=user.nickname, profile_image_url=user.profile_image_url), expires_at=expires_at.isoformat())
+
+    @app.get("/api/auth/me", response_model=UserResponse)
+    def current_user(session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> UserResponse:
+        user = _get_user_from_cookie(session_cookie)
+        return UserResponse(id=str(user.id), google_user_id=user.google_user_id, nickname=user.nickname, profile_image_url=user.profile_image_url)
+
+    @app.post("/api/auth/logout", status_code=status.HTTP_204_NO_CONTENT)
+    def logout(response: Response, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> None:
+        if session_cookie:
+            with get_session() as db:
+                db.execute(update(AuthSession).where(AuthSession.session_token_hash == _hash_token(session_cookie)).values(revoked_at=datetime.now(UTC).replace(tzinfo=None)))
+                db.commit()
+        response.delete_cookie(settings.auth_cookie_name)
+
+    @app.post("/api/study-sessions", response_model=StudySessionResponse, status_code=status.HTTP_201_CREATED)
+    def create_study_session(request: StudySessionCreateRequest, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> StudySessionResponse:
+        user = _get_user_from_cookie(session_cookie)
+        with get_session() as db:
+            row = StudySession(user_id=user.id, lecture_id=request.lecture_id, status="created")
+            db.add(row)
+            db.commit()
+            db.refresh(row)
+            return _study_session_response(row)
+
+    @app.get("/api/study-sessions", response_model=list[StudySessionResponse])
+    def list_study_sessions(session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> list[StudySessionResponse]:
+        user = _get_user_from_cookie(session_cookie)
+        with get_session() as db:
+            rows = db.scalars(select(StudySession).where(StudySession.user_id == user.id).order_by(StudySession.created_at.desc())).all()
+            return [_study_session_response(row) for row in rows]
 
     @app.post("/api/stt/transcribe", response_model=TranscriptionJobResponse, status_code=status.HTTP_202_ACCEPTED)
     async def transcribe_audio(
@@ -128,15 +215,37 @@ def _run_transcription_job(app: FastAPI, job_id: str, audio_path: str, term_db_p
 
         term_db = load_term_db(term_db_path)
         initial_prompt, hotwords = build_stt_hints(term_db)
+        LOGGER.info("STT 시작: job_id=%s audio=%s model=medium beam=5", job_id, audio_path)
         stt = WhisperSttBackend(SttConfig(model_size="medium", beam_size=5))
         raw = stt.transcribe(audio_path, initial_prompt=initial_prompt, hotwords=hotwords)
         job["transcript_raw"] = raw
         job["status"] = "correcting"
+        LOGGER.info("STT 완료: job_id=%s chars=%s", job_id, len(raw))
         corrected = correct_with_llm(raw, term_db.to_term_db_used(), GroqLLMClient())
         if not corrected.strip():
             raise RuntimeError("LLM이 빈 보정 결과를 반환했습니다.")
         job["transcript_corrected"] = corrected
         job["status"] = "corrected"
-    except (FileNotFoundError, RuntimeError, ValueError, KeyError) as exc:
+        LOGGER.info("보정 완료: job_id=%s chars=%s", job_id, len(corrected))
+    except Exception as exc:
         job["status"] = "failed"
         job["error"] = str(exc)
+        LOGGER.exception("STT/보정 실패: job_id=%s", job_id)
+
+
+def _hash_token(token: str) -> str:
+    return hashlib.sha256(token.encode()).hexdigest()
+
+
+def _get_user_from_cookie(session_cookie: str | None) -> User:
+    if not session_cookie:
+        raise HTTPException(status_code=401, detail="로그인이 필요합니다.")
+    with get_session() as db:
+        user = db.scalar(select(User).join(AuthSession, AuthSession.user_id == User.id).where(AuthSession.session_token_hash == _hash_token(session_cookie), AuthSession.revoked_at.is_(None), AuthSession.expires_at > datetime.now(UTC).replace(tzinfo=None)))
+    if user is None:
+        raise HTTPException(status_code=401, detail="유효하지 않거나 만료된 로그인 세션입니다.")
+    return user
+
+
+def _study_session_response(row: StudySession) -> StudySessionResponse:
+    return StudySessionResponse(id=str(row.id), lecture_id=row.lecture_id, status=row.status, pass_status=row.pass_status, hint_used=row.hint_used, started_at=row.started_at.isoformat(), completed_at=row.completed_at.isoformat() if row.completed_at else None)
