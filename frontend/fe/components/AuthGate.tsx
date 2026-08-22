@@ -26,7 +26,7 @@ export default function AuthGate() {
     return <LoginScreen message={error} />;
   }
 
-  return user ? <ReviewApp /> : <LoginScreen />;
+  return user ? <ReviewApp user={user} /> : <LoginScreen />;
 }
 
 function LoginScreen({ message }: { message?: string }) {

@@ -1,14 +1,37 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { getTranscriptionStatus, submitReview, transcribeAudio, type ReviewReport, type TranscriptionResult } from "@/lib/api";
+import { getTranscriptionStatus, logout, submitReview, transcribeAudio, type ReviewReport, type TranscriptionResult, type User } from "@/lib/api";
 
 const topics = [
   "기초통계",
   "크롤링",
   "EDA/FE",
   "시각화",
+  "GIT",
+  "CS",
+  "PYTHON",
+  "PYTHON개발환경",
+  "네트워크 기초",
+  "WEB",
+  "DL",
+  "ML",
+  "CV",
+  "NLP",
+  "DOCKER",
+  "LLM",
+  "AWS",
+  "DB",
+  "AI AGENT",
+  "RAG",
 ] as const;
+
+const availableTopics = new Set<(typeof topics)[number]>([
+  "기초통계",
+  "크롤링",
+  "EDA/FE",
+  "시각화",
+]);
 
 type Phase = "idle" | "countdown" | "recording" | "processing" | "completed";
 type ProcessStage = "idle" | "transcribing" | "correcting" | "evaluating" | "complete";
@@ -47,7 +70,7 @@ const fallbackReport: ReviewReport = {
   status: "mock",
 };
 
-export default function ReviewApp() {
+export default function ReviewApp({ user }: { user: User }) {
   const audioStreamRef = useRef<MediaStream | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
@@ -62,6 +85,8 @@ export default function ReviewApp() {
   const [statusText, setStatusText] = useState("주제를 선택하고 발표 녹음을 시작해보세요.");
   const [audioStream, setAudioStream] = useState<MediaStream | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -202,6 +227,18 @@ export default function ReviewApp() {
     }
   };
 
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+      window.location.replace("/");
+    } catch (error) {
+      console.error("로그아웃 실패:", error);
+      setIsLoggingOut(false);
+      setStatusText("로그아웃에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    }
+  };
+
   const scoreBreakdown: ScoreBreakdown[] = report
     ? [
         { label: "정확도", score: report.quantitative.scores.accuracy.score, weight: 40, tone: "cyan" },
@@ -222,7 +259,81 @@ export default function ReviewApp() {
             <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">YBIGTA AI REVIEW</p>
             <h1 className="mt-2 text-3xl font-bold">구술 복습 서비스</h1>
           </div>
+          <div className="relative">
+            <button
+              type="button"
+              aria-expanded={isProfileMenuOpen}
+              aria-haspopup="menu"
+              onClick={() => setIsProfileMenuOpen((open) => !open)}
+              className="flex items-center gap-3 rounded-full border border-slate-700 bg-slate-900 px-2 py-2 text-left transition hover:border-cyan-400/70"
+            >
+              <ProfileAvatar user={user} size="small" />
+              <span className="hidden max-w-40 sm:block">
+                <span className="block truncate text-sm font-semibold text-slate-100">{user.nickname ?? "Google 사용자"}</span>
+                <span className="block truncate text-xs text-slate-400">Google 계정</span>
+              </span>
+              <span className="px-1 text-xs text-slate-500" aria-hidden="true">{isProfileMenuOpen ? "▲" : "▼"}</span>
+            </button>
+            {isProfileMenuOpen && (
+              <div className="absolute right-0 z-20 mt-3 w-72 rounded-2xl border border-slate-700 bg-slate-900 p-4 shadow-2xl shadow-slate-950/70" role="menu">
+                <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+                  <ProfileAvatar user={user} size="large" />
+                  <div className="min-w-0">
+                    <p className="truncate font-semibold text-white">{user.nickname ?? "Google 사용자"}</p>
+                    <p className="mt-1 text-xs text-slate-400">Google 계정</p>
+                  </div>
+                </div>
+                <dl className="space-y-3 py-4 text-xs">
+                  <div className="flex items-start justify-between gap-4"><dt className="text-slate-500">계정 ID</dt><dd className="max-w-44 break-all text-right text-slate-300">{user.google_user_id}</dd></div>
+                  <div className="flex items-center justify-between gap-4"><dt className="text-slate-500">상태</dt><dd className="text-emerald-300">로그인됨</dd></div>
+                </dl>
+                <button
+                  type="button"
+                  role="menuitem"
+                  onClick={handleLogout}
+                  disabled={isLoggingOut}
+                  className="w-full rounded-xl border border-slate-700 px-3 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-rose-400/60 hover:bg-rose-400/10 hover:text-rose-200 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {isLoggingOut ? "로그아웃 중..." : "로그아웃"}
+                </button>
+              </div>
+            )}
+          </div>
         </header>
+
+        <section className="mb-6 rounded-3xl border border-slate-800 bg-slate-900 p-5 shadow-2xl shadow-slate-950/30">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-cyan-300">Study topics</p>
+              <h2 className="mt-2 text-lg font-semibold">복습할 주제를 선택하세요</h2>
+            </div>
+            <p className="text-xs text-slate-500">현재 평가 가능 {availableTopics.size}개 / 전체 {topics.length}개</p>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {topics.map((topic) => {
+              const isAvailable = availableTopics.has(topic);
+              return (
+                <button
+                  key={topic}
+                  type="button"
+                  onClick={() => isAvailable && setSelectedTopic(topic)}
+                  disabled={!isAvailable}
+                  title={isAvailable ? undefined : "해당 주제의 평가 데이터가 준비 중입니다."}
+                  className={`rounded-full border px-3 py-2 text-sm font-medium transition ${
+                    isAvailable
+                      ? selectedTopic === topic
+                        ? "border-cyan-400 bg-transparent text-cyan-200"
+                        : "border-slate-700 bg-transparent text-slate-200 hover:border-cyan-300/70"
+                      : "cursor-not-allowed border-slate-800 bg-transparent text-slate-600"
+                  }`}
+                >
+                  {topic}
+                  {!isAvailable && <span className="ml-1 text-[10px]">준비 중</span>}
+                </button>
+              );
+            })}
+          </div>
+        </section>
 
         <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
           <section className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-2xl shadow-slate-950/40">
@@ -255,22 +366,6 @@ export default function ReviewApp() {
                   <p className="text-sm">잠시 후 녹음이 시작됩니다.</p>
                 </div>
               )}
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              {topics.map((topic) => (
-                <button
-                  key={topic}
-                  onClick={() => setSelectedTopic(topic)}
-                  className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
-                    selectedTopic === topic
-                      ? "border-cyan-400 bg-cyan-400 text-slate-950"
-                      : "border-slate-700 bg-slate-800 text-slate-200 hover:border-slate-500"
-                  }`}
-                >
-                  {topic}
-                </button>
-              ))}
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -388,6 +483,17 @@ export default function ReviewApp() {
       </div>
     </main>
   );
+}
+
+function ProfileAvatar({ user, size }: { user: User; size: "small" | "large" }) {
+  const label = user.nickname?.trim().charAt(0).toUpperCase() || "G";
+  const sizeClass = size === "small" ? "h-9 w-9 text-sm" : "h-12 w-12 text-lg";
+
+  if (user.profile_image_url) {
+    return <img src={user.profile_image_url} alt="프로필 사진" className={`${sizeClass} rounded-full object-cover`} />;
+  }
+
+  return <span className={`grid ${sizeClass} shrink-0 place-items-center rounded-full bg-cyan-400 font-bold text-slate-950`}>{label}</span>;
 }
 
 function AudioVisualizer({ stream, active }: { stream: MediaStream | null; active: boolean }) {
