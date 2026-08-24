@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0.0",
+  "schema_version": "2.2.0",
   "lecture_id": "visualization",
   "lecture_name": "시각화",
   "assessment": {
@@ -34,11 +34,21 @@
                 {
                   "page": 5,
                   "chunk_id": "visualization_p5_01",
-                  "source_excerpt": "데이터 시각화는 데이터를 쉽게 이해하도록 차트, 그래프, 지도 같은 시각 요소로 명확하고 효과적으로 표현하고 전달하는 과정이다.",
+                  "unit_id": "viz_p5_u01",
+                  "source_excerpt": "데이터를 쉽게 이해할 수 있도록 차트, 그래프, 맵과 같은 시각적 요소를 이용해 명확하고 효과적으로 표현하고 전달하는 과정",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "데이터 시각화는 데이터를 쉽게 이해하도록 차트·그래프·지도 같은 시각 요소로 명확하고 효과적으로 표현하고 전달하는 과정이다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.data_to_information",
@@ -50,11 +60,25 @@
                 {
                   "page": 4,
                   "chunk_id": "visualization_p4_01",
-                  "source_excerpt": "데이터는 그 자체로 정보가 아니며, 원자료를 이해하고 필요한 정보를 찾아 의사결정 근거로 만드는 데이터 분석 과정이 필요하다. 시각화는 이 과정을 빠르고 효과적으로 이해하게 돕는다.",
+                  "unit_id": "viz_p4_u01",
+                  "source_excerpt": "Data≠Information; Raw data를 이해하고 정보를 얻거나 합리적 근거로 의사결정하는 데 데이터 분석을 사용하며, 이 과정에서 시각화는 데이터를 빠르고 효과적으로 이해하게 돕는다.",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_analytics",
+                "data_visualization",
+                "decision_making"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "원자료는 그 자체로 정보가 아니며 분석을 통해 필요한 정보를 찾아 의사결정 근거로 만들어야 한다."
+                ],
+                "critical_errors": [
+                  "원자료 그 자체가 항상 의미 있는 정보와 의사결정 근거를 자동으로 제공한다고 설명"
+                ]
+              }
             },
             {
               "claim_id": "viz.benefits",
@@ -66,11 +90,23 @@
                 {
                   "page": 6,
                   "chunk_id": "visualization_p6_01",
-                  "source_excerpt": "시각화는 대용량 데이터의 특성을 짧고 빠르게 전달하고, 직관적 이해와 데이터 기반 의사결정·스토리텔링을 돕고, 비계량·비정형 정보도 도식화할 수 있다.",
+                  "unit_id": "viz_p6_u01",
+                  "source_excerpt": "직관적인 데이터 이해; 대용량 데이터의 특성을 짧고 빠르게 전달; 데이터 기반 의사결정 및 스토리텔링",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization",
+                "decision_making",
+                "storytelling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화는 대용량 데이터의 특성을 빠르게 전달하고 직관적 이해, 의사결정, 스토리텔링을 돕는다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         },
@@ -87,20 +123,25 @@
               "weight": 1.0,
               "evidence": [
                 {
-                  "page": 7,
-                  "chunk_id": "visualization_p7_01",
-                  "source_excerpt": "시각화는 데이터 가공부터 분석과 결과 도출까지 사용된다. 강의는 수집 데이터 이상치 탐지와 커머스 매출 분석을 예로 든다.",
-                  "source_status": "verified",
-                  "review_note": ""
-                },
-                {
                   "page": 8,
                   "chunk_id": "visualization_p8_01",
-                  "source_excerpt": "시각화로 예상된 네 범주 외의 유입경로 0.8%를 발견해 개발 조치를 할 수 있고, 대시보드로 멤버등급별 매출 트렌드·프로모션·쿠폰 성과를 파악할 수 있다. 분석 근거를 강화하는 도구라는 점을 강조한다.",
+                  "unit_id": "viz_p8_u01",
+                  "source_excerpt": "예상하지 못한 유입경로 0.8%를 발견해 개발 조치; 대시보드로 멤버등급별 매출 트렌드·프로모션·쿠폰 성과 분석; 시각화는 데이터 가공부터 결과 도출까지 사용되며 분석 근거를 강화",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization",
+                "dashboard",
+                "visual_pattern"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화는 이상치나 패턴을 발견하고 분석 근거를 강화하는 도구로 사용할 수 있다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.analysis_role",
@@ -110,20 +151,25 @@
               "weight": 1.0,
               "evidence": [
                 {
-                  "page": 7,
-                  "chunk_id": "visualization_p7_01",
-                  "source_excerpt": "시각화는 데이터 가공부터 분석과 결과 도출까지 사용된다. 강의는 수집 데이터 이상치 탐지와 커머스 매출 분석을 예로 든다.",
-                  "source_status": "verified",
-                  "review_note": ""
-                },
-                {
                   "page": 8,
                   "chunk_id": "visualization_p8_01",
-                  "source_excerpt": "시각화로 예상된 네 범주 외의 유입경로 0.8%를 발견해 개발 조치를 할 수 있고, 대시보드로 멤버등급별 매출 트렌드·프로모션·쿠폰 성과를 파악할 수 있다. 분석 근거를 강화하는 도구라는 점을 강조한다.",
+                  "unit_id": "viz_p8_u01",
+                  "source_excerpt": "예상하지 못한 유입경로 0.8%를 발견해 개발 조치; 대시보드로 멤버등급별 매출 트렌드·프로모션·쿠폰 성과 분석; 시각화는 데이터 가공부터 결과 도출까지 사용되며 분석 근거를 강화",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization",
+                "dashboard",
+                "visual_pattern"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화는 데이터의 특성과 패턴을 직관적으로 확인해 분석 방향과 근거를 제공한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         },
@@ -142,11 +188,24 @@
                 {
                   "page": 14,
                   "chunk_id": "visualization_p14_01",
-                  "source_excerpt": "먼저 확인할 목표와 가설을 세우고 변수의 유형·분포·표본 수를 파악한 뒤 관계와 특성에 맞는 차트를 고른다. 결과를 볼 사람의 관점도 설계에 반영해야 한다.",
+                  "unit_id": "viz_p14_u01",
+                  "source_excerpt": "목적을 이해하기 → 데이터 파악하기 → 시각화 설계하기; 목표·가설/질문 설정, 변수·특성 파악, 관계·특성에 따른 차트 선택, 시각화를 볼 타인을 고려",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization",
+                "audience"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화 전에 확인하려는 목표와 가설을 먼저 정한다."
+                ],
+                "critical_errors": [
+                  "시각화의 목표·질문은 차트를 다 그린 후에만 정해도 된다고 설명"
+                ]
+              }
             },
             {
               "claim_id": "viz.inspect_data",
@@ -158,11 +217,22 @@
                 {
                   "page": 14,
                   "chunk_id": "visualization_p14_01",
-                  "source_excerpt": "먼저 확인할 목표와 가설을 세우고 변수의 유형·분포·표본 수를 파악한 뒤 관계와 특성에 맞는 차트를 고른다. 결과를 볼 사람의 관점도 설계에 반영해야 한다.",
+                  "unit_id": "viz_p14_u01",
+                  "source_excerpt": "목적을 이해하기 → 데이터 파악하기 → 시각화 설계하기; 목표·가설/질문 설정, 변수·특성 파악, 관계·특성에 따른 차트 선택, 시각화를 볼 타인을 고려",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization",
+                "audience"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "변수 유형·분포·표본 수를 파악한 뒤 관계와 특성에 맞는 차트를 선택한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.audience",
@@ -174,11 +244,22 @@
                 {
                   "page": 14,
                   "chunk_id": "visualization_p14_01",
-                  "source_excerpt": "먼저 확인할 목표와 가설을 세우고 변수의 유형·분포·표본 수를 파악한 뒤 관계와 특성에 맞는 차트를 고른다. 결과를 볼 사람의 관점도 설계에 반영해야 한다.",
+                  "unit_id": "viz_p14_u01",
+                  "source_excerpt": "목적을 이해하기 → 데이터 파악하기 → 시각화 설계하기; 목표·가설/질문 설정, 변수·특성 파악, 관계·특성에 따른 차트 선택, 시각화를 볼 타인을 고려",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization",
+                "audience"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "결과를 볼 독자의 관점과 배경을 시각화 설계에 반영한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         },
@@ -197,11 +278,22 @@
                 {
                   "page": 15,
                   "chunk_id": "visualization_p15_01",
-                  "source_excerpt": "배경과 그리드, 불필요한 범례·그림자 효과를 줄이고 직접 라벨링을 고려한다. 이중축은 관계가 명확할 때만 사용해 해석 혼란을 막는다.",
+                  "unit_id": "viz_p15_u01",
+                  "source_excerpt": "배경은 지양, 그리드는 최소화, 카테고리가 하나면 범례는 굳이 필요 없음, 범례 대신 직접 라벨링 고려, 이중축은 명확한 관계성이 있을 때만, 그림자 등 불필요한 그래픽 효과 지양",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "direct_label",
+                "dual_axis"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "배경·그리드·불필요한 범례와 그림자 효과를 줄여 핵심 데이터가 드러나게 한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.direct_label",
@@ -213,11 +305,22 @@
                 {
                   "page": 15,
                   "chunk_id": "visualization_p15_01",
-                  "source_excerpt": "배경과 그리드, 불필요한 범례·그림자 효과를 줄이고 직접 라벨링을 고려한다. 이중축은 관계가 명확할 때만 사용해 해석 혼란을 막는다.",
+                  "unit_id": "viz_p15_u01",
+                  "source_excerpt": "배경은 지양, 그리드는 최소화, 카테고리가 하나면 범례는 굳이 필요 없음, 범례 대신 직접 라벨링 고려, 이중축은 명확한 관계성이 있을 때만, 그림자 등 불필요한 그래픽 효과 지양",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "direct_label",
+                "dual_axis"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "독자가 범례를 반복해 확인하지 않도록 상황에 따라 직접 라벨링을 고려한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.dual_axis",
@@ -229,11 +332,24 @@
                 {
                   "page": 15,
                   "chunk_id": "visualization_p15_01",
-                  "source_excerpt": "배경과 그리드, 불필요한 범례·그림자 효과를 줄이고 직접 라벨링을 고려한다. 이중축은 관계가 명확할 때만 사용해 해석 혼란을 막는다.",
+                  "unit_id": "viz_p15_u01",
+                  "source_excerpt": "배경은 지양, 그리드는 최소화, 카테고리가 하나면 범례는 굳이 필요 없음, 범례 대신 직접 라벨링 고려, 이중축은 명확한 관계성이 있을 때만, 그림자 등 불필요한 그래픽 효과 지양",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "direct_label",
+                "dual_axis"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "이중축은 두 지표의 관계가 명확하고 오해를 만들지 않을 때 제한적으로 사용한다."
+                ],
+                "critical_errors": [
+                  "이중축은 어떤 두 지표를 임의로 겹쳐도 관계를 정확히 보장한다고 설명"
+                ]
+              }
             }
           ]
         }
@@ -260,11 +376,22 @@
                 {
                   "page": 16,
                   "chunk_id": "visualization_p16_01",
-                  "source_excerpt": "명목형은 크기순, 순서형은 본래 순서로 정렬하고 긴 라벨에는 가로 막대를 쓴다. 그룹핑과 분리 플롯을 비교하고 전체가 중요할 때만 누적하며 dot plot과 heatmap도 고려한다.",
+                  "unit_id": "viz_p16_u01",
+                  "source_excerpt": "명목형은 데이터 크기대로 정렬, 순서형은 순서 그대로 정렬, 라벨이 길면 horizontal bar plot, 스태킹은 total이 중요할 때만",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "bar_chart",
+                "stacked_bar"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "명목형 범주는 크기순, 순서형 범주는 본래 순서로 정렬하고 긴 라벨에는 가로 막대를 고려한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.stacked_condition",
@@ -276,11 +403,22 @@
                 {
                   "page": 16,
                   "chunk_id": "visualization_p16_01",
-                  "source_excerpt": "명목형은 크기순, 순서형은 본래 순서로 정렬하고 긴 라벨에는 가로 막대를 쓴다. 그룹핑과 분리 플롯을 비교하고 전체가 중요할 때만 누적하며 dot plot과 heatmap도 고려한다.",
+                  "unit_id": "viz_p16_u01",
+                  "source_excerpt": "명목형은 데이터 크기대로 정렬, 순서형은 순서 그대로 정렬, 라벨이 길면 horizontal bar plot, 스태킹은 total이 중요할 때만",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "bar_chart",
+                "stacked_bar"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "누적 막대는 개별 범주보다 전체 크기와 구성비가 중요할 때 사용한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         },
@@ -299,11 +437,28 @@
                 {
                   "page": 17,
                   "chunk_id": "visualization_p17_01",
-                  "source_excerpt": "스무딩은 표본이 충분할 때 쓰고 히스토그램 bin 폭과 밀도 bandwidth를 적절히 정한다. 왜곡을 줄이려면 ECDF, 심한 왜도에는 로그변환, 여러 분포 비교에는 boxplot·violin plot을 고려한다.",
+                  "unit_id": "viz_p17_u01",
+                  "source_excerpt": "Smoothing은 데이터 수가 충분할 때만; 히스토그램·밀도도표는 적절한 width; 왜곡이 싫으면 ECDF; Highly Skewed면 로그변환; 여러 분포는 boxplot·violin plot",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "histogram",
+                "density_plot",
+                "bandwidth",
+                "ecdf",
+                "boxplot",
+                "violin"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "히스토그램 bin 폭과 밀도 그래프 bandwidth는 분포가 왜곡되지 않도록 적절히 선택한다."
+                ],
+                "critical_errors": [
+                  "bin 폭과 bandwidth를 어떻게 정해도 분포 모양은 절대 바뀌지 않는다고 설명"
+                ]
+              }
             },
             {
               "claim_id": "viz.distribution_alternatives",
@@ -315,11 +470,26 @@
                 {
                   "page": 17,
                   "chunk_id": "visualization_p17_01",
-                  "source_excerpt": "스무딩은 표본이 충분할 때 쓰고 히스토그램 bin 폭과 밀도 bandwidth를 적절히 정한다. 왜곡을 줄이려면 ECDF, 심한 왜도에는 로그변환, 여러 분포 비교에는 boxplot·violin plot을 고려한다.",
+                  "unit_id": "viz_p17_u01",
+                  "source_excerpt": "Smoothing은 데이터 수가 충분할 때만; 히스토그램·밀도도표는 적절한 width; 왜곡이 싫으면 ECDF; Highly Skewed면 로그변환; 여러 분포는 boxplot·violin plot",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "histogram",
+                "density_plot",
+                "bandwidth",
+                "ecdf",
+                "boxplot",
+                "violin"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "분포 왜곡을 줄이려면 ECDF, 심한 왜도에는 로그변환, 여러 분포 비교에는 boxplot이나 violin plot을 고려한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         },
@@ -338,11 +508,24 @@
                 {
                   "page": 18,
                   "chunk_id": "visualization_p18_01",
-                  "source_excerpt": "파이차트는 범주가 적고 비율 차이가 직관적일 때 유효하다. 범주가 많거나 비율이 비슷하면 피하고, 시간별 변화는 병렬 막대, 겹치는 범주는 mosaic plot이나 treemap 등을 고려한다.",
+                  "unit_id": "viz_p18_u01",
+                  "source_excerpt": "Pie Chart는 직관적 비율에 효과적; 카테고리가 많거나 비율이 비슷하면 지양; 시간별 분포 변화는 side-by-side bars; 범주가 겹치면 Mosaic Plot·Treemap",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "pie_chart",
+                "bar_chart",
+                "mosaic",
+                "treemap"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "파이차트는 범주가 적고 비율 차이가 직관적으로 구분될 때 유효하다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.avoid_pie",
@@ -354,11 +537,26 @@
                 {
                   "page": 18,
                   "chunk_id": "visualization_p18_01",
-                  "source_excerpt": "파이차트는 범주가 적고 비율 차이가 직관적일 때 유효하다. 범주가 많거나 비율이 비슷하면 피하고, 시간별 변화는 병렬 막대, 겹치는 범주는 mosaic plot이나 treemap 등을 고려한다.",
+                  "unit_id": "viz_p18_u01",
+                  "source_excerpt": "Pie Chart는 직관적 비율에 효과적; 카테고리가 많거나 비율이 비슷하면 지양; 시간별 분포 변화는 side-by-side bars; 범주가 겹치면 Mosaic Plot·Treemap",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "pie_chart",
+                "bar_chart",
+                "mosaic",
+                "treemap"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "범주가 많거나 비율이 비슷하면 파이차트를 피하고 비교하기 쉬운 다른 표현을 고려한다."
+                ],
+                "critical_errors": [
+                  "범주가 많고 비율이 비슷할수록 파이차트가 비교에 더 적합하다고 설명"
+                ]
+              }
             },
             {
               "claim_id": "viz.proportion_alternatives",
@@ -370,11 +568,24 @@
                 {
                   "page": 18,
                   "chunk_id": "visualization_p18_01",
-                  "source_excerpt": "파이차트는 범주가 적고 비율 차이가 직관적일 때 유효하다. 범주가 많거나 비율이 비슷하면 피하고, 시간별 변화는 병렬 막대, 겹치는 범주는 mosaic plot이나 treemap 등을 고려한다.",
+                  "unit_id": "viz_p18_u01",
+                  "source_excerpt": "Pie Chart는 직관적 비율에 효과적; 카테고리가 많거나 비율이 비슷하면 지양; 시간별 분포 변화는 side-by-side bars; 범주가 겹치면 Mosaic Plot·Treemap",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "pie_chart",
+                "bar_chart",
+                "mosaic",
+                "treemap"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시간별 비율 변화에는 병렬·누적 막대, 계층·겹침 관계에는 mosaic plot이나 treemap 같은 대안을 고려한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         },
@@ -393,11 +604,28 @@
                 {
                   "page": 19,
                   "chunk_id": "visualization_p19_01",
-                  "source_excerpt": "세 변수 이상은 크기나 색을 추가하고, 고차원 데이터는 PCA·t-SNE·UMAP으로 축소할 수 있다. 시계열은 선그래프를 쓰고 추세에는 smoothing, 장기 추세 제거에는 detrending을 고려한다.",
+                  "unit_id": "viz_p19_u01",
+                  "source_excerpt": "변수가 3개 이상이면 버블차트·색 활용; 고차원이면 PCA·t-SNE·UMAP; 시계열은 Line graph; 추세는 smoothing; 장기 추세 제거는 detrending",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "scatterplot",
+                "bubble_chart",
+                "pca",
+                "tsne",
+                "umap",
+                "line_chart",
+                "smoothing",
+                "detrending"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "세 변수 이상 관계는 산점도의 위치 외에 크기나 색을 추가해 표현할 수 있다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.dimension_reduction",
@@ -409,11 +637,28 @@
                 {
                   "page": 19,
                   "chunk_id": "visualization_p19_01",
-                  "source_excerpt": "세 변수 이상은 크기나 색을 추가하고, 고차원 데이터는 PCA·t-SNE·UMAP으로 축소할 수 있다. 시계열은 선그래프를 쓰고 추세에는 smoothing, 장기 추세 제거에는 detrending을 고려한다.",
+                  "unit_id": "viz_p19_u01",
+                  "source_excerpt": "변수가 3개 이상이면 버블차트·색 활용; 고차원이면 PCA·t-SNE·UMAP; 시계열은 Line graph; 추세는 smoothing; 장기 추세 제거는 detrending",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "scatterplot",
+                "bubble_chart",
+                "pca",
+                "tsne",
+                "umap",
+                "line_chart",
+                "smoothing",
+                "detrending"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "고차원 데이터는 PCA·t-SNE·UMAP 등으로 차원을 낮춰 시각화할 수 있다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.time_series",
@@ -425,11 +670,28 @@
                 {
                   "page": 19,
                   "chunk_id": "visualization_p19_01",
-                  "source_excerpt": "세 변수 이상은 크기나 색을 추가하고, 고차원 데이터는 PCA·t-SNE·UMAP으로 축소할 수 있다. 시계열은 선그래프를 쓰고 추세에는 smoothing, 장기 추세 제거에는 detrending을 고려한다.",
+                  "unit_id": "viz_p19_u01",
+                  "source_excerpt": "변수가 3개 이상이면 버블차트·색 활용; 고차원이면 PCA·t-SNE·UMAP; 시계열은 Line graph; 추세는 smoothing; 장기 추세 제거는 detrending",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "scatterplot",
+                "bubble_chart",
+                "pca",
+                "tsne",
+                "umap",
+                "line_chart",
+                "smoothing",
+                "detrending"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시계열에는 선그래프를 사용하고 추세를 보기 위한 smoothing이나 장기 추세를 제거하는 detrending을 고려한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.map_uncertainty",
@@ -441,11 +703,23 @@
                 {
                   "page": 20,
                   "chunk_id": "visualization_p20_01",
-                  "source_excerpt": "공간 데이터에는 지도 계열을, 추정치의 불확실성에는 오차막대·신뢰띠·분위수 점도표 등을 사용한다. 추가 차트 선택 자료로 Fundamentals of Data Visualization과 Data Viz Catalogue를 안내한다.",
+                  "unit_id": "viz_p20_u01",
+                  "source_excerpt": "x-y Relationships 차트 유형과 Uncertainty를 나타내는 error bars·confidence strips·quantile dot plot 등의 예시",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "uncertainty",
+                "error_bar",
+                "confidence_band"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "공간 데이터에는 지도 계열을 사용하고 추정치의 불확실성은 오차막대·신뢰띠·분위수 점도표 등으로 함께 표현한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         }
@@ -472,11 +746,25 @@
                 {
                   "page": 21,
                   "chunk_id": "visualization_p21_01",
-                  "source_excerpt": "범주는 서로 구분되는 정성형 색, 크기·강도는 밝기가 순차적으로 변하는 색, 평균이나 0을 중심으로 대립하는 값은 양방향 색상척도를 사용한다.",
+                  "unit_id": "viz_p21_u01",
+                  "source_excerpt": "이산/범주형-정성형 배합, 연속형-순차형 배합, 대칭/대립형-양방향 배합",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "qualitative_scale",
+                "sequential_scale",
+                "diverging_scale"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "서열 없는 범주는 서로 구분되는 정성형 색상척도를 사용한다."
+                ],
+                "critical_errors": [
+                  "서열 없는 범주에 밝기가 단조롭게 증가하는 순차형 척도만 써야 한다고 설명"
+                ]
+              }
             },
             {
               "claim_id": "viz.sequential",
@@ -488,11 +776,25 @@
                 {
                   "page": 21,
                   "chunk_id": "visualization_p21_01",
-                  "source_excerpt": "범주는 서로 구분되는 정성형 색, 크기·강도는 밝기가 순차적으로 변하는 색, 평균이나 0을 중심으로 대립하는 값은 양방향 색상척도를 사용한다.",
+                  "unit_id": "viz_p21_u01",
+                  "source_excerpt": "이산/범주형-정성형 배합, 연속형-순차형 배합, 대칭/대립형-양방향 배합",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "qualitative_scale",
+                "sequential_scale",
+                "diverging_scale"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "값의 크기나 강도에는 밝기 등이 순차적으로 변하는 순차형 색상척도를 사용한다."
+                ],
+                "critical_errors": [
+                  "값의 크기나 강도 표현에 서열 없는 임의의 정성형 색만 쓰는 것이 적합하다고 설명"
+                ]
+              }
             },
             {
               "claim_id": "viz.diverging",
@@ -504,11 +806,25 @@
                 {
                   "page": 21,
                   "chunk_id": "visualization_p21_01",
-                  "source_excerpt": "범주는 서로 구분되는 정성형 색, 크기·강도는 밝기가 순차적으로 변하는 색, 평균이나 0을 중심으로 대립하는 값은 양방향 색상척도를 사용한다.",
+                  "unit_id": "viz_p21_u01",
+                  "source_excerpt": "이산/범주형-정성형 배합, 연속형-순차형 배합, 대칭/대립형-양방향 배합",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "qualitative_scale",
+                "sequential_scale",
+                "diverging_scale"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "평균이나 0 같은 중심값 양쪽의 대립을 표현할 때는 양방향 색상척도를 사용한다."
+                ],
+                "critical_errors": [
+                  "중심값 양쪽의 대립을 하나의 단조 순차형 색만으로 표현해야 한다고 설명"
+                ]
+              }
             }
           ]
         },
@@ -527,11 +843,26 @@
                 {
                   "page": 22,
                   "chunk_id": "visualization_p22_01",
-                  "source_excerpt": "matplotlib은 범용성과 커스터마이징, seaborn은 간결한 통계 그래프, plotly·bokeh는 인터랙티브 웹 시각화, altair는 선언형 문법, folium은 지도 시각화에 강점이 있다.",
+                  "unit_id": "viz_p22_u01",
+                  "source_excerpt": "Matplotlib·Seaborn·Plotly·Bokeh·Altair·Folium의 주요 용도와 특징을 비교한 표",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "matplotlib",
+                "seaborn",
+                "plotly",
+                "bokeh",
+                "altair",
+                "folium"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "matplotlib은 범용성과 커스터마이징, seaborn은 간결한 통계 그래프, plotly·bokeh는 인터랙티브 웹 시각화, altair는 선언형 문법, folium은 지도에 강점이 있다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.software_tools",
@@ -543,11 +874,23 @@
                 {
                   "page": 23,
                   "chunk_id": "visualization_p23_01",
-                  "source_excerpt": "Tableau는 대중적인 BI 도구, Power BI는 Microsoft 생태계 연동, Google Analytics는 웹·앱 트래픽, FineReport는 비즈니스 리포트, D3.js는 HTML·SVG·CSS 기반 맞춤 시각화에 쓰인다.",
+                  "unit_id": "viz_p23_u01",
+                  "source_excerpt": "Tableau·Power BI·Google Analytics·FineReport·D3.js의 주요 용도와 특징을 비교한 표",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "tableau",
+                "power_bi",
+                "d3"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Tableau·Power BI·Google Analytics·FineReport·D3.js는 BI, 생태계 연동, 트래픽 분석, 리포트, 맞춤 웹 시각화 등 서로 다른 목적에 사용된다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.plotly_structure",
@@ -559,11 +902,26 @@
                 {
                   "page": 26,
                   "chunk_id": "visualization_p26_01",
-                  "source_excerpt": "Plotly는 40개 이상의 차트를 제공하는 인터랙티브 파이썬 그래픽 라이브러리다. Figure는 data와 layout으로 구성되고, data는 개별 그래프 항목인 trace의 목록이며 Dash·Chart Studio와 확장할 수 있다.",
+                  "unit_id": "viz_p26_u01",
+                  "source_excerpt": "Plotly는 인터랙티브한 시각화가 가능한 Python 그래픽 라이브러리. Figure는 data와 layout을 입력받음; Data는 Trace의 리스트; Trace는 개별 그래프 항목; Layout은 레이아웃과 스타일",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "plotly",
+                "figure",
+                "trace",
+                "layout"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Plotly Figure는 trace 목록인 data와 표현 설정인 layout으로 구성된다."
+                ],
+                "critical_errors": [
+                  "Plotly Figure의 data가 스타일 설정이고 layout이 trace 목록이라고 뒤바꿔 설명"
+                ]
+              }
             }
           ]
         },
@@ -582,11 +940,22 @@
                 {
                   "page": 24,
                   "chunk_id": "visualization_p24_01",
-                  "source_excerpt": "시각화는 명료성, 독자 중심성, 스토리, 데이터·차트 적합성, 문서화, 의도적인 색, 핵심 패턴 강조, 제목·라벨 가독성, 공간 흐름과 비율, 방해요소 여부를 점검하고 다른 사람의 피드백을 받아야 한다.",
+                  "unit_id": "viz_p24_u01",
+                  "source_excerpt": "Content·Color·Arrangement·Labels & Lines 체크리스트: clear and concise, audience-centric, story, careful data selection, appropriate graph, documentation, intentional color, key pattern, intuitive spatial flow, accurate proportions, distraction-free, readable title and labels; 타인 피드백",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "audience",
+                "storytelling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화가 명료하고 독자 중심이며 데이터와 차트가 목적에 맞는지 확인한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.labels_colors",
@@ -598,11 +967,22 @@
                 {
                   "page": 24,
                   "chunk_id": "visualization_p24_01",
-                  "source_excerpt": "시각화는 명료성, 독자 중심성, 스토리, 데이터·차트 적합성, 문서화, 의도적인 색, 핵심 패턴 강조, 제목·라벨 가독성, 공간 흐름과 비율, 방해요소 여부를 점검하고 다른 사람의 피드백을 받아야 한다.",
+                  "unit_id": "viz_p24_u01",
+                  "source_excerpt": "Content·Color·Arrangement·Labels & Lines 체크리스트: clear and concise, audience-centric, story, careful data selection, appropriate graph, documentation, intentional color, key pattern, intuitive spatial flow, accurate proportions, distraction-free, readable title and labels; 타인 피드백",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "audience",
+                "storytelling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "색이 의도적으로 사용되고 핵심 패턴이 강조되며 제목과 라벨을 읽기 쉬운지 확인한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.arrangement_feedback",
@@ -614,11 +994,22 @@
                 {
                   "page": 24,
                   "chunk_id": "visualization_p24_01",
-                  "source_excerpt": "시각화는 명료성, 독자 중심성, 스토리, 데이터·차트 적합성, 문서화, 의도적인 색, 핵심 패턴 강조, 제목·라벨 가독성, 공간 흐름과 비율, 방해요소 여부를 점검하고 다른 사람의 피드백을 받아야 한다.",
+                  "unit_id": "viz_p24_u01",
+                  "source_excerpt": "Content·Color·Arrangement·Labels & Lines 체크리스트: clear and concise, audience-centric, story, careful data selection, appropriate graph, documentation, intentional color, key pattern, intuitive spatial flow, accurate proportions, distraction-free, readable title and labels; 타인 피드백",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "audience",
+                "storytelling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "공간 흐름과 비율, 방해 요소, 문서화를 점검하고 다른 사람의 피드백을 받아 개선한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         }
@@ -645,32 +1036,47 @@
                 {
                   "page": 29,
                   "chunk_id": "visualization_p29_01",
-                  "source_excerpt": "7월 11일부터 방문 수가 급증한 패턴을 발견하고, 다음 분석 질문을 제품 판매량으로 좁힌다.",
+                  "unit_id": "viz_p29_u01",
+                  "source_excerpt": "7월 11일부터 방문 수가 폭등한 패턴을 발견하고 제품 판매량으로 질문을 좁힘",
                   "source_status": "verified",
                   "review_note": ""
                 },
                 {
                   "page": 30,
                   "chunk_id": "visualization_p30_01",
-                  "source_excerpt": "방문자 수가 증가한 약 4일 동안 제품 26의 판매량이 급증했음을 찾아 해당 제품의 조회와 판매를 더 자세히 본다.",
+                  "unit_id": "viz_p30_u01",
+                  "source_excerpt": "방문자가 늘어난 동안 제품 26의 판매량이 급증해 제품 26의 조회·판매로 분석을 좁힘",
                   "source_status": "verified",
                   "review_note": ""
                 },
                 {
                   "page": 31,
                   "chunk_id": "visualization_p31_01",
-                  "source_excerpt": "제품 26은 11일부터 조회와 판매가 폭증했지만 14일 재고가 소진되어 품절된 흐름으로 해석한다. 다음으로 광고 효과 여부를 확인한다.",
+                  "unit_id": "viz_p31_u01",
+                  "source_excerpt": "제품 26은 11일부터 조회·판매가 급증한 뒤 14일 판매가 거의 사라진 패턴을 재고 소진·품절로 해석하고 광고 효과를 다음 가설로 확인",
                   "source_status": "verified",
-                  "review_note": "사례의 원인 후보를 일반 인과로 확대하지 않는다."
+                  "review_note": ""
                 },
                 {
                   "page": 32,
                   "chunk_id": "visualization_p32_01",
-                  "source_excerpt": "급증 기간 유입은 광고 paid보다 직접검색 organic이 대부분이어서 광고가 원인이라는 가설을 약화시키고 외부 원인을 찾게 한다.",
+                  "unit_id": "viz_p32_u01",
+                  "source_excerpt": "급증 기간의 유입은 paid보다 organic 비중이 크게 나타나 광고 원인 가설을 약화하고 외부 원인을 탐색",
                   "source_status": "verified",
-                  "review_note": "사례의 원인 후보를 일반 인과로 확대하지 않는다."
+                  "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "storytelling",
+                "visual_pattern",
+                "causality"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "이상 현상을 발견하면 방문자, 제품 판매, 조회·재고, 유입경로처럼 질문을 단계적으로 좁혀 원인 후보를 탐색한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.evidence_to_question",
@@ -682,32 +1088,47 @@
                 {
                   "page": 29,
                   "chunk_id": "visualization_p29_01",
-                  "source_excerpt": "7월 11일부터 방문 수가 급증한 패턴을 발견하고, 다음 분석 질문을 제품 판매량으로 좁힌다.",
+                  "unit_id": "viz_p29_u01",
+                  "source_excerpt": "7월 11일부터 방문 수가 폭등한 패턴을 발견하고 제품 판매량으로 질문을 좁힘",
                   "source_status": "verified",
                   "review_note": ""
                 },
                 {
                   "page": 30,
                   "chunk_id": "visualization_p30_01",
-                  "source_excerpt": "방문자 수가 증가한 약 4일 동안 제품 26의 판매량이 급증했음을 찾아 해당 제품의 조회와 판매를 더 자세히 본다.",
+                  "unit_id": "viz_p30_u01",
+                  "source_excerpt": "방문자가 늘어난 동안 제품 26의 판매량이 급증해 제품 26의 조회·판매로 분석을 좁힘",
                   "source_status": "verified",
                   "review_note": ""
                 },
                 {
                   "page": 31,
                   "chunk_id": "visualization_p31_01",
-                  "source_excerpt": "제품 26은 11일부터 조회와 판매가 폭증했지만 14일 재고가 소진되어 품절된 흐름으로 해석한다. 다음으로 광고 효과 여부를 확인한다.",
+                  "unit_id": "viz_p31_u01",
+                  "source_excerpt": "제품 26은 11일부터 조회·판매가 급증한 뒤 14일 판매가 거의 사라진 패턴을 재고 소진·품절로 해석하고 광고 효과를 다음 가설로 확인",
                   "source_status": "verified",
-                  "review_note": "사례의 원인 후보를 일반 인과로 확대하지 않는다."
+                  "review_note": ""
                 },
                 {
                   "page": 32,
                   "chunk_id": "visualization_p32_01",
-                  "source_excerpt": "급증 기간 유입은 광고 paid보다 직접검색 organic이 대부분이어서 광고가 원인이라는 가설을 약화시키고 외부 원인을 찾게 한다.",
+                  "unit_id": "viz_p32_u01",
+                  "source_excerpt": "급증 기간의 유입은 paid보다 organic 비중이 크게 나타나 광고 원인 가설을 약화하고 외부 원인을 탐색",
                   "source_status": "verified",
-                  "review_note": "사례의 원인 후보를 일반 인과로 확대하지 않는다."
+                  "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "storytelling",
+                "visual_pattern",
+                "causality"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "전체 이상을 발견한 뒤 방문자·제품·유입경로 등 더 구체적인 지표로 원인 후보를 탐색한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.case_not_general_rule",
@@ -719,25 +1140,43 @@
                 {
                   "page": 31,
                   "chunk_id": "visualization_p31_01",
-                  "source_excerpt": "제품 26은 11일부터 조회와 판매가 폭증했지만 14일 재고가 소진되어 품절된 흐름으로 해석한다. 다음으로 광고 효과 여부를 확인한다.",
+                  "unit_id": "viz_p31_u01",
+                  "source_excerpt": "제품 26은 11일부터 조회·판매가 급증한 뒤 14일 판매가 거의 사라진 패턴을 재고 소진·품절로 해석하고 광고 효과를 다음 가설로 확인",
                   "source_status": "verified",
-                  "review_note": "사례의 원인 후보를 일반 인과로 확대하지 않는다."
+                  "review_note": ""
                 },
                 {
                   "page": 32,
                   "chunk_id": "visualization_p32_01",
-                  "source_excerpt": "급증 기간 유입은 광고 paid보다 직접검색 organic이 대부분이어서 광고가 원인이라는 가설을 약화시키고 외부 원인을 찾게 한다.",
+                  "unit_id": "viz_p32_u01",
+                  "source_excerpt": "급증 기간의 유입은 paid보다 organic 비중이 크게 나타나 광고 원인 가설을 약화하고 외부 원인을 탐색",
                   "source_status": "verified",
-                  "review_note": "사례의 원인 후보를 일반 인과로 확대하지 않는다."
+                  "review_note": ""
                 },
                 {
                   "page": 33,
                   "chunk_id": "visualization_p33_01",
-                  "source_excerpt": "정성 조사 결과 7월 11일 유명인의 제품 착용 보도가 있었음을 찾아, 시각화만으로 알 수 없던 매출 급증의 외부 원인을 설명한다.",
+                  "unit_id": "viz_p33_u01",
+                  "source_excerpt": "정성 조사에서 7월 11일 유명인의 제품 착용 보도라는 외부 정보를 확인",
                   "source_status": "verified",
-                  "review_note": "외부 원인은 정성 조사 전까지 가설로만 취급한다."
+                  "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "storytelling",
+                "visual_pattern",
+                "causality",
+                "qualitative_research",
+                "domain_knowledge"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "사례에서 관찰된 패턴은 추가 자료 없이 일반적 원인이나 인과로 확정하지 않는다."
+                ],
+                "critical_errors": [
+                  "해당 이커머스 사례의 재고·광고·유명인 패턴을 모든 비슷한 그래프의 일반 원인으로 확정"
+                ]
+              }
             }
           ]
         },
@@ -756,18 +1195,34 @@
                 {
                   "page": 33,
                   "chunk_id": "visualization_p33_01",
-                  "source_excerpt": "정성 조사 결과 7월 11일 유명인의 제품 착용 보도가 있었음을 찾아, 시각화만으로 알 수 없던 매출 급증의 외부 원인을 설명한다.",
+                  "unit_id": "viz_p33_u01",
+                  "source_excerpt": "정성 조사에서 7월 11일 유명인의 제품 착용 보도라는 외부 정보를 확인",
                   "source_status": "verified",
-                  "review_note": "외부 원인은 정성 조사 전까지 가설로만 취급한다."
+                  "review_note": ""
                 },
                 {
                   "page": 38,
                   "chunk_id": "visualization_p38_01",
-                  "source_excerpt": "몇 개의 그림만으로 목적과 결과를 전달해야 하므로 디자인과 청중의 톤앤매너가 중요하다. 코딩만이 역량은 아니며 AI를 활용할 수 있다. 시각화로 모든 원인을 알 수 없으므로 도메인 지식과 정성 조사를 결합해야 한다.",
+                  "unit_id": "viz_p38_u01",
+                  "source_excerpt": "시각화로 모든 결과를 확인하고 모든 문제의 원인을 파악할 수는 없음. 외부 요인이 변수가 될 수 있으며 시각화와 정성적 조사·도메인 지식을 결합",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "qualitative_research",
+                "domain_knowledge",
+                "causality",
+                "visual_pattern"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화에서 확인되지 않는 외부 원인은 정성 조사와 도메인 지식을 결합해 확인한다."
+                ],
+                "critical_errors": [
+                  "시각화에 나타나지 않은 외부 요인은 추가 조사 없이도 자동으로 확정된다고 설명"
+                ]
+              }
             },
             {
               "claim_id": "viz.not_causality_alone",
@@ -777,13 +1232,45 @@
               "weight": 1.0,
               "evidence": [
                 {
+                  "page": 32,
+                  "chunk_id": "visualization_p32_01",
+                  "unit_id": "viz_p32_u01",
+                  "source_excerpt": "급증 기간의 유입은 paid보다 organic 비중이 크게 나타나 광고 원인 가설을 약화하고 외부 원인을 탐색",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 33,
+                  "chunk_id": "visualization_p33_01",
+                  "unit_id": "viz_p33_u01",
+                  "source_excerpt": "정성 조사에서 7월 11일 유명인의 제품 착용 보도라는 외부 정보를 확인",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
                   "page": 38,
                   "chunk_id": "visualization_p38_01",
-                  "source_excerpt": "몇 개의 그림만으로 목적과 결과를 전달해야 하므로 디자인과 청중의 톤앤매너가 중요하다. 코딩만이 역량은 아니며 AI를 활용할 수 있다. 시각화로 모든 원인을 알 수 없으므로 도메인 지식과 정성 조사를 결합해야 한다.",
+                  "unit_id": "viz_p38_u01",
+                  "source_excerpt": "시각화로 모든 결과를 확인하고 모든 문제의 원인을 파악할 수는 없음. 외부 요인이 변수가 될 수 있으며 시각화와 정성적 조사·도메인 지식을 결합",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "storytelling",
+                "visual_pattern",
+                "causality",
+                "qualitative_research",
+                "domain_knowledge"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화만으로 모든 원인을 확정할 수 없으며 도메인 지식과 추가 조사가 필요하다."
+                ],
+                "critical_errors": [
+                  "시각적 패턴만으로 외부 원인과 인과관계를 확정할 수 있다고 설명"
+                ]
+              }
             }
           ]
         },
@@ -802,18 +1289,31 @@
                 {
                   "page": 34,
                   "chunk_id": "visualization_p34_01",
-                  "source_excerpt": "하나의 이상 현상에서 질문을 단계적으로 좁혀 정성 조사까지 이어지는 분석 스토리가 존재한다. 대시보드와 보고서는 이 흐름을 독자가 따라갈 수 있게 구성해야 한다.",
+                  "unit_id": "viz_p34_u01",
+                  "source_excerpt": "방문자 수 → 판매 Top3 → 26번 제품 판매 → 유입 경로 → 정성조사로 이어지는 분석 STEP",
                   "source_status": "verified",
                   "review_note": ""
                 },
                 {
                   "page": 35,
                   "chunk_id": "visualization_p35_01",
-                  "source_excerpt": "시각화 역량은 코드를 빨리 쓰는 능력보다 데이터의 계층 구조를 이해하고 top-down 또는 bottom-up 흐름으로 부가설명 없이도 이해되는 스토리 있는 대시보드를 만드는 능력이다.",
+                  "unit_id": "viz_p35_u01",
+                  "source_excerpt": "코드를 빠르게 작성하는 것보다 데이터에 대한 높은 이해를 바탕으로 스토리 있는 대시보드를 생성; 데이터 계층 구조와 top-down·bottom-up 분석",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "storytelling",
+                "dashboard",
+                "hierarchy"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "대시보드와 보고서는 독자가 분석 질문의 흐름을 따라갈 수 있도록 스토리와 데이터 계층을 구성한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.end_to_end",
@@ -825,11 +1325,24 @@
                 {
                   "page": 37,
                   "chunk_id": "visualization_p37_01",
-                  "source_excerpt": "시각화는 분석 결과를 제3자에게 효과적으로 전달하고 인사이트 기반 의사결정을 뒷받침한다. 목적과 의도, 필요한 데이터, 표현 도구·차트, 스토리 구성의 순서로 설계한다.",
+                  "unit_id": "viz_p37_u01",
+                  "source_excerpt": "시각화는 분석 결과를 제3자에게 효과적으로 나타내고 인사이트·의사결정을 뒷받침. 목적과 의도 → 필요한 데이터 → 라이브러리·툴·차트 선택 → 스토리 구성",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "data_visualization",
+                "insight",
+                "decision_making",
+                "storytelling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시각화는 목적과 의도, 필요한 데이터, 차트와 도구, 스토리 구성의 순서로 설계한다."
+                ],
+                "critical_errors": []
+              }
             },
             {
               "claim_id": "viz.actionable_conclusion",
@@ -839,27 +1352,36 @@
               "weight": 1.0,
               "evidence": [
                 {
-                  "page": 34,
-                  "chunk_id": "visualization_p34_01",
-                  "source_excerpt": "하나의 이상 현상에서 질문을 단계적으로 좁혀 정성 조사까지 이어지는 분석 스토리가 존재한다. 대시보드와 보고서는 이 흐름을 독자가 따라갈 수 있게 구성해야 한다.",
-                  "source_status": "verified",
-                  "review_note": ""
-                },
-                {
                   "page": 35,
                   "chunk_id": "visualization_p35_01",
-                  "source_excerpt": "시각화 역량은 코드를 빨리 쓰는 능력보다 데이터의 계층 구조를 이해하고 top-down 또는 bottom-up 흐름으로 부가설명 없이도 이해되는 스토리 있는 대시보드를 만드는 능력이다.",
+                  "unit_id": "viz_p35_u01",
+                  "source_excerpt": "코드를 빠르게 작성하는 것보다 데이터에 대한 높은 이해를 바탕으로 스토리 있는 대시보드를 생성; 데이터 계층 구조와 top-down·bottom-up 분석",
                   "source_status": "verified",
                   "review_note": ""
                 },
                 {
                   "page": 37,
                   "chunk_id": "visualization_p37_01",
-                  "source_excerpt": "시각화는 분석 결과를 제3자에게 효과적으로 전달하고 인사이트 기반 의사결정을 뒷받침한다. 목적과 의도, 필요한 데이터, 표현 도구·차트, 스토리 구성의 순서로 설계한다.",
+                  "unit_id": "viz_p37_u01",
+                  "source_excerpt": "시각화는 분석 결과를 제3자에게 효과적으로 나타내고 인사이트·의사결정을 뒷받침. 목적과 의도 → 필요한 데이터 → 라이브러리·툴·차트 선택 → 스토리 구성",
                   "source_status": "verified",
                   "review_note": ""
                 }
-              ]
+              ],
+              "term_ids": [
+                "dashboard",
+                "hierarchy",
+                "storytelling",
+                "data_visualization",
+                "insight",
+                "decision_making"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "스토리는 목적과 데이터, 차트와 도구를 연결해 독자가 결론을 이해하도록 구성한다."
+                ],
+                "critical_errors": []
+              }
             }
           ]
         }

@@ -1,0 +1,1878 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "cs_basics",
+  "lecture_name": "CS 기초",
+  "source_file": "CS기초.pdf",
+  "terminology": [
+    {
+      "term_id": "computer_science",
+      "canonical_ko": "컴퓨터 과학",
+      "canonical_en": "computer science",
+      "abbreviations": [
+        "CS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "computation",
+      "canonical_ko": "계산",
+      "canonical_en": "computation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "information",
+      "canonical_ko": "정보",
+      "canonical_en": "information",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "automation",
+      "canonical_ko": "자동화",
+      "canonical_en": "automation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "algorithm",
+      "canonical_ko": "알고리즘",
+      "canonical_en": "algorithm",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "data_structure",
+      "canonical_ko": "자료구조",
+      "canonical_en": "data structure",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "computer_system",
+      "canonical_ko": "컴퓨터 시스템",
+      "canonical_en": "computer system",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cpu",
+      "canonical_ko": "중앙처리장치",
+      "canonical_en": "central processing unit",
+      "abbreviations": [
+        "CPU"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gpu",
+      "canonical_ko": "그래픽처리장치",
+      "canonical_en": "graphics processing unit",
+      "abbreviations": [
+        "GPU"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ram",
+      "canonical_ko": "주기억장치",
+      "canonical_en": "random access memory",
+      "abbreviations": [
+        "RAM"
+      ],
+      "accepted_aliases": [
+        "메모리"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "persistent_storage",
+      "canonical_ko": "비휘발성 저장장치",
+      "canonical_en": "persistent storage",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "영구 저장장치"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ssd",
+      "canonical_ko": "SSD",
+      "canonical_en": "solid-state drive",
+      "abbreviations": [
+        "SSD"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hdd",
+      "canonical_ko": "HDD",
+      "canonical_en": "hard disk drive",
+      "abbreviations": [
+        "HDD"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "source_code",
+      "canonical_ko": "소스코드",
+      "canonical_en": "source code",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "machine_code",
+      "canonical_ko": "기계어",
+      "canonical_en": "machine code",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "compiler",
+      "canonical_ko": "컴파일러",
+      "canonical_en": "compiler",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "컴파일"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "interpreter",
+      "canonical_ko": "인터프리터",
+      "canonical_en": "interpreter",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "인터프리트"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "operating_system",
+      "canonical_ko": "운영체제",
+      "canonical_en": "operating system",
+      "abbreviations": [
+        "OS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "scheduling",
+      "canonical_ko": "스케줄링",
+      "canonical_en": "scheduling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "스케쥴링"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "memory_management",
+      "canonical_ko": "메모리 관리",
+      "canonical_en": "memory management",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "virtual_memory",
+      "canonical_ko": "가상 메모리",
+      "canonical_en": "virtual memory",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "system_call",
+      "canonical_ko": "시스템 콜",
+      "canonical_en": "system call",
+      "abbreviations": [
+        "syscall"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "user_mode",
+      "canonical_ko": "사용자 모드",
+      "canonical_en": "user mode",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "kernel_mode",
+      "canonical_ko": "커널 모드",
+      "canonical_en": "kernel mode",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "linux",
+      "canonical_ko": "Linux",
+      "canonical_en": "Linux",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "리눅스"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "unix",
+      "canonical_ko": "Unix",
+      "canonical_en": "Unix",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "유닉스"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "linux_kernel",
+      "canonical_ko": "Linux 커널",
+      "canonical_en": "Linux kernel",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "distribution",
+      "canonical_ko": "Linux 배포판",
+      "canonical_en": "Linux distribution",
+      "abbreviations": [
+        "distro"
+      ],
+      "accepted_aliases": [
+        "리눅스 디스트로"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "user_space",
+      "canonical_ko": "사용자 영역",
+      "canonical_en": "user space",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "everything_file",
+      "canonical_ko": "모든 것은 파일",
+      "canonical_en": "everything is a file",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "file_permission",
+      "canonical_ko": "파일 권한",
+      "canonical_en": "file permission",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "read_permission",
+      "canonical_ko": "읽기 권한",
+      "canonical_en": "read permission",
+      "abbreviations": [
+        "r"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "write_permission",
+      "canonical_ko": "쓰기 권한",
+      "canonical_en": "write permission",
+      "abbreviations": [
+        "w"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "execute_permission",
+      "canonical_ko": "실행 권한",
+      "canonical_en": "execute permission",
+      "abbreviations": [
+        "x"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "virtualization",
+      "canonical_ko": "가상화",
+      "canonical_en": "virtualization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "virtual_machine",
+      "canonical_ko": "가상머신",
+      "canonical_en": "virtual machine",
+      "abbreviations": [
+        "VM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "container",
+      "canonical_ko": "컨테이너",
+      "canonical_en": "container",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "docker",
+      "canonical_ko": "Docker",
+      "canonical_en": "Docker",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "도커"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "wsl",
+      "canonical_ko": "Windows 리눅스 하위 시스템",
+      "canonical_en": "Windows Subsystem for Linux",
+      "abbreviations": [
+        "WSL",
+        "WSL2"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "orbstack",
+      "canonical_ko": "OrbStack",
+      "canonical_en": "OrbStack",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "shell_script",
+      "canonical_ko": "셸 스크립트",
+      "canonical_en": "shell script",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "bash script",
+        "배시 스크립트"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "chmod",
+      "canonical_ko": "chmod",
+      "canonical_en": "change mode",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "cs_basics_p1_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 1,
+      "topic": "CS 기초 강의 표지",
+      "concepts": [
+        "CS"
+      ],
+      "raw_text": "CS 기초\n2026 Summer YBIGTA\n\n\n\n\n\n28기 김지호",
+      "visual_description": "CS 기초 강의 표지 페이지이다.",
+      "content": "CS 기초 강의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p2_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "CS",
+        "컴퓨터 시스템",
+        "실습"
+      ],
+      "raw_text": "목차\n\n\n\n  CS란?•\n\n 컴퓨터 시스템•\n\n 실습•",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "CS의 의미, 컴퓨터 시스템, Linux 실습 순으로 진행한다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p3_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 3,
+      "topic": "CS란?",
+      "concepts": [
+        "컴퓨터 과학"
+      ],
+      "raw_text": "CS란?",
+      "visual_description": "CS란? 페이지이다.",
+      "content": "컴퓨터 과학의 의미와 범위를 소개하는 섹션이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p4_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 4,
+      "topic": "컴퓨터 과학의 정의",
+      "concepts": [
+        "계산",
+        "정보",
+        "자동화",
+        "컴퓨터 시스템"
+      ],
+      "raw_text": "CS란?\n\n\n\n\n 컴퓨터 과학은 계산, 정보, 자동화와 이를 수행하는 컴퓨터 및 계산 시스템을 연구하는 학문이다.•\n 컴퓨터 과학은 계산이 무엇인지, 어떤 문제가 계산 가능한지, 계산을 얼마나 효율적으로 수행할 수\n 있는지,그리고 그러한 계산을 실제 시스템으로 어떻게 구현할 수 있는지를 다룬다.\n\n       https://ko.wikipedia.org/wiki/컴퓨터_과학    •",
+      "visual_description": "컴퓨터 과학은 계산·정보·자동화와 이를 수행하는 컴퓨터 및 계산 시스템을 연구한다.",
+      "content": "컴퓨터 과학은 계산·정보·자동화와 이를 수행하는 컴퓨터 및 계산 시스템을 연구한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "computer_science",
+        "computation",
+        "information",
+        "automation",
+        "computer_system"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p4_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "컴퓨터 과학은 계산, 정보, 자동화와 이를 수행하는 컴퓨터 및 계산 시스템을 연구하는 학문이다.",
+          "normalized_explanation": "컴퓨터 과학은 계산·정보·자동화와 이를 구현하는 시스템을 연구한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "computer_science",
+            "computation",
+            "information",
+            "automation",
+            "computer_system"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p5_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 5,
+      "topic": "CS의 세 축",
+      "concepts": [
+        "계산",
+        "정보",
+        "자동화"
+      ],
+      "raw_text": "CS란?\n\n\n\n  계산(Computation) : 문제를 단계로 쪼개어 연산으로 해결한다.•\n\n  정보(Imformation) : 정보를 컴퓨터가 이해하고 처리할 수 있는 형태로 표현한다.•\n\n  자동화(Automation) : 이러한 과정을 사람의 개입 없이 수행하도록 만든다.•",
+      "visual_description": "계산은 문제를 단계와 연산으로 풀고, 정보는 컴퓨터가 처리할 형태로 표현하며, 자동화는 이 과정을 사람 개입 없이 수행하게 한다.",
+      "content": "계산은 문제를 단계와 연산으로 풀고, 정보는 컴퓨터가 처리할 형태로 표현하며, 자동화는 이 과정을 사람 개입 없이 수행하게 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "computation",
+        "information",
+        "automation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p5_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "계산: 문제를 단계로 쪼개어 연산으로 해결 / 정보: 컴퓨터가 이해·처리할 형태로 표현 / 자동화: 사람의 개입 없이 수행",
+          "normalized_explanation": "CS의 세 축은 문제 해결, 정보 표현, 자동 실행이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "computation",
+            "information",
+            "automation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p6_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 6,
+      "topic": "CS 이론 분야",
+      "concepts": [
+        "계산 가능성",
+        "알고리즘",
+        "자료구조",
+        "정보 이론",
+        "하드웨어"
+      ],
+      "raw_text": "CS란?\n\n\n\n\n   계산(Computation) : 문제를 단계로 쪼개어 연산으로 해결한다.•\n\n     어떤 문제가 원리적으로 풀 수 있는 문제인가? (계산 가능성 이론)     •\n\n     그렇다면 효과적인 풀이에는 무엇이 있을까? (알고리즘, 자료구조)     •\n\n   정보(Information) : 정보를 컴퓨터가 이해하고 처리할 수 있는 형태로 표현한다.•\n\n     컴퓨터가 정보를 어떻게 이해하게 할 수 있을까? (정보 이론)     •\n\n   자동화(Automation) : 이러한 과정을 사람의 개입 없이 수행하도록 만든다.•\n\n     실제 시스템으로 어떻게 구현할 수 있을까? (하드웨어 이론)     •",
+      "visual_description": "계산 가능성, 효율적 풀이를 위한 알고리즘·자료구조, 정보 표현, 하드웨어 구현을 연결한다.",
+      "content": "계산 가능성, 효율적 풀이를 위한 알고리즘·자료구조, 정보 표현, 하드웨어 구현을 연결한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "computation",
+        "algorithm",
+        "data_structure",
+        "information"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p6_u01",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "계산 가능성 이론, 알고리즘·자료구조, 정보 이론, 하드웨어 이론",
+          "normalized_explanation": "계산 가능성부터 효율적 풀이·정보 표현·하드웨어 구현까지 연결된다.",
+          "source_status": "verified",
+          "term_ids": [
+            "computation",
+            "algorithm",
+            "data_structure",
+            "information"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p7_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 7,
+      "topic": "CS와 컴퓨터 시스템",
+      "concepts": [
+        "컴퓨터 시스템",
+        "알고리즘",
+        "자료구조"
+      ],
+      "raw_text": "CS란?\n\n\n\n\n   계산(Computation) : 문제를 단계로 쪼개어 연산으로 해결한다.•\n\n     어떤 문제가 원리적으로 풀 수 있는 문제인가? (계산 가능성 이론)     •\n\n     그렇다면 효과적인 풀이에는 무엇이 있을까? (알고리즘, 자료구조)     •\n\n   정보(Information) : 정보를 컴퓨터가 이해하고 처리할 수 있는 형태로 표현한다.•\n\n     컴퓨터가 정보를 어떻게 이해하게 할 수 있을까? (정보 이론)     •\n\n   자동화(Automation) : 이러한 과정을 사람의 개입 없이 수행하도록 만든다.•\n\n     실제 시스템으로 어떻게 구현할 수 있을까? (컴퓨터 시스템)     •",
+      "visual_description": "이론적 계산과 정보 표현을 실제 컴퓨터 시스템으로 구현한다.",
+      "content": "이론적 계산과 정보 표현을 실제 컴퓨터 시스템으로 구현한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p8_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 8,
+      "topic": "컴퓨터 시스템의 범위",
+      "concepts": [
+        "아키텍처",
+        "운영체제",
+        "네트워크",
+        "데이터베이스",
+        "컴파일러"
+      ],
+      "raw_text": "CS란?\n\n\n\n\n  실제 시스템으로 어떻게 구현할 수 있을까? (컴퓨터 시스템)•\n\n     컴퓨터 아키텍쳐     •\n\n     운영체제     •\n\n             Windows        •\n             Linux        •\n             Mac OS        •\n     네트워크     •\n\n     데이터베이스     •\n\n     컴파일러     •\n\n          ...     •",
+      "visual_description": "컴퓨터 시스템은 아키텍처, 운영체제, 네트워크, 데이터베이스, 컴파일러 등을 포함한다.",
+      "content": "컴퓨터 시스템은 아키텍처, 운영체제, 네트워크, 데이터베이스, 컴파일러 등을 포함한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "computer_system",
+        "operating_system",
+        "compiler"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p8_u01",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "컴퓨터 아키텍처, 운영체제, 네트워크, 데이터베이스, 컴파일러 등",
+          "normalized_explanation": "컴퓨터 시스템은 여러 시스템 분야를 포함한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "computer_system",
+            "operating_system",
+            "compiler"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p9_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 9,
+      "topic": "강의의 컴퓨터 시스템 범위",
+      "concepts": [
+        "운영체제",
+        "Linux",
+        "가상화",
+        "셸 스크립트"
+      ],
+      "raw_text": "CS란?\n\n\n\n 컴퓨터 시스템•\n    운영체제    •\n            Linux        •\n        가상화            •\n                      Shell Scirpt                •",
+      "visual_description": "강의는 운영체제, Linux, 가상화, 셸 스크립트를 중심으로 다룬다.",
+      "content": "강의는 운영체제, Linux, 가상화, 셸 스크립트를 중심으로 다룬다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "computer_system",
+        "operating_system",
+        "linux",
+        "virtualization",
+        "shell_script"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p9_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "컴퓨터 시스템: 운영체제, Linux, 가상화, Shell Script",
+          "normalized_explanation": "강의는 OS·Linux·가상화·셸 스크립트를 핵심 시스템 범위로 다룬다.",
+          "source_status": "verified",
+          "term_ids": [
+            "computer_system",
+            "operating_system",
+            "linux",
+            "virtualization",
+            "shell_script"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p10_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 10,
+      "topic": "AI 시대의 CS 기초",
+      "concepts": [
+        "LLM",
+        "시스템 구조"
+      ],
+      "raw_text": "CS란?\n\n\n\n 이걸 왜 배워야 하나요?•\n  Claude Code / Codex가 다 해주는거 아님?•\n\n\n\n 오히려 코드를 짜는 행위 자체는 LLM이 해주니까, 전반적인 구조에 대한 이해가 있어야•\n 더욱 효율적인 개발이 가능하다",
+      "visual_description": "LLM이 코드를 작성해도 전반적인 시스템 구조를 이해해야 효율적으로 개발할 수 있다.",
+      "content": "LLM이 코드를 작성해도 전반적인 시스템 구조를 이해해야 효율적으로 개발할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "computer_system"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p10_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "코드를 짜는 행위 자체는 LLM이 해주니까, 전반적인 구조에 대한 이해가 있어야 더욱 효율적인 개발이 가능하다.",
+          "normalized_explanation": "AI가 코드를 작성해도 시스템 구조를 이해해야 실행·문제해결을 효율적으로 할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "computer_system"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p11_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 11,
+      "topic": "컴퓨터 시스템",
+      "concepts": [
+        "컴퓨터 시스템"
+      ],
+      "raw_text": "컴퓨터 시스템",
+      "visual_description": "컴퓨터 시스템 페이지이다.",
+      "content": "하드웨어부터 운영체제·Linux·가상화까지 다루는 섹션이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p12_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 12,
+      "topic": "하드웨어 구성 시작",
+      "concepts": [
+        "하드웨어"
+      ],
+      "raw_text": "컴퓨터 시스템\n하드웨어\n\n\n 컴퓨터를 사봅시다•\n  현재 아무것도 가지고 있지 않을 때  •",
+      "visual_description": "컴퓨터 하드웨어 구성을 선택하는 상황을 소개한다.",
+      "content": "컴퓨터 하드웨어 구성을 선택하는 상황을 소개한다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p13_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 13,
+      "topic": "PC 하드웨어 구성",
+      "concepts": [
+        "CPU",
+        "GPU",
+        "RAM",
+        "메인보드",
+        "SSD"
+      ],
+      "raw_text": "컴퓨터 시스템\n하드웨어\n\n\n 본체•\n      CPU   •\n   그래픽카드   •\n   램   •\n   메인보드   •\n   쿨러   •\n   파워서플라이   •\n      SSD   •\n 추가 장비•\n   마우스   •\n   키보드   •\n   모니터   •\n   스피커   •",
+      "visual_description": "본체는 CPU·GPU·RAM·메인보드·저장장치·파워 등으로 구성되고 입출력 장치가 연결된다.",
+      "content": "본체는 CPU·GPU·RAM·메인보드·저장장치·파워 등으로 구성되고 입출력 장치가 연결된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cpu",
+        "gpu",
+        "ram",
+        "ssd"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p13_u01",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "본체: CPU, 그래픽카드, 램, 메인보드, 쿨러, 파워서플라이, SSD",
+          "normalized_explanation": "PC는 연산·메모리·저장·연결·전원 부품으로 구성된다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cpu",
+            "gpu",
+            "ram",
+            "ssd"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p14_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 14,
+      "topic": "CPU·RAM·저장장치",
+      "concepts": [
+        "CPU",
+        "RAM",
+        "SSD",
+        "HDD",
+        "휘발성"
+      ],
+      "raw_text": "컴퓨터 시스템\n하드웨어\n\n\n  CPU: 중앙 연산 장치•\n  RAM: CPU가 사용할 정보를 들고 있는 휘발성 저장 장치•\n\n        CPU와 데이터를 주고받는게 빠르지만 용량이 작음     •\n\n     더럽게비쌈 (2026년 기준)     •\n\n  SSD/HDD: 전원이 꺼져도 정보를 들고 있는 영구 저장 장치•\n\n        CPU와 데이터를 주고받는게 비교적 느림     •\n\n     용량이 비교적 큼     •\n\n        SSD도 더럽게비쌈 (2026년 기준)     •\n\n        HDD는 좀 나음     •",
+      "visual_description": "CPU는 연산, RAM은 빠르지만 휘발성인 작업 정보, SSD·HDD는 전원이 꺼져도 유지되는 저장을 담당한다.",
+      "content": "CPU는 연산, RAM은 빠르지만 휘발성인 작업 정보, SSD·HDD는 전원이 꺼져도 유지되는 저장을 담당한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cpu",
+        "ram",
+        "persistent_storage",
+        "ssd",
+        "hdd"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p14_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "CPU: 중앙 연산 장치 / RAM: CPU가 사용할 정보를 들고 있는 휘발성 저장 장치 / SSD·HDD: 전원이 꺼져도 정보를 들고 있는 영구 저장 장치",
+          "normalized_explanation": "CPU는 연산, RAM은 빠른 휘발성 작업 저장, SSD·HDD는 비휘발성 저장을 담당한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cpu",
+            "ram",
+            "persistent_storage",
+            "ssd",
+            "hdd"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p15_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 15,
+      "topic": "CPU와 GPU",
+      "concepts": [
+        "CPU",
+        "GPU",
+        "직렬 연산",
+        "병렬 연산"
+      ],
+      "raw_text": "컴퓨터 시스템\n하드웨어\n\n\n 그럼 GPU는 뭔가요? LLM인지 머시기땜에 비싸던디•\n  https://www.youtube.com/shorts/CaIIjmYceSs•\n\n\n  CPU는 직렬 연산이 강점•\n    복잡한 제어 흐름이나 순차적인 작업에서 낮은 지연속도로 작업 가능    •\n  GPU는 병렬 연산인 강점•\n    비교적 단순한 연사을 대량의 데이터에 동시에 반복 수행할때 좋음    •",
+      "visual_description": "CPU는 복잡한 제어 흐름과 순차 작업의 낮은 지연에, GPU는 단순한 연산을 대량 데이터에 병렬로 반복하는 작업에 강하다.",
+      "content": "CPU는 복잡한 제어 흐름과 순차 작업의 낮은 지연에, GPU는 단순한 연산을 대량 데이터에 병렬로 반복하는 작업에 강하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cpu",
+        "gpu"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p15_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "CPU는 직렬 연산이 강점 / GPU는 병렬 연산이 강점",
+          "normalized_explanation": "CPU는 복잡한 순차 제어, GPU는 대량의 단순 반복 연산에 강하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cpu",
+            "gpu"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p16_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 16,
+      "topic": "코드 실행 흐름",
+      "concepts": [
+        "소스코드",
+        "컴파일",
+        "인터프리트",
+        "기계어",
+        "RAM",
+        "CPU"
+      ],
+      "raw_text": "컴퓨터 시스템\n하드웨어\n\n\n 오케오케, 그러면 코드 짠걸 CPU랑 RAM은 어떻게 읽나요?•\n 소스코드 -> (컴파일 / 인터프리트) -> 기계어 -> RAM에 올림 -> CPU가 연산•\n\n\n\n  더 관심있으시면 컴퓨터 아키텍쳐 수강 or CSAPP 공부를 추천드립니다 (같이해용!)•",
+      "visual_description": "소스코드는 컴파일 또는 인터프리트를 거쳐 기계어로 처리되고 RAM에 올라간 뒤 CPU가 연산한다.",
+      "content": "소스코드는 컴파일 또는 인터프리트를 거쳐 기계어로 처리되고 RAM에 올라간 뒤 CPU가 연산한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "source_code",
+        "compiler",
+        "interpreter",
+        "machine_code",
+        "ram",
+        "cpu"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p16_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "소스코드 → (컴파일 / 인터프리트) → 기계어 → RAM에 올림 → CPU가 연산",
+          "normalized_explanation": "프로그램은 기계어로 변환·처리되어 메모리에 올라간 뒤 CPU가 실행한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "source_code",
+            "compiler",
+            "interpreter",
+            "machine_code",
+            "ram",
+            "cpu"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p17_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 17,
+      "topic": "운영체제의 필요성",
+      "concepts": [
+        "운영체제",
+        "하드웨어 관리",
+        "보호"
+      ],
+      "raw_text": "컴퓨터 시스템\n운영체제\n\n\n 이제 컴퓨터가 어떻게 동작하는지 이해했다!!•\n   • 정말로?\n\n   • 한번에 여러개의 소프트웨어를 실행하면 어떻게 되지?\n\n   • 크롬 탭 안의 유튜브로 노래를 들으면서, 실시간으로 게임을 돌릴때 연산의 우선순위는?\n\n 하드웨어를 직접 관리 및 통제하는 주체가 필요하다•\n   • 잘못된 접근 혹은 비정상적인 동작으로부터 시스템을 보호하기 위해",
+      "visual_description": "여러 프로그램의 우선순위와 자원을 관리하고 비정상 접근으로부터 시스템을 보호할 주체가 필요하다.",
+      "content": "여러 프로그램의 우선순위와 자원을 관리하고 비정상 접근으로부터 시스템을 보호할 주체가 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "operating_system"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p17_u01",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "하드웨어를 직접 관리 및 통제하는 주체가 필요하다. 잘못된 접근 혹은 비정상적인 동작으로부터 시스템을 보호하기 위해서다.",
+          "normalized_explanation": "OS는 공유 하드웨어를 관리하고 비정상 접근을 보호한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "operating_system"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p18_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 18,
+      "topic": "운영체제의 세 역할",
+      "concepts": [
+        "스케줄링",
+        "메모리 관리",
+        "보호"
+      ],
+      "raw_text": "컴퓨터 시스템\n운영체제\n\n\n  운영체제(OS, Operating System)의 역할•\n\n   스케쥴링: 여러 프로그램을 어떻게 동시에 돌리는가?  •\n\n   메모리 관리: 프로그램마다 메모리를 어떻게 나눠 쓰는가?  •\n\n   보호: 프로그램이 하드웨어를 함부로 못건드리게 막기  •",
+      "visual_description": "운영체제는 프로그램 스케줄링, 메모리 분배, 하드웨어 접근 보호를 담당한다.",
+      "content": "운영체제는 프로그램 스케줄링, 메모리 분배, 하드웨어 접근 보호를 담당한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "operating_system",
+        "scheduling",
+        "memory_management"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p18_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "운영체제의 역할: 스케줄링, 메모리 관리, 보호",
+          "normalized_explanation": "OS의 핵심 역할은 CPU 시간·메모리·하드웨어 접근 관리다.",
+          "source_status": "verified",
+          "term_ids": [
+            "operating_system",
+            "scheduling",
+            "memory_management"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p19_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 19,
+      "topic": "CPU 스케줄링",
+      "concepts": [
+        "CPU",
+        "스케줄링",
+        "동시성"
+      ],
+      "raw_text": "컴퓨터 시스템\n운영체제\n\n\n  스케쥴링: 여러 프로그램을 어떻게 동시에 돌리는가?•\n\n      CPU 코어 하나는 한 순간에 한가지 일만 처리 가능  •\n\n    OS가 아주 짧은 시간 단위로 여러 프로그램을 번갈아 실행  •\n\n    사람 눈에는 \"동시에\" 도는 것처럼 보임    •",
+      "visual_description": "한 CPU 코어는 한 순간에 한 작업을 처리하며 OS가 짧은 시간 단위로 프로그램을 번갈아 실행해 동시적으로 보이게 한다.",
+      "content": "한 CPU 코어는 한 순간에 한 작업을 처리하며 OS가 짧은 시간 단위로 프로그램을 번갈아 실행해 동시적으로 보이게 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cpu",
+        "scheduling"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p19_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "CPU 코어 하나는 한 순간에 한 가지 일만 처리. OS가 아주 짧은 시간 단위로 여러 프로그램을 번갈아 실행",
+          "normalized_explanation": "스케줄러가 실행 시간을 나눠 동시성을 제공한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cpu",
+            "scheduling"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p20_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 20,
+      "topic": "메모리 관리",
+      "concepts": [
+        "메모리 관리",
+        "가상 메모리",
+        "주소 변환"
+      ],
+      "raw_text": "컴퓨터 시스템\n운영체제\n\n\n 메모리 관리: 프로그램마다 메모리를 어떻게 나눠 쓰는가?•\n\n   프로그램들이 각자 \"나만 이 메모리를 쓰고 있다\"고 착각하게 만듦  •\n\n   실제로는 OS가 중간에서 진짜 메모리 주소를 관리해줌  •\n\n    가상 메모리 개념    •",
+      "visual_description": "각 프로그램은 독립적 메모리를 쓰는 것처럼 보고 OS가 실제 메모리 주소를 관리한다.",
+      "content": "각 프로그램은 독립적 메모리를 쓰는 것처럼 보고 OS가 실제 메모리 주소를 관리한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "memory_management",
+        "virtual_memory"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p20_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "프로그램들이 각자 '나만 이 메모리를 쓰고 있다'고 착각하게 만듦. 실제로는 OS가 진짜 메모리 주소를 관리",
+          "normalized_explanation": "가상 메모리는 프로세스에 독립 주소 공간을 제공하고 OS가 실제 주소를 관리한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "memory_management",
+            "virtual_memory"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p21_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 21,
+      "topic": "시스템 콜과 보호",
+      "concepts": [
+        "시스템 콜",
+        "User mode",
+        "Kernel mode",
+        "보호"
+      ],
+      "raw_text": "컴퓨터 시스템\n운영체제\n\n\n  보호: 프로그램이 하드웨어를 함부로 못건드리게 막기•\n\n   만약 크롬이 마음대로 다른 프로그램의 메모리를 읽거나  •\n   디스크를 직접 조작할 수 있다면?\n\n   유저 프로그램은 하드웨어에 직접적인 접근이 금지됨  •\n\n    대신 OS에게 부탁 (System Call)    •\n\n    따라서 요청하는 User mode와 실제로 처리하는 Kernel mode가 분리됨    •",
+      "visual_description": "사용자 프로그램은 하드웨어에 직접 접근하지 않고 User mode에서 시스템 콜로 OS에 요청하면 Kernel mode에서 처리한다.",
+      "content": "사용자 프로그램은 하드웨어에 직접 접근하지 않고 User mode에서 시스템 콜로 OS에 요청하면 Kernel mode에서 처리한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "system_call",
+        "user_mode",
+        "kernel_mode",
+        "operating_system"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p21_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "유저 프로그램은 하드웨어에 직접적인 접근이 금지. 대신 OS에게 부탁(System Call). User mode와 Kernel mode가 분리",
+          "normalized_explanation": "특권 분리와 시스템 콜이 하드웨어 접근을 통제한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "system_call",
+            "user_mode",
+            "kernel_mode",
+            "operating_system"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p22_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 22,
+      "topic": "주요 운영체제",
+      "concepts": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "raw_text": "컴퓨터 시스템\n운영체제\n\n\n   Windows / macOS / Linux•\n\n 다 들어보신적은 있죠?•",
+      "visual_description": "Windows, macOS, Linux를 주요 운영체제로 소개한다.",
+      "content": "Windows, macOS, Linux를 주요 운영체제로 소개한다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p23_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 23,
+      "topic": "서버에서 Linux를 쓰는 이유",
+      "concepts": [
+        "Linux",
+        "GUI 오버헤드",
+        "오픈소스",
+        "안정성"
+      ],
+      "raw_text": "컴퓨터 시스템\nLinux\n\n\n 서버로 Linux, 그 안에서도 Ubuntu를 주로 쓰는 이유•\n\n      GUI 오버헤드  •\n\n        Windows / macOS는 화면을 그리는 GUI가 항상 들어감 -> 자원 낭비    •\n\n   오픈소스  •\n\n    소스코드 공개 -> 커스터마이징 자유, 라이선스 비용 없음    •\n\n        https://github.com/torvalds/linux    •\n\n   안정성과 하드웨어 제어  •\n\n    서버/임베디드 환경에서 수십년간 검증된 안정성    •\n\n     클라우드, 슈퍼컴퓨터, 안드로이드까지 현대 컴퓨팅 인프라의 표준    •",
+      "visual_description": "Linux는 GUI 오버헤드를 줄일 수 있고 오픈소스이며 서버·임베디드·클라우드에서 검증된 안정성과 제어력을 갖는다.",
+      "content": "Linux는 GUI 오버헤드를 줄일 수 있고 오픈소스이며 서버·임베디드·클라우드에서 검증된 안정성과 제어력을 갖는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "linux"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p23_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Linux 서버 사용 이유: GUI 오버헤드, 오픈소스, 안정성과 하드웨어 제어",
+          "normalized_explanation": "Linux는 자원 효율·자유도·안정성 때문에 서버에 널리 쓴다.",
+          "source_status": "verified",
+          "term_ids": [
+            "linux"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p24_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 24,
+      "topic": "Unix·Linux·배포판",
+      "concepts": [
+        "Unix",
+        "Linux 커널",
+        "Linux 배포판",
+        "User Space"
+      ],
+      "raw_text": "컴퓨터 시스템\nLinux\n\n\n 그래서 Unix는 뭐고 Linux는 뭐지?•\n\n\n  Unix는 1970년대 연구소에서 개발된 서버용 OS의 뿌리•\n\n\n  Linux는 1991년 Linus Torvalds가 Unix 철학을 따라 만든 오픈소스 커널•\n\n   정확히는, 우리가 사용하는 운영체제는 Linux Distribution(Distro) (리눅스 배포판)  •\n\n   디스트로: 커널 위에 User Space를 묶은 패키지  •",
+      "visual_description": "Unix는 현대 운영체제의 뿐리이고 Linux는 Unix 철학을 따른 오픈소스 커널이며, 배포판은 커널과 User Space 패키지를 묶은다.",
+      "content": "Unix는 현대 운영체제의 뿐리이고 Linux는 Unix 철학을 따른 오픈소스 커널이며, 배포판은 커널과 User Space 패키지를 묶은다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "unix",
+        "linux_kernel",
+        "distribution",
+        "user_space"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p24_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Unix는 1970년대 서버용 OS의 뿐리. Linux는 1991년 Unix 철학을 따라 만든 오픈소스 커널. Linux Distribution은 커널 위에 User Space를 묶은 패키지",
+          "normalized_explanation": "Unix·Linux 커널·배포판은 역사와 구성 수준이 다른 개념이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "unix",
+            "linux_kernel",
+            "distribution",
+            "user_space"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p25_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 25,
+      "topic": "Unix 계보",
+      "concepts": [
+        "Unix",
+        "BSD",
+        "Linux",
+        "macOS"
+      ],
+      "raw_text": "컴퓨터 시스템\nLinux",
+      "visual_description": "Unix에서 BSD·Linux 계열이 분기하는 계보를 도식으로 보여준다.",
+      "content": "Unix에서 BSD·Linux 계열이 분기하는 계보를 도식으로 보여준다.",
+      "page_role": "example",
+      "term_ids": [
+        "unix",
+        "linux",
+        "linux_kernel"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p25_u01",
+          "type": "example",
+          "source_type": "visual",
+          "source_excerpt": "Unix에서 BSD와 Linux 계열이 분기되는 관계도",
+          "normalized_explanation": "macOS의 BSD 계열과 Linux 커널은 Unix 계열 철학을 공유하지만 동일한 커널은 아니다.",
+          "source_status": "verified",
+          "term_ids": [
+            "unix",
+            "linux",
+            "linux_kernel"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p26_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 26,
+      "topic": "Everything is a File",
+      "concepts": [
+        "Everything is a File",
+        "regular file",
+        "directory",
+        "/proc"
+      ],
+      "raw_text": "컴퓨터 시스템\nLinux\n\n\n   Everything is a File•\n\n   •   Unix/Linux 설계 철학의 핵심 원칙\n\n   • 일반 문서 파일 뿐만 아니라 키보드 등의 디바이스, 실행중인 프로세스 정보, 네트워크 소켓 모두 파일이라는 동일한 개념으로 접근 가능\n\n       • 프로그래머는 이게 디스크인지 / 네트워크인지 / 화면인지 몰라도 open(), read(), write() 등의 동작을 통해 커널 자원과 상호작용 가능\n\n   •   Regular file (main.c, /etc/ssh/sshd _ config)\n\n       •   => 우리가 자주 사용하는 코드, 설정 파일, 실행 파일 등등\n\n   •   Directory file (/home/user)\n\n       •   => 파일 시스템 구조 (파일이 어디 존재하는지)\n\n   •   /proc file (/proc/cpuinfo)\n\n       •   => 커널내 상태를 확인 하기 위해서",
+      "visual_description": "Unix/Linux에서 문서·디바이스·프로세스 정보·소켓을 파일 인터페이스로 다루며 open·read·write로 상호작용한다.",
+      "content": "Unix/Linux에서 문서·디바이스·프로세스 정보·소켓을 파일 인터페이스로 다루며 open·read·write로 상호작용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "everything_file"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p26_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Everything is a File: 문서뿐 아니라 디바이스, 프로세스 정보, 네트워크 소켓을 같은 개념으로 접근; open(), read(), write()",
+          "normalized_explanation": "Unix/Linux는 여러 커널 자원을 일관된 파일 인터페이스로 다룬다.",
+          "source_status": "verified",
+          "term_ids": [
+            "everything_file"
+          ]
+        },
+        {
+          "unit_id": "cs_p26_u02",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "Regular file, Directory file, /proc file",
+          "normalized_explanation": "일반 파일·디렉터리·커널 상태가 서로 다른 파일 형태로 노출된다.",
+          "source_status": "verified",
+          "term_ids": [
+            "everything_file"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p27_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 27,
+      "topic": "Linux 파일 권한",
+      "concepts": [
+        "user",
+        "group",
+        "others",
+        "read",
+        "write",
+        "execute"
+      ],
+      "raw_text": "컴퓨터 시스템\nLinux\n\n\n   Everything is a File•\n\n   • 모든 것이 파일이기 때문에, 읽기 / 쓰기 / 실행 권한을 관리하는 것만으로 OS의 역할중 하나였던 \"보호\"를 수행할 수 있게 됨\n\n   • 모든 파일은 소유자(user) / 같은 그룹(group) / 그 외 모두(others) 세 범주로 나누어짐\n\n   • 각 범주마다 r(read, 읽기) / w(write, 쓰기) / x(execute, 실행) 권한을 따로 가짐\n\n       •   ls -l 같은걸 쳤을때 -rwxr-xr-- 같은것들이 차례대로 user, group, others의 r/w/x 권한\n\n       • 실습에서 해봅시다!",
+      "visual_description": "파일은 user·group·others 범주별로 r·w·x 권한을 가지며 이로써 OS의 보호 기능을 구현한다.",
+      "content": "파일은 user·group·others 범주별로 r·w·x 권한을 가지며 이로써 OS의 보호 기능을 구현한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "file_permission",
+        "read_permission",
+        "write_permission",
+        "execute_permission"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p27_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "소유자(user) / 같은 그룹(group) / 그 외(others), 각 범주마다 r(read) / w(write) / x(execute) 권한",
+          "normalized_explanation": "Linux 권한은 주체 범주별로 읽기·쓰기·실행을 나눠 표현한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "file_permission",
+            "read_permission",
+            "write_permission",
+            "execute_permission"
+          ]
+        },
+        {
+          "unit_id": "cs_p27_u02",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "-rwxr-xr-- 같은 표시는 차례대로 user, group, others의 r/w/x 권한",
+          "normalized_explanation": "ls -l 권한 문자열은 파일 형태 후 user·group·others의 rwx 세 묶음으로 읽는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "file_permission",
+            "read_permission",
+            "write_permission",
+            "execute_permission"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p28_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 28,
+      "topic": "Linux 환경 선택",
+      "concepts": [
+        "AWS",
+        "dual boot",
+        "VM",
+        "WSL",
+        "Docker"
+      ],
+      "raw_text": "컴퓨터 시스템\n가상화\n\n\n 저는 Windows 컴퓨터인데 Linux 공부 / 과제를 어떻게 하면 좋을까요?•\n\n    AWS에서 리눅스 컴퓨터를 한대 빌리기  •\n\n   윈도우를 밀어버리고 Linux 디스트로를 깔기  •\n\n   듀얼부팅  •\n\n      VM  •\n\n      WSL  •\n\n      Docker  •\n\n      ...  •",
+      "visual_description": "Windows에서 Linux를 쓰기 위해 AWS, 듀얼부팅, VM, WSL, Docker 등을 선택할 수 있다.",
+      "content": "Windows에서 Linux를 쓰기 위해 AWS, 듀얼부팅, VM, WSL, Docker 등을 선택할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "virtualization",
+        "virtual_machine",
+        "wsl",
+        "docker"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p28_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Windows에서 Linux: AWS, Linux 직접 설치, 듀얼부팅, VM, WSL, Docker",
+          "normalized_explanation": "Linux 환경은 원격 머신·직접 설치·가상화·컨테이너 등으로 준비할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "virtualization",
+            "virtual_machine",
+            "wsl",
+            "docker"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p29_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 29,
+      "topic": "VM과 Container",
+      "concepts": [
+        "VM",
+        "Guest OS",
+        "Container",
+        "호스트 커널"
+      ],
+      "raw_text": "컴퓨터 시스템\n가상화\n\n\n   VM vs Container•\n\n   VM(Virtual Machine)•\n\n   • 완전히 독립된 커널의 Guset OS 올리기\n\n   • 완전 격리, 무거움\n\n   Container•\n\n   • 커널은 호스트와 공유\n\n   • 프로세스 수준의 격리\n\n   • 가볍고 빠름",
+      "visual_description": "VM은 독립 Guest OS와 커널을 올려 격리가 강하지만 무겁고, Container는 호스트 커널을 공유해 프로세스 수준으로 가밍고 빠르게 격리한다.",
+      "content": "VM은 독립 Guest OS와 커널을 올려 격리가 강하지만 무겁고, Container는 호스트 커널을 공유해 프로세스 수준으로 가밍고 빠르게 격리한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "virtual_machine",
+        "container"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p29_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "VM: 완전히 독립된 커널의 Guest OS, 완전 격리·무거움 / Container: 커널을 호스트와 공유, 프로세스 수준 격리, 가밍고 빠름",
+          "normalized_explanation": "VM은 커널까지 격리하고 컨테이너는 호스트 커널을 공유한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "virtual_machine",
+            "container"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p30_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 30,
+      "topic": "WSL1과 WSL2",
+      "concepts": [
+        "WSL1",
+        "WSL2",
+        "syscall 번역",
+        "Linux 커널"
+      ],
+      "raw_text": "컴퓨터 시스템\n가상화\n\n\n   WSL(Windows Subsystem for Linux)•\n\n   마이크로소프트가 Linux와의 호환을 위해 2015년 등장한 시스템  •\n\n        WSL1(syscall 번역)    •\n\n    2019년에는 경량 Linux 커널을 직접 실행하는 WSL2 공개  •",
+      "visual_description": "WSL1은 Linux 시스템 콜을 번역하고 WSL2는 경량 Linux 커널을 직접 실행한다.",
+      "content": "WSL1은 Linux 시스템 콜을 번역하고 WSL2는 경량 Linux 커널을 직접 실행한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "wsl",
+        "system_call",
+        "linux_kernel"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p30_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "WSL1: syscall 번역 / WSL2: 경량 Linux 커널을 직접 실행",
+          "normalized_explanation": "WSL2는 시스템 콜 번역이 아니라 실제 Linux 커널을 사용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "wsl",
+            "system_call",
+            "linux_kernel"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p31_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 31,
+      "topic": "WSL2와 Docker",
+      "concepts": [
+        "WSL2",
+        "Docker",
+        "개발 환경",
+        "배포"
+      ],
+      "raw_text": "컴퓨터 시스템\n가상화\n\n\n   WSL2 vs Docker•\n\n\n   Docker: 애플리케이션 격리/배포 중심•\n\n   WSL2: 개발 환경 자체를 리눅스로 쓰는 워크스테이션 개념•",
+      "visual_description": "Docker는 애플리케이션 격리·배포, WSL2는 Windows에서 Linux 개발 환경 자체를 쓰는 데 초점이 있다.",
+      "content": "Docker는 애플리케이션 격리·배포, WSL2는 Windows에서 Linux 개발 환경 자체를 쓰는 데 초점이 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "docker",
+        "wsl"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p31_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Docker: 애플리케이션 격리/배포 중심 / WSL2: 개발 환경 자체를 Linux로 쓰는 워크스테이션",
+          "normalized_explanation": "Docker와 WSL2는 목적이 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "docker",
+            "wsl"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p32_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 32,
+      "topic": "macOS의 Linux 환경",
+      "concepts": [
+        "macOS",
+        "BSD",
+        "Linux 커널",
+        "Docker",
+        "OrbStack"
+      ],
+      "raw_text": "컴퓨터 시스템\n가상화\n\n\n 저는 macOS인데, 같은 Unix 기반이니까 그냥 터미널에서 진행해도 될까요?•\n\n   아까 관계도를 다시 보면 알겠지만 같은 Unix 기반이지만 BSD / Linux Kernel의 차이가 있음   •\n\n   웬만하면 잘 돌아가겠지만, 쉘스크립트 과제를 진행하던 중 이로 인한 예상치 못한 오류가 발생할 수 있다   •\n\n     재현이 안된다고 하죠     •\n\n   따라서 Docker 사용을 권장드리지만..   •\n\n     macOS에는 Orbstack이라고 더 빠르고 좋은게 있다!   •\n\n          Docker, k8s, 리눅스 가상머신 관리 다 잘 지원한다     •\n\n          brew install --cask orbstack     •\n\n      로 편하게 깔아서 이용합시다        •",
+      "visual_description": "macOS와 Linux는 Unix 계열이지만 커널과 도구의 차이로 재현성 문제가 생길 수 있어 Docker나 OrbStack 환경을 고려한다.",
+      "content": "macOS와 Linux는 Unix 계열이지만 커널과 도구의 차이로 재현성 문제가 생길 수 있어 Docker나 OrbStack 환경을 고려한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "unix",
+        "linux_kernel",
+        "docker",
+        "orbstack",
+        "shell_script"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p32_u01",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "macOS와 Linux는 같은 Unix 기반이지만 BSD / Linux Kernel의 차이가 있어 셸스크립트에 예상치 못한 오류가 발생할 수 있다. Docker·OrbStack 고려",
+          "normalized_explanation": "Unix 계열이라도 커널·도구 차이로 재현성 문제가 생길 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "unix",
+            "linux_kernel",
+            "docker",
+            "orbstack",
+            "shell_script"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p33_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 33,
+      "topic": "Linux 사용자 참고",
+      "concepts": [
+        "Ubuntu",
+        "Arch Linux",
+        "Kali Linux"
+      ],
+      "raw_text": "컴퓨터 시스템\n가상화\n\n\n 저는 Ubuntu / Arch Linux / Kali Linux 를 쓰는데...•\n\n   저보다 잘하실 것 같습니다  •",
+      "visual_description": "Linux 배포판을 이미 쓰는 사용자를 위한 간단한 참고 페이지이다.",
+      "content": "Linux 배포판을 이미 쓰는 사용자를 위한 간단한 참고 페이지이다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p34_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 34,
+      "topic": "실습 섹션",
+      "concepts": [
+        "Linux 실습"
+      ],
+      "raw_text": "실습",
+      "visual_description": "실습 섹션 페이지이다.",
+      "content": "Linux 환경·하드웨어·파일·권한·셸 스크립트 실습 섹션이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p35_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 35,
+      "topic": "실습 환경",
+      "concepts": [
+        "Ubuntu",
+        "WSL2",
+        "OrbStack"
+      ],
+      "raw_text": "실습\n\n\n\n\n 우분투를 사용해봅시다•\n\n   윈도우라면 WSL2, 맥이라면 Orbstack을 이용해봅시다  •",
+      "visual_description": "Windows는 WSL2, macOS는 OrbStack으로 Ubuntu 환경을 준비한다.",
+      "content": "Windows는 WSL2, macOS는 OrbStack으로 Ubuntu 환경을 준비한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p36_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 36,
+      "topic": "Windows·WSL2 실습 준비",
+      "concepts": [
+        "Windows",
+        "WSL2"
+      ],
+      "raw_text": "실습\n        / WSL2윈도우\n\n\n   https://cuffyluv.tistory.com/245•",
+      "visual_description": "Windows에서 WSL2를 준비하는 안내 자료를 제시한다.",
+      "content": "Windows에서 WSL2를 준비하는 안내 자료를 제시한다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p37_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 37,
+      "topic": "macOS·OrbStack 실습 준비",
+      "concepts": [
+        "macOS",
+        "OrbStack"
+      ],
+      "raw_text": "실습\nmacOS / Orbstack",
+      "visual_description": "macOS에서 OrbStack으로 Linux 머신을 생성하는 화면을 보여준다.",
+      "content": "macOS에서 OrbStack으로 Linux 머신을 생성하는 화면을 보여준다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p38_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 38,
+      "topic": "시스템 정보 확인",
+      "concepts": [
+        "lscpu",
+        "free",
+        "os-release",
+        "uname"
+      ],
+      "raw_text": "실습\n\n\n\n\n 하드웨어를 확인해볼까요?•\n\n     CPU 정보확인: lscpu  •\n\n   메모리 용량확인: free -h  •\n\n   운영체제 디스트로 확인: cat /etc/os-release  •\n\n   운영체제 커널 확인: uname -a  •",
+      "visual_description": "lscpu로 CPU, free -h로 메모리, /etc/os-release로 배포판, uname -a로 커널 정보를 확인한다.",
+      "content": "lscpu로 CPU, free -h로 메모리, /etc/os-release로 배포판, uname -a로 커널 정보를 확인한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cpu",
+        "ram",
+        "distribution",
+        "linux_kernel"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p38_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "CPU: lscpu / 메모리: free -h / 배포판: cat /etc/os-release / 커널: uname -a",
+          "normalized_explanation": "Linux 명령으로 하드웨어·배포판·커널 정보를 확인한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cpu",
+            "ram",
+            "distribution",
+            "linux_kernel"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p39_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 39,
+      "topic": "파일시스템 기본 명령",
+      "concepts": [
+        "ls",
+        "cd",
+        "pwd",
+        "hidden file"
+      ],
+      "raw_text": "실습\n\n\n\n\n   Everything is a file!•\n\n   디렉토리 및 파일 확인  •\n\n        ls    •\n\n        ls -a (숨겨진 파일까지 포함해서 출력)    •\n\n        ls -l (long format, 권한까지 확인해봅시다!)    •\n\n   이동해보기  •\n\n        cd usr/bin    •\n\n        cd ..    •\n\n   현재 내가 속한 작업 위치 확인  •\n\n        pwd    •",
+      "visual_description": "ls로 파일을 보고 -a로 숨김 파일, -l로 권한을 확인하며 cd로 이동하고 pwd로 현재 경로를 본다.",
+      "content": "ls로 파일을 보고 -a로 숨김 파일, -l로 권한을 확인하며 cd로 이동하고 pwd로 현재 경로를 본다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "file_permission"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p39_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "ls, ls -a, ls -l, cd, cd .., pwd",
+          "normalized_explanation": "ls는 파일 목록, cd는 이동, pwd는 현재 경로 확인에 쓴다.",
+          "source_status": "verified",
+          "term_ids": [
+            "file_permission"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p40_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 40,
+      "topic": "권한 읽기 실습",
+      "concepts": [
+        "/etc/shadow",
+        "ls -l",
+        "user",
+        "group",
+        "others"
+      ],
+      "raw_text": "실습\n\n\n\n\n 권한 테스트해보기•\n\n     ls -l /etc/shadow (시스템에 등록된 사용자의 비밀번호가 저장된 파일)  •\n\n        -rw-r----- => user은 r+w, group은 r, others는 권한 없음    •\n\n     cat /etc/shadow (읽기 시도)  •\n\n\n     useradd -m testuser (others 유저 추가)  •\n\n     sudo passwd testuser (비밀번호 설정)  •\n\n     cat /etc/shadow  •\n\n     exit  •",
+      "visual_description": "/etc/shadow의 -rw-r----- 표시를 user·group·others의 읽기·쓰기 권한으로 해석한다.",
+      "content": "/etc/shadow의 -rw-r----- 표시를 user·group·others의 읽기·쓰기 권한으로 해석한다.",
+      "page_role": "example",
+      "term_ids": [
+        "file_permission",
+        "read_permission",
+        "write_permission"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p40_u01",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "/etc/shadow의 -rw-r-----: user는 r+w, group은 r, others는 권한 없음",
+          "normalized_explanation": "보호된 파일의 권한 표시를 주체별로 읽는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "file_permission",
+            "read_permission",
+            "write_permission"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p41_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 41,
+      "topic": "chmod 권한 변경 실습",
+      "concepts": [
+        "chmod",
+        "644",
+        "/etc/shadow"
+      ],
+      "raw_text": "실습\n\n\n\n\n 권한 테스트해보기•\n\n     sudo chmod 644 /etc/shadow (해당 파일에 others 에도 읽기 권한 추가)  •\n\n     su - testuser  •\n\n     cat /etc/shadow  •\n\n     exit  •",
+      "visual_description": "chmod 644로 others에 읽기 권한을 부여하면 보호된 파일이 노출될 수 있음을 실습한다.",
+      "content": "chmod 644로 others에 읽기 권한을 부여하면 보호된 파일이 노출될 수 있음을 실습한다.",
+      "page_role": "example",
+      "term_ids": [
+        "chmod",
+        "file_permission",
+        "read_permission"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p41_u01",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "sudo chmod 644 /etc/shadow: others에도 읽기 권한 추가 후 다른 사용자로 cat /etc/shadow",
+          "normalized_explanation": "잘못된 chmod는 민감한 파일을 다른 사용자에게 노출할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "chmod",
+            "file_permission",
+            "read_permission"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p42_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 42,
+      "topic": "셸 스크립트 실행",
+      "concepts": [
+        "shell script",
+        "chmod",
+        "executable"
+      ],
+      "raw_text": "실습\n\n\n\n\n 쉘 스크립트 작성해보기•\n\n   다음 슬라이드의 코드를 run.sh로 저장한 후 (VSCode에서 하는게 편할거에요)  •\n\n     chmod +x ./run.sh  •\n\n     ./run.sh  •",
+      "visual_description": "run.sh를 저장하고 chmod +x로 실행 권한을 준 뒤 ./run.sh로 실행한다.",
+      "content": "run.sh를 저장하고 chmod +x로 실행 권한을 준 뒤 ./run.sh로 실행한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "shell_script",
+        "chmod",
+        "execute_permission"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p42_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "chmod +x ./run.sh → ./run.sh",
+          "normalized_explanation": "셸 스크립트에 실행 권한을 준 뒤 경로로 실행한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "shell_script",
+            "chmod",
+            "execute_permission"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p43_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 43,
+      "topic": "입출력 자동화 셸 스크립트",
+      "concepts": [
+        "bash",
+        "for loop",
+        "redirection",
+        "basename"
+      ],
+      "raw_text": "실습\n\n\n\n\n\n#!/bin/bash\n\n\n# 1. 입력 및 출력 디렉토리 생성\n\nmkdir -p inputs outputs\n\n\n# 2. 테스트용 파이썬 파일 및 입력 데이터 생성 (확장자 없음)\n\necho 'x = int(input()); print(x * 2)' > test.py\n\necho '5' > inputs/1\n\necho '12' > inputs/2\n\n\n# 3. inputs 디렉토리 내의 모든 파일 순회\n\nfor file_path in inputs/*; do\n\n    # 경로에서 파일명(숫자)만 추출 (예: inputs/1 -> 1)\n\n    file_name=$(basename \"$file_path\")\n\n\n    # inputs 폴더의 파일을 읽어 실행하고, 결과를 outputs 폴더에 .output을 붙여 저장\n\n    python3 \"test.py\" < \"$file_path\" > \"outputs/${file_name}.output\"\n\ndone",
+      "visual_description": "입력 파일을 반복하며 Python 프로그램에 리디렉션하고 결과를 출력 파일로 저장한다.",
+      "content": "입력 파일을 반복하며 Python 프로그램에 리디렉션하고 결과를 출력 파일로 저장한다.",
+      "page_role": "example",
+      "term_ids": [
+        "shell_script"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "cs_p43_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "for file_path in inputs/*; do ... python3 test.py < $file_path > outputs/${file_name}.output; done",
+          "normalized_explanation": "반복문과 입출력 리디렉션으로 여러 테스트 케이스를 자동 실행한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "shell_script"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "cs_basics_p44_01",
+      "lecture_id": "cs_basics",
+      "lecture_name": "CS 기초",
+      "page": 44,
+      "topic": "강의 마무리",
+      "concepts": [
+        "CS 기초"
+      ],
+      "raw_text": "감사합니다",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "CS 기초 강의의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

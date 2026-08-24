@@ -36,7 +36,7 @@ outputs/
 !data/evaluation/gold/*_assessment.json
 !data/evaluation/gold/*_score.json
 !data/evaluation/gold/*_cases.json
-!data/processed/processed.schema.json
+!data/processed/*.json
 !frontend/fe/package.json
 !frontend/fe/package-lock.json
 !frontend/fe/tsconfig.json

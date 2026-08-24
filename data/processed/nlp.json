@@ -1,0 +1,2314 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "nlp",
+  "lecture_name": "Natural Language Processing",
+  "source_file": "NLP.pdf",
+  "terminology": [
+    {
+      "term_id": "nlp",
+      "canonical_ko": "자연어 처리",
+      "canonical_en": "natural language processing",
+      "abbreviations": [
+        "NLP"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "natural_language",
+      "canonical_ko": "자연어",
+      "canonical_en": "natural language",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rule_based",
+      "canonical_ko": "규칙 기반 NLP",
+      "canonical_en": "rule-based NLP",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dictionary_based",
+      "canonical_ko": "사전 기반 NLP",
+      "canonical_en": "dictionary-based NLP",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "wordnet",
+      "canonical_ko": "WordNet",
+      "canonical_en": "WordNet",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tokenization",
+      "canonical_ko": "토큰화",
+      "canonical_en": "tokenization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "morpheme",
+      "canonical_ko": "형태소",
+      "canonical_en": "morpheme",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pos",
+      "canonical_ko": "품사 태깅",
+      "canonical_en": "part-of-speech tagging",
+      "abbreviations": [
+        "POS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "stopword",
+      "canonical_ko": "불용어",
+      "canonical_en": "stopword",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "corpus",
+      "canonical_ko": "말뭉치",
+      "canonical_en": "corpus",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "distributional_hypothesis",
+      "canonical_ko": "분포 가설",
+      "canonical_en": "distributional hypothesis",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "embedding",
+      "canonical_ko": "임베딩",
+      "canonical_en": "embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vector",
+      "canonical_ko": "벡터 표현",
+      "canonical_en": "vector representation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "bow",
+      "canonical_ko": "단어 가방",
+      "canonical_en": "bag of words",
+      "abbreviations": [
+        "BoW"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tfidf",
+      "canonical_ko": "TF-IDF",
+      "canonical_en": "term frequency-inverse document frequency",
+      "abbreviations": [
+        "TF-IDF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cooccurrence",
+      "canonical_ko": "동시발생 행렬",
+      "canonical_en": "co-occurrence matrix",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pmi",
+      "canonical_ko": "점별 상호정보량",
+      "canonical_en": "pointwise mutual information",
+      "abbreviations": [
+        "PMI"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ppmi",
+      "canonical_ko": "양의 점별 상호정보량",
+      "canonical_en": "positive pointwise mutual information",
+      "abbreviations": [
+        "PPMI"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cosine_similarity",
+      "canonical_ko": "코사인 유사도",
+      "canonical_en": "cosine similarity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sparse_vector",
+      "canonical_ko": "희소 벡터",
+      "canonical_en": "sparse vector",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "svd",
+      "canonical_ko": "특이값 분해",
+      "canonical_en": "singular value decomposition",
+      "abbreviations": [
+        "SVD"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "word2vec",
+      "canonical_ko": "Word2Vec",
+      "canonical_en": "Word2Vec",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "neural_network",
+      "canonical_ko": "신경망",
+      "canonical_en": "neural network",
+      "abbreviations": [
+        "NN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "window",
+      "canonical_ko": "문맥 창",
+      "canonical_en": "context window",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "window size"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "negative_sampling",
+      "canonical_ko": "네거티브 샘플링",
+      "canonical_en": "negative sampling",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "minibatch",
+      "canonical_ko": "미니배치",
+      "canonical_en": "mini-batch",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cbow",
+      "canonical_ko": "CBOW",
+      "canonical_en": "continuous bag of words",
+      "abbreviations": [
+        "CBOW"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "skipgram",
+      "canonical_ko": "Skip-gram",
+      "canonical_en": "Skip-gram",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "context",
+      "canonical_ko": "문맥 단어",
+      "canonical_en": "context word",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "target_word",
+      "canonical_ko": "중심 단어",
+      "canonical_en": "target word",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "타깃 단어"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_hot",
+      "canonical_ko": "원핫 벡터",
+      "canonical_en": "one-hot vector",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "softmax",
+      "canonical_ko": "소프트맥스",
+      "canonical_en": "softmax",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cross_entropy",
+      "canonical_ko": "교차 엔트로피",
+      "canonical_en": "cross entropy",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hidden_state",
+      "canonical_ko": "은닉 상태",
+      "canonical_en": "hidden state",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "language_model",
+      "canonical_ko": "언어 모델",
+      "canonical_en": "language model",
+      "abbreviations": [
+        "LM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sequence",
+      "canonical_ko": "시퀀스",
+      "canonical_en": "sequence",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rnn",
+      "canonical_ko": "순환 신경망",
+      "canonical_en": "recurrent neural network",
+      "abbreviations": [
+        "RNN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "many_to_one",
+      "canonical_ko": "다대일",
+      "canonical_en": "many-to-one",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_to_many",
+      "canonical_ko": "일대다",
+      "canonical_en": "one-to-many",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "many_to_many",
+      "canonical_ko": "다대다",
+      "canonical_en": "many-to-many",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sentiment",
+      "canonical_ko": "감정 분석",
+      "canonical_en": "sentiment analysis",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vanishing_gradient",
+      "canonical_ko": "기울기 소실",
+      "canonical_en": "vanishing gradient",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "exploding_gradient",
+      "canonical_ko": "기울기 폭주",
+      "canonical_en": "exploding gradient",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "lstm",
+      "canonical_ko": "LSTM",
+      "canonical_en": "long short-term memory",
+      "abbreviations": [
+        "LSTM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gru",
+      "canonical_ko": "GRU",
+      "canonical_en": "gated recurrent unit",
+      "abbreviations": [
+        "GRU"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gate",
+      "canonical_ko": "게이트",
+      "canonical_en": "gate",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "seq2seq",
+      "canonical_ko": "Seq2Seq",
+      "canonical_en": "sequence-to-sequence",
+      "abbreviations": [
+        "Seq2Seq"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "encoder",
+      "canonical_ko": "인코더",
+      "canonical_en": "encoder",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "decoder",
+      "canonical_ko": "디코더",
+      "canonical_en": "decoder",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "context_vector",
+      "canonical_ko": "문맥 벡터",
+      "canonical_en": "context vector",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sos",
+      "canonical_ko": "문장 시작 토큰",
+      "canonical_en": "start-of-sequence token",
+      "abbreviations": [
+        "SOS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "eos",
+      "canonical_ko": "문장 종료 토큰",
+      "canonical_en": "end-of-sequence token",
+      "abbreviations": [
+        "EOS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "attention",
+      "canonical_ko": "어텐션",
+      "canonical_en": "attention",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "self_attention",
+      "canonical_ko": "셀프 어텐션",
+      "canonical_en": "self-attention",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "query",
+      "canonical_ko": "쿼리",
+      "canonical_en": "query",
+      "abbreviations": [
+        "Q"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "key",
+      "canonical_ko": "키",
+      "canonical_en": "key",
+      "abbreviations": [
+        "K"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "value",
+      "canonical_ko": "밸류",
+      "canonical_en": "value",
+      "abbreviations": [
+        "V"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "transformer",
+      "canonical_ko": "트랜스포머",
+      "canonical_en": "Transformer",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "positional_encoding",
+      "canonical_ko": "위치 인코딩",
+      "canonical_en": "positional encoding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "parallelization",
+      "canonical_ko": "병렬 처리",
+      "canonical_en": "parallel processing",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "llm",
+      "canonical_ko": "거대 언어 모델",
+      "canonical_en": "large language model",
+      "abbreviations": [
+        "LLM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "autoregressive",
+      "canonical_ko": "자기회귀",
+      "canonical_en": "autoregressive",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tokenizer",
+      "canonical_ko": "토크나이저",
+      "canonical_en": "tokenizer",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "foundation_model",
+      "canonical_ko": "파운데이션 모델",
+      "canonical_en": "foundation model",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pretraining",
+      "canonical_ko": "사전학습",
+      "canonical_en": "pretraining",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "pre-train"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "finetuning",
+      "canonical_ko": "미세조정",
+      "canonical_en": "fine-tuning",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "fine tune"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "nlp_p1_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 1,
+      "topic": "NLP 표지",
+      "concepts": [
+        "NLP 표지"
+      ],
+      "raw_text": "2026-2 YBIGTA\n\nNLP\n\n\n\n\n\n                          28기 변민주\n                                                               1",
+      "visual_description": "NLP 표지 페이지이다.",
+      "content": "NLP 강의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p2_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "강의 목차"
+      ],
+      "raw_text": "목 차\n\n\n 0. ML/DL Recap\n\n 1.  Classical NLP\n\n 2. Embedding - Word2vec\n\n 3. Sequence Modeling & Contextualization - RNN/LSTM GRU\n\n 4. Attention - Seq2Seq / Transformer\n\n 5. Large Language Model                                                                   2",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "ML·DL 복습, 고전 NLP, Word2Vec, RNN 계열, Seq2Seq·Transformer와 LLM 순으로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p3_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 3,
+      "topic": "Recap·NLP",
+      "concepts": [
+        "Recap·NLP"
+      ],
+      "raw_text": "0. Recap / NLP\n\n\n\n\n\n                                                                               3",
+      "visual_description": "Recap·NLP 페이지이다.",
+      "content": "ML·DL 복습과 NLP 도입 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p4_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 4,
+      "topic": "ML·DL 목적",
+      "concepts": [
+        "ML·DL 목적"
+      ],
+      "raw_text": "ML/DL                                                                    Recap\n\n\n\n\n\n   목적 : 목표 Data에 대해 원하는 Task (예측, 분류 등) 을 성공적으로 수행할 수 있는 모델을 만드는 것\n\n\n\n\n\n                                                                                                              4",
+      "visual_description": "ML·DL 목적의 핵심 도식과 예시를 제시한다.",
+      "content": "ML·DL의 목적은 목표 데이터에서 예측·분류 같은 task를 수행하는 모델을 만드는 것이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p5_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 5,
+      "topic": "ML·DL 방법",
+      "concepts": [
+        "ML·DL 방법"
+      ],
+      "raw_text": "ML/DL                                                                    Recap\n\n\n\n\n\n                       모델 학습\n\n\n\n            지도학습 (회귀 / 분류)                                         비지도학습\n\n\n\n\n\n       Regression     SVM          Tree           DL                    Clustering\n                                                                                                              5",
+      "visual_description": "ML·DL 방법의 핵심 도식과 예시를 제시한다.",
+      "content": "지도학습·비지도학습과 회귀·분류·군집화 및 deep learning의 관계를 복습한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p6_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 6,
+      "topic": "분석 Pipeline",
+      "concepts": [
+        "분석 Pipeline"
+      ],
+      "raw_text": "ML/DL                                                                    Recap\n\n\nML/DL 적용 파이프라인\n\n\n\n   1. 데이터 수집/추출\n\n  2. EDA/FE/시각화\n\n  3. 분석 방법론(모델) 선정\n\n  4. ML/DL 모델 학습\n\n  5. ML/DL 모델 검증 및 튜닝\n\n  6. 결과해석/문제 적용\n\n\n\n                                                                                                                 6",
+      "visual_description": "분석 Pipeline의 핵심 도식과 예시를 제시한다.",
+      "content": "적용 과정은 데이터 수집, EDA·FE·시각화, 모델 선정·학습, 검증·튜닝, 결과 해석과 문제 적용으로 이어진다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p7_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 7,
+      "topic": "Table에서 Text로",
+      "concepts": [
+        "Table에서 Text로"
+      ],
+      "raw_text": "ML/DL                                                                    Recap\n\n\n\n      ML/DL 로 테이블 데이터를 분석해서 값을 예측하고 결과를 해석할 수 있구나!\n\n\n\n                           그럼 텍스트는?\n\n\n\n\n\n                                 집값 예측 모델\n   집값 데이터..                                신용불량 예측 모델\n  신용카드 데이터..                     불량 분류 모델\n  제조 불량 데이터..      모델링                                            ...\n\n\n                                                                                                              7",
+      "visual_description": "Table에서 Text로의 핵심 도식과 예시를 제시한다.",
+      "content": "표 구조의 수치 데이터뿐 아니라 자연어 text도 모델이 처리할 수 있는 표현으로 바꿔야 한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p8_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 8,
+      "topic": "NLP 정의",
+      "concepts": [
+        "NLP 정의"
+      ],
+      "raw_text": "NLP 란?                                         고전 NLP\n\n도대체 사람말은 어떻게 이해시킬까\n\n     Natural Language : 한국어, 영어 등 자연어\n\n\n     Natural Language Processing - 자연어 처리 → 사람의 말을 컴퓨터가 이해하도록 하겠다!\n\n               수치 데이터                                                                good\n                             hungry = 100\n\n\n\n             사람 말\n                                                                                  ??Invalid syntax\n                   배고파요\n\n                                                                                                              8",
+      "visual_description": "NLP 정의의 핵심 도식과 예시를 제시한다.",
+      "content": "NLP는 한국어·영어 같은 사람의 natural language를 컴퓨터가 처리하고 이해하도록 만드는 분야다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "nlp",
+        "natural_language"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p8_def",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Natural Language Processing - 자연어 처리 → 사람의 말을 컴퓨터가 이해",
+          "normalized_explanation": "NLP는 자연어를 컴퓨터가 처리 가능한 형태로 다룬다.",
+          "source_status": "verified",
+          "term_ids": [
+            "nlp",
+            "natural_language"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p9_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 9,
+      "topic": "NLP 발전 흐름",
+      "concepts": [
+        "NLP 발전 흐름"
+      ],
+      "raw_text": "NLP 란?                                         고전 NLP\n\n\n   Rule base / nltk\n                규칙 NLP → 통계 / ML NLP → DL NLP → LLM\n    TD-IDF, Bow\n\n   Co occurrence\n     PMI/PPMI\n\n\n     Word2vec\n\n  RNN / LSTM / GRU\n      Seq2Seq\n\n      Transformer\n\n\n      LLM                                                                                                              9",
+      "visual_description": "NLP 발전 흐름의 핵심 도식과 예시를 제시한다.",
+      "content": "NLP는 rule·dictionary 기반에서 통계·ML, Word2Vec, RNN·Seq2Seq·Transformer와 LLM으로 발전했다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rule_based",
+        "tfidf",
+        "bow",
+        "pmi",
+        "word2vec",
+        "rnn",
+        "lstm",
+        "gru",
+        "seq2seq",
+        "transformer",
+        "llm"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p9_history",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Rule base-nltk → TF-IDF-BoW-PMI → Word2vec → RNN-LSTM-GRU → Seq2Seq → Transformer → LLM",
+          "normalized_explanation": "NLP 방법론의 발전 흐름을 연결한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rule_based",
+            "tfidf",
+            "bow",
+            "pmi",
+            "word2vec",
+            "rnn",
+            "lstm",
+            "gru",
+            "seq2seq",
+            "transformer",
+            "llm"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p10_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 10,
+      "topic": "Classical NLP",
+      "concepts": [
+        "Classical NLP"
+      ],
+      "raw_text": "1. Classical NLP\n\n\n\n\n\n                                                                                10",
+      "visual_description": "Classical NLP 페이지이다.",
+      "content": "Classical NLP 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p11_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 11,
+      "topic": "Rule-based NLP",
+      "concepts": [
+        "Rule-based NLP"
+      ],
+      "raw_text": "인간 중심 NLP                                    고전 NLP\n\nRule Base - logical system          사전 기반 - nltk, wordnet\n\n\n아이디어 : 사전에 만들어둔 규칙에 기반해 처리하자!     아이디어 : 유의어 사전을 만들어두고 시소러스 (유의어 사전) 기반\n\n정해진 규칙에 따라 사람 응답에 답변            유의어 사전에 기반해 단어의 의미를 간접적으로 인식\n\n\n\n\n\n                        오 잘 될까?\n                                                                                                              11",
+      "visual_description": "Rule-based NLP의 핵심 도식과 예시를 제시한다.",
+      "content": "Rule-based 방식은 미리 만든 논리 규칙으로 처리하고 dictionary 방식은 WordNet 같은 lexical relation을 활용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rule_based",
+        "dictionary_based",
+        "wordnet"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p11_rule",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Rule Base: 사전 규칙 / WordNet: 유의어 사전 관계",
+          "normalized_explanation": "규칙과 사전 방식은 사람이 만든 지식을 사용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rule_based",
+            "dictionary_based",
+            "wordnet"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p12_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 12,
+      "topic": "Rule-based 한계",
+      "concepts": [
+        "Rule-based 한계"
+      ],
+      "raw_text": "Rule Base NLP                                   고전 NLP\n\n잘 안된다\n\n\n\n\n\n    자연어의 형태, 형식이 너무 다양해 규칙 기반으로는 모든 상황에 대응이 불가능하다\n                                                                                                              12",
+      "visual_description": "Rule-based 한계의 핵심 도식과 예시를 제시한다.",
+      "content": "자연어 표현은 다양하고 예외가 많아 고정 rule만으로 모든 상황에 대응하기 어렵다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rule_based",
+        "natural_language"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p12_limit",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "형태·형식이 너무 다양해 규칙 기반으로 모든 상황 대응 불가능",
+          "normalized_explanation": "고정 규칙은 언어 다양성과 예외에 취약하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rule_based",
+            "natural_language"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p13_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 13,
+      "topic": "Dictionary-based NLP",
+      "concepts": [
+        "Dictionary-based NLP"
+      ],
+      "raw_text": "사전 기반 NLP                                    고전 NLP\n\nWord net : nltk\n\n\n\n사전 기반은 잘 될까?\n\n  토큰 분리\n\n  형태소분석 - “먹”- “었” - “다”\n\n  품사태깅 (POS) - 명사, 동사..\n\n  문장구조 분석\n\n   Wordnet 어휘관계 탐색\n\n  불용어 제거 후 감정분석\n\n\n     형태소, 품사, 유의어 관계, 불용어 등이 모두 포함된 풍부한 사전을 바탕으로 여러 작업 수행 가능\n                                                                                                              13",
+      "visual_description": "Dictionary-based NLP의 핵심 도식과 예시를 제시한다.",
+      "content": "Dictionary NLP는 tokenization, 형태소 분석, POS tagging, 문장 구조와 어휘 관계, stopword 등의 지식을 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dictionary_based",
+        "wordnet",
+        "tokenization",
+        "morpheme",
+        "pos",
+        "stopword"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p13_dict",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "토큰 분리 / 형태소 분석 / POS / 문장구조 / 어휘관계 / 불용어",
+          "normalized_explanation": "사전 기반 NLP가 사용하는 언어 분석 단위를 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dictionary_based",
+            "wordnet",
+            "tokenization",
+            "morpheme",
+            "pos",
+            "stopword"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p14_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 14,
+      "topic": "Human-centered NLP 한계",
+      "concepts": [
+        "Human-centered NLP 한계"
+      ],
+      "raw_text": "인간 중심 NLP의 한계                               고전 NLP\n\n결국 사람을 쓰는 방식들의 문제\n\n      비싸다               정적이다            모든 상황 표현이 부족하다\n\n   단어 개수 수십만개..                   다시말해 자동 업데이트가 안된다     “챗지피티” 애매한 단어 관계 표현을 관계를 사람이 모두 표현하기??                                           어떻게 해주지?\n                   매 상황 새로운 단어가 등장한다\n                                    빈티지와 레트로는 유의어인가 동의어인가?\n                 챗지피티 ?? 느좋카페 ?? 신규 단어에 대해\n                  매번 새로 관계를 작성해주어야 한다  설사 사람이 매번, 모든 관계를 다 표현해도\n                                      모든 의미 표현을 하기에 턱없이 부족\n                 제가요??\n\n\n\n\n                                                                                                               14         “사람이 일일이 규칙과 언어 표현을 컴퓨터에게 먹여줄 수 없겠는데? 알아서 할 수 없나?”",
+      "visual_description": "Human-centered NLP 한계의 핵심 도식과 예시를 제시한다.",
+      "content": "사람이 만든 규칙·사전은 신규 단어와 맥락을 자동 반영하기 어렵고 구축 비용과 표현 범위에 한계가 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rule_based",
+        "dictionary_based"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p14_human",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "자동 업데이트가 안된다 / 신규 단어 / 비싸다·정적 / 모든 의미 표현 부족",
+          "normalized_explanation": "수작업 지식 구축은 갱신·비용·문맥 표현 한계가 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rule_based",
+            "dictionary_based"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p15_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 15,
+      "topic": "통계 기반 NLP와 분포 가설",
+      "concepts": [
+        "통계 기반 NLP와 분포 가설"
+      ],
+      "raw_text": "통계 기반 NLP                                    고전 NLP\n\n어떻게 단어의 의미를 “알아서” 추출하게 할까?\n\n\n  실제 텍스트 기반       단어의 벡터 표현 (embedding)     단어의 의미 - 분포 가설\n\n\n 사람이 실제로 사용하는 텍스트에     이미지도 RGB 픽셀 값을 벡터로 표    단어의 의미는 주변 단어에 의해 형\n 서 자연어의 규칙, 관습, 지식을 추       현하듯, 단어도 “단어의 의미“가 잘           성된다\n      출하겠다           담긴 벡터로 표현해보면 어떨까?\n                                         단어 자체가 의미가 있는게 아니라,\n                                         그 단어가 등장하는 맥락이 의미를\n                                                      형성한다!\n\n\n\n\n\n                                                                                                              15",
+      "visual_description": "통계 기반 NLP와 분포 가설의 핵심 도식과 예시를 제시한다.",
+      "content": "통계 NLP는 실제 corpus에서 맥락을 관찰해 단어 의미를 vector로 표현하며 distributional hypothesis를 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "corpus",
+        "distributional_hypothesis",
+        "embedding",
+        "vector"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p15_distribution",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "실제 텍스트 기반 단어의 벡터 표현 / 분포 가설 / 의미는 주변 단어에 의해 형성",
+          "normalized_explanation": "분포 가설로 corpus 맥락에서 word vector를 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "corpus",
+            "distributional_hypothesis",
+            "embedding",
+            "vector"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p16_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 16,
+      "topic": "Corpus",
+      "concepts": [
+        "Corpus"
+      ],
+      "raw_text": "통계 기반 NLP                                    고전 NLP\n\nCorpus(말뭉치)\n\n\n   corpus (말뭉치) - 다른게 아니라 그냥 우리가 일상에서 보는, 우리 언어의 규칙, 관습, 지식이 함께 녹아있는 텍스트\n\n  앞서 언급한 “분포가설” 로 의미표현을 하려면, corpus 가 크고 잘 정제되어 있을수록 좋다.\n\n  이후 딥러닝 기반 방법론에서도 동일한 의미로 사용\n\n\n\n좋은 텍스트(논문, 공식 문서, 문학작품 등) 의 텍스트를 가져오면 유려한 문법, 맥락, 지식 등이 텍스트에 녹아 있다\n\n\n\n\n\n                                                                                                              16\n                                                                                     ...",
+      "visual_description": "Corpus의 핵심 도식과 예시를 제시한다.",
+      "content": "Corpus는 언어의 문법·관습·지식이 담긴 text 집합이며 크기뿐 아니라 품질과 정제가 중요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "corpus",
+        "distributional_hypothesis"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p16_corpus",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "corpus: 언어의 규칙, 관습, 지식이 녹아있는 텍스트 / 크고 잘 정제",
+          "normalized_explanation": "Corpus의 크기와 품질이 통계 표현 학습에 중요하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "corpus",
+            "distributional_hypothesis"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p17_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 17,
+      "topic": "BoW와 TF-IDF",
+      "concepts": [
+        "BoW와 TF-IDF"
+      ],
+      "raw_text": "통계 기반 NLP                                    고전 NLP\n\n텍스트 → 벡터 표현 방식\n\nBow                                    TF-IDF\n\n  Bag of words                                 Term Frequency Inverse Document Frequency\n  Corpus에서 문장 내 단어 개수 세기                  The 같은 불용어 (구체적 의미 x) 발생 수 정규화\n  문맥, 단어간 관계, 순서 → ??\n\n\n\n\n\n                                                                                                              17   corpus에서 단어간 관계 반영 없이 바로 벡터화해서는 단어의 의미가 충분히 담기지 않는다",
+      "visual_description": "BoW와 TF-IDF의 핵심 도식과 예시를 제시한다.",
+      "content": "BoW는 단어 count를 사용해 순서·관계를 직접 담지 못하고 TF-IDF는 한 문서에 자주 나오되 전체 문서에 흔한 단어의 가중치를 낮춘다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "bow",
+        "tfidf",
+        "stopword"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p17_count",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Bag of words: 문장 내 단어 개수 / 문맥·관계·순서 없음 / TF-IDF",
+          "normalized_explanation": "BoW와 TF-IDF는 count 기반 표현이지만 TF-IDF는 corpus 전반의 흔함을 보정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "bow",
+            "tfidf",
+            "stopword"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p18_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 18,
+      "topic": "분포 가설과 유사도",
+      "concepts": [
+        "분포 가설과 유사도"
+      ],
+      "raw_text": "통계 기반 NLP                                    고전 NLP\n\n분포가설 벡터표현 & 단어 유사도\n\n\n분포가설 - 단어의 의미는 같이 등장하는 주변 단어 n개 들에 의해 결정\n\n\n분포가설로 벡터화하면 유사한 단어간 유사한 주변 단어 → 유사한 벡터\n\n\n벡터화 한 단어의 유사도는 Cosine Similarity 로 계산\n\n\n\nex)\nShe began to cry. <> She started to cry.\nThey purchased a car. <> They bought a car.\n우리는 결국 문제를 해결했다 <> 우리는 마침내 문제를 해결했다\n\n\n\n                                                                                                              18",
+      "visual_description": "분포 가설과 유사도의 핵심 도식과 예시를 제시한다.",
+      "content": "분포 가설은 비슷한 맥락의 단어가 비슷한 의미를 갖는다고 보며 embedding vector 유사도를 cosine similarity로 계산할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "distributional_hypothesis",
+        "embedding",
+        "cosine_similarity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p18_similarity",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "유사한 주변 단어 → 유사한 벡터 / Cosine Similarity",
+          "normalized_explanation": "분포가 비슷한 word vector의 방향 유사도를 계산한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "distributional_hypothesis",
+            "embedding",
+            "cosine_similarity"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p19_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 19,
+      "topic": "Co-occurrence·PMI·PPMI",
+      "concepts": [
+        "Co-occurrence·PMI·PPMI"
+      ],
+      "raw_text": "통계 기반 NLP                                    고전 NLP\n\nCorpus → 분포가설 → 벡터표현\n\nCo occurence Matrix                 PMI & PPMI\n\n\n\n\n\n                            말뭉치의 단어 수가 10,000\n                                                \"the\"와 \"car\"와 \"drive\"가 각 1,000번, 20번, 10번 등장\n                                                \"the\"와 \"car\"의 동시발생 수 10회\n                                                 \"car\"와 \"drive\"의 동시발생 수 5\n\n    그냥 동시발생 횟수로 관계 표현                                                PKI 계산 시 The 와 car 보다 car과 drive 가 더 관계있다고 함\n                                                                                                               19                                                     != 동시발생 행렬 결과",
+      "visual_description": "Co-occurrence·PMI·PPMI의 핵심 도식과 예시를 제시한다.",
+      "content": "Co-occurrence matrix는 주변 동시발생 count를 기록하고 PMI·PPMI는 개별 빈도를 고려해 기대보다 강한 연관을 강조한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cooccurrence",
+        "pmi",
+        "ppmi",
+        "corpus"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p19_pmi",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Co-occurrence Matrix / PMI & PPMI / 단순 동시발생 횟수와 다름",
+          "normalized_explanation": "PMI는 주변 빈도 대비 기대보다 강한 동시발생을 측정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cooccurrence",
+            "pmi",
+            "ppmi",
+            "corpus"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "nlp_p19_pki_typo",
+          "source_text": "PKI 계산",
+          "issue_type": "typo",
+          "correction": "PMI 계산",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "nlp_p20_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 20,
+      "topic": "통계 벡터의 한계",
+      "concepts": [
+        "통계 벡터의 한계"
+      ],
+      "raw_text": "통계 기반 방법의 한계                              고전 NLP\n\nCorpus → 분포가설 → 벡터표현\n\n                         너무 고차원의 단어 벡터 요약\n\n   Corpus : 텍스트에서 단어의 의미를 추출하고자 함        Sparse Vector : Corpus 내 단어 수가 200개면\n                             벡터가 200차원 - 차원이 너무 크다..!\n  분포가설 : 단어의 의미는 주변 단어가 결정        차원이 너무 커서 의미 표현이 잘 안된다. → 차원축\n                             소 (SVD)\n   Embedding : 단어를 의미가 담긴 벡터로 표현\n                             계산 : 200차원 벡터 - 차원축소 계산이 너무 많다\n   Cosine 유사도 : 벡터(단어)간 유사도 수치화\n                             결국 큰 Corpus 에서 다양한 단어들의 의미를 벡터\n  통계 기반 벡터화 방식 :                 화해야 하는데, corpus 가 커지면 힘듦\n     Corpus에서 단어 개수세기\n      Corpus 에서 단어 동시 발생 개수세기\n                                                                                                                 20",
+      "visual_description": "통계 벡터의 한계의 핵심 도식과 예시를 제시한다.",
+      "content": "Count 기반 표현은 vocabulary 크기의 고차원 sparse vector가 되어 계산·저장 비용이 크며 SVD 같은 차원 축소를 사용할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "sparse_vector",
+        "svd",
+        "vector"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p20_sparse",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Sparse Vector / 단어 수가 차원 / 차원축소 SVD",
+          "normalized_explanation": "Count matrix는 고차원 희소 표현이어서 차원 축소를 고려한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "sparse_vector",
+            "svd",
+            "vector"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p21_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 21,
+      "topic": "Word2Vec",
+      "concepts": [
+        "Word2Vec"
+      ],
+      "raw_text": "2. word2vec\n\n\n\n\n\n                                                                           21",
+      "visual_description": "Word2Vec 페이지이다.",
+      "content": "Word2Vec 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p22_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 22,
+      "topic": "Word2Vec 개요",
+      "concepts": [
+        "Word2Vec 개요"
+      ],
+      "raw_text": "Word2vec                                                          Embedding\n\nNeural Network 를 사용해 단어를 임베딩\n\n\n\n뭘 하는 모델이지? 딥러닝아 벡터화 “해줘”           Why 신경망?\n\n  주변 단어들로 단어를 벡터화(임베딩) 하는 모델       큰 Corpus 계산문제를 해결\n                                                              Mini batch - 나누어 학습\n  주변 단어를 바탕으로 원래 단어를 직접 모델이 “예              Negative sampling - 모든 어휘와 비교 x\n  측”하며 실제 답을 잘 맞출 수 있도록 가중치를 학습함\n                              지속 업데이트가 쉬움\n  학습된 모델에 대해 입력 단어의 순전파 은닉층 벡터\n  값을 단어의 임베딩 벡터로 사용              임베딩 벡터 크기 = 은닉층 크기로 고정\n\n\n\n\n\n                                                                                                                 22",
+      "visual_description": "Word2Vec 개요의 핵심 도식과 예시를 제시한다.",
+      "content": "Word2Vec은 주변 단어 예측을 학습하는 얕은 neural model의 weight를 dense word embedding으로 사용하며 mini-batch·negative sampling으로 계산을 줄일 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "word2vec",
+        "neural_network",
+        "embedding",
+        "context",
+        "minibatch",
+        "negative_sampling"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p22_w2v",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Neural Network로 단어 임베딩 / 주변 단어로 원래 단어 예측 / hidden vector를 embedding으로 사용",
+          "normalized_explanation": "Word2Vec은 예측 학습의 weight를 dense embedding으로 사용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "word2vec",
+            "neural_network",
+            "embedding",
+            "context",
+            "minibatch",
+            "negative_sampling"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p23_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 23,
+      "topic": "CBOW 목표",
+      "concepts": [
+        "CBOW 목표"
+      ],
+      "raw_text": "Word2Vec                                                         Embedding\n\nCbow - 그래서 뭘 학습해?\n\nCbow (Continuous Bag of words)              단어 예측 확률분포 출력\n   Word2vec 의 하위 학습방식 : 주위 단어로 가운데 단어 예측\n\n\n\n\n\n                               목적 : Context로 Target 예측하기\n                               예측 시 해당 자리에 올 단어를 “확률” 로 표현\n\n\n\n\n                                                                                                               23",
+      "visual_description": "CBOW 목표의 핵심 도식과 예시를 제시한다.",
+      "content": "CBOW는 여러 context word로 가운데 target word를 예측한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cbow",
+        "context",
+        "target_word"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p23_cbow",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "CBOW: 주위 단어로 가운데 단어 예측 / Context로 Target 예측",
+          "normalized_explanation": "CBOW의 입력과 target을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cbow",
+            "context",
+            "target_word"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p24_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 24,
+      "topic": "CBOW 학습",
+      "concepts": [
+        "CBOW 학습"
+      ],
+      "raw_text": "Word2Vec                                                         Embedding\n\n Cbow - 그래서 어떻게 학습해?\n\n                                           3. 여러 Context 원핫벡터의 은닉층 값 h1,1.\n                                                                             h2... 평균내서 출력층 → softmax 로 전달\n입력 값 : 원래 단어 예측용 주변 문맥 단어\n                                                        출력층 Soft max → 실수 전체 출력 → 전체                                                                      4.문맥으로 몇개를 줄지는 자유\n                                                        출력합 1이 되도록 하는 확률값으로 변환\nOne hot Vector 로 변환해 입력           단어 별로 가중치 순전파 → h1, h2.. 생성                                2.\n\n\n\n\n\n                                                                                      goodbye\n\n                                                               5. Loss function : Cross Entropy\n                                              → 분류 문제 확률을 잘 맞췄냐 → 올 단어를 잘 맞췄냐                                                                                                                   24",
+      "visual_description": "CBOW 학습의 핵심 도식과 예시를 제시한다.",
+      "content": "CBOW는 context one-hot vector의 hidden representation을 평균내고 softmax로 target 확률을 만들며 cross entropy로 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cbow",
+        "one_hot",
+        "hidden_state",
+        "softmax",
+        "cross_entropy",
+        "context",
+        "target_word"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p24_cbowtrain",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "context one-hot → hidden 평균 → softmax / cross entropy",
+          "normalized_explanation": "CBOW의 forward와 loss 계산 흐름이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cbow",
+            "one_hot",
+            "hidden_state",
+            "softmax",
+            "cross_entropy",
+            "context",
+            "target_word"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p25_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 25,
+      "topic": "CBOW 정리",
+      "concepts": [
+        "CBOW 정리"
+      ],
+      "raw_text": "Word2Vec                                                         Embedding\n\nCbow 정리\n\n\n\n 1.Context 단어들을 onehot vector로 입력\n\n  2.in 가중치 계산으로 은닉상태 각각 계산 → 평균                  1\n                                                            0\n 3.평균낸 은닉벡터 → out 계산 후 출력 생성                                                            0\n                                                            0 4.출력 → softmax 적용 - 전체 단어 중 선택 확률\n                                                                                                                                                    ..\n 5.선택 확률 기반으로 cross entropy 계산\n\n 6.→ 역전파로 weight 업데이트\n\n\ncorpus 내 존재하는 context - target 쌍에 대해서 반복\n\n\n                                                                                                      0.3\n→ 학습된 W in 가중치 : 각 단어들의 hidden vector 모음                                                                                                      4.2\n                                                                                                      3.3\n                                                                                                      1.5\n→ 학습된 W out 가중치 : 평균된 단어 임베딩으로 타깃 예측 출력                                                                                             ...단어 별 벡터 embedding 생성!\n                                                                                                                 25                                          이때 당연히 embedding vector 크기는 hidden size 크기와 같다",
+      "visual_description": "CBOW 정리의 핵심 도식과 예시를 제시한다.",
+      "content": "CBOW는 context-target pair를 반복 학습하고 입력 weight matrix의 행을 word embedding으로 사용할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cbow",
+        "word2vec",
+        "embedding"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p25_cbowresult",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "context-target 쌍 반복 / W_in: 각 단어 hidden vector 모음",
+          "normalized_explanation": "입력 weight matrix에서 word embedding을 얻는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cbow",
+            "word2vec",
+            "embedding"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p26_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 26,
+      "topic": "Skip-gram",
+      "concepts": [
+        "Skip-gram"
+      ],
+      "raw_text": "Word2Vec                                                         Embedding\n\nSkipgram\n\n\n   Cbow 처럼 Word2vec의 하위 학습 방식\n\n   Cbow 와 반대로 중간 단어 하나 input\n\n  → 주변 n개 context 예측 확률이 Output\n\n\n\n\n\n                                                                                                               26",
+      "visual_description": "Skip-gram의 핵심 도식과 예시를 제시한다.",
+      "content": "Skip-gram은 CBOW와 반대로 중심 word 하나로 주변 context word를 예측한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "skipgram",
+        "cbow",
+        "target_word",
+        "context"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p26_skip",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "중간 단어 하나 input → 주변 n개 context 예측",
+          "normalized_explanation": "Skip-gram은 target word로 context를 예측한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "skipgram",
+            "cbow",
+            "target_word",
+            "context"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p27_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 27,
+      "topic": "Word2Vec 결과",
+      "concepts": [
+        "Word2Vec 결과"
+      ],
+      "raw_text": "Word2Vec                                                         Embedding\n\n그래서 Word2vec 의 결과가 뭐냐\n\n   Corpus 가 주어지면, Word2vec의 Cbow나 Skipgram 방식을 사용해, 각 단어별 Embedding 을 구할 수 있다\n\n  학습된 Word2vec 모델로 만든 단어별 임베딩은 고차원 공간에서 단어의 의미 보존을 기존 방식보다 더 잘 한다\n                                              (물론 옛날 기준이고 현재 대 LLM 시대엔 더 잘하는게 많다)\n\n단어의 효과적 의미 표현         Cosine 유사도 - 유사 단어 비교   벡터 → 추가적인 ML Task 적용 가능\n\n\n\n\n\n                                                                                                               27",
+      "visual_description": "Word2Vec 결과의 핵심 도식과 예시를 제시한다.",
+      "content": "Word2Vec embedding은 의미 관계를 dense vector에 담아 cosine similarity와 downstream ML task에 활용할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "word2vec",
+        "embedding",
+        "cosine_similarity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p27_result",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "각 단어별 Embedding / Cosine 유사도 / 추가 ML Task",
+          "normalized_explanation": "Word2Vec dense embedding은 유사도와 downstream task에 쓰인다.",
+          "source_status": "verified",
+          "term_ids": [
+            "word2vec",
+            "embedding",
+            "cosine_similarity"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p28_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 28,
+      "topic": "RNN·LSTM·GRU",
+      "concepts": [
+        "RNN·LSTM·GRU"
+      ],
+      "raw_text": "3. RNN\n\n   LSTM GRU\n\n\n\n\n\n                                                                   28",
+      "visual_description": "RNN·LSTM·GRU 페이지이다.",
+      "content": "RNN·LSTM·GRU 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p29_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 29,
+      "topic": "Language Model",
+      "concepts": [
+        "Language Model"
+      ],
+      "raw_text": "Language Model - 언어모델                             Sequence + context\n\n문맥파악하기 → 단어의 등장 순서 파악하기!\n\n\n   Word2vec은 순서, 장기 문맥 고려 없이 전후 n개 단어로 단어를 embedding 하는 모델\n\n\n   window size 의 한계 + 순서 고려 X로 매끄러운 문맥에 맞는 문장을 판별하고 예측하지 못함\n\n\n\n\n             \"철수는 학교에 늦었지만, 선생님께서 그를 ________.\"\n\n\n           Word2vec 의 단순 주위 예측으로는 “혼냈다”, “기다렸다” 등을 예상하기 어렵다.\n\n         결국 철수/는 → 학교/에 → 늦/었/지만 → 선생님/께서 → 그/를 → ???\n\n  이렇게 문맥의 자연스러움을 평가하고, 자연스러운 다음 단어를 예측하는 모델을 언어 모델 이라고 한다.!                                                                                                               29",
+      "visual_description": "Language Model의 핵심 도식과 예시를 제시한다.",
+      "content": "Language model은 word sequence의 문맥을 이용해 문장의 자연스러움이나 다음 token probability를 모델링하며 기본 Word2Vec은 고정 window와 명시적 순서 표현에 한계가 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "language_model",
+        "word2vec",
+        "window",
+        "sequence"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p29_lm",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Word2vec은 순서·장기 문맥 고려 없이 window / 자연스러운 다음 단어 예측 언어 모델",
+          "normalized_explanation": "Language model은 sequence 문맥으로 다음 token을 모델링한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "language_model",
+            "word2vec",
+            "window",
+            "sequence"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p30_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 30,
+      "topic": "Recurrent Network",
+      "concepts": [
+        "Recurrent Network"
+      ],
+      "raw_text": "RNN                                                             Sequence + context\n\nRecursive Neural Network - 재귀 신경망이란?\n\n왜 “Recurrent” 신경망인가? → 이전 단어들 입력에 대해 다음 단어를 예측해야 함 - 순서를 갖는 시퀀스 처리 필요\n\nFeedforward 신경망 vs feedback loop 신경망\n\ncbow : you say goodbye 에서 you 원핫벡터는 순서대로 W in , hidden state, W out 을 통과 (loop X)\n\nRNN : “철수는 학교에 늦었지만, 선생님께서 그를 ________” 문장에서 첫 단어 입력 “철수는” 이 계속 다음 step “학교에”, “늦었\n지만” 을 처리하는 입력에서 계속 반영→ 계속 반복해서 다음 단어 hidden state 계산에 포함되어야 함\n\n\n\n\n\n                                                                                                              30",
+      "visual_description": "Recurrent Network의 핵심 도식과 예시를 제시한다.",
+      "content": "RNN은 이전 hidden state를 다음 time step 계산에 전달해 순서 있는 sequence 정보를 누적한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rnn",
+        "hidden_state",
+        "sequence"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p30_rnn",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "이전 단어 입력이 다음 step hidden state에 계속 반영 / feedback loop",
+          "normalized_explanation": "RNN은 hidden state를 time step 사이에 전달한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rnn",
+            "hidden_state",
+            "sequence"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p31_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 31,
+      "topic": "RNN Task 유형",
+      "concepts": [
+        "RNN Task 유형"
+      ],
+      "raw_text": "RNN                                                             Sequence + context\n\nRNN의 task\n\n시퀀스 - 문맥을 보는 모델이 할 수 있는건 많다\n\n\n\n\n\n          One to many : 첫 단어 입력에 대해 다음 단어 지속 예측 (문장생성)\n          many to one : 문장 전체 입력에 대해 감정 label 예측 (나 지금 너무 신나~) → 긍정\n          many to many : 기계번역 (I wanna go home → 나 집에 갈래)\n                                                                                                              31",
+      "visual_description": "RNN Task 유형의 핵심 도식과 예시를 제시한다.",
+      "content": "RNN은 one-to-many 생성, many-to-one 감정 분석, many-to-many 번역 등 입출력 구조에 사용할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rnn",
+        "one_to_many",
+        "many_to_one",
+        "many_to_many",
+        "sentiment"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p31_tasks",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "one-to-many 문장생성 / many-to-one 감정 label / many-to-many 번역",
+          "normalized_explanation": "RNN 입출력 sequence 구조별 task를 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rnn",
+            "one_to_many",
+            "many_to_one",
+            "many_to_many",
+            "sentiment"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p32_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 32,
+      "topic": "RNN 언어 모델",
+      "concepts": [
+        "RNN 언어 모델"
+      ],
+      "raw_text": "RNN                                                             Sequence + context\n\n언어모델 RNN의 동작 방식\n\n자연스러운 문장 생성법 익히기\n\n                                                     One to Many!\n                                                                   ex) 언어모델 (문장생성)\n\n\n\n\n                                                                   “The” input → “movie” 예측\n\n                                                                   “The” hidden state + “movie” input → “is” 예측\n\n                                      동일하게 Cross entropy loss 예측\n\n\n\n\n                                                                                                               32           각 X1, X2... 매 시점 t 별 단어 input 은 Word2vec 등으로 변환된 임베딩 된 단어",
+      "visual_description": "RNN 언어 모델의 핵심 도식과 예시를 제시한다.",
+      "content": "RNN language model은 각 시점의 word embedding과 이전 hidden state로 다음 word probability를 예측하고 cross entropy로 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rnn",
+        "language_model",
+        "embedding",
+        "hidden_state",
+        "cross_entropy"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p32_rnnlm",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "각 시점 embedding word / hidden state / 다음 word 예측 / cross entropy",
+          "normalized_explanation": "RNN language model은 순차적으로 다음 token 확률을 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rnn",
+            "language_model",
+            "embedding",
+            "hidden_state",
+            "cross_entropy"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p33_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 33,
+      "topic": "RNN 감정 분석",
+      "concepts": [
+        "RNN 감정 분석"
+      ],
+      "raw_text": "RNN                                                             Sequence + context\n\nmany to one 감정분석 RNN\n\n문장 전체 입력에 대해 하나의 label 출력 → ex) 긍정 부정\n→ 못맞추면 cross entropy loss 로 역전파\n                                                                   Many to One!\nex) 감정 label 예측 (나 지금 너무 신나~) → 긍정\n                                                                                   ex) Sentiment Analysis\n\n\n\n\n\n                                                                                                              33\n            각 X1, X2... 는 Word2vec 등으로 변환된 임베딩 된 단어",
+      "visual_description": "RNN 감정 분석의 핵심 도식과 예시를 제시한다.",
+      "content": "Many-to-one RNN은 문장 전체 sequence를 처리한 representation으로 sentiment label 하나를 예측할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rnn",
+        "many_to_one",
+        "sentiment"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p33_sentiment",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "문장 전체 입력에 대해 하나의 label 출력 / 감정분석",
+          "normalized_explanation": "Many-to-one은 sequence를 하나의 label로 압축한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rnn",
+            "many_to_one",
+            "sentiment"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p34_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 34,
+      "topic": "RNN Gradient 문제",
+      "concepts": [
+        "RNN Gradient 문제"
+      ],
+      "raw_text": "RNN                                                             Sequence + context\n\nRNN 의 문제 - 기울기 소실 / 폭발\n\n시퀀스가 너무 길면, 뒷쪽 단어를 예측해서 나온 오차가 역전파가 앞쪽 “철수”에 거의 반영되지 못한다.\n→ 장기적 정보 저장에 문제\n\n              \"철수는 학교에 늦었고 ~~... ~~ 선생님께서 그를 ________.\"\n\n\n\n\n\n                                                                                                              34",
+      "visual_description": "RNN Gradient 문제의 핵심 도식과 예시를 제시한다.",
+      "content": "긴 sequence의 반복 역전파는 gradient vanishing·exploding을 일으켜 먼 과거 정보 학습을 어렵게 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rnn",
+        "vanishing_gradient",
+        "exploding_gradient",
+        "sequence"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p34_gradient",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "긴 sequence / 오차가 앞쪽에 거의 반영되지 못함 / 기울기 소실·폭발",
+          "normalized_explanation": "반복 gradient 곱은 장기 의존 학습을 어렵게 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rnn",
+            "vanishing_gradient",
+            "exploding_gradient",
+            "sequence"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p35_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 35,
+      "topic": "LSTM·GRU",
+      "concepts": [
+        "LSTM·GRU"
+      ],
+      "raw_text": "LSTM/GRU                                                    Sequence + context\n\nGate가 추가된 RNN - 장기기억 유지를 위해\n\n장기 정보를 전달해주는 여러 Gate 구조 추가\n\n아키텍처 그림 - layer connection 을 여러 구조로 연결해 먼 과거의 hidden state을 미래에 흘려주는 구조\n-> 구조만 복잡\n\n\n\n\n\n                                                                                                              35",
+      "visual_description": "LSTM·GRU의 핵심 도식과 예시를 제시한다.",
+      "content": "LSTM과 GRU는 gate 구조로 정보의 보존·갱신·출력을 제어해 vanilla RNN의 장기 의존성 학습을 개선한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "lstm",
+        "gru",
+        "gate",
+        "rnn"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p35_gates",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Gate가 추가된 RNN / 장기 정보를 전달 / LSTM-GRU",
+          "normalized_explanation": "Gated RNN은 정보 흐름을 조절한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "lstm",
+            "gru",
+            "gate",
+            "rnn"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p36_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 36,
+      "topic": "Seq2Seq·Transformer",
+      "concepts": [
+        "Seq2Seq·Transformer"
+      ],
+      "raw_text": "4. Transformer\n           Seq2Seq\n\n\n\n\n\n                                                                              36",
+      "visual_description": "Seq2Seq·Transformer 페이지이다.",
+      "content": "Seq2Seq와 Transformer 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p37_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 37,
+      "topic": "Seq2Seq Architecture",
+      "concepts": [
+        "Seq2Seq Architecture"
+      ],
+      "raw_text": "Seq2Seq                                                    Sequence → Sequence\n\nSequence to Sequence → 다대다 아키텍처\n\n\nRNN vs Seq2Seq?                          Many to Many 구조의 개선\n\n\n   seq2seq - 셀이 아닌 아키텍처\n\n   RNN : 문장을 구성하는 단어가 입력되면\n\n  그때마다 출력을 내놓아서 답변을 만듦\n\n   seq2seq : 모든 문장을 끝까지 들은 후 하\n  나의 완전한 문장 생성\n\n\n  입력과 출력 시퀀스의 길이가 달라도 처리 가능!\n\n  긴 문장 구조의 정렬 문제 해결\n\n\n                                                                                                              37",
+      "visual_description": "Seq2Seq Architecture의 핵심 도식과 예시를 제시한다.",
+      "content": "Seq2Seq는 특정 cell 이름이 아니라 encoder와 decoder로 input sequence를 output sequence에 매핑하는 architecture이며 길이가 달라도 처리할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "seq2seq",
+        "encoder",
+        "decoder",
+        "many_to_many"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p37_seq2seq",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Seq2Seq는 셀이 아닌 아키텍처 / 입력과 출력 길이가 달라도 처리",
+          "normalized_explanation": "Seq2Seq는 encoder-decoder sequence mapping이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "seq2seq",
+            "encoder",
+            "decoder",
+            "many_to_many"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "nlp_p37_rnn_seq2seq",
+          "source_text": "RNN은 단어마다 출력, seq2seq는 모두 들은 후 하나의 문장 생성",
+          "issue_type": "overgeneralized",
+          "correction": "RNN은 cell 계열이고 Seq2Seq는 encoder-decoder architecture이므로 출력 시점 하나로 대립시키지 않는다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "nlp_p38_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 38,
+      "topic": "Seq2Seq Task",
+      "concepts": [
+        "Seq2Seq Task"
+      ],
+      "raw_text": "Seq2Seq                                                    Sequence → Sequence\n\nSequence to Sequence → 문장 to 문장\n\n\n  기계번역, 전문 요약 등\n\n\n\n\n\n                                                                                                              38",
+      "visual_description": "Seq2Seq Task의 핵심 도식과 예시를 제시한다.",
+      "content": "Seq2Seq는 machine translation과 document summarization 같은 sequence-to-sequence task에 사용된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "seq2seq",
+        "many_to_many"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p38_tasks",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "기계번역, 전문 요약",
+          "normalized_explanation": "Seq2Seq의 대표 task를 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "seq2seq",
+            "many_to_many"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p39_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 39,
+      "topic": "Encoder-Decoder 번역",
+      "concepts": [
+        "Encoder-Decoder 번역"
+      ],
+      "raw_text": "Seq2Seq                                                    Sequence → Sequence\n\nSequence to Sequence 문장번역\n\n\n   RNN / LSTM / GRU 등 시퀀스 아키텍처 두 개 결합 (인코더 / 디코더)\n\n\n  인코더에 문장의 단어 차례대로 입력 → context vector를 얻음\n  디코더에 context vector와 문장 시작 토큰 임베딩 <sos> 입력\n  → 반복 예측 하며 종료 토큰 <eos>가 나올 때까지 문장 생성\n\n\n\n\n\n                                                                                                              39",
+      "visual_description": "Encoder-Decoder 번역의 핵심 도식과 예시를 제시한다.",
+      "content": "RNN·LSTM·GRU encoder가 입력을 context로 만들고 decoder가 SOS에서 시작해 token을 생성하다 EOS에서 멈춘다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "seq2seq",
+        "encoder",
+        "decoder",
+        "context_vector",
+        "sos",
+        "eos"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p39_encdec",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "encoder → context vector / decoder에 SOS / 반복 예측해 EOS까지",
+          "normalized_explanation": "Encoder-decoder generation 흐름이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "seq2seq",
+            "encoder",
+            "decoder",
+            "context_vector",
+            "sos",
+            "eos"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p40_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 40,
+      "topic": "Transformer 등장",
+      "concepts": [
+        "Transformer 등장"
+      ],
+      "raw_text": "Transformer                                                                       Attention\n\nAttention 기반 Transformer 의 등장\n\n\nSeq2Seq 의 문제                               Transformer 개선\n\n\n  단계적 연산이 너무 느리다                      RNN 계열 셀 배제 → Transformer block 을 셀로 구성\n\n  긴 시퀀스에서 정보가 충분히 전달되지 않는다                Positional encoding - 시퀀스 비순차적 입력 → 병렬처리\n\n                                                              Self Attention - 긴 문장의 장기 맥락\n\n\n\n\n              본격적인 Many to Many - 문장 to 문장 Task 의 발전\n\n      → 단어, 문장 임베딩, 문장 생성 (인코딩/디코딩) 모두 Transformer 아키텍처 기반으로 처리\n\n                                   (word2vec / RNN bye..)                                                                                                              40",
+      "visual_description": "Transformer 등장의 핵심 도식과 예시를 제시한다.",
+      "content": "고정 context vector와 순차 RNN의 장거리·병렬화 한계를 attention과 Transformer가 완화한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rnn",
+        "seq2seq",
+        "transformer",
+        "attention",
+        "positional_encoding",
+        "parallelization"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p40_transition",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "RNN 순차 연산 느림 / 긴 sequence 정보 / positional encoding·self attention / Transformer",
+          "normalized_explanation": "Transformer는 attention과 병렬 처리로 RNN 계열 한계를 완화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rnn",
+            "seq2seq",
+            "transformer",
+            "attention",
+            "positional_encoding",
+            "parallelization"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p41_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 41,
+      "topic": "Positional Encoding",
+      "concepts": [
+        "Positional Encoding"
+      ],
+      "raw_text": "Transformer                                                                       Attention\n\nPositional Encoding\n\n\n\n\n\n문장 내 Position 에 대한 정보를 단어 Embedding 과 결합 → 의미와 위치정보를 모두 포함하는 벡터 생성\n\n                                                                                                              41",
+      "visual_description": "Positional Encoding의 핵심 도식과 예시를 제시한다.",
+      "content": "Positional encoding은 병렬로 입력되는 token embedding에 sequence 위치 정보를 더한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "positional_encoding",
+        "embedding",
+        "sequence"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p41_position",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Position 정보를 word Embedding과 결합",
+          "normalized_explanation": "Position encoding은 token 순서를 표현한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "positional_encoding",
+            "embedding",
+            "sequence"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p42_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 42,
+      "topic": "Attention과 QKV",
+      "concepts": [
+        "Attention과 QKV"
+      ],
+      "raw_text": "Transformer                                                                       Attention\n\nAttention is all you need!\n\n\n                                         seq2seq는 input sequence가 길어질 수록 성능이 저하된다\n                           → 긴 문맥을 담기에 context vector 크기가 부족하기 때문!\n\n                                                  Attention!\n\n\n                           인코더의 모든 시점의 문맥을 반영하자, 단 주목할 부분만!\n\n\n\n                                                  Query Key Value 구조\n\n                                                                     - 인코딩 단계 단어가 문장 내 다른 단어와 관련이 있는지 (self attention) 다른\n                               단어의 Key 와 비교 → 가중치로 Value 를 반영\n\n\n                                                                                                               42",
+      "visual_description": "Attention과 QKV의 핵심 도식과 예시를 제시한다.",
+      "content": "Attention은 query와 key의 관련도로 weight를 계산해 value를 가중합하고 self-attention은 한 sequence 내부 관계를 모델링한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "attention",
+        "self_attention",
+        "query",
+        "key",
+        "value",
+        "context_vector"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p42_attention",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "모든 시점 문맥 중 주목할 부분 / Query Key Value / weight로 Value 반영",
+          "normalized_explanation": "Attention은 Q-K 관련도로 V를 가중합한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "attention",
+            "self_attention",
+            "query",
+            "key",
+            "value",
+            "context_vector"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p43_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 43,
+      "topic": "Transformer 구조",
+      "concepts": [
+        "Transformer 구조"
+      ],
+      "raw_text": "Transformer                                                                       Attention\n\nAttention 기반 Transformer\n\n\n\n\n\n                                                                                                              43",
+      "visual_description": "Transformer 구조의 핵심 도식과 예시를 제시한다.",
+      "content": "Transformer는 recurrent cell 없이 multi-head attention과 feed-forward block으로 sequence를 병렬 처리한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "transformer",
+        "attention",
+        "self_attention"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p43_transformer",
+          "type": "relation",
+          "source_type": "visual",
+          "source_excerpt": "Attention 기반 Transformer",
+          "normalized_explanation": "Transformer는 attention 중심 block으로 sequence를 처리한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "transformer",
+            "attention",
+            "self_attention"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p44_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 44,
+      "topic": "Attention 시각화",
+      "concepts": [
+        "Attention 시각화"
+      ],
+      "raw_text": "Transformer                                                                       Attention\n\nAttention 시각화\n\n\n\n\n\n                                                                                                              44",
+      "visual_description": "Attention 시각화의 핵심 도식과 예시를 제시한다.",
+      "content": "Attention weight 시각화는 특정 token이 문장 내 어떤 token을 참고하는지 보여주는 예시다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p45_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 45,
+      "topic": "LLM",
+      "concepts": [
+        "LLM"
+      ],
+      "raw_text": "5. LLM\n\n\n\n\n\n                                                                   45",
+      "visual_description": "LLM 페이지이다.",
+      "content": "Large Language Model 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p46_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 46,
+      "topic": "LLM 개요",
+      "concepts": [
+        "LLM 개요"
+      ],
+      "raw_text": "LLM                                                                Large Language Model\n\nLarge Language Model - Transformer 인코더 / 디코더 기반\n\n\n  인코더 - 임베딩 : 전체 문장을 토대로 언어표현 생성\n  디코더 - 텍스트 생성 : 자기회귀 / AutoRegressive - 자신이 예측한 단어로 다음 단어예측 → 언어 표현 및 생성 가능\n\n\n\n\n\n                                                                                                              46",
+      "visual_description": "LLM 개요의 핵심 도식과 예시를 제시한다.",
+      "content": "LLM은 대규모 corpus로 사전학습한 Transformer 계열 언어 모델이며 autoregressive decoder 모델은 앞서 생성한 token으로 다음 token을 생성한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "llm",
+        "transformer",
+        "encoder",
+        "decoder",
+        "autoregressive"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p46_llm",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Transformer 인코더·디코더 기반 / 디코더 자기회귀: 예측 단어로 다음 단어 예측",
+          "normalized_explanation": "LLM Transformer 계열과 autoregressive generation을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "llm",
+            "transformer",
+            "encoder",
+            "decoder",
+            "autoregressive"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p47_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 47,
+      "topic": "LLM 기본 구성",
+      "concepts": [
+        "LLM 기본 구성"
+      ],
+      "raw_text": "LLM                                                                Large Language Model\n\nLLM 기본 구성\n\n\n\n\n Tokenizer : Corpus 를 임베딩을 할 “토큰” 단위로 분할\n\n Transformer embedding :\n\n Foundation Model : Bert, GPT, LLaMa\n\n Sub task Fine Tuning : Roberta, finbert, kobert..\n\n\n\n\n\n                                                                                                              47",
+      "visual_description": "LLM 기본 구성의 핵심 도식과 예시를 제시한다.",
+      "content": "Tokenizer는 corpus를 token으로 분할하고 Transformer는 contextual representation을 학습하며 pretrained foundation model을 task에 맞게 fine-tuning할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "llm",
+        "tokenizer",
+        "corpus",
+        "transformer",
+        "foundation_model",
+        "finetuning"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p47_components",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Tokenizer / Transformer embedding / Foundation Model / Fine Tuning",
+          "normalized_explanation": "토큰화·사전학습 표현·task 적응 단계를 연결한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "llm",
+            "tokenizer",
+            "corpus",
+            "transformer",
+            "foundation_model",
+            "finetuning"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "nlp_p47_model_categories",
+          "source_text": "Sub task Fine Tuning: Roberta, finbert, kobert",
+          "issue_type": "overgeneralized",
+          "correction": "모델마다 pretraining architecture와 downstream fine-tuning 이력을 구분한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "nlp_p48_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 48,
+      "topic": "LLM Architecture",
+      "concepts": [
+        "LLM Architecture"
+      ],
+      "raw_text": "LLM                                                                Large Language Model\n\nLLM 기본 구성\n\n\n\n\n\n                                                                                                              48",
+      "visual_description": "LLM Architecture의 핵심 도식과 예시를 제시한다.",
+      "content": "Encoder-only, decoder-only, encoder-decoder Transformer 계열은 이해·생성·변환 task에 서로 다른 구조적 강점을 가진다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "transformer",
+        "encoder",
+        "decoder",
+        "llm"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p48_arch",
+          "type": "comparison",
+          "source_type": "visual",
+          "source_excerpt": "encoder 기반 / decoder 기반 / encoder-decoder",
+          "normalized_explanation": "Transformer architecture family별 task 강점이 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "transformer",
+            "encoder",
+            "decoder",
+            "llm"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p49_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 49,
+      "topic": "Pretrain·Finetune",
+      "concepts": [
+        "Pretrain·Finetune"
+      ],
+      "raw_text": "LLM                                                                Large Language Model\n\nPreTrain - FineTune\n\n\n\n\n\n               Pre trained model                                   Fine tuning adaptation\n\n                                                                                                              49",
+      "visual_description": "Pretrain·Finetune의 핵심 도식과 예시를 제시한다.",
+      "content": "Pretraining은 대규모 일반 corpus에서 언어 표현을 학습하고 fine-tuning은 목적 task나 domain data에 적응시킨다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pretraining",
+        "finetuning",
+        "foundation_model"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p49_adapt",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Pre trained model / Fine tuning adaptation",
+          "normalized_explanation": "Pretraining 후 domain·task fine-tuning으로 적응한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pretraining",
+            "finetuning",
+            "foundation_model"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p50_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 50,
+      "topic": "Recap",
+      "concepts": [
+        "Recap"
+      ],
+      "raw_text": "Recap\n\n\n\n\n\n                                                                  50",
+      "visual_description": "Recap 페이지이다.",
+      "content": "강의의 전체 내용을 복습하는 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p51_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 51,
+      "topic": "NLP 발전 요약",
+      "concepts": [
+        "NLP 발전 요약"
+      ],
+      "raw_text": "NLP Recap                                                    Sequence + context\n\nLarge Language Model - 거대 언어모델이란?\n\n  Rule base / nltk               규칙기반 언어 이해 시도\n\n   통계 기반         Corpus d라는 단어 묶음에서 단어 개수 기반, 동시 발생 기반 벡터화 시도\n\n\n    Word2vec               신경망으로 d 구한, 단어 의미를 담은 단어의 벡터표현(임베딩)!\n\n\n     RNN       문맥을 학습한 언어모델 - 문장생성, 감정분석, 기계 번역 등 여러 task 수행\n\n   LSTM / GRU    RNN 구조가 장기기억에 약하니 긴 문장 학습을 위해 장기기억 gate를 만들어주자\n\n    Seq2Seq             문장단위의 task 처리를 위해 RNN 셀을 인코더 디코더 두 단계로 결합하자\n\n   Transformer    Seq2Seq 의 단점인 계산속도(병렬처리)와 전체 장기 문맥 고려 (Attention!)를 개선하자\n\n                                                                                                              51\n                        transformer 인코더 / 디코더 기반 표현모델 / 생성모델 (bert, gpt) 발전 ing      LLM",
+      "visual_description": "NLP 발전 요약의 핵심 도식과 예시를 제시한다.",
+      "content": "NLP는 규칙·통계 표현에서 dense embedding, sequence model, encoder-decoder, attention·Transformer와 LLM으로 발전했다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rule_based",
+        "word2vec",
+        "rnn",
+        "lstm",
+        "gru",
+        "seq2seq",
+        "transformer",
+        "llm"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "nlp_p51_recap",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Rule → 통계 → Word2vec → RNN-LSTM-GRU → Seq2Seq → Transformer → LLM",
+          "normalized_explanation": "NLP 발전을 표현·문맥·생성 architecture의 변화로 연결한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rule_based",
+            "word2vec",
+            "rnn",
+            "lstm",
+            "gru",
+            "seq2seq",
+            "transformer",
+            "llm"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "nlp_p52_01",
+      "lecture_id": "nlp",
+      "lecture_name": "Natural Language Processing",
+      "page": 52,
+      "topic": "강의 마무리",
+      "concepts": [
+        "강의 마무리"
+      ],
+      "raw_text": "감사합니다!\n\n\n\n\n\n                                                                       52",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "NLP 강의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

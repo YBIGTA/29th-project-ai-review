@@ -1,0 +1,1268 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "nlp",
+  "lecture_name": "Natural Language Processing",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "nlp.statistical_foundations",
+      "title": "고전·통계 NLP와 단어 표현",
+      "selection_description": "사람이 만든 언어 지식에서 corpus 기반 의미 표현으로의 전환을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "nlp.foundations.scope",
+          "title": "NLP와 발전 흐름",
+          "summary": "NLP 목적과 방법 변화를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "NLP는 사람이 사용하는 natural language를 컴퓨터가 처리하고 이해할 수 있도록 만드는 분야다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "nlp_p8_01",
+                  "unit_id": "nlp_p8_def",
+                  "source_excerpt": "Natural Language Processing - 자연어 처리 → 사람의 말을 컴퓨터가 이해",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "nlp",
+                "natural_language"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "NLP는 사람이 사용하는 natural language를 컴퓨터가 처리하고 이해할 수 있도록 만드는 분야다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.history",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "NLP는 rule·dictionary, 통계 표현, Word2Vec, sequence model, Transformer와 LLM으로 발전했다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "nlp_p9_01",
+                  "unit_id": "nlp_p9_history",
+                  "source_excerpt": "Rule base-nltk → TF-IDF-BoW-PMI → Word2vec → RNN-LSTM-GRU → Seq2Seq → Transformer → LLM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rule_based",
+                "tfidf",
+                "bow",
+                "pmi",
+                "word2vec",
+                "rnn",
+                "lstm",
+                "gru",
+                "seq2seq",
+                "transformer",
+                "llm"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "NLP는 rule·dictionary, 통계 표현, Word2Vec, sequence model, Transformer와 LLM으로 발전했다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.foundations.human",
+          "title": "규칙·사전 기반",
+          "summary": "작동 방식과 한계를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.rule_dictionary",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Rule-based NLP는 미리 작성한 규칙을, dictionary-based NLP는 WordNet 같은 어휘·언어 관계 지식을 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "nlp_p11_01",
+                  "unit_id": "nlp_p11_rule",
+                  "source_excerpt": "Rule Base: 사전 규칙 / WordNet: 유의어 사전 관계",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rule_based",
+                "dictionary_based",
+                "wordnet"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Rule-based NLP는 미리 작성한 규칙을, dictionary-based NLP는 WordNet 같은 어휘·언어 관계 지식을 사용한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.dictionary_tasks",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "사전 기반 분석은 tokenization, 형태소, POS tagging, 문장 구조, 어휘 관계와 stopword 지식을 활용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "nlp_p13_01",
+                  "unit_id": "nlp_p13_dict",
+                  "source_excerpt": "토큰 분리 / 형태소 분석 / POS / 문장구조 / 어휘관계 / 불용어",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dictionary_based",
+                "wordnet",
+                "tokenization",
+                "morpheme",
+                "pos",
+                "stopword"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "사전 기반 분석은 tokenization, 형태소, POS tagging, 문장 구조, 어휘 관계와 stopword 지식을 활용한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.rule_limit",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "고정 rule은 자연어의 다양한 표현과 예외를 모두 포괄하기 어렵다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "nlp_p12_01",
+                  "unit_id": "nlp_p12_limit",
+                  "source_excerpt": "형태·형식이 너무 다양해 규칙 기반으로 모든 상황 대응 불가능",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rule_based",
+                "natural_language"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "고정 rule은 자연어의 다양한 표현과 예외를 모두 포괄하기 어렵다."
+                ],
+                "critical_errors": [
+                  "규칙 기반 방식이 새로운 표현과 모든 문맥에 자동 적응한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.human_limit",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "사람이 구축한 rule·dictionary는 신규 단어와 문맥을 자동 갱신하기 어렵고 비용과 표현 범위에 한계가 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "nlp_p14_01",
+                  "unit_id": "nlp_p14_human",
+                  "source_excerpt": "자동 업데이트가 안된다 / 신규 단어 / 비싸다·정적 / 모든 의미 표현 부족",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rule_based",
+                "dictionary_based"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "사람이 구축한 rule·dictionary는 신규 단어와 문맥을 자동 갱신하기 어렵고 비용과 표현 범위에 한계가 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.foundations.distribution",
+          "title": "Corpus와 분포 가설",
+          "summary": "맥락에서 word 의미를 추출한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.distribution",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Distributional hypothesis는 word 의미가 주변 context에 의해 드러난다고 보고 corpus에서 의미 vector를 학습한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "nlp_p15_01",
+                  "unit_id": "nlp_p15_distribution",
+                  "source_excerpt": "실제 텍스트 기반 단어의 벡터 표현 / 분포 가설 / 의미는 주변 단어에 의해 형성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "corpus",
+                "distributional_hypothesis",
+                "embedding",
+                "vector"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Distributional hypothesis는 word 의미가 주변 context에 의해 드러난다고 보고 corpus에서 의미 vector를 학습한다."
+                ],
+                "critical_errors": [
+                  "분포 가설이 주변 문맥과 무관하게 단어 철자만으로 의미를 정한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.corpus",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Corpus는 언어의 문법·관습·지식이 담긴 text 집합이며 크기와 정제 품질이 중요하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "nlp_p16_01",
+                  "unit_id": "nlp_p16_corpus",
+                  "source_excerpt": "corpus: 언어의 규칙, 관습, 지식이 녹아있는 텍스트 / 크고 잘 정제",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "corpus",
+                "distributional_hypothesis"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Corpus는 언어의 문법·관습·지식이 담긴 text 집합이며 크기와 정제 품질이 중요하다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.cosine",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "비슷한 context의 word는 비슷한 vector를 갖고 cosine similarity로 vector 방향 유사도를 측정할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "nlp_p18_01",
+                  "unit_id": "nlp_p18_similarity",
+                  "source_excerpt": "유사한 주변 단어 → 유사한 벡터 / Cosine Similarity",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "distributional_hypothesis",
+                "embedding",
+                "cosine_similarity"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "비슷한 context의 word는 비슷한 vector를 갖고 cosine similarity로 vector 방향 유사도를 측정할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.foundations.count",
+          "title": "Count 기반 표현",
+          "summary": "BoW·TF-IDF·PMI와 희소성을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.bow_tfidf",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "BoW는 word count를 사용해 순서를 직접 담지 못하고 TF-IDF는 한 문서에 자주 나오되 corpus 전체에 흔한 word의 weight를 낮춘다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "nlp_p17_01",
+                  "unit_id": "nlp_p17_count",
+                  "source_excerpt": "Bag of words: 문장 내 단어 개수 / 문맥·관계·순서 없음 / TF-IDF",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "bow",
+                "tfidf",
+                "stopword"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "BoW는 word count를 사용해 순서를 직접 담지 못하고 TF-IDF는 한 문서에 자주 나오되 corpus 전체에 흔한 word의 weight를 낮춘다."
+                ],
+                "critical_errors": [
+                  "BoW가 단어 순서를 완전히 보존한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.pmi",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Co-occurrence matrix는 주변 동시발생 count를 기록하고 PMI·PPMI는 개별 빈도 대비 기대보다 강한 연관을 강조한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "nlp_p19_01",
+                  "unit_id": "nlp_p19_pmi",
+                  "source_excerpt": "Co-occurrence Matrix / PMI & PPMI / 단순 동시발생 횟수와 다름",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cooccurrence",
+                "pmi",
+                "ppmi",
+                "corpus"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Co-occurrence matrix는 주변 동시발생 count를 기록하고 PMI·PPMI는 개별 빈도 대비 기대보다 강한 연관을 강조한다."
+                ],
+                "critical_errors": [
+                  "PMI가 개별 단어 빈도를 전혀 고려하지 않고 동시발생 count만 사용한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.sparse",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Count 기반 vocabulary vector는 고차원 sparse representation이 되어 계산·저장 비용이 크므로 SVD 같은 차원 축소를 고려한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 20,
+                  "chunk_id": "nlp_p20_01",
+                  "unit_id": "nlp_p20_sparse",
+                  "source_excerpt": "Sparse Vector / 단어 수가 차원 / 차원축소 SVD",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "sparse_vector",
+                "svd",
+                "vector"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Count 기반 vocabulary vector는 고차원 sparse representation이 되어 계산·저장 비용이 크므로 SVD 같은 차원 축소를 고려한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "nlp.word2vec_embeddings",
+      "title": "Word2Vec 단어 임베딩",
+      "selection_description": "CBOW·Skip-gram의 예측 학습과 embedding 사용을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "nlp.w2v.idea",
+          "title": "Word2Vec 원리",
+          "summary": "예측 weight를 표현으로 사용한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.word2vec",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Word2Vec은 주변 word 예측을 학습하는 neural model의 weight를 dense word embedding으로 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "nlp_p22_01",
+                  "unit_id": "nlp_p22_w2v",
+                  "source_excerpt": "Neural Network로 단어 임베딩 / 주변 단어로 원래 단어 예측 / hidden vector를 embedding으로 사용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "word2vec",
+                "neural_network",
+                "embedding",
+                "context",
+                "minibatch",
+                "negative_sampling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Word2Vec은 주변 word 예측을 학습하는 neural model의 weight를 dense word embedding으로 사용한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.embedding_use",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "학습된 Word2Vec embedding은 의미 유사도를 cosine similarity로 비교하고 downstream ML task의 feature로 사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 27,
+                  "chunk_id": "nlp_p27_01",
+                  "unit_id": "nlp_p27_result",
+                  "source_excerpt": "각 단어별 Embedding / Cosine 유사도 / 추가 ML Task",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "word2vec",
+                "embedding",
+                "cosine_similarity"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "학습된 Word2Vec embedding은 의미 유사도를 cosine similarity로 비교하고 downstream ML task의 feature로 사용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.w2v.cbow",
+          "title": "CBOW",
+          "summary": "context에서 target을 예측한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.cbow_goal",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "CBOW는 여러 context word를 입력해 가운데 target word를 예측한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "nlp_p23_01",
+                  "unit_id": "nlp_p23_cbow",
+                  "source_excerpt": "CBOW: 주위 단어로 가운데 단어 예측 / Context로 Target 예측",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cbow",
+                "context",
+                "target_word"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CBOW는 여러 context word를 입력해 가운데 target word를 예측한다."
+                ],
+                "critical_errors": [
+                  "CBOW가 중심 단어로 주변 단어를 예측한다고 방향을 뒤바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.cbow_training",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Context one-hot representation의 hidden vector를 평균내고 softmax target probability와 cross entropy로 CBOW를 학습한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 24,
+                  "chunk_id": "nlp_p24_01",
+                  "unit_id": "nlp_p24_cbowtrain",
+                  "source_excerpt": "context one-hot → hidden 평균 → softmax / cross entropy",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cbow",
+                "one_hot",
+                "hidden_state",
+                "softmax",
+                "cross_entropy",
+                "context",
+                "target_word"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Context one-hot representation의 hidden vector를 평균내고 softmax target probability와 cross entropy로 CBOW를 학습한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.cbow_embedding",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Context-target pair를 반복 학습한 입력 weight matrix의 각 word row를 embedding으로 사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 25,
+                  "chunk_id": "nlp_p25_01",
+                  "unit_id": "nlp_p25_cbowresult",
+                  "source_excerpt": "context-target 쌍 반복 / W_in: 각 단어 hidden vector 모음",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cbow",
+                "word2vec",
+                "embedding"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Context-target pair를 반복 학습한 입력 weight matrix의 각 word row를 embedding으로 사용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.w2v.skipgram",
+          "title": "Skip-gram과 비교",
+          "summary": "예측 방향과 계산 전략을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.skipgram",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Skip-gram은 CBOW와 반대로 중심 target word 하나에서 주변 context word를 예측한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "nlp_p26_01",
+                  "unit_id": "nlp_p26_skip",
+                  "source_excerpt": "중간 단어 하나 input → 주변 n개 context 예측",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "skipgram",
+                "cbow",
+                "target_word",
+                "context"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Skip-gram은 CBOW와 반대로 중심 target word 하나에서 주변 context word를 예측한다."
+                ],
+                "critical_errors": [
+                  "Skip-gram이 여러 주변 단어로 중심 단어를 예측한다고 CBOW와 뒤바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.word2vec_efficiency",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Word2Vec은 mini-batch와 negative sampling으로 큰 vocabulary 전체를 매번 비교하는 계산 비용을 줄일 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "nlp_p22_01",
+                  "unit_id": "nlp_p22_w2v",
+                  "source_excerpt": "Neural Network로 단어 임베딩 / 주변 단어로 원래 단어 예측 / hidden vector를 embedding으로 사용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "word2vec",
+                "neural_network",
+                "embedding",
+                "context",
+                "minibatch",
+                "negative_sampling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Word2Vec은 mini-batch와 negative sampling으로 큰 vocabulary 전체를 매번 비교하는 계산 비용을 줄일 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "nlp.sequence_models",
+      "title": "언어 모델과 RNN 계열",
+      "selection_description": "순서 문맥, RNN task와 장기 의존성 문제를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "nlp.sequence.lm",
+          "title": "Language Model",
+          "summary": "순서 문맥과 다음 token을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.language_model",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Language model은 word sequence의 문맥을 사용해 문장 probability 또는 다음 token probability를 모델링한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "nlp_p29_01",
+                  "unit_id": "nlp_p29_lm",
+                  "source_excerpt": "Word2vec은 순서·장기 문맥 고려 없이 window / 자연스러운 다음 단어 예측 언어 모델",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "language_model",
+                "word2vec",
+                "window",
+                "sequence"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Language model은 word sequence의 문맥을 사용해 문장 probability 또는 다음 token probability를 모델링한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.rnn_state",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "RNN은 이전 hidden state를 다음 time step 계산에 전달해 순서 있는 sequence 정보를 누적한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "nlp_p30_01",
+                  "unit_id": "nlp_p30_rnn",
+                  "source_excerpt": "이전 단어 입력이 다음 step hidden state에 계속 반영 / feedback loop",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rnn",
+                "hidden_state",
+                "sequence"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "RNN은 이전 hidden state를 다음 time step 계산에 전달해 순서 있는 sequence 정보를 누적한다."
+                ],
+                "critical_errors": [
+                  "RNN의 각 time step이 이전 hidden state와 완전히 독립이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.rnn_lm",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "RNN language model은 현재 word embedding과 이전 hidden state로 다음 word probability를 예측하고 cross entropy로 학습한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "nlp_p32_01",
+                  "unit_id": "nlp_p32_rnnlm",
+                  "source_excerpt": "각 시점 embedding word / hidden state / 다음 word 예측 / cross entropy",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rnn",
+                "language_model",
+                "embedding",
+                "hidden_state",
+                "cross_entropy"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "RNN language model은 현재 word embedding과 이전 hidden state로 다음 word probability를 예측하고 cross entropy로 학습한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.sequence.tasks",
+          "title": "RNN 입출력 Task",
+          "summary": "sequence 출력 형태를 비교한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.rnn_tasks",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "RNN은 one-to-many 생성, many-to-one classification과 many-to-many sequence transformation에 사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "nlp_p31_01",
+                  "unit_id": "nlp_p31_tasks",
+                  "source_excerpt": "one-to-many 문장생성 / many-to-one 감정 label / many-to-many 번역",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rnn",
+                "one_to_many",
+                "many_to_one",
+                "many_to_many",
+                "sentiment"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "RNN은 one-to-many 생성, many-to-one classification과 many-to-many sequence transformation에 사용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.sentiment",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Sentiment analysis는 문장 sequence 전체를 처리해 하나의 감정 label을 출력하는 many-to-one task다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "nlp_p33_01",
+                  "unit_id": "nlp_p33_sentiment",
+                  "source_excerpt": "문장 전체 입력에 대해 하나의 label 출력 / 감정분석",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rnn",
+                "many_to_one",
+                "sentiment"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Sentiment analysis는 문장 sequence 전체를 처리해 하나의 감정 label을 출력하는 many-to-one task다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.sequence.memory",
+          "title": "장기 의존성과 Gate",
+          "summary": "gradient 문제와 LSTM·GRU를 연결한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.rnn_gradient",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "긴 RNN sequence의 반복 역전파는 vanishing·exploding gradient를 일으켜 먼 과거 정보 학습을 어렵게 할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 34,
+                  "chunk_id": "nlp_p34_01",
+                  "unit_id": "nlp_p34_gradient",
+                  "source_excerpt": "긴 sequence / 오차가 앞쪽에 거의 반영되지 못함 / 기울기 소실·폭발",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rnn",
+                "vanishing_gradient",
+                "exploding_gradient",
+                "sequence"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "긴 RNN sequence의 반복 역전파는 vanishing·exploding gradient를 일으켜 먼 과거 정보 학습을 어렵게 할 수 있다."
+                ],
+                "critical_errors": [
+                  "기울기 소실이 앞 시점 gradient를 크게 폭발시키는 현상이라고 뒤바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.gated_rnn",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "LSTM과 GRU는 gate로 정보의 보존·갱신·출력을 조절해 vanilla RNN보다 장기 의존성 학습을 개선한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 35,
+                  "chunk_id": "nlp_p35_01",
+                  "unit_id": "nlp_p35_gates",
+                  "source_excerpt": "Gate가 추가된 RNN / 장기 정보를 전달 / LSTM-GRU",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "lstm",
+                "gru",
+                "gate",
+                "rnn"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LSTM과 GRU는 gate로 정보의 보존·갱신·출력을 조절해 vanilla RNN보다 장기 의존성 학습을 개선한다."
+                ],
+                "critical_errors": [
+                  "LSTM·GRU에는 정보 흐름을 조절하는 gate가 없다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "nlp.attention_llm",
+      "title": "Seq2Seq·Transformer와 LLM",
+      "selection_description": "encoder-decoder, attention과 사전학습 언어 모델을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "nlp.attention.seq2seq",
+          "title": "Seq2Seq",
+          "summary": "가변 길이 sequence mapping을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.seq2seq",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Seq2Seq는 특정 cell이 아니라 encoder와 decoder로 input sequence를 output sequence에 매핑하며 길이가 달라도 처리할 수 있는 architecture다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 37,
+                  "chunk_id": "nlp_p37_01",
+                  "unit_id": "nlp_p37_seq2seq",
+                  "source_excerpt": "Seq2Seq는 셀이 아닌 아키텍처 / 입력과 출력 길이가 달라도 처리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "seq2seq",
+                "encoder",
+                "decoder",
+                "many_to_many"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Seq2Seq는 특정 cell이 아니라 encoder와 decoder로 input sequence를 output sequence에 매핑하며 길이가 달라도 처리할 수 있는 architecture다."
+                ],
+                "critical_errors": [
+                  "Seq2Seq가 반드시 input과 output 길이가 같아야 한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.seq2seq_tasks",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Seq2Seq는 machine translation과 document summarization 같은 sequence-to-sequence task에 사용된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 38,
+                  "chunk_id": "nlp_p38_01",
+                  "unit_id": "nlp_p38_tasks",
+                  "source_excerpt": "기계번역, 전문 요약",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "seq2seq",
+                "many_to_many"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Seq2Seq는 machine translation과 document summarization 같은 sequence-to-sequence task에 사용된다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.encoder_decoder",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Encoder가 input context를 만들고 decoder가 SOS에서 시작해 token을 생성하다 EOS에서 종료한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 39,
+                  "chunk_id": "nlp_p39_01",
+                  "unit_id": "nlp_p39_encdec",
+                  "source_excerpt": "encoder → context vector / decoder에 SOS / 반복 예측해 EOS까지",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "seq2seq",
+                "encoder",
+                "decoder",
+                "context_vector",
+                "sos",
+                "eos"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Encoder가 input context를 만들고 decoder가 SOS에서 시작해 token을 생성하다 EOS에서 종료한다."
+                ],
+                "critical_errors": [
+                  "Decoder가 encoder 정보 없이 SOS 이전부터 완성 문장을 한 번에 출력한다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.attention.core",
+          "title": "Attention과 Transformer",
+          "summary": "QKV와 위치·병렬 처리를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.attention",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Attention은 Query와 Key의 관련도로 weight를 계산해 Value를 가중합하고 self-attention은 같은 sequence 내부 관계를 모델링한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 42,
+                  "chunk_id": "nlp_p42_01",
+                  "unit_id": "nlp_p42_attention",
+                  "source_excerpt": "모든 시점 문맥 중 주목할 부분 / Query Key Value / weight로 Value 반영",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "attention",
+                "self_attention",
+                "query",
+                "key",
+                "value",
+                "context_vector"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Attention은 Query와 Key의 관련도로 weight를 계산해 Value를 가중합하고 self-attention은 같은 sequence 내부 관계를 모델링한다."
+                ],
+                "critical_errors": [
+                  "Attention weight가 Query-Key 관련도와 무관하게 항상 모든 Value에 똑같다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.position",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Positional encoding은 recurrence 없이 병렬 입력되는 token embedding에 sequence 위치 정보를 더한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 41,
+                  "chunk_id": "nlp_p41_01",
+                  "unit_id": "nlp_p41_position",
+                  "source_excerpt": "Position 정보를 word Embedding과 결합",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "positional_encoding",
+                "embedding",
+                "sequence"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Positional encoding은 recurrence 없이 병렬 입력되는 token embedding에 sequence 위치 정보를 더한다."
+                ],
+                "critical_errors": [
+                  "Transformer가 위치 정보 없이도 token 순서를 구조적으로 자동 구분한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.transformer",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Transformer는 recurrent cell 없이 multi-head attention과 feed-forward block으로 sequence를 병렬 처리한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 43,
+                  "chunk_id": "nlp_p43_01",
+                  "unit_id": "nlp_p43_transformer",
+                  "source_excerpt": "Attention 기반 Transformer",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "transformer",
+                "attention",
+                "self_attention"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Transformer는 recurrent cell 없이 multi-head attention과 feed-forward block으로 sequence를 병렬 처리한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.transformer_transition",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Attention과 Transformer는 고정 context bottleneck, 순차 계산과 장거리 정보 전달의 RNN·Seq2Seq 한계를 완화한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 40,
+                  "chunk_id": "nlp_p40_01",
+                  "unit_id": "nlp_p40_transition",
+                  "source_excerpt": "RNN 순차 연산 느림 / 긴 sequence 정보 / positional encoding·self attention / Transformer",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rnn",
+                "seq2seq",
+                "transformer",
+                "attention",
+                "positional_encoding",
+                "parallelization"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Attention과 Transformer는 고정 context bottleneck, 순차 계산과 장거리 정보 전달의 RNN·Seq2Seq 한계를 완화한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "nlp.attention.llm",
+          "title": "LLM과 적응",
+          "summary": "Transformer 사전학습과 생성·fine-tuning을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "nlp.llm",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "LLM은 대규모 corpus로 pretraining한 Transformer 계열 language model이며 autoregressive decoder는 이전 token으로 다음 token을 생성한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 46,
+                  "chunk_id": "nlp_p46_01",
+                  "unit_id": "nlp_p46_llm",
+                  "source_excerpt": "Transformer 인코더·디코더 기반 / 디코더 자기회귀: 예측 단어로 다음 단어 예측",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "llm",
+                "transformer",
+                "encoder",
+                "decoder",
+                "autoregressive"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LLM은 대규모 corpus로 pretraining한 Transformer 계열 language model이며 autoregressive decoder는 이전 token으로 다음 token을 생성한다."
+                ],
+                "critical_errors": [
+                  "Autoregressive decoder가 이전 token이나 생성 결과를 전혀 사용하지 않는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "nlp.llm_components",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Tokenizer가 text를 token으로 나누고 Transformer가 contextual representation을 학습한 foundation model을 task에 맞게 적응할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 47,
+                  "chunk_id": "nlp_p47_01",
+                  "unit_id": "nlp_p47_components",
+                  "source_excerpt": "Tokenizer / Transformer embedding / Foundation Model / Fine Tuning",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "llm",
+                "tokenizer",
+                "corpus",
+                "transformer",
+                "foundation_model",
+                "finetuning"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Tokenizer가 text를 token으로 나누고 Transformer가 contextual representation을 학습한 foundation model을 task에 맞게 적응할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.architectures",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Encoder-only, decoder-only, encoder-decoder Transformer는 이해·생성·변환 task에 서로 다른 구조적 강점을 가진다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 48,
+                  "chunk_id": "nlp_p48_01",
+                  "unit_id": "nlp_p48_arch",
+                  "source_excerpt": "encoder 기반 / decoder 기반 / encoder-decoder",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "transformer",
+                "encoder",
+                "decoder",
+                "llm"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Encoder-only, decoder-only, encoder-decoder Transformer는 이해·생성·변환 task에 서로 다른 구조적 강점을 가진다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "nlp.pretrain_finetune",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Pretraining으로 일반 언어 표현을 학습한 뒤 fine-tuning으로 목적 task나 domain data에 적응한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 49,
+                  "chunk_id": "nlp_p49_01",
+                  "unit_id": "nlp_p49_adapt",
+                  "source_excerpt": "Pre trained model / Fine tuning adaptation",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "pretraining",
+                "finetuning",
+                "foundation_model"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Pretraining으로 일반 언어 표현을 학습한 뒤 fine-tuning으로 목적 task나 domain data에 적응한다."
+                ],
+                "critical_errors": [
+                  "Fine-tuning이 pretraining보다 항상 먼저 수행된다고 순서를 뒤바꿔 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": [
+    {
+      "page": 19,
+      "chunk_id": "nlp_p19_01",
+      "source_text": "PKI 계산",
+      "reason": "명백한 오타로 PMI로 교정"
+    },
+    {
+      "page": 37,
+      "chunk_id": "nlp_p37_01",
+      "source_text": "RNN은 단어마다 출력, seq2seq는 모두 들은 후 하나의 문장 생성",
+      "reason": "RNN cell과 encoder-decoder architecture를 과도하게 대립시키지 않고 구조적 차이로 정규화"
+    },
+    {
+      "page": 47,
+      "chunk_id": "nlp_p47_01",
+      "source_text": "Sub task Fine Tuning: Roberta, finbert, kobert",
+      "reason": "RoBERTa 등 모델 계보를 단순히 subtask fine-tuning 결과로 고정하지 않음"
+    }
+  ]
+}

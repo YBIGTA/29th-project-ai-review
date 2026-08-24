@@ -288,6 +288,26 @@ CURATION["visualization"] = {
     39: curated("시각화 강의 마무리", ["데이터 시각화"], "감사합니다라는 큰 문구로 강의를 마무리한다.", "데이터 시각화 강의의 종료 페이지이다."),
 }
 
+from scripts.build_cs_basics_evaluation_data import CURATION as CS_BASICS_CURATION
+from scripts.build_git_evaluation_data import CURATION as GIT_CURATION
+from scripts.build_python_environment_evaluation_data import CURATION as PYTHON_ENVIRONMENT_CURATION
+from scripts.build_web_evaluation_data import CURATION as WEB_CURATION
+from scripts.build_network_basics_evaluation_data import CURATION as NETWORK_BASICS_CURATION
+from scripts.build_ml_evaluation_data import CURATION as MACHINE_LEARNING_CURATION
+from scripts.build_dl_evaluation_data import CURATION as DEEP_LEARNING_CURATION
+from scripts.build_cv_evaluation_data import CURATION as COMPUTER_VISION_CURATION
+from scripts.build_nlp_evaluation_data import CURATION as NLP_CURATION
+
+CURATION["cs_basics"] = CS_BASICS_CURATION
+CURATION["git"] = GIT_CURATION
+CURATION["python_environment"] = PYTHON_ENVIRONMENT_CURATION
+CURATION["web"] = WEB_CURATION
+CURATION["network_basics"] = NETWORK_BASICS_CURATION
+CURATION["machine_learning"] = MACHINE_LEARNING_CURATION
+CURATION["deep_learning"] = DEEP_LEARNING_CURATION
+CURATION["computer_vision"] = COMPUTER_VISION_CURATION
+CURATION["nlp"] = NLP_CURATION
+
 
 def build(lecture_id: str) -> Path:
     if lecture_id not in CURATION:
@@ -335,7 +355,34 @@ def build(lecture_id: str) -> Path:
     write_json(output, document.model_dump(mode="json"))
     if lecture_id == "basic_statistics":
         from scripts.build_basic_statistics_evaluation_data import apply_evaluation_data
+    elif lecture_id == "crawling":
+        from scripts.build_crawling_evaluation_data import apply_evaluation_data
+    elif lecture_id == "eda_fe":
+        from scripts.build_eda_fe_evaluation_data import apply_evaluation_data
+    elif lecture_id == "visualization":
+        from scripts.build_visualization_evaluation_data import apply_evaluation_data
+    elif lecture_id == "cs_basics":
+        from scripts.build_cs_basics_evaluation_data import apply_evaluation_data
+    elif lecture_id == "git":
+        from scripts.build_git_evaluation_data import apply_evaluation_data
+    elif lecture_id == "python_environment":
+        from scripts.build_python_environment_evaluation_data import apply_evaluation_data
+    elif lecture_id == "web":
+        from scripts.build_web_evaluation_data import apply_evaluation_data
+    elif lecture_id == "network_basics":
+        from scripts.build_network_basics_evaluation_data import apply_evaluation_data
+    elif lecture_id == "machine_learning":
+        from scripts.build_ml_evaluation_data import apply_evaluation_data
+    elif lecture_id == "deep_learning":
+        from scripts.build_dl_evaluation_data import apply_evaluation_data
+    elif lecture_id == "computer_vision":
+        from scripts.build_cv_evaluation_data import apply_evaluation_data
+    elif lecture_id == "nlp":
+        from scripts.build_nlp_evaluation_data import apply_evaluation_data
+    else:
+        apply_evaluation_data = None
 
+    if apply_evaluation_data is not None:
         apply_evaluation_data(processed_path=output)
     return output
 
