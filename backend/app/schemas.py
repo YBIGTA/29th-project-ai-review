@@ -111,6 +111,19 @@ class StudySessionCreateRequest(BaseModel):
     learning_objective_id: str = Field(min_length=1)
 
 
+class LearningObjectiveResponse(BaseModel):
+    learning_objective_id: str
+    objective_id: str
+    title: str
+    description: str | None = None
+    display_order: int
+
+
+class LearningObjectiveListResponse(BaseModel):
+    lecture_id: str
+    objectives: list[LearningObjectiveResponse]
+
+
 class StudySessionResponse(BaseModel):
     id: str
     lecture_id: str

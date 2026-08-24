@@ -20,22 +20,46 @@ CREATE TABLE auth_sessions (
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE learning_objectives (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    lecture_id VARCHAR(100) NOT NULL,
+    parent_id UUID,
+    rag_objective_id VARCHAR(150),
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    level VARCHAR(10) NOT NULL,
+    importance INTEGER NOT NULL DEFAULT 3,
+    display_order INTEGER NOT NULL DEFAULT 0,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_learning_objectives_parent
+        FOREIGN KEY (parent_id) REFERENCES learning_objectives(id) ON DELETE CASCADE,
+    CONSTRAINT chk_learning_objectives_level
+        CHECK (level IN ('parent', 'child')),
+    CONSTRAINT chk_learning_objectives_importance
+        CHECK (importance BETWEEN 1 AND 5)
+);
+
 CREATE TABLE study_sessions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID NOT NULL,
     lecture_id VARCHAR(100) NOT NULL,
+    learning_objective_id UUID NOT NULL,
     status VARCHAR(30) NOT NULL,
-    pass_status VARCHAR(2) NOT NULL DEFAULT 'NP',
+    pass_status VARCHAR(20) NOT NULL DEFAULT 'IN_PROGRESS',
     hint_used BOOLEAN NOT NULL DEFAULT FALSE,
     started_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     completed_at TIMESTAMP,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_study_sessions_user
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    CONSTRAINT fk_study_sessions_learning_objective
+        FOREIGN KEY (learning_objective_id) REFERENCES learning_objectives(id) ON DELETE RESTRICT,
     CONSTRAINT chk_study_sessions_status
         CHECK (status IN ('created', 'processing', 'completed', 'failed')),
     CONSTRAINT chk_study_sessions_pass_status
-        CHECK (pass_status IN ('P', 'NP'))
+        CHECK (pass_status IN ('IN_PROGRESS', 'P', 'NP'))
 );
 
 CREATE TABLE audio_files (
@@ -77,9 +101,9 @@ CREATE TABLE evaluations (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     study_session_id UUID NOT NULL UNIQUE,
     transcription_id UUID NOT NULL UNIQUE,
-    accuracy_score NUMERIC(5, 2) NOT NULL,
+    essential_score NUMERIC(5, 2) NOT NULL,
     coverage_score NUMERIC(5, 2) NOT NULL,
-    structural_score NUMERIC(5, 2) NOT NULL,
+    supporting_score NUMERIC(5, 2) NOT NULL,
     total_score NUMERIC(5, 2) NOT NULL,
     pass_status VARCHAR(2) NOT NULL,
     evaluation_json JSONB NOT NULL,
@@ -88,12 +112,12 @@ CREATE TABLE evaluations (
         FOREIGN KEY (study_session_id) REFERENCES study_sessions(id) ON DELETE CASCADE,
     CONSTRAINT fk_evaluations_transcription
         FOREIGN KEY (transcription_id) REFERENCES transcriptions(id) ON DELETE CASCADE,
-    CONSTRAINT chk_evaluations_accuracy
-        CHECK (accuracy_score BETWEEN 0 AND 40),
+    CONSTRAINT chk_evaluations_essential
+        CHECK (essential_score BETWEEN 0 AND 60),
     CONSTRAINT chk_evaluations_coverage
-        CHECK (coverage_score BETWEEN 0 AND 40),
-    CONSTRAINT chk_evaluations_structural
-        CHECK (structural_score BETWEEN 0 AND 20),
+        CHECK (coverage_score BETWEEN 0 AND 20),
+    CONSTRAINT chk_evaluations_supporting
+        CHECK (supporting_score BETWEEN 0 AND 20),
     CONSTRAINT chk_evaluations_total
         CHECK (total_score BETWEEN 0 AND 100),
     CONSTRAINT chk_evaluations_pass_status
@@ -102,6 +126,12 @@ CREATE TABLE evaluations (
 
 CREATE INDEX idx_study_sessions_user_created_at
     ON study_sessions(user_id, created_at DESC);
+
+CREATE INDEX idx_learning_objectives_lecture_id
+    ON learning_objectives(lecture_id);
+
+CREATE INDEX idx_learning_objectives_rag_objective_id
+    ON learning_objectives(rag_objective_id);
 
 CREATE INDEX idx_auth_sessions_user_id
     ON auth_sessions(user_id);

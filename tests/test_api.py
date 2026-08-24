@@ -1,3 +1,6 @@
+from contextlib import contextmanager
+from types import SimpleNamespace
+
 from fastapi.testclient import TestClient
 
 from backend.app import main
@@ -44,3 +47,41 @@ def test_review_requires_stt_result_fields():
         json={"session_id": "db-session-01", "topic": "DB"},
     )
     assert response.status_code == 422
+
+
+def test_list_learning_objectives_returns_db_and_rag_identifiers(monkeypatch):
+    objective = SimpleNamespace(
+        id="objective-db-uuid",
+        rag_objective_id="stats.probability_foundations",
+        title="확률·통계의 기초",
+        description="확률변수와 표본을 다룹니다.",
+        display_order=1,
+    )
+
+    class FakeSession:
+        def scalars(self, _statement):
+            return SimpleNamespace(all=lambda: [objective])
+
+    @contextmanager
+    def fake_get_session():
+        yield FakeSession()
+
+    monkeypatch.setattr(main, "get_session", fake_get_session)
+    response = TestClient(main.create_app()).get(
+        "/api/learning-objectives",
+        params={"lecture_id": "basic_statistics"},
+    )
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "lecture_id": "basic_statistics",
+        "objectives": [
+            {
+                "learning_objective_id": "objective-db-uuid",
+                "objective_id": "stats.probability_foundations",
+                "title": "확률·통계의 기초",
+                "description": "확률변수와 표본을 다룹니다.",
+                "display_order": 1,
+            }
+        ],
+    }

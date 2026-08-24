@@ -26,6 +26,8 @@ from .schemas import (
     StudySessionCreateRequest,
     StudySessionResponse,
     HintResponse,
+    LearningObjectiveListResponse,
+    LearningObjectiveResponse,
     UserResponse,
 )
 from .storage import LocalStorage
@@ -112,6 +114,33 @@ def create_app() -> FastAPI:
                 db.execute(update(AuthSession).where(AuthSession.session_token_hash == _hash_token(session_cookie)).values(revoked_at=datetime.now(UTC).replace(tzinfo=None)))
                 db.commit()
         response.delete_cookie(settings.auth_cookie_name)
+
+    @app.get("/api/learning-objectives", response_model=LearningObjectiveListResponse)
+    def list_learning_objectives(lecture_id: str) -> LearningObjectiveListResponse:
+        with get_session() as db:
+            objectives = db.scalars(
+                select(LearningObjective)
+                .where(
+                    LearningObjective.lecture_id == lecture_id,
+                    LearningObjective.parent_id.is_(None),
+                    LearningObjective.is_active.is_(True),
+                    LearningObjective.rag_objective_id.is_not(None),
+                )
+                .order_by(LearningObjective.display_order)
+            ).all()
+        return LearningObjectiveListResponse(
+            lecture_id=lecture_id,
+            objectives=[
+                LearningObjectiveResponse(
+                    learning_objective_id=str(objective.id),
+                    objective_id=objective.rag_objective_id,
+                    title=objective.title,
+                    description=objective.description,
+                    display_order=objective.display_order,
+                )
+                for objective in objectives
+            ],
+        )
 
     @app.post("/api/study-sessions", response_model=StudySessionResponse, status_code=status.HTTP_201_CREATED)
     def create_study_session(request: StudySessionCreateRequest, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> StudySessionResponse:
@@ -334,11 +363,14 @@ def _persist_evaluation(request: ReviewSubmitRequest, evaluation: dict, job: dic
         return
     scores = evaluation["quantitative"]["scores"]
     total_score = float(evaluation["quantitative"]["total"]["score"])
+    evaluation_pass_status = "P" if total_score >= settings.pass_score_threshold else "NP"
     with get_session() as db:
-        db.add(Evaluation(study_session_id=study_session_id, transcription_id=transcription_id, accuracy_score=scores["essential"]["score"], coverage_score=scores["coverage"]["score"], structural_score=scores["supporting"]["score"], total_score=total_score, pass_status="P" if total_score >= settings.pass_score_threshold else "NP", evaluation_json=evaluation))
+        db.add(Evaluation(study_session_id=study_session_id, transcription_id=transcription_id, essential_score=scores["essential"]["score"], supporting_score=scores["supporting"]["score"], coverage_score=scores["coverage"]["score"], total_score=total_score, pass_status=evaluation_pass_status, evaluation_json=evaluation))
         study_session = db.get(StudySession, study_session_id)
         if study_session is not None:
             study_session.status = "completed"
+            if evaluation_pass_status == "P" or study_session.pass_status != "P":
+                study_session.pass_status = evaluation_pass_status
             study_session.completed_at = datetime.now(UTC).replace(tzinfo=None)
         db.commit()
 
