@@ -1,0 +1,1086 @@
+{
+  "course_id": null,
+  "topic": "CV",
+  "entries": [
+    {
+      "term": "Head Attention",
+      "korean_variants": [
+        "헤드 어텐션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "AI",
+      "korean_variants": [
+        "에이아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Sharpen Kernel",
+      "korean_variants": [
+        "샤픈 커널"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Window",
+      "korean_variants": [
+        "윈도우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Structure",
+      "korean_variants": [
+        "스트럭처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Patch",
+      "korean_variants": [
+        "패치"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vision Transformer",
+      "korean_variants": [
+        "비전 트랜스포머"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Self",
+      "korean_variants": [
+        "셀프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vector",
+      "korean_variants": [
+        "벡터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Gaussian Blur",
+      "korean_variants": [
+        "가우시안 블러"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Edge Filter",
+      "korean_variants": [
+        "엣지 필터"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Edge",
+      "korean_variants": [
+        "엣지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tasks",
+      "korean_variants": [
+        "태스크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Translation",
+      "korean_variants": [
+        "트랜슬레이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Text",
+      "korean_variants": [
+        "텍스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Convolution",
+      "korean_variants": [
+        "컨볼루션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Downstream Tasks",
+      "korean_variants": [
+        "다운스트림 태스크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Extraction",
+      "korean_variants": [
+        "익스트랙션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Convolutional",
+      "korean_variants": [
+        "컨볼루셔널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CNN",
+      "korean_variants": [
+        "씨엔엔"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "SVM",
+      "korean_variants": [
+        "에스브이엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Decoder",
+      "korean_variants": [
+        "디코더"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Scale Invarinat Feature",
+      "korean_variants": [
+        "스케일 인베리언트 피처"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "NO",
+      "korean_variants": [
+        "엔오"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Basic",
+      "korean_variants": [
+        "베이직"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transformer",
+      "korean_variants": [
+        "트랜스포머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hierarchical Structure",
+      "korean_variants": [
+        "하이어라키컬 스트럭처"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Inductive",
+      "korean_variants": [
+        "인덕티브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Image Classification",
+      "korean_variants": [
+        "이미지 클래시피케이션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Rotation",
+      "korean_variants": [
+        "로테이션"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Texture",
+      "korean_variants": [
+        "텍스처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CLS",
+      "korean_variants": [
+        "씨엘에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Multi",
+      "korean_variants": [
+        "멀티"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sharpen",
+      "korean_variants": [
+        "샤픈"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Augmentation",
+      "korean_variants": [
+        "어그멘테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Convolutional Neural Networks",
+      "korean_variants": [
+        "컨볼루셔널 뉴럴 네트워크스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "CLIP",
+      "korean_variants": [
+        "클립"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Support Vector Macchine",
+      "korean_variants": [
+        "서포트 벡터 매키네"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "CLS Attention Map",
+      "korean_variants": [
+        "씨엘에스 어텐션 맵"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "What",
+      "korean_variants": [
+        "왓"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SIFT",
+      "korean_variants": [
+        "시프트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DINO",
+      "korean_variants": [
+        "디노"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Variance",
+      "korean_variants": [
+        "베리언스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vision",
+      "korean_variants": [
+        "비전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Head",
+      "korean_variants": [
+        "헤드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Faster",
+      "korean_variants": [
+        "패스터"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Macchine",
+      "korean_variants": [
+        "마키네"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vision Task",
+      "korean_variants": [
+        "비전 태스크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "ViT",
+      "korean_variants": [
+        "비아이티"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Position Embedding",
+      "korean_variants": [
+        "포지션 임베딩"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Harris",
+      "korean_variants": [
+        "해리스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature Extraction",
+      "korean_variants": [
+        "피처 익스트랙션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Scale",
+      "korean_variants": [
+        "스케일"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Network",
+      "korean_variants": [
+        "네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sliding",
+      "korean_variants": [
+        "슬라이딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Architecture",
+      "korean_variants": [
+        "아키텍처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Zero",
+      "korean_variants": [
+        "제로"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Contrastive",
+      "korean_variants": [
+        "컨트라스티브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Gaussian",
+      "korean_variants": [
+        "가우시안"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step",
+      "korean_variants": [
+        "스텝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YOLO",
+      "korean_variants": [
+        "와이올오"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Shape",
+      "korean_variants": [
+        "쉐이프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Residual",
+      "korean_variants": [
+        "레지듀얼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Object",
+      "korean_variants": [
+        "오브젝트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Neural",
+      "korean_variants": [
+        "뉴럴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transform",
+      "korean_variants": [
+        "트랜스폼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sharpen Filter",
+      "korean_variants": [
+        "샤프엔 필터"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Text Encoder",
+      "korean_variants": [
+        "텍스트 인코더"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "FC",
+      "korean_variants": [
+        "에프씨"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "HW",
+      "korean_variants": [
+        "에이치더블유"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Feature Map",
+      "korean_variants": [
+        "피처 맵"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Position",
+      "korean_variants": [
+        "포지션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Unet",
+      "korean_variants": [
+        "유넷"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language",
+      "korean_variants": [
+        "랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SLAM",
+      "korean_variants": [
+        "슬램"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Foundation",
+      "korean_variants": [
+        "파운데이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Detection",
+      "korean_variants": [
+        "디텍션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MLP",
+      "korean_variants": [
+        "엠엘피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Downstream",
+      "korean_variants": [
+        "다운스트림"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Representation",
+      "korean_variants": [
+        "레프리젠테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sobel",
+      "korean_variants": [
+        "소벨"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Learning",
+      "korean_variants": [
+        "러닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sliding Window",
+      "korean_variants": [
+        "슬라이딩 윈도우"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Embedding",
+      "korean_variants": [
+        "임베딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Contrastive Language",
+      "korean_variants": [
+        "콘트라스티브 랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Map",
+      "korean_variants": [
+        "맵"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Object Detection",
+      "korean_variants": [
+        "오브젝트 디텍션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Bias",
+      "korean_variants": [
+        "바이어스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Student",
+      "korean_variants": [
+        "스튜던트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature",
+      "korean_variants": [
+        "피처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Support",
+      "korean_variants": [
+        "서포트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Pooling",
+      "korean_variants": [
+        "풀링"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Residual Network",
+      "korean_variants": [
+        "레지듀얼 네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "CLIP Architecture",
+      "korean_variants": [
+        "클립 아키텍처"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Segmentation",
+      "korean_variants": [
+        "세그멘테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Blur",
+      "korean_variants": [
+        "블러"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hierarchical",
+      "korean_variants": [
+        "하이어라키컬"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Networks",
+      "korean_variants": [
+        "네트워크스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Patches",
+      "korean_variants": [
+        "패치스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "썸머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Residual Learning",
+      "korean_variants": [
+        "레지듀얼 러닝"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "DIstillation",
+      "korean_variants": [
+        "디스틸레이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hough",
+      "korean_variants": [
+        "후"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Variance Trade",
+      "korean_variants": [
+        "베리언스 트레이드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Image Encoder",
+      "korean_variants": [
+        "이미지 인코더"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "ResNet",
+      "korean_variants": [
+        "레스넷"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Encoder",
+      "korean_variants": [
+        "인코더"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bottleneck",
+      "korean_variants": [
+        "보틀넥"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Attention",
+      "korean_variants": [
+        "어텐션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Label",
+      "korean_variants": [
+        "레이블"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Invarinat",
+      "korean_variants": [
+        "인베리언트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Embedding Space",
+      "korean_variants": [
+        "임베딩 스페이스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Teacher",
+      "korean_variants": [
+        "티처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Computer Vision",
+      "korean_variants": [
+        "컴퓨터 비전"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Inductive Bias",
+      "korean_variants": [
+        "인덕티브 바이어스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "썸머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "CV",
+      "korean_variants": [
+        "씨브이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Computer",
+      "korean_variants": [
+        "컴퓨터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Task",
+      "korean_variants": [
+        "태스크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PxP",
+      "korean_variants": [
+        "피엑스피"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Trade",
+      "korean_variants": [
+        "트레이드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Filter",
+      "korean_variants": [
+        "필터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transformer Encoder",
+      "korean_variants": [
+        "트랜스포머 인코더"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Prewitt",
+      "korean_variants": [
+        "프리윗"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fast",
+      "korean_variants": [
+        "패스트"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Pre",
+      "korean_variants": [
+        "프리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ResNet34",
+      "korean_variants": [
+        "레즈넷 쓰리포"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Space",
+      "korean_variants": [
+        "스페이스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Classification",
+      "korean_variants": [
+        "클래시피케이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Image Pre",
+      "korean_variants": [
+        "이미지 프리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Invariance",
+      "korean_variants": [
+        "인베리언스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Blur Filter",
+      "korean_variants": [
+        "블러 필터"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Kernel",
+      "korean_variants": [
+        "커널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Image",
+      "korean_variants": [
+        "이미지"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    }
+  ]
+}

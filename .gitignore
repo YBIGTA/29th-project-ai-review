@@ -31,6 +31,7 @@ outputs/
 !data/term_dbs/crawling.json
 !data/term_dbs/eda_fe.json
 !data/term_dbs/visualization.json
+!data/term_dbs/*.json
 !data/evaluation/rubrics/*.json
 !data/evaluation/*.schema.json
 !data/evaluation/gold/*_assessment.json

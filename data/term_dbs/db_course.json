@@ -1,0 +1,990 @@
+{
+  "course_id": null,
+  "topic": "DB",
+  "entries": [
+    {
+      "term": "DML",
+      "korean_variants": [
+        "데이터"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Definition",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Write",
+      "korean_variants": [
+        "운영"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Derived",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Couchbase",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Milvus",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Lock",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DELETE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "KEY",
+      "korean_variants": [],
+      "collision_label": "content_word_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Intro",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Control",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Only",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "UNIQUE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Redis",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Not",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CHECK",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "One",
+      "korean_variants": [],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "FK",
+      "korean_variants": [
+        "외래키"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Manipulation",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DESC",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Value",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CASE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "NOT",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "RDBMS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "PostgreSQL",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DQL",
+      "korean_variants": [
+        "데이터"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Store",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Column",
+      "korean_variants": [
+        "열"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "FAISS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Data",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Structured",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Dependency",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PRIMARY",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "BCNF",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "File",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Query",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "INTO",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "INSERT",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Management",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ALTER",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Case",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Graph",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "System",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transaction",
+      "korean_variants": [
+        "트랜잭션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CouchDB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "TRUNCATE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "FOREIGN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Integrity",
+      "korean_variants": [
+        "무결성"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SQL",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "SELECT",
+      "korean_variants": [
+        "기초적인"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Search",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DynamoDB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MongoDB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Nothing",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Relational",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Processing",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Google",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Table",
+      "korean_variants": [
+        "데이터를"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ChromaDB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Primary",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "All",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "OLTP",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "TABLE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Key",
+      "korean_variants": [],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "ACID",
+      "korean_variants": [
+        "특성"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Multivalued",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "EXIST",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Family",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "JOIN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "No",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Features",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NULL",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Isolation",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "UPDATE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "ORDER",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Example",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Titan",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "JSON",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Document",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DEFAULT",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Oracle",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Online",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DDL",
+      "korean_variants": [
+        "데이터베이스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Codd",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Analytical",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Normal",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "AWS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "MySQL",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GROUP",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Vector",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Atomicity",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "WHEN",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "LIMIT",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "IF",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Beyond",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Elastic",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NLP",
+      "korean_variants": [
+        "처리"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DROP",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Duration",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "HAVING",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Pinecone",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DBMS",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Cassandra",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Foreign",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Read",
+      "korean_variants": [
+        "분석"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fifth",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Neo4j",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Row",
+      "korean_variants": [
+        "행"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "BigTable",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Many",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DESCRIBE",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "TRIGGER",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Normalization",
+      "korean_variants": [
+        "정규화"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Schema",
+      "korean_variants": [
+        "표"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Boyce",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Wide",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DataBase",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "List",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Relation",
+      "korean_variants": [
+        "테이블"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Consistency",
+      "korean_variants": [
+        "정합성"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "UNION",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "OLAP",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Join",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fourth",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "XML",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Relationship",
+      "korean_variants": [
+        "관계"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PK",
+      "korean_variants": [
+        "기본키",
+        "학번"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Scale",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Database",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Form",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NoSQL",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "WHERE",
+      "korean_variants": [
+        "거르기"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "BY",
+      "korean_variants": [
+        "뭉치기",
+        "줄세우기"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "FROM",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Set",
+      "korean_variants": [],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "DB",
+      "korean_variants": [],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "drop",
+      "korean_variants": [
+        "삭제"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "row",
+      "korean_variants": [
+        "행"
+      ],
+      "collision_label": "particle_collision",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "col",
+      "korean_variants": [
+        "열"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "Data Integrity",
+      "korean_variants": [
+        "무결성"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "Data Consistency",
+      "korean_variants": [
+        "정합성"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "Multivalued Dependency",
+      "korean_variants": [
+        "종속"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "Join Dependency",
+      "korean_variants": [
+        "종속"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "All or Nothing",
+      "korean_variants": [
+        "하거나"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "alias",
+      "korean_variants": [
+        "별칭"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    },
+    {
+      "term": "oriented",
+      "korean_variants": [
+        "빠른"
+      ],
+      "collision_label": "safe",
+      "source": "mapping_pair"
+    }
+  ]
+}

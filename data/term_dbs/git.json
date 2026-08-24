@@ -1,0 +1,342 @@
+{
+  "course_id": null,
+  "topic": "Git",
+  "entries": [
+    {
+      "term": "Pull Request",
+      "korean_variants": [
+        "풀 리퀘스트"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "compound"
+    },
+    {
+      "term": "Started",
+      "korean_variants": [
+        "스타트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GitHub",
+      "korean_variants": [
+        "깃허브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CVCS",
+      "korean_variants": [
+        "씨브이씨에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Current Change",
+      "korean_variants": [
+        "커런트 체인지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Version",
+      "korean_variants": [
+        "버전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "OS",
+      "korean_variants": [
+        "오에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Branch",
+      "korean_variants": [
+        "브랜치"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Pull",
+      "korean_variants": [
+        "풀"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "API",
+      "korean_variants": [
+        "에이피아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "HEAD",
+      "korean_variants": [
+        "헤드"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "썸머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "System",
+      "korean_variants": [
+        "시스템"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CVS",
+      "korean_variants": [
+        "씨브이에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "About",
+      "korean_variants": [
+        "어바웃"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "REMOTE",
+      "korean_variants": [
+        "리모트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Current",
+      "korean_variants": [
+        "커런트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Change",
+      "korean_variants": [
+        "체인지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Collaboration",
+      "korean_variants": [
+        "콜라보레이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LOCAL",
+      "korean_variants": [
+        "로컬"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Git",
+      "korean_variants": [
+        "깃"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DS",
+      "korean_variants": [
+        "디에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Directory",
+      "korean_variants": [
+        "디렉터리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Request",
+      "korean_variants": [
+        "리퀘스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Control",
+      "korean_variants": [
+        "컨트롤"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Working Directory",
+      "korean_variants": [
+        "워킹 디렉터리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RCS",
+      "korean_variants": [
+        "알씨에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Local VCS",
+      "korean_variants": [
+        "로컬 브이씨에스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Version Control System",
+      "korean_variants": [
+        "버전 컨트롤 시스템"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "VScode",
+      "korean_variants": [
+        "VS코드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Getting",
+      "korean_variants": [
+        "겟팅"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "URL",
+      "korean_variants": [
+        "유알엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "썸머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Mecurial",
+      "korean_variants": [
+        "메큐리얼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Working",
+      "korean_variants": [
+        "워킹"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Perforce",
+      "korean_variants": [
+        "퍼포스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VCS",
+      "korean_variants": [
+        "브이씨에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Review",
+      "korean_variants": [
+        "리뷰"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DVCS",
+      "korean_variants": [
+        "디브이씨에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Subversion",
+      "korean_variants": [
+        "서브버전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "v2",
+      "korean_variants": [
+        "브이투"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    }
+  ]
+}

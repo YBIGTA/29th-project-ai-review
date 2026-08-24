@@ -32,7 +32,7 @@ LECTURES: dict[str, LectureConfig] = {
     "eda_fe": LectureConfig(
         lecture_id="eda_fe",
         lecture_name="EDA / FE",
-        source_names=("eda_fe.pdf", "EDA&FE.pdf", "EDA_FE.pdf"),
+        source_names=("eda_fe.pdf", "EDA&FE.pdf", "EDA_FE.pdf", "EDA:FE.pdf"),
     ),
     "visualization": LectureConfig(
         lecture_id="visualization",
@@ -42,7 +42,7 @@ LECTURES: dict[str, LectureConfig] = {
     "cs_basics": LectureConfig(
         lecture_id="cs_basics",
         lecture_name="CS 기초",
-        source_names=("cs_basics.pdf", "CS기초.pdf", "CS_기초.pdf"),
+        source_names=("cs_basics.pdf", "CS기초.pdf", "CS_기초.pdf", "CS.pdf"),
     ),
     "git": LectureConfig(
         lecture_id="git",

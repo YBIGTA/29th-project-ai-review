@@ -1,20 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   createStudySession,
   getTranscriptionStatus,
   listLearningObjectives,
+  listStudySessions,
   submitReview,
   transcribeAudio,
   type LearningObjective,
   type ReviewReport,
+  type StudySessionSummary,
   type TranscriptionResult,
   type User,
 } from "@/lib/api";
 import ReviewDetail from "@/components/ReviewDetail";
-import { TOPIC_TO_LECTURE_ID } from "@/lib/lectures";
+import { STT_SUPPORTED_TOPICS, TOPIC_TO_LECTURE_ID } from "@/lib/lectures";
 
 const topics = Object.keys(TOPIC_TO_LECTURE_ID) as Array<keyof typeof TOPIC_TO_LECTURE_ID>;
 const lectureIds = TOPIC_TO_LECTURE_ID;
@@ -31,6 +33,8 @@ export default function ReviewApp({ user: _user }: { user: User }) {
 
   const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(topics[0]);
   const [objectives, setObjectives] = useState<LearningObjective[]>([]);
+  const [objectivesByLecture, setObjectivesByLecture] = useState<Record<string, LearningObjective[]>>({});
+  const [studySessions, setStudySessions] = useState<StudySessionSummary[]>([]);
   const [selectedObjective, setSelectedObjective] = useState<LearningObjective | null>(null);
   const [phase, setPhase] = useState<Phase>("idle");
   const [processStage, setProcessStage] = useState<ProcessStage>("idle");
@@ -40,6 +44,7 @@ export default function ReviewApp({ user: _user }: { user: User }) {
   const [statusText, setStatusText] = useState("주제를 선택하고 발표 녹음을 시작해보세요.");
   const [audioStream, setAudioStream] = useState<MediaStream | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const isSttSupported = STT_SUPPORTED_TOPICS.includes(selectedTopic as (typeof STT_SUPPORTED_TOPICS)[number]);
 
   useEffect(() => {
     return () => {
@@ -58,6 +63,7 @@ export default function ReviewApp({ user: _user }: { user: User }) {
       .then((result) => {
         if (cancelled) return;
         setObjectives(result);
+        setObjectivesByLecture((current) => ({ ...current, [lectureIds[selectedTopic]]: result }));
         setSelectedObjective(result[0] ?? null);
       })
       .catch(() => {
@@ -71,7 +77,29 @@ export default function ReviewApp({ user: _user }: { user: User }) {
     };
   }, [selectedTopic]);
 
+  const loadLearningProgress = useCallback(async () => {
+    const lectureEntries = Object.entries(lectureIds);
+    const [objectiveResults, sessions] = await Promise.all([
+      Promise.all(lectureEntries.map(([, lectureId]) => listLearningObjectives(lectureId))),
+      listStudySessions(),
+    ]);
+    setObjectivesByLecture(
+      Object.fromEntries(lectureEntries.map(([, lectureId], index) => [lectureId, objectiveResults[index]])),
+    );
+    setStudySessions(sessions);
+  }, []);
+
+  useEffect(() => {
+    void loadLearningProgress().catch((error) => {
+      console.error("학습 진행 현황 조회 실패:", error);
+    });
+  }, [loadLearningProgress]);
+
   const startCountdown = async () => {
+    if (!isSttSupported) {
+      setStatusText("이 주제는 아직 STT 용어 DB가 준비되지 않아 녹음을 시작할 수 없습니다.");
+      return;
+    }
     if (!navigator.mediaDevices?.getUserMedia) {
       setStatusText("브라우저가 미디어 권한을 지원하지 않습니다.");
       return;
@@ -172,6 +200,9 @@ export default function ReviewApp({ user: _user }: { user: User }) {
       setStatusText("평가 완료. 결과를 확인해보세요.");
       setProcessStage("complete");
       setPhase("completed");
+      void loadLearningProgress().catch((error) => {
+        console.error("학습 진행 현황 갱신 실패:", error);
+      });
     } catch (error) {
       console.error("STT 또는 BE 요청 실패:", error);
       setReport(null);
@@ -259,45 +290,51 @@ export default function ReviewApp({ user: _user }: { user: User }) {
               )}
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {topics.map((topic) => (
-                <button
+                <TopicBattery
                   key={topic}
-                  onClick={() => setSelectedTopic(topic)}
-                  className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
-                    selectedTopic === topic
-                      ? "border-cyan-400 bg-cyan-400 text-slate-950"
-                      : "border-slate-700 bg-slate-800 text-slate-200 hover:border-slate-500"
-                  }`}
-                >
-                  {topic}
-                </button>
+                  topic={topic}
+                  lectureId={lectureIds[topic]}
+                  objectives={objectivesByLecture[lectureIds[topic]] ?? []}
+                  sessions={studySessions}
+                  selected={selectedTopic === topic}
+                  onSelect={() => setSelectedTopic(topic)}
+                />
               ))}
             </div>
 
-            <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {objectives.length === 0 && (
-                <p className="text-sm text-slate-500">학습목표를 불러오는 중입니다...</p>
-              )}
-              {objectives.map((objective) => (
-                <button
-                  key={objective.learning_objective_id}
-                  onClick={() => setSelectedObjective(objective)}
-                  className={`rounded-xl border px-4 py-3 text-left text-sm transition ${
-                    selectedObjective?.learning_objective_id === objective.learning_objective_id
-                      ? "border-violet-400 bg-violet-400/15 text-violet-100"
-                      : "border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500"
-                  }`}
-                >
-                  {objective.title}
-                </button>
-              ))}
+            <div className="mt-4">
+              <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="learning-objective">
+                상위 학습목표
+              </label>
+              <select
+                id="learning-objective"
+                value={selectedObjective?.learning_objective_id ?? ""}
+                onChange={(event) => {
+                  setSelectedObjective(
+                    objectives.find((objective) => objective.learning_objective_id === event.target.value) ?? null,
+                  );
+                }}
+                disabled={objectives.length === 0}
+                className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-violet-400 disabled:cursor-not-allowed disabled:text-slate-500"
+              >
+                {objectives.length === 0 ? (
+                  <option value="">학습목표를 불러오는 중입니다...</option>
+                ) : (
+                  objectives.map((objective) => (
+                    <option key={objective.learning_objective_id} value={objective.learning_objective_id}>
+                      {objective.title}
+                    </option>
+                  ))
+                )}
+              </select>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <button
                 onClick={startCountdown}
-                disabled={phase === "recording" || phase === "processing" || !selectedObjective}
+                disabled={phase === "recording" || phase === "processing" || !selectedObjective || !isSttSupported}
                 className="rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 발표 녹음 시작
@@ -332,6 +369,9 @@ export default function ReviewApp({ user: _user }: { user: User }) {
               </h3>
               <p className="text-2xl font-bold text-white">{selectedTopic}</p>
               <p className="mt-2 text-sm text-violet-200">{selectedObjective?.title ?? ""}</p>
+              {!isSttSupported && (
+                <p className="mt-3 text-xs text-amber-300">STT 용어 DB 준비 전</p>
+              )}
             </div>
 
             <ProcessPanel stage={processStage} />
@@ -357,6 +397,63 @@ export default function ReviewApp({ user: _user }: { user: User }) {
         )}
       </div>
     </main>
+  );
+}
+
+type TopicBatteryProps = {
+  topic: string;
+  lectureId: string;
+  objectives: LearningObjective[];
+  sessions: StudySessionSummary[];
+  selected: boolean;
+  onSelect: () => void;
+};
+
+function TopicBattery({ topic, lectureId, objectives, sessions, selected, onSelect }: TopicBatteryProps) {
+  const statusByObjective = new Map<string, "passed" | "not-passed" | "unstarted">();
+
+  for (const objective of objectives) {
+    const attempts = sessions.filter(
+      (session) => session.lecture_id === lectureId
+        && session.learning_objective_id === objective.learning_objective_id
+        && session.status === "completed",
+    );
+    statusByObjective.set(
+      objective.learning_objective_id,
+      attempts.some((session) => session.pass_status === "P")
+        ? "passed"
+        : attempts.some((session) => session.pass_status === "NP")
+          ? "not-passed"
+          : "unstarted",
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-pressed={selected}
+      className={`rounded-2xl border p-4 text-left transition ${
+        selected
+          ? "border-cyan-400 bg-cyan-400/10"
+          : "border-slate-700 bg-slate-800/80 hover:border-slate-500"
+      }`}
+    >
+      <span className="block text-sm font-semibold text-slate-100">{topic}</span>
+      <span className="mt-1 block text-xs text-slate-400">상위 목표 {objectives.length || "-"}개</span>
+      <span className="mt-3 flex h-3 gap-1" aria-label={`${topic} 학습 진행도`}>
+        {objectives.map((objective) => {
+          const progress = statusByObjective.get(objective.learning_objective_id) ?? "unstarted";
+          const color = progress === "passed"
+            ? "bg-emerald-400"
+            : progress === "not-passed"
+              ? "bg-rose-400"
+              : "bg-slate-600";
+          return <span key={objective.learning_objective_id} className={`min-w-0 flex-1 rounded-sm ${color}`} />;
+        })}
+        {objectives.length === 0 && <span className="w-full rounded-sm bg-slate-700" />}
+      </span>
+    </button>
   );
 }
 
@@ -481,4 +578,3 @@ function ProcessPanel({ stage }: { stage: ProcessStage }) {
     </div>
   );
 }
-

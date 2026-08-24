@@ -1,0 +1,934 @@
+{
+  "course_id": null,
+  "topic": "DL",
+  "entries": [
+    {
+      "term": "Early",
+      "korean_variants": [
+        "얼리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Regression",
+      "korean_variants": [
+        "리그레션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Approximation",
+      "korean_variants": [
+        "어프록시메이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RNN",
+      "korean_variants": [
+        "알앤엔"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Momentum",
+      "korean_variants": [
+        "모멘텀"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NaN",
+      "korean_variants": [
+        "낸"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Design",
+      "korean_variants": [
+        "디자인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Weight",
+      "korean_variants": [
+        "웨이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Universal",
+      "korean_variants": [
+        "유니버설"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Beyond",
+      "korean_variants": [
+        "비욘드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VAE",
+      "korean_variants": [
+        "브이에이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Selection",
+      "korean_variants": [
+        "셀렉션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Deep Learning",
+      "korean_variants": [
+        "딥러닝"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Diffusion",
+      "korean_variants": [
+        "디퓨전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Representation",
+      "korean_variants": [
+        "레프리젠테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fully",
+      "korean_variants": [
+        "풀리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature Selection",
+      "korean_variants": [
+        "피처 셀렉션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Convolutional",
+      "korean_variants": [
+        "컨볼루셔널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Input",
+      "korean_variants": [
+        "인풋"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Graph",
+      "korean_variants": [
+        "그래프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Ridge",
+      "korean_variants": [
+        "리지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GAN",
+      "korean_variants": [
+        "갠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Generalization",
+      "korean_variants": [
+        "제너럴라이제이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GRU",
+      "korean_variants": [
+        "지알유"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Augmentation",
+      "korean_variants": [
+        "오그멘테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Gradient",
+      "korean_variants": [
+        "그래디언트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Loss",
+      "korean_variants": [
+        "로스"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Regularization",
+      "korean_variants": [
+        "레귤러리제이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Weight Decay",
+      "korean_variants": [
+        "웨이트 디케이"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Limitation",
+      "korean_variants": [
+        "리미테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Multi",
+      "korean_variants": [
+        "멀티"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Adagrad",
+      "korean_variants": [
+        "아다그라드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CycleGAN",
+      "korean_variants": [
+        "사이클갠"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Adam",
+      "korean_variants": [
+        "아담"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hessian",
+      "korean_variants": [
+        "헤시안"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Batch",
+      "korean_variants": [
+        "배치"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Learning",
+      "korean_variants": [
+        "러닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vanishing",
+      "korean_variants": [
+        "베니싱"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CNN",
+      "korean_variants": [
+        "씨엔엔"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Activation Function",
+      "korean_variants": [
+        "액티베이션 함수"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RMSProp",
+      "korean_variants": [
+        "RMS프롭"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Connected",
+      "korean_variants": [
+        "커넥티드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Convolutional Neural Network",
+      "korean_variants": [
+        "컨볼루션 신경망"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Deep",
+      "korean_variants": [
+        "딥"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Normalization",
+      "korean_variants": [
+        "노멀라이제이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fully Connected Network",
+      "korean_variants": [
+        "풀리 커넥티드 네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "DL",
+      "korean_variants": [
+        "디엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Negative Log Likelihood",
+      "korean_variants": [
+        "네거티브 로그 가능도"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Generative",
+      "korean_variants": [
+        "제너레이티브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Learning Rate",
+      "korean_variants": [
+        "러닝 레이트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "L2",
+      "korean_variants": [
+        "엘투"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Entropy",
+      "korean_variants": [
+        "엔트로피"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Data",
+      "korean_variants": [
+        "데이터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Target",
+      "korean_variants": [
+        "타깃"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Network",
+      "korean_variants": [
+        "네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature",
+      "korean_variants": [
+        "피처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Data Augmentation",
+      "korean_variants": [
+        "데이터 증강"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Lasso",
+      "korean_variants": [
+        "라쏘"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MLP",
+      "korean_variants": [
+        "엠엘피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Log",
+      "korean_variants": [
+        "로그"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Problems",
+      "korean_variants": [
+        "프라블럼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Negative",
+      "korean_variants": [
+        "네거티브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Solution",
+      "korean_variants": [
+        "솔루션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Loss Functions",
+      "korean_variants": [
+        "손실 함수"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Neural",
+      "korean_variants": [
+        "뉴럴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hidden",
+      "korean_variants": [
+        "히든"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Optimization Problems",
+      "korean_variants": [
+        "옵티마이제이션 문제"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Deep Neural Network",
+      "korean_variants": [
+        "딥 뉴럴 네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Neural Network",
+      "korean_variants": [
+        "뉴럴 네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Functions",
+      "korean_variants": [
+        "함수"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Graph Neural Network",
+      "korean_variants": [
+        "그래프 뉴럴 네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Stopping",
+      "korean_variants": [
+        "스톱핑"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ReLU",
+      "korean_variants": [
+        "렐루"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "L1",
+      "korean_variants": [
+        "엘원"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "써머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "End",
+      "korean_variants": [
+        "엔드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transformer",
+      "korean_variants": [
+        "트랜스포머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Universal Approximation",
+      "korean_variants": [
+        "유니버설 어프록시메이션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Summary",
+      "korean_variants": [
+        "서머리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Early Stopping",
+      "korean_variants": [
+        "얼리 스톱핑"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "What",
+      "korean_variants": [
+        "왓"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Generative Model",
+      "korean_variants": [
+        "제너레이티브 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Gradient Vanishing",
+      "korean_variants": [
+        "그래디언트 베니싱"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Activation",
+      "korean_variants": [
+        "액티베이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Likelihood",
+      "korean_variants": [
+        "라이클리후드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Classification",
+      "korean_variants": [
+        "클래시피케이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Linear",
+      "korean_variants": [
+        "리니어"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Backpropagation",
+      "korean_variants": [
+        "백프로파게이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GNN",
+      "korean_variants": [
+        "지엔엔"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "서머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Cross",
+      "korean_variants": [
+        "크로스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Function",
+      "korean_variants": [
+        "펑션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Method",
+      "korean_variants": [
+        "메소드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LSTM",
+      "korean_variants": [
+        "엘스티엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Cross Entropy",
+      "korean_variants": [
+        "크로스 엔트로피"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Sigmoid",
+      "korean_variants": [
+        "시그모이드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Dropout",
+      "korean_variants": [
+        "드롭아웃"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Newton",
+      "korean_variants": [
+        "뉴턴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ML Method",
+      "korean_variants": [
+        "엠엘 메소드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Batch Normalization",
+      "korean_variants": [
+        "배치 노멀라이제이션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Optimization",
+      "korean_variants": [
+        "옵티마이제이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "He",
+      "korean_variants": [
+        "히"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Loss Function",
+      "korean_variants": [
+        "로스 함수"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "ML",
+      "korean_variants": [
+        "엠엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Introduction",
+      "korean_variants": [
+        "인트로덕션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step",
+      "korean_variants": [
+        "스텝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Xaiver",
+      "korean_variants": [
+        "제비에"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Model",
+      "korean_variants": [
+        "모델"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "How",
+      "korean_variants": [
+        "하우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Decay",
+      "korean_variants": [
+        "디케이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Beyond MLP",
+      "korean_variants": [
+        "비욘드 엠엘피"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Rate",
+      "korean_variants": [
+        "레이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "FCN",
+      "korean_variants": [
+        "에프씨엔"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "NLL",
+      "korean_variants": [
+        "엔엘엘"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "DNN",
+      "korean_variants": [
+        "디엔엔"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    }
+  ]
+}

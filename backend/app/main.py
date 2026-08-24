@@ -41,12 +41,30 @@ TERM_DB_BY_TOPIC = {
     "크롤링": "data/term_dbs/crawling.json",
     "EDA/FE": "data/term_dbs/eda_fe.json",
     "시각화": "data/term_dbs/visualization.json",
+    "CS 기초": "data/term_dbs/cs_basics.json",
+    "Python 개발환경": "data/term_dbs/python_environment.json",
+    "Git": "data/term_dbs/git.json",
+    "웹 기초": "data/term_dbs/web.json",
+    "네트워크 기초": "data/term_dbs/network_basics.json",
+    "머신러닝": "data/term_dbs/machine_learning.json",
+    "딥러닝": "data/term_dbs/deep_learning.json",
+    "컴퓨터 비전": "data/term_dbs/computer_vision.json",
+    "자연어 처리": "data/term_dbs/nlp.json",
 }
 LECTURE_ID_BY_TOPIC = {
     "기초통계": "basic_statistics",
     "크롤링": "crawling",
     "EDA/FE": "eda_fe",
     "시각화": "visualization",
+    "CS 기초": "cs_basics",
+    "Python 개발환경": "python_environment",
+    "Git": "git",
+    "웹 기초": "web",
+    "네트워크 기초": "network_basics",
+    "머신러닝": "machine_learning",
+    "딥러닝": "deep_learning",
+    "컴퓨터 비전": "computer_vision",
+    "자연어 처리": "nlp",
 }
 
 
