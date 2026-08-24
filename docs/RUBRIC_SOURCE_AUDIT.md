@@ -1,6 +1,6 @@
 # Rubric 강의 구조 및 근거 페이지 감사
 
-> 열세 강의 PDF 537페이지를 시각 검토하고, processed JSON은 탐색 색인으로만 사용해
+> 열아홉 강의 PDF 816페이지를 시각 검토하고, processed JSON은 탐색 색인으로만 사용해
 > 작성한 Rubric 범위 설계다. 표지·목차·구분·마무리 페이지는 평가 근거에서
 > 제외하며, 실습·면접 페이지는 새로운 이론의 근거가 아니라 적용 사례로 사용한다.
 
@@ -378,7 +378,7 @@
 - 뉴런 계산과 신경망 계열: p10-13
 - activation·ReLU와 비선형성: p14-16
 
-### 2. 손실 함수와 학습 목표 (`dl.loss_functions`)
+### 2. 손실 함수와 최적화 (`dl.loss_functions`)
 
 - Loss의 역할: p21-22
 - Cross Entropy, likelihood와 NLL: p23-25
@@ -472,6 +472,210 @@
 - p17 TF-IDF는 corpus 전체 document frequency를 반영하는 방식으로 평가한다.
 - p37 Seq2Seq는 RNN과 대립하는 cell이 아니라 encoder-decoder architecture다.
 - p47의 모델 예시를 모두 subtask fine-tuning 결과로 고정하지 않는다.
+
+## Docker - 36페이지
+
+### 1. 컨테이너화와 Docker 객체 (`docker.foundations`)
+
+- Containerization과 VM 비교: p4
+- Dockerfile·image·container 관계: p5-7
+- Client·daemon·registry architecture: p10-11
+
+### 2. Dockerfile과 Image Build (`docker.image_build`)
+
+- Dockerfile instruction: p15
+- Image layer·cache·tag·push: p16
+- Build·pull·run workflow와 flag: p22-25
+
+### 3. Container 운영과 데이터 영속성 (`docker.container_operations`)
+
+- Port·environment·bind mount: p17
+- Lifecycle·log·inspect: p18, p26
+- Writable layer와 volume: p19, p35
+
+### 4. Network와 Docker Compose (`docker.compose_networking`)
+
+- Bridge network와 built-in DNS: p31
+- Compose 목적과 명령: p32
+- services·volumes·networks·depends_on·healthcheck: p34-35
+
+### 원문 주의사항
+
+- p19의 단순 restart 시 파일 초기화 설명은 제외한다.
+- p32의 Compose를 Dockerfile 변형으로 보는 설명은 제외한다.
+- p34의 `depends_on`과 service readiness를 구분한다.
+
+## Large Language Models - 73페이지
+
+### 1. Transformer·BERT·GPT 구조 (`llm.architecture_models`)
+
+- Self-attention·parallel processing과 architecture family: p6-9
+- BERT encoder-only·bidirectional·MLM·NSP·segment embedding: p11-17
+- GPT decoder-only·generative pretraining·next-token probability: p19-25
+
+### 2. Scaling·ICL과 Alignment (`llm.scaling_alignment`)
+
+- Scaling law와 model·data·compute: p27-28
+- Zero·one·few-shot ICL과 fine-tuning 차이: p30-34
+- IFT와 instruction data 한계: p36-38
+- RL·RLHF·reward model pipeline: p39-42
+
+### 3. Reasoning과 Preference 학습 (`llm.reasoning_preference`)
+
+- CoT·self-consistency·ToT·tool use와 한계: p44-49
+- Pairwise preference·reward model·DPO: p51-56
+- RLVR와 GRPO: p60-63
+
+### 4. LLM 확장 주제 (`llm.extensions`)
+
+- Diffusion LM과 iterative unmasking: p65-66
+- Hallucination과 RAG retrieval 평가: p68-69
+- VLA와 LLM agent: p70, p72
+
+### 원문 주의사항
+
+- p12의 기존 모델 전체 단방향 일반화와 p27 scaling 표현을 정규화한다.
+- p29의 GPT-4 parameter 추정, p57의 외부 일화, p58의 비공개 model 비교는 제외한다.
+- p37 IFT가 새로운 지식에 어떤 영향도 주지 않는다는 절대 표현은 사용하지 않는다.
+- p33의 TriviaQA result를 모든 task 성능으로 일반화하지 않는다.
+
+## AWS - 25페이지
+
+### 1. 클라우드 컴퓨팅과 서비스 모델 (`aws.cloud_foundations`)
+
+- 온프레미스와 클라우드 비교: p4-6
+- IaaS·PaaS·SaaS와 공동 책임: p7
+- Migration·DevOps·elasticity·pay-as-you-go: p8-10
+
+### 2. AWS 서비스와 EC2 운영 (`aws.services_compute`)
+
+- EC2·S3·RDS·Lambda·VPC·IAM 역할: p13-14
+- Instance·AMI·EBS: p15-17
+- Auto Scaling·ELB와 availability: p15, p17
+
+### 3. 네트워크·보안·배포 (`aws.network_security_deployment`)
+
+- Security group과 least privilege: p18
+- SSH·HTTP·HTTPS·TLS·TCP·UDP와 port: p19-20
+- Public·private IP, VPC·subnet·CIDR: p21
+- Docker registry를 통한 배포: p22
+
+### 원문 주의사항
+
+- p13의 AWS 장애 범위를 모든 workload로 일반화하지 않는다.
+- p18의 outbound 전체 허용은 common default와 least privilege를 구분한다.
+- p19의 mixed content는 load balancer 하나가 아니라 모든 resource의 HTTPS 제공으로
+  해결한다.
+- p20의 “AWS에서는 TCP만 알면 된다”는 평가 근거에서 제외한다.
+- p21의 public IP는 route와 security control이 함께 허용돼야 접근 가능하다.
+
+## Database - 57페이지
+
+### 1. DB·DBMS와 관계형 모델 (`db.foundations_rdbms`)
+
+- File system과 DBMS 비교: p4-11
+- Table·row·column·PK·FK와 cardinality: p14-16
+- Entity·referential·domain·business integrity와 constraint: p17-18
+
+### 2. 정규화와 트랜잭션 (`db.normalization_transactions`)
+
+- Redundancy와 insertion·deletion·update anomaly: p19-23
+- 1NF·2NF·3NF: p24-29
+- BCNF·4NF·5NF: p30
+- Transaction과 ACID: p31
+
+### 3. SQL 정의·조작·조회 (`db.sql_queries`)
+
+- SQL standard와 DDL·DML·DCL·TCL·DQL: p33-35
+- CREATE·ALTER·TRUNCATE·DROP, INSERT·UPDATE·DELETE: p36-39
+- SELECT logical order, aggregation·subquery·CASE: p40-42
+- INNER·OUTER·CROSS JOIN과 UNION·UNION ALL: p43-45
+
+### 4. OLTP·OLAP와 DB 선택 (`db.systems_selection`)
+
+- OLTP·OLAP 분리 이유와 workload 특성: p47-49
+- RDBMS trade-off와 schema-flexible NoSQL: p51-52
+- Document·key-value·wide-column·graph model: p53-54
+- Vector similarity search와 problem-based selection: p55-56
+
+### 원문 주의사항
+
+- p11의 NoSQL “규칙 없음·항상 빠름” 일반화는 제외한다.
+- p17의 referenced key 변경·삭제는 referential action 설정에 따라 달라진다.
+- p31의 ACID `Duration`은 `Durability`로 교정한다.
+- p49의 OLTP·OLAP index 수는 정의가 아닌 system별 설계 선택이다.
+- p52의 NoSQL은 schema가 없는 것이 아니라 schema-flexible로 설명한다.
+- p55에서 FAISS는 similarity-search library/index, Elasticsearch는 vector 기능을
+  포함한 search engine으로 product category를 구분한다.
+
+## AI Agent - 53페이지
+
+### 1. Agent 핵심 구성요소 (`agent.core_components`)
+
+- CoT·ReAct와 Function Calling: p9-10
+- MCP의 역할과 경계: p11-12
+- Short·Long-term memory와 hierarchy: p13-16
+- Structured output·schema validation·retry: p17-18
+
+### 2. Agent Framework와 Workflow (`agent.frameworks`)
+
+- LangChain·LCEL: p21-22
+- LangGraph state·node·edge·cycle: p23-24
+- ADK·CrewAI·n8n: p25-30
+
+### 3. Protocol과 Engineering Tactic (`agent.protocols_tactics`)
+
+- MCP와 agent-to-agent protocol: p32-34
+- Triage·handoff: p36-37
+- Auto scaling·persona·prompt structure: p38-40
+
+### 4. Agent 설계와 Harness Engineering (`agent.design_harness`)
+
+- Workflow boundary·plan·simple start: p43-45
+- Prompt·context·harness engineering: p47-50
+- Automated verification과 human accountability: p51-52
+
+### 원문 주의사항
+
+- p4의 출처·조건 없는 시점별 benchmark 수치는 핵심 정답에서 제외한다.
+- p23의 LangGraph를 DAG로 한정하는 설명과 p25의 다른 framework를 single-agent 전용으로
+  보는 설명을 교정한다.
+- p24의 framework 보편 우위, p38 scaling 효과, p39 persona 성능 향상을 보장하지 않는다.
+
+## Retrieval-Augmented Generation - 35페이지
+
+### 1. RAG 목적과 전체 구조 (`rag.foundations_architecture`)
+
+- LLM 한계와 RAG 정의: p5-6
+- Indexing·retrieval·generation pipeline: p8-9, p25
+- Sparse·dense retrieval: p10-11
+
+### 2. 임베딩과 벡터 검색 (`rag.embeddings_vector_search`)
+
+- Cosine·dot product·Euclidean metric: p12
+- Representation·Word2Vec·contextual·sentence embedding·contrastive learning: p14-18
+- Vector DB·HNSW·Product Quantization: p20-22
+- MTEB와 model selection: p23
+
+### 3. 고급 Retrieval 전략 (`rag.advanced_retrieval`)
+
+- Basic RAG failure와 retrieval 평가: p27
+- Graph RAG·Hybrid RAG: p28-29
+- Corrective/self-reflective feedback loop: p30
+
+### 4. Chunking과 Contextual Retrieval (`rag.chunking_contextual`)
+
+- Semantic·overlap·graph chunking: p31
+- Situated context prepending: p32
+- Sparse+dense rank fusion과 reranking: p33-34
+
+### 원문 주의사항
+
+- p12의 Euclidean distance 사용 불가와 p21의 strict `O(log N)`·exact accuracy 보장을
+  일반화하지 않는다.
+- p17 sentence embedding과 p18 isotropy 설명은 model·objective에 따른 조건부 결과다.
+- p29의 entity 직접 언급 필수 조건과 출처 없는 benchmark 수치는 정답에서 제외한다.
+- p30의 `Self-RAG`는 슬라이드가 설명한 corrective feedback pattern 범위로 판정한다.
 
 ## 공통 검수 결론
 

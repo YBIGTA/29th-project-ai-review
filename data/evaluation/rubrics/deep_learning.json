@@ -302,7 +302,7 @@
     },
     {
       "objective_id": "dl.loss_functions",
-      "title": "손실 함수와 학습 목표",
+      "title": "손실 함수와 최적화",
       "selection_description": "예측 과제를 수치 최적화 목표로 바꾸는 손실을 설명한다.",
       "supporting_claim_slots": 2,
       "sub_objectives": [

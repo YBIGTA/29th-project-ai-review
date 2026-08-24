@@ -1,0 +1,462 @@
+{
+  "course_id": null,
+  "topic": "Docker",
+  "entries": [
+    {
+      "term": "Engine",
+      "korean_variants": [
+        "엔진"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "IPv4",
+      "korean_variants": [
+        "아이피브이포"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Architecture",
+      "korean_variants": [
+        "아키텍처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LAN",
+      "korean_variants": [
+        "랜"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Windows",
+      "korean_variants": [
+        "윈도우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "WORKDIR",
+      "korean_variants": [
+        "워크디렉"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Mac",
+      "korean_variants": [
+        "맥"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "썸머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Daemon",
+      "korean_variants": [
+        "데몬"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CONTAINER",
+      "korean_variants": [
+        "컨테이너"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DockerFile",
+      "korean_variants": [
+        "도커파일"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Desktop",
+      "korean_variants": [
+        "데스크탑"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Object",
+      "korean_variants": [
+        "오브젝트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GUI",
+      "korean_variants": [
+        "지유아이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Rebuilding",
+      "korean_variants": [
+        "리빌딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DB",
+      "korean_variants": [
+        "디비"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Built",
+      "korean_variants": [
+        "빌트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Docker Architecture",
+      "korean_variants": [
+        "도커 아키텍처"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "CMD",
+      "korean_variants": [
+        "씨엠디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Network",
+      "korean_variants": [
+        "네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VM",
+      "korean_variants": [
+        "브이엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "COPY",
+      "korean_variants": [
+        "카피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DIY",
+      "korean_variants": [
+        "디아이와이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DNS",
+      "korean_variants": [
+        "디엔에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "FROM",
+      "korean_variants": [
+        "프롬"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Introduction",
+      "korean_variants": [
+        "인트로덕션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Volumes",
+      "korean_variants": [
+        "볼륨"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Ephemeral",
+      "korean_variants": [
+        "에페머럴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "IP",
+      "korean_variants": [
+        "아이피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Public",
+      "korean_variants": [
+        "퍼블릭"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "COMPOSE",
+      "korean_variants": [
+        "컴포즈"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "OS",
+      "korean_variants": [
+        "오에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "IMAGE",
+      "korean_variants": [
+        "이미지"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "썸머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Docker Image",
+      "korean_variants": [
+        "도커 이미지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "DOCKER",
+      "korean_variants": [
+        "도커"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "PostgreSQL",
+      "korean_variants": [
+        "포스트그레스큐엘"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GitHub",
+      "korean_variants": [
+        "깃허브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Building",
+      "korean_variants": [
+        "빌딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Components",
+      "korean_variants": [
+        "컴포넌트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Server",
+      "korean_variants": [
+        "서버"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Running",
+      "korean_variants": [
+        "러닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Networks",
+      "korean_variants": [
+        "네트워크스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Volume",
+      "korean_variants": [
+        "볼륨"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RUN",
+      "korean_variants": [
+        "런"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Frontend",
+      "korean_variants": [
+        "프론트엔드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GLOBALVAR",
+      "korean_variants": [
+        "글로벌바"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Client",
+      "korean_variants": [
+        "클라이언트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Containers",
+      "korean_variants": [
+        "컨테이너"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Images",
+      "korean_variants": [
+        "이미지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DockerHub",
+      "korean_variants": [
+        "도커허브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Registry",
+      "korean_variants": [
+        "레지스트리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "JSON",
+      "korean_variants": [
+        "제이슨"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "User",
+      "korean_variants": [
+        "유저"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "jiucai233",
+      "korean_variants": [
+        "지우카이233"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "ENTRYPOINT",
+      "korean_variants": [
+        "엔트리포인트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    }
+  ]
+}

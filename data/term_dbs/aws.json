@@ -1,0 +1,614 @@
+{
+  "course_id": null,
+  "topic": "AWS",
+  "entries": [
+    {
+      "term": "DE",
+      "korean_variants": [
+        "디이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "PaaS",
+      "korean_variants": [
+        "파스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Compute",
+      "korean_variants": [
+        "컴퓨트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AWS",
+      "korean_variants": [
+        "에이더블유에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Infrastructure",
+      "korean_variants": [
+        "인프라스트럭처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Public IP",
+      "korean_variants": [
+        "퍼블릭 아이피"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RUN",
+      "korean_variants": [
+        "런"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Pay",
+      "korean_variants": [
+        "페이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "PUSH",
+      "korean_variants": [
+        "푸시"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "VPC",
+      "korean_variants": [
+        "브이피씨"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Simple",
+      "korean_variants": [
+        "심플"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "nc1",
+      "korean_variants": [
+        "엔씨원"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "OR",
+      "korean_variants": [
+        "오어"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Platform",
+      "korean_variants": [
+        "플랫폼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SSH",
+      "korean_variants": [
+        "에스에스에이치"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "IP",
+      "korean_variants": [
+        "아이피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Computing",
+      "korean_variants": [
+        "컴퓨팅"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "You",
+      "korean_variants": [
+        "유"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RDS",
+      "korean_variants": [
+        "알디에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "AMI",
+      "korean_variants": [
+        "에이엠아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Load",
+      "korean_variants": [
+        "로드"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Service",
+      "korean_variants": [
+        "서비스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CI",
+      "korean_variants": [
+        "씨아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "HTTP",
+      "korean_variants": [
+        "에이치티티피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "TLS",
+      "korean_variants": [
+        "티엘에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Database",
+      "korean_variants": [
+        "데이터베이스"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "PULL",
+      "korean_variants": [
+        "풀"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "ELB",
+      "korean_variants": [
+        "이엘비"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "HDD",
+      "korean_variants": [
+        "에이치디디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "SaaS",
+      "korean_variants": [
+        "사스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AMD",
+      "korean_variants": [
+        "에이엠디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Public",
+      "korean_variants": [
+        "퍼블릭"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Protocol",
+      "korean_variants": [
+        "프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Image",
+      "korean_variants": [
+        "이미지"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "UDP",
+      "korean_variants": [
+        "유디피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CPU",
+      "korean_variants": [
+        "씨피유"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Machine",
+      "korean_variants": [
+        "머신"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Lambda",
+      "korean_variants": [
+        "람다"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Software",
+      "korean_variants": [
+        "소프트웨어"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Go",
+      "korean_variants": [
+        "고"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "HyperText",
+      "korean_variants": [
+        "하이퍼텍스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Private",
+      "korean_variants": [
+        "프라이빗"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Relational",
+      "korean_variants": [
+        "릴레이셔널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Auto",
+      "korean_variants": [
+        "오토"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Premise",
+      "korean_variants": [
+        "프리미스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "EBS",
+      "korean_variants": [
+        "이비에스"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Secure",
+      "korean_variants": [
+        "시큐어"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Top3",
+      "korean_variants": [
+        "탑쓰리"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Elastic Compute Cloud",
+      "korean_variants": [
+        "엘라스틱 컴퓨트 클라우드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "S3",
+      "korean_variants": [
+        "에스쓰리"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Elastic",
+      "korean_variants": [
+        "엘라스틱"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Balancer",
+      "korean_variants": [
+        "밸런서"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DNS",
+      "korean_variants": [
+        "디엔에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DevOps",
+      "korean_variants": [
+        "데브옵스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transfer",
+      "korean_variants": [
+        "트랜스퍼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Private IP",
+      "korean_variants": [
+        "프라이빗 아이피"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Shell",
+      "korean_variants": [
+        "쉘"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Scaling",
+      "korean_variants": [
+        "스케일링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AWS Service",
+      "korean_variants": [
+        "에이더블유에스 서비스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "HTTPS",
+      "korean_variants": [
+        "에이치티티피에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DB",
+      "korean_variants": [
+        "디비"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CD",
+      "korean_variants": [
+        "씨디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Route",
+      "korean_variants": [
+        "루트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CIDR",
+      "korean_variants": [
+        "시디알"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "TCP",
+      "korean_variants": [
+        "티씨피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "IAM",
+      "korean_variants": [
+        "아이엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "IaaS",
+      "korean_variants": [
+        "아이아스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Cloud",
+      "korean_variants": [
+        "클라우드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SSL",
+      "korean_variants": [
+        "에스에스엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "APP",
+      "korean_variants": [
+        "앱"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Storage",
+      "korean_variants": [
+        "스토리지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "EC2",
+      "korean_variants": [
+        "이씨투"
+      ],
+      "collision_label": "particle_collision",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Amazon",
+      "korean_variants": [
+        "아마존"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ECC",
+      "korean_variants": [
+        "이씨씨"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "OPC",
+      "korean_variants": [
+        "오피씨"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    }
+  ]
+}

@@ -1,0 +1,1015 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "docker",
+  "lecture_name": "Docker",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "docker.foundations",
+      "title": "컨테이너화와 Docker 객체",
+      "selection_description": "Docker가 해결하는 문제와 핵심 객체·구조를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "docker.foundation.containerization",
+          "title": "컨테이너화",
+          "summary": "VM과 비교해 목적을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "docker.containerization",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Containerization은 application과 실행 environment를 함께 묶어 환경 차이를 줄이며 일반적으로 VM보다 가볍게 격리한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "docker_p4_01",
+                  "unit_id": "docker_p4_containerization",
+                  "source_excerpt": "소프트웨어와 실행에 필요한 모든 환경을 상자처럼 하나로 묶어 어디서든 동일하게 실행",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "containerization",
+                "container",
+                "virtual_machine"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Containerization은 application과 실행 environment를 함께 묶어 환경 차이를 줄이며 일반적으로 VM보다 가볍게 격리한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.registry",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Docker Hub 같은 registry는 image를 push·pull하여 저장·배포·재사용하게 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "docker_p7_01",
+                  "unit_id": "docker_p7_registry",
+                  "source_excerpt": "Docker Image를 저장·공유하는 공식 Image Registry / push / pull",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "docker_hub",
+                "registry",
+                "image",
+                "push",
+                "pull"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Docker Hub 같은 registry는 image를 push·pull하여 저장·배포·재사용하게 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.foundation.objects",
+          "title": "Docker 객체와 생명주기",
+          "summary": "Dockerfile·image·container를 연결한다.",
+          "claims": [
+            {
+              "claim_id": "docker.objects",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Dockerfile은 image build 지시사항이고 image는 immutable package이며 container는 image의 실행 instance다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "docker_p5_01",
+                  "unit_id": "docker_p5_objects",
+                  "source_excerpt": "Dockerfile로부터 Docker Image를 build하여 registry에 push하고 Image로부터 Docker Container를 run",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dockerfile",
+                "image",
+                "container",
+                "build",
+                "push",
+                "container_run",
+                "registry",
+                "immutable"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Dockerfile은 image build 지시사항이고 image는 immutable package이며 container는 image의 실행 instance다."
+                ],
+                "critical_errors": [
+                  "Image와 container를 같은 실행 중 객체라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "docker.components",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Docker client·daemon·images·containers·registry가 명령과 image 전달로 연결된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "docker_p10_01",
+                  "unit_id": "docker_p10_components",
+                  "source_excerpt": "Client / Docker Host / Docker daemon / Containers / Images / Registry",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "client",
+                "daemon",
+                "container",
+                "image",
+                "registry"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Docker client·daemon·images·containers·registry가 명령과 image 전달로 연결된다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.foundation.architecture",
+          "title": "Client-Server 구조",
+          "summary": "명령 처리 주체를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "docker.daemon",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "사용자는 Docker client로 명령하고 dockerd가 build·run·pull을 처리하며 registry와 통신한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "docker_p11_01",
+                  "unit_id": "docker_p11_daemon",
+                  "source_excerpt": "클라이언트 docker를 통한 명령을 docker daemon(dockerd)이 실행",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "client",
+                "daemon",
+                "pull",
+                "build",
+                "container_run",
+                "registry"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "사용자는 Docker client로 명령하고 dockerd가 build·run·pull을 처리하며 registry와 통신한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.daemon_registry",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "docker pull 요청 시 daemon은 registry에서 image를 받아 host에 저장한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "docker_p11_01",
+                  "unit_id": "docker_p11_daemon",
+                  "source_excerpt": "클라이언트 docker를 통한 명령을 docker daemon(dockerd)이 실행",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "client",
+                "daemon",
+                "pull",
+                "build",
+                "container_run",
+                "registry"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "docker pull 요청 시 daemon은 registry에서 image를 받아 host에 저장한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.client_server",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Docker client는 요청 인터페이스이고 daemon은 images와 containers를 실제로 관리하는 server 역할을 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "docker_p10_01",
+                  "unit_id": "docker_p10_components",
+                  "source_excerpt": "Client / Docker Host / Docker daemon / Containers / Images / Registry",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 11,
+                  "chunk_id": "docker_p11_01",
+                  "unit_id": "docker_p11_daemon",
+                  "source_excerpt": "클라이언트 docker를 통한 명령을 docker daemon(dockerd)이 실행",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "client",
+                "daemon",
+                "container",
+                "image",
+                "registry",
+                "pull",
+                "build",
+                "container_run"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Docker client는 요청 인터페이스이고 daemon은 images와 containers를 실제로 관리하는 server 역할을 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "docker.image_build",
+      "title": "Dockerfile과 Image Build",
+      "selection_description": "Dockerfile instruction과 layer·cache를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "docker.build.instructions",
+          "title": "Dockerfile 명령",
+          "summary": "Build-time과 start-time 역할을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "docker.instructions",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "FROM·WORKDIR·COPY·RUN은 image build 내용을 정의하고 CMD·ENTRYPOINT는 container 시작 시 기본 실행 명령을 설정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "docker_p15_01",
+                  "unit_id": "docker_p15_instructions",
+                  "source_excerpt": "FROM / WORKDIR / COPY / RUN / CMD / ENTRYPOINT",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dockerfile",
+                "from",
+                "workdir",
+                "copy",
+                "dockerfile_run",
+                "cmd",
+                "entrypoint"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "FROM·WORKDIR·COPY·RUN은 image build 내용을 정의하고 CMD·ENTRYPOINT는 container 시작 시 기본 실행 명령을 설정한다."
+                ],
+                "critical_errors": [
+                  "RUN이 container 시작 시마다 실행되는 기본 명령이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "docker.start_command",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "RUN은 image build 중 실행되고 CMD·ENTRYPOINT는 container가 시작될 때의 기본 process를 정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "docker_p15_01",
+                  "unit_id": "docker_p15_instructions",
+                  "source_excerpt": "FROM / WORKDIR / COPY / RUN / CMD / ENTRYPOINT",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dockerfile",
+                "from",
+                "workdir",
+                "copy",
+                "dockerfile_run",
+                "cmd",
+                "entrypoint"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "RUN은 image build 중 실행되고 CMD·ENTRYPOINT는 container가 시작될 때의 기본 process를 정한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.build.layers",
+          "title": "Layer와 Cache",
+          "summary": "재빌드 원리를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "docker.layers",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Docker image는 instruction별 layer로 구성되며 cache를 이용해 변경된 layer 이후를 중심으로 rebuild한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "docker_p16_01",
+                  "unit_id": "docker_p16_layers",
+                  "source_excerpt": "각 명령어가 새로운 레이어 생성 / 캐시를 활용해 변경된 레이어만 수정",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "image",
+                "layer",
+                "cache",
+                "build",
+                "tag",
+                "push"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Docker image는 instruction별 layer로 구성되며 cache를 이용해 변경된 layer 이후를 중심으로 rebuild한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.distribution",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Build한 image에 repository와 tag를 붙여 registry에 push할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "docker_p16_01",
+                  "unit_id": "docker_p16_layers",
+                  "source_excerpt": "각 명령어가 새로운 레이어 생성 / 캐시를 활용해 변경된 레이어만 수정",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "image",
+                "layer",
+                "cache",
+                "build",
+                "tag",
+                "push"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Build한 image에 repository와 tag를 붙여 registry에 push할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.cache_rebuild",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Dockerfile 앞쪽 layer가 바뀌면 그 뒤 layer의 cache도 다시 계산될 수 있어 instruction 순서가 rebuild 효율에 영향을 준다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "docker_p16_01",
+                  "unit_id": "docker_p16_layers",
+                  "source_excerpt": "각 명령어가 새로운 레이어 생성 / 캐시를 활용해 변경된 레이어만 수정",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "image",
+                "layer",
+                "cache",
+                "build",
+                "tag",
+                "push"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Dockerfile 앞쪽 layer가 바뀌면 그 뒤 layer의 cache도 다시 계산될 수 있어 instruction 순서가 rebuild 효율에 영향을 준다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.build.workflow",
+          "title": "Build·Tag·Push",
+          "summary": "배포 흐름을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "docker.run_flags",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Image를 pull한 뒤 docker run의 -d·--rm·-p 등으로 실행 방식을 지정할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 25,
+                  "chunk_id": "docker_p25_01",
+                  "unit_id": "docker_p25_flags",
+                  "source_excerpt": "--rm: 종료되면 자동 삭제 / -d: 백그라운드 / -p: 포트 매핑",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "container_run",
+                "remove",
+                "port_mapping"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Image를 pull한 뒤 docker run의 -d·--rm·-p 등으로 실행 방식을 지정할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.workflow",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Build·tag·push·pull·run은 Dockerfile에서 배포된 container까지의 흐름을 이룬다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "docker_p5_01",
+                  "unit_id": "docker_p5_objects",
+                  "source_excerpt": "Dockerfile로부터 Docker Image를 build하여 registry에 push하고 Image로부터 Docker Container를 run",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dockerfile",
+                "image",
+                "container",
+                "build",
+                "push",
+                "container_run",
+                "registry",
+                "immutable"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Build·tag·push·pull·run은 Dockerfile에서 배포된 container까지의 흐름을 이룬다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "docker.container_operations",
+      "title": "Container 운영과 데이터 영속성",
+      "selection_description": "실행 옵션·진단·persistent data를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "docker.ops.run",
+          "title": "실행 옵션",
+          "summary": "Port·environment·mount를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "docker.run_options",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "docker run의 -p는 port mapping, -e·--env-file은 environment 전달, -v host:container는 bind mount를 설정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "docker_p17_01",
+                  "unit_id": "docker_p17_run",
+                  "source_excerpt": "docker run -p / --env-file / -e / -v 호스트경로:컨테이너경로",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "container_run",
+                "port_mapping",
+                "environment_variable",
+                "bind_mount"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "docker run의 -p는 port mapping, -e·--env-file은 environment 전달, -v host:container는 bind mount를 설정한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.bind_mount",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Bind mount는 host path를 container path에 연결해 host와 파일을 공유한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "docker_p17_01",
+                  "unit_id": "docker_p17_run",
+                  "source_excerpt": "docker run -p / --env-file / -e / -v 호스트경로:컨테이너경로",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "container_run",
+                "port_mapping",
+                "environment_variable",
+                "bind_mount"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Bind mount는 host path를 container path에 연결해 host와 파일을 공유한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.ops.lifecycle",
+          "title": "상태와 진단",
+          "summary": "명령별 역할을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "docker.lifecycle",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "docker ps·ps -a로 container 상태를 보고 stop·rm으로 정지·삭제하며 images·rmi로 image를 관리한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "docker_p18_01",
+                  "unit_id": "docker_p18_manage",
+                  "source_excerpt": "docker ps / stop / rm / images / rmi / build",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "docker_ps",
+                "stop",
+                "remove",
+                "image",
+                "build"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "docker ps·ps -a로 container 상태를 보고 stop·rm으로 정지·삭제하며 images·rmi로 image를 관리한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.debug",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "docker logs는 log를, inspect는 container나 image의 상세 정보를 보여준다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "docker_p26_01",
+                  "unit_id": "docker_p26_debug",
+                  "source_excerpt": "docker logs / docker inspect / docker stop / docker rm",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "logs",
+                "inspect",
+                "stop",
+                "remove",
+                "docker_ps"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "docker logs는 log를, inspect는 container나 image의 상세 정보를 보여준다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.ops.persistence",
+          "title": "영속성",
+          "summary": "Ephemeral layer와 volume을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "docker.persistence",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Container writable layer는 영속 저장소로 보장되지 않으므로 제거·재생성 뒤에도 필요한 DB·log·upload data는 volume이나 bind mount에 둔다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "docker_p19_01",
+                  "unit_id": "docker_p19_persistence",
+                  "source_excerpt": "컨테이너는 기본적으로 Ephemeral / Volume에 연결된 데이터는 안전하게 보존",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ephemeral",
+                "writable_layer",
+                "volume",
+                "container"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Container writable layer는 영속 저장소로 보장되지 않으므로 제거·재생성 뒤에도 필요한 DB·log·upload data는 volume이나 bind mount에 둔다."
+                ],
+                "critical_errors": [
+                  "단순 restart만 해도 container writable layer가 반드시 초기화된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "docker.volume_delete",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "docker compose down -v는 volume까지 삭제할 수 있으므로 persistent data 삭제 의도를 확인해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 35,
+                  "chunk_id": "docker_p35_01",
+                  "unit_id": "docker_p35_down",
+                  "source_excerpt": "docker compose down -v (volume까지 삭제)",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "compose",
+                "compose_down_v",
+                "volume"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "docker compose down -v는 volume까지 삭제할 수 있으므로 persistent data 삭제 의도를 확인해야 한다."
+                ],
+                "critical_errors": [
+                  "down -v가 volume 데이터를 보존한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "docker.restart_persistence",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "단순 container restart는 writable layer를 지우지 않지만 제거·재생성에 대비한 영속 data는 volume에 저장해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "docker_p19_01",
+                  "unit_id": "docker_p19_persistence",
+                  "source_excerpt": "컨테이너는 기본적으로 Ephemeral / Volume에 연결된 데이터는 안전하게 보존",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ephemeral",
+                "writable_layer",
+                "volume",
+                "container"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "단순 container restart는 writable layer를 지우지 않지만 제거·재생성에 대비한 영속 data는 volume에 저장해야 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "docker.compose_networking",
+      "title": "Network와 Docker Compose",
+      "selection_description": "Multi-container app의 연결과 선언을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "docker.compose.network",
+          "title": "Bridge와 DNS",
+          "summary": "Service discovery를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "docker.network",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Bridge network는 container 간 가상 내부망이며 built-in DNS가 변동 IP 대신 service name으로 서로 찾게 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "docker_p31_01",
+                  "unit_id": "docker_p31_network",
+                  "source_excerpt": "Network: 컨테이너끼리 데이터를 주고받는 가상 내부망 / Built-in DNS / 서비스 이름",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "bridge_network",
+                "dns",
+                "service_name",
+                "container"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Bridge network는 container 간 가상 내부망이며 built-in DNS가 변동 IP 대신 service name으로 서로 찾게 한다."
+                ],
+                "critical_errors": [
+                  "Container가 service name 대신 변동 IP로만 통신할 수 있다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "docker.service_discovery",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "같은 Docker network의 service는 db·redis 같은 service name으로 상대를 찾을 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "docker_p31_01",
+                  "unit_id": "docker_p31_network",
+                  "source_excerpt": "Network: 컨테이너끼리 데이터를 주고받는 가상 내부망 / Built-in DNS / 서비스 이름",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "bridge_network",
+                "dns",
+                "service_name",
+                "container"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "같은 Docker network의 service는 db·redis 같은 service name으로 상대를 찾을 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.compose.purpose",
+          "title": "Compose 목적",
+          "summary": "Dockerfile과 Compose를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "docker.compose",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Docker Compose는 Dockerfile의 변형이 아니라 compose.yaml로 여러 service·network·volume을 선언하고 함께 build·up·down하는 도구다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "docker_p32_01",
+                  "unit_id": "docker_p32_compose",
+                  "source_excerpt": "멀티 컨테이너로 구성된 앱을 구동 / compose.yaml / build up down",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "compose",
+                "compose_yaml",
+                "service",
+                "build"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Docker Compose는 Dockerfile의 변형이 아니라 compose.yaml로 여러 service·network·volume을 선언하고 함께 build·up·down하는 도구다."
+                ],
+                "critical_errors": [
+                  "Docker Compose가 Dockerfile의 문법 변형이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "docker.compose_commands",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "docker compose build·up·down은 multi-container 구성을 build·시작·종료한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "docker_p32_01",
+                  "unit_id": "docker_p32_compose",
+                  "source_excerpt": "멀티 컨테이너로 구성된 앱을 구동 / compose.yaml / build up down",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "compose",
+                "compose_yaml",
+                "service",
+                "build"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "docker compose build·up·down은 multi-container 구성을 build·시작·종료한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "docker.compose.schema",
+          "title": "Compose 구성과 readiness",
+          "summary": "주요 field와 실행 주의를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "docker.compose_schema",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "compose.yaml의 services·volumes·networks가 실행 객체와 연결을 정의하고 depends_on은 순서를 표현하지만 readiness에는 healthcheck 조건이 필요하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 34,
+                  "chunk_id": "docker_p34_01",
+                  "unit_id": "docker_p34_schema",
+                  "source_excerpt": "services / volumes / networks / depends_on / healthcheck / restart",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "compose_yaml",
+                "service",
+                "volume",
+                "bridge_network",
+                "depends_on",
+                "healthcheck",
+                "restart_policy"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "compose.yaml의 services·volumes·networks가 실행 객체와 연결을 정의하고 depends_on은 순서를 표현하지만 readiness에는 healthcheck 조건이 필요하다."
+                ],
+                "critical_errors": [
+                  "depends_on만으로 dependency service의 application readiness까지 보장된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "docker.compose_cleanup",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "docker compose down은 구성을 내리고 down -v는 volume까지 삭제한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 35,
+                  "chunk_id": "docker_p35_01",
+                  "unit_id": "docker_p35_down",
+                  "source_excerpt": "docker compose down -v (volume까지 삭제)",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "compose",
+                "compose_down_v",
+                "volume"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "docker compose down은 구성을 내리고 down -v는 volume까지 삭제한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "docker.health_restart",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "healthcheck는 service health를 판정하고 restart field는 container failure 뒤 재시작 정책을 설정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 34,
+                  "chunk_id": "docker_p34_01",
+                  "unit_id": "docker_p34_schema",
+                  "source_excerpt": "services / volumes / networks / depends_on / healthcheck / restart",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "compose_yaml",
+                "service",
+                "volume",
+                "bridge_network",
+                "depends_on",
+                "healthcheck",
+                "restart_policy"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "healthcheck는 service health를 판정하고 restart field는 container failure 뒤 재시작 정책을 설정한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": [
+    {
+      "page": 19,
+      "chunk_id": "docker_p19_01",
+      "source_text": "컨테이너를 삭제하거나 재시작하면, 내부 파일도 함께 초기화",
+      "reason": "단순 restart는 writable layer를 지우지 않으므로 제거·재생성과 구분"
+    },
+    {
+      "page": 32,
+      "chunk_id": "docker_p32_01",
+      "source_text": "여러 docker file 관리하기 위한 docker file 의 변주",
+      "reason": "Compose는 Dockerfile 변형이 아니라 multi-container service를 구성·실행하는 별도 도구"
+    }
+  ]
+}

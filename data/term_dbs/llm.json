@@ -1,0 +1,1006 @@
+{
+  "course_id": null,
+  "topic": "LLM",
+  "entries": [
+    {
+      "term": "Think",
+      "korean_variants": [
+        "씽크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Embeddings",
+      "korean_variants": [
+        "임베딩스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language Model",
+      "korean_variants": [
+        "랭귀지 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Reinforcement Fine Tuning",
+      "korean_variants": [
+        "리인포스먼트 파인 튜닝"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "BERT",
+      "korean_variants": [
+        "버트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Meta",
+      "korean_variants": [
+        "메타"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ICLR",
+      "korean_variants": [
+        "아이씨엘알"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "AI",
+      "korean_variants": [
+        "에이아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Reinforcement",
+      "korean_variants": [
+        "리인포스먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tuning",
+      "korean_variants": [
+        "튜닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fine",
+      "korean_variants": [
+        "파인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLaDA",
+      "korean_variants": [
+        "라다"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tuned",
+      "korean_variants": [
+        "튜닝드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "서머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Diffusion",
+      "korean_variants": [
+        "디퓨전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Preference",
+      "korean_variants": [
+        "프리퍼런스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Next",
+      "korean_variants": [
+        "넥스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Step",
+      "korean_variants": [
+        "스텝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Instruction",
+      "korean_variants": [
+        "인스트럭션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DeepSeek",
+      "korean_variants": [
+        "딥시크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GRPO",
+      "korean_variants": [
+        "지알피오"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "o1",
+      "korean_variants": [
+        "오원"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Optimize",
+      "korean_variants": [
+        "옵티마이즈"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transformer Encoder Only",
+      "korean_variants": [
+        "트랜스포머 인코더 온리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Only",
+      "korean_variants": [
+        "온리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SOTA",
+      "korean_variants": [
+        "소타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Pre",
+      "korean_variants": [
+        "프리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLM",
+      "korean_variants": [
+        "엘엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Instruction Fine",
+      "korean_variants": [
+        "인스트럭션 파인"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Transformer Decoder Only",
+      "korean_variants": [
+        "트랜스포머 디코더 온리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "EX",
+      "korean_variants": [
+        "이엑스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Additional",
+      "korean_variants": [
+        "애드셔널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Generative",
+      "korean_variants": [
+        "제너레이티브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tree",
+      "korean_variants": [
+        "트리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Masked Language Model",
+      "korean_variants": [
+        "마스크드 랭귀지 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Prompt",
+      "korean_variants": [
+        "프롬프트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Rewards",
+      "korean_variants": [
+        "리워드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sentence",
+      "korean_variants": [
+        "센텐스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tool Using LLM",
+      "korean_variants": [
+        "툴 유징 엘엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Action",
+      "korean_variants": [
+        "액션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Judge",
+      "korean_variants": [
+        "저지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DPO",
+      "korean_variants": [
+        "디피오"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Diffusion Language",
+      "korean_variants": [
+        "디퓨전 랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Pretraining",
+      "korean_variants": [
+        "프리트레이닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tool",
+      "korean_variants": [
+        "툴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Think Step",
+      "korean_variants": [
+        "씽크 스텝"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "IFT",
+      "korean_variants": [
+        "아이에프티"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Verifiable",
+      "korean_variants": [
+        "베리파이어블"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VLA",
+      "korean_variants": [
+        "브이엘에이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Behemoth",
+      "korean_variants": [
+        "베히모스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Segment Embeddings",
+      "korean_variants": [
+        "세그먼트 임베딩스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Masked",
+      "korean_variants": [
+        "마스크드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Scale",
+      "korean_variants": [
+        "스케일"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Diffusion Language Model",
+      "korean_variants": [
+        "디퓨전 랭귀지 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Context",
+      "korean_variants": [
+        "컨텍스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RFT",
+      "korean_variants": [
+        "알에프티"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "OpenAI",
+      "korean_variants": [
+        "오픈에이아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Scaling Law",
+      "korean_variants": [
+        "스케일링 로우"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "LLM Meta",
+      "korean_variants": [
+        "엘엘엠 메타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Next Sentence Prediction",
+      "korean_variants": [
+        "넥스트 센텐스 프레딕션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Scaling",
+      "korean_variants": [
+        "스케일링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language",
+      "korean_variants": [
+        "랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Unmasking",
+      "korean_variants": [
+        "언마스킹"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Trillon",
+      "korean_variants": [
+        "트릴리언"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Consistency",
+      "korean_variants": [
+        "컨시스턴시"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SFT",
+      "korean_variants": [
+        "에스에프티"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "RLHF",
+      "korean_variants": [
+        "알엘에이치에프"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "RL",
+      "korean_variants": [
+        "알엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Transformer",
+      "korean_variants": [
+        "트랜스포머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "w00",
+      "korean_variants": [
+        "더블유오오"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Self",
+      "korean_variants": [
+        "셀프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ravjot03",
+      "korean_variants": [
+        "라브젓오쓰"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "GPT",
+      "korean_variants": [
+        "지피티"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Reinforcement Learning",
+      "korean_variants": [
+        "리인포스먼트 러닝"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Outline",
+      "korean_variants": [
+        "아웃라인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "r191d1ty",
+      "korean_variants": [
+        "알일구일디티"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Instruction Fine Tuning",
+      "korean_variants": [
+        "인스트럭션 파인 튜닝"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Verifiable Rewards",
+      "korean_variants": [
+        "베리파이어블 리워즈"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Optimize Language Model",
+      "korean_variants": [
+        "옵티마이즈 랭귀지 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Pretrain",
+      "korean_variants": [
+        "프리트레인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Training",
+      "korean_variants": [
+        "트레이닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MASK",
+      "korean_variants": [
+        "마스크"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Tuned SOTA",
+      "korean_variants": [
+        "튜ㄴ드 소타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RLVR",
+      "korean_variants": [
+        "알브이알"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Why RL",
+      "korean_variants": [
+        "와이 알엘"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Generative Pre",
+      "korean_variants": [
+        "제너러티브 프리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "DS",
+      "korean_variants": [
+        "디에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "b14502438065",
+      "korean_variants": [
+        "비 일 사 공 이 사 삼 팔 공 육 오"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Alignment",
+      "korean_variants": [
+        "얼라인먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Reward Model",
+      "korean_variants": [
+        "리워드 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Reasoning",
+      "korean_variants": [
+        "리즌잉"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MLM",
+      "korean_variants": [
+        "엠엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Law",
+      "korean_variants": [
+        "로우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CoT",
+      "korean_variants": [
+        "코트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "R1",
+      "korean_variants": [
+        "알원"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Chain",
+      "korean_variants": [
+        "체인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Supervised",
+      "korean_variants": [
+        "슈퍼바이즈드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Model",
+      "korean_variants": [
+        "모델"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Why",
+      "korean_variants": [
+        "와이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NSP",
+      "korean_variants": [
+        "엔에스피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Segment",
+      "korean_variants": [
+        "세그먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Additional Topic",
+      "korean_variants": [
+        "애디셔널 토픽"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Labeling",
+      "korean_variants": [
+        "레이블링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RAG",
+      "korean_variants": [
+        "라그"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Topic",
+      "korean_variants": [
+        "토픽"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Thought",
+      "korean_variants": [
+        "쏘트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Learning",
+      "korean_variants": [
+        "러닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Using",
+      "korean_variants": [
+        "유징"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLaMA",
+      "korean_variants": [
+        "엘라마"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vision",
+      "korean_variants": [
+        "비전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agent",
+      "korean_variants": [
+        "에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Encoder",
+      "korean_variants": [
+        "인코더"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "서머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Prediction",
+      "korean_variants": [
+        "프레딕션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NLP",
+      "korean_variants": [
+        "엔엘피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "LM",
+      "korean_variants": [
+        "엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Reward",
+      "korean_variants": [
+        "리워드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Decoder",
+      "korean_variants": [
+        "디코더"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hallucination",
+      "korean_variants": [
+        "할루시네이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DLM",
+      "korean_variants": [
+        "디엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "TEO",
+      "korean_variants": [
+        "티이오"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "OLM",
+      "korean_variants": [
+        "오엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "ICL",
+      "korean_variants": [
+        "아이씨엘"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "TDO",
+      "korean_variants": [
+        "티디오"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    }
+  ]
+}

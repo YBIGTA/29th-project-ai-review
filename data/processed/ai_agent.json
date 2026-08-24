@@ -1,0 +1,2064 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "ai_agent",
+  "lecture_name": "AI Agent",
+  "source_file": "AI AGENT.pdf",
+  "terminology": [
+    {
+      "term_id": "ai_agent",
+      "canonical_ko": "AI 에이전트",
+      "canonical_en": "AI agent",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "single_agent",
+      "canonical_ko": "단일 에이전트",
+      "canonical_en": "single agent",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "multi_agent",
+      "canonical_ko": "멀티 에이전트",
+      "canonical_en": "multi-agent system",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cot",
+      "canonical_ko": "사고 사슬",
+      "canonical_en": "Chain of Thought",
+      "abbreviations": [
+        "CoT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "react",
+      "canonical_ko": "추론과 행동",
+      "canonical_en": "Reason and Act",
+      "abbreviations": [
+        "ReAct"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "reasoning",
+      "canonical_ko": "추론",
+      "canonical_en": "reasoning",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "action",
+      "canonical_ko": "행동",
+      "canonical_en": "action",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "observation",
+      "canonical_ko": "관찰",
+      "canonical_en": "observation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tool",
+      "canonical_ko": "도구",
+      "canonical_en": "tool",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "function_calling",
+      "canonical_ko": "함수 호출",
+      "canonical_en": "function calling",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "orchestrator",
+      "canonical_ko": "오케스트레이터",
+      "canonical_en": "orchestrator",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "api",
+      "canonical_ko": "응용 프로그램 인터페이스",
+      "canonical_en": "Application Programming Interface",
+      "abbreviations": [
+        "API"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "mcp",
+      "canonical_ko": "모델 컨텍스트 프로토콜",
+      "canonical_en": "Model Context Protocol",
+      "abbreviations": [
+        "MCP"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "resource",
+      "canonical_ko": "리소스",
+      "canonical_en": "resource",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "prompt",
+      "canonical_ko": "프롬프트",
+      "canonical_en": "prompt",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "short_term_memory",
+      "canonical_ko": "단기 메모리",
+      "canonical_en": "short-term memory",
+      "abbreviations": [
+        "STM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "long_term_memory",
+      "canonical_ko": "장기 메모리",
+      "canonical_en": "long-term memory",
+      "abbreviations": [
+        "LTM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "working_memory",
+      "canonical_ko": "작업 메모리",
+      "canonical_en": "working memory",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sliding_window",
+      "canonical_ko": "슬라이딩 윈도우",
+      "canonical_en": "sliding window",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "memory_retrieval",
+      "canonical_ko": "메모리 검색",
+      "canonical_en": "memory retrieval",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "structured_output",
+      "canonical_ko": "구조화된 출력",
+      "canonical_en": "structured output",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "schema",
+      "canonical_ko": "스키마",
+      "canonical_en": "schema",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "validation",
+      "canonical_ko": "검증",
+      "canonical_en": "validation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "retry",
+      "canonical_ko": "재시도",
+      "canonical_en": "retry",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "langchain",
+      "canonical_ko": "LangChain",
+      "canonical_en": "LangChain",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "lcel",
+      "canonical_ko": "LangChain 표현 언어",
+      "canonical_en": "LangChain Expression Language",
+      "abbreviations": [
+        "LCEL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "langgraph",
+      "canonical_ko": "LangGraph",
+      "canonical_en": "LangGraph",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "state",
+      "canonical_ko": "상태",
+      "canonical_en": "state",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "node",
+      "canonical_ko": "노드",
+      "canonical_en": "node",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "edge",
+      "canonical_ko": "엣지",
+      "canonical_en": "edge",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cycle",
+      "canonical_ko": "순환",
+      "canonical_en": "cycle",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "adk",
+      "canonical_ko": "Agent Development Kit",
+      "canonical_en": "Agent Development Kit",
+      "abbreviations": [
+        "ADK"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sequential_agent",
+      "canonical_ko": "순차 에이전트",
+      "canonical_en": "SequentialAgent",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "parallel_agent",
+      "canonical_ko": "병렬 에이전트",
+      "canonical_en": "ParallelAgent",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "crewai",
+      "canonical_ko": "CrewAI",
+      "canonical_en": "CrewAI",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "crew",
+      "canonical_ko": "크루",
+      "canonical_en": "crew",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "flow",
+      "canonical_ko": "플로우",
+      "canonical_en": "flow",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "n8n",
+      "canonical_ko": "n8n",
+      "canonical_en": "n8n",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "agent_protocol",
+      "canonical_ko": "에이전트 프로토콜",
+      "canonical_en": "agent protocol",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "a2a",
+      "canonical_ko": "에이전트 간 프로토콜",
+      "canonical_en": "Agent-to-Agent Protocol",
+      "abbreviations": [
+        "A2A"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "agent_card",
+      "canonical_ko": "에이전트 카드",
+      "canonical_en": "Agent Card",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "triage",
+      "canonical_ko": "트리아지",
+      "canonical_en": "triage",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "요청 분류"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "handoff",
+      "canonical_ko": "핸드오프",
+      "canonical_en": "handoff",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "업무 위임"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "autoscaling",
+      "canonical_ko": "자동 확장",
+      "canonical_en": "auto scaling",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "persona",
+      "canonical_ko": "페르소나",
+      "canonical_en": "persona",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "system_instruction",
+      "canonical_ko": "시스템 지시문",
+      "canonical_en": "system instruction",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "fallback",
+      "canonical_ko": "대체 경로",
+      "canonical_en": "fallback",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "feedback_loop",
+      "canonical_ko": "피드백 루프",
+      "canonical_en": "feedback loop",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "prompt_engineering",
+      "canonical_ko": "프롬프트 엔지니어링",
+      "canonical_en": "prompt engineering",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "context_engineering",
+      "canonical_ko": "컨텍스트 엔지니어링",
+      "canonical_en": "context engineering",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "harness_engineering",
+      "canonical_ko": "하네스 엔지니어링",
+      "canonical_en": "harness engineering",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "invariant",
+      "canonical_ko": "불변 조건",
+      "canonical_en": "invariant",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hook",
+      "canonical_ko": "훅",
+      "canonical_en": "hook",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "evaluator",
+      "canonical_ko": "평가 에이전트",
+      "canonical_en": "evaluator agent",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "evidence",
+      "canonical_ko": "증거",
+      "canonical_en": "evidence",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "e2e_test",
+      "canonical_ko": "종단 간 테스트",
+      "canonical_en": "end-to-end test",
+      "abbreviations": [
+        "E2E"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "human_in_the_loop",
+      "canonical_ko": "사람 개입",
+      "canonical_en": "human in the loop",
+      "abbreviations": [
+        "HITL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "ai_agent_p1_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 1,
+      "topic": "AI Agent 표지",
+      "concepts": [
+        "AI Agent 표지"
+      ],
+      "raw_text": "2025-2 YBIGTA\n\nAI Agent\n\n\n\n\n\n                             26기 DE 손재훈\n                             26기 DE 윤희찬",
+      "visual_description": "AI Agent 표지 페이지이다.",
+      "content": "AI Agent 강의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p2_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "강의 목차"
+      ],
+      "raw_text": "목 차\n\n\n1.  Outline\n\n2. Core Components of AI Agent\n\n3. AI Agent Frameworks\n\n4. AI Agent Engineering Tactics\n\n5. Agent Development Guidelines",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "강의는 핵심 구성요소, framework, engineering tactic, 개발 guideline과 agent 활용으로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p3_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 3,
+      "topic": "Outline",
+      "concepts": [
+        "Outline"
+      ],
+      "raw_text": "Outline",
+      "visual_description": "Outline 페이지이다.",
+      "content": "Outline 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p4_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 4,
+      "topic": "AI 발전 현황",
+      "concepts": [
+        "AI 발전 현황"
+      ],
+      "raw_text": "Outline\nAI 발전, 현재 어디에 있는가!\n\n2025년의 AI 발전의 4대 혁신\n\n\n  성능: SWE-bench 2023: 4.4% → 2025: 75.2%\n  효율성: Phi-3-mini: 38억 개 파라미터로 PaLM 540억 개와 동일 성능\n  속도: 2023: 응답 시간 5~10초 → 2025: 0.3~2초\n  대중화: DeepSeek AI, FP8 훈련 기술",
+      "visual_description": "AI 발전 현황의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "AI 발전을 performance·efficiency·latency·accessibility 사례로 소개한다. 특정 benchmark 수치와 시점별 product 비교는 출처·조건을 확인해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "agent_p4_metrics",
+          "source_text": "2023→2025 성능·속도 수치",
+          "issue_type": "ambiguous",
+          "correction": "Source와 benchmark setting이 없는 시점 의존 수치는 평가에서 제외한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p5_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 5,
+      "topic": "2025 Agent 사례",
+      "concepts": [
+        "2025 Agent 사례"
+      ],
+      "raw_text": "Outline\n2025년 = AI Agent\n\n   Super Agent\n      Manus AI\n      Genspark\n   Framework\n     MCP\n      ACP, A2A, ...\n   Code Agent\n        Cursor, Windsurf\n       Codex, Jules\n       Claude code, Gemini CLI",
+      "visual_description": "2025 Agent 사례의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Code agent, super agent, MCP·A2A 등 2025년 agent ecosystem 사례를 열거한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p6_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 6,
+      "topic": "Single·Multi Agent",
+      "concepts": [
+        "Single·Multi Agent"
+      ],
+      "raw_text": "Outline\nSingle Agent → MultiAgent\n\n\n세상은 단일 에이전트가 아닌\n이제는 다수의 에이전트가\n유연하게 작동하는 것을 원한다!",
+      "visual_description": "Single·Multi Agent의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "한 agent가 모든 역할을 맡는 구조와 여러 전문 agent가 협력하는 구조를 대비한다. Multi-agent가 항상 더 좋은 것은 아니며 coordination cost가 있다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p7_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 7,
+      "topic": "AI Agent 소개",
+      "concepts": [
+        "AI Agent 소개"
+      ],
+      "raw_text": "Outline\nAI Agent",
+      "visual_description": "AI Agent 소개 페이지이다.",
+      "content": "AI Agent 개념 도입 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p8_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 8,
+      "topic": "핵심 구성요소",
+      "concepts": [
+        "핵심 구성요소"
+      ],
+      "raw_text": "Core Components\n   of AI Agent",
+      "visual_description": "핵심 구성요소 페이지이다.",
+      "content": "AI Agent 핵심 구성요소 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p9_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 9,
+      "topic": "CoT와 ReAct",
+      "concepts": [
+        "CoT와 ReAct"
+      ],
+      "raw_text": "Core Components of AI Agent\nReAct\n\n\n                                                                                             https://www.promptingguide.ai/kr/techniques/react\n                                                                                                                  https://arxiv.org/pdf/2210.03629   CoT (Chain of Thought)\n    생각을 단계적으로 하자!\n          Think step by step 한 마디로 더 좋은 성과를 내기\n    외부 세계에 대한 접근성이 부족한 경우 hallucination이 일어날 수 있음\n\n   ReACT (Reason + Act)\n    생각-행동-관찰\n     “행동”은 어떻게 하지? → Tool!!",
+      "visual_description": "CoT와 ReAct의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "CoT는 intermediate reasoning을 유도하고 ReAct는 reasoning과 action·observation을 반복해 external tool 결과를 다음 판단에 반영한다. 긴 reasoning 자체가 correctness를 보장하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cot",
+        "react",
+        "reasoning",
+        "action",
+        "observation",
+        "tool"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p9_react",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "ReACT (Reason + Act) / 생각-행동-관찰",
+          "normalized_explanation": "ReAct loop는 reasoning·action·observation을 연결한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cot",
+            "react",
+            "reasoning",
+            "action",
+            "observation",
+            "tool"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p10_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 10,
+      "topic": "Function Calling",
+      "concepts": [
+        "Function Calling"
+      ],
+      "raw_text": "Core Components of AI Agent\nTools\n언어모델에 무기를 달아주자\n\n  1.User Query → LLM                                                             Third Party API\n 2.LLM → 의도 파악 + Tool 호출 결정\n 3.LLM → Tool-call JSON 생성\n  4.Orchestrator → Tool 호출\n  5.Third-Party API → 응답 반환                                                   Function\n  6.Orchestrator → 응답을 LLM에 전달                                                    Calling\n 7.LLM 정보를 바탕으로 자연어 응답 생성\n\n\n    역대 GOAT 축구선수는 누구지?\n\n\n\n\n                                                                       Function Description + @\n                                      → JSON format response",
+      "visual_description": "Function Calling의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Function calling에서 model은 tool schema를 보고 호출과 argument를 구조화해 제안하고 orchestrator가 실제 API를 실행한 뒤 결과를 model에 돌려준다. Model이 외부 함수를 직접 실행하는 것은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "function_calling",
+        "tool",
+        "schema",
+        "orchestrator",
+        "api"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p10_call",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "User Query → LLM → Tool-call JSON → Orchestrator → API → LLM",
+          "normalized_explanation": "Function calling의 control boundary다.",
+          "source_status": "verified",
+          "term_ids": [
+            "function_calling",
+            "tool",
+            "schema",
+            "orchestrator",
+            "api"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p11_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 11,
+      "topic": "MCP",
+      "concepts": [
+        "MCP"
+      ],
+      "raw_text": "Core Components of AI Agent\nTools +\nMCP = 표준화된 tool\n\nMCP(Model Context Protocol):\n    AI 에이전트를 다양한 외부 도구 및 데이터 소스에\n  연결하기 위한 표준화된 프로토콜\n  장점:\n    동적 발견: LLM의 프롬프트에 도구에 대한 별도\n    설명을 둘 필요 X\n     확장성: 표준화된 프로토콜이기에 LLM의 능력\n    을 유연하게 확장할 수 있음\n\n\n\n\n\n                                                                                                                                                                     https://smithery.ai",
+      "visual_description": "MCP의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "MCP는 host·client·server 사이에서 tool·resource·prompt 등 context capability를 표준 방식으로 제공한다. Capability descriptor가 discovery를 돕지만 tool 설명과 권한·보안·context 관리가 사라지는 것은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "mcp",
+        "tool",
+        "resource",
+        "prompt"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p11_mcp",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "외부 도구 및 데이터 소스에 연결하기 위한 표준화된 프로토콜",
+          "normalized_explanation": "MCP가 tool·resource·prompt capability를 표준화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "mcp",
+            "tool",
+            "resource",
+            "prompt"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "agent_p11_discovery",
+          "source_text": "프롬프트에 도구 별도 설명 불필요",
+          "issue_type": "overgeneralized",
+          "correction": "MCP descriptor가 discovery를 돕지만 tool metadata와 context는 여전히 필요하다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p12_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 12,
+      "topic": "MCP 활용",
+      "concepts": [
+        "MCP 활용"
+      ],
+      "raw_text": "Core Components of AI Agent\nMCP 활용해보기!\n\n\n\n\n\n   Up-to-date, version-specific documentation\n\n\n\n\n\n              Web Searching & Crawling",
+      "visual_description": "MCP 활용의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "MCP로 web search·crawling과 최신 documentation source를 연결하는 활용 예다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p13_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 13,
+      "topic": "Short-Term Memory",
+      "concepts": [
+        "Short-Term Memory"
+      ],
+      "raw_text": "Core Components of AI Agent\nMemory\nShort-Term Memory: 대화 맥락을 유지하자!\n\n1. Rolling Buffer / Sliding Window\n  최신 k개의 메시지 또는 토큰만 저장하는 슬라이딩 윈도우 방식\n\n2. Filtering & Importance-Based Storage\n  핵심 정보 추출 후 저장 / 중복 및 상대적으로 덜 중요한 정보 제거\n\n3. Detection & Trimming\n  메타데이터 기반 데이터 중요도 순서 기록, 토큰 초과 시 덜 중요\n  한 것부터 삭제\n\n4. Working Memory Separation\n  대화문과 별도로 임시 추론을 위한 메모리 공간 확보, 논리 흐름\n  또는 계획 과정 중 생긴 중간 상태를 스크래치패드에서 관리",
+      "visual_description": "Short-Term Memory의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Short-term memory는 recent message window, 중요도 filtering, trimming, 별도 working state로 제한된 context를 관리한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "short_term_memory",
+        "sliding_window",
+        "working_memory"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p13_stm",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Sliding Window / Importance-Based Storage / Trimming / Working Memory Separation",
+          "normalized_explanation": "Short-term context 관리 전략이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "short_term_memory",
+            "sliding_window",
+            "working_memory"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p14_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 14,
+      "topic": "Long-Term Memory",
+      "concepts": [
+        "Long-Term Memory"
+      ],
+      "raw_text": "Core Components of AI Agent\nMemory\nLong-Term Memory: 사용자에게 맞추기\n\n1. Extraction / Storage\n  중요 정보 추출 및 DB 저장 (Vector DB, NoSQL 등)\n\n2. Search / Lookup\n  세션 활성화 또는 특정 질의 시, 임베딩 또는 엔티티 기반 검색\n\n3. Update\n  중요 정보 반영, 덜 중요한 경우 배치 요약 후 저장",
+      "visual_description": "Long-Term Memory의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Long-term memory는 중요 정보를 추출·저장하고 embedding 또는 entity로 검색하며 update·summary로 유지한다. 저장 전 consent·privacy·staleness를 고려한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "long_term_memory",
+        "memory_retrieval"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p14_ltm",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Extraction / Storage / Search / Lookup / Update",
+          "normalized_explanation": "Long-term memory lifecycle이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "long_term_memory",
+            "memory_retrieval"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p15_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 15,
+      "topic": "Mid-Term Memory",
+      "concepts": [
+        "Mid-Term Memory"
+      ],
+      "raw_text": "Core Components of AI Agent\nMemory\nMid-Term Memory: Cursor로 알아보자!\n\n.cursor/memory_bank\n    projectbrief.md: High level에서 프로젝트에 대한 개요 기록\n   techContext.md: 환경 설정, 버전에 관한 setup 기록\n   progress.md: 완료된 작업 또는 변경 & 수정 기록\n   productContext.md: 기능(Feature) & 비즈니스 로직 기록\n    systemPatterns.md: 아키텍처 패턴 및 코드 스탠다드 기록\n\n\n\n\n\n               Hot-path 기록 및 백그라운드 요약으로 기록하기!!",
+      "visual_description": "Mid-Term Memory의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Project brief, tech context, progress, product context, system pattern을 file로 나눠 project-level memory를 유지하는 예다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p16_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 16,
+      "topic": "Memory as OS",
+      "concepts": [
+        "Memory as OS"
+      ],
+      "raw_text": "Core Components of AI Agent\nMemory\nMemory as OS\n\n\n컴퓨터 OS                       LLM OS (예: MemGPT, MemoryOS)\n\nRAM, Cache, Disk 등 다양한 저장 공간 관                                  STM, MTM, LPM 등 계층적 메모리 관리리\n\n LRU, FIFO, 세그먼트 등 교체 전략 사용      FIFO, Heat 기반 교체, 세그먼트 구조\n\n                     대화 주제/사용자 맥락 기반 메모리 활성화/프로세스별 메모리 할당 및 해제                     비활성화\n\n가상 메모리 스와핑            맥락 스와핑, 중요성 기반 메모리 이동\n\n\n\n                                                                                              https://arxiv.org/pdf/2310.08560\n                                                                                              https://arxiv.org/pdf/2506.06326",
+      "visual_description": "Memory as OS의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "LLM memory를 OS의 hierarchy·replacement·activation·swapping에 비유한다. 이는 설계 analogy이지 동일한 memory semantics라는 뜻은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "short_term_memory",
+        "long_term_memory",
+        "working_memory"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p16_os",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "RAM Cache Disk / STM MTM LPM / 교체 / 맥락 스와핑",
+          "normalized_explanation": "OS analogy로 hierarchy와 eviction을 설명한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "short_term_memory",
+            "long_term_memory",
+            "working_memory"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p17_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 17,
+      "topic": "Structured Output 필요성",
+      "concepts": [
+        "Structured Output 필요성"
+      ],
+      "raw_text": "Core Components of AI Agent\nStructured Output\n작업 분기 및 루프 등의 구현\n\n하나의 예시를 들어봅시다.\n\n“문서 생성 → 문서 제출” 을 하는 에이전트 A가 있다고 해봅시다! 그리고 그 문서에 대해 평가를 해주는 에이전트 B도 있고요.\n\n생성된 문서에 대해서 점수를 내야 하는데, 100점 만점 중에 글의 완성도가 최대 30점, 요청과의 연관성이 20점 ... 이렇게 명확\n한 평가 지표를 두고 싶어요.\n\n단순히 “이렇게 해서 몇 점인지 점수를 내줘!”라고 B에게 요청하면 아마 B는\n“글의 완성도는 90점인데 사용자 요청이 ~~였으니 잘 부합해서 18점이고...”\n\n이런 식으로 대답할 것 같아요. 그러면 각 평가 지표 점수 최소치와 전체 점수 커트라인을 둬서 재시도 로직을 구현하고 싶은 저\n는 이 로직을 구현하기 어려울 수 있을 것 같아요. 왜냐하면 일관적으로 응답이 똑같은 형식으로 와야 자동화를 할 수 있으니까요!\n\n이런 문제를 해결해주는 것이, “Structured Output” 로직입니다!",
+      "visual_description": "Structured Output 필요성의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "자동 분기·threshold·retry를 구현하려면 자유 형식 문장보다 machine-readable structured output이 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "structured_output",
+        "schema"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p17_structured",
+          "type": "diagnostic",
+          "source_type": "text",
+          "source_excerpt": "일관적으로 응답이 똑같은 형식으로 와야 자동화",
+          "normalized_explanation": "Structured output이 automation에 필요한 이유다.",
+          "source_status": "verified",
+          "term_ids": [
+            "structured_output",
+            "schema"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p18_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 18,
+      "topic": "Structured Output 구현",
+      "concepts": [
+        "Structured Output 구현"
+      ],
+      "raw_text": "Core Components of AI Agent\nStructured Output\n구조화된 응답으로 출력하도록 하자!\n\n1. Prompt 기반 출력 제약\n  LLM에게 응답을 JSON이나 사전에 정의된 스키마 형태로 명시적\n  으로 지시하는 방식입니다.\n  하지만 스키마가 복잡해지는 경우 LLM이 지시를 명확히 따르지\n  않을 수도 있어요.\n\n2. Output Parsing Module\n   PydanticOutputParser: Pydantic 모델로 스키마를 정의하고,\n   LLM 호출 시 자동 파싱 및 검증\n   LangChain StructuredOutputParser도 동일 기능을 합니다!\n\n3. 타입 구조 검증 및 오류 시 재시도 로직\n\n4. Output Schema를 언어모델의 tool로 바인딩\n  LLM이 도구 호출 형식으로 출력하도록 설계하면 됩니다!",
+      "visual_description": "Structured Output 구현의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Structured output은 prompt constraint, parser와 schema validation, validation failure retry, provider의 schema/tool binding 등으로 구현한다. Parsing 성공이 semantic correctness를 보장하지는 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "structured_output",
+        "schema",
+        "validation",
+        "retry",
+        "function_calling"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p18_validation",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Prompt 제약 / Output Parsing / 타입 검증 및 재시도 / Schema tool binding",
+          "normalized_explanation": "Schema generation·validation·retry 방식을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "structured_output",
+            "schema",
+            "validation",
+            "retry",
+            "function_calling"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p19_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 19,
+      "topic": "Agent Frameworks",
+      "concepts": [
+        "Agent Frameworks"
+      ],
+      "raw_text": "AI Agents\nFrameworks\n\n\n\n                                                 Contributors!!\n                                                YBIGTA 26기 DS 정민지\n                                                YBIGTA 26기 DE 윤희찬",
+      "visual_description": "Agent Frameworks 페이지이다.",
+      "content": "AI Agent framework 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p20_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 20,
+      "topic": "Frameworks 소개",
+      "concepts": [
+        "Frameworks 소개"
+      ],
+      "raw_text": "Outline\nAI Agent Frameworks\n\n\n이번에는 AI Agent의 프레임워크가 어떤 것이 있는지 알아봅시다.\n\n각각의 특징, 장단점, 언제 사용하는 것이 좋은지 알아봐요!",
+      "visual_description": "Frameworks 소개의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Framework별 특징과 trade-off, 적합한 사용 상황을 비교하는 도입이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p21_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 21,
+      "topic": "LangChain",
+      "concepts": [
+        "LangChain"
+      ],
+      "raw_text": "LangChain\nLangChain\nLLM with Chain\n\nLangChain은 프롬프트, LLM, 도구, 메모리 등을 조합하여 파이프라인\n기반으로 챗봇, 질의응답(QA), 자동 요약 등 다양한 LLM 애플리케이션을\n구축할 수 있는 프레임워크입니다.\n\n기존의 LLM의 부족한 점(지식 단절, 작업 처리의 한계 등)을 보완하여 하\n나의 “실행 가능한 시스템”으로 바꾸어준다는 것이 핵심이에요.\n\n  모델 I/O : 언어 모델과의 인터페이스\n  데이터 연결 : 애플리케이션별 데이터와의 인터페이스\n  체인 : 호출 시퀀스 구축\n  에이전트 : 상위 지시문이 주어지면 체인이 사용할 툴을 선택할 수 있도록 함\n  메모리 : 체인 실행 간 애플리케이션 상태 유지\n  콜백 : 체인의 중간 단계를 기록 및 스트리밍",
+      "visual_description": "LangChain의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "LangChain은 model I/O, data connection, chain, tool-using agent, memory, callback을 조합해 LLM application을 만드는 framework다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "langchain",
+        "tool",
+        "prompt"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p21_langchain",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "프롬프트, LLM, 도구, 메모리 등을 조합 / chain / agent / callback",
+          "normalized_explanation": "LangChain component composition이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "langchain",
+            "tool",
+            "prompt"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p22_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 22,
+      "topic": "LCEL",
+      "concepts": [
+        "LCEL"
+      ],
+      "raw_text": "LangChain\nLCEL (LangChain Expression Language)\n: 복잡한 작업흐름을 간단하게 만들고 관리할 수 있도록 돕는 도구\n\n chain = prompt | model | output_parser  파이프(|) 연산자를 사용한 체인 구성\n\n\n\n\n\n                       Prompt Template과 함께라면                                                  장점:\n               필요한 부분만 수정할 수 있어~                                        간결하고 직관적인 문법\n                                        스트리밍 지원\n                                        병렬 실행 최적화\n                                        비동기 처리 지원",
+      "visual_description": "LCEL의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "LCEL은 pipe operator로 prompt·model·parser 같은 runnable을 조합하며 streaming·batch·async·parallel composition을 지원한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "lcel",
+        "langchain",
+        "structured_output"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p22_lcel",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "chain = prompt | model | output_parser / streaming / 병렬 / 비동기",
+          "normalized_explanation": "LCEL runnable composition이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "lcel",
+            "langchain",
+            "structured_output"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p23_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 23,
+      "topic": "LangGraph",
+      "concepts": [
+        "LangGraph"
+      ],
+      "raw_text": "LangGraph\nLangGraph\nLangChain과 무엇이 다를까?\n\nLangChain은 어떠한 워크플로우를 순차적으로 가동하는 프레임워크죠. 그래서 조금\n은 아쉬운 측면들이 있습니다.\n  복잡한 워크플로우 작동 통제가 제한적\n  상태 추적 제한적\n\nLangGraph는 이러한 문제점을 보완하는 프레임워크입니다! 그래프에서 사용되는\nnode와 edge의 개념을 기반으로, state를 통해서 상태 및 분기 제어가 가능합니다.\n\n마치 언어모델이 달려있는 DAG라고 보면 되겠죠?\n\n    State: 어플리케이션의 현재 상태\n   Node: 실제 작업을 수행하는 함수\n   Edge: 노드 간의 연결을 정의하는 요소\n\n                              이렇게 말하면... 모르니 실습을 해봅시다!",
+      "visual_description": "LangGraph의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "LangGraph는 state, node, edge로 branch와 loop를 포함한 stateful workflow를 정의한다. Graph는 DAG에 한정되지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "langgraph",
+        "state",
+        "node",
+        "edge",
+        "cycle"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p23_langgraph",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "State / Node / Edge / 상태 및 분기 제어",
+          "normalized_explanation": "LangGraph의 stateful graph model이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "langgraph",
+            "state",
+            "node",
+            "edge",
+            "cycle"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "agent_p23_dag",
+          "source_text": "언어모델이 달려있는 DAG",
+          "issue_type": "incorrect",
+          "correction": "LangGraph는 cycle을 포함한 stateful graph를 지원한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p24_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 24,
+      "topic": "LangGraph 장단점",
+      "concepts": [
+        "LangGraph 장단점"
+      ],
+      "raw_text": "LangGraph\nLangGraph\nLangGraph의 장/단점\n\n현재 나와있는 프레임워크 중에서,\n잘 쓰면 가장 우수한 성능을 보이는 프레임워크는 LangGraph라 생각합니다.\n\n   State기반 워크플로우 → 로직을 명확하게 제어 가능\n   ReACT 구조에 가장 최적화\n   ParentGraph, SubGraph로 동적인 State 로딩 가능\n  멀티에이전트 아키텍처 설계 가능\n   LangChain 연결 가능 (다른 아키텍처도 연결할 수 있다!)\n\n단점은... 너무 어려워요. 복잡하기도 하고요.\n특히 재설계가 필요할 때 로직 수정이 꽤나 어렵습니다.",
+      "visual_description": "LangGraph 장단점의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "LangGraph는 explicit state와 control flow, cycle, subgraph, multi-agent orchestration에 유용하지만 design과 debugging complexity가 커질 수 있다. 특정 framework가 항상 최고 성능을 보장하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "agent_p24_best",
+          "source_text": "가장 우수한 성능",
+          "issue_type": "ambiguous",
+          "correction": "Framework 성능은 workload·design에 따라 달라진다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p25_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 25,
+      "topic": "Google ADK",
+      "concepts": [
+        "Google ADK"
+      ],
+      "raw_text": "Google-ADK\nGoogle-ADK\n멀티에이전트 프레임워크\n\n지금까지 LangChain, LangGraph는 단일 LLM(Agent)으로 설계가 맞추어져 있다\n면, Google에서 만든 ADK(Agent Development Kit)은 처음부터 멀티에이전트를\n염두해두고 만들어진 프레임워크에요.\n\n즉 하나의 테스크에 대해서\n   LangChain은 chain 파이프라인을 통해\n   LangGraph는 State, Node를 통해\n\n문제를 해결했다면 ADK는 각 스텝마다 서로 다른 역할을 수행하는 에이전트가 구성\n되어 문제해결을 합니다.",
+      "visual_description": "Google ADK의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Google ADK는 agent와 workflow agent를 조합해 multi-agent application을 구축하는 toolkit이다. LangChain·LangGraph도 multi-agent 구성이 가능하므로 단일-agent 전용으로 구분하면 안 된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "adk",
+        "multi_agent"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p25_adk",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "ADK는 각 스텝마다 서로 다른 역할의 에이전트",
+          "normalized_explanation": "ADK multi-agent orchestration을 설명한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "adk",
+            "multi_agent"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "agent_p25_single",
+          "source_text": "LangChain·LangGraph는 단일 Agent 설계",
+          "issue_type": "incorrect",
+          "correction": "두 framework도 multi-agent pattern을 지원한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p26_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 26,
+      "topic": "ADK Agent 종류",
+      "concepts": [
+        "ADK Agent 종류"
+      ],
+      "raw_text": "Google-ADK\nADK-Agents\n미리 설계된 워크플로우들\n\n\n   LlmAgent: 일반적으로 알고 있는, “언어모델”이\n  탑재된 에이전트. 실제로 Task를 수행하는 주체\n\n   SequentialAgent: 정의된 에이전트를 순차 실행\n  할 수 있는 에이전트\n\n   ParallelAgent: 정의된 에이전트를 병렬로 실행할\n  수 있는 에이전트\n\n   CustomAgent: 위에서 정의된 에이전트를 넘어\n  더 복잡한 워크플로우를 실행하고자 할 때 사용하\n  는 에이전트\n\n                                   이번에는 시연 영상이 있어요!\n                                                                              https://github.com/wognsths/adk-agent-sample",
+      "visual_description": "ADK Agent 종류의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "ADK의 LlmAgent는 model-driven task를, SequentialAgent와 ParallelAgent는 정해진 순서·병렬 orchestration을, CustomAgent는 custom control flow를 담당한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "adk",
+        "sequential_agent",
+        "parallel_agent"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p26_adk_types",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "LlmAgent / SequentialAgent / ParallelAgent / CustomAgent",
+          "normalized_explanation": "ADK agent type별 control이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "adk",
+            "sequential_agent",
+            "parallel_agent"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p27_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 27,
+      "topic": "ADK 장단점",
+      "concepts": [
+        "ADK 장단점"
+      ],
+      "raw_text": "Google-ADK\nGoogle-ADK\nADK의 장/단점\n\nADK는 google이 만들었다는 것과, 멀티에이전트 아키텍처인 것에서 장점을 가집니다!\n\n  분리 책임 원칙: 디버깅 및 수정, 업데이트 용이\n  간단하지만 복잡한 워크플로우도 충분히 수행할 수 있음\n   Google 생태계: Vertex AI, GCP platform 연동 가능\n   adk web, adk serve 등의 강력한 데모 및 배포 툴\n   output_key로 결과물 추적, 로깅, 분기 로직 생성 가능\n\n단점들은...\n   Google 생태계 안에서는 강력하지만, Google 생태계를 쓰지 않는다면 아쉽다\n  ReACT를 정교하게 구현하기에는 비효율적\n   Token을 다소 낭비하는 경향",
+      "visual_description": "ADK 장단점의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "ADK는 role separation과 Google ecosystem integration을 제공하지만 architecture·model·tool 사용에 따라 token cost와 control trade-off가 달라진다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p28_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 28,
+      "topic": "CrewAI",
+      "concepts": [
+        "CrewAI"
+      ],
+      "raw_text": "CrewAI\nCrewAI\nCrews & Flows\n\n\nAgent\n   CrewAI에서 작업을 수행하는 주체\n    role, goal, backstory 정의를 통해 페르소나가 정\n  의됨\n\nCrew\n  여러 에이전트로 이루어진 팀\n  워크플로우 및 오케스트레이션 수행\n\nFlow\n  이벤트 기반의 정교한 실행 제어 메커니즘\n   Crew-Crew, Crew-Event 연결 가능",
+      "visual_description": "CrewAI의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "CrewAI는 role·goal·backstory를 가진 Agent, team orchestration인 Crew, event-driven execution control인 Flow로 구성된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "crewai",
+        "crew",
+        "flow",
+        "multi_agent"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p28_crew",
+          "type": "definition",
+          "source_type": "visual",
+          "source_excerpt": "Agent / Crew / Flow",
+          "normalized_explanation": "CrewAI의 role·team·event control abstraction이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "crewai",
+            "crew",
+            "flow",
+            "multi_agent"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p29_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 29,
+      "topic": "CrewAI 코드",
+      "concepts": [
+        "CrewAI 코드"
+      ],
+      "raw_text": "CrewAI\nCrewAI",
+      "visual_description": "CrewAI 코드의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Researcher와 editor agent를 sequential crew로 묶어 task를 실행하는 code example이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p30_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 30,
+      "topic": "n8n",
+      "concepts": [
+        "n8n"
+      ],
+      "raw_text": "n8n\nn8n\n나도 Agent 써서 업무자동화 해보고 싶은데...\n\n앞서 설명드린 LangChain, LangGraph, ADK, CrewAI... 등의 에이전트를 구현하는 것은 다소 난이도가 있어요.\n또 무언가를 연동하고 서빙하기 시작하면 더더욱 까다로워질 겁니다.\n\n반면 n8n은 다음과 같은 장점들 때문에 쉽고 강력합니다.\n   Drag-and-drop 구조\n   400+ 플러그인, 풍부한 통합\n  배포하기 쉬운 구조\n\n개발에 익숙하지 않아도 아이디어만 있으면 얼마든지 좋은 에이전트를 만들어낼 수 있고, 개발에 익숙한 분들도 자신의 아이디어\n를 빠르게 적용해보고 복잡한 프레임워크를 사용할 수 있겠죠.",
+      "visual_description": "n8n의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "n8n은 node 기반 low-code automation과 다양한 integration으로 prototype과 workflow automation을 빠르게 만들 수 있지만 복잡한 agent behavior의 test·observability·control은 별도 설계가 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "n8n",
+        "tool"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p30_n8n",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Drag-and-drop / 400+ plugin / 통합 / 배포",
+          "normalized_explanation": "n8n low-code workflow trade-off다.",
+          "source_status": "verified",
+          "term_ids": [
+            "n8n",
+            "tool"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p31_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 31,
+      "topic": "Agent Protocols",
+      "concepts": [
+        "Agent Protocols"
+      ],
+      "raw_text": "_Agent\nProtocols",
+      "visual_description": "Agent Protocols 페이지이다.",
+      "content": "Agent protocol 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p32_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 32,
+      "topic": "MCP의 효용",
+      "concepts": [
+        "MCP의 효용"
+      ],
+      "raw_text": "Agent Protocols\n_MCP\n\n Why MCP?\n\n\n사실 MCP는 그냥 HTTP 통신 기반 데이터를 받을 수 있는 tool입니\n다. 그럼에도 왜 MCP가 유용한 것인가요?\n\n  표준화: USB 포트에 비유하기도 하죠. 클라이언트는 MCP에 연\n  결하기 위해 MCP의 내부 구조를 알 필요가 없습니다. 표준화되\n  어 “어떻게 연결하는지”만 알고 있으면 되니까요.\n  확장성: 연결만 하면 끝. 그러면 제가 제 입맛대로 마음대로 연결\n  하면 되겠네요!\n\n그냥 tool을 만든다고 하면, 인풋 형태부터 아웃풋 형태 정해주고, 프\n롬프트에 어떻게 써야 하는지 상세히 알려줘야 하고... 한두번이면 몰\n라도 너무 힘든 것 같아요.\n\n너무 MCP가 주는 효용에 대해서 짧게 이야기했지만, 이 정도면\nAgent protocol이 무엇을 하기 위해 있는 것인지 알 수 있겠죠?",
+      "visual_description": "MCP의 효용의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "MCP의 가치는 개별 API integration을 공통 interface로 노출하고 capability discovery와 재사용을 돕는 데 있다. MCP가 단지 HTTP data tool 하나인 것은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "mcp",
+        "agent_protocol"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p32_protocol",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "MCP / 표준화 / 확장성",
+          "normalized_explanation": "Common interface의 integration value다.",
+          "source_status": "verified",
+          "term_ids": [
+            "mcp",
+            "agent_protocol"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p33_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 33,
+      "topic": "Agent Protocol 설계",
+      "concepts": [
+        "Agent Protocol 설계"
+      ],
+      "raw_text": "Agent Protocols\n Agent Protocol\n\n Agent Protocol은 무엇을 갖추어야 하는가?\n\n결국 Agent Protocol은, MCP와 같이 입/출력 형식이 통일된 프로\n토콜입니다.\n\nMCP도 설계 철학이 있죠. 도구, 리소스, 프롬프트 등의 컨텍스트를\n구조화되게 제공하거나, AI 모델이 동적으로 리소스를 탐색하고 호출\n할 수 있도록 설계됩니다.\n\nAgent Protocol은 에이전트 간 프로토콜이기 때문에, MCP보다는\n더욱 발전된 설계 철학이 필요합니다.\n\n  에이전트 자율성 강화: 에이전트는 자신의 기능을 명시적으로 광\n  고하고, 독립적으로 판단하여 동작할 수 있어야 합니다. 즉 자신\n  의 능력을 공개하고, 필요 시 동료 에이전트를 호출하거나 결과를\n  위임할 수 있어야 하죠.\n  협업: 단순 요청-응답 구조를 넘어서, 에이전트 간 상호작용을 잘\n  할 수 있도록 설계되어야 합니다.",
+      "visual_description": "Agent Protocol 설계의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Agent-to-agent protocol은 capability advertisement·discovery, message/task lifecycle, delegation·collaboration, identity·security와 error handling을 고려해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "agent_protocol",
+        "a2a",
+        "agent_card",
+        "handoff"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p33_a2a",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "기능 광고 / 독립 판단 / 동료 에이전트 호출·위임 / 협업",
+          "normalized_explanation": "Agent protocol의 capability와 collaboration requirement다.",
+          "source_status": "verified",
+          "term_ids": [
+            "agent_protocol",
+            "a2a",
+            "agent_card",
+            "handoff"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p34_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 34,
+      "topic": "Agent Protocol 종류",
+      "concepts": [
+        "Agent Protocol 종류"
+      ],
+      "raw_text": "Agent Protocols\nAgent Protocol\n\nAgent Protocols... 춘추전국시대?\n\n\n프로토콜                      주요 기능 계층      핵심 특징\n\n\n ACP (Agent Communication Protocol)     메시징 및 협업       REST+스트리밍, 멀티파트 메시지, 대기형/비동기 협업, BeeAI 플랫폼 기반 (IBM, IBM Research,\n                                                                          Niklas Heidloff)\n\n A2A (Agent-to-Agent Protocol)         직접 협업(P2P)         Agent Card로 기능 광고/탐색, 위임 중심, 리눅스재단 오픈 거버넌스 (Google Developers Blog,\n                                                                         linuxfoundation.org, Descope, Google Cloud)\n\n ANP (Agent Network Protocol)         분산 네트워크 구조      DID 기반 신원·디스커버리, JSON-LD, 분산형 에이전트 마켓플레이스 지향 (GitHub, arXiv, Medium,\n                                                                       AIbase)\n\n Agora Protocol                  메타 메시징 협상     대형 에이전트 네트워크 대상 메타 프로토콜, 구조적 통신 협상, 확장성 중심 (arXiv,\n                                                                     thebytebeat.substack.com, AZoAi)\n\n LMOS (Language Model Operating System)   운영·오케스트레이션   멀티 에이전트를 OS 스타일로 관리, 메모리·툴 공유·경로 라우팅 지원 (eclipse.dev, eclipse.dev,\n                                                                             projects.eclipse.org)\n\n AITP (Agent Interaction & Transaction\n                            보안·거래        신뢰 경계 간 안전한 거래/트랜잭션, 웹2/웹3 지원, 경제적 주체 모델(NEAR AI, aitp.dev, Binance, X Protocol)\n                                                                         (formerly Twitter))",
+      "visual_description": "Agent Protocol 종류의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "ACP·A2A·ANP·Agora·LMOS·AITP의 목표를 비교한다. Protocol ecosystem과 세부 spec은 변화할 수 있어 개념 수준에서 평가한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p35_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 35,
+      "topic": "Engineering Tactics",
+      "concepts": [
+        "Engineering Tactics"
+      ],
+      "raw_text": "AI Agent\nEngineering\n  Tactics",
+      "visual_description": "Engineering Tactics 페이지이다.",
+      "content": "AI Agent engineering tactic 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p36_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 36,
+      "topic": "Triage",
+      "concepts": [
+        "Triage"
+      ],
+      "raw_text": "AI Agent Engineering\n                                                                                                    TacticsTriage\n어떤 요청인지 판단하자!\n\n같이 프로젝트를 하는 팀이 있어요. 저는\n   웹/UI 디자인 및 연결을 담당하는 A\n  백앤드를 담당하는 B\n   ML/DL 모델링을 담당하는 C\n\n이런 든든한 팀원들을 가지고 있어요.\n\n클라이언트가 저에게 어떤 서비스를 만들어달라고 요청을 하면,\n저는 이 요청을 우리 팀이 수행할 수 있는지 판단하고, 누구에게 무엇을\n맡겨야 할지 결정을 해야 합니다.\n\n이것을 Triage라고 부릅니다!",
+      "visual_description": "Triage의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Triage는 incoming request의 intent·risk·capability requirement를 판별해 처리 주체나 workflow를 선택하는 과정이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "triage",
+        "handoff"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p36_triage",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "요청을 수행할 수 있는지 판단하고 누구에게 무엇을 맡길지 결정",
+          "normalized_explanation": "Triage는 routing decision이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "triage",
+            "handoff"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p37_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 37,
+      "topic": "Handoff",
+      "concepts": [
+        "Handoff"
+      ],
+      "raw_text": "AI Agent Engineering\n                                                                                                    TacticsHandoff\n임무를 맡기자!!\n\n누구에게 무엇을 맡길지 판단을 했으니, 실제로 세부 요청과 함께 해당 테\n스크를 넘길거에요.\n\n테스크를 넘겨받은 사람은 자기 일을 하다가, 어? 이거는 내가 할 일이 아\n닌 것 같은데? 하고 다음 사람에게 일을 넘길 수 있어요.\n\n이렇게 테스크를 세부 요청 사항과 데이터 등을 함께 전달해서 다른 에이\n전트가 임무를 수행하도록 하는 것이 handoff이에요.",
+      "visual_description": "Handoff의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Handoff는 task context, expected output, constraints와 relevant data를 다음 agent에 전달하고 ownership을 넘기는 협업 동작이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "handoff",
+        "multi_agent"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p37_handoff",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "세부 요청 사항과 데이터 등을 함께 전달",
+          "normalized_explanation": "Handoff context contract다.",
+          "source_status": "verified",
+          "term_ids": [
+            "handoff",
+            "multi_agent"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p38_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 38,
+      "topic": "Auto Scaling",
+      "concepts": [
+        "Auto Scaling"
+      ],
+      "raw_text": "AI Agent Engineering\n                                                                                                    TacticsAuto Scaling\n빠른 서비스를 구축하기\n\nAI가 많은 데이터를 다루어야 하는 서비스를 구축해야 해요.\n\n그런데 데이터가 너무 많으니, 사용자 입장에서 한 번 테스크를 수행하는\n데 10분씩 걸리니 답답해 할 것 같아요.\n\n이럴 때에는 AI의 인스턴스 수를 늘려버리면 됩니다!\n\n여기에 더해서 데이터 개수를 감지하고, 데이터 개수에 비례하여 AI 인스\n턴스를 활성화하도록 하면 더 빠른 서비스를 가동할 수 있을 것 같아요.",
+      "visual_description": "Auto Scaling의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Auto scaling은 workload·queue·latency·concurrency·resource 지표에 따라 worker instance 수를 조정한다. Data count 하나만으로 latency 개선이 보장되지 않으며 rate limit과 bottleneck을 고려한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "autoscaling"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p38_scale",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "데이터 개수를 감지하고 인스턴스를 활성화",
+          "normalized_explanation": "Workload metric 기반 scaling으로 정규화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "autoscaling"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "agent_p38_scale",
+          "source_text": "데이터 개수에 비례해 인스턴스 활성화",
+          "issue_type": "overgeneralized",
+          "correction": "Queue·latency·concurrency·resource·rate limit을 함께 본다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p39_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 39,
+      "topic": "Persona",
+      "concepts": [
+        "Persona"
+      ],
+      "raw_text": "AI Agent Engineering\n                                                                                                    TacticsLLM with Persona\n내가 누군지 알려줘\n\n같은 언어모델인데도\n\n“너는 데이터 분석 전문가야“라고 설정하는 것이\n일반적인 System Instruction을 적용하는 것보다 성능이 좋아진다는 것을\n알고 계신가요?\n\n  명확히 정의된 역할 명세를 주고\n  해야 하는 것, 할 수 있는 것, 하면 안되는 것을 제공하면\n\n에이전트의 임무 수행 능력을 크게 올릴 수 있습니다!\n\n그럼 어떻게 언어모델에게 역할을 주입해야 가장 효과가 좋을까요?\n\n\n\n                                                                             https://arxiv.org/pdf/2305.14688",
+      "visual_description": "Persona의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Persona와 role instruction은 expertise·scope·prohibition을 명확히 해 behavior consistency를 도울 수 있지만 모든 task의 accuracy improvement를 보장하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "persona",
+        "system_instruction"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p39_persona",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "명확히 정의된 역할 명세 / 해야 하는 것·할 수 있는 것·하면 안 되는 것",
+          "normalized_explanation": "Role specification의 목적이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "persona",
+            "system_instruction"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "agent_p39_persona",
+          "source_text": "Persona가 일반 instruction보다 성능 향상",
+          "issue_type": "overgeneralized",
+          "correction": "Role clarity can help이지만 모든 task의 accuracy를 보장하지 않는다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p40_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 40,
+      "topic": "Prompting",
+      "concepts": [
+        "Prompting"
+      ],
+      "raw_text": "AI Agent Engineering\n                                                                                                    TacticsPrompting\n좋은 System Instruction은 무엇인가\n\nMarkdown과 XML을 사용해보면 좋아요!\n   Markdown: ## RULES\n   XML: <RULES> ... <\\RULES>\n\n명시적인 구획과 태그 덕분에 LLM이 instruction과 예시를\n더 명확히 해석할 수 있어요.\n\n혼합해서 쓰는 것도 좋아요!\n\n<RULES>\n## IMPORTANT\n   You **must** read 과제 명세서\n</RULES>",
+      "visual_description": "Prompting의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Markdown heading과 XML-like delimiter는 instruction·example·data section 경계를 명확히 하는 수단이다. Syntax 자체보다 hierarchy와 conflict-free instruction이 중요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "prompt",
+        "system_instruction"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p40_prompt",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Markdown / XML / 명시적인 구획과 태그",
+          "normalized_explanation": "Instruction boundary 표현 방법이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "prompt",
+            "system_instruction"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p41_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 41,
+      "topic": "Development Guidelines",
+      "concepts": [
+        "Development Guidelines"
+      ],
+      "raw_text": "Agent\nDevelopment\n Guidelines",
+      "visual_description": "Development Guidelines 페이지이다.",
+      "content": "Agent development guideline 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p42_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 42,
+      "topic": "개발 가이드 소개",
+      "concepts": [
+        "개발 가이드 소개"
+      ],
+      "raw_text": "Agent Development\n                                                                                            GuidelinesOutline\n그래서 무엇을 해야 하지...\n\nAI Agent를 처음 접했을 적의 저는,\n무엇부터 시작해야 하는지에 대해서 너무 어려워했던 것 같아요.\n\n이번 목차에서는 제 경험을 기반으로 어떻게 해야 좋은 에이전트\n프로젝트를 만들 수 있는지 공유해보고자 합니다!",
+      "visual_description": "개발 가이드 소개의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Agent project를 어떻게 시작할지 경험 기반 원칙을 소개한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p43_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 43,
+      "topic": "Workflow Design",
+      "concepts": [
+        "Workflow Design"
+      ],
+      "raw_text": "Agent Development\n                                                                                            GuidelinesDesign\n설계가 제일 중요\n\n처음부터 디자인을 하고 시작합시다!\n전체 워크플로우는 추상적이게, 단일 워크플로우는 구체적이게, 그리고 단일 워크플로우가 결정되\n면 전체 워크플로우를 구체적으로 구성하면 좋아요.\n\n  다이어그램 그리기\n    그림을 그리면서 플로우가 어떻게 되는지 설계해야 합니다!\n       draw.io 같은 사이트를 이용하면 좋아요\n\n   Input/Output 결정하기\n     먼저, 사용자가 되었다고 생각하고 어떤 입력이 올 것인지 고려해보는 것이 좋아요.\n    특정한 테스크만 수행하는 에이전트의 경우 입력을 제한하고,\n    그런 에이전트를 총괄하는 에이전트의 경우 다양한 입력 시나리오를 고려해보면 돼요.\n    이후 정확한 Input/Output 스키마를 정해줍시다!",
+      "visual_description": "Workflow Design의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "전체 workflow를 먼저 개략화하고 single workflow의 input·output·branch를 구체화하며 diagram과 schema로 boundary를 명시한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "schema",
+        "ai_agent"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p43_design",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "다이어그램 / Input Output 결정 / schema",
+          "normalized_explanation": "Workflow boundary를 먼저 설계한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "schema",
+            "ai_agent"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p44_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 44,
+      "topic": "계획서와 기술 선택",
+      "concepts": [
+        "계획서와 기술 선택"
+      ],
+      "raw_text": "Agent Development\n                                                                                            GuidelinesDesign\n계획서 작성하기\n\n그렇게 설계가 되었으면, 이제 계획서를 제대로 작성해봐야 해요\n\n  구성과 파이프라인은 어떻게 되는지\n    병렬 구조와 순차 구조 정리\n        Fallback, Feedback 등 루프 구조 정리\n\n  데이터는 어떤 것을 사용하는지\n    데이터 수집을 어떻게 할 것인지\n    데이터 체계는 어떻게 하는지\n\n  기술 스택은 어떤 것이 적합할 것인지\n    정해진 사고 과정 + 행동으로 테스크를 수행한다? → LangGraph\n    단순 파이프라인이다? → LangChain\n    서로 다른 임무를 수행해서 합치고 싶다? → ADK, CrewAI\n    빠르게 개발하고 테스팅부터 하고싶다? → n8n\n\n  어떤 방법론을 사용할 것인지\n     RAG vs Elastic Search",
+      "visual_description": "계획서와 기술 선택의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Plan에는 sequential·parallel path, fallback·feedback loop, data source·collection·governance, technology choice와 user scenario를 기록한다. Framework는 workflow requirement에 맞춰 선택한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "parallel_agent",
+        "sequential_agent",
+        "fallback",
+        "feedback_loop"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p44_plan",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "병렬·순차 / Fallback·Feedback / 데이터 / 기술 스택",
+          "normalized_explanation": "Plan이 control·data·technology를 포함한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "parallel_agent",
+            "sequential_agent",
+            "fallback",
+            "feedback_loop"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p45_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 45,
+      "topic": "Simple Start",
+      "concepts": [
+        "Simple Start"
+      ],
+      "raw_text": "Agent Development\n                                                                                            GuidelinesSimple Start\n복잡하게 생각하지 않기\n\n처음 시작할 때에는, 정말 필요한 경우가 아니면 이런 로직들은 피해줍시다!\n    Fallback, Feedback loop 만들기\n  질문이 모호한 경우, 사용자에게 다시 질문하기\n\n이런 것들은 처음부터 시작하는 경우 머리도 복잡해지고 코드도 난잡해집니다.\n항상 간단하게 시작해서 원하는 대로 작동되는 것을 파악하고, 이후\n  리팩토링\n  프롬프트 고도화\n   Feedback, Fallback loop 구성\n등을 만들어주는 것이 제일 좋아요.\n\n혹은, 상대적으로 쉬운 n8n으로 로직을 먼저 만들어보고, 그 로직이 괜찮은 것을 확인한 후\n다른 정교한 에이전트 프레임워크로 가는 것이 좋습니다!",
+      "visual_description": "Simple Start의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "처음에는 minimum viable workflow로 end-to-end path를 검증하고 관찰 결과를 바탕으로 refactoring·prompt·fallback·feedback을 추가한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "fallback",
+        "feedback_loop",
+        "prompt"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p45_simple",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "간단하게 시작 / 리팩토링 / 프롬프트 고도화 / loop 구성",
+          "normalized_explanation": "Minimum workflow부터 iterative enhancement한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "fallback",
+            "feedback_loop",
+            "prompt"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p46_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 46,
+      "topic": "How to use Agent",
+      "concepts": [
+        "How to use Agent"
+      ],
+      "raw_text": "How to use\n  Agent",
+      "visual_description": "How to use Agent 페이지이다.",
+      "content": "Agent 활용 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p47_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 47,
+      "topic": "Prompt·Context·Harness 변화",
+      "concepts": [
+        "Prompt·Context·Harness 변화"
+      ],
+      "raw_text": "How to use Agent\n2026년 8월, AI의 흐름은 어떻게 변화했는가\nPrompt Engineering → Context Engineering → Harness Engineering\n\n\n\n\n                              Prompt Engineering \"무엇을 말할 것인가\"\n\n                            ↓\n\n                               Context Engineering \"무엇을 보게 할 것인가\"\n\n                            ↓\n\n                            Harness Engineering \"어떤 환경에서 일하게 할 것인가\"",
+      "visual_description": "Prompt·Context·Harness 변화의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Agent engineering의 초점을 one-shot prompt에서 relevant context, 그리고 execution environment와 feedback loop 설계로 확장한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p48_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 48,
+      "topic": "Prompt Engineering",
+      "concepts": [
+        "Prompt Engineering"
+      ],
+      "raw_text": "How to use Agent\nPrompt Engineering\n모델의 한 번의 추론을 개선\n\nPrompt Engineering이 조절하는 것은 주로\n    instruction\n    role\n   few-shot example\n   output format\n   reasoning guidance\n\n\n당시에는 왜 충분했나\n대부분의 태스크가 classification / summarization / generation / QA 처럼 stateless\n\n→ 그러나 AI의 영역이 넓어지며 AI에게 환경과의 상호작용이 요구됨.\n\n         어떤 파일을 봐야 하는가? / 지금까지 무엇을 했는가? / DB 상태는 무엇인가? /\n              테스트 결과는 무엇인가? / 어떤 tool을 사용할 수 있는가?\n→ 맥락을 알지 못하면 모델은 일을 할 수 없다.",
+      "visual_description": "Prompt Engineering의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Prompt engineering은 instruction·role·example·output format으로 한 번의 model behavior를 조절하지만 stateful task에는 file·tool·history·test result 같은 context가 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "prompt_engineering",
+        "prompt",
+        "persona",
+        "structured_output"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p48_prompt_eng",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "instruction / role / few-shot / output format / reasoning guidance",
+          "normalized_explanation": "Prompt engineering의 one-call control surface다.",
+          "source_status": "verified",
+          "term_ids": [
+            "prompt_engineering",
+            "prompt",
+            "persona",
+            "structured_output"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p49_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 49,
+      "topic": "Context와 Harness",
+      "concepts": [
+        "Context와 Harness"
+      ],
+      "raw_text": "How to use Agent\nContext Engineering to Harness Engineering\n좋은 답보다 좋은 상태를 만든다\n\nAgent의 모든 행동, 모든 도구는 결국 Context.\n   Mcp → ai를 위한 도구이지만 context 사용량이 너무 큼\n    대안으로 skill이 제시됨 (순차적 도구 로딩)\n  행동 지침 역시 Context의 일부이다\n      Claude.md AGENT.md\n\n\n\n그런데 Context만 잘 주면 끝나는가?\n→ Harness Engineering은 LLM 자체가 아니라 LLM이 행동하는 실행 환경과 feedback loop를 설계하는 일\n\nPrompt Engineering = model에게 원하는 행동을 설명\nContext Engineering = 행동에 필요한 정보를 공급\nHarness Engineering = 행동 → 관찰 → 검증 → 재시도의 구조 자체를 설계",
+      "visual_description": "Context와 Harness의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Context engineering은 필요한 정보를 적절한 시점과 양으로 공급하고 harness engineering은 action→observation→verification→retry loop와 execution guardrail을 설계한다. MCP와 skill은 상호 배타적 대체물이 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "prompt_engineering",
+        "context_engineering",
+        "harness_engineering",
+        "validation",
+        "retry"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p49_harness",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Prompt = 행동 설명 / Context = 정보 공급 / Harness = 행동→관찰→검증→재시도",
+          "normalized_explanation": "Prompt·context·harness engineering을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "prompt_engineering",
+            "context_engineering",
+            "harness_engineering",
+            "validation",
+            "retry"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "agent_p49_mcp_skill",
+          "source_text": "MCP context가 커서 skill이 대안",
+          "issue_type": "overgeneralized",
+          "correction": "Progressive disclosure가 context cost를 줄일 수 있으나 MCP와 skill은 상호 배타적이지 않다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ai_agent_p50_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 50,
+      "topic": "Harness 구조",
+      "concepts": [
+        "Harness 구조"
+      ],
+      "raw_text": "How to use Agent\nAnthropic Harness\nhttps://github.com/anthropics/cwc-long-running-agents\n\n.claude/\n├── CLAUDE.md\n├── settings.json\n├── agents/\n│ └── evaluator.md\n└── hooks/\n ├── track-read.sh\n ├── verify-gate.sh\n └── commit-on-stop.sh\nLLM이 잘하는 reasoning은 LLM에게 맡기고, 반드시 지켜야 하는 invariant만 shell script와 filesystem으로 강제한다.\n\nReasoning → LLM에게 맡김 State → File\nGit에 저장 Verification → Evidence로 강제\nEvaluation → 별도 Agent로 분리\nControl → Hook / Human이 담당\n   Hook은 “증거 없이 완료 선언하는 것”을 막고, Evaluator는 “그 증거가 정말 완료를 증명하는지”를 판단\n  증거 없이 llm이 종료되지 않도록 context를 관리하면서 검증 제약을 벗어나지 않도록 workflow 설계",
+      "visual_description": "Harness 구조의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "Harness는 reasoning은 model에 맡기되 must-hold invariant를 hook·script·filesystem으로 강제하고 state를 file·Git에 저장하며 evaluation을 별도 agent 또는 human에 분리할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "harness_engineering",
+        "invariant",
+        "hook",
+        "evaluator",
+        "evidence"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p50_invariant",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Invariant는 script·filesystem으로 강제 / State는 File·Git / Verification은 Evidence",
+          "normalized_explanation": "Harness가 invariant와 evidence gate를 실행 환경에 둔다.",
+          "source_status": "verified",
+          "term_ids": [
+            "harness_engineering",
+            "invariant",
+            "hook",
+            "evaluator",
+            "evidence"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p51_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 51,
+      "topic": "Harness 검증 자동화",
+      "concepts": [
+        "Harness 검증 자동화"
+      ],
+      "raw_text": "How to use Agent\nHarness Engineering은 Workflow를 자동화한다.\n개발의 병목까지도 Harness Engineering으로 줄일 수 있다.\n\n빠른 개발. 그러나 누가 검증하는가...? → 버튼 하나하나 눌러보고 에러체크...?\n\n\n  회귀적 E2E test - Playwright MCP 를 결합한 E2E 회귀 테스트 진행 skill 추가. hook 추가.\n\n  코드 패턴 검증 - 정해진 규약을 바탕으로 적대적 검증 sub agent 시스템 활용\n\n  데이터 및 자료 검증 - Dart mcp 등 신뢰 가능한 데이터 소스로 검증 로직 추가\n\n  병렬 개발 - git의 worktree 시스템을 통해 병렬 개발 후 conflict 해결\n\n\n→ 누가 어떻게 어떤 도구와 검증 과정을 설계하느냐에 따라 능률은 수십배 차이난다.",
+      "visual_description": "Harness 검증 자동화의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "E2E test, code pattern check, trusted data verification과 isolated parallel workspace로 agent output을 반복 검증한다. Automation 자체도 false positive·security·test coverage 검토가 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "e2e_test",
+        "validation",
+        "evidence"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p51_verify",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "E2E test / 코드 패턴 / 데이터 검증 / 병렬 개발",
+          "normalized_explanation": "Automated verification layer의 예다.",
+          "source_status": "verified",
+          "term_ids": [
+            "e2e_test",
+            "validation",
+            "evidence"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p52_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 52,
+      "topic": "사람과 AI 역할",
+      "concepts": [
+        "사람과 AI 역할"
+      ],
+      "raw_text": "How to use Agent\n공모전에서 AI를 어떻게 쓸 것인가?\n사람과 AI의 역할\n\nHarness Engineering - 어떻게 루프를 설계할 것인가.\n\nGoal이 주어졌을 때 AI는 어떻게 움직이는가?\n - 초기 목표나, 초기 프롬프트에서 주어진 사항에 집착하며 해당 사항에 대해 계속해서 파고듦.\n - 회귀적 분석은 뛰어난 ai, 탐색적 분석에 뛰어난 사람.\n\n사람의 역할과 AI의 역할을 명확히 구분하기 - 반복적 작업과 방향성 제시의 구분\n  대회의 본질 파악은 사람이 해야 한다.\n    상수도망 누수 시계열 이상치 탐지 대회\n      단순 시계열 이상치 탐지 SOTA를 쓰는 것이 아니라, 먼저 누수에 대한 EDA와 변수 영향성 (회귀분석 등) 판단을\n      통해 유효한 출발점을 찾기.\n    데이터셋에 대한 RAG 파이프라인 설계\n      반복된 프롬프트 개선은 AI에게 Goal을 주어주고 반복시킬 수 있다.\n       하지만, 대회 규칙에서 요구하는 바 - 순차적 판단, Lookup table 지양, 일반화 전략 등 은 AI에게 어떤 hook과\n     제약을 주어주느냐에 따라 결정된다.\n    아이디어 기반 대회 (데이터 활용 방안 등)\n      심사위원들이 보고 싶은 것 : 비즈니스 임팩트? 공익성? → 결국 기준을 제시하는 것은 사람.",
+      "visual_description": "사람과 AI 역할의 workflow·component·comparison을 text와 diagram으로 제시한다.",
+      "content": "AI는 반복 실행과 evidence collection을 돕고 사람은 problem framing, competition rule, risk·value judgment와 final accountability를 맡는다. 탐색·회귀 능력을 사람과 AI에 절대적으로 나누지는 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "human_in_the_loop",
+        "ai_agent"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "agent_p52_roles",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "사람의 역할과 AI의 역할 / 반복 작업과 방향성 제시",
+          "normalized_explanation": "Automation과 human accountability를 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "human_in_the_loop",
+            "ai_agent"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "ai_agent_p53_01",
+      "lecture_id": "ai_agent",
+      "lecture_name": "AI Agent",
+      "page": 53,
+      "topic": "강의 마무리",
+      "concepts": [
+        "강의 마무리"
+      ],
+      "raw_text": "감사합니다!",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "AI Agent 강의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

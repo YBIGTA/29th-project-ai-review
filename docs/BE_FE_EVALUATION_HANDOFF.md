@@ -89,6 +89,12 @@ result = evaluate_selected_topic(
 | `deep_learning` | Deep Learning | atomic Evidence·용어·세부 판정 기준 검수 완료 |
 | `computer_vision` | Computer Vision | atomic Evidence·용어·세부 판정 기준 검수 완료 |
 | `nlp` | Natural Language Processing | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `docker` | Docker | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `llm` | Large Language Models | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `aws` | AWS | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `db` | Database | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `ai_agent` | AI Agent | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `rag` | Retrieval-Augmented Generation | atomic Evidence·용어·세부 판정 기준 검수 완료 |
 
 백·프론트 통합 개발은 기초통계로 진행할 수 있다. 나머지 강의는 데이터 담당자가
 완료 사실을 공유한 뒤 최종 평가 테스트 대상으로 사용한다.
@@ -137,7 +143,7 @@ result = evaluate_selected_topic(
 | Machine Learning | `machine_learning` | `ml.model_specific_pipeline` | 모델별 전처리와 특성공학 |
 | Machine Learning | `machine_learning` | `ml.evaluation_improvement` | 평가·불균형 대응과 튜닝 |
 | Deep Learning | `deep_learning` | `dl.representation_networks` | 표현학습과 신경망 |
-| Deep Learning | `deep_learning` | `dl.loss_functions` | 손실 함수와 학습 목표 |
+| Deep Learning | `deep_learning` | `dl.loss_functions` | 손실 함수와 최적화 |
 | Deep Learning | `deep_learning` | `dl.optimization` | 신경망 최적화 |
 | Deep Learning | `deep_learning` | `dl.generalization_architectures` | 일반화와 MLP 이후 |
 | Computer Vision | `computer_vision` | `cv.visual_foundations` | 시각 과제와 고전 특징 추출 |
@@ -148,6 +154,29 @@ result = evaluate_selected_topic(
 | Natural Language Processing | `nlp` | `nlp.word2vec_embeddings` | Word2Vec 단어 임베딩 |
 | Natural Language Processing | `nlp` | `nlp.sequence_models` | 언어 모델과 RNN 계열 |
 | Natural Language Processing | `nlp` | `nlp.attention_llm` | Seq2Seq·Transformer와 LLM |
+| Docker | `docker` | `docker.foundations` | 컨테이너화와 Docker 객체 |
+| Docker | `docker` | `docker.image_build` | Dockerfile과 Image Build |
+| Docker | `docker` | `docker.container_operations` | Container 운영과 데이터 영속성 |
+| Docker | `docker` | `docker.compose_networking` | Network와 Docker Compose |
+| Large Language Models | `llm` | `llm.architecture_models` | Transformer·BERT·GPT 구조 |
+| Large Language Models | `llm` | `llm.scaling_alignment` | Scaling·ICL과 Alignment |
+| Large Language Models | `llm` | `llm.reasoning_preference` | Reasoning과 Preference 학습 |
+| Large Language Models | `llm` | `llm.extensions` | LLM 확장 주제 |
+| AWS | `aws` | `aws.cloud_foundations` | 클라우드 컴퓨팅과 서비스 모델 |
+| AWS | `aws` | `aws.services_compute` | AWS 서비스와 EC2 운영 |
+| AWS | `aws` | `aws.network_security_deployment` | 네트워크·보안·배포 |
+| Database | `db` | `db.foundations_rdbms` | DB·DBMS와 관계형 모델 |
+| Database | `db` | `db.normalization_transactions` | 정규화와 트랜잭션 |
+| Database | `db` | `db.sql_queries` | SQL 정의·조작·조회 |
+| Database | `db` | `db.systems_selection` | OLTP·OLAP와 DB 선택 |
+| AI Agent | `ai_agent` | `agent.core_components` | Agent 핵심 구성요소 |
+| AI Agent | `ai_agent` | `agent.frameworks` | Agent Framework와 Workflow |
+| AI Agent | `ai_agent` | `agent.protocols_tactics` | Protocol과 Engineering Tactic |
+| AI Agent | `ai_agent` | `agent.design_harness` | Agent 설계와 Harness Engineering |
+| Retrieval-Augmented Generation | `rag` | `rag.foundations_architecture` | RAG 목적과 전체 구조 |
+| Retrieval-Augmented Generation | `rag` | `rag.embeddings_vector_search` | 임베딩과 벡터 검색 |
+| Retrieval-Augmented Generation | `rag` | `rag.advanced_retrieval` | 고급 Retrieval 전략 |
+| Retrieval-Augmented Generation | `rag` | `rag.chunking_contextual` | Chunking과 Contextual Retrieval |
 
 평가 데이터에는 위 강의와 목표가 모두 준비돼 있지만 현재
 `frontend/fe/components/ReviewApp.tsx`와 `backend/app/main.py`의 topic 목록은
@@ -216,7 +245,7 @@ Content-Type: `multipart/form-data`
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
 | `session_id` | string | 프론트가 생성한 세션 ID |
-| `topic` | string | 검수 완료 강의 표시명 중 하나. 현재 `기초통계`, `크롤링`, `EDA/FE`, `시각화`, `CS기초`, `Git`, `Python/개발환경`, `Web`, `네트워크 기초`, `Machine Learning`, `Deep Learning`, `Computer Vision`, `Natural Language Processing` |
+| `topic` | string | 검수 완료 강의 표시명 중 하나. 현재 `기초통계`, `크롤링`, `EDA/FE`, `시각화`, `CS기초`, `Git`, `Python/개발환경`, `Web`, `네트워크 기초`, `Machine Learning`, `Deep Learning`, `Computer Vision`, `Natural Language Processing`, `Docker`, `Large Language Models`, `AWS`, `Database`, `AI Agent`, `Retrieval-Augmented Generation` |
 | `audio_file` | file | WAV, WebM 또는 M4A |
 
 성공 상태 코드는 `202 Accepted`다.
@@ -479,7 +508,7 @@ Gold와 강의별 생성 스크립트다. 공통 API 필드와 평가 엔진은 
 - 정확한 복수 Evidence Quote 검증
 - LLM 출력 검증 실패 시 한 번 교정 재요청
 - Essential 60 + Supporting 20 + Coverage 20 결정적 계산
-- Python 전체 테스트 79개 통과, 1개 제외
+- Python 전체 테스트 110개 통과, 1개 제외
 
 백·프론트 팀은 위 평가 로직을 재작성할 필요 없이 API 연결, 상태 관리, 결과 표현과
 운영 안정성에 집중하면 된다.

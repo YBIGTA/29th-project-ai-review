@@ -24,7 +24,7 @@ Feature Engineering, 불균형 대응, metric·OOF·tuning·early stopping을 �
 ## Deep Learning
 
 - `dl.representation_networks`: 표현학습과 신경망 — 9 Claim
-- `dl.loss_functions`: 손실 함수와 학습 목표 — 7 Claim
+- `dl.loss_functions`: 손실 함수와 최적화 — 7 Claim
 - `dl.optimization`: 신경망 최적화 — 10 Claim
 - `dl.generalization_architectures`: 일반화와 MLP 이후 — 10 Claim
 
@@ -52,4 +52,3 @@ python scripts/build_curated_json.py deep_learning
 python scripts/validate_evaluation_data.py --write-schemas
 python -m pytest
 ```
-
