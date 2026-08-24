@@ -1,0 +1,2576 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "llm",
+  "lecture_name": "Large Language Models",
+  "source_file": "LLM.pdf",
+  "terminology": [
+    {
+      "term_id": "llm",
+      "canonical_ko": "거대 언어 모델",
+      "canonical_en": "large language model",
+      "abbreviations": [
+        "LLM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "transformer",
+      "canonical_ko": "트랜스포머",
+      "canonical_en": "Transformer",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "self_attention",
+      "canonical_ko": "셀프 어텐션",
+      "canonical_en": "self-attention",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "parallelism",
+      "canonical_ko": "병렬 처리",
+      "canonical_en": "parallel processing",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "encoder",
+      "canonical_ko": "인코더",
+      "canonical_en": "encoder",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "decoder",
+      "canonical_ko": "디코더",
+      "canonical_en": "decoder",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "encoder_decoder",
+      "canonical_ko": "인코더-디코더",
+      "canonical_en": "encoder-decoder",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "bert",
+      "canonical_ko": "BERT",
+      "canonical_en": "bidirectional encoder representations from transformers",
+      "abbreviations": [
+        "BERT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "bidirectional",
+      "canonical_ko": "양방향 문맥",
+      "canonical_en": "bidirectional context",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "mlm",
+      "canonical_ko": "마스크 언어 모델링",
+      "canonical_en": "masked language modeling",
+      "abbreviations": [
+        "MLM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "nsp",
+      "canonical_ko": "다음 문장 예측",
+      "canonical_en": "next sentence prediction",
+      "abbreviations": [
+        "NSP"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "segment_embedding",
+      "canonical_ko": "세그먼트 임베딩",
+      "canonical_en": "segment embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gpt",
+      "canonical_ko": "GPT",
+      "canonical_en": "generative pre-trained transformer",
+      "abbreviations": [
+        "GPT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "generative_pretraining",
+      "canonical_ko": "생성 사전학습",
+      "canonical_en": "generative pre-training",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pretraining",
+      "canonical_ko": "사전학습",
+      "canonical_en": "pretraining",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "unlabeled_data",
+      "canonical_ko": "비라벨 데이터",
+      "canonical_en": "unlabeled data",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "next_token_prediction",
+      "canonical_ko": "다음 토큰 예측",
+      "canonical_en": "next-token prediction",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "autoregressive",
+      "canonical_ko": "자기회귀",
+      "canonical_en": "autoregressive",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "scaling_law",
+      "canonical_ko": "스케일링 법칙",
+      "canonical_en": "scaling law",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "parameter",
+      "canonical_ko": "파라미터",
+      "canonical_en": "parameter",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "compute",
+      "canonical_ko": "연산량",
+      "canonical_en": "compute",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "data",
+      "canonical_ko": "학습 데이터",
+      "canonical_en": "training data",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "icl",
+      "canonical_ko": "문맥 내 학습",
+      "canonical_en": "in-context learning",
+      "abbreviations": [
+        "ICL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "zero_shot",
+      "canonical_ko": "제로샷",
+      "canonical_en": "zero-shot",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_shot",
+      "canonical_ko": "원샷",
+      "canonical_en": "one-shot",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "few_shot",
+      "canonical_ko": "퓨샷",
+      "canonical_en": "few-shot",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gradient_update",
+      "canonical_ko": "경사 갱신",
+      "canonical_en": "gradient update",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "alignment",
+      "canonical_ko": "정렬",
+      "canonical_en": "alignment",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ift",
+      "canonical_ko": "지시 미세조정",
+      "canonical_en": "instruction fine-tuning",
+      "abbreviations": [
+        "IFT",
+        "SFT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "instruction_data",
+      "canonical_ko": "지시 데이터",
+      "canonical_en": "instruction data",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rlhf",
+      "canonical_ko": "인간 피드백 강화학습",
+      "canonical_en": "reinforcement learning from human feedback",
+      "abbreviations": [
+        "RLHF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "reinforcement_learning",
+      "canonical_ko": "강화학습",
+      "canonical_en": "reinforcement learning",
+      "abbreviations": [
+        "RL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "reward",
+      "canonical_ko": "보상",
+      "canonical_en": "reward",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "preference",
+      "canonical_ko": "선호",
+      "canonical_en": "preference",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "reward_model",
+      "canonical_ko": "보상 모델",
+      "canonical_en": "reward model",
+      "abbreviations": [
+        "RM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cot",
+      "canonical_ko": "사고의 사슬",
+      "canonical_en": "chain-of-thought",
+      "abbreviations": [
+        "CoT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "self_consistency",
+      "canonical_ko": "자기 일관성",
+      "canonical_en": "self-consistency",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tot",
+      "canonical_ko": "사고의 나무",
+      "canonical_en": "tree of thoughts",
+      "abbreviations": [
+        "ToT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tool_use",
+      "canonical_ko": "도구 사용",
+      "canonical_en": "tool use",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "react",
+      "canonical_ko": "ReAct",
+      "canonical_en": "reason and act",
+      "abbreviations": [
+        "ReAct"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hallucination",
+      "canonical_ko": "환각",
+      "canonical_en": "hallucination",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rft",
+      "canonical_ko": "강화 미세조정",
+      "canonical_en": "reinforcement fine-tuning",
+      "abbreviations": [
+        "RFT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pairwise_preference",
+      "canonical_ko": "쌍대 선호",
+      "canonical_en": "pairwise preference",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dpo",
+      "canonical_ko": "직접 선호 최적화",
+      "canonical_en": "direct preference optimization",
+      "abbreviations": [
+        "DPO"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "binary_feedback",
+      "canonical_ko": "이진 피드백",
+      "canonical_en": "binary feedback",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "llm_judge",
+      "canonical_ko": "LLM 평가자",
+      "canonical_en": "LLM-as-a-Judge",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "label_bias",
+      "canonical_ko": "라벨 편향",
+      "canonical_en": "labeling bias",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rlvr",
+      "canonical_ko": "검증 가능한 보상 강화학습",
+      "canonical_en": "reinforcement learning with verifiable rewards",
+      "abbreviations": [
+        "RLVR"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "verifiable_reward",
+      "canonical_ko": "검증 가능한 보상",
+      "canonical_en": "verifiable reward",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "grpo",
+      "canonical_ko": "그룹 상대 정책 최적화",
+      "canonical_en": "group relative policy optimization",
+      "abbreviations": [
+        "GRPO"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "diffusion_lm",
+      "canonical_ko": "확산 언어 모델",
+      "canonical_en": "diffusion language model",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "mask_token",
+      "canonical_ko": "마스크 토큰",
+      "canonical_en": "mask token",
+      "abbreviations": [
+        "MASK"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rag",
+      "canonical_ko": "검색 증강 생성",
+      "canonical_en": "retrieval-augmented generation",
+      "abbreviations": [
+        "RAG"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "retrieval",
+      "canonical_ko": "검색",
+      "canonical_en": "retrieval",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "embedding",
+      "canonical_ko": "임베딩",
+      "canonical_en": "embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "similarity",
+      "canonical_ko": "유사도",
+      "canonical_en": "similarity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vla",
+      "canonical_ko": "비전-언어-행동 모델",
+      "canonical_en": "vision-language-action",
+      "abbreviations": [
+        "VLA"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "agent",
+      "canonical_ko": "AI 에이전트",
+      "canonical_en": "AI agent",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "llm_p1_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 1,
+      "topic": "LLM 표지",
+      "concepts": [
+        "LLM 표지"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\nLLM\n\n\n\n\n\n                         27기 DS 강성우",
+      "visual_description": "LLM 표지 페이지이다.",
+      "content": "LLM 강의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p2_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 2,
+      "topic": "오늘의 목표",
+      "concepts": [
+        "오늘의 목표"
+      ],
+      "raw_text": "Outline오늘의 목표 3가지\n\n\n\n\n  1.LLM의 기본적인 구조와 동작원리를 이해한다\n 2.LLM 최신 연구를 대략적으로 짚는다\n 3.DS에서 어떤걸 보는지 미리체험\n\n\n   LLM 프롬프팅, 에이전트, 하네스 등 여러 범용적으로 실용적인 이야기는 다음 Agent 수업에서",
+      "visual_description": "오늘의 목표의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "LLM 기본 구조와 동작 원리, 최신 연구 흐름, 데이터사이언스 관점의 주제를 다루며 prompting·agent의 자세한 내용은 별도 강의로 안내한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p3_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 3,
+      "topic": "강의 목차",
+      "concepts": [
+        "강의 목차"
+      ],
+      "raw_text": "목 차\n\n\n1.  Transformer\n\n2. BERT\n\n3. GPT\n\n4. Alignment\n5. Reasoning\n\n6. Reinforcement Fine Tuning\n\n7.  Additional topics",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "Transformer, BERT, GPT, alignment, reasoning, reinforcement fine-tuning, 추가 주제 순으로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p4_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 4,
+      "topic": "도입 화면",
+      "concepts": [
+        "도입 화면"
+      ],
+      "raw_text": "",
+      "visual_description": "도입 화면 페이지이다.",
+      "content": "LLM 강의 도입용 시각 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p5_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 5,
+      "topic": "Transformer",
+      "concepts": [
+        "Transformer"
+      ],
+      "raw_text": "Transformer",
+      "visual_description": "Transformer 페이지이다.",
+      "content": "Transformer 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p6_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 6,
+      "topic": "Self-Attention과 병렬 처리",
+      "concepts": [
+        "Self-Attention과 병렬 처리"
+      ],
+      "raw_text": "Transformer\nTransformer\n              핵심은 self-attention을 이용한 병렬처리\n\n\n\n\n\n                수식 기억해두면 좋다.",
+      "visual_description": "Self-Attention과 병렬 처리의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Transformer는 self-attention을 사용해 sequence 관계를 모델링하고 recurrent 처리보다 token 계산을 병렬화하기 좋다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "transformer",
+        "self_attention",
+        "parallelism"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p6_attention",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Transformer 핵심은 self-attention을 이용한 병렬처리",
+          "normalized_explanation": "Self-attention과 병렬 처리가 Transformer의 핵심이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "transformer",
+            "self_attention",
+            "parallelism"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p7_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 7,
+      "topic": "Transformer 구조",
+      "concepts": [
+        "Transformer 구조"
+      ],
+      "raw_text": "Transformer\nTransformer",
+      "visual_description": "Transformer 구조의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Encoder와 decoder block, multi-head attention, scaled dot-product attention의 전체 구조를 보여준다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p8_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 8,
+      "topic": "Encoder-Decoder",
+      "concepts": [
+        "Encoder-Decoder"
+      ],
+      "raw_text": "Transformer\nTransformer\n                        Encoder + Decoder 구조\n\n              확실히 기계번역 같은 걸 할때는 좋아보인다.\n\n\n              하지만 다른 NLP task에서도\n                        Encoder + Decoder 구조일 필요가 있을까?",
+      "visual_description": "Encoder-Decoder의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Encoder-decoder Transformer는 입력 sequence를 이해해 출력 sequence를 생성하는 번역 같은 task에 적합하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "transformer",
+        "encoder_decoder",
+        "encoder",
+        "decoder"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p8_encdec",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Transformer Encoder + Decoder 구조 / 기계번역",
+          "normalized_explanation": "Encoder-decoder는 input-to-output sequence task에 적합하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "transformer",
+            "encoder_decoder",
+            "encoder",
+            "decoder"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p9_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 9,
+      "topic": "Encoder-only Task",
+      "concepts": [
+        "Encoder-only Task"
+      ],
+      "raw_text": "Transformer\nTransformer\n\n\n\n\n                 문장 분류, 개체명 인식\n             → 입력만 이해하면 됨 (인코더만 필요)\n\n                                      Bert 계열\n\n\n\n\n                                             https://how.dev/answers/text-classification-in-nlp",
+      "visual_description": "Encoder-only Task의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "문장 분류와 개체명 인식처럼 입력 이해가 핵심인 task는 encoder-only 구조를 사용할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "encoder",
+        "bert"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p9_encoder",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "문장 분류, 개체명 인식 → 입력만 이해하면 됨",
+          "normalized_explanation": "Input understanding task는 encoder-only를 사용할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "encoder",
+            "bert"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p10_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 10,
+      "topic": "BERT",
+      "concepts": [
+        "BERT"
+      ],
+      "raw_text": "BERT",
+      "visual_description": "BERT 페이지이다.",
+      "content": "BERT 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p11_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 11,
+      "topic": "BERT Encoder-only",
+      "concepts": [
+        "BERT Encoder-only"
+      ],
+      "raw_text": "BERT\nTransformer Encoder Only\n\n\n\n\n\n                                                                                                   https://buly.kr/4xXoPFE",
+      "visual_description": "BERT Encoder-only의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "BERT는 Transformer encoder block만 사용하는 encoder-only 계열이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "bert",
+        "transformer",
+        "encoder"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p11_bert",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Transformer Encoder Only",
+          "normalized_explanation": "BERT는 encoder-only Transformer 계열이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "bert",
+            "transformer",
+            "encoder"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p12_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 12,
+      "topic": "기존 사전학습의 방향성",
+      "concepts": [
+        "기존 사전학습의 방향성"
+      ],
+      "raw_text": "BERT\n 문제의식 : 기존 사전학습 모델은 모두 단방향성\n\n\n\n\n\n      이로 인해 문맥을 온전히 양방향에서 이해하지 못해,\n     복잡한 문장 관계나 문맥 이해에서 제한적 표현력만 가짐.\n\n\n                         https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+      "visual_description": "기존 사전학습의 방향성의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "BERT 이전의 대표적인 언어 모델 목적 다수는 좌→우 또는 우→좌의 단방향 문맥을 사용해 양쪽 문맥을 동시에 반영하는 데 제약이 있었다. 모든 기존 모델이 단방향이었다고 일반화하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "llm_p12_all_unidirectional",
+          "source_text": "기존 사전학습 모델은 모두 단방향성",
+          "issue_type": "overgeneralized",
+          "correction": "BERT 이전의 대표적 LM objective 다수가 단방향 문맥을 사용했다고 범위를 제한한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "llm_p13_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 13,
+      "topic": "BERT 양방향 문맥",
+      "concepts": [
+        "BERT 양방향 문맥"
+      ],
+      "raw_text": "BERT\n 해결방안 : 그러니 우린 양방향으로 간다.\n\n\n\n\n\n                         https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+      "visual_description": "BERT 양방향 문맥의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "BERT는 양방향 encoder representation을 학습해 양쪽 문맥을 함께 이용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "bert",
+        "bidirectional"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p13_bidirectional",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "그러니 우린 양방향으로 간다",
+          "normalized_explanation": "BERT는 bidirectional context representation을 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "bert",
+            "bidirectional"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p14_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 14,
+      "topic": "Masked Language Model",
+      "concepts": [
+        "Masked Language Model"
+      ],
+      "raw_text": "BERT\n 학습방식 1 : Masked Language Model (MLM) in Pretraining\n\n\n\n\n\n                                                                                                      https://buly.kr/4xXoPFE",
+      "visual_description": "Masked Language Model의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "MLM은 입력 token 일부를 가리고 주변 양방향 문맥으로 원래 token을 예측하는 사전학습 objective다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "bert",
+        "mlm",
+        "pretraining",
+        "bidirectional"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p14_mlm",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Masked Language Model (MLM) in Pretraining",
+          "normalized_explanation": "MLM은 masked token을 양쪽 문맥으로 예측한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "bert",
+            "mlm",
+            "pretraining",
+            "bidirectional"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p15_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 15,
+      "topic": "Next Sentence Prediction",
+      "concepts": [
+        "Next Sentence Prediction"
+      ],
+      "raw_text": "BERT\n 학습방식 2 : Next Sentence Prediction (NSP) in Pretraining\n\n\n\n\n\n                                                                                                      https://buly.kr/4xXoPFE",
+      "visual_description": "Next Sentence Prediction의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "원래 BERT의 NSP는 두 sentence가 실제로 이어지는지 예측하는 사전학습 objective다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "bert",
+        "nsp",
+        "pretraining"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p15_nsp",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Next Sentence Prediction (NSP) in Pretraining",
+          "normalized_explanation": "Original BERT의 NSP는 sentence pair의 연속 여부를 예측한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "bert",
+            "nsp",
+            "pretraining"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p16_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 16,
+      "topic": "BERT Pretraining과 Fine-tuning",
+      "concepts": [
+        "BERT Pretraining과 Fine-tuning"
+      ],
+      "raw_text": "BERT\n MLM& NSP\n\n\n\n\n\n                                                                                                      https://buly.kr/4xXoPFE",
+      "visual_description": "BERT Pretraining과 Fine-tuning의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "BERT pretraining은 MLM과 NSP를 사용한 뒤 task별 output layer로 fine-tuning하는 구조를 보여준다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p17_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 17,
+      "topic": "Segment Embeddings",
+      "concepts": [
+        "Segment Embeddings"
+      ],
+      "raw_text": "BERT\n Segment Embeddings\n\n\n\n\n\n                                                                                                      https://buly.kr/4xXoPFE",
+      "visual_description": "Segment Embeddings의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "BERT input representation은 token, segment, position embedding을 합치며 segment embedding은 sentence pair의 소속을 구분한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "bert",
+        "segment_embedding"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p17_segment",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Token Embeddings + Segment Embeddings + Position Embeddings",
+          "normalized_explanation": "BERT input embedding의 세 구성요소다.",
+          "source_status": "verified",
+          "term_ids": [
+            "bert",
+            "segment_embedding"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p18_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 18,
+      "topic": "GPT",
+      "concepts": [
+        "GPT"
+      ],
+      "raw_text": "GPT",
+      "visual_description": "GPT 페이지이다.",
+      "content": "GPT 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p19_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 19,
+      "topic": "GPT Decoder-only",
+      "concepts": [
+        "GPT Decoder-only"
+      ],
+      "raw_text": "GPT\n Transformer Decoder Only\n\n\n\n\n\n                                                                                                     https://buly.kr/4xXoPFE",
+      "visual_description": "GPT Decoder-only의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "GPT는 Transformer decoder-only 계열로 causal attention을 사용해 앞 token에 조건화한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "gpt",
+        "transformer",
+        "decoder",
+        "autoregressive"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p19_gpt",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Transformer Decoder Only",
+          "normalized_explanation": "GPT는 decoder-only Transformer 계열이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gpt",
+            "transformer",
+            "decoder",
+            "autoregressive"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p20_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 20,
+      "topic": "라벨 데이터 부족",
+      "concepts": [
+        "라벨 데이터 부족"
+      ],
+      "raw_text": "GPT\n문제의식 1 : 라벨 데이터의 부족\n\n                        지금도 부족하다...\n\n\n\n\n\n                        https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+      "visual_description": "라벨 데이터 부족의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "고품질 labeled data가 부족하다는 문제를 제시한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p21_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 21,
+      "topic": "전이학습 문제",
+      "concepts": [
+        "전이학습 문제"
+      ],
+      "raw_text": "GPT\n문제의식 2 : 효율적인 전이 학습 방법 정립 X\n\n\n\n\n\n                        https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+      "visual_description": "전이학습 문제의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "대규모 언어 표현을 downstream task에 효율적으로 전이하는 방법의 필요성을 제시한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p22_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 22,
+      "topic": "Generative Pretraining",
+      "concepts": [
+        "Generative Pretraining"
+      ],
+      "raw_text": "GPT\n해결방안 : Generative Pre-Training\n\n\n                                 Labeling 되지 않은 대규모의 데이터\n                  를 pretrain단계에서 최대한 학습해서,\n\n                  지도학습에 대한 의존성을 최대한 약화\n                         시키자!!\n\n\n\n\n\n                                                                                                     https://buly.kr/4xXoPFE",
+      "visual_description": "Generative Pretraining의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Generative pretraining은 대규모 unlabeled text에서 language pattern을 먼저 학습해 supervised data 의존을 줄인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "gpt",
+        "generative_pretraining",
+        "pretraining",
+        "unlabeled_data"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p22_pretrain",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Labeling 되지 않은 대규모 데이터 pretrain / 지도학습 의존 약화",
+          "normalized_explanation": "Unlabeled text generative pretraining으로 supervised dependence를 줄인다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gpt",
+            "generative_pretraining",
+            "pretraining",
+            "unlabeled_data"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p23_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 23,
+      "topic": "Next Token Prediction",
+      "concepts": [
+        "Next Token Prediction"
+      ],
+      "raw_text": "GPT\n 해결방안 : Generative Pre-Training\n\n Q: 근데 어떻게 Labeling 되지 않은 데이터로 학습할꺼야??\n\n\n\n\n\n 학습데이터의 Next token prediction!\n\n\n\n\nhttps://aiml.com/what-are-some-of-the-approaches-for-decoding-the-next-word-in-llms/                               https://buly.kr/4xXoPFE",
+      "visual_description": "Next Token Prediction의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "GPT pretraining은 text 자체에서 다음 token label을 만들어 next-token prediction으로 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "gpt",
+        "next_token_prediction",
+        "autoregressive"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p23_next",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "학습데이터의 Next token prediction",
+          "normalized_explanation": "Text 자체에서 next-token target을 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gpt",
+            "next_token_prediction",
+            "autoregressive"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p24_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 24,
+      "topic": "GPT Decoder Architecture",
+      "concepts": [
+        "GPT Decoder Architecture"
+      ],
+      "raw_text": "GPT\n해결방안 : Generative Pre-Training\n\n Q: 근데 어떻게 Labeling 되지 않은 데이터로 학습할꺼야??\n\n A: ICLR 2018에 게제된 Transformer 변형 decoder 모델 사용하기 !!\n\n\n\n\n\n                                                                        https://arxiv.org/abs/1801.10198   https://buly.kr/4xXoPFE",
+      "visual_description": "GPT Decoder Architecture의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "GPT의 decoder-only Transformer architecture를 보여준다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p25_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 25,
+      "topic": "조건부 다음 단어 확률",
+      "concepts": [
+        "조건부 다음 단어 확률"
+      ],
+      "raw_text": "GPT\n해결방안 : Generative Pre-Training\n\n Q: 근데 어떻게 Labeling 되지 않은 데이터로 학습할꺼야??\n\n A: ICLR 2018에 게제된 Transformer 변형 decoder 모델 사용하기 !!\n\n\n\n\n => P( next word∣given words )\n EX : “The cat sat on the mat”라는 단어가 있을때,\n   P( mat | The cat sat on the )의 확률을 조정하는 방식으로 학습\n\n\n                                                                        https://arxiv.org/abs/1801.10198   https://buly.kr/4xXoPFE",
+      "visual_description": "조건부 다음 단어 확률의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Autoregressive LM은 주어진 앞 단어에 조건부인 다음 word probability를 높이도록 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "gpt",
+        "next_token_prediction",
+        "autoregressive"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p25_prob",
+          "type": "formula",
+          "source_type": "text",
+          "source_excerpt": "P(next word | given words)",
+          "normalized_explanation": "앞 token에 조건부인 다음 token probability를 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gpt",
+            "next_token_prediction",
+            "autoregressive"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p26_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 26,
+      "topic": "LM에서 LLM으로",
+      "concepts": [
+        "LM에서 LLM으로"
+      ],
+      "raw_text": "LM to LLM",
+      "visual_description": "LM에서 LLM으로 페이지이다.",
+      "content": "Language model에서 large language model로 확장되는 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p27_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 27,
+      "topic": "Scaling Law",
+      "concepts": [
+        "Scaling Law"
+      ],
+      "raw_text": "LM to LLMScaling Law\n\n\n\n\n\n       GPT 3에서 밝혀진 것: Scale의 지수적 증가는 성능의 선형 증가로 이어진다는 것!\n\n\n                                                                                                                  https://arxiv.org/pdf/2001.08361",
+      "visual_description": "Scaling Law의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Scaling law는 model parameter, training data와 compute가 커질 때 loss가 경험적 power-law 관계로 개선되는 경향을 기술한다. 지수적 scale 증가가 모든 task 성능을 선형으로 보장한다는 뜻은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "scaling_law",
+        "parameter",
+        "compute",
+        "data"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p27_scaling",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Scaling Law / Scale의 증가와 성능",
+          "normalized_explanation": "Scale과 loss 사이의 경험적 power-law 경향으로 정규화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "scaling_law",
+            "parameter",
+            "compute",
+            "data"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "llm_p27_scaling_wording",
+          "source_text": "Scale의 지수적 증가는 성능의 선형 증가",
+          "issue_type": "incorrect",
+          "correction": "Parameter·data·compute와 loss 사이의 경험적 power-law scaling으로 설명한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "llm_p28_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 28,
+      "topic": "Compute와 Model Size",
+      "concepts": [
+        "Compute와 Model Size"
+      ],
+      "raw_text": "LM to LLMScaling Law\n\n\n\n\n\n                                                                                                https://buly.kr/4xXoPFE",
+      "visual_description": "Compute와 Model Size의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Compute 확대에 따라 최적 model size·batch·data 요구량의 증가 관계를 나타낸 도식이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p29_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 29,
+      "topic": "GPT-4 크기 추정",
+      "concepts": [
+        "GPT-4 크기 추정"
+      ],
+      "raw_text": "LM to LLMScaling Law\n\n\n\n\n                                                         GPT-4의 경우\n                                                                                               1 Trillon을 넘는다고 한다...",
+      "visual_description": "GPT-4 크기 추정의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "GPT-4 parameter가 1조 개를 넘는다는 수치는 공식 확인되지 않은 추정이므로 평가 지식에서 제외한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "llm_p29_gpt4_parameter",
+          "source_text": "GPT-4의 경우 1 Trillon을 넘는다고 한다",
+          "issue_type": "ambiguous",
+          "correction": "공식 확인되지 않은 parameter 추정이므로 평가에서 제외한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "llm_p30_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 30,
+      "topic": "In-Context Learning",
+      "concepts": [
+        "In-Context Learning"
+      ],
+      "raw_text": "LM to LLMIn Context Learning",
+      "visual_description": "In-Context Learning의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "In-context learning 섹션 도입 페이지이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p31_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 31,
+      "topic": "Zero·One·Few-shot",
+      "concepts": [
+        "Zero·One·Few-shot"
+      ],
+      "raw_text": "LM to LLMIn Context Learning",
+      "visual_description": "Zero·One·Few-shot의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Zero-shot은 example 없이 instruction만, one-shot은 하나, few-shot은 여러 demonstration을 prompt에 제공하며 model parameter를 갱신하는 fine-tuning과 구분된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "icl",
+        "zero_shot",
+        "one_shot",
+        "few_shot",
+        "gradient_update"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p31_icl",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Zero-shot / One-shot / Few-shot / Fine-tuning",
+          "normalized_explanation": "Prompt demonstration 수와 parameter update 여부를 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "icl",
+            "zero_shot",
+            "one_shot",
+            "few_shot",
+            "gradient_update"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p32_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 32,
+      "topic": "ICL의 안쪽·바깥쪽 학습",
+      "concepts": [
+        "ICL의 안쪽·바깥쪽 학습"
+      ],
+      "raw_text": "LM to LLMIn Context Learning",
+      "visual_description": "ICL의 안쪽·바깥쪽 학습의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Pretraining의 parameter 학습은 바깥쪽 과정이고 prompt example로 현재 sequence 안에서 task pattern을 따르는 ICL은 gradient update 없는 안쪽 과정으로 묘사된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "icl",
+        "pretraining",
+        "gradient_update"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p32_icl_inner",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Learning via SGD during unsupervised pre-training / In-context learning",
+          "normalized_explanation": "ICL은 inference prompt 안에서 gradient update 없이 pattern을 따른다.",
+          "source_status": "verified",
+          "term_ids": [
+            "icl",
+            "pretraining",
+            "gradient_update"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p33_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 33,
+      "topic": "ICL 성능 사례",
+      "concepts": [
+        "ICL 성능 사례"
+      ],
+      "raw_text": "LM to LLMIn Context Learning\n\n\n\n\n\n     175B로 넘어오면서 성능이 꾸준히 상승, 특히 Fine-Tuned SOTA보다 성능이 우수!!",
+      "visual_description": "ICL 성능 사례의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "GPT-3 논문의 TriviaQA 사례에서 model scale과 shot 수에 따라 accuracy가 상승했지만 특정 benchmark 결과를 모든 task의 보편적 우위로 일반화하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "llm_p33_sota_scope",
+          "source_text": "Fine-Tuned SOTA보다 성능이 우수",
+          "issue_type": "overgeneralized",
+          "correction": "TriviaQA의 특정 setting 결과이며 모든 task로 일반화하지 않는다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "llm_p34_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 34,
+      "topic": "Base LM의 한계",
+      "concepts": [
+        "Base LM의 한계"
+      ],
+      "raw_text": "LM to LLM이걸로 끝???\n\n\n   Pretrain에서 글과 언어에 대해서 충분히 이해함. 지식도 얻었음.\n   Scale을 높이다보니 few shot 또는 zero shot로도 테스크 성능을 높일 수 있음.\n\n                                         그러나...\n\n                            우리가 여태까지 학습한 모델은\n                                “인터넷 다음토큰 예측기“\n                            문법은 맞지만 쓸모 없는 답변생성\n                            사람이 원하는 방식과 미묘하게 다름\n                            사실처럼 보이지만 잘못된 정보 생성",
+      "visual_description": "Base LM의 한계의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Base LM은 internet text의 next-token objective만으로는 사용자 의도에 유용·정직·안전하게 응답하지 못하고 그럴듯한 오류를 만들 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "next_token_prediction",
+        "alignment",
+        "hallucination"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p34_base_limit",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "인터넷 다음토큰 예측기 / 쓸모 없는 답변 / 잘못된 정보 생성",
+          "normalized_explanation": "Base next-token objective만으로 aligned response가 보장되지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "next_token_prediction",
+            "alignment",
+            "hallucination"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p35_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 35,
+      "topic": "Alignment",
+      "concepts": [
+        "Alignment"
+      ],
+      "raw_text": "Alignment",
+      "visual_description": "Alignment 페이지이다.",
+      "content": "Alignment 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p36_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 36,
+      "topic": "Instruction Fine-Tuning",
+      "concepts": [
+        "Instruction Fine-Tuning"
+      ],
+      "raw_text": "AlignmentInstruction Fine Tuning",
+      "visual_description": "Instruction Fine-Tuning 페이지이다.",
+      "content": "Instruction fine-tuning 섹션 도입 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p37_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 37,
+      "topic": "IFT의 역할",
+      "concepts": [
+        "IFT의 역할"
+      ],
+      "raw_text": "AlignmentInstruction Fine Tuning\n\n\n\nInstruction Fine-Tuning은 인간이 작성한 예시를 통해\n“어떻게 응답해야 하는지”에 대한 기본 행동 분포를 형성한다\n\n새로운 지식을 학습하는 단계가 아니다!\n\n그렇다면...\n    Instruction 데이터는 비용이 많이 들지 않는가?\n    Instruction 데이터가 무한하다면, 그것으로 충분한가?",
+      "visual_description": "IFT의 역할의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "IFT는 human-written instruction-response example로 지시 따르기와 응답 행동을 조정하는 것이 주목적이다. 지식을 전혀 학습하지 않는다고 절대화할 수는 없다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ift",
+        "instruction_data",
+        "alignment"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p37_ift",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "인간이 작성한 예시를 통해 어떻게 응답해야 하는지 기본 행동 분포 형성",
+          "normalized_explanation": "IFT는 instruction-following behavior를 supervised example로 조정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ift",
+            "instruction_data",
+            "alignment"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "llm_p37_no_knowledge",
+          "source_text": "새로운 지식을 학습하는 단계가 아니다!",
+          "issue_type": "overgeneralized",
+          "correction": "IFT의 주목적은 instruction-following behavior 조정이지만 knowledge 영향이 전혀 없다고 단정하지 않는다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "llm_p38_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 38,
+      "topic": "Instruction Data의 한계",
+      "concepts": [
+        "Instruction Data의 한계"
+      ],
+      "raw_text": "AlignmentInstruction Fine Tuning\n\n\nInstruction 데이터는 비싸다!\n  전문가 개입 필요\n  시간 소요 큼\n   scale이 잘 안 됨\n\n\n\n             Supervised learning은\n      라벨이 표현하는 정보 이상의 기준을\n       직접적으로 최적화할 수 없다.",
+      "visual_description": "Instruction Data의 한계의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Instruction data는 전문가 시간과 비용이 들고 supervised objective는 제공된 demonstration·label 범위를 넘어선 선호 기준을 직접 표현하기 어렵다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ift",
+        "instruction_data",
+        "preference"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p38_ift_limit",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Instruction 데이터는 비싸다 / supervised learning은 라벨 이상의 기준을 직접 최적화할 수 없다",
+          "normalized_explanation": "Instruction data cost와 supervised signal의 표현 한계다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ift",
+            "instruction_data",
+            "preference"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p39_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 39,
+      "topic": "RLHF",
+      "concepts": [
+        "RLHF"
+      ],
+      "raw_text": "AlignmentRLHF",
+      "visual_description": "RLHF 페이지이다.",
+      "content": "RLHF 섹션 도입 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p40_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 40,
+      "topic": "강화학습과 선호",
+      "concepts": [
+        "강화학습과 선호"
+      ],
+      "raw_text": "AlignmentWhy RL?\n\n          Reinforcement learning is framework for sequential\n             decision making for learning what to do\n      — how to map the given situations to the actions —\n              to maximize a numerical reward signal.\n\n        Reinforcement Learning은 단일 정답을 모방하는 것이 아니라,\n        연속적인 선택 과정에서 무엇이 더 나은 행동인지를\n      수치화된 보상 신호를 통해 직접 최적화하는 프레임워크!\n\n  지도학습으로는 어려운, 선호와 우선순위를 최적화할 수 있다는 것이 강점!",
+      "visual_description": "강화학습과 선호의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "RL은 상황에서 행동을 선택해 numerical reward를 최대화하며 preference와 priority처럼 단일 정답 모방으로 표현하기 어려운 목표를 최적화할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "reinforcement_learning",
+        "reward",
+        "preference"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p40_rl",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "연속적인 선택 과정 / 수치화된 보상 신호 / 선호와 우선순위 최적화",
+          "normalized_explanation": "RL은 action을 reward 기준으로 최적화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "reinforcement_learning",
+            "reward",
+            "preference"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p41_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 41,
+      "topic": "RLHF Pipeline",
+      "concepts": [
+        "RLHF Pipeline"
+      ],
+      "raw_text": "AlignmentWhy RL?",
+      "visual_description": "RLHF Pipeline의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "RLHF는 base pretraining, supervised fine-tuning, human comparison으로 reward model 학습, reward를 높이는 policy optimization 단계로 구성된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pretraining",
+        "ift",
+        "rlhf",
+        "preference",
+        "reward_model",
+        "reinforcement_learning"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p41_rlhf",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Pretrained LLM → SFT model → comparison data → reward model → reinforcement learning → final model",
+          "normalized_explanation": "RLHF pipeline을 단계별로 연결한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pretraining",
+            "ift",
+            "rlhf",
+            "preference",
+            "reward_model",
+            "reinforcement_learning"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p42_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 42,
+      "topic": "Reward로 LM 최적화",
+      "concepts": [
+        "Reward로 LM 최적화"
+      ],
+      "raw_text": "AlignmentOptimize Language Model by Reward\n\n\n\n\n\n                        추가 내용은 reasoning을 다룬 후에...",
+      "visual_description": "Reward로 LM 최적화의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "여러 response 비교에서 reward model을 학습하고 그 scalar reward로 language model policy를 최적화한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rlhf",
+        "reward_model",
+        "reward",
+        "preference"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p42_reward",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Optimize Language Model by Reward",
+          "normalized_explanation": "Comparison에서 reward model을 학습하고 policy를 reward로 최적화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rlhf",
+            "reward_model",
+            "reward",
+            "preference"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p43_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 43,
+      "topic": "Reasoning",
+      "concepts": [
+        "Reasoning"
+      ],
+      "raw_text": "Reasoning",
+      "visual_description": "Reasoning 페이지이다.",
+      "content": "Reasoning 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p44_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 44,
+      "topic": "Chain-of-Thought",
+      "concepts": [
+        "Chain-of-Thought"
+      ],
+      "raw_text": "ReasoningChain-of-Thought",
+      "visual_description": "Chain-of-Thought 페이지이다.",
+      "content": "Chain-of-thought 섹션 도입 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p45_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 45,
+      "topic": "Step-by-step Prompt",
+      "concepts": [
+        "Step-by-step Prompt"
+      ],
+      "raw_text": "ReasoningThink Step-by-Step!",
+      "visual_description": "Step-by-step Prompt의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Step-by-step reasoning을 유도하는 prompt 예시다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p46_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 46,
+      "topic": "CoT 효과",
+      "concepts": [
+        "CoT 효과"
+      ],
+      "raw_text": "ReasoningChain-of-Thought\n\n\n\n모델이 답을 내놓는 과정에서\n중간 추론 과정을 펼쳐 보이게 하면\n문제 해결 성능이 향상된다.\n\n이 관찰은 대규모 언어 모델이\n잠재적인 추론 능력을 가지고 있음을\n처음으로 명확히 보여주었다.\n\n이러한 연구를 바탕으로, 다양한 프롬프팅\n관련 논문들이 연구되었다.",
+      "visual_description": "CoT 효과의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "CoT는 intermediate reasoning을 생성하게 해 일부 복잡한 task에서 문제 해결 성능을 높일 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cot"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p46_cot",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "중간 추론 과정을 펼쳐 보이게 하면 문제 해결 성능이 향상",
+          "normalized_explanation": "CoT가 일부 complex task의 성능을 개선할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cot"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p47_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 47,
+      "topic": "Self-Consistency와 Tree-of-Thought",
+      "concepts": [
+        "Self-Consistency와 Tree-of-Thought"
+      ],
+      "raw_text": "ReasoningTree-of-Thought / Self-Consistency",
+      "visual_description": "Self-Consistency와 Tree-of-Thought의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Self-consistency는 여러 reasoning path의 answer를 집계하고 ToT는 여러 intermediate thought branch를 탐색·평가한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cot",
+        "self_consistency",
+        "tot"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p47_search",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Tree-of-Thought / Self-Consistency",
+          "normalized_explanation": "Multiple path aggregation과 branch search를 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cot",
+            "self_consistency",
+            "tot"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p48_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 48,
+      "topic": "Tool-using LLM",
+      "concepts": [
+        "Tool-using LLM"
+      ],
+      "raw_text": "ReasoningTool Using LLM까지 발전",
+      "visual_description": "Tool-using LLM의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Tool-using LLM은 reasoning과 action을 번갈아 수행하고 environment observation을 다음 판단에 반영하는 ReAct 계열 흐름을 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "tool_use",
+        "react"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p48_tools",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Reasoning Traces / Actions / Observations / ReAct",
+          "normalized_explanation": "Reasoning과 tool action·observation을 반복한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "tool_use",
+            "react"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p49_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 49,
+      "topic": "CoT 한계",
+      "concepts": [
+        "CoT 한계"
+      ],
+      "raw_text": "ReasoningCoT는 그럼 무적이냐?\n\n\n 일정 수준의 Reasoning 자체는 적당히 할 수 있는데,\n    Prompt를 어떻게 주는지에 따라서 불안정향 경향\n     Reasoning 자체가 길어지면 추론이 이상해짐\n   과도하게 생각하다가 hallucination\n\n 모델이 본질적으로 추론 자체를 잘 하는 방법은 없는가?",
+      "visual_description": "CoT 한계의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "CoT는 prompt에 민감하고 긴 reasoning이 hallucination이나 overthinking을 키울 수 있어 항상 정확성을 보장하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cot",
+        "hallucination"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p49_cot_limit",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Prompt에 따라서 불안정 / 길어지면 hallucination / 과도하게 생각",
+          "normalized_explanation": "CoT는 prompt-sensitive하며 long reasoning도 오류를 낼 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cot",
+            "hallucination"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p50_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 50,
+      "topic": "Reinforcement Fine-Tuning",
+      "concepts": [
+        "Reinforcement Fine-Tuning"
+      ],
+      "raw_text": "Reinforcement Fine Tuning",
+      "visual_description": "Reinforcement Fine-Tuning 페이지이다.",
+      "content": "Reinforcement fine-tuning 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p51_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 51,
+      "topic": "Preference 예시",
+      "concepts": [
+        "Preference 예시"
+      ],
+      "raw_text": "RFTRL이 왜 필요한가? – Preference\n\n\n금붕어에 대한 글을 써봅시다!\n\nA\n금붕어는 지금 세계일주 중이다.\n늘 새로운 것을 보기에 금붕어는 하루하루가 즐겁다.\n\n                                  두 글에 대한 선호를 제공하라고 하면...\n                                                                  SFT(IFT)가 할 수 있을까?B\n오늘은 꼭 분리수거를 해야겠다고 아침부터 다짐했다.\n냉장고 앞에다 메모도 해놨다.\n아 맞다! 분리수거 안 했다!",
+      "visual_description": "Preference 예시의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "주제 관련성처럼 정답 하나로 쓰기 어려운 response quality를 pairwise preference로 표현하는 예시다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "preference",
+        "pairwise_preference",
+        "rft"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p51_preference",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "두 글에 대한 선호를 제공",
+          "normalized_explanation": "Response quality를 pairwise preference로 표현한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "preference",
+            "pairwise_preference",
+            "rft"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p52_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 52,
+      "topic": "Preference to Reward",
+      "concepts": [
+        "Preference to Reward"
+      ],
+      "raw_text": "RFTPreference to Reward\n\n\nPreference는 다양한 형태가 있지만\n“A가 B보다 좋다\" 의 선호에 대해서 살펴봅시다.\n\n이진 선호 자체를 사용하기에는...\n그것이 주는 정보량이 너무 적다는 문제.\n\n선호 자체를 연속적인 신호로 바꿔주자! → Reward Model의 등장\n\n\n\n\n\n                                   Reward Model이 어떻게 학습되냐면... 그건 패스.",
+      "visual_description": "Preference to Reward의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Pairwise preference는 정보가 제한적이므로 RLHF에서는 comparison data로 reward model을 학습해 response에 scalar score를 줄 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pairwise_preference",
+        "reward_model",
+        "reward"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p52_reward",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "선호 자체를 연속적인 신호로 바꿔주자 → Reward Model",
+          "normalized_explanation": "Pairwise comparison에서 scalar reward를 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pairwise_preference",
+            "reward_model",
+            "reward"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p53_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 53,
+      "topic": "DPO 도입",
+      "concepts": [
+        "DPO 도입"
+      ],
+      "raw_text": "RFTReward Model 꼭 필요해?",
+      "visual_description": "DPO 도입의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "DPO는 explicit reward model을 별도로 학습하지 않고 preference data로 language model을 직접 최적화하는 접근이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dpo",
+        "reward_model",
+        "preference"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p53_dpo",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+          "normalized_explanation": "DPO는 explicit reward model 없이 preference data로 직접 최적화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dpo",
+            "reward_model",
+            "preference"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p54_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 54,
+      "topic": "DPO와 Preference Pair",
+      "concepts": [
+        "DPO와 Preference Pair"
+      ],
+      "raw_text": "RFTDPO 그러면 무적이야?\n\n\nDPO가 리워드 모델에 대한 의존성을 없앤 것은 맞는데...\n새로 생긴 의존성은, DPO는 반드시 선호 pair 데이터셋이 필요하다는 것!\n\n단순히 binary feedback, 즉 좋다 싫다만 있으면 어떻게 할거야?",
+      "visual_description": "DPO와 Preference Pair의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "DPO도 chosen·rejected response pair가 필요하며 binary feedback만 있는 설정과 필요한 data 형식이 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dpo",
+        "pairwise_preference",
+        "binary_feedback"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p54_dpo_data",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "DPO는 반드시 선호 pair 데이터셋이 필요",
+          "normalized_explanation": "DPO도 chosen-rejected pair에 의존한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dpo",
+            "pairwise_preference",
+            "binary_feedback"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p55_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 55,
+      "topic": "Preference Label 문제",
+      "concepts": [
+        "Preference Label 문제"
+      ],
+      "raw_text": "RFT선호 데이터도 다 라벨링 아니야?\n\n\n\n\n  라벨을 다는 작업은 결국\n  비용이 드는 것 아닌가?\n\n  라벨러는 항상 정확한가?",
+      "visual_description": "Preference Label 문제의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Human preference labeling은 비용이 들고 annotator noise·bias와 length bias 같은 평가 편향이 생길 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "preference",
+        "label_bias",
+        "llm_judge"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p55_bias",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "라벨을 다는 작업 비용 / 라벨러 정확성 / Length bias",
+          "normalized_explanation": "Preference labeling에는 cost·noise·bias가 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "preference",
+            "label_bias",
+            "llm_judge"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p56_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 56,
+      "topic": "LLM-as-a-Judge",
+      "concepts": [
+        "LLM-as-a-Judge"
+      ],
+      "raw_text": "RFTLLM-as-a-Judge",
+      "visual_description": "LLM-as-a-Judge의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "LLM-as-a-Judge는 LLM으로 response를 평가·비교해 labeling을 보조하지만 model bias와 평가 신뢰성을 검증해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "llm_judge",
+        "label_bias"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p56_judge",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "LLM-as-a-Judge",
+          "normalized_explanation": "LLM이 response 평가를 보조할 수 있으나 신뢰성 검증이 필요하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "llm_judge",
+            "label_bias"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p57_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 57,
+      "topic": "Data 한계와 RL",
+      "concepts": [
+        "Data 한계와 RL"
+      ],
+      "raw_text": "RFT성능을 위해 RL이 왜 필요한가? – 더 본질적으로 (1)\n\n\n\n컴퓨팅 자원은 매년 지수적으로 증가한다\n  더 좋은 하드웨어 (무어의 법칙)\n  더 좋은 알고리즘\n  더 큰 데이터센터\n\n하지만 학습 데이터는 그렇게 성장하지 않는다\n  인터넷에 있는 데이터를 모두 파싱하고 나면?\n                                                                                fun fact)\n  AI의 화석연료                                            2024년 초 앤트로픽은 자사 모델의 학습데이터를 구하\n                                            기 위해 중고도서 수백만권을 구매하여 스캔한 “프로젝\n                                            트 파나마“를 비밀리에 진행했다\n어떻게 성능을 올릴것인가? → RL!",
+      "visual_description": "Data 한계와 RL의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Pretraining data 확장의 한계를 동기로 RL을 제시하지만 특정 기업의 미확인 data 수집 일화는 핵심 평가 근거에서 제외한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "llm_p57_panama",
+          "source_text": "프로젝트 파나마",
+          "issue_type": "ambiguous",
+          "correction": "외부 일화는 핵심 평가 근거에서 제외한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "llm_p58_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 58,
+      "topic": "Scaling의 한계 사례",
+      "concepts": [
+        "Scaling의 한계 사례"
+      ],
+      "raw_text": "RFT성능을 위해 RL이 왜 필요한가? – 더 본질적으로 (2)\n\n\n스케일은 모든것을 해결할까? 2025 초반에 나온 두 모델을 보자\n\n\n\n\n\n          GPT-4.5 는 parameter size가 GPT-4의 5배 정도로 추           LLaMA 4 Behemoth는 파라미터를 2T까지 키웠다고 홍보\n       정되지만, 엄청난 컴퓨팅 비용을 잡아먹지만, 환각을 줄         하였으나, 실질적인 성능은 좋지 못했고, Meta는 아직까지\n      였다는 것 외에는 뚜렷한 장점이 없는 것으로 드러났다        도 LLaMA 4 Behemoth의 가중치를 공개하지 않았다.",
+      "visual_description": "Scaling의 한계 사례의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "단순 model scale만으로 모든 capability가 해결되지는 않는다는 문제를 제기한다. 공개되지 않은 parameter 추정이나 시점 의존 model 평가는 정답 claim으로 쓰지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "llm_p58_product_claims",
+          "source_text": "GPT-4.5 parameter size / LLaMA 4 Behemoth 성능",
+          "issue_type": "ambiguous",
+          "correction": "비공개 추정과 시점 의존 제품 평가는 핵심 평가에서 제외한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "llm_p59_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 59,
+      "topic": "RLVR 사례 도입",
+      "concepts": [
+        "RLVR 사례 도입"
+      ],
+      "raw_text": "RFTRLVR\n\n\n비슷하게 2025 초반에 나온 OpenAI의 “수상한 모델“",
+      "visual_description": "RLVR 사례 도입의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Reasoning model과 RLVR 사례를 소개하는 페이지이며 제품 별명이나 홍보성 표현은 평가하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p60_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 60,
+      "topic": "RLVR 정의",
+      "concepts": [
+        "RLVR 정의"
+      ],
+      "raw_text": "RFTRLVR(Reinforcement Learning with Verifiable Rewards)\n\n\n\n\n\n                       o1 의 비밀은, 검증 가능한 보상을 이용한 RL!",
+      "visual_description": "RLVR 정의의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "RLVR은 answer correctness를 program·rule 등으로 검증 가능한 task에서 objective reward를 계산해 policy를 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rlvr",
+        "verifiable_reward",
+        "reinforcement_learning"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p60_rlvr",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "RLVR(Reinforcement Learning with Verifiable Rewards) / 검증 가능한 보상",
+          "normalized_explanation": "RLVR은 correctness를 검증할 수 있는 reward로 policy를 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rlvr",
+            "verifiable_reward",
+            "reinforcement_learning"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p61_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 61,
+      "topic": "DeepSeek-R1과 GRPO",
+      "concepts": [
+        "DeepSeek-R1과 GRPO"
+      ],
+      "raw_text": "RFTDeepSeek - R1\n\n\n\n\n\n       RLVR을 사용해서 성공을 거둔 대표적인 논문, 그리고 RLVR과 잘 맞는 GRPO",
+      "visual_description": "DeepSeek-R1과 GRPO의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "DeepSeek-R1은 RLVR 계열 학습과 GRPO를 reasoning 개선에 적용한 사례로 소개된다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p62_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 62,
+      "topic": "GRPO 비교",
+      "concepts": [
+        "GRPO 비교"
+      ],
+      "raw_text": "RFTDeepSeek - R1\n\n\n\n\n\n                   이렇게 죽어라 학습하다보니까... 추론을 잘하게 되더라!",
+      "visual_description": "GRPO 비교의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "GRPO는 한 prompt에서 여러 output의 relative reward를 이용해 group advantage를 계산하며 별도 value model 의존을 줄이는 구조로 제시된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "grpo",
+        "rlvr",
+        "reward"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p62_grpo",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "PPO / GRPO / 여러 output과 reward의 group computation",
+          "normalized_explanation": "GRPO는 group-relative reward로 advantage를 계산한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "grpo",
+            "rlvr",
+            "reward"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p63_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 63,
+      "topic": "추론의 자기수정 사례",
+      "concepts": [
+        "추론의 자기수정 사례"
+      ],
+      "raw_text": "RFTDeepSeek - R1\n\n\n\n\n\n       이렇게 죽어라 학습하다보니까... 추론을 잘하게 되는데 또 알잘딱을 잘하게 되더라!",
+      "visual_description": "추론의 자기수정 사례의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "RL training 중 model이 intermediate reasoning을 재검토·정정하는 행동이 나타난 사례를 보여주지만 한 사례가 일반적 능력을 보장하지는 않는다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p64_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 64,
+      "topic": "Additional Topics",
+      "concepts": [
+        "Additional Topics"
+      ],
+      "raw_text": "Additional Topic",
+      "visual_description": "Additional Topics 페이지이다.",
+      "content": "추가 주제 섹션 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p65_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 65,
+      "topic": "Diffusion Language Model 동기",
+      "concepts": [
+        "Diffusion Language Model 동기"
+      ],
+      "raw_text": "Additional TopicDiffusion Language model\n\n\n\n                          우리가 잘 알고 있는것...\n                                  이미지: Diffusion\n                                  텍스트: GPT\n\n                                  GPT는 한번에 1개 토큰만 뱉고,\n                       양방향 문맥을 고려 못하는 단점이 존재한다\n\n                          그래서 최근에는 디퓨전으로도 언어모델을 만\n                                  든다!\n\n\n\n\n\n                                                       https://ravjot03.medium.com/bert-vs-gpt-a-guide-to-two-powerful-language-models-b14502438065",
+      "visual_description": "Diffusion Language Model 동기의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Autoregressive GPT는 생성 시 이전 token에 조건화해 보통 한 token씩 생성한다. Diffusion LM은 전체 위치를 반복 갱신하는 다른 생성 방식을 탐색한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "gpt",
+        "autoregressive",
+        "diffusion_lm"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p65_diffusion",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "GPT는 한번에 1개 토큰 / Diffusion language model",
+          "normalized_explanation": "Autoregressive generation과 diffusion generation을 비교한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gpt",
+            "autoregressive",
+            "diffusion_lm"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p66_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 66,
+      "topic": "Iterative Unmasking",
+      "concepts": [
+        "Iterative Unmasking"
+      ],
+      "raw_text": "Additional TopicDiffusion Language model\n\n\n\n\n                                                         Diffusion Language Model은 BERT랑\n                            비슷한 구조를 가지고 있음\n                                       <MASK> 토큰으로 가득 찬 상태에서 한개\n                           씩 Unmasking 하며 예측\n                                    BERT와는 학습 목표가 다르지만 여기서는\n                                                 패스...\n\n\n\n\n\n                                                             https://medium.com/data-science-collective/llada-explained-how-diffusion-could-revolutionize-\n                                                                                 language-models-950bcce4ec09",
+      "visual_description": "Iterative Unmasking의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Discrete diffusion LM은 mask가 많은 상태에서 token을 예측하고 낮은 confidence 위치를 remask하며 iterative unmasking한다. BERT와 유사한 bidirectional architecture를 쓸 수 있지만 training·generation objective는 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "diffusion_lm",
+        "mask_token",
+        "bert",
+        "mlm"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p66_unmask",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "MASK 토큰으로 가득 찬 상태에서 Unmasking하며 예측 / BERT와 학습 목표가 다름",
+          "normalized_explanation": "Diffusion LM은 iterative unmasking하며 BERT MLM과 objective가 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "diffusion_lm",
+            "mask_token",
+            "bert",
+            "mlm"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p67_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 67,
+      "topic": "Diffusion LM Demo",
+      "concepts": [
+        "Diffusion LM Demo"
+      ],
+      "raw_text": "Additional TopicDiffusion Language model\n\n\n\n\n\n                                                                                       https://ml-gsai.github.io/LLaDA-demo/",
+      "visual_description": "Diffusion LM Demo의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Diffusion language model demonstration 링크를 제공한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p68_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 68,
+      "topic": "Hallucination",
+      "concepts": [
+        "Hallucination"
+      ],
+      "raw_text": "Additional TopicHallucination",
+      "visual_description": "Hallucination의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Hallucination은 model이 사실처럼 보이지만 근거 없거나 틀린 정보를 생성하는 현상임을 예시로 보여준다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "hallucination"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p68_hallucination",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "사실처럼 보이는 잘못된 문장 예시",
+          "normalized_explanation": "Hallucination은 근거 없거나 틀린 내용을 사실처럼 생성하는 현상이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hallucination"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p69_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 69,
+      "topic": "RAG 질문",
+      "concepts": [
+        "RAG 질문"
+      ],
+      "raw_text": "Additional TopicRAG\n\n\n\n\n\nRAG는 우리 모두가 다 안다. 이제는 어떤 의문들이 드는가...\n  어떻게 가져올 수 있도록 하지? 단순히 키워드 검색?\n  임베딩으로 접근한다면... 좋은 임베딩은 어떻게 갖추지?\n  동일한 임베딩 모델에서 좋은 임베딩 성능을 올리는 법은 무엇이지?\n  유사도가 높은 임베딩이 성능이 잘나오는 임베딩인가?",
+      "visual_description": "RAG 질문의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "RAG는 query로 corpus에서 relevant chunk를 retrieval해 prompt context에 넣지만 retrieval·embedding similarity가 downstream answer quality를 자동 보장하지 않으므로 별도 평가가 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rag",
+        "retrieval",
+        "embedding",
+        "similarity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p69_rag",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Query / Corpus / Retrieved Chunks / Embedding / 유사도가 높은 임베딩이 성능이 잘나오는가",
+          "normalized_explanation": "RAG는 retrieval context를 사용하며 embedding similarity와 answer quality를 별도 평가해야 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rag",
+            "retrieval",
+            "embedding",
+            "similarity"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p70_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 70,
+      "topic": "VLA",
+      "concepts": [
+        "VLA"
+      ],
+      "raw_text": "Additional TopicVLA\n\n\n\n\n\n                                      VLA\n                                                      (Vision-Language-Action)\n                                                             Language Model 이 한번\n                                                                Action도 가능하게 해볼까?\n                                                                      https://youtu.be/4lSQnrMC6nY",
+      "visual_description": "VLA의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "VLA는 vision input과 language instruction을 함께 처리해 robot control 같은 action output을 생성하는 model 계열이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "vla",
+        "llm"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p70_vla",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "VLA (Vision-Language-Action) / Language Model이 Action",
+          "normalized_explanation": "VLA는 visual-language input에서 action을 생성한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "vla",
+            "llm"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p71_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 71,
+      "topic": "LLM 활용 관심 변화",
+      "concepts": [
+        "LLM 활용 관심 변화"
+      ],
+      "raw_text": "Additional TopicLLM Meta의 변화",
+      "visual_description": "LLM 활용 관심 변화의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "Prompt engineering, RAG와 agent에 대한 관심 변화 그래프를 보여주는 참고 페이지이며 시점 의존 수치를 평가하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p72_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 72,
+      "topic": "YBIGTA의 Agent 활용",
+      "concepts": [
+        "YBIGTA의 Agent 활용"
+      ],
+      "raw_text": "Additional Topic그래서 Ybigta에서 LLM으로 뭐를 제일 많이 하는데?",
+      "visual_description": "YBIGTA의 Agent 활용의 architecture·학습 흐름·예시를 제시한다.",
+      "content": "YBIGTA에서 LLM agent와 workflow 도구를 활용하는 예시를 보여준다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "agent",
+        "tool_use",
+        "llm"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "llm_p72_agent",
+          "type": "example",
+          "source_type": "visual",
+          "source_excerpt": "AI agent / tools / memory / actions",
+          "normalized_explanation": "LLM agent는 model·memory·tools·action loop를 결합할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "agent",
+            "tool_use",
+            "llm"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "llm_p73_01",
+      "lecture_id": "llm",
+      "lecture_name": "Large Language Models",
+      "page": 73,
+      "topic": "강의 마무리",
+      "concepts": [
+        "강의 마무리"
+      ],
+      "raw_text": "감사합니다!\n\n\n\n\n\n혹시라도 질문하실 것 or 저랑 이야기하고싶으신게 있으시다면...\n갠톡(편하게) or r191d1ty.w00@yonsei.ac.kr",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "LLM 강의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

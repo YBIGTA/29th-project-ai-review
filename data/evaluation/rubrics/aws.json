@@ -1,0 +1,963 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "aws",
+  "lecture_name": "AWS",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "aws.cloud_foundations",
+      "title": "클라우드 컴퓨팅과 서비스 모델",
+      "selection_description": "온프레미스와 클라우드, 책임·탄력성·전환을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "aws.cloud.concept",
+          "title": "온프레미스와 클라우드",
+          "summary": "운영 방식과 비용 구조를 비교한다.",
+          "claims": [
+            {
+              "claim_id": "aws.onprem_cloud",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "On-premises는 infrastructure를 직접 구매·운영해 초기 비용과 capacity planning 부담이 크고 cloud는 on-demand resource와 pay-as-you-go로 빠르게 조정할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "aws_p4_01",
+                  "unit_id": "aws_p4_onprem",
+                  "source_excerpt": "직접 서버를 구매하고 관리 / 초기 비용 / 확장에 시간",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "on_premises",
+                "cloud_computing"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "On-premises는 infrastructure를 직접 구매·운영해 초기 비용과 capacity planning 부담이 크고 cloud는 on-demand resource와 pay-as-you-go로 빠르게 조정할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.cloud_definition",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Cloud computing은 network를 통해 compute·storage 같은 IT resource를 필요할 때 제공받는 방식이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "aws_p5_01",
+                  "unit_id": "aws_p5_cloud",
+                  "source_excerpt": "필요한 만큼 IT 자원을 인터넷을 통해 사용 / IaaS PaaS SaaS",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cloud_computing",
+                "on_demand",
+                "pay_as_you_go",
+                "iaas",
+                "paas",
+                "saas"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Cloud computing은 network를 통해 compute·storage 같은 IT resource를 필요할 때 제공받는 방식이다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.cloud.models",
+          "title": "서비스 모델과 책임",
+          "summary": "IaaS·PaaS·SaaS를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "aws.service_models",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "IaaS·PaaS·SaaS는 provider가 관리하는 stack 범위가 차례로 넓어지고 customer가 직접 관리하는 범위는 줄어든다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "aws_p7_01",
+                  "unit_id": "aws_p7_responsibility",
+                  "source_excerpt": "IaaS / PaaS / SaaS 관리 범위",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "shared_responsibility",
+                "iaas",
+                "paas",
+                "saas"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "IaaS·PaaS·SaaS는 provider가 관리하는 stack 범위가 차례로 넓어지고 customer가 직접 관리하는 범위는 줄어든다."
+                ],
+                "critical_errors": [
+                  "IaaS·PaaS·SaaS에서 사용자와 공급자의 책임 범위가 모두 같다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "aws.shared_responsibility",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Cloud에서도 customer는 선택한 service model에 따라 data·application·OS·access configuration 등 자신의 책임을 수행해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "aws_p7_01",
+                  "unit_id": "aws_p7_responsibility",
+                  "source_excerpt": "IaaS / PaaS / SaaS 관리 범위",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "shared_responsibility",
+                "iaas",
+                "paas",
+                "saas"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Cloud에서도 customer는 선택한 service model에 따라 data·application·OS·access configuration 등 자신의 책임을 수행해야 한다."
+                ],
+                "critical_errors": [
+                  "Cloud provider가 application data와 access 설정까지 언제나 전적으로 책임진다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.cloud.operations",
+          "title": "전환과 DevOps",
+          "summary": "Migration과 automation을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "aws.migration",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Cloud migration은 workload 평가·계획, service와 architecture 선택, data 이전·통합, test·optimization의 단계로 진행한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "aws_p8_01",
+                  "unit_id": "aws_p8_migration",
+                  "source_excerpt": "계획 및 평가 / 선택 및 최적화 / 데이터 이전 / 통합 / 테스트",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cloud_migration",
+                "cloud_computing"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Cloud migration은 workload 평가·계획, service와 architecture 선택, data 이전·통합, test·optimization의 단계로 진행한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.devops",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Cloud resource와 DevOps CI/CD·monitoring·automation을 결합하면 반복 배포와 운영 대응을 빠르게 할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "aws_p9_01",
+                  "unit_id": "aws_p9_devops",
+                  "source_excerpt": "CI/CD / 탄력적 확장 / 모니터링 / 자동화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "devops",
+                "cicd",
+                "monitoring",
+                "elasticity"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Cloud resource와 DevOps CI/CD·monitoring·automation을 결합하면 반복 배포와 운영 대응을 빠르게 할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.cloud.scaling",
+          "title": "탄력성과 비용",
+          "summary": "수요 기반 조정을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "aws.elasticity",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Elasticity는 demand 변화에 맞춰 resource를 자동 또는 수동으로 늘리고 줄이는 능력이며 Auto Scaling이 이를 지원한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "aws_p10_01",
+                  "unit_id": "aws_p10_elasticity",
+                  "source_excerpt": "Scale up/down / Auto Scaling / Pay as you go",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "elasticity",
+                "scalability",
+                "scale_up",
+                "scale_down",
+                "auto_scaling",
+                "pay_as_you_go"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Elasticity는 demand 변화에 맞춰 resource를 자동 또는 수동으로 늘리고 줄이는 능력이며 Auto Scaling이 이를 지원한다."
+                ],
+                "critical_errors": [
+                  "Elasticity가 수요와 무관하게 자원을 항상 최대치로 유지하는 것이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "aws.cost_scaling",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Pay-as-you-go는 실제 사용 resource에 따라 비용을 지불하게 하지만 monitoring과 right-sizing 없이 비용 효율이 자동 보장되지는 않는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "aws_p10_01",
+                  "unit_id": "aws_p10_elasticity",
+                  "source_excerpt": "Scale up/down / Auto Scaling / Pay as you go",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "elasticity",
+                "scalability",
+                "scale_up",
+                "scale_down",
+                "auto_scaling",
+                "pay_as_you_go"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Pay-as-you-go는 실제 사용 resource에 따라 비용을 지불하게 하지만 monitoring과 right-sizing 없이 비용 효율이 자동 보장되지는 않는다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "aws.services_compute",
+      "title": "AWS 서비스와 EC2 운영",
+      "selection_description": "대표 서비스와 EC2 구성·가용성을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "aws.service.selection",
+          "title": "서비스 역할",
+          "summary": "서비스를 요구사항에 연결한다.",
+          "claims": [
+            {
+              "claim_id": "aws.services",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "EC2는 virtual compute, S3는 object storage, RDS는 managed relational database, Lambda는 event-driven serverless compute, VPC는 network, IAM은 identity·permission을 담당한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "aws_p13_01",
+                  "unit_id": "aws_p13_services",
+                  "source_excerpt": "EC2 / S3 / RDS / Lambda / VPC / IAM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "aws",
+                "ec2",
+                "s3",
+                "rds",
+                "lambda",
+                "vpc",
+                "iam"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "EC2는 virtual compute, S3는 object storage, RDS는 managed relational database, Lambda는 event-driven serverless compute, VPC는 network, IAM은 identity·permission을 담당한다."
+                ],
+                "critical_errors": [
+                  "EC2·S3·RDS의 역할을 서로 뒤바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "aws.compute_storage_db",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Compute·storage·database 요구를 구분해 EC2·S3·RDS 등 적합한 service를 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "aws_p13_01",
+                  "unit_id": "aws_p13_services",
+                  "source_excerpt": "EC2 / S3 / RDS / Lambda / VPC / IAM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "aws",
+                "ec2",
+                "s3",
+                "rds",
+                "lambda",
+                "vpc",
+                "iam"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Compute·storage·database 요구를 구분해 EC2·S3·RDS 등 적합한 service를 선택한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.identity_network",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "VPC는 workload의 logical network boundary를 구성하고 IAM은 user·role·policy로 AWS resource access를 제어한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "aws_p13_01",
+                  "unit_id": "aws_p13_services",
+                  "source_excerpt": "EC2 / S3 / RDS / Lambda / VPC / IAM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "aws",
+                "ec2",
+                "s3",
+                "rds",
+                "lambda",
+                "vpc",
+                "iam"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "VPC는 workload의 logical network boundary를 구성하고 IAM은 user·role·policy로 AWS resource access를 제어한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.ec2.resources",
+          "title": "EC2와 저장소",
+          "summary": "Instance·AMI·EBS를 연결한다.",
+          "claims": [
+            {
+              "claim_id": "aws.instance_ami",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "EC2 instance는 virtual server이고 AMI는 OS·software configuration을 담아 instance를 일관되게 생성하는 template다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "aws_p15_01",
+                  "unit_id": "aws_p15_ec2",
+                  "source_excerpt": "Instance / AMI / Auto Scaling / ELB",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 17,
+                  "chunk_id": "aws_p17_01",
+                  "unit_id": "aws_p17_storage_lb",
+                  "source_excerpt": "Instance / Image / EBS / Load Balancing",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ec2",
+                "instance",
+                "ami",
+                "auto_scaling",
+                "elb",
+                "load_balancer",
+                "ebs"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "EC2 instance는 virtual server이고 AMI는 OS·software configuration을 담아 instance를 일관되게 생성하는 template다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.ebs",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "EBS는 EC2에 network로 attach하는 block storage이며 설정에 따라 instance 종료 후에도 volume을 보존할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "aws_p17_01",
+                  "unit_id": "aws_p17_storage_lb",
+                  "source_excerpt": "Instance / Image / EBS / Load Balancing",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "instance",
+                "ami",
+                "ebs",
+                "load_balancer",
+                "elb"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "EBS는 EC2에 network로 attach하는 block storage이며 설정에 따라 instance 종료 후에도 volume을 보존할 수 있다."
+                ],
+                "critical_errors": [
+                  "EBS를 S3와 같은 object storage라고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.ec2.scale",
+          "title": "확장과 부하 분산",
+          "summary": "Server 수와 traffic을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "aws.autoscaling_elb",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Auto Scaling은 policy와 demand에 따라 instance 수를 조정하고 ELB는 healthy target들에 traffic을 분산한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "aws_p15_01",
+                  "unit_id": "aws_p15_ec2",
+                  "source_excerpt": "Instance / AMI / Auto Scaling / ELB",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ec2",
+                "instance",
+                "ami",
+                "auto_scaling",
+                "elb",
+                "load_balancer"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Auto Scaling은 policy와 demand에 따라 instance 수를 조정하고 ELB는 healthy target들에 traffic을 분산한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.availability",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Cloud availability는 Region·Availability Zone·service dependency와 redundancy architecture에 달려 있어 단일 장애가 모든 AWS workload를 동일하게 중단시키는 것은 아니다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "aws_p13_01",
+                  "unit_id": "aws_p13_services",
+                  "source_excerpt": "EC2 / S3 / RDS / Lambda / VPC / IAM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "aws",
+                "ec2",
+                "s3",
+                "rds",
+                "lambda",
+                "vpc",
+                "iam"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Cloud availability는 Region·Availability Zone·service dependency와 redundancy architecture에 달려 있어 단일 장애가 모든 AWS workload를 동일하게 중단시키는 것은 아니다."
+                ],
+                "critical_errors": [
+                  "AWS의 일부 장애가 모든 Region과 모든 architecture를 반드시 동시에 중단시킨다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "aws.network_security_deployment",
+      "title": "네트워크·보안·배포",
+      "selection_description": "접근 제어, protocol, VPC와 image 배포를 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "aws.net.security",
+          "title": "보안 그룹",
+          "summary": "Traffic rule과 최소 권한을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "aws.security_group",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Security group은 stateful virtual firewall로 inbound는 resource로 들어오는 traffic, outbound는 resource에서 나가는 traffic rule이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "aws_p18_01",
+                  "unit_id": "aws_p18_sg",
+                  "source_excerpt": "Inbound / Outbound / 필요한 포트만 허용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "security_group",
+                "inbound",
+                "outbound",
+                "least_privilege"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Security group은 stateful virtual firewall로 inbound는 resource로 들어오는 traffic, outbound는 resource에서 나가는 traffic rule이다."
+                ],
+                "critical_errors": [
+                  "Security group의 inbound와 outbound 방향을 반대로 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "aws.least_privilege",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Inbound와 outbound 모두 application에 필요한 protocol·port·source 또는 destination만 허용하는 least privilege를 목표로 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "aws_p18_01",
+                  "unit_id": "aws_p18_sg",
+                  "source_excerpt": "Inbound / Outbound / 필요한 포트만 허용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "security_group",
+                "inbound",
+                "outbound",
+                "least_privilege"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Inbound와 outbound 모두 application에 필요한 protocol·port·source 또는 destination만 허용하는 least privilege를 목표로 한다."
+                ],
+                "critical_errors": [
+                  "Outbound 전체 허용이 모든 system에서 언제나 가장 안전하다고 단정"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.net.protocol",
+          "title": "Web·전송 프로토콜",
+          "summary": "SSH·HTTP(S)와 TCP·UDP를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "aws.web_protocols",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "SSH는 remote shell, HTTP는 unencrypted web protocol, HTTPS는 HTTP를 TLS로 보호한 protocol이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "aws_p19_01",
+                  "unit_id": "aws_p19_web_protocol",
+                  "source_excerpt": "SSH / HTTP / HTTPS / Mixed Content",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ssh",
+                "http",
+                "https",
+                "tls",
+                "mixed_content"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "SSH는 remote shell, HTTP는 unencrypted web protocol, HTTPS는 HTTP를 TLS로 보호한 protocol이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.mixed_content",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Mixed content는 HTTPS page가 HTTP resource를 요청할 때 생기므로 page와 asset·API URL을 모두 HTTPS로 제공해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "aws_p19_01",
+                  "unit_id": "aws_p19_web_protocol",
+                  "source_excerpt": "SSH / HTTP / HTTPS / Mixed Content",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ssh",
+                "http",
+                "https",
+                "tls",
+                "mixed_content"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Mixed content는 HTTPS page가 HTTP resource를 요청할 때 생기므로 page와 asset·API URL을 모두 HTTPS로 제공해야 한다."
+                ],
+                "critical_errors": [
+                  "Load balancer만 추가하면 HTTP resource URL을 고치지 않아도 mixed content가 자동 해결된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "aws.transport",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "TCP는 reliable ordered byte stream, UDP는 connectionless datagram이며 application requirement에 맞춰 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 20,
+                  "chunk_id": "aws_p20_01",
+                  "unit_id": "aws_p20_transport",
+                  "source_excerpt": "TCP / UDP / SSH 22 / HTTP 80 / HTTPS 443 / DNS",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "tcp",
+                "udp",
+                "ssh",
+                "http",
+                "https",
+                "dns",
+                "route53"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "TCP는 reliable ordered byte stream, UDP는 connectionless datagram이며 application requirement에 맞춰 선택한다."
+                ],
+                "critical_errors": [
+                  "AWS application은 UDP를 사용할 수 없고 언제나 TCP만 선택해야 한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "aws.ports",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "SSH 22, HTTP 80, HTTPS 443은 대표 default port이고 DNS는 상황에 따라 UDP와 TCP를 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 20,
+                  "chunk_id": "aws_p20_01",
+                  "unit_id": "aws_p20_transport",
+                  "source_excerpt": "TCP / UDP / SSH 22 / HTTP 80 / HTTPS 443 / DNS",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "tcp",
+                "udp",
+                "ssh",
+                "http",
+                "https",
+                "dns",
+                "route53"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "SSH 22, HTTP 80, HTTPS 443은 대표 default port이고 DNS는 상황에 따라 UDP와 TCP를 사용한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.net.vpc",
+          "title": "VPC와 주소",
+          "summary": "논리 network와 외부 연결 조건을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "aws.vpc_subnet",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "VPC는 isolated logical network이고 subnet은 VPC CIDR 범위의 일부로 workload를 구역화한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "aws_p21_01",
+                  "unit_id": "aws_p21_network",
+                  "source_excerpt": "Public IP / Private IP / VPC / Subnet / CIDR",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "public_ip",
+                "private_ip",
+                "vpc",
+                "subnet",
+                "cidr"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "VPC는 isolated logical network이고 subnet은 VPC CIDR 범위의 일부로 workload를 구역화한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.public_private",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Public·private IP 구분만으로 connectivity가 결정되지 않으며 route table, internet gateway, security group 등도 함께 충족해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "aws_p21_01",
+                  "unit_id": "aws_p21_network",
+                  "source_excerpt": "Public IP / Private IP / VPC / Subnet / CIDR",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "public_ip",
+                "private_ip",
+                "vpc",
+                "subnet",
+                "cidr"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Public·private IP 구분만으로 connectivity가 결정되지 않으며 route table, internet gateway, security group 등도 함께 충족해야 한다."
+                ],
+                "critical_errors": [
+                  "Public IP만 있으면 route와 security rule에 상관없이 누구나 반드시 접속할 수 있다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "aws.cidr",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "CIDR은 IP address prefix와 network 크기를 표현해 VPC와 subnet address range를 정의한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "aws_p21_01",
+                  "unit_id": "aws_p21_network",
+                  "source_excerpt": "Public IP / Private IP / VPC / Subnet / CIDR",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "public_ip",
+                "private_ip",
+                "vpc",
+                "subnet",
+                "cidr"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CIDR은 IP address prefix와 network 크기를 표현해 VPC와 subnet address range를 정의한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "aws.net.deploy",
+          "title": "Container 배포",
+          "summary": "Image 전달 흐름을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "aws.docker_deploy",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Local에서 Docker image를 build해 registry에 push하고 cloud server에서 pull·run한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "aws_p22_01",
+                  "unit_id": "aws_p22_deploy",
+                  "source_excerpt": "docker build / push / pull / run",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "docker_image",
+                "registry",
+                "ec2"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Local에서 Docker image를 build해 registry에 push하고 cloud server에서 pull·run한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "aws.runtime_config",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Secret·port·network와 persistent data 같은 runtime configuration은 reusable image에 고정하지 않고 deployment environment에서 안전하게 주입한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "aws_p22_01",
+                  "unit_id": "aws_p22_deploy",
+                  "source_excerpt": "docker build / push / pull / run",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "docker_image",
+                "registry",
+                "ec2"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Secret·port·network와 persistent data 같은 runtime configuration은 reusable image에 고정하지 않고 deployment environment에서 안전하게 주입한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": [
+    {
+      "page": 13,
+      "chunk_id": "aws_p13_01",
+      "source_text": "AWS가 다운되면 다 다운",
+      "reason": "장애 범위는 Region·AZ·service dependency와 redundancy architecture에 따라 달라짐"
+    },
+    {
+      "page": 18,
+      "chunk_id": "aws_p18_01",
+      "source_text": "Outbound는 보통 전체 허용",
+      "reason": "일반적 default일 수 있으나 모든 workload의 최선 보안 정책으로 일반화하지 않음"
+    },
+    {
+      "page": 19,
+      "chunk_id": "aws_p19_01",
+      "source_text": "Mixed Content → load balancer로 감싼다",
+      "reason": "Load balancer만으로 HTTP resource URL이 자동 수정되지 않으며 end-to-end HTTPS 구성이 필요"
+    },
+    {
+      "page": 20,
+      "chunk_id": "aws_p20_01",
+      "source_text": "AWS에서는 TCP만 알면 된다 / 모르겠으면 TCP",
+      "reason": "UDP도 DNS·streaming·QUIC 등에서 사용되며 application protocol에 맞춰야 함"
+    },
+    {
+      "page": 21,
+      "chunk_id": "aws_p21_01",
+      "source_text": "Public IP는 누구나 접근 가능",
+      "reason": "Public IP 외에도 route와 security control이 허용되어야 실제 접근 가능"
+    }
+  ]
+}

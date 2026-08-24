@@ -297,6 +297,12 @@ from scripts.build_ml_evaluation_data import CURATION as MACHINE_LEARNING_CURATI
 from scripts.build_dl_evaluation_data import CURATION as DEEP_LEARNING_CURATION
 from scripts.build_cv_evaluation_data import CURATION as COMPUTER_VISION_CURATION
 from scripts.build_nlp_evaluation_data import CURATION as NLP_CURATION
+from scripts.build_docker_evaluation_data import CURATION as DOCKER_CURATION
+from scripts.build_llm_evaluation_data import CURATION as LLM_CURATION
+from scripts.build_aws_evaluation_data import CURATION as AWS_CURATION
+from scripts.build_db_evaluation_data import CURATION as DB_CURATION
+from scripts.build_ai_agent_evaluation_data import CURATION as AI_AGENT_CURATION
+from scripts.build_rag_evaluation_data import CURATION as RAG_CURATION
 
 CURATION["cs_basics"] = CS_BASICS_CURATION
 CURATION["git"] = GIT_CURATION
@@ -307,6 +313,12 @@ CURATION["machine_learning"] = MACHINE_LEARNING_CURATION
 CURATION["deep_learning"] = DEEP_LEARNING_CURATION
 CURATION["computer_vision"] = COMPUTER_VISION_CURATION
 CURATION["nlp"] = NLP_CURATION
+CURATION["docker"] = DOCKER_CURATION
+CURATION["llm"] = LLM_CURATION
+CURATION["aws"] = AWS_CURATION
+CURATION["db"] = DB_CURATION
+CURATION["ai_agent"] = AI_AGENT_CURATION
+CURATION["rag"] = RAG_CURATION
 
 
 def build(lecture_id: str) -> Path:
@@ -379,6 +391,18 @@ def build(lecture_id: str) -> Path:
         from scripts.build_cv_evaluation_data import apply_evaluation_data
     elif lecture_id == "nlp":
         from scripts.build_nlp_evaluation_data import apply_evaluation_data
+    elif lecture_id == "docker":
+        from scripts.build_docker_evaluation_data import apply_evaluation_data
+    elif lecture_id == "llm":
+        from scripts.build_llm_evaluation_data import apply_evaluation_data
+    elif lecture_id == "aws":
+        from scripts.build_aws_evaluation_data import apply_evaluation_data
+    elif lecture_id == "db":
+        from scripts.build_db_evaluation_data import apply_evaluation_data
+    elif lecture_id == "ai_agent":
+        from scripts.build_ai_agent_evaluation_data import apply_evaluation_data
+    elif lecture_id == "rag":
+        from scripts.build_rag_evaluation_data import apply_evaluation_data
     else:
         apply_evaluation_data = None
 

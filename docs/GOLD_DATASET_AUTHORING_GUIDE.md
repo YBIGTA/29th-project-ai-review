@@ -23,7 +23,8 @@ Gold 제작 중에는 현재 평가기의 결과를 정답으로 사용하지 �
 
 현재 `basic_statistics`, `crawling`, `eda_fe`, `visualization`, `cs_basics`,
 `git`, `python_environment`, `web`, `network_basics`, `machine_learning`,
-`deep_learning`, `computer_vision`, `nlp`는 Rubric `2.2.0`의 모든 Claim에
+`deep_learning`, `computer_vision`, `nlp`, `docker`, `llm`, `aws`, `db`,
+`ai_agent`, `rag`는 Rubric `2.2.0`의 모든 Claim에
 `evaluation_criteria`와 원자 Evidence가 있어 최종 Gold 제작을 시작할 수 있다.
 
 ## 2. 현재 평가 구조

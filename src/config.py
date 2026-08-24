@@ -77,6 +77,30 @@ LECTURES: dict[str, LectureConfig] = {
         lecture_id="nlp", lecture_name="Natural Language Processing",
         source_names=("nlp.pdf", "NLP.pdf"),
     ),
+    "docker": LectureConfig(
+        lecture_id="docker", lecture_name="Docker",
+        source_names=("docker.pdf", "Docker.pdf"),
+    ),
+    "llm": LectureConfig(
+        lecture_id="llm", lecture_name="Large Language Models",
+        source_names=("llm.pdf", "LLM.pdf"),
+    ),
+    "aws": LectureConfig(
+        lecture_id="aws", lecture_name="AWS",
+        source_names=("aws.pdf", "AWS.pdf"),
+    ),
+    "db": LectureConfig(
+        lecture_id="db", lecture_name="Database",
+        source_names=("db.pdf", "DB.pdf"),
+    ),
+    "ai_agent": LectureConfig(
+        lecture_id="ai_agent", lecture_name="AI Agent",
+        source_names=("ai_agent.pdf", "AI AGENT.pdf", "AI_AGENT.pdf"),
+    ),
+    "rag": LectureConfig(
+        lecture_id="rag", lecture_name="Retrieval-Augmented Generation",
+        source_names=("rag.pdf", "RAG.pdf"),
+    ),
 }
 
 

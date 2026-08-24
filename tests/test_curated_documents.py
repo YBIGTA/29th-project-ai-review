@@ -23,6 +23,12 @@ EXPECTED_PAGE_COUNTS = {
     "deep_learning": 54,
     "computer_vision": 42,
     "nlp": 52,
+    "docker": 36,
+    "llm": 73,
+    "aws": 25,
+    "db": 57,
+    "ai_agent": 53,
+    "rag": 35,
 }
 
 
@@ -68,6 +74,12 @@ def test_curated_document_covers_pdf_exactly(lecture_id: str) -> None:
         "deep_learning",
         "computer_vision",
         "nlp",
+        "docker",
+        "llm",
+        "aws",
+        "db",
+        "ai_agent",
+        "rag",
     }:
         assert document.schema_version == "2.1.0"
         assert document.terminology

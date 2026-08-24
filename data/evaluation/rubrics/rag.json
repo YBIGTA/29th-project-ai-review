@@ -1,0 +1,1284 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "rag",
+  "lecture_name": "Retrieval-Augmented Generation",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "rag.foundations_architecture",
+      "title": "RAG 목적과 전체 구조",
+      "selection_description": "RAG가 필요한 이유와 indexing·retrieval·generation 흐름을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "rag.foundation.need",
+          "title": "LLM 한계와 RAG",
+          "summary": "External knowledge를 연결하는 이유를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.limitations",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Parametric LLM은 최신·private information 접근과 source grounding에 한계가 있어 outdated answer와 hallucination이 생길 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "rag_p5_01",
+                  "unit_id": "rag_p5_limits",
+                  "source_excerpt": "LLM의 한계 / 최신 정보 / Private Data / Hallucination",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hallucination",
+                "outdated_information",
+                "knowledge_base"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Parametric LLM은 최신·private information 접근과 source grounding에 한계가 있어 outdated answer와 hallucination이 생길 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.definition",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "RAG는 query와 관련된 external knowledge를 먼저 retrieve하고 그 context를 사용해 answer를 generate하는 방식이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "rag_p6_01",
+                  "unit_id": "rag_p6_definition",
+                  "source_excerpt": "외부 지식 베이스에서 관련 정보를 검색하고 이를 바탕으로 답변을 생성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rag",
+                "retrieval",
+                "generation",
+                "knowledge_base",
+                "context",
+                "grounding"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "RAG는 query와 관련된 external knowledge를 먼저 retrieve하고 그 context를 사용해 answer를 generate하는 방식이다."
+                ],
+                "critical_errors": [
+                  "RAG가 model weight를 매 query마다 재학습하는 방식이라고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.foundation.pipeline",
+          "title": "Indexing과 Query 흐름",
+          "summary": "Corpus 준비부터 answer까지 연결한다.",
+          "claims": [
+            {
+              "claim_id": "rag.indexing_flow",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Offline indexing에서는 corpus를 chunk로 나누고 embedding·metadata를 만들어 searchable index나 vector database에 저장한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "rag_p8_01",
+                  "unit_id": "rag_p8_pipeline",
+                  "source_excerpt": "Documents → Chunking → Embedding → Vector DB / Query → Retrieval → LLM → Answer",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "corpus",
+                "chunk",
+                "embedding",
+                "vector_database",
+                "retriever",
+                "generator",
+                "top_k"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Offline indexing에서는 corpus를 chunk로 나누고 embedding·metadata를 만들어 searchable index나 vector database에 저장한다."
+                ],
+                "critical_errors": [
+                  "Query를 받기 전에 corpus를 전혀 준비하거나 index하지 않는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "rag.query_flow",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Query time에는 query를 compatible representation으로 만들고 top-k chunk를 검색해 query와 함께 generator에 전달한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "rag_p8_01",
+                  "unit_id": "rag_p8_pipeline",
+                  "source_excerpt": "Documents → Chunking → Embedding → Vector DB / Query → Retrieval → LLM → Answer",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 25,
+                  "chunk_id": "rag_p25_01",
+                  "unit_id": "rag_p25_generator",
+                  "source_excerpt": "Query + Retrieved Documents → LLM → Answer",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "corpus",
+                "chunk",
+                "embedding",
+                "vector_database",
+                "retriever",
+                "generator",
+                "top_k",
+                "context",
+                "grounding",
+                "citation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Query time에는 query를 compatible representation으로 만들고 top-k chunk를 검색해 query와 함께 generator에 전달한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.retriever_role",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Retriever는 knowledge base에서 relevant candidate를 고르고 generator는 retrieved evidence를 바탕으로 response를 구성한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "rag_p9_01",
+                  "unit_id": "rag_p9_retriever",
+                  "source_excerpt": "Query와 관련된 문서를 Knowledge Base에서 검색",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "retriever",
+                "retrieval",
+                "knowledge_base"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Retriever는 knowledge base에서 relevant candidate를 고르고 generator는 retrieved evidence를 바탕으로 response를 구성한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.foundation.retrieval",
+          "title": "Sparse와 Dense Retrieval",
+          "summary": "두 검색 방식의 기준과 trade-off를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.sparse",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Sparse retrieval은 term frequency와 inverted index 기반 lexical matching을 사용해 exact keyword에 강하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "rag_p10_01",
+                  "unit_id": "rag_p10_sparse",
+                  "source_excerpt": "Sparse Retrieval / TF-IDF / Inverted Index / Keyword",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "sparse_retrieval",
+                "tfidf",
+                "inverted_index"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Sparse retrieval은 term frequency와 inverted index 기반 lexical matching을 사용해 exact keyword에 강하다."
+                ],
+                "critical_errors": [
+                  "Sparse retrieval이 keyword와 term occurrence를 사용하지 않는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "rag.dense",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Dense retrieval은 query·document embedding의 semantic similarity를 사용해 synonym과 paraphrase를 찾을 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "rag_p11_01",
+                  "unit_id": "rag_p11_dense",
+                  "source_excerpt": "Dense Retrieval / Query Embedding / Document Embedding / Semantic Similarity",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dense_retrieval",
+                "query_embedding",
+                "document_embedding",
+                "embedding",
+                "similarity"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Dense retrieval은 query·document embedding의 semantic similarity를 사용해 synonym과 paraphrase를 찾을 수 있다."
+                ],
+                "critical_errors": [
+                  "Dense retrieval이 token의 exact string 일치만 비교한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "rag.sparse_dense_tradeoff",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Sparse는 lexical precision, dense는 semantic recall에 강점이 있지만 query·domain에 따라 결과가 달라 두 방식을 함께 사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "rag_p10_01",
+                  "unit_id": "rag_p10_sparse",
+                  "source_excerpt": "Sparse Retrieval / TF-IDF / Inverted Index / Keyword",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 11,
+                  "chunk_id": "rag_p11_01",
+                  "unit_id": "rag_p11_dense",
+                  "source_excerpt": "Dense Retrieval / Query Embedding / Document Embedding / Semantic Similarity",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "sparse_retrieval",
+                "tfidf",
+                "inverted_index",
+                "dense_retrieval",
+                "query_embedding",
+                "document_embedding",
+                "embedding",
+                "similarity"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Sparse는 lexical precision, dense는 semantic recall에 강점이 있지만 query·domain에 따라 결과가 달라 두 방식을 함께 사용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "rag.embeddings_vector_search",
+      "title": "임베딩과 벡터 검색",
+      "selection_description": "Representation, metric, vector index와 model evaluation을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "rag.embedding.metric",
+          "title": "유사도 척도",
+          "summary": "Vector comparison과 설정 조건을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.metric_types",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Embedding neighbor search에는 cosine similarity, dot product와 Euclidean distance 같은 metric을 사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "rag_p12_01",
+                  "unit_id": "rag_p12_metrics",
+                  "source_excerpt": "Cosine Similarity / Inner Product / Euclidean Distance",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cosine_similarity",
+                "dot_product",
+                "euclidean_distance",
+                "distance_concentration",
+                "similarity"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Embedding neighbor search에는 cosine similarity, dot product와 Euclidean distance 같은 metric을 사용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.metric_choice",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Metric은 embedding training objective와 normalization·ANN index 설정에 맞춰 선택하며 normalized vector에서는 cosine과 dot product 순위가 같을 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "rag_p12_01",
+                  "unit_id": "rag_p12_metrics",
+                  "source_excerpt": "Cosine Similarity / Inner Product / Euclidean Distance",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cosine_similarity",
+                "dot_product",
+                "euclidean_distance",
+                "distance_concentration",
+                "similarity"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Metric은 embedding training objective와 normalization·ANN index 설정에 맞춰 선택하며 normalized vector에서는 cosine과 dot product 순위가 같을 수 있다."
+                ],
+                "critical_errors": [
+                  "Euclidean distance는 고차원에서 언제나 사용할 수 없고 cosine만 항상 정답이라고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.embedding.representation",
+          "title": "단어·문맥·문장 표현",
+          "summary": "Representation 발전과 차이를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.representation",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Representation learning은 data의 structure를 이용해 downstream task에 유용한 vector feature를 학습하며 self-supervised objective를 활용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "rag_p14_01",
+                  "unit_id": "rag_p14_representation",
+                  "source_excerpt": "Representation Learning / Self-Supervised Learning",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "representation_learning",
+                "self_supervised_learning"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Representation learning은 data의 structure를 이용해 downstream task에 유용한 vector feature를 학습하며 self-supervised objective를 활용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.word2vec",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Word2Vec의 CBOW는 context로 target word를, Skip-gram은 target word로 context를 예측하지만 한 word에 static vector를 준다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "rag_p15_01",
+                  "unit_id": "rag_p15_word2vec",
+                  "source_excerpt": "CBOW: Context → Target / Skip-gram: Target → Context",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "word2vec",
+                "cbow",
+                "skipgram",
+                "embedding"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Word2Vec의 CBOW는 context로 target word를, Skip-gram은 target word로 context를 예측하지만 한 word에 static vector를 준다."
+                ],
+                "critical_errors": [
+                  "CBOW와 Skip-gram의 입력·예측 방향을 서로 바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "rag.contextual",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "ELMo·BERT·GPT 계열은 surrounding context에 따라 token representation을 바꾸며 context direction과 objective는 model마다 다르다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "rag_p16_01",
+                  "unit_id": "rag_p16_contextual",
+                  "source_excerpt": "ELMo / BERT / GPT / Contextualized Embedding",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "contextual_embedding",
+                "elmo",
+                "bert",
+                "gpt"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "ELMo·BERT·GPT 계열은 surrounding context에 따라 token representation을 바꾸며 context direction과 objective는 model마다 다르다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.sentence",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Sentence embedding은 pooling 또는 sentence-level training objective로 문장 전체를 fixed-size vector로 나타낸다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "rag_p17_01",
+                  "unit_id": "rag_p17_sentence",
+                  "source_excerpt": "Sentence Embedding / 문장 전체를 하나의 벡터",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "sentence_embedding",
+                "pooling",
+                "embedding"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Sentence embedding은 pooling 또는 sentence-level training objective로 문장 전체를 fixed-size vector로 나타낸다."
+                ],
+                "critical_errors": [
+                  "어떤 pretrained language model이든 별도 pooling·objective 없이 자동으로 최적 sentence retrieval vector를 만든다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.embedding.contrastive",
+          "title": "대조 학습",
+          "summary": "Retrieval space를 학습하는 원리를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.contrastive",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Contrastive learning은 semantically related positive pair를 가깝게, unrelated negative pair를 멀게 해 retrieval-friendly embedding space를 학습한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "rag_p18_01",
+                  "unit_id": "rag_p18_contrastive",
+                  "source_excerpt": "Positive Pair는 가깝게 / Negative Pair는 멀게",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "contrastive_learning",
+                "positive_pair",
+                "negative_pair",
+                "anisotropy",
+                "isotropy"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Contrastive learning은 semantically related positive pair를 가깝게, unrelated negative pair를 멀게 해 retrieval-friendly embedding space를 학습한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.vector_db",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Vector database는 embedding·metadata와 ANN index를 저장해 large corpus의 nearest-neighbor retrieval을 지원한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 20,
+                  "chunk_id": "rag_p20_01",
+                  "unit_id": "rag_p20_vectordb",
+                  "source_excerpt": "Vector Database / HNSW / Product Quantization",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vector_database",
+                "ann",
+                "hnsw",
+                "pq"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Vector database는 embedding·metadata와 ANN index를 저장해 large corpus의 nearest-neighbor retrieval을 지원한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.embedding.index",
+          "title": "HNSW·PQ와 모델 선택",
+          "summary": "속도·memory·quality trade-off를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.hnsw",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "HNSW는 multi-layer proximity graph의 상위 layer에서 빠르게 이동하고 하위 layer에서 candidate를 정교화하는 approximate search다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "rag_p21_01",
+                  "unit_id": "rag_p21_hnsw",
+                  "source_excerpt": "상위 레이어부터 탐색하고 하위 레이어에서 정교하게 검색",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hnsw",
+                "ann",
+                "recall"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "HNSW는 multi-layer proximity graph의 상위 layer에서 빠르게 이동하고 하위 layer에서 candidate를 정교화하는 approximate search다."
+                ],
+                "critical_errors": [
+                  "HNSW가 모든 dataset에서 exact neighbor와 strict O(log N)을 보장한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "rag.pq",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Product Quantization은 vector를 subvector로 나눠 centroid code로 저장해 memory와 계산을 줄이는 lossy compression이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "rag_p22_01",
+                  "unit_id": "rag_p22_pq",
+                  "source_excerpt": "1024차원 벡터를 8개의 Subvector로 분할 / Centroid ID로 저장",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "pq",
+                "quantization",
+                "centroid",
+                "recall"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Product Quantization은 vector를 subvector로 나눠 centroid code로 저장해 memory와 계산을 줄이는 lossy compression이다."
+                ],
+                "critical_errors": [
+                  "Product Quantization이 정보 손실 없이 원래 vector를 완전히 복원한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "rag.embedding_eval",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "MTEB 등 benchmark는 후보 비교에 쓰되 target language·domain·retrieval task와 latency·cost를 실제 data에서 검증해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "rag_p23_01",
+                  "unit_id": "rag_p23_mteb",
+                  "source_excerpt": "MTEB / Embedding Model Leaderboard",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "mteb",
+                "embedding",
+                "retrieval"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "MTEB 등 benchmark는 후보 비교에 쓰되 target language·domain·retrieval task와 latency·cost를 실제 data에서 검증해야 한다."
+                ],
+                "critical_errors": [
+                  "MTEB 1위 model이면 모든 언어·domain·latency 조건에서 항상 최적이라고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "rag.advanced_retrieval",
+      "title": "고급 Retrieval 전략",
+      "selection_description": "Basic RAG의 실패를 진단하고 graph·hybrid·feedback retrieval을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "rag.advanced.failure",
+          "title": "Basic RAG 실패와 평가",
+          "summary": "Retrieval failure를 진단한다.",
+          "claims": [
+            {
+              "claim_id": "rag.basic_failures",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Basic RAG는 bad chunk boundary, query-document mismatch, irrelevant top-k와 context overload 때문에 없는 RAG보다 답이 나빠질 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 27,
+                  "chunk_id": "rag_p27_01",
+                  "unit_id": "rag_p27_basic_limit",
+                  "source_excerpt": "Retrieval Quality가 낮으면 잘못된 Context / Chunking이 부적절하면 정보 손실",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "retrieval",
+                "chunk",
+                "precision",
+                "recall"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Basic RAG는 bad chunk boundary, query-document mismatch, irrelevant top-k와 context overload 때문에 없는 RAG보다 답이 나빠질 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.retrieval_eval",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Retrieval은 relevant evidence의 recall과 returned context의 precision을 함께 보고 final answer grounding도 별도로 평가한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 27,
+                  "chunk_id": "rag_p27_01",
+                  "unit_id": "rag_p27_basic_limit",
+                  "source_excerpt": "Retrieval Quality가 낮으면 잘못된 Context / Chunking이 부적절하면 정보 손실",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "retrieval",
+                "chunk",
+                "precision",
+                "recall"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Retrieval은 relevant evidence의 recall과 returned context의 precision을 함께 보고 final answer grounding도 별도로 평가한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.advanced.graph",
+          "title": "Graph RAG",
+          "summary": "Entity·relationship graph를 만드는 흐름을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.graph_build",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Graph RAG는 corpus에서 entity와 relationship을 추출·연결하고 community 또는 subgraph를 retrieval unit으로 구성한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "rag_p28_01",
+                  "unit_id": "rag_p28_graph",
+                  "source_excerpt": "Entity·Relationship 추출 → Graph 구축 → Community Detection",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "graph_rag",
+                "entity",
+                "relationship",
+                "knowledge_graph",
+                "community"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Graph RAG는 corpus에서 entity와 relationship을 추출·연결하고 community 또는 subgraph를 retrieval unit으로 구성한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.graph_use",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Knowledge graph는 explicit relation과 multi-hop·global question에 도움을 줄 수 있지만 extraction과 entity linking error·cost를 관리해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "rag_p28_01",
+                  "unit_id": "rag_p28_graph",
+                  "source_excerpt": "Entity·Relationship 추출 → Graph 구축 → Community Detection",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "graph_rag",
+                "entity",
+                "relationship",
+                "knowledge_graph",
+                "community"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Knowledge graph는 explicit relation과 multi-hop·global question에 도움을 줄 수 있지만 extraction과 entity linking error·cost를 관리해야 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.advanced.hybrid",
+          "title": "Hybrid RAG",
+          "summary": "Vector와 graph 검색을 결합한다.",
+          "claims": [
+            {
+              "claim_id": "rag.hybrid_rag",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Hybrid RAG는 vector semantic similarity와 knowledge graph의 explicit relationship 탐색을 결합해 서로 다른 retrieval signal을 보완한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "rag_p29_01",
+                  "unit_id": "rag_p29_hybrid",
+                  "source_excerpt": "Vector DB + Knowledge Graph",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hybrid_rag",
+                "vector_database",
+                "knowledge_graph",
+                "entity",
+                "relationship"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Hybrid RAG는 vector semantic similarity와 knowledge graph의 explicit relationship 탐색을 결합해 서로 다른 retrieval signal을 보완한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.graph_limit",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Graph retrieval 가능 여부는 질문의 exact entity 문자열뿐 아니라 entity linking과 query planning strategy에 달려 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "rag_p29_01",
+                  "unit_id": "rag_p29_hybrid",
+                  "source_excerpt": "Vector DB + Knowledge Graph",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hybrid_rag",
+                "vector_database",
+                "knowledge_graph",
+                "entity",
+                "relationship"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Graph retrieval 가능 여부는 질문의 exact entity 문자열뿐 아니라 entity linking과 query planning strategy에 달려 있다."
+                ],
+                "critical_errors": [
+                  "질문에 entity 이름이 직접 없으면 graph retrieval이 절대 불가능하다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.advanced.feedback",
+          "title": "교정·피드백 검색",
+          "summary": "Answer 점검과 재검색 loop를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "rag.feedback",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "강의의 self-reflective RAG pattern은 retrieved evidence나 draft answer를 평가하고 부족하면 query를 rewrite해 retrieval과 generation을 반복한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "rag_p30_01",
+                  "unit_id": "rag_p30_feedback",
+                  "source_excerpt": "Answer 평가 → Query Rewrite → Retrieval 재수행",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "self_rag",
+                "query_rewrite",
+                "feedback_loop",
+                "retrieval"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "강의의 self-reflective RAG pattern은 retrieved evidence나 draft answer를 평가하고 부족하면 query를 rewrite해 retrieval과 generation을 반복한다."
+                ],
+                "critical_errors": [
+                  "Self-RAG가 무조건 한 번만 검색하고 답을 수정하지 않는 방식이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "rag.feedback_stop",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Feedback loop에는 quality criterion, retry budget과 stop·fallback condition을 두어 infinite loop와 cost 증가를 막는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "rag_p30_01",
+                  "unit_id": "rag_p30_feedback",
+                  "source_excerpt": "Answer 평가 → Query Rewrite → Retrieval 재수행",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "self_rag",
+                "query_rewrite",
+                "feedback_loop",
+                "retrieval"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Feedback loop에는 quality criterion, retry budget과 stop·fallback condition을 두어 infinite loop와 cost 증가를 막는다."
+                ],
+                "critical_errors": [
+                  "Quality check나 stop condition 없이 만족할 때까지 무한 반복해야 한다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "rag.chunking_contextual",
+      "title": "Chunking과 Contextual Retrieval",
+      "selection_description": "Chunk 경계, contextual prepending, hybrid search와 reranking을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "rag.chunk.strategy",
+          "title": "Chunking 전략",
+          "summary": "Semantic boundary와 overlap을 조절한다.",
+          "claims": [
+            {
+              "claim_id": "rag.semantic_chunks",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Semantic chunking은 문단·topic 변화 같은 meaning boundary를 이용해 related information을 하나의 retrieval unit으로 묶는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "rag_p31_01",
+                  "unit_id": "rag_p31_chunking",
+                  "source_excerpt": "Semantic Chunking / Overlap / Graph-based Chunking",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "chunk",
+                "semantic_chunking",
+                "overlap",
+                "graph_chunking",
+                "precision",
+                "recall"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Semantic chunking은 문단·topic 변화 같은 meaning boundary를 이용해 related information을 하나의 retrieval unit으로 묶는다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.overlap",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Neighbor chunk overlap은 boundary에서 끊긴 context recall을 높일 수 있지만 duplicate result와 token·index cost를 늘린다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "rag_p31_01",
+                  "unit_id": "rag_p31_chunking",
+                  "source_excerpt": "Semantic Chunking / Overlap / Graph-based Chunking",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "chunk",
+                "semantic_chunking",
+                "overlap",
+                "graph_chunking",
+                "precision",
+                "recall"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Neighbor chunk overlap은 boundary에서 끊긴 context recall을 높일 수 있지만 duplicate result와 token·index cost를 늘린다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.chunk_tradeoff",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Chunk size와 strategy는 corpus structure, question granularity, embedding model과 generator context budget에 맞춰 evaluation으로 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "rag_p31_01",
+                  "unit_id": "rag_p31_chunking",
+                  "source_excerpt": "Semantic Chunking / Overlap / Graph-based Chunking",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "chunk",
+                "semantic_chunking",
+                "overlap",
+                "graph_chunking",
+                "precision",
+                "recall"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Chunk size와 strategy는 corpus structure, question granularity, embedding model과 generator context budget에 맞춰 evaluation으로 선택한다."
+                ],
+                "critical_errors": [
+                  "모든 corpus와 질문에 하나의 chunk size가 항상 최적이라고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.chunk.context",
+          "title": "Contextual Chunk",
+          "summary": "독립 chunk의 배경을 보완한다.",
+          "claims": [
+            {
+              "claim_id": "rag.context_prepend",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Contextual retrieval은 각 chunk 앞에 source document 내 위치·topic을 설명하는 short situated context를 prepend한 뒤 index한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "rag_p32_01",
+                  "unit_id": "rag_p32_contextual",
+                  "source_excerpt": "각 Chunk 앞에 문서 내 위치·맥락을 설명하는 짧은 Context 추가",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "contextual_retrieval",
+                "situated_context",
+                "chunk_prepending",
+                "chunk"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Contextual retrieval은 각 chunk 앞에 source document 내 위치·topic을 설명하는 short situated context를 prepend한 뒤 index한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.context_quality",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Generated situated context는 source와 일치하는지 검증하고 지나치게 길거나 generic해 original chunk signal을 희석하지 않게 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "rag_p32_01",
+                  "unit_id": "rag_p32_contextual",
+                  "source_excerpt": "각 Chunk 앞에 문서 내 위치·맥락을 설명하는 짧은 Context 추가",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "contextual_retrieval",
+                "situated_context",
+                "chunk_prepending",
+                "chunk"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Generated situated context는 source와 일치하는지 검증하고 지나치게 길거나 generic해 original chunk signal을 희석하지 않게 한다."
+                ],
+                "critical_errors": [
+                  "생성한 chunk context는 사실 검증 없이 항상 정확하다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "rag.chunk.retrieve",
+          "title": "Hybrid Search와 Reranking",
+          "summary": "Candidate generation과 precision refinement를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "rag.hybrid_search",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Hybrid search는 sparse lexical retrieval과 dense semantic retrieval을 함께 실행해 complementary candidate를 얻는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "rag_p33_01",
+                  "unit_id": "rag_p33_hybrid_search",
+                  "source_excerpt": "Sparse + Dense Retrieval → Rank Fusion → Reranking",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hybrid_search",
+                "sparse_retrieval",
+                "dense_retrieval",
+                "rank_fusion",
+                "reranking"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Hybrid search는 sparse lexical retrieval과 dense semantic retrieval을 함께 실행해 complementary candidate를 얻는다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.rank_fusion",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Rank fusion은 scale이 다른 sparse·dense result의 순위를 공통 candidate list로 결합한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "rag_p33_01",
+                  "unit_id": "rag_p33_hybrid_search",
+                  "source_excerpt": "Sparse + Dense Retrieval → Rank Fusion → Reranking",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hybrid_search",
+                "sparse_retrieval",
+                "dense_retrieval",
+                "rank_fusion",
+                "reranking"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Rank fusion은 scale이 다른 sparse·dense result의 순위를 공통 candidate list로 결합한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "rag.reranking",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Reranker는 작은 candidate set의 query-document relevance를 더 정밀하게 다시 계산해 generator에 줄 context를 좁힌다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "rag_p33_01",
+                  "unit_id": "rag_p33_hybrid_search",
+                  "source_excerpt": "Sparse + Dense Retrieval → Rank Fusion → Reranking",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 34,
+                  "chunk_id": "rag_p34_01",
+                  "unit_id": "rag_p34_contextual_flow",
+                  "source_excerpt": "Contextual Chunk → Embedding·TF-IDF Index → Rank Fusion → Reranker → Generator",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hybrid_search",
+                "sparse_retrieval",
+                "dense_retrieval",
+                "rank_fusion",
+                "reranking",
+                "contextual_retrieval",
+                "tfidf",
+                "embedding",
+                "generator"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Reranker는 작은 candidate set의 query-document relevance를 더 정밀하게 다시 계산해 generator에 줄 context를 좁힌다."
+                ],
+                "critical_errors": [
+                  "Reranker가 corpus 전체를 처음부터 embedding index 없이 반드시 전수 검색하는 단계라고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": [
+    {
+      "page": 12,
+      "chunk_id": "rag_p12_01",
+      "source_text": "차원이 증가하면 모든 점 간 거리가 비슷해져 Euclidean Distance 사용 불가",
+      "reason": "Distance concentration은 고려 요소지만 Euclidean distance가 모든 embedding·index에서 보편적으로 사용 불가한 것은 아님"
+    },
+    {
+      "page": 17,
+      "chunk_id": "rag_p17_01",
+      "source_text": "문장 자체를 넣으면 바로 벡터가 나옴",
+      "reason": "Useful sentence embedding은 pooling과 sentence-level objective 등 model-specific design에 의존"
+    },
+    {
+      "page": 18,
+      "chunk_id": "rag_p18_01",
+      "source_text": "모든 방향으로 균일하게 분포하도록 함",
+      "reason": "Contrastive learning이 anisotropy를 줄일 수 있으나 완전한 isotropy를 보장하지 않음"
+    },
+    {
+      "page": 21,
+      "chunk_id": "rag_p21_01",
+      "source_text": "정확도는 유지하며 비교 횟수를 O(log N) 수준으로 감소",
+      "reason": "HNSW는 approximate method이며 strict complexity와 exact recall은 dataset·parameter에 따라 보장되지 않음"
+    },
+    {
+      "page": 29,
+      "chunk_id": "rag_p29_01",
+      "source_text": "Graph Query는 명시적인 Entity 정보가 있어야 작동 / 성능 비교 수치",
+      "reason": "Entity linking·query planning에 따라 달라지며 benchmark 출처와 조건이 명시되지 않음"
+    },
+    {
+      "page": 30,
+      "chunk_id": "rag_p30_01",
+      "source_text": "Self-RAG",
+      "reason": "슬라이드는 특정 논문의 전체 algorithm보다 corrective/self-reflective retrieval loop를 포괄적으로 설명하므로 해당 범위로 평가"
+    }
+  ]
+}
