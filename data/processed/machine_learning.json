@@ -1,0 +1,1829 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "machine_learning",
+  "lecture_name": "Machine Learning",
+  "source_file": "ML.pdf",
+  "terminology": [
+    {
+      "term_id": "ml",
+      "canonical_ko": "머신러닝",
+      "canonical_en": "machine learning",
+      "abbreviations": [
+        "ML"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "eda",
+      "canonical_ko": "탐색적 데이터 분석",
+      "canonical_en": "exploratory data analysis",
+      "abbreviations": [
+        "EDA"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "feature_engineering",
+      "canonical_ko": "특성공학",
+      "canonical_en": "feature engineering",
+      "abbreviations": [
+        "FE"
+      ],
+      "accepted_aliases": [
+        "피처 엔지니어링"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "validation",
+      "canonical_ko": "검증",
+      "canonical_en": "validation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "train_set",
+      "canonical_ko": "학습 세트",
+      "canonical_en": "training set",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "train set"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "validation_set",
+      "canonical_ko": "검증 세트",
+      "canonical_en": "validation set",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "test_set",
+      "canonical_ko": "테스트 세트",
+      "canonical_en": "test set",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cross_validation",
+      "canonical_ko": "교차 검증",
+      "canonical_en": "cross-validation",
+      "abbreviations": [
+        "CV"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "fold",
+      "canonical_ko": "폴드",
+      "canonical_en": "fold",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "stratification",
+      "canonical_ko": "층화",
+      "canonical_en": "stratification",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "group_split",
+      "canonical_ko": "그룹 분할",
+      "canonical_en": "group split",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "time_split",
+      "canonical_ko": "시간 분할",
+      "canonical_en": "time-based split",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "leakage",
+      "canonical_ko": "데이터 누수",
+      "canonical_en": "data leakage",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pipeline",
+      "canonical_ko": "파이프라인",
+      "canonical_en": "pipeline",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "baseline",
+      "canonical_ko": "베이스라인",
+      "canonical_en": "baseline",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "linear_model",
+      "canonical_ko": "선형 모델",
+      "canonical_en": "linear model",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "logistic_regression",
+      "canonical_ko": "로지스틱 회귀",
+      "canonical_en": "logistic regression",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "decision_tree",
+      "canonical_ko": "의사결정나무",
+      "canonical_en": "decision tree",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "random_forest",
+      "canonical_ko": "랜덤 포레스트",
+      "canonical_en": "random forest",
+      "abbreviations": [
+        "RF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "boosting",
+      "canonical_ko": "부스팅",
+      "canonical_en": "boosting",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "xgboost",
+      "canonical_ko": "XGBoost",
+      "canonical_en": "XGBoost",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "lightgbm",
+      "canonical_ko": "LightGBM",
+      "canonical_en": "LightGBM",
+      "abbreviations": [
+        "LGBM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "catboost",
+      "canonical_ko": "CatBoost",
+      "canonical_en": "CatBoost",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "svm",
+      "canonical_ko": "서포트 벡터 머신",
+      "canonical_en": "support vector machine",
+      "abbreviations": [
+        "SVM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "knn",
+      "canonical_ko": "K-최근접 이웃",
+      "canonical_en": "k-nearest neighbors",
+      "abbreviations": [
+        "KNN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "neural_network",
+      "canonical_ko": "신경망",
+      "canonical_en": "neural network",
+      "abbreviations": [
+        "NN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "scaling",
+      "canonical_ko": "스케일링",
+      "canonical_en": "feature scaling",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "missing_value",
+      "canonical_ko": "결측치",
+      "canonical_en": "missing value",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "outlier",
+      "canonical_ko": "이상치",
+      "canonical_en": "outlier",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "interaction",
+      "canonical_ko": "상호작용",
+      "canonical_en": "interaction",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "categorical",
+      "canonical_ko": "범주형 변수",
+      "canonical_en": "categorical variable",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_hot",
+      "canonical_ko": "원핫 인코딩",
+      "canonical_en": "one-hot encoding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ordinal_encoding",
+      "canonical_ko": "순서형 인코딩",
+      "canonical_en": "ordinal encoding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "target_encoding",
+      "canonical_ko": "타깃 인코딩",
+      "canonical_en": "target encoding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "class_imbalance",
+      "canonical_ko": "클래스 불균형",
+      "canonical_en": "class imbalance",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "class_weight",
+      "canonical_ko": "클래스 가중치",
+      "canonical_en": "class weight",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "threshold",
+      "canonical_ko": "분류 임계값",
+      "canonical_en": "classification threshold",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "smote",
+      "canonical_ko": "SMOTE",
+      "canonical_en": "synthetic minority oversampling technique",
+      "abbreviations": [
+        "SMOTE"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "accuracy",
+      "canonical_ko": "정확도",
+      "canonical_en": "accuracy",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "precision",
+      "canonical_ko": "정밀도",
+      "canonical_en": "precision",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "recall",
+      "canonical_ko": "재현율",
+      "canonical_en": "recall",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "f1",
+      "canonical_ko": "F1 점수",
+      "canonical_en": "F1 score",
+      "abbreviations": [
+        "F1"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "oof",
+      "canonical_ko": "OOF 예측",
+      "canonical_en": "out-of-fold prediction",
+      "abbreviations": [
+        "OOF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "calibration",
+      "canonical_ko": "확률 보정",
+      "canonical_en": "probability calibration",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hyperparameter",
+      "canonical_ko": "하이퍼파라미터",
+      "canonical_en": "hyperparameter",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "early_stopping",
+      "canonical_ko": "조기 종료",
+      "canonical_en": "early stopping",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "machine_learning_p1_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 1,
+      "topic": "Machine Learning 표지",
+      "concepts": [
+        "Machine Learning 표지"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\nMachine Learning\n\n\n\n\n\n                                         28기 장준한",
+      "visual_description": "Machine Learning 표지 페이지이다.",
+      "content": "Machine Learning 표지 페이지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p2_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "강의 목차"
+      ],
+      "raw_text": "목 차\n\n\n 1.  INTRO\n\n 2. From Features to Valid Experiment\n\n 3. 모델을 선택하는 기준\n\n 4. 모델별 효율적 사용과 Anti-pattern\n\n 5. 평가와 모델 개선",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "강의 목차 페이지이다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p3_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 3,
+      "topic": "Introduction",
+      "concepts": [
+        "Introduction"
+      ],
+      "raw_text": "INTRO",
+      "visual_description": "Introduction 페이지이다.",
+      "content": "Introduction 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p4_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 4,
+      "topic": "ML 프로젝트 전체 흐름",
+      "concepts": [
+        "ML 프로젝트 전체 흐름"
+      ],
+      "raw_text": "INTRO\n머신러닝 프로젝트\n\n좋은 모델을 만드는 것이 아니라, 올바른 문제를 데이터 기반 의사결정으로 연결하는 과정\n\n            문제와 데이터          모델과 결론\n         ① 문제 정의       ⑥ 기준 모델 구축\n             ↓             ↓\n       ② 데이터 수집·설계     ⑦ 모델 학습·튜닝\n             ↓             ↓\n        ③ 데이터 이해      ⑧ 평가·모델 선택\n             ↓             ↓\n        ④ 검증 구조 설계     ⑨ 해석·오류 분석\n             ↓             ↓\n       ⑤ 전처리·파생변수     ⑩ 비즈니스 결론\n             ↓",
+      "visual_description": "ML 프로젝트 전체 흐름의 핵심 도식과 설명을 제시한다.",
+      "content": "머신러닝 프로젝트는 문제 정의, 데이터 이해, EDA, 검증 설계, 전처리·특성공학, 베이스라인, 학습·튜닝, 평가·선택, 오류 분석, 비즈니스 결론의 흐름으로 진행한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ml",
+        "eda",
+        "feature_engineering",
+        "validation",
+        "baseline"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p4_flow",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "문제 정의 → 데이터 이해/수집 → EDA → 검증 전략 → 전처리/FE → Baseline → 학습/Tuning → 평가/선택 → 해석/Error Analysis → 비즈니스 결론",
+          "normalized_explanation": "프로젝트 의사결정은 문제 정의부터 평가와 활용 결론까지 연결된다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ml",
+            "eda",
+            "feature_engineering",
+            "validation",
+            "baseline"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p5_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 5,
+      "topic": "문제 정의와 데이터 질문",
+      "concepts": [
+        "문제 정의와 데이터 질문"
+      ],
+      "raw_text": "INTRO\n머신러닝 프로젝트\n\n좋은 모델을 만드는 것이 아니라, 올바른 문제를 데이터 기반 의사결정으로 연결하는 과정\n\n   문제와 데이터\n  ① 문제 정의                      무엇을, 언제, 왜 예측하는가?\n     ↓\n② 데이터 수집·설계                      예측 시점에 어떤 데이터를 사용할 수 있는가?\n     ↓\n ③ 데이터 이해                        데이터에 어떤 문제와 패턴이 있는가?\n     ↓\n ④ 검증 구조 설계               실제 사용 환경을 어떻게 재현할 것인가?\n     ↓\n⑤ 전처리·파생변수                      모델이 학습할 수 있는 형태로 어떻게 바꿀 것인가?\n     ↓",
+      "visual_description": "문제 정의와 데이터 질문의 핵심 도식과 설명을 제시한다.",
+      "content": "문제 정의 단계에서는 예측 대상과 관측 단위, 예측 시점, 데이터 생성 과정과 실제 의사결정에 필요한 출력을 먼저 확인한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p6_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 6,
+      "topic": "모델과 결론 질문",
+      "concepts": [
+        "모델과 결론 질문"
+      ],
+      "raw_text": "INTRO\n머신러닝 프로젝트\n\n좋은 모델을 만드는 것이 아니라, 올바른 문제를 데이터 기반 의사결정으로 연결하는 과정\n\n\n  모델과 결론\n\n⑥ 기준 모델 구축                 최소한 어느 정도는 이겨야 하는가?\n    ↓\n                           어떤 모델과 설정이 적합한가?⑦ 모델 학습·튜닝\n    ↓\n⑧ 평가·모델 선택                무엇을 기준으로 좋은 모델이라 할 것인가?\n    ↓\n⑨ 해석·오류 분석                         왜 이렇게 예측했고, 어디서 틀리는가?\n    ↓\n⑩ 비즈니스 결론                  누가 무엇을 어떻게 실행할 것인가?",
+      "visual_description": "모델과 결론 질문의 핵심 도식과 설명을 제시한다.",
+      "content": "모델링 단계에서는 비교 기준과 검증 방법, 오류 비용, 결과 해석과 비즈니스 결론까지 설명할 수 있어야 한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p7_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 7,
+      "topic": "고객 이탈 문제 정의",
+      "concepts": [
+        "고객 이탈 문제 정의"
+      ],
+      "raw_text": "INTRO\n 머신러닝 프로젝트\n\n   비즈니스 문제                        예측 문제 정의\n\n  최근 활동이 감소한 고객을                      매월 말 활성 고객을 대상으로, 과거 90일의 행동 데이터를\n  선제적으로 관리하고 싶다.                      이용해 향후 30일 이내 이탈 여부를 예측한다.\n\n   어떤 고객이 이탈할 가능성이 높은가?                                                           향후 30일 이내 이탈                                                      항목        설정               Target\n                                                                                     여부   모든 고객에게 캠페인을 진행해야 하는가?\n   제한된 예산으로 누구에게 먼저 연락해야 하는가?                     분석 단위       고객-월       예측 시점      매월 말\n\n                                                      입력변수      과거 90일 고객 행동\n\n    모델 결과                         실제 의사결정\n\n모델이 바로 “이탈” 또는 “비이탈”만 출력하는 것처럼 설명하지           이탈 위험도 상위 10% 고객 선별\n않고, 위험 확률 또는 점수를 출력한다는 점을 보여준다.                     ↓\n                                        고객 특성별 유지 캠페인 적용\n      고객         이탈 위험도                                              ↓\n                                        캠페인 반응 및 실제 이탈률 확인      고객 A                             0.82\n\n                                                     상담 우선순위 지정      고객 B                             0.67\n                                                     맞춤형 혜택 제공\n                                                     이탈 원인별 메시지 발송\n      고객 C                             0.21\n                                                     캠페인 비용 대비 효과 측정",
+      "visual_description": "고객 이탈 문제 정의의 핵심 도식과 설명을 제시한다.",
+      "content": "고객 이탈은 고객-월 관측 단위와 과거 90일 입력, 향후 30일 이탈 타깃, 월별 예측 시점을 명시하고 위험 점수를 실제 개입과 효과 측정에 연결한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ml",
+        "threshold"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p7_churn",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "관측 단위 customer-month / 과거 90일 / 향후 30일 / 매월 1회 예측 / Risk score",
+          "normalized_explanation": "예측 단위·시점·입력 기간·타깃 기간과 활용을 명시한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ml",
+            "threshold"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p8_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 8,
+      "topic": "모델 밖의 산출물",
+      "concepts": [
+        "모델 밖의 산출물"
+      ],
+      "raw_text": "INTRO\n머신러닝 프로젝트\n\n\n\n\n\n                모델 파일 하나가 프로젝트의 최종 산출물은 아니다.\n       문제 정의서, 데이터 명세, 검증 계획, 모델 비교표, 오류 분석, 실행안이 함께 남아야 한다.",
+      "visual_description": "모델 밖의 산출물의 핵심 도식과 설명을 제시한다.",
+      "content": "산출물은 모델 파일뿐 아니라 데이터·검증 설계, 재현 가능한 Pipeline, 오류 분석, 해석과 운영 제안을 포함한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p9_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 9,
+      "topic": "의사결정 설명 질문",
+      "concepts": [
+        "의사결정 설명 질문"
+      ],
+      "raw_text": "INTRO\n머신러닝 프로젝트\n\n\n  무엇을, 누구에 대해, 언제 예측하는가?\n  왜 이 데이터를 이런 방식으로 나눴는가?\n  왜 이 전처리와 파생변수를 사용했는가?\n  왜 이 모델이 데이터에 적합한가?\n  왜 이 평가 지표로 모델을 선택했는가?\n  모델 결과가 어떤 실행과 결론으로 이어지는가?",
+      "visual_description": "의사결정 설명 질문의 핵심 도식과 설명을 제시한다.",
+      "content": "각 선택의 이유, 대안, 검증 근거와 한계를 설명할 수 있어야 모델 결과가 의사결정 근거가 된다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p10_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 10,
+      "topic": "유효한 실험",
+      "concepts": [
+        "유효한 실험"
+      ],
+      "raw_text": "From Features to\nValid Experiment",
+      "visual_description": "유효한 실험 페이지이다.",
+      "content": "유효한 실험 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p11_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 11,
+      "topic": "EDA·FE와 실험 규칙",
+      "concepts": [
+        "EDA·FE와 실험 규칙"
+      ],
+      "raw_text": "From Features to Valid Experiment\nEDA·FE로 무엇을 얻었는가?\n\nEDA와 FE의 결과는 단순한 보고서 내용이 아니라, 데이터 분할·전처리·모델·평가 방식의 근거가 된다.\n\n\n\nWhat We Have                              What We Must Decide\n\n\n\n\n\n  분석 단위와 Target\n  결측·이상치·분포 확인\n  주요 변수와 파생변수\n  데이터의 시간·그룹 구조\n  클래스 비율         같은 데이터라도 분할·전처리·평가 방식에 따라 전혀 다른 성능이 나올 수 있다.\n              따라서 모델을 비교하기 전에 먼저 모든 모델이 따라야 할 동일한 실험 규칙을 정해야 한다.",
+      "visual_description": "EDA·FE와 실험 규칙의 핵심 도식과 설명을 제시한다.",
+      "content": "EDA와 FE는 split·preprocessing·model·metric 선택에 정보를 주지만 비교 모델에는 공통 실험 규칙을 먼저 세운다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p12_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 12,
+      "topic": "Train·Validation·Test",
+      "concepts": [
+        "Train·Validation·Test"
+      ],
+      "raw_text": "From Features to Valid Experiment\nTrain·Validation·Test\n\n모델을 선택하는 데이터와 최종 성능을 확인하는 데이터는 분리해야 한다.\n\n  Train               Validation               Test\n\n\n\n\n\n                            데이터가 충분하지 않다면 Train 내부에서 Cross Validation을\n                               수행하고 별도의 Test Set은 마지막까지 보존한다.",
+      "visual_description": "Train·Validation·Test의 핵심 도식과 설명을 제시한다.",
+      "content": "학습 세트로 모델을 적합하고 검증 세트 또는 학습 내부 교차 검증으로 선택하며, 테스트 세트는 최종 일반화 성능 확인까지 보존한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "train_set",
+        "validation_set",
+        "test_set",
+        "cross_validation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p12_split",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Train / Validation / Test / CV는 Train 안에서 / Test는 마지막까지 보존",
+          "normalized_explanation": "학습·선택·최종 평가 데이터를 분리한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "train_set",
+            "validation_set",
+            "test_set",
+            "cross_validation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p13_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 13,
+      "topic": "분할 전략",
+      "concepts": [
+        "분할 전략"
+      ],
+      "raw_text": "From Features to Valid Experiment\n분할 방법\n\n실제 사용 환경을 가장 비슷하게 재현하는 방식을 선택한다\n\n\nRandom·Stratified Split                          Group Split\n\n  각 행이 서로 독립적                   같은 고객이 여러 행에 등장\n  시간 순서가 중요하지 않음                같은 기업·환자·매장·지역을 반복 관측\n  같은 대상의 반복 관측이 없음               한 개체의 특성이 여러 행에 공유됨\n\n                                      행을 무작위로 나누면 모델이 새로운 고객이 아니라 이미 본 고객을 맞히는클래스 비율만 유지할 뿐, 시간·고객 중복 문제는 해결하지 않는다.\n                                                   성능이 될 수 있다.\n\n Time Split                                 Group와 Time이 동시에 있는 경우\n\n  과거 데이터로 미래를 예측                기존 고객의 미래 행동을 예측하는가?\n  시계열 순서가 있음                   완전히 새로운 고객에게 적용하는가?\n  시간에 따라 데이터 분포가 변할 수 있음          시간 일반화가 중요한가?\n                              고객 일반화가 중요한가?\n미래 데이터가 과거 학습 과정에 포함되지 않도록 한다.                                                       Group과 Time 중 무조건 하나를 선택하는 것이 아니라, 실제 운영\n                                               목적에 맞게 결합해야 한다.",
+      "visual_description": "분할 전략의 핵심 도식과 설명을 제시한다.",
+      "content": "무작위·층화 분할 외에도 동일 개체 반복 관측에는 그룹 분할, 시간 순서가 있는 예측에는 시간 분할을 사용하며 층화만으로 누수를 해결할 수 없다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "stratification",
+        "group_split",
+        "time_split",
+        "leakage"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p13_strategy",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Random/Stratified / Group / Time split / Stratification은 leakage를 해결하지 않음",
+          "normalized_explanation": "데이터 생성 구조에 맞춰 분할한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "stratification",
+            "group_split",
+            "time_split",
+            "leakage"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p14_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 14,
+      "topic": "데이터 누수",
+      "concepts": [
+        "데이터 누수"
+      ],
+      "raw_text": "From Features to Valid Experiment\n데이터 누수\n\n데이터 누수는 Target 컬럼을 실수로 넣는 경우뿐 아니라, 전처리와 변수 생성 순서에서도 발생한다.\n\n\n  전체 데이터      전체 평균으로 결측값 대체\n    ↓        → Test 데이터 평균이 Train에 반영\n  결측값 대체\n    ↓        전체 데이터로 StandardScaler 학습\n     Scaling       → Test의 평균·표준편차가 Train에 반영\n    ↓\nFeature Selection    전체 데이터로 변수 선택\n    ↓        → Test에서 Target과 연관된 변수를 미리 확인\n    SMOTE\n    ↓        전체 데이터에 SMOTE\n  Train·Test 분할     → Test 데이터 주변 정보를 이용한 합성 샘플 생성 가능\n    ↓\n 모델 학습·평가",
+      "visual_description": "데이터 누수의 핵심 도식과 설명을 제시한다.",
+      "content": "분할 전에 전체 데이터로 결측치 대체·스케일링·특성 선택·SMOTE를 적합하면 검증 정보가 학습에 들어가는 데이터 누수가 발생한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "leakage",
+        "scaling",
+        "smote"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p14_leak",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "split 전에 전체 데이터로 imputer/scaler/feature selection/SMOTE fit",
+          "normalized_explanation": "검증 정보로 전처리를 적합하면 누수다.",
+          "source_status": "verified",
+          "term_ids": [
+            "leakage",
+            "scaling",
+            "smote"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p15_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 15,
+      "topic": "Validation의 역할",
+      "concepts": [
+        "Validation의 역할"
+      ],
+      "raw_text": "From Features to Valid Experiment\n데이터 누수\n\n데이터 누수는 Target 컬럼을 실수로 넣는 경우뿐 아니라, 전처리와 변수 생성 순서에서도 발생한다.\n\n\n\n\n\n       검증 데이터는 성능을 측정하기 위한 데이터이지, 전처리 기준을 만드는 데이터가 아니다.",
+      "visual_description": "Validation의 역할의 핵심 도식과 설명을 제시한다.",
+      "content": "Validation은 모델 성능을 측정하고 선택하는 용도이며 validation 정보로 전처리 기준을 적합하면 누수가 된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "validation",
+        "validation_set",
+        "leakage"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p15_validation",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Validation은 성능을 측정하는 용도 / preprocessing 기준을 정하는 데 사용하지 않음",
+          "normalized_explanation": "검증 정보로 전처리 기준을 적합하지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "validation",
+            "validation_set",
+            "leakage"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p16_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 16,
+      "topic": "Fold별 Pipeline",
+      "concepts": [
+        "Fold별 Pipeline"
+      ],
+      "raw_text": "From Features to Valid Experiment\nPipeline\n\n각 Fold의 Train 데이터로만 전처리를 학습하고 Validation에 적용한다\n\n          Fold 1\n\n       Training Fold\n       ↓\n     Imputation 학습\n       ↓\n  Scaling·Encoding 학습\n       ↓\n    Feature Selection\n       ↓\n       Sampling\n       ↓\n                                   Test Set은 마지막까지 보존했는가?\n      Model 학습\n                 실제 사용 환경에 맞는 Split을 선택했는가?\n       ↓\n                 동일 고객·미래 정보가 Fold 사이에 누수되지 않는가?\nValidation Fold에 변환·예측\n                 전처리와 Sampling은 Train Fold 내부에서 수행되는가?\n       ↓\n                 모든 후보 모델을 동일한 Fold와 지표로 비교하는가?\n    성능 평가",
+      "visual_description": "Fold별 Pipeline의 핵심 도식과 설명을 제시한다.",
+      "content": "교차 검증에서는 각 fold의 학습 부분에만 전처리와 모델을 적합하고 검증 부분에는 변환만 적용하는 Pipeline을 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pipeline",
+        "fold",
+        "cross_validation",
+        "leakage"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p16_pipe",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "각 fold의 training에만 imputation/scaling/encoding/feature selection/sampling/model fit, validation에는 transform",
+          "normalized_explanation": "전처리와 샘플링을 fold 안에 넣는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pipeline",
+            "fold",
+            "cross_validation",
+            "leakage"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p17_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 17,
+      "topic": "모델 선택",
+      "concepts": [
+        "모델 선택"
+      ],
+      "raw_text": "모델을 선택하는 기준",
+      "visual_description": "모델 선택 페이지이다.",
+      "content": "모델 선택 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p18_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 18,
+      "topic": "가설 기반 모델 비교",
+      "concepts": [
+        "가설 기반 모델 비교"
+      ],
+      "raw_text": "모델을 선택하는 기준\n모델은 많이 돌릴수록 좋은가?\n모델 비교는 알고리즘 경연이 아니라 데이터에 대한 가설 검증이다\n\n  잘못된 모델 선택                            Hypothesis-driven Comparison\n\n   Logistic Regression                                  데이터 특성 파악\n   Random Forest                                      ↓\n       SVM                                  모델별 가설 수립\n       KNN                                      ↓\n       XGBoost                                  필요한 후보만 선정\n      LightGBM                                      ↓\n       CatBoost                                동일한 검증 환경에서 비교\n    Neural Network                                      ↓\n      ↓                                   성능·안정성·비용을 함께 평가\n점수가 가장 높은 모델 선택\n\n 모델을 사용한 이유가 없음\n 불필요한 전처리와 계산비용 발생\n 우연히 Validation에 잘 맞은 모델을 선택할 가능성",
+      "visual_description": "가설 기반 모델 비교의 핵심 도식과 설명을 제시한다.",
+      "content": "모델 선택은 많은 모델을 무작정 나열하기보다 데이터와 제약에 근거한 가설을 세우고 같은 분할과 지표로 비교한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ml",
+        "validation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p18_hypothesis",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "왜 이 모델을 비교하는가? / model zoo가 아니라 hypothesis-driven comparison",
+          "normalized_explanation": "근거 있는 후보를 동일 조건으로 비교한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ml",
+            "validation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p19_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 19,
+      "topic": "모델 선택 기준 1",
+      "concepts": [
+        "모델 선택 기준 1"
+      ],
+      "raw_text": "모델을 선택하는 기준\n모델 선택을 결정하는 5가지 기준\n① 데이터 크기와 형태 ② 관계의 복잡도 ③ 변수 유형과 전처리 ④ 설명 가능성 ⑤ 계산·운영 비용\n\n1.데이터 크기와 형태                       2.관계의 복잡도",
+      "visual_description": "모델 선택 기준 1의 핵심 도식과 설명을 제시한다.",
+      "content": "데이터 표본 수·특성 수·희소성 같은 크기와 형태, 선형·비선형 관계 및 상호작용 복잡도를 고려한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ml",
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p19_criteria",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "데이터 크기·형태 / 관계 복잡도 / 변수 타입·전처리 / 설명 가능성 / 계산·운영 비용",
+          "normalized_explanation": "성능 외 제약을 포함해 모델을 고른다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ml",
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p20_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 20,
+      "topic": "모델 선택 기준 2",
+      "concepts": [
+        "모델 선택 기준 2"
+      ],
+      "raw_text": "모델을 선택하는 기준\n모델 선택을 결정하는 5가지 기준\n최고 성능뿐 아니라 데이터 적합성, 해석 가능성, 계산비용과 운영 가능성을 함께 고려한다.\n\n\n3.변수 유형과 전처리                        4.설명 가능성",
+      "visual_description": "모델 선택 기준 2의 핵심 도식과 설명을 제시한다.",
+      "content": "변수 타입과 전처리, 설명 가능성, 학습·추론 시간과 메모리·운영 비용도 모델 선택 기준이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p21_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 21,
+      "topic": "제약 안의 최선",
+      "concepts": [
+        "제약 안의 최선"
+      ],
+      "raw_text": "모델을 선택하는 기준\n모델 선택을 결정하는 5가지 기준\n최고 성능뿐 아니라 데이터 적합성, 해석 가능성, 계산비용과 운영 가능성을 함께 고려한다.\n\n\n5.계산·운영 비용\n\n\n\n                       좋은 모델은 점수가 가장 높은 모델이 아니라,\n                    프로젝트의 제약 안에서 목적을 가장 잘 달성하는 모델이다.",
+      "visual_description": "제약 안의 최선의 핵심 도식과 설명을 제시한다.",
+      "content": "최고 모델은 절대적이지 않고 데이터와 해석·운영 제약 안에서 검증 성능과 비용의 균형이 좋은 모델이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p22_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 22,
+      "topic": "Baseline과 선형 모델",
+      "concepts": [
+        "Baseline과 선형 모델"
+      ],
+      "raw_text": "모델을 선택하는 기준\nBaseline과 선형모델\nBaseline은 이후 모델의 복잡성이 실제로 필요한지 판단하는 기준이다\n\n\nBaseline                  복잡한 모델이 Baseline보다 의미 있게 좋아야 사용할 이유가 생긴다.\n\n                                              Logistic Regression의 역할\n                           입력변수의 선형결합을 이용해 특정 클래스의 확률을 예측하는 선형 분류 모델\n\n\n\n선형·로지스틱 모델을 사용하는 이유\n\n\n\n\n\n                  선형모델이 충분한가, 아니면 비선형 관계와 상호작용을 학습하는 모델이 필요한가?",
+      "visual_description": "Baseline과 선형 모델의 핵심 도식과 설명을 제시한다.",
+      "content": "단순한 베이스라인과 선형·로지스틱 회귀는 비교 기준과 해석 가능한 출발점을 제공한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "baseline",
+        "logistic_regression",
+        "linear_model"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p22_baseline",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Baseline / Logistic Regression / Linear model",
+          "normalized_explanation": "단순 모델은 해석 가능한 비교 기준이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "baseline",
+            "logistic_regression",
+            "linear_model"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p23_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 23,
+      "topic": "Decision Tree",
+      "concepts": [
+        "Decision Tree"
+      ],
+      "raw_text": "모델을 선택하는 기준\n Decision Tree와 Random Forest\n 비선형 관계의 첫 번째 후보: Tree와 Random Forest\n\n                           Decision Tree            Random Forest\n\n\n     Decision Tree\n 비선형 분할·상호작용\n      ↓\n    깊은 Tree\n높은 성능·과적합·불안정성\n      ↓\n   Random Forest\n   여러 Tree 평균",
+      "visual_description": "Decision Tree의 핵심 도식과 설명을 제시한다.",
+      "content": "의사결정나무는 비선형 임계값과 상호작용을 표현하지만 깊어지면 과적합하고 데이터 변화에 불안정할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "decision_tree"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p23_tree",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "비선형 관계 / 깊은 tree는 overfitting / 데이터 변화에 불안정",
+          "normalized_explanation": "트리의 표현력과 분산 위험을 함께 본다.",
+          "source_status": "verified",
+          "term_ids": [
+            "decision_tree"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p24_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 24,
+      "topic": "Random Forest",
+      "concepts": [
+        "Random Forest"
+      ],
+      "raw_text": "모델을 선택하는 기준\nDecision Tree와 Random Forest\n비선형 관계의 첫 번째 후보: Tree와 Random Forest",
+      "visual_description": "Random Forest의 핵심 도식과 설명을 제시한다.",
+      "content": "랜덤 포레스트는 여러 트리의 예측을 평균 또는 투표해 단일 트리의 분산과 불안정성을 줄인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "random_forest",
+        "decision_tree"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p24_rf",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "여러 Decision Tree의 결과를 평균/투표",
+          "normalized_explanation": "랜덤 포레스트는 앙상블로 단일 트리 분산을 줄인다.",
+          "source_status": "verified",
+          "term_ids": [
+            "random_forest",
+            "decision_tree"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p25_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 25,
+      "topic": "Boosting",
+      "concepts": [
+        "Boosting"
+      ],
+      "raw_text": "모델을 선택하는 기준\nGradient Boosting 계열\n정형 데이터의 주요 고성능 후보: Gradient Boosting\n\n\n\n        초기 예측\n          ↓\n     첫 번째 Tree가 오류 학습\n          ↓\n     기존 예측 + 첫 번째 Tree\n          ↓\n    두 번째 Tree가 남은 오류 학습\n          ↓\n          반복",
+      "visual_description": "Boosting의 핵심 도식과 설명을 제시한다.",
+      "content": "부스팅은 앞선 모델의 잔차나 오류를 다음 약한 학습기가 순차적으로 보완한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "boosting"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p25_boost",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "이전 모델의 residual/error를 다음 모델이 순차적으로 학습",
+          "normalized_explanation": "부스팅은 오류를 순차 보완한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "boosting"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p26_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 26,
+      "topic": "XGBoost·LightGBM·CatBoost",
+      "concepts": [
+        "XGBoost·LightGBM·CatBoost"
+      ],
+      "raw_text": "모델을 선택하는 기준\nGradient Boosting 계열\n정형 데이터의 주요 고성능 후보: Gradient Boosting\n\n\n\n\n\nXGBoost                        LightGBM                       CatBoost\n                                               범주형 변수가 많고 One-hot Encoding의안정적인 범용 Boosting 기준 모델이 필요할 때  데이터가 크고 반복 실험 속도가 중요할 때\n                                               차원 증가를 줄이고 싶을 때",
+      "visual_description": "XGBoost·LightGBM·CatBoost의 핵심 도식과 설명을 제시한다.",
+      "content": "XGBoost는 범용적이고, LightGBM은 큰 데이터와 빠른 반복에, CatBoost는 범주형·고카디널리티 처리에 강점이 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "xgboost",
+        "lightgbm",
+        "catboost",
+        "categorical"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p26_gbm",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "XGBoost / LightGBM / CatBoost / categorical/high-cardinality",
+          "normalized_explanation": "부스팅 구현별 데이터·운영 강점이 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "xgboost",
+            "lightgbm",
+            "catboost",
+            "categorical"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p27_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 27,
+      "topic": "조건부 모델 선택",
+      "concepts": [
+        "조건부 모델 선택"
+      ],
+      "raw_text": "모델을 선택하는 기준\nSVM·KNN·딥러닝\n특정 조건이 충족될 때 선택적으로 비교한다\n\n       SVM                   KNN                    Neural Network",
+      "visual_description": "조건부 모델 선택의 핵심 도식과 설명을 제시한다.",
+      "content": "SVM·KNN·신경망도 데이터 크기, 차원, 거리 구조, 비선형성과 연산 제약이 맞는 조건에서 후보가 된다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p28_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 28,
+      "topic": "모델별 전처리",
+      "concepts": [
+        "모델별 전처리"
+      ],
+      "raw_text": "모델별 효율적 사용과\n  Anti-pattern",
+      "visual_description": "모델별 전처리 페이지이다.",
+      "content": "모델별 전처리 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p29_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 29,
+      "topic": "모델별 Pipeline",
+      "concepts": [
+        "모델별 Pipeline"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n모든 모델에 같은 전처리를 적용해도 될까?\n모델별 학습 방식이 다르므로 필요한 입력 형태도 다르다\n\n결측값 대체                    Model-specific Pipeline\n→ 전체 변수 Standard Scaling\n→ 모든 범주 One-hot Encoding\n→ 다항변수 생성\n→ 모든 모델에 동일 적용\n\n    Logistic Regression\n   Random Forest\n   LightGBM\n   CatBoost                      선형모델과 SVM\n   SVM                   변수 크기와 거리 또는 계수 최적화에 Scale이 직접 영향을 줄 수 있다.\n                                     Tree 모델\n                         변수값의 크기 자체보다 특정 임계값을 기준으로 데이터를 분할한다\n                                   CatBoost\n                         범주형 변수를 직접 처리하는 것이 주요 장점 중 하나이므로, 모든 범주형 변수를\n                         미리 One-hot Encoding하면 그 장점을 활용하기 어렵다.",
+      "visual_description": "모델별 Pipeline의 핵심 도식과 설명을 제시한다.",
+      "content": "스케일링은 선형 모델·SVM에 중요하고 트리는 임계값 분기라 상대적으로 덜 민감하며 CatBoost는 범주형 변수를 직접 다룰 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "linear_model",
+        "svm",
+        "decision_tree",
+        "catboost",
+        "scaling",
+        "categorical"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p29_modelprep",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Linear/SVM: scaling 중요 / Tree: scale 영향 작음 / CatBoost: categorical 직접 처리",
+          "normalized_explanation": "전처리는 모델 특성에 맞춘다.",
+          "source_status": "verified",
+          "term_ids": [
+            "linear_model",
+            "svm",
+            "decision_tree",
+            "catboost",
+            "scaling",
+            "categorical"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p30_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 30,
+      "topic": "모델별 전처리 비교",
+      "concepts": [
+        "모델별 전처리 비교"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n모든 모델에 같은 전처리를 적용해도 될까?",
+      "visual_description": "모델별 전처리 비교의 핵심 도식과 설명을 제시한다.",
+      "content": "같은 원자료라도 선형·거리 기반 모델, 트리, 범주형 특화 모델은 scaling·encoding·결측 처리 요구가 다르다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p31_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 31,
+      "topic": "Scaling과 결측치",
+      "concepts": [
+        "Scaling과 결측치"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n모든 모델에 같은 전처리를 적용해도 될까?\n\n\nScaling                      결측값 처리",
+      "visual_description": "Scaling과 결측치의 핵심 도식과 설명을 제시한다.",
+      "content": "Scaling 기준과 결측치 대체 통계는 학습 fold에서만 추정하고 모델 민감도와 결측 의미를 고려해 적용한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p32_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 32,
+      "topic": "이상치 처리",
+      "concepts": [
+        "이상치 처리"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n모든 모델에 같은 전처리를 적용해도 될까?\n\n\n이상치 처리",
+      "visual_description": "이상치 처리의 핵심 도식과 설명을 제시한다.",
+      "content": "이상치는 오류인지 희귀 신호인지 먼저 판단하고 모델 강건성, 변환·절단의 정보 손실을 고려해 처리한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p33_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 33,
+      "topic": "Feature Engineering 원칙",
+      "concepts": [
+        "Feature Engineering 원칙"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n파생변수는 많을수록 좋은 것이 아니다\n모델이 자동으로 학습할 수 있는 관계와 사람이 추가해야 하는 정보를 구분한다\n\n두 종류의 FE\n\n\n\n\n\n모델별 FE 역할",
+      "visual_description": "Feature Engineering 원칙의 핵심 도식과 설명을 제시한다.",
+      "content": "특성공학은 개수를 늘리는 일이 아니라 모델이 쓰기 어려운 도메인·시간·집계 정보를 유효한 표현으로 추가하는 일이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p33_fe",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Feature Engineering은 많을수록 좋은 것이 아님 / 새로운 정보와 유효한 표현",
+          "normalized_explanation": "특성 수보다 정보와 모델 적합성이 중요하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p34_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 34,
+      "topic": "선형 모델의 FE",
+      "concepts": [
+        "선형 모델의 FE"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n파생변수는 많을수록 좋은 것이 아니다\n\n\n\n선형모델에서 FE가 중요한 이유                           Tree 모델이 자체적으로 학습할 수 있는 것",
+      "visual_description": "선형 모델의 FE의 핵심 도식과 설명을 제시한다.",
+      "content": "선형 모델은 상호작용과 비선형 변환을 명시해야 복잡한 관계를 표현할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "linear_model",
+        "interaction",
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p34_linearfe",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Linear model은 interaction/nonlinear transform을 명시적으로 추가",
+          "normalized_explanation": "선형 모델에는 필요한 관계를 특성으로 표현한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "linear_model",
+            "interaction",
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p35_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 35,
+      "topic": "트리 모델의 FE",
+      "concepts": [
+        "트리 모델의 FE"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n파생변수는 많을수록 좋은 것이 아니다\n\n모델과 상관없이 유용한 FE\n\n\n\n\n\n   모델이 자동으로 만들 수 있는 관계보다, 원천 데이터에 없던 도메인 정보를 추가하는 FE에 우선순위를 둔다.",
+      "visual_description": "트리 모델의 FE의 핵심 도식과 설명을 제시한다.",
+      "content": "트리 모델은 임계값과 일부 상호작용을 스스로 학습하므로 무분별한 다항·상호작용 특성은 중복과 비용을 늘릴 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "decision_tree",
+        "interaction",
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p35_treefe",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Tree는 threshold/interaction을 학습 / 무분별한 polynomial·all interactions",
+          "normalized_explanation": "트리에 중복 변환을 대량 추가하지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "decision_tree",
+            "interaction",
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p36_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 36,
+      "topic": "트리 FE Anti-pattern 1",
+      "concepts": [
+        "트리 FE Anti-pattern 1"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n트리모델에서 피해야 할 불필요한 FE\n불필요한 FE는 차원과 복잡도만 늘리고 정보는 줄일 수 있다\n\nAnti-pattern 1: 연속형 변수의 임의 구간화       Anti-pattern 2: 단순 다항변수 대량 생성",
+      "visual_description": "트리 FE Anti-pattern 1의 핵심 도식과 설명을 제시한다.",
+      "content": "트리에 임의 구간화나 대량 다항 특성을 추가하면 원래 학습할 분기를 중복하고 잡음·복잡도를 늘릴 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p37_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 37,
+      "topic": "트리 FE Anti-pattern 2",
+      "concepts": [
+        "트리 FE Anti-pattern 2"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n트리모델에서 피해야 할 불필요한 FE\n 불필요한 FE는 차원과 복잡도만 늘리고 정보는 줄일 수 있다\n\nAnti-pattern 3: 모든 변수 간 상호작용 생성       Anti-pattern 4: 같은 정보를 여러 형태로 중복",
+      "visual_description": "트리 FE Anti-pattern 2의 핵심 도식과 설명을 제시한다.",
+      "content": "가능한 모든 상호작용을 생성하거나 같은 정보를 여러 형태로 복제하면 차원과 과적합 위험이 높아진다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p38_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 38,
+      "topic": "유용한 새 정보",
+      "concepts": [
+        "유용한 새 정보"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n트리모델에서 피해야 할 불필요한 FE\n불필요한 FE는 차원과 복잡도만 늘리고 정보는 줄일 수 있다\n\nTree에서도 유용한 FE\n\n\n\n\n                            이 변수는 모델이 원본 변수만으로 학습할 수 있는\n                                  관계인가, 아니면 새로운 정보를 추가하는가?",
+      "visual_description": "유용한 새 정보의 핵심 도식과 설명을 제시한다.",
+      "content": "트리에서도 예측 시점에 사용 가능한 도메인 지식, 기간 집계, 시간 경과와 그룹 통계는 유용한 특성이 된다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p39_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 39,
+      "topic": "범주형 변수 판단",
+      "concepts": [
+        "범주형 변수 판단"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n범주형 변수는 어떻게 처리할 것인가?\n① 범주 사이에 순서가 있는가? ② 범주의 개수가 얼마나 많은가?",
+      "visual_description": "범주형 변수 판단의 핵심 도식과 설명을 제시한다.",
+      "content": "범주형 변수는 순서 존재 여부와 카디널리티를 확인해 인코딩 전략을 고른다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "categorical",
+        "ordinal_encoding"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p39_cat",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "ordered? / cardinality?",
+          "normalized_explanation": "순서와 카디널리티로 범주형 처리법을 정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "categorical",
+            "ordinal_encoding"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p40_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 40,
+      "topic": "One-hot과 Ordinal",
+      "concepts": [
+        "One-hot과 Ordinal"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n범주형 변수는 어떻게 처리할 것인가?\n\nOne-hot Encoding              Ordinal Encoding",
+      "visual_description": "One-hot과 Ordinal의 핵심 도식과 설명을 제시한다.",
+      "content": "원핫 인코딩은 순서 없는 범주에, 순서형 인코딩은 실제 순서가 있는 범주에 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "one_hot",
+        "ordinal_encoding",
+        "categorical"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p40_encoding",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "One-hot Encoding / Ordinal Encoding",
+          "normalized_explanation": "명목형과 순서형을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "one_hot",
+            "ordinal_encoding",
+            "categorical"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p41_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 41,
+      "topic": "Target Encoding과 CatBoost",
+      "concepts": [
+        "Target Encoding과 CatBoost"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n범주형 변수는 어떻게 처리할 것인가?\n\n\nTarget Encoding                     CatBoost와 범주형 직접 처리\n\n\n\n\n\n                                  범주형 변수라고 해서 고객 ID나 주문번호까지 유용한 Feature가 되는 것은 아니다.",
+      "visual_description": "Target Encoding과 CatBoost의 핵심 도식과 설명을 제시한다.",
+      "content": "타깃 인코딩은 누수를 막도록 fold 내부에서 적합해야 하며 CatBoost는 범주형 변수 처리 대안이 될 수 있다. 식별자라고 해서 자동으로 유용한 특성은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "target_encoding",
+        "catboost",
+        "leakage"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p41_target",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Target Encoding / CatBoost / ID와 순서 ID는 자동으로 유용하지 않음",
+          "normalized_explanation": "타깃 인코딩 누수와 식별자 오용을 막는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "target_encoding",
+            "catboost",
+            "leakage"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p42_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 42,
+      "topic": "불균형 학습 순서",
+      "concepts": [
+        "불균형 학습 순서"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n클래스 불균형과 Sampling Anti-pattern\n문제는 클래스 비율 자체보다 어떤 오류가 더 중요한가이다\n\n\n      Positive 비율 5% 확인\n        ↓                            ① 오류 비용과 활용 방식 정의\n   전체 데이터에 SMOTE                                       ↓\n        ↓                             ② 적절한 평가 지표 선택\n         Train·Test 분할                                       ↓\n        ↓                              ③ Stratified Split\n       Accuracy·F1 비교                                       ↓\n                               ④ Class Weight\n                                       ↓\n                              ⑤ Threshold 조정\n                                       ↓\n                             ⑥ Sampling 필요성 검토",
+      "visual_description": "불균형 학습 순서의 핵심 도식과 설명을 제시한다.",
+      "content": "불균형 문제는 먼저 오류 비용과 사용 목적, 적절한 지표를 정하고 층화, 클래스 가중치, 임계값을 검토한 뒤 필요하면 샘플링한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "class_imbalance",
+        "stratification",
+        "class_weight",
+        "threshold",
+        "smote"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p42_imb",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "오류 비용·사용 목적 → metric → stratified → class weight → threshold → sampling",
+          "normalized_explanation": "샘플링 전에 목적·지표·가중치·임계값을 검토한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "class_imbalance",
+            "stratification",
+            "class_weight",
+            "threshold",
+            "smote"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p43_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 43,
+      "topic": "Sampling 주의",
+      "concepts": [
+        "Sampling 주의"
+      ],
+      "raw_text": "모델별 효율적 사용과 Anti-pattern\n클래스 불균형과 Sampling Anti-pattern\n문제는 클래스 비율 자체보다 어떤 오류가 더 중요한가이다\n\n\n\n\n\n절대 원칙\nSampling은 전체 데이터가 아니라 각 Training Fold 내부에서만 수행한다.\nSMOTE가 특히 부적절할 수 있는 상황\n  시간 순서가 중요한 데이터\n  범주형 변수가 대부분인 데이터\n  소수 클래스 자체에 Label Noise가 많은 경우\n  관측치가 실제 고객·기업 등 명확한 실체를 의미하는 경우\n  합성 고객의 해석 가능성이 중요한 경우\n  확률값의 Calibration이 중요한 문제",
+      "visual_description": "Sampling 주의의 핵심 도식과 설명을 제시한다.",
+      "content": "SMOTE 같은 샘플링은 학습 fold에만 적용하며 시간·개체·범주 중심 데이터와 라벨 노이즈, 보정·해석성 영향을 점검한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "smote",
+        "fold",
+        "time_split",
+        "group_split",
+        "calibration"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p43_sampling",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "sampling은 training fold에만 / time·entity·categorical·label noise·calibration 주의",
+          "normalized_explanation": "샘플링은 fold 내부에서 데이터 구조와 부작용을 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "smote",
+            "fold",
+            "time_split",
+            "group_split",
+            "calibration"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p44_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 44,
+      "topic": "평가와 개선",
+      "concepts": [
+        "평가와 개선"
+      ],
+      "raw_text": "평가와 모델 개선",
+      "visual_description": "평가와 개선 페이지이다.",
+      "content": "평가와 개선 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p45_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 45,
+      "topic": "오류 비용과 지표",
+      "concepts": [
+        "오류 비용과 지표"
+      ],
+      "raw_text": "평가와 모델 개선\n좋은 모델은 무엇으로 결정되는가?\n모든 오분류의 비용이 같지는 않다\n\n                                  PrecisionAccuracy\n\n\n\n\n\nRecall\n                                 F1 Score",
+      "visual_description": "오류 비용과 지표의 핵심 도식과 설명을 제시한다.",
+      "content": "평가 지표는 오류 비용에 맞춰 정확도·정밀도·재현율·F1 등을 선택한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "accuracy",
+        "recall",
+        "precision",
+        "f1"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p45_metrics",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Accuracy / Recall / Precision / F1 / error cost",
+          "normalized_explanation": "오류 비용에 맞는 지표를 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "accuracy",
+            "recall",
+            "precision",
+            "f1"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p46_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 46,
+      "topic": "Fold 변동성",
+      "concepts": [
+        "Fold 변동성"
+      ],
+      "raw_text": "평가와 모델 개선\n평균 성능만 보고 모델을 선택하지 않는다\nFold별 성능과 변동성은 모델의 안정성을 보여준다\n\n평균 성능                    최저 Fold 성능\n평균은 여러 Fold에 걸친 일반적인 성능을 요약한다.   최악의 상황에서 어느 정도의 성능을 보이는지도 확인한다.\n하지만 평균만 보면 다음이 가려질 수 있다.          예시:\n  특정 Fold에서의 심각한 실패                   Random Forest 평균: 0.798\n  데이터 구간별 성능 차이                             Fold 2: 0.672\n  모델의 높은 변동성                다음 질문이 필요하다.\n  일부 기간 또는 집단에 대한 취약성                    Fold 2에는 다른 Fold와 어떤 차이가 있는가?\n표준편차\n표준편차가 크다는 것은 Fold에 따라 성능 변동이 크다는 의미다.\n가능한 원인:\n  표본 수 부족\n  소수 클래스 부족\n  특정 기간의 분포 변화\n  특정 그룹에 과도하게 의존\n  모델 복잡도가 높음\n  데이터 품질 차이",
+      "visual_description": "Fold 변동성의 핵심 도식과 설명을 제시한다.",
+      "content": "교차 검증 평균뿐 아니라 표준편차, 최악 fold 등 변동성을 함께 확인한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "fold",
+        "cross_validation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p46_variance",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "mean뿐 아니라 fold variance/std/worst fold",
+          "normalized_explanation": "평균과 변동성·취약 fold를 함께 본다.",
+          "source_status": "verified",
+          "term_ids": [
+            "fold",
+            "cross_validation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p47_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 47,
+      "topic": "Fold 실패와 OOF",
+      "concepts": [
+        "Fold 실패와 OOF"
+      ],
+      "raw_text": "평가와 모델 개선\n평균 성능만 보고 모델을 선택하지 않는다\n\nFold 실패 분석                OOF Prediction의 역할\nFold별로 다음을 비교한다.           각 관측치가 자신을 학습하지 않은 모델로부터 예측값을 받도록 한다.\n    Positive 비율                   OOF 예측은 다음에 사용할 수 있다.\n  기간                     전체 Train 데이터 기준 성능 계산\n  고객군                                    Threshold 선택\n  주요 변수 분포                                 Calibration 확인\n  결측률                    오류 분석\n  신규 범주                               Stacking의 입력값\n  데이터 수집 정책\n\n예시\nFold 2가 특정 미래 기간이라면:\n  해당 기간에 신규 상품 출시로 고객 행동 패턴이 변화했는가?\nFold 2가 특정 고객 그룹이라면:\n  신규 고객 또는 특정 지역에서 성능이 낮은가?\n\nCross Validation은 점수 평균만 계산하는 과정이 아니라 일반화가 깨지는 조건을 찾는 과정이다.",
+      "visual_description": "Fold 실패와 OOF의 핵심 도식과 설명을 제시한다.",
+      "content": "OOF 예측은 학습 데이터 전체에 대한 fold 밖 예측을 모아 임계값·보정·오류 분석 등에 활용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "oof",
+        "fold",
+        "threshold",
+        "calibration"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p47_oof",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "OOF predictions / threshold / calibration / error analysis / stacking",
+          "normalized_explanation": "OOF 예측은 학습 표본의 fold 밖 예측을 모은다.",
+          "source_status": "verified",
+          "term_ids": [
+            "oof",
+            "fold",
+            "threshold",
+            "calibration"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p48_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 48,
+      "topic": "진단 후 튜닝",
+      "concepts": [
+        "진단 후 튜닝"
+      ],
+      "raw_text": "평가와 모델 개선\n하이퍼파라미터를 효율적으로 탐색하기\n넓은 Grid Search보다 중요한 파라미터와 적절한 탐색 예산이 중요하다\n\n\n\n ① 기본 설정으로 Baseline 확인\n        ↓           모델 복잡도         Sampling\n ② 과적합·과소적합 여부 진단                Tree 깊이           Row Sampling\n        ↓                           Leaf 수                Feature Sampling\n ③ 영향이 큰 파라미터부터 탐색               min_samples_leaf      subsample\n        ↓                           min_child_weight      colsample_bytree\n  ④ Cross Validation 비교\n        ↓           학습 강도       불균형 처리\n    ⑤ 탐색 범위 축소                    Learning Rate          class_weight\n        ↓                           Tree 수                scale_pos_weight\n⑥ Early Stopping으로 반복 수 결정             Regularization\n        ↓\n    ⑦ 최종 설정 확정",
+      "visual_description": "진단 후 튜닝의 핵심 도식과 설명을 제시한다.",
+      "content": "하이퍼파라미터 튜닝은 검증과 오류 진단 뒤 복잡도·학습률·규제·샘플링 등 중요한 축을 대상으로 수행한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "hyperparameter",
+        "cross_validation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p48_tune",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "진단 후 중요한 parameter만 CV로 tuning / complexity, learning rate, regularization, sampling",
+          "normalized_explanation": "튜닝은 검증 진단 이후 제한된 핵심 축에 집중한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hyperparameter",
+            "cross_validation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p49_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 49,
+      "topic": "탐색 방법",
+      "concepts": [
+        "탐색 방법"
+      ],
+      "raw_text": "평가와 모델 개선\n하이퍼파라미터를 효율적으로 탐색하기\n넓은 Grid Search보다 중요한 파라미터와 적절한 탐색 예산이 중요하다\n\n    Grid Search           Random Search          Bayesian Optimization·Optuna",
+      "visual_description": "탐색 방법의 핵심 도식과 설명을 제시한다.",
+      "content": "Grid는 정해진 조합, random은 공간 표본, Bayesian·Optuna 방식은 이전 결과를 이용해 다음 탐색 지점을 정한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p50_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 50,
+      "topic": "Early Stopping",
+      "concepts": [
+        "Early Stopping"
+      ],
+      "raw_text": "평가와 모델 개선\n하이퍼파라미터를 효율적으로 탐색하기\n넓은 Grid Search보다 중요한 파라미터와 적절한 탐색 예산이 중요하다\n\n          Early Stopping\n                                      Early Stopping 주의사항\n                                                    Test 데이터로 Early Stopping하면 안 됨\n                          각 Fold마다 최적 반복 수가 달라질 수 있음\n                                                Cross Validation에서 평균적인 반복 수를 확인\n                          최종 재학습 시 반복 수 결정 방식을 명시\n\n                      가능한 방식\n                                         Fold별 최적 Tree 수 평균·중앙값 사용\n                          최종 Development Set에서 별도 Validation으로 Early Stopping\n                          라이브러리의 CV 기능 활용\n\n\n\n 튜닝은 좋은 검증 구조 위에서 마지막 성능을 다듬는 작업이지, 잘못된 데이터와 모델 선택을 해결하는 도구가 아니다.",
+      "visual_description": "Early Stopping의 핵심 도식과 설명을 제시한다.",
+      "content": "Early stopping은 테스트 세트가 아닌 검증 성능으로 과도한 반복을 막으며, 잘못된 검증 설계나 데이터 문제를 고치지는 못한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "early_stopping",
+        "validation_set",
+        "test_set",
+        "fold"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "ml_p50_es",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "early stopping에 Test 사용 금지 / fold별 optimum / validation·data 문제를 고치지 못함",
+          "normalized_explanation": "조기 종료는 검증 데이터로 반복 수를 제어한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "early_stopping",
+            "validation_set",
+            "test_set",
+            "fold"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "machine_learning_p51_01",
+      "lecture_id": "machine_learning",
+      "lecture_name": "Machine Learning",
+      "page": 51,
+      "topic": "강의 마무리",
+      "concepts": [
+        "강의 마무리"
+      ],
+      "raw_text": "감사합니다",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "강의 마무리 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

@@ -1,0 +1,1142 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "computer_vision",
+  "lecture_name": "Computer Vision",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "cv.visual_foundations",
+      "title": "시각 과제와 고전 특징 추출",
+      "selection_description": "CV의 출력 과제와 사람이 설계한 특징의 원리를 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "cv.foundation.scope",
+          "title": "CV의 범위",
+          "summary": "2D·3D 과제와 좋은 특징을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "cv.definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Computer Vision은 이미지·비디오의 pixel 배열을 의미 있는 시각 정보로 바꾸어 인식·이해하게 하는 기술이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "computer_vision_p4_01",
+                  "unit_id": "cv_p4_def",
+                  "source_excerpt": "이미지, 비디오 → 기계가 보는 숫자 행렬 → 의미 있는 정보",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cv",
+                "pixel",
+                "feature"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Computer Vision은 이미지·비디오의 pixel 배열을 의미 있는 시각 정보로 바꾸어 인식·이해하게 하는 기술이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.tasks_2d",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "2D task에는 image classification, object detection·localization, tracking과 segmentation이 있으며 출력 단위가 다르다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "computer_vision_p5_01",
+                  "unit_id": "cv_p5_2d",
+                  "source_excerpt": "image classification / object detection-localization / tracking / segmentation",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "classification",
+                "detection",
+                "tracking",
+                "segmentation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "2D task에는 image classification, object detection·localization, tracking과 segmentation이 있으며 출력 단위가 다르다."
+                ],
+                "critical_errors": [
+                  "classification이 각 객체의 위치 box까지 반드시 출력한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.tasks_3d",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "3D task에는 depth estimation, 3D reconstruction, sensor fusion, pose estimation과 SLAM이 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "computer_vision_p6_01",
+                  "unit_id": "cv_p6_3d",
+                  "source_excerpt": "depth estimation / 3D reconstruction / sensor fusion / pose estimation / SLAM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "depth",
+                "sensor_fusion",
+                "pose",
+                "slam"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "3D task에는 depth estimation, 3D reconstruction, sensor fusion, pose estimation과 SLAM이 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.good_feature",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "좋은 visual feature는 객체 의미를 보존하면서 시점·조명·자세 변화에 강건해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "computer_vision_p7_01",
+                  "unit_id": "cv_p7_good",
+                  "source_excerpt": "시점, 조명, 자세 등에 불변해야함",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "feature",
+                "invariance"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "좋은 visual feature는 객체 의미를 보존하면서 시점·조명·자세 변화에 강건해야 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.foundation.local",
+          "title": "Filter와 국소 특징",
+          "summary": "edge·corner와 scale을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.filters",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Image filter는 kernel 연산으로 blur·edge·sharpen처럼 원하는 시각 정보를 강조하거나 노이즈를 줄인다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "computer_vision_p10_01",
+                  "unit_id": "cv_p10_filter",
+                  "source_excerpt": "Blur: 노이즈 제거 / Edge: 경계 검출 / Sharpen: 선명하게 / Sobel x·y 경계",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "filter",
+                "kernel",
+                "edge"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Image filter는 kernel 연산으로 blur·edge·sharpen처럼 원하는 시각 정보를 강조하거나 노이즈를 줄인다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.harris",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Harris corner detector는 국소 gradient의 second-moment를 이용해 여러 방향 밝기 변화가 큰 corner를 찾는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "computer_vision_p11_01",
+                  "unit_id": "cv_p11_harris",
+                  "source_excerpt": "코너는 x, y 방향 모두 변화가 큰 지점",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "harris",
+                "corner",
+                "edge"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Harris corner detector는 국소 gradient의 second-moment를 이용해 여러 방향 밝기 변화가 큰 corner를 찾는다."
+                ],
+                "critical_errors": [
+                  "Harris가 색상 label을 이용한 supervised detector라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.multiscale",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "단일 scale detector의 확대·축소 민감도는 여러 scale에서 특징 후보를 찾는 방식으로 보완한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "computer_vision_p12_01",
+                  "unit_id": "cv_p12_scale",
+                  "source_excerpt": "확대·축소하면 코너로 안 잡힐 수 있다 / 여러 크기에서 동시에 특징 찾기",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "harris",
+                "scale",
+                "feature"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "단일 scale detector의 확대·축소 민감도는 여러 scale에서 특징 후보를 찾는 방식으로 보완한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.foundation.descriptor",
+          "title": "SIFT와 grouping",
+          "summary": "특징 기술과 영역 구성을 연결한다.",
+          "claims": [
+            {
+              "claim_id": "cv.sift",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "SIFT는 scale 공간에서 keypoint를 찾고 주 gradient 방향에 정렬한 descriptor로 scale·rotation 변화에 강건한 matching을 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "computer_vision_p13_01",
+                  "unit_id": "cv_p13_sift",
+                  "source_excerpt": "multi-scale / 기준 방향으로 정렬 / 4×4 영역×8방향=128차원 descriptor",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "sift",
+                "scale",
+                "descriptor",
+                "feature"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "SIFT는 scale 공간에서 keypoint를 찾고 주 gradient 방향에 정렬한 descriptor로 scale·rotation 변화에 강건한 matching을 한다."
+                ],
+                "critical_errors": [
+                  "SIFT가 scale·rotation 변화에 전혀 대응하지 않는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.grouping",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Hough transform은 edge 조각을 선·원 같은 기하 구조로 연결하고 grouping은 국소 특징을 더 큰 단위로 묶는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "computer_vision_p14_01",
+                  "unit_id": "cv_p14_group",
+                  "source_excerpt": "edge → line-circle → segment / Hough transform",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "edge",
+                "hough",
+                "segmentation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Hough transform은 edge 조각을 선·원 같은 기하 구조로 연결하고 grouping은 국소 특징을 더 큰 단위로 묶는다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.segmentation_classical",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "전통 segmentation은 비슷한 pixel을 영역으로 묶는 clustering 관점으로 접근할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "computer_vision_p15_01",
+                  "unit_id": "cv_p15_segment",
+                  "source_excerpt": "segmentation = clustering의 문제 / 비슷한 픽셀끼리 묶기",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "segmentation",
+                "clustering"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "전통 segmentation은 비슷한 pixel을 영역으로 묶는 clustering 관점으로 접근할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.svm_generalization",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "수작업 feature 위의 SVM은 선형·kernel 경계를 학습하며 training 적합보다 새 데이터 generalization이 중요하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "computer_vision_p17_01",
+                  "unit_id": "cv_p17_svm",
+                  "source_excerpt": "SVM 선형·비선형 kernel / Bias-Variance / 본 적 없는 데이터 일반화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "svm",
+                "generalization"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "수작업 feature 위의 SVM은 선형·kernel 경계를 학습하며 training 적합보다 새 데이터 generalization이 중요하다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "cv.cnn_representation",
+      "title": "CNN의 특징 학습",
+      "selection_description": "CNN의 inductive bias와 convolution·pooling·계층 표현을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "cv.cnn.transition",
+          "title": "수작업에서 학습 특징으로",
+          "summary": "CNN 전체 흐름을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.classical_transition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "전통 CV는 사람이 feature와 classifier를 설계하지만 CNN은 feature extraction과 최종 판단을 함께 데이터로 학습한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "computer_vision_p18_01",
+                  "unit_id": "cv_p18_transition",
+                  "source_excerpt": "사람이 설계한 특징 + 사람이 설계한 분류기 / 두 가지를 자동화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "feature",
+                "svm",
+                "cnn"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "전통 CV는 사람이 feature와 classifier를 설계하지만 CNN은 feature extraction과 최종 판단을 함께 데이터로 학습한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.cnn_flow",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "CNN은 convolution으로 특징을 추출하고 pooling으로 요약한 뒤 classification head에서 확률을 출력한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 20,
+                  "chunk_id": "computer_vision_p20_01",
+                  "unit_id": "cv_p20_flow",
+                  "source_excerpt": "이미지 → Convolution → Pooling → FC layer → 확률분포",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cnn",
+                "convolution",
+                "pooling",
+                "classification"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CNN은 convolution으로 특징을 추출하고 pooling으로 요약한 뒤 classification head에서 확률을 출력한다."
+                ],
+                "critical_errors": [
+                  "CNN의 convolution filter는 학습되지 않고 항상 사람이 고정한다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.cnn.operations",
+          "title": "합성곱과 풀링",
+          "summary": "공간 연산의 역할을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "cv.convolution",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Convolution filter는 image 위치를 이동하며 국소 pattern 반응을 feature map으로 만들고 padding과 stride가 공간 크기를 조절한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "computer_vision_p22_01",
+                  "unit_id": "cv_p22_conv",
+                  "source_excerpt": "filter가 특정 패턴 유사도를 찍음 / padding / stride / feature map 크기",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "convolution",
+                "kernel",
+                "padding",
+                "stride",
+                "feature_map"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Convolution filter는 image 위치를 이동하며 국소 pattern 반응을 feature map으로 만들고 padding과 stride가 공간 크기를 조절한다."
+                ],
+                "critical_errors": [
+                  "stride가 커질수록 출력 feature map 공간 크기가 항상 커진다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.pooling",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Pooling은 feature map을 축소해 연산량을 줄이고 작은 위치 변화에 강건하게 하지만 세부 공간 정보가 줄 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "computer_vision_p23_01",
+                  "unit_id": "cv_p23_pool",
+                  "source_excerpt": "중요한 특징만 남기고 세부 정보 압축 / feature map 크기 감소 / 위치 변화에 강건",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "pooling",
+                "feature_map",
+                "translation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Pooling은 feature map을 축소해 연산량을 줄이고 작은 위치 변화에 강건하게 하지만 세부 공간 정보가 줄 수 있다."
+                ],
+                "critical_errors": [
+                  "Pooling이 공간 크기를 늘리고 모든 픽셀 세부 정보를 그대로 보존한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.cnn_bias",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "CNN은 locality와 weight sharing으로 가까운 pixel 관계와 위치 전반의 같은 pattern을 우선하는 inductive bias를 가진다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "computer_vision_p21_01",
+                  "unit_id": "cv_p21_bias",
+                  "source_excerpt": "translation invariance / locality / 멀리 떨어진 픽셀 관계는 보기 어려움 / inductive bias",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cnn",
+                "translation",
+                "locality",
+                "inductive_bias"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CNN은 locality와 weight sharing으로 가까운 pixel 관계와 위치 전반의 같은 pattern을 우선하는 inductive bias를 가진다."
+                ],
+                "critical_errors": [
+                  "CNN이 이미지 내 모든 장거리 관계를 한 층에서 완전하게 직접 비교한다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.cnn.hierarchy",
+          "title": "계층적 표현",
+          "summary": "깊이와 수용 영역을 연결한다.",
+          "claims": [
+            {
+              "claim_id": "cv.hierarchy",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "깊은 CNN은 receptive field와 channel이 커지며 edge·corner에서 object part와 전체 object로 이어지는 hierarchical feature를 학습한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 24,
+                  "chunk_id": "computer_vision_p24_01",
+                  "unit_id": "cv_p24_hierarchy",
+                  "source_excerpt": "low edge-corner / mid part / high face-car / receptive field와 channel 증가",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hierarchy",
+                "receptive_field",
+                "feature",
+                "cnn"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "깊은 CNN은 receptive field와 channel이 커지며 edge·corner에서 object part와 전체 object로 이어지는 hierarchical feature를 학습한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.feature_transfer",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "CNN에서 학습한 representation은 classification·detection·segmentation 등 다양한 downstream task에 재사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "computer_vision_p26_01",
+                  "unit_id": "cv_p26_transfer",
+                  "source_excerpt": "CNN에서 학습한 Feature는 다양한 Vision Task에 활용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cnn",
+                "feature",
+                "classification",
+                "detection",
+                "segmentation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CNN에서 학습한 representation은 classification·detection·segmentation 등 다양한 downstream task에 재사용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "cv.downstream_tasks",
+      "title": "Vision Downstream Task",
+      "selection_description": "ResNet·object detection·segmentation 구조를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "cv.tasks.resnet",
+          "title": "ResNet",
+          "summary": "잔차 학습과 깊은 network를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.resnet",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "ResNet은 block 변환 F(x)에 입력 x를 더하는 residual connection으로 깊은 network의 degradation·optimization 문제를 완화한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 27,
+                  "chunk_id": "computer_vision_p27_01",
+                  "unit_id": "cv_p27_resnet",
+                  "source_excerpt": "residual connection / degradation / 입력에 더해줄 차이 F(x)를 학습",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "resnet",
+                "residual",
+                "degradation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "ResNet은 block 변환 F(x)에 입력 x를 더하는 residual connection으로 깊은 network의 degradation·optimization 문제를 완화한다."
+                ],
+                "critical_errors": [
+                  "Residual connection이 입력 x를 제거하고 F(x)만 출력한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.residual_formula",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Residual block은 H(x)=F(x)+x이며 basic 또는 bottleneck block을 쌓아 깊은 구조를 만든다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "computer_vision_p28_01",
+                  "unit_id": "cv_p28_residual",
+                  "source_excerpt": "H(x) = F(x) + x / Basic block과 Bottleneck block",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "resnet",
+                "residual"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Residual block은 H(x)=F(x)+x이며 basic 또는 bottleneck block을 쌓아 깊은 구조를 만든다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.tasks.detection",
+          "title": "Object Detection",
+          "summary": "계보와 YOLO 출력을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.detection_lineage",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Object detection은 sliding window에서 region proposal 기반 R-CNN 계열과 빠른 one-stage detector로 발전했다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "computer_vision_p29_01",
+                  "unit_id": "cv_p29_lineage",
+                  "source_excerpt": "Sliding Window → R-CNN → Fast-Faster R-CNN → YOLO",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "detection",
+                "rcnn",
+                "yolo"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Object detection은 sliding window에서 region proposal 기반 R-CNN 계열과 빠른 one-stage detector로 발전했다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.yolo",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "YOLO는 이미지를 한 번 처리해 object class와 bounding box를 직접 예측하는 one-stage detector다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "computer_vision_p30_01",
+                  "unit_id": "cv_p30_yolo",
+                  "source_excerpt": "이미지를 한 번에 보고 바로 box + class 예측",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "yolo",
+                "detection",
+                "bounding_box"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "YOLO는 이미지를 한 번 처리해 object class와 bounding box를 직접 예측하는 one-stage detector다."
+                ],
+                "critical_errors": [
+                  "YOLO가 class만 예측하고 위치 box는 예측하지 않는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.detection_features",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "학습된 visual feature는 object의 class와 위치를 예측하는 detection head에도 활용된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "computer_vision_p26_01",
+                  "unit_id": "cv_p26_transfer",
+                  "source_excerpt": "CNN에서 학습한 Feature는 다양한 Vision Task에 활용",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 29,
+                  "chunk_id": "computer_vision_p29_01",
+                  "unit_id": "cv_p29_lineage",
+                  "source_excerpt": "Sliding Window → R-CNN → Fast-Faster R-CNN → YOLO",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cnn",
+                "feature",
+                "classification",
+                "detection",
+                "segmentation",
+                "rcnn",
+                "yolo"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "학습된 visual feature는 object의 class와 위치를 예측하는 detection head에도 활용된다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.tasks.segmentation",
+          "title": "Semantic Segmentation",
+          "summary": "U-Net의 다중 해상도 결합을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.unet",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "U-Net은 encoder-decoder와 skip connection으로 문맥과 고해상도 feature를 결합해 pixel-wise segmentation을 복원한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "computer_vision_p31_01",
+                  "unit_id": "cv_p31_unet",
+                  "source_excerpt": "Encoder + Decoder 구조와 skip connection으로 픽셀 단위 예측 복원",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "unet",
+                "encoder",
+                "decoder",
+                "residual",
+                "segmentation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "U-Net은 encoder-decoder와 skip connection으로 문맥과 고해상도 feature를 결합해 pixel-wise segmentation을 복원한다."
+                ],
+                "critical_errors": [
+                  "U-Net이 이미지 전체 label 하나만 출력하고 pixel-wise 예측을 하지 않는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.segmentation_output",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Segmentation은 image 전체 class 하나가 아니라 pixel을 의미 있는 영역 단위로 구분하는 task다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "computer_vision_p15_01",
+                  "unit_id": "cv_p15_segment",
+                  "source_excerpt": "segmentation = clustering의 문제 / 비슷한 픽셀끼리 묶기",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 31,
+                  "chunk_id": "computer_vision_p31_01",
+                  "unit_id": "cv_p31_unet",
+                  "source_excerpt": "Encoder + Decoder 구조와 skip connection으로 픽셀 단위 예측 복원",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "segmentation",
+                "clustering",
+                "unet",
+                "encoder",
+                "decoder",
+                "residual"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Segmentation은 image 전체 class 하나가 아니라 pixel을 의미 있는 영역 단위로 구분하는 task다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "cv.transformer_foundation",
+      "title": "ViT와 Vision Foundation Model",
+      "selection_description": "patch attention과 image-text·self-distillation pretraining을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "cv.vit.input",
+          "title": "ViT 입력 구성",
+          "summary": "patch와 위치 정보를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.vit_motivation",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "ViT는 image를 patch sequence로 바꾸고 self-attention으로 멀리 떨어진 영역 관계를 함께 모델링한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "computer_vision_p33_01",
+                  "unit_id": "cv_p33_vit",
+                  "source_excerpt": "CNN 한계: 멀리 떨어진 픽셀 관계 / Self-Attention으로 이미지 전체 관계 / patch sequence",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vit",
+                "cnn",
+                "self_attention",
+                "patch"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "ViT는 image를 patch sequence로 바꾸고 self-attention으로 멀리 떨어진 영역 관계를 함께 모델링한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.patch_embedding",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "각 patch를 평탄화·선형 embedding하고 CLS token과 position embedding을 더해 image 대표와 위치 정보를 넣는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 34,
+                  "chunk_id": "computer_vision_p34_01",
+                  "unit_id": "cv_p34_patch",
+                  "source_excerpt": "Image to Patches / Patch & Position Embedding / CLS 토큰",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vit",
+                "patch",
+                "position_embedding",
+                "cls_token"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "각 patch를 평탄화·선형 embedding하고 CLS token과 position embedding을 더해 image 대표와 위치 정보를 넣는다."
+                ],
+                "critical_errors": [
+                  "ViT가 이미지를 patch로 나누면서 위치 정보를 어떤 방식으로도 넣지 않는다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.vit.encoder",
+          "title": "Transformer Encoder",
+          "summary": "attention과 전역 표현을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.vit_encoder",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "ViT는 CLS와 patch token sequence를 multi-head self-attention과 MLP block으로 구성된 Transformer encoder에 입력한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 35,
+                  "chunk_id": "computer_vision_p35_01",
+                  "unit_id": "cv_p35_encoder",
+                  "source_excerpt": "CLS 포함 sequence / Multi-Head Attention과 MLP / Transformer Encoder",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vit",
+                "self_attention",
+                "encoder",
+                "cls_token"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "ViT는 CLS와 patch token sequence를 multi-head self-attention과 MLP block으로 구성된 Transformer encoder에 입력한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "cv.vit_global",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "높은 ViT layer는 넓은 영역의 관계를 활용하며 CNN보다 locality 같은 image inductive bias가 약하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 36,
+                  "chunk_id": "computer_vision_p36_01",
+                  "unit_id": "cv_p36_global",
+                  "source_excerpt": "높은 레이어로 갈수록 전역적 정보를 활용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vit",
+                "self_attention",
+                "inductive_bias"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "높은 ViT layer는 넓은 영역의 관계를 활용하며 CNN보다 locality 같은 image inductive bias가 약하다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.foundation.clip",
+          "title": "CLIP",
+          "summary": "image-text 정렬과 zero-shot을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.clip",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "CLIP은 image encoder와 text encoder를 함께 학습해 대응하는 image-text embedding을 가깝게 만들고 text prompt로 zero-shot classification한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 39,
+                  "chunk_id": "computer_vision_p39_01",
+                  "unit_id": "cv_p39_clip",
+                  "source_excerpt": "Image Encoder와 Text Encoder / 같은 Embedding Space / 같은 의미는 가까이 / Zero-shot",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "clip",
+                "encoder",
+                "embedding_space",
+                "contrastive_learning",
+                "zero_shot"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CLIP은 image encoder와 text encoder를 함께 학습해 대응하는 image-text embedding을 가깝게 만들고 text prompt로 zero-shot classification한다."
+                ],
+                "critical_errors": [
+                  "CLIP이 image encoder 없이 text만으로 image embedding을 만든다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.foundation_need",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Vision-language pretraining은 고정 label 데이터와 학습한 class에만 의존하는 supervised vision의 한계를 완화한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 38,
+                  "chunk_id": "computer_vision_p38_01",
+                  "unit_id": "cv_p38_need",
+                  "source_excerpt": "Label 있는 데이터 필요 / 학습한 클래스만 분류 / 이미지와 텍스트를 함께 이해",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "foundation_model",
+                "clip",
+                "zero_shot"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Vision-language pretraining은 고정 label 데이터와 학습한 class에만 의존하는 supervised vision의 한계를 완화한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "cv.foundation.dino",
+          "title": "DINO",
+          "summary": "label 없는 self-distillation을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "cv.dino",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "DINO는 label 없이 같은 image의 서로 다른 augmentation에서 teacher와 student가 유사한 representation을 만들도록 학습한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 40,
+                  "chunk_id": "computer_vision_p40_01",
+                  "unit_id": "cv_p40_dino",
+                  "source_excerpt": "Label 없이 / 서로 다른 Augmentation / Teacher와 Student가 유사한 Feature",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dino",
+                "augmentation",
+                "teacher_student",
+                "feature"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "DINO는 label 없이 같은 image의 서로 다른 augmentation에서 teacher와 student가 유사한 representation을 만들도록 학습한다."
+                ],
+                "critical_errors": [
+                  "DINO가 반드시 사람이 단 모든 class label로 supervised 학습한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "cv.dino_attention",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "DINO의 CLS attention map은 객체 영역에 집중할 수 있고 attention head마다 서로 다른 feature를 포착할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 41,
+                  "chunk_id": "computer_vision_p41_01",
+                  "unit_id": "cv_p41_attention",
+                  "source_excerpt": "CLS Attention Map 객체 영역 / Multi-head Attention 각 Head가 서로 다른 특징",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dino",
+                "cls_token",
+                "self_attention",
+                "feature"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "DINO의 CLS attention map은 객체 영역에 집중할 수 있고 attention head마다 서로 다른 feature를 포착할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": [
+    {
+      "page": 11,
+      "chunk_id": "computer_vision_p11_01",
+      "source_text": "평균을 빼서 공분산 행렬 생성",
+      "reason": "Harris의 gradient second-moment matrix 절차로 정규화"
+    },
+    {
+      "page": 21,
+      "chunk_id": "computer_vision_p21_01",
+      "source_text": "translation invariance",
+      "reason": "CNN이 모든 이동에 완전 불변이라고 단정하지 않고 equivariance와 pooling의 국소 강건성 중심으로 정규화"
+    }
+  ]
+}

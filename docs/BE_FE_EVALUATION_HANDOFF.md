@@ -2,7 +2,7 @@
 
 > 대상: 백엔드·프론트엔드 담당자  
 > 목적: 완성된 평가 엔진을 웹의 녹음·STT 흐름과 안정적으로 연결하고 결과 화면을 구현한다.  
-> 평가 데이터 담당자는 이 문서를 넘긴 뒤 크롤링·EDA/FE·시각화 강의 데이터를 확장한다.
+> 평가 데이터 담당자는 이 문서를 넘긴 뒤 나머지 강의 데이터를 같은 스키마로 확장한다.
 
 ## 1. 현재 상태와 담당 경계
 
@@ -77,9 +77,18 @@ result = evaluate_selected_topic(
 | lecture_id | 표시 이름 | 현재 상태 |
 | --- | --- | --- |
 | `basic_statistics` | 기초통계 | atomic Evidence·용어·세부 판정 기준 검수 완료 |
-| `crawling` | 크롤링 | 평가 데이터 확장 예정 |
-| `eda_fe` | EDA/FE | 평가 데이터 확장 예정 |
-| `visualization` | 시각화 | 평가 데이터 확장 예정 |
+| `crawling` | 크롤링 | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `eda_fe` | EDA/FE | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `visualization` | 시각화 | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `cs_basics` | CS기초 | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `git` | Git | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `python_environment` | Python/개발환경 | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `web` | Web | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `network_basics` | 네트워크 기초 | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `machine_learning` | Machine Learning | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `deep_learning` | Deep Learning | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `computer_vision` | Computer Vision | atomic Evidence·용어·세부 판정 기준 검수 완료 |
+| `nlp` | Natural Language Processing | atomic Evidence·용어·세부 판정 기준 검수 완료 |
 
 백·프론트 통합 개발은 기초통계로 진행할 수 있다. 나머지 강의는 데이터 담당자가
 완료 사실을 공유한 뒤 최종 평가 테스트 대상으로 사용한다.
@@ -105,9 +114,46 @@ result = evaluate_selected_topic(
 | 시각화 | `visualization` | `viz.chart_selection` | 데이터 관계에 맞는 차트 선택 |
 | 시각화 | `visualization` | `viz.color_tools_quality` | 색상·도구 선택과 품질 검수 |
 | 시각화 | `visualization` | `viz.storytelling` | 분석 스토리텔링 |
+| CS기초 | `cs_basics` | `cs.scope_execution` | CS의 범위와 프로그램 실행 |
+| CS기초 | `cs_basics` | `cs.os_protection` | 운영체제의 자원 관리와 보호 |
+| CS기초 | `cs_basics` | `cs.linux_model` | Linux의 구조와 파일 권한 |
+| CS기초 | `cs_basics` | `cs.virtualization_shell` | 가상화와 Linux 실습 |
+| Git | `git` | `git.foundations` | Git과 버전 관리의 기초 |
+| Git | `git` | `git.workflow` | 브랜치 작업과 이력 관리 |
+| Git | `git` | `git.collaboration` | Git 협업 규칙과 코드 리뷰 |
+| Python/개발환경 | `python_environment` | `python.environment_tools` | Python 개발환경과 도구 선택 |
+| Python/개발환경 | `python_environment` | `python.virtual_environments` | 가상환경과 의존성 재현 |
+| Python/개발환경 | `python_environment` | `python.code_quality` | 읽기 좋은 Python 코드 |
+| Python/개발환경 | `python_environment` | `python.classes_oop` | 클래스와 객체 지향 |
+| Web | `web` | `web.http_url` | URL과 HTTP 요청·응답 |
+| Web | `web` | `web.frontend` | Web 프론트엔드 구조와 렌더링 |
+| Web | `web` | `web.backend_api` | 백엔드 API와 RESTful 설계 |
+| 네트워크 기초 | `network_basics` | `network.foundations` | 네트워크와 패킷 통신 |
+| 네트워크 기초 | `network_basics` | `network.ip_transport` | IP·NAT와 전송 프로토콜 |
+| 네트워크 기초 | `network_basics` | `network.dns_http` | DNS에서 HTTP 응답까지 |
+| 네트워크 기초 | `network_basics` | `network.security` | 네트워크 암호화와 HTTPS |
+| Machine Learning | `machine_learning` | `ml.valid_experiment` | 유효한 문제 정의와 실험 설계 |
+| Machine Learning | `machine_learning` | `ml.model_selection` | 근거 기반 모델 선택 |
+| Machine Learning | `machine_learning` | `ml.model_specific_pipeline` | 모델별 전처리와 특성공학 |
+| Machine Learning | `machine_learning` | `ml.evaluation_improvement` | 평가·불균형 대응과 튜닝 |
+| Deep Learning | `deep_learning` | `dl.representation_networks` | 표현학습과 신경망 |
+| Deep Learning | `deep_learning` | `dl.loss_functions` | 손실 함수와 학습 목표 |
+| Deep Learning | `deep_learning` | `dl.optimization` | 신경망 최적화 |
+| Deep Learning | `deep_learning` | `dl.generalization_architectures` | 일반화와 MLP 이후 |
+| Computer Vision | `computer_vision` | `cv.visual_foundations` | 시각 과제와 고전 특징 추출 |
+| Computer Vision | `computer_vision` | `cv.cnn_representation` | CNN의 특징 학습 |
+| Computer Vision | `computer_vision` | `cv.downstream_tasks` | Vision Downstream Task |
+| Computer Vision | `computer_vision` | `cv.transformer_foundation` | ViT와 Vision Foundation Model |
+| Natural Language Processing | `nlp` | `nlp.statistical_foundations` | 고전·통계 NLP와 단어 표현 |
+| Natural Language Processing | `nlp` | `nlp.word2vec_embeddings` | Word2Vec 단어 임베딩 |
+| Natural Language Processing | `nlp` | `nlp.sequence_models` | 언어 모델과 RNN 계열 |
+| Natural Language Processing | `nlp` | `nlp.attention_llm` | Seq2Seq·Transformer와 LLM |
 
-현재 `frontend/fe/components/ReviewApp.tsx`의 목록은 Rubric과 일치한다. 데이터 확장
-과정에서 ID나 제목을 바꾸는 경우에만 프론트 목록을 함께 갱신한다.
+평가 데이터에는 위 강의와 목표가 모두 준비돼 있지만 현재
+`frontend/fe/components/ReviewApp.tsx`와 `backend/app/main.py`의 topic 목록은
+기초통계·크롤링·EDA/FE·시각화까지만 등록돼 있다. 백·프론트 담당자는 위 표를 기준으로
+새 강의 표시명, `lecture_id`, `objective_id`를 등록해야 웹에서 선택할 수 있다. 평가 데이터
+확장 작업에서는 역할 경계에 따라 이 두 파일을 수정하지 않았다.
 
 장기적으로 하드코딩을 제거하려면 백엔드가 Rubric에서 강의·상위목표 목록을 읽어 주는
 조회 API를 추가할 수 있다. 현재 필수 작업은 아니다.
@@ -170,7 +216,7 @@ Content-Type: `multipart/form-data`
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
 | `session_id` | string | 프론트가 생성한 세션 ID |
-| `topic` | string | `기초통계`, `크롤링`, `EDA/FE`, `시각화` 중 하나 |
+| `topic` | string | 검수 완료 강의 표시명 중 하나. 현재 `기초통계`, `크롤링`, `EDA/FE`, `시각화`, `CS기초`, `Git`, `Python/개발환경`, `Web`, `네트워크 기초`, `Machine Learning`, `Deep Learning`, `Computer Vision`, `Natural Language Processing` |
 | `audio_file` | file | WAV, WebM 또는 M4A |
 
 성공 상태 코드는 `202 Accepted`다.

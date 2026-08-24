@@ -1,0 +1,2285 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "python_environment",
+  "lecture_name": "Python / 개발환경",
+  "source_file": "Python개발환경.pdf",
+  "terminology": [
+    {
+      "term_id": "development_environment",
+      "canonical_ko": "개발환경",
+      "canonical_en": "development environment",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "colab",
+      "canonical_ko": "Google Colab",
+      "canonical_en": "Google Colaboratory",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "코랩"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vscode",
+      "canonical_ko": "Visual Studio Code",
+      "canonical_en": "Visual Studio Code",
+      "abbreviations": [
+        "VS Code"
+      ],
+      "accepted_aliases": [
+        "비주얼 스튜디오 코드",
+        "브이에스코드"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "python_interpreter",
+      "canonical_ko": "Python 인터프리터",
+      "canonical_en": "Python interpreter",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "conda",
+      "canonical_ko": "Conda",
+      "canonical_en": "Conda",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "콘다"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "miniconda",
+      "canonical_ko": "Miniconda",
+      "canonical_en": "Miniconda",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "미니콘다"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "anaconda",
+      "canonical_ko": "Anaconda",
+      "canonical_en": "Anaconda",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "아나콘다"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "package_manager",
+      "canonical_ko": "패키지 관리자",
+      "canonical_en": "package manager",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dependency",
+      "canonical_ko": "의존성",
+      "canonical_en": "dependency",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "dependency management",
+        "디펜던시"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "virtual_environment",
+      "canonical_ko": "가상환경",
+      "canonical_en": "virtual environment",
+      "abbreviations": [
+        "venv env"
+      ],
+      "accepted_aliases": [
+        "virtual env"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "venv",
+      "canonical_ko": "venv",
+      "canonical_en": "venv",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "파이썬 venv"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "activation",
+      "canonical_ko": "활성화",
+      "canonical_en": "activation",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "activate"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "deactivation",
+      "canonical_ko": "비활성화",
+      "canonical_en": "deactivation",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "deactivate"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pip",
+      "canonical_ko": "pip",
+      "canonical_en": "pip",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "requirements",
+      "canonical_ko": "requirements.txt",
+      "canonical_en": "requirements.txt",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pip_freeze",
+      "canonical_ko": "pip freeze",
+      "canonical_en": "pip freeze",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "environment_yml",
+      "canonical_ko": "environment.yml",
+      "canonical_en": "environment.yml",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "environment.yaml"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "conda_env",
+      "canonical_ko": "Conda 환경",
+      "canonical_en": "Conda environment",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "package_conflict",
+      "canonical_ko": "패키지 충돌",
+      "canonical_en": "package conflict",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "의존성 충돌"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "reproducibility",
+      "canonical_ko": "재현성",
+      "canonical_en": "reproducibility",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "환경 재현"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pep8",
+      "canonical_ko": "PEP 8",
+      "canonical_en": "PEP 8",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "파이썬 스타일 가이드"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "identifier",
+      "canonical_ko": "식별자",
+      "canonical_en": "identifier",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "keyword",
+      "canonical_ko": "예약어",
+      "canonical_en": "keyword",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "키워드"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "snake_case",
+      "canonical_ko": "스네이크 케이스",
+      "canonical_en": "snake_case",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "camel_case",
+      "canonical_ko": "카멜 케이스",
+      "canonical_en": "CamelCase",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "PascalCase"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "indentation",
+      "canonical_ko": "들여쓰기",
+      "canonical_en": "indentation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dynamic_typing",
+      "canonical_ko": "동적 타이핑",
+      "canonical_en": "dynamic typing",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "동적 타입"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "type_hint",
+      "canonical_ko": "타입 힌트",
+      "canonical_en": "type hint",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "typing",
+        "type annotation",
+        "타입 어노테이션"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "callable",
+      "canonical_ko": "Callable",
+      "canonical_en": "Callable",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "typeddict",
+      "canonical_ko": "TypedDict",
+      "canonical_en": "TypedDict",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "docstring",
+      "canonical_ko": "독스트링",
+      "canonical_en": "docstring",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "문서 문자열"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "class",
+      "canonical_ko": "클래스",
+      "canonical_en": "class",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "object",
+      "canonical_ko": "객체",
+      "canonical_en": "object",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "instance",
+      "canonical_ko": "인스턴스",
+      "canonical_en": "instance",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "attribute",
+      "canonical_ko": "속성",
+      "canonical_en": "attribute",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "class_attribute",
+      "canonical_ko": "클래스 속성",
+      "canonical_en": "class attribute",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "instance_attribute",
+      "canonical_ko": "인스턴스 속성",
+      "canonical_en": "instance attribute",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "constructor",
+      "canonical_ko": "생성자",
+      "canonical_en": "constructor",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "__init__"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "method",
+      "canonical_ko": "메서드",
+      "canonical_en": "method",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "instance_method",
+      "canonical_ko": "인스턴스 메서드",
+      "canonical_en": "instance method",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "class_method",
+      "canonical_ko": "클래스 메서드",
+      "canonical_en": "class method",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "classmethod"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "static_method",
+      "canonical_ko": "정적 메서드",
+      "canonical_en": "static method",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "staticmethod"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "self",
+      "canonical_ko": "self",
+      "canonical_en": "self",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cls",
+      "canonical_ko": "cls",
+      "canonical_en": "cls",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "oop",
+      "canonical_ko": "객체 지향 프로그래밍",
+      "canonical_en": "object-oriented programming",
+      "abbreviations": [
+        "OOP"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "encapsulation",
+      "canonical_ko": "캡슐화",
+      "canonical_en": "encapsulation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "inheritance",
+      "canonical_ko": "상속",
+      "canonical_en": "inheritance",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "polymorphism",
+      "canonical_ko": "다형성",
+      "canonical_en": "polymorphism",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "abstraction",
+      "canonical_ko": "추상화",
+      "canonical_en": "abstraction",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "override",
+      "canonical_ko": "오버라이딩",
+      "canonical_en": "method overriding",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "override"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "super",
+      "canonical_ko": "super",
+      "canonical_en": "super",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "python_environment_p1_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 1,
+      "topic": "Python·개발환경 강의 표지",
+      "concepts": [
+        "Python",
+        "개발환경"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\nPython/개발환경\n\n\n\n\n\n                                       28기 최재형",
+      "visual_description": "Python·개발환경 강의 표지 페이지이다.",
+      "content": "Python과 개발환경 강의의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p2_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "Environment",
+        "Virtual Environment",
+        "Python Guidelines"
+      ],
+      "raw_text": "목 차\n\n\n\n 1.  Environment\n\n 2. Virtual Environment\n\n 3. Python Guidelines",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "개발환경, 가상환경, Python 가이드 순으로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p3_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 3,
+      "topic": "개발환경",
+      "concepts": [
+        "Environment"
+      ],
+      "raw_text": "Environment",
+      "visual_description": "개발환경 페이지이다.",
+      "content": "개발환경 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p4_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 4,
+      "topic": "개발환경 선택",
+      "concepts": [
+        "개발환경",
+        "trade-off"
+      ],
+      "raw_text": "Environment\npython을 쓰려면..\n\n\n\n\n\n                                                ..정답은 없지만, 상황에 따라\n                                         장단점이 있다",
+      "visual_description": "Python 개발환경에는 하나의 정답이 없으며 상황에 따라 장단점이 다르다.",
+      "content": "Python 개발환경에는 하나의 정답이 없으며 상황에 따라 장단점이 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "development_environment"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p4_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "정답은 없지만 상황에 따라 장단점이 있다",
+          "normalized_explanation": "개발환경은 목적과 제약에 맞춰 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "development_environment"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p5_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 5,
+      "topic": "Google Colab",
+      "concepts": [
+        "Google Colab",
+        "클라우드 환경"
+      ],
+      "raw_text": "Environment\n아마 맨 처음 썼을 법한 환경\n\n\n\n                장점: 구글 계정만 있으면 준비할 게 없다\n\n\n\n              단점: 제대로 된 프로그래밍이나, 코드를 파일화해서\n                 다루기엔 유연성이 아쉽다\n\n\n\n                                    절대 제가 이 환경 먼저 써봐서 그런 거 아닙니다..아마도요.",
+      "visual_description": "Colab은 계정만 있으면 준비가 쉽지만 파일 기반 프로그램 개발에는 유연성이 부족할 수 있다.",
+      "content": "Colab은 계정만 있으면 준비가 쉽지만 파일 기반 프로그램 개발에는 유연성이 부족할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "colab",
+        "development_environment"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p5_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "구글 계정만 있으면 준비할 게 없다 / 코드 파일을 다루기엔 유연성이 아쉽다",
+          "normalized_explanation": "Colab은 접근이 쉽지만 본격적인 파일 기반 개발에는 제약이 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "colab",
+            "development_environment"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p6_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 6,
+      "topic": "Anaconda 환경",
+      "concepts": [
+        "Anaconda",
+        "로컬 개발",
+        "팀 프로젝트"
+      ],
+      "raw_text": "Environment\n좋은 환경 예시: 아나콘다\n\n\n\n              로컬에서 파일 관리에 유용\n\n            팀프로젝트에도, 실제 프로그램 만들 때도\n             공통의 환경을 조성할 수 있어 유용",
+      "visual_description": "Anaconda는 로컬 파일 관리와 팀의 공통 개발환경 구성에 유용하다.",
+      "content": "Anaconda는 로컬 파일 관리와 팀의 공통 개발환경 구성에 유용하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "anaconda",
+        "development_environment",
+        "reproducibility"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p6_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "아나콘다: 로컬에서 파일 관리에 유용 / 팀프로젝트에도 공통의 환경을 조성",
+          "normalized_explanation": "로컬 프로젝트와 팀 환경 구성에 Anaconda를 활용할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "anaconda",
+            "development_environment",
+            "reproducibility"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p7_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 7,
+      "topic": "Conda·Miniconda·Anaconda",
+      "concepts": [
+        "Conda",
+        "Miniconda",
+        "Anaconda",
+        "의존성"
+      ],
+      "raw_text": "Environment\nconda 시리즈가 좀 많던데..?\n                                                                                       1) Conda\n                          패키지 설치와 가상환경 관리를 담당하는 핵심 엔\n                                        진. Python뿐 아니라 R, Ruby 등 다양한 언어의 패\n                          키지도 관리 가능하고, 라이브러리 간 의존성 충돌을\n                                자동으로 해결해준다.\n\n                                                                   2) Miniconda\n                                        Conda + Python + 최소한의 기본 패키지만 포함\n                          한 경량 버전. 용량이 작고 필요한 패키지만 직접 골\n                               라서 설치하고 싶을 때 적합\n\n                                                                   3) anaconde\n                                          Miniconda에 데이터 사이언스/머신러닝용 패키지\n                          를 사전 탑재한 풀 패키지. (ex numpy, pandas,\n                                                                      jupyter, scikit-learn)\n                            별도 설정 없이 DS 환경을 바로 구축 가능.",
+      "visual_description": "Conda는 패키지·환경 관리 엔진, Miniconda는 최소 구성, Anaconda는 데이터 과학 패키지를 포함한 배포판이다.",
+      "content": "Conda는 패키지·환경 관리 엔진, Miniconda는 최소 구성, Anaconda는 데이터 과학 패키지를 포함한 배포판이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "conda",
+        "miniconda",
+        "anaconda",
+        "package_manager",
+        "dependency"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p7_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Conda 핵심 엔진 / Miniconda 최소 버전 / Anaconda 데이터 사이언스 패키지 사전 탑재",
+          "normalized_explanation": "Conda·Miniconda·Anaconda는 엔진과 배포 범위가 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conda",
+            "miniconda",
+            "anaconda",
+            "package_manager",
+            "dependency"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p8_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 8,
+      "topic": "VS Code",
+      "concepts": [
+        "VS Code",
+        "터미널",
+        "Git",
+        "Python extension",
+        "debugging"
+      ],
+      "raw_text": "Environment\n좋은 환경 예시: VS코드\n\n\n\n        터미널 내장, 깃 내장, Python extension, 각종 ai 툴\n                과의 연동 등등..\n               편의기능이 다양하다\n           코드 작성부터 실행, 디버깅까지 가능",
+      "visual_description": "VS Code는 편집·실행·디버깅과 터미널, Git, 확장을 통합한다.",
+      "content": "VS Code는 편집·실행·디버깅과 터미널, Git, 확장을 통합한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "vscode",
+        "python_interpreter"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p8_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "터미널 내장, Git 내장, Python extension, 코드 작성·실행·디버깅",
+          "normalized_explanation": "VS Code는 개발 작업을 통합한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "vscode",
+            "python_interpreter"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p9_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 9,
+      "topic": "Anaconda 다운로드",
+      "concepts": [
+        "Anaconda",
+        "설치"
+      ],
+      "raw_text": "Environment\n아나콘다 다운로드\n\n\n\n\n                               ->>>>        구글에 ‘아나콘다 설치‘,\n                     아나콘다 사이트 접속,\n                                         get start 클릭!",
+      "visual_description": "Anaconda 사이트에서 운영체제에 맞는 설치 파일을 찾는 절차이다.",
+      "content": "Anaconda 사이트에서 운영체제에 맞는 설치 파일을 찾는 절차이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p10_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 10,
+      "topic": "운영체제별 Anaconda",
+      "concepts": [
+        "Anaconda",
+        "OS"
+      ],
+      "raw_text": "Environment\n아나콘다 다운로드\n\n\n\n\n\n     로그인 후, 각자에게 맞는 OS 찾아서 다운받기",
+      "visual_description": "사용 중인 운영체제에 맞는 Anaconda 설치 파일을 선택한다.",
+      "content": "사용 중인 운영체제에 맞는 Anaconda 설치 파일을 선택한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p11_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 11,
+      "topic": "Anaconda 설치",
+      "concepts": [
+        "Anaconda",
+        "recommended"
+      ],
+      "raw_text": "Environment\n아나콘다 설치\n\n\n                  선택지 대부분 agree,\n                                      next 누르기\n\n                            (잘 모르겠으면,\n                           recommended 선택지\n                   대로 따라가면 ok)",
+      "visual_description": "권장 설정을 중심으로 Anaconda 설치를 진행한다.",
+      "content": "권장 설정을 중심으로 Anaconda 설치를 진행한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p12_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 12,
+      "topic": "Anaconda 설치 옵션",
+      "concepts": [
+        "PATH",
+        "default Python",
+        "cache"
+      ],
+      "raw_text": "아나콘다 설치\n                         위에서부터 선택지별 의미\n                                                           1) 바로가기 생성(안 중요합니다~)\n\n                                           2) 터미널 위치 관계없이 conda 명령어 사용\n\n                                         3) IDE가 자동으로 아나콘다 파이썬을 기본 인식\n\n                                                4) 설치 완료 후 임시 파일 정리\n                                                           (for 디스크 공간 확보)\n\n                       → 왼쪽 사진처럼 체크하고 넘어가기",
+      "visual_description": "바로가기, PATH, 기본 Python 등록, 캐시 정리 설치 옵션의 의미를 설명한다.",
+      "content": "바로가기, PATH, 기본 Python 등록, 캐시 정리 설치 옵션의 의미를 설명한다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p13_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 13,
+      "topic": "VS Code 다운로드",
+      "concepts": [
+        "VS Code",
+        "OS"
+      ],
+      "raw_text": "Environment\nvs코드 다운로드\n\n\n\n\n\n  아나콘다처럼 구글창에 검색 → 맞는 OS 찾아서 다운받기",
+      "visual_description": "운영체제에 맞는 VS Code를 다운로드한다.",
+      "content": "운영체제에 맞는 VS Code를 다운로드한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p14_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 14,
+      "topic": "VS Code 설치 옵션",
+      "concepts": [
+        "VS Code",
+        "code command",
+        "file association"
+      ],
+      "raw_text": "vs코드 설치\n                                     “기타:”의 선택지별 의미\n\n                                                     1) 파일 우클릭 시 \"VS Code로 열기\" 메뉴 생성\n\n                                          2) 폴더 우클릭 시 \"VS Code로 열기\" 메뉴 생성\n\n                                          3) .py 파일 더블클릭하면 자동으로 VS Code로\n                                        열림.\n\n                                         4) 터미널에서 code 명령어로 VS Code 바로 실\n                            행 가능(중요!)\n\n 사진 속 체크된 대로, 쭉 따라갑니다~(혹시 모르니 확인해주세요)",
+      "visual_description": "컨텍스트 메뉴, .py 연결, 터미널 code 명령 옵션을 설정한다.",
+      "content": "컨텍스트 메뉴, .py 연결, 터미널 code 명령 옵션을 설정한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p15_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 15,
+      "topic": "Python 확장 설치",
+      "concepts": [
+        "VS Code",
+        "Python extension"
+      ],
+      "raw_text": "Environment\n  vs코드 설치\n\n    검색창->>>\n\n                                                               install 버튼 위치\n\nextension->>>>\n\n\n\n\n\n   extension에서 python 입력→ install(예시 화면에선 이미 설치됨)",
+      "visual_description": "VS Code에서 Python 확장을 설치한다.",
+      "content": "VS Code에서 Python 확장을 설치한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p16_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 16,
+      "topic": "Python 인터프리터 선택",
+      "concepts": [
+        "Python interpreter",
+        "Command Palette"
+      ],
+      "raw_text": "Environment\nvs코드 설치\n\n               ① ctrl + shift + p 혹은 상단\n                 의 검색 바에서 “>” 입력\n\n                             ②Python:\n                                    Select Interpreter 클릭",
+      "visual_description": "Python: Select Interpreter로 실행에 사용할 Python 환경을 선택한다.",
+      "content": "Python: Select Interpreter로 실행에 사용할 Python 환경을 선택한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "vscode",
+        "python_interpreter"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p16_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Python: Select Interpreter",
+          "normalized_explanation": "VS Code에서 실행할 Python 환경을 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "vscode",
+            "python_interpreter"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p17_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 17,
+      "topic": "Anaconda base 선택",
+      "concepts": [
+        "Anaconda",
+        "base",
+        "interpreter"
+      ],
+      "raw_text": "Environment\nvs코드 설치\n\n\n\n                            Anaconda 설치할 때 자동으\n                  로 설치된 base 파이썬 버전\n                  으로 선택",
+      "visual_description": "Anaconda가 설치한 base Python을 VS Code 인터프리터로 선택하는 예다.",
+      "content": "Anaconda가 설치한 base Python을 VS Code 인터프리터로 선택하는 예다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p18_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 18,
+      "topic": "Conda 기본 명령",
+      "concepts": [
+        "conda",
+        "activate",
+        "env list",
+        "create"
+      ],
+      "raw_text": "Environment\nvs코드 설치\n\n\n\n                      conda -V로 버전 확인\n\n                      conda activate로 conda 활성화 [(base)가 옆에 뜹니다!]\n\n                      conda env list로 설치된 가상환경 확인\n\n\n\n\n                                       conda create --name <가상환경 이름> python==<버전>\n                                           “Python 3.12가 설치된 ybigta라는 이름으로 가상환경을 만들고\n                              싶어” 라는 뜻입니다!\n\n                         진짜로 만드시겠습니까? 질문에 일일이 y 눌러주기 귀찮다면\n                                       conda create --name <가상환경 이름> python==<버전> -y",
+      "visual_description": "Conda 버전·환경 목록을 확인하고 Python 버전을 지정해 환경을 생성·활성화한다.",
+      "content": "Conda 버전·환경 목록을 확인하고 Python 버전을 지정해 환경을 생성·활성화한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p19_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 19,
+      "topic": "Anaconda 명령어 표",
+      "concepts": [
+        "conda env",
+        "export",
+        "environment.yml"
+      ],
+      "raw_text": "Environment\n+ Anaconda 명령어",
+      "visual_description": "Conda 환경의 생성·삭제·활성화·복제·내보내기·재생성을 위한 명령을 정리한다.",
+      "content": "Conda 환경의 생성·삭제·활성화·복제·내보내기·재생성을 위한 명령을 정리한다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p20_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 20,
+      "topic": "macOS 설치 가이드",
+      "concepts": [
+        "macOS",
+        "Anaconda",
+        "VS Code"
+      ],
+      "raw_text": "Environment\n설치 가이드 for macOS\n\n\n   Anaconda 설치 가이드\n       https://blog.naver.com/codeitofficial/223497711349\n   VScode 설치 가이드\n       https://www.codeit.kr/tutorials/67/vscode-tutorial-macos\n\n  제가 맥을 안 써서, 모르는 부분이 있을 수 있습니다\n  디테일이나 궁금한 건 저 링크 다고 보시면 좋을지도",
+      "visual_description": "macOS용 외부 설치 가이드 링크를 제공한다.",
+      "content": "macOS용 외부 설치 가이드 링크를 제공한다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p21_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 21,
+      "topic": "가상환경",
+      "concepts": [
+        "Virtual Environment"
+      ],
+      "raw_text": "Virtual\nEnvironment",
+      "visual_description": "가상환경 페이지이다.",
+      "content": "가상환경 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p22_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 22,
+      "topic": "가상환경의 필요성",
+      "concepts": [
+        "패키지 버전",
+        "의존성 충돌",
+        "재현성"
+      ],
+      "raw_text": "virtual environment\n 가상환경에 들어가기 전, motivation\n\n1) 프로젝트마다, 필요한 패키지나 라이브러리가 다를 수 있다                                                                    2) 팀원이랑 같이 개발하는데, 내 노트북에선 되는데\n           ex) 프로젝트 A는 numpy 1.21 필요                                        왜 팀원에게선 안될까?\n       프로젝트 B는 numpy 2.0 필요\n\n                                                  ..어쩌면 서로 라이브러리 버젼이 달라서...?\n     ...근데 같은 컴퓨터에 동시에 설치할 수 있을까?\n\n\n                                  3) 예전에 디버깅까지 잘 돌렸던 코드가, 오랜만에 다시\n                        돌려봤더니 에러가 뜬다\n\n                                       ...그새 라이브러리가 업뎃됐나?\n\n      ->> 프로젝트마다 독립된 환경이 필요하다",
+      "visual_description": "프로젝트별 패키지 버전 충돌과 팀·시간 간 실행 차이를 막기 위해 독립 환경이 필요하다.",
+      "content": "프로젝트별 패키지 버전 충돌과 팀·시간 간 실행 차이를 막기 위해 독립 환경이 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "virtual_environment",
+        "dependency",
+        "package_conflict",
+        "reproducibility"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p22_u01",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "프로젝트마다 필요한 패키지 버전이 다름 / 팀원 환경 차이 / 업데이트 후 오류",
+          "normalized_explanation": "격리는 버전 충돌과 재현성 문제를 줄인다.",
+          "source_status": "verified",
+          "term_ids": [
+            "virtual_environment",
+            "dependency",
+            "package_conflict",
+            "reproducibility"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p23_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 23,
+      "topic": "가상환경 정의",
+      "concepts": [
+        "virtual environment",
+        "독립성"
+      ],
+      "raw_text": "virtual environmen\nWhat’s 가상환경\n\n                 : 독립적인 프로젝트를 위한 개별적인 공간",
+      "visual_description": "가상환경은 독립적인 프로젝트를 위한 개별 실행 공간이다.",
+      "content": "가상환경은 독립적인 프로젝트를 위한 개별 실행 공간이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "virtual_environment"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p23_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "독립적인 프로젝트를 위한 개별적인 공간",
+          "normalized_explanation": "가상환경은 프로젝트별 독립 실행 공간이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "virtual_environment"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p24_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 24,
+      "topic": "venv 정의와 명령",
+      "concepts": [
+        "venv",
+        "activate"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(1): Venv",
+      "visual_description": "venv는 Python 표준 가상환경 도구이며 환경 생성과 운영체제별 활성화 명령을 제공한다.",
+      "content": "venv는 Python 표준 가상환경 도구이며 환경 생성과 운영체제별 활성화 명령을 제공한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "venv",
+        "virtual_environment",
+        "activation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p24_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Venv는 Python을 위한 가상 환경 생성 도구이며 표준 라이브러리에 포함",
+          "normalized_explanation": "venv는 Python 표준 가상환경 도구다.",
+          "source_status": "verified",
+          "term_ids": [
+            "venv",
+            "virtual_environment"
+          ]
+        },
+        {
+          "unit_id": "py_p24_u02",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "python3 -m venv 환경이름 / source 환경이름/bin/activate / 환경이름\\Scripts\\activate",
+          "normalized_explanation": "venv는 생성 후 운영체제에 맞는 스크립트로 활성화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "venv",
+            "activation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p25_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 25,
+      "topic": "venv 생성 위치",
+      "concepts": [
+        "venv",
+        "project directory"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용법(이어서)",
+      "visual_description": "명령을 실행한 디렉터리에 venv 폴더가 생성되며 프로젝트별로 둘 수 있다.",
+      "content": "명령을 실행한 디렉터리에 venv 폴더가 생성되며 프로젝트별로 둘 수 있다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p26_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 26,
+      "topic": "venv 활성화와 설치",
+      "concepts": [
+        "activate",
+        "pip",
+        "package"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용법(이어서)",
+      "visual_description": "venv를 활성화한 뒤 pip로 필요한 패키지를 환경 안에 설치한다.",
+      "content": "venv를 활성화한 뒤 pip로 필요한 패키지를 환경 안에 설치한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "venv",
+        "activation",
+        "pip"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p26_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "source ybigta/bin/activate / pip install numpy / pip install pandas",
+          "normalized_explanation": "활성화된 venv 안에 pip로 패키지를 설치한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "venv",
+            "activation",
+            "pip"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p27_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 27,
+      "topic": "requirements.txt 생성",
+      "concepts": [
+        "pip freeze",
+        "requirements.txt",
+        "deactivate"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용법(이어서)",
+      "visual_description": "pip freeze로 설치 목록을 requirements.txt에 저장하고 deactivate로 환경을 빠져나온다.",
+      "content": "pip freeze로 설치 목록을 requirements.txt에 저장하고 deactivate로 환경을 빠져나온다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pip_freeze",
+        "requirements",
+        "deactivation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p27_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "pip freeze > requirements.txt / deactivate",
+          "normalized_explanation": "설치 목록을 파일로 기록하고 환경을 비활성화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pip_freeze",
+            "requirements",
+            "deactivation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p28_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 28,
+      "topic": "requirements.txt 재현",
+      "concepts": [
+        "pip install -r",
+        "requirements.txt"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용법(이어서)",
+      "visual_description": "새 venv에서 requirements.txt를 이용해 동일한 패키지 목록을 설치한다.",
+      "content": "새 venv에서 requirements.txt를 이용해 동일한 패키지 목록을 설치한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pip",
+        "requirements",
+        "reproducibility"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p28_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "pip install -r requirements.txt",
+          "normalized_explanation": "새 환경에 기록된 패키지 목록을 설치한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pip",
+            "requirements",
+            "reproducibility"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p29_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 29,
+      "topic": "venv 특징",
+      "concepts": [
+        "venv",
+        "격리",
+        "requirements.txt"
+      ],
+      "raw_text": "virtual environmen\nVenv 특징!",
+      "visual_description": "venv는 가볍고 Python 프로젝트별 의존성을 격리하며 requirements로 패키지 목록을 공유한다.",
+      "content": "venv는 가볍고 Python 프로젝트별 의존성을 격리하며 requirements로 패키지 목록을 공유한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "venv",
+        "virtual_environment",
+        "requirements"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p29_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "경량성과 편리성 / 프로젝트별 독립성 / 시스템 Python 보호 / 패키지 버전 관리",
+          "normalized_explanation": "venv는 가볍고 Python 의존성을 프로젝트별로 격리한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "venv",
+            "virtual_environment",
+            "requirements"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p30_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 30,
+      "topic": "Conda 환경 생성",
+      "concepts": [
+        "Conda",
+        "create",
+        "activate",
+        "deactivate"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "Conda는 Python 버전을 지정해 환경을 만들고 활성화·비활성화·삭제할 수 있다.",
+      "content": "Conda는 Python 버전을 지정해 환경을 만들고 활성화·비활성화·삭제할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "conda",
+        "conda_env",
+        "package_manager",
+        "activation",
+        "deactivation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p30_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Conda는 오픈소스 패키지 관리 시스템이자 환경 관리 시스템",
+          "normalized_explanation": "Conda는 환경과 패키지를 함께 관리한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conda",
+            "conda_env",
+            "package_manager"
+          ]
+        },
+        {
+          "unit_id": "py_p30_u02",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "conda create --name 환경 python=버전 / conda activate / conda deactivate",
+          "normalized_explanation": "Conda 환경을 생성·활성화·비활성화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conda",
+            "activation",
+            "deactivation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p31_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 31,
+      "topic": "Conda 환경 생성 실습",
+      "concepts": [
+        "conda create",
+        "Python version"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "이름과 Python 버전을 지정해 Conda 환경을 생성한다.",
+      "content": "이름과 Python 버전을 지정해 Conda 환경을 생성한다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p32_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 32,
+      "topic": "venv와 Conda 구성 차이",
+      "concepts": [
+        "venv",
+        "Conda",
+        "system dependency"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "venv는 최소 Python 환경이고 Conda는 더 포괄적인 패키지와 시스템 의존성을 관리할 수 있다.",
+      "content": "venv는 최소 Python 환경이고 Conda는 더 포괄적인 패키지와 시스템 의존성을 관리할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "venv",
+        "conda",
+        "dependency"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p32_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "venv는 최소한 구성 / conda는 필요한 모든 패키지를 포함하며 운영체제와 독립적이고 포괄적",
+          "normalized_explanation": "venv와 Conda는 관리 범위와 무게가 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "venv",
+            "conda",
+            "dependency"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p33_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 33,
+      "topic": "Conda 환경과 패키지",
+      "concepts": [
+        "conda env list",
+        "conda install"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "환경 목록을 확인하고 활성화한 Conda 환경에 패키지를 설치한다.",
+      "content": "환경 목록을 확인하고 활성화한 Conda 환경에 패키지를 설치한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p34_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 34,
+      "topic": "Conda 안의 pip",
+      "concepts": [
+        "conda install",
+        "pip install",
+        "conflict"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "Conda 환경에서 pip도 쓸 수 있지만 충돌을 줄이려면 Conda 패키지를 우선한다.",
+      "content": "Conda 환경에서 pip도 쓸 수 있지만 충돌을 줄이려면 Conda 패키지를 우선한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "conda",
+        "pip",
+        "package_conflict"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p34_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "Conda 환경에서도 pip 설치 가능하지만 종속성 충돌 가능성 / conda 패키지를 먼저 설치",
+          "normalized_explanation": "Conda와 pip를 섞을 때는 충돌을 줄이는 설치 순서를 고려한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conda",
+            "pip",
+            "package_conflict"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p35_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 35,
+      "topic": "Conda 환경 내보내기",
+      "concepts": [
+        "conda env export",
+        "environment.yml",
+        "remove"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "환경을 YAML로 내보내고 비활성화·삭제하는 흐름이다.",
+      "content": "환경을 YAML로 내보내고 비활성화·삭제하는 흐름이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "conda",
+        "environment_yml",
+        "deactivation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p35_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "conda env export > environment.yml / conda deactivate / conda env remove",
+          "normalized_explanation": "Conda 환경을 YAML로 내보내고 제거할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conda",
+            "environment_yml",
+            "deactivation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p36_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 36,
+      "topic": "Conda 환경 재생성",
+      "concepts": [
+        "environment.yml",
+        "conda env create"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "environment.yml로 다른 이름의 동일 환경을 재생성한다.",
+      "content": "environment.yml로 다른 이름의 동일 환경을 재생성한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "conda",
+        "environment_yml",
+        "reproducibility"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p36_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "conda env create -n 새환경 -f environment.yml",
+          "normalized_explanation": "YAML로 환경을 재생성한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conda",
+            "environment_yml",
+            "reproducibility"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p37_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 37,
+      "topic": "Conda 특징",
+      "concepts": [
+        "platform independence",
+        "dependency",
+        "environment.yml"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "Conda는 다양한 언어·복잡한 의존성을 관리하고 YAML로 환경을 복제한다.",
+      "content": "Conda는 다양한 언어·복잡한 의존성을 관리하고 YAML로 환경을 복제한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p38_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 38,
+      "topic": "venv와 Conda 비교",
+      "concepts": [
+        "venv",
+        "Conda",
+        "use case"
+      ],
+      "raw_text": "virtual environmen\n가상환경 사용해보기(2): Conda",
+      "visual_description": "venv는 가벼운 Python 전용 프로젝트에, Conda는 데이터 과학과 복잡한 다언어 환경에 적합하다.",
+      "content": "venv는 가벼운 Python 전용 프로젝트에, Conda는 데이터 과학과 복잡한 다언어 환경에 적합하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "conda",
+        "venv",
+        "dependency"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p38_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Conda: 다양한 언어·복잡한 의존성 / Venv: 파이썬 전용·경량",
+          "normalized_explanation": "프로젝트 복잡도와 언어 범위에 따라 도구를 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conda",
+            "venv",
+            "dependency"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p39_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 39,
+      "topic": "Python Guidelines",
+      "concepts": [
+        "Python Guidelines"
+      ],
+      "raw_text": "Python\nGuidelines",
+      "visual_description": "Python Guidelines 페이지이다.",
+      "content": "Python 가이드 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p40_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 40,
+      "topic": "좋은 Python 코드",
+      "concepts": [
+        "readability",
+        "maintainability"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n             어떻게 하면 파이썬을 ‘센스있게’ 쓸 수 있을까?\n\n\n\n\n\n                                                ...간단하니 좋긴 한데....뭐가 파이썬을 ‘잘’ 쓰는 걸까",
+      "visual_description": "간단한 문법을 넘어 읽기 쉽고 유지보수하기 좋은 Python 코드를 고민한다.",
+      "content": "간단한 문법을 넘어 읽기 쉽고 유지보수하기 좋은 Python 코드를 고민한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p41_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 41,
+      "topic": "식별자 명명 규칙",
+      "concepts": [
+        "identifier",
+        "keyword"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략",
+      "visual_description": "식별자는 예약어를 피하고 숫자·공백·특수문자 규칙을 지키며 의미 있는 이름을 사용한다.",
+      "content": "식별자는 예약어를 피하고 숫자·공백·특수문자 규칙을 지키며 의미 있는 이름을 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "identifier",
+        "keyword"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p41_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Keyword 사용 불가 / 특수 문자는 언더바만 / 숫자로 시작하지 않음 / 공백 불가 / 가급적 의미 있는 이름",
+          "normalized_explanation": "Python 식별자는 문법 규칙과 의미 있는 명명을 지켜야 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "identifier",
+            "keyword"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p42_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 42,
+      "topic": "Python 예약어",
+      "concepts": [
+        "keyword",
+        "keyword.kwlist"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략",
+      "visual_description": "Python이 문법 용도로 예약한 keyword는 식별자로 사용할 수 없다.",
+      "content": "Python이 문법 용도로 예약한 keyword는 식별자로 사용할 수 없다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p43_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 43,
+      "topic": "Snake case와 Camel case",
+      "concepts": [
+        "snake_case",
+        "CamelCase"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략",
+      "visual_description": "단어 경계를 밑줄 또는 대문자로 표현해 의미 있는 식별자를 만든다.",
+      "content": "단어 경계를 밑줄 또는 대문자로 표현해 의미 있는 식별자를 만든다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "snake_case",
+        "camel_case",
+        "identifier"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p43_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Snake case는 단어 사이에 언더바 / Camel case는 단어 첫 글자를 대문자",
+          "normalized_explanation": "단어 경계 표기 방식이 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "snake_case",
+            "camel_case",
+            "identifier"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p44_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 44,
+      "topic": "PEP 8 들여쓰기",
+      "concepts": [
+        "PEP 8",
+        "indentation",
+        "spaces"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n  파이썬에서의 들여쓰기(indentation) 논쟁\n\n파이썬은 스페이스 4개를 들여쓰기에 권장하며, 이는 PEP 8 스타일 가이드 때문이다.\n\n대부분의 IDE (vscode, pycharm 등)은 Tab 키를 누르면 자동으로 스페이스 4칸 입력되도록 설정되어있다\n\n\n\n\n\n   깃헙 코드 컨벤션을 분석해보면 대부분 스페이스를 사용                위와 아래 중 뭐가 더 편안한가요? 저는 위에가 더 좋은 것 같은뎁",
+      "visual_description": "PEP 8은 Python 들여쓰기에 스페이스 4칸을 권장한다.",
+      "content": "PEP 8은 Python 들여쓰기에 스페이스 4칸을 권장한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pep8",
+        "indentation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p44_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Python은 스페이스 4개를 들여쓰기에 권장하며 이는 PEP 8 스타일 가이드 때문",
+          "normalized_explanation": "Python 들여쓰기는 PEP 8의 4칸 권장을 따른다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pep8",
+            "indentation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p45_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 45,
+      "topic": "Typing의 목적",
+      "concepts": [
+        "dynamic typing",
+        "type hint",
+        "readability"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n\n\n\n\n → typing이란: 변수와 함수의 자료형을 명시해, 코드의 안정성과 가독성을 높이는 방법!",
+      "visual_description": "타입 힌트는 동적 Python 코드의 자료형 의도를 표시해 안정성과 가독성을 높인다.",
+      "content": "타입 힌트는 동적 Python 코드의 자료형 의도를 표시해 안정성과 가독성을 높인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dynamic_typing",
+        "type_hint"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p45_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "typing이란 변수와 함수의 자료형을 명시해 코드의 안정성과 가독성을 높이는 방법",
+          "normalized_explanation": "타입 힌트는 자료형 의도를 문서화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dynamic_typing",
+            "type_hint"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p46_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 46,
+      "topic": "Typing의 이점",
+      "concepts": [
+        "parameter",
+        "return type",
+        "IDE"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n\n                                                              다음 3가지 함수 정의를 비교해 보세요\n   Typing의 장점(안 써도 문제는 없지만, 왜 써야 할까?)\n\n오른쪽 1번째 사진의 ybigta_typing이라는 함수를 정의했다고 가정해보자.\n   boolean을 리턴하는 걸 알 수 있다.\n\n이때 해당 함수를 다른 파일에서 사용해보자.\n아마 다른 프로젝트 팀원이나 시간이 지난 후 본인도 어떻게 함수가 정의됐는지,\n파라미터가 정확히 뭐고 리턴값은 뭐인지 알기 어렵다.\n(물론 cmd+click으로 직접 함수가 정의된 파일로 와서 볼 수 있긴 하다)\n\n2번째 사진은 기존 함수에서 파라미터로 어떤 값이 들어와야 되는지 명시하고,\n3번째 사진은 리턴값까지 어떤 형태인지 표시해준 경우이다.\n\n이제 다른 파일에서 ybigta_typing 함수 위에 마우스 호버 시,\n                                                                                     사진4: 파라미터 & 리턴값의 형식 표시 예시\n사진 4처럼 파라미터 & 리턴값의 형식을 보여준다!",
+      "visual_description": "매개변수와 반환형을 표시하면 IDE와 협업자가 함수 계약을 쉽게 이해한다.",
+      "content": "매개변수와 반환형을 표시하면 IDE와 협업자가 함수 계약을 쉽게 이해한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "type_hint"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p46_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "파라미터로 어떤 값이 들어와야 하는지 명시하고 리턴값 형태 표시 / IDE hover",
+          "normalized_explanation": "타입 힌트는 함수 계약을 도구와 독자에게 보여준다.",
+          "source_status": "verified",
+          "term_ids": [
+            "type_hint"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p47_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 47,
+      "topic": "Typing 예제",
+      "concepts": [
+        "List",
+        "Tuple",
+        "Dict",
+        "TypedDict",
+        "Any"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략",
+      "visual_description": "컨테이너와 구조화된 딕셔너리의 타입을 구체적으로 표현한다.",
+      "content": "컨테이너와 구조화된 딕셔너리의 타입을 구체적으로 표현한다.",
+      "page_role": "example",
+      "term_ids": [
+        "type_hint",
+        "typeddict"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p47_u01",
+          "type": "example",
+          "source_type": "visual",
+          "source_excerpt": "List, Tuple, Dict, Any와 TypedDict로 타입 지정",
+          "normalized_explanation": "컨테이너와 딕셔너리 구조를 타입으로 표현할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "type_hint",
+            "typeddict"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p48_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 48,
+      "topic": "Callable 타입",
+      "concepts": [
+        "Callable",
+        "function type"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략",
+      "visual_description": "함수를 인자로 받을 때 Callable로 인자와 반환 타입을 표현한다.",
+      "content": "함수를 인자로 받을 때 Callable로 인자와 반환 타입을 표현한다.",
+      "page_role": "example",
+      "term_ids": [
+        "type_hint",
+        "callable"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p48_u01",
+          "type": "example",
+          "source_type": "visual",
+          "source_excerpt": "Callable[[str, int], float] / Callable[..., float]",
+          "normalized_explanation": "Callable은 함수 인자와 반환 형식을 표현한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "type_hint",
+            "callable"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p49_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 49,
+      "topic": "Docstring 소개",
+      "concepts": [
+        "docstring",
+        "documentation"
+      ],
+      "raw_text": "Python Guidelines\nLesson 3: Docstring을 작성하자!!!!!",
+      "visual_description": "함수·클래스·모듈을 코드 내부에서 문서화하는 Docstring을 소개한다.",
+      "content": "함수·클래스·모듈을 코드 내부에서 문서화하는 Docstring을 소개한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p50_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 50,
+      "topic": "Docstring의 기능",
+      "concepts": [
+        "docstring",
+        "__doc__",
+        "IDE hover"
+      ],
+      "raw_text": "Python Guidelines\nLesson 3: Docstring을 작성하자!\n\n\n\n\nDocstring은 함수/클래스/모듈 등에 대해 입출력 형태 등을 설명하\n여 코드 내부에 문서화하듯 추가하는 것처럼 기능한다.(큰 사진)\n\n따옴표 \"\"\" \"\"\" 또는 ''' ''' 세 쌍을 사용해서 입력 가능하다\n\n해당 객체의 __doc__ 속성을 통해 docstring 문자열을 조회할 수 있\n다. (아래 왼쪽 사진)\n\nIDE에서 함수나 클래스에 마우스 호버 시 docstring이 자동으로 팝\n업되므로,\n협업과 유지보수에 매우 큰 도움이 된다. (아래 오른쪽 사진)\n*앞서 배운 typing도 같이 확인해보세요!",
+      "visual_description": "Docstring은 입출력과 역할을 설명하며 __doc__ 조회와 IDE hover 문서에 쓰인다.",
+      "content": "Docstring은 입출력과 역할을 설명하며 __doc__ 조회와 IDE hover 문서에 쓰인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "docstring"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p50_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Docstring은 함수·클래스·모듈의 입출력 형태 등을 코드 내부에 문서화 / __doc__ 조회 / IDE hover",
+          "normalized_explanation": "Docstring은 실행 코드 가까이에서 객체 사용법을 문서화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "docstring"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p51_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 51,
+      "topic": "Docstring 템플릿",
+      "concepts": [
+        "Args",
+        "Returns",
+        "Attributes",
+        "Methods"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략",
+      "visual_description": "함수와 클래스 Docstring에 설명, 인자, 반환, 속성, 메서드를 구조화하는 템플릿이다.",
+      "content": "함수와 클래스 Docstring에 설명, 인자, 반환, 속성, 메서드를 구조화하는 템플릿이다.",
+      "page_role": "example",
+      "term_ids": [
+        "docstring"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p51_u01",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "Args, Returns / Attributes, Methods",
+          "normalized_explanation": "Docstring은 역할과 인자·반환·속성·메서드를 구조화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "docstring"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p52_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 52,
+      "topic": "클래스의 역할",
+      "concepts": [
+        "class",
+        "object",
+        "attribute",
+        "method"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략",
+      "visual_description": "클래스는 객체의 속성과 동작을 묶는 설계도이며 재사용·유지보수를 돕는다.",
+      "content": "클래스는 객체의 속성과 동작을 묶는 설계도이며 재사용·유지보수를 돕는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "class",
+        "object",
+        "attribute",
+        "method"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p52_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "클래스는 객체를 생성하기 위한 설계도 / 속성에 데이터 저장, 메서드로 동작 정의",
+          "normalized_explanation": "클래스는 상태와 행동을 묶어 객체를 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "class",
+            "object",
+            "attribute",
+            "method"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p53_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 53,
+      "topic": "클래스·인스턴스 속성",
+      "concepts": [
+        "class attribute",
+        "instance attribute",
+        "__init__"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n\n\n\n\n 클래스 속성은 “공통 정보”,\n 인스턴스 속성은 “개별 상태”라고 기억하면 이해가 쉽다.\n\n *클래스로 만들어진 개별 객체가 인스턴스\n  ** 클래스 혹은 인스턴스의 데이터가 속성(attribute)",
+      "visual_description": "클래스 속성은 모든 인스턴스가 공유하고 인스턴스 속성은 객체별 상태를 저장한다.",
+      "content": "클래스 속성은 모든 인스턴스가 공유하고 인스턴스 속성은 객체별 상태를 저장한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "class_attribute",
+        "instance_attribute",
+        "instance",
+        "constructor"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p53_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "class attribute: 모든 인스턴스가 같은 값 공유 / instance attribute: 인스턴스별 고유 값",
+          "normalized_explanation": "클래스 속성과 인스턴스 속성의 공유 범위가 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "class_attribute",
+            "instance_attribute",
+            "instance",
+            "constructor"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p54_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 54,
+      "topic": "세 가지 메서드",
+      "concepts": [
+        "instance method",
+        "class method",
+        "static method",
+        "self",
+        "cls"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n   인스턴스 메서드 / 클래스 메서드 / 정적 메서드 차이점\n\n\n\n\n self: 현재 인스턴스를 참조, 인스턴스의 상태(instance attribute) 에 접근하거나 조작할 때 사용\n\n\n\n\n\n cls: 현재 클래스를 참조, 인스턴스가 아닌 클래스 속성에 접근하거나 조작할 때 사용\n\n\n\n\n\n self나 cls를 받지 않음, 클래스와 관련은 있지만 인스턴스나 클래스 상태를 쓰지 않는 독립 함수\n\n 메서드: 클래스 또는 인스턴스가 가진 함수",
+      "visual_description": "인스턴스·클래스·정적 메서드는 받는 참조와 사용하는 상태가 다르다.",
+      "content": "인스턴스·클래스·정적 메서드는 받는 참조와 사용하는 상태가 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "instance_method",
+        "class_method",
+        "static_method",
+        "self",
+        "cls"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p54_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "self는 현재 인스턴스 / cls는 현재 클래스 / static method는 self나 cls 없음",
+          "normalized_explanation": "세 메서드는 접근하는 상태와 첫 인자가 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "instance_method",
+            "class_method",
+            "static_method",
+            "self",
+            "cls"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p55_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 55,
+      "topic": "클래스 구성 예제",
+      "concepts": [
+        "class",
+        "__init__",
+        "classmethod",
+        "staticmethod"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n  예제로 클래스의 구성 요소를 확인해보자!\n\n\n                                           와이빅타 26기 멤버(인스턴스)의 자기소개 class\n\n                                                                                  class_name: 클래스 속성 (모든 인스턴스 공유)\n                                               모든 인스턴스가 같은 “YBIGTA” 소속임을 나타냄\n\n                                                                                                          __init__: 생성자, 인스턴스 속성 설정\n                                               각 인스턴스 생성 시 지정해야 되는 값\n\n                                                                                       introduce: instance 메서드 (self 사용)\n                                               본인의 소속팀과 이름을 소개하는 메서드\n\n                                                                                   get_class_name: class 메서드 (cls 사용)\n\n                                                                                          greet: static 메서드 (self·cls 없음)\n                                               단순히 전달받은 값을 활용해 인사 메시지를 반환",
+      "visual_description": "YbigtaMember 예제로 속성, 생성자와 세 종류 메서드를 연결한다.",
+      "content": "YbigtaMember 예제로 속성, 생성자와 세 종류 메서드를 연결한다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p56_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 56,
+      "topic": "클래스 호출 예제",
+      "concepts": [
+        "instance",
+        "method call"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n  예제로 클래스의 구성 요소를 확인해보자!\n\n\n\n\n                                                        \"조요셉\", \"DE\"라는 입력을 받아 생성한 인스턴스의 예시\n\n                                        인스턴스 메서드 introduce()를 호출해 본인 소개를 출력\n                                        클래스 메서드 get_class_name()은 클래스 속성인 이름\n                                        을 반환,\n                                                                                          static 메서드 greet()는 input 인삿말을 그대로 출력",
+      "visual_description": "인스턴스를 만들고 인스턴스·클래스·정적 메서드 결과를 확인한다.",
+      "content": "인스턴스를 만들고 인스턴스·클래스·정적 메서드 결과를 확인한다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p57_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 57,
+      "topic": "Python 학습 자료",
+      "concepts": [
+        "official docs",
+        "Real Python",
+        "fact check"
+      ],
+      "raw_text": "Python Guidelines\n파이썬이 뭔지는 생략\n\n\n\n파이썬 공식 도큐멘테이션\n   https://docs.python.org/ko/3/\n\nReal Python Tutorials\n   https://realpython.com/\n\n인프런, velog, 티스토리 등 각종 인터넷 자료\n    ....이건 팩트 체크 필수!",
+      "visual_description": "공식 문서와 튜토리얼을 사용하고 비공식 자료는 사실 검증한다.",
+      "content": "공식 문서와 튜토리얼을 사용하고 비공식 자료는 사실 검증한다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p58_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 58,
+      "topic": "객체 지향 프로그래밍",
+      "concepts": [
+        "OOP",
+        "object",
+        "reuse",
+        "maintainability"
+      ],
+      "raw_text": "Python Guidelines\nLesson 4.5: 아주 짧은 OOP\n\n\n  객체 지향? 객체는 뭐고 지향은 뭘까\n\n\n현실 세계의 사물(객체)을 프로그램에 마치 ‘입력’하듯 반영하여,\n각 객체가 지정된 속성(passive)과 행동(active)을\n가지도록 설계하는 프로그래밍 패러다임!\n\n이를 통해 프로그램 구조를 더 직관적으로 표현할 수 있으며,\n코드의 재사용성, 확장성, 유지보수성을 크게 높일 수 있다.",
+      "visual_description": "OOP는 객체의 속성과 행동으로 프로그램을 설계해 재사용성·확장성·유지보수성을 높인다.",
+      "content": "OOP는 객체의 속성과 행동으로 프로그램을 설계해 재사용성·확장성·유지보수성을 높인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "oop",
+        "object",
+        "attribute"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p58_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "객체가 지정된 속성과 행동을 가지도록 설계하는 프로그래밍 패러다임 / 재사용성·확장성·유지보수성",
+          "normalized_explanation": "OOP는 객체 중심으로 상태와 행동을 구조화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "oop",
+            "object",
+            "attribute"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p59_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 59,
+      "topic": "OOP 4대 원칙",
+      "concepts": [
+        "encapsulation",
+        "inheritance",
+        "polymorphism",
+        "abstraction"
+      ],
+      "raw_text": "Python Guidelines\nLesson 4.5: 아주 짧은 OOP\n\n\n  객체 지향의 4대 원칙\n\n캡슐화: 객체의 내부 상태(attribute)를 외부에서 직접 접근하지 못하도록 숨김\n\n상속: 기존 클래스를 확장하여 새로운 클래스를 정의\n\n다형성: 같은 메서드 이름이 클래스에 따라 다르게 동작\n\n추상화: 복잡한 구현은 감추고 필요한 인터페이스만 제공",
+      "visual_description": "캡슐화·상속·다형성·추상화의 의미를 정리한다.",
+      "content": "캡슐화·상속·다형성·추상화의 의미를 정리한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "encapsulation",
+        "inheritance",
+        "polymorphism",
+        "abstraction"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p59_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "캡슐화 / 상속 / 다형성 / 추상화",
+          "normalized_explanation": "OOP의 네 원칙은 정보 은닉, 확장, 동일 인터페이스의 다양한 동작, 구현 은닉이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "encapsulation",
+            "inheritance",
+            "polymorphism",
+            "abstraction"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p60_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 60,
+      "topic": "상속과 오버라이딩 예제",
+      "concepts": [
+        "inheritance",
+        "super",
+        "override"
+      ],
+      "raw_text": "Python Guidelines\nLesson 4.5: 아주 짧은 OOP\n\n  예제로 확인해보자!\n\n\n\n\n\n                                        자기소개 클래스를 상속한 리더 클래스\n\n                                                                     YbigtaMember 클래스를 상속한 YbigtaLeader 클래스\n                                                                         super()로 부모 속성 초기화 + 역할(position) 속성 추가\n                                                                                  introduce() 메서드를 오버라이딩해 소개 문구 출력\n\n                                                             member1 인스턴스는 기존 YbigtaMember 클래스로 생성\n                                                           member2 인스턴스는 YbigtaLeader 클래스로 생성\n\n                                        앞서 나온 객체지향 핵심 개념 적용 사례\n\n\n                                                                                    *super()는 부모 클래스의 메서드를 자식 클래스에서 호출할 때 사용하는 함수",
+      "visual_description": "자식 클래스가 부모를 상속하고 super로 초기화하며 메서드를 오버라이딩한다.",
+      "content": "자식 클래스가 부모를 상속하고 super로 초기화하며 메서드를 오버라이딩한다.",
+      "page_role": "example",
+      "term_ids": [
+        "inheritance",
+        "super",
+        "override"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "py_p60_u01",
+          "type": "example",
+          "source_type": "visual",
+          "source_excerpt": "부모 클래스를 상속 / super()로 부모 속성 초기화 / introduce 메서드 오버라이딩",
+          "normalized_explanation": "자식 클래스는 부모 동작을 재사용·확장하고 재정의할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "inheritance",
+            "super",
+            "override"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "python_environment_p61_01",
+      "lecture_id": "python_environment",
+      "lecture_name": "Python / 개발환경",
+      "page": 61,
+      "topic": "강의 마무리",
+      "concepts": [
+        "Python"
+      ],
+      "raw_text": "감사합니다",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "Python·개발환경 강의의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

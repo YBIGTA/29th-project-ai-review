@@ -21,11 +21,10 @@ Gold 제작 중에는 현재 평가기의 결과를 정답으로 사용하지 �
 
 ### 현재 제작 가능 범위
 
-현재 `basic_statistics`는 Rubric `2.2.0`의 41개 Claim 모두에
-`evaluation_criteria`가 있어 최종 Gold 제작을 시작할 수 있다. `crawling`,
-`eda_fe`, `visualization`은 아직 Rubric `2.0.0`이고 Claim별 기준이 없으므로,
-현 단계에서 만든 대본은 초안 자료일 뿐 최종 Gold로 확정하지 않는다. 해당 강의는
-processed 원문 검수와 Rubric 2.2 확장을 끝낸 뒤 같은 절차로 제작한다.
+현재 `basic_statistics`, `crawling`, `eda_fe`, `visualization`, `cs_basics`,
+`git`, `python_environment`, `web`, `network_basics`, `machine_learning`,
+`deep_learning`, `computer_vision`, `nlp`는 Rubric `2.2.0`의 모든 Claim에
+`evaluation_criteria`와 원자 Evidence가 있어 최종 Gold 제작을 시작할 수 있다.
 
 ## 2. 현재 평가 구조
 

@@ -39,6 +39,9 @@ def test_rubrics_reference_verified_chunks(
         for sub in objective.sub_objectives:
             assert sum(claim.role == "essential" for claim in sub.claims) == 1
             for claim in sub.claims:
+                if rubric.schema_version == "2.2.0":
+                    assert claim.evaluation_criteria is not None
+                    assert claim.evaluation_criteria.required_elements
                 for evidence in claim.evidence:
                     assert evidence.chunk_id in chunks
                     assert chunks[evidence.chunk_id]["page"] == evidence.page

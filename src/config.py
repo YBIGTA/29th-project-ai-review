@@ -39,6 +39,44 @@ LECTURES: dict[str, LectureConfig] = {
         lecture_name="시각화",
         source_names=("visualization.pdf", "시각화.pdf"),
     ),
+    "cs_basics": LectureConfig(
+        lecture_id="cs_basics",
+        lecture_name="CS 기초",
+        source_names=("cs_basics.pdf", "CS기초.pdf", "CS_기초.pdf"),
+    ),
+    "git": LectureConfig(
+        lecture_id="git",
+        lecture_name="Git",
+        source_names=("git.pdf", "Git.pdf"),
+    ),
+    "python_environment": LectureConfig(
+        lecture_id="python_environment",
+        lecture_name="Python / 개발환경",
+        source_names=("python_environment.pdf", "Python개발환경.pdf", "Python_개발환경.pdf"),
+    ),
+    "web": LectureConfig(
+        lecture_id="web", lecture_name="Web", source_names=("web.pdf", "Web.pdf"),
+    ),
+    "network_basics": LectureConfig(
+        lecture_id="network_basics", lecture_name="네트워크 기초",
+        source_names=("network_basics.pdf", "네트워크 기초.pdf", "네트워크기초.pdf"),
+    ),
+    "machine_learning": LectureConfig(
+        lecture_id="machine_learning", lecture_name="Machine Learning",
+        source_names=("machine_learning.pdf", "ML.pdf"),
+    ),
+    "deep_learning": LectureConfig(
+        lecture_id="deep_learning", lecture_name="Deep Learning",
+        source_names=("deep_learning.pdf", "DL.pdf"),
+    ),
+    "computer_vision": LectureConfig(
+        lecture_id="computer_vision", lecture_name="Computer Vision",
+        source_names=("computer_vision.pdf", "CV.pdf"),
+    ),
+    "nlp": LectureConfig(
+        lecture_id="nlp", lecture_name="Natural Language Processing",
+        source_names=("nlp.pdf", "NLP.pdf"),
+    ),
 }
 
 
@@ -114,7 +152,11 @@ def _normalized(value: str) -> str:
 
 
 def resolve_pdf_path(settings: Settings, lecture: LectureConfig) -> Path:
-    search_dirs = (settings.raw_data_dir, settings.legacy_data_dir)
+    search_dirs = (
+        settings.raw_data_dir,
+        settings.project_root / "data" / "pdfs",
+        settings.legacy_data_dir,
+    )
     expected = {_normalized(name) for name in lecture.source_names}
     for directory in search_dirs:
         if not directory.exists():

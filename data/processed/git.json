@@ -1,0 +1,1384 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "git",
+  "lecture_name": "Git",
+  "source_file": "Git.pdf",
+  "terminology": [
+    {
+      "term_id": "vcs",
+      "canonical_ko": "버전 관리 시스템",
+      "canonical_en": "version control system",
+      "abbreviations": [
+        "VCS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "local_vcs",
+      "canonical_ko": "로컬 버전 관리",
+      "canonical_en": "local version control system",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "centralized_vcs",
+      "canonical_ko": "중앙집중식 버전 관리",
+      "canonical_en": "centralized version control system",
+      "abbreviations": [
+        "CVCS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "distributed_vcs",
+      "canonical_ko": "분산 버전 관리",
+      "canonical_en": "distributed version control system",
+      "abbreviations": [
+        "DVCS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "git",
+      "canonical_ko": "Git",
+      "canonical_en": "Git",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "깃"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "github",
+      "canonical_ko": "GitHub",
+      "canonical_en": "GitHub",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "깃허브"
+      ],
+      "symbols": [],
+      "not_equivalent_to": [
+        "git"
+      ]
+    },
+    {
+      "term_id": "repository",
+      "canonical_ko": "저장소",
+      "canonical_en": "repository",
+      "abbreviations": [
+        "repo"
+      ],
+      "accepted_aliases": [
+        "리포지토리"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "local_repository",
+      "canonical_ko": "로컬 저장소",
+      "canonical_en": "local repository",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "remote_repository",
+      "canonical_ko": "원격 저장소",
+      "canonical_en": "remote repository",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "working_directory",
+      "canonical_ko": "작업 디렉터리",
+      "canonical_en": "working directory",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "working tree",
+        "워크트리"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "staging_area",
+      "canonical_ko": "스테이징 영역",
+      "canonical_en": "staging area",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "index",
+        "인덱스"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "commit",
+      "canonical_ko": "커밋",
+      "canonical_en": "commit",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "branch",
+      "canonical_ko": "브랜치",
+      "canonical_en": "branch",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "main_branch",
+      "canonical_ko": "메인 브랜치",
+      "canonical_en": "main branch",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "main"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "remote",
+      "canonical_ko": "리모트",
+      "canonical_en": "remote",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "origin",
+      "canonical_ko": "origin",
+      "canonical_en": "origin",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "clone",
+      "canonical_ko": "복제",
+      "canonical_en": "clone",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "push",
+      "canonical_ko": "푸시",
+      "canonical_en": "push",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pull",
+      "canonical_ko": "풀",
+      "canonical_en": "pull",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "fetch",
+      "canonical_ko": "페치",
+      "canonical_en": "fetch",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "merge",
+      "canonical_ko": "병합",
+      "canonical_en": "merge",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "merge_conflict",
+      "canonical_ko": "병합 충돌",
+      "canonical_en": "merge conflict",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "conflict"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "head",
+      "canonical_ko": "HEAD",
+      "canonical_en": "HEAD",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "common_ancestor",
+      "canonical_ko": "공통 조상",
+      "canonical_en": "common ancestor",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "merge base"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "fast_forward",
+      "canonical_ko": "Fast-forward 병합",
+      "canonical_en": "fast-forward merge",
+      "abbreviations": [
+        "FF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rebase",
+      "canonical_ko": "리베이스",
+      "canonical_en": "rebase",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "squash_merge",
+      "canonical_ko": "Squash 병합",
+      "canonical_en": "squash merge",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "restore",
+      "canonical_ko": "복원",
+      "canonical_en": "restore",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "revert",
+      "canonical_ko": "되돌림 커밋",
+      "canonical_en": "revert",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gitignore",
+      "canonical_ko": ".gitignore",
+      "canonical_en": ".gitignore",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pull_request",
+      "canonical_ko": "Pull Request",
+      "canonical_en": "pull request",
+      "abbreviations": [
+        "PR"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "code_review",
+      "canonical_ko": "코드 리뷰",
+      "canonical_en": "code review",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ruleset",
+      "canonical_ko": "브랜치 규칙",
+      "canonical_en": "branch ruleset",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "git_p1_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 1,
+      "topic": "Git 강의 표지",
+      "concepts": [
+        "Git"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\nGit\n\n\n\n\n\n                         28기 김아연",
+      "visual_description": "Git 강의 표지 페이지이다.",
+      "content": "Git 강의의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p2_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "Git 기본 개념",
+        "Git 명령",
+        "협업"
+      ],
+      "raw_text": "목 차\n\n\n\n 1.  Git 기본 개념\n\n 2. Git command\n\n 3. 협업",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "Git 기본 개념, 명령, 협업 순서로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p3_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 3,
+      "topic": "Git 기본 개념",
+      "concepts": [
+        "Git"
+      ],
+      "raw_text": "기본개념Git",
+      "visual_description": "Git 기본 개념 페이지이다.",
+      "content": "Git 기본 개념 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p4_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 4,
+      "topic": "버전 관리 시스템",
+      "concepts": [
+        "VCS",
+        "Local VCS",
+        "CVCS",
+        "DVCS"
+      ],
+      "raw_text": "Version Control System\n\n  VCS = 코드 변경 이력 관리자\n\n\n\n\n\n         Local VCS                      CVCS                        DVCS\n    로컬 버전관리            중앙집중식 버전관리          분산 버전관리 시스템\n\n         RCS                    CVS, Subversion, Perforce                  Git, Mecurial\n\n                                                                        https://git-scm.com/book/ms/v2/Getting-Started-About-Version-Control",
+      "visual_description": "VCS는 코드 변경 이력을 관리하며 로컬·중앙집중식·분산 방식으로 발전했다.",
+      "content": "VCS는 코드 변경 이력을 관리하며 로컬·중앙집중식·분산 방식으로 발전했다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "vcs",
+        "local_vcs",
+        "centralized_vcs",
+        "distributed_vcs"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p4_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "VCS = 코드 변경 이력 관리자",
+          "normalized_explanation": "VCS는 코드 변경 이력을 보존하고 관리한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "vcs"
+          ]
+        },
+        {
+          "unit_id": "git_p4_u02",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Local VCS / CVCS 중앙집중식 / DVCS 분산 버전관리 시스템",
+          "normalized_explanation": "버전 관리는 저장 위치와 복제 방식에 따라 로컬·중앙집중식·분산형으로 나뉜다.",
+          "source_status": "verified",
+          "term_ids": [
+            "local_vcs",
+            "centralized_vcs",
+            "distributed_vcs"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p5_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 5,
+      "topic": "Git을 쓰는 이유",
+      "concepts": [
+        "변경 이력",
+        "복구",
+        "협업"
+      ],
+      "raw_text": "Git 왜 쓰나요?\n\n\n  파일 변경 내역 보존 및 관리\n  코드 복구\n  안전한 코드 수정 및 업데이트\n  협업",
+      "visual_description": "Git은 변경 내역 보존, 코드 복구, 안전한 수정과 협업을 돕는다.",
+      "content": "Git은 변경 내역 보존, 코드 복구, 안전한 수정과 협업을 돕는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "git",
+        "vcs"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p5_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "파일 변경 내역 보존 및 관리 / 코드 복구 / 안전한 코드 수정 및 업데이트 / 협업",
+          "normalized_explanation": "Git은 이력·복구·안전한 변경·협업을 지원한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "git",
+            "vcs"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p6_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 6,
+      "topic": "Git과 GitHub",
+      "concepts": [
+        "Git",
+        "GitHub",
+        "로컬 저장소",
+        "원격 저장소"
+      ],
+      "raw_text": "GitHub\n\nGit ≠ GitHub !!\n\n\n 로컬 저장소: 내 컴퓨터 안\n 원격 저장소: GitHub 같은 서버\n → 둘을 push/pull 하면서 동기화",
+      "visual_description": "Git은 버전 관리 도구이고 GitHub는 원격 저장소를 제공하는 서비스이며 둘은 push와 pull로 동기화한다.",
+      "content": "Git은 버전 관리 도구이고 GitHub는 원격 저장소를 제공하는 서비스이며 둘은 push와 pull로 동기화한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "git",
+        "github",
+        "local_repository",
+        "remote_repository"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p6_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "로컬 저장소: 내 컴퓨터 안 / 원격 저장소: GitHub 같은 서버 / Git ≠ GitHub",
+          "normalized_explanation": "Git과 GitHub, 로컬과 원격 저장소는 서로 다른 개념이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "git",
+            "github",
+            "local_repository",
+            "remote_repository"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p7_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 7,
+      "topic": "Git 설치와 기본 설정",
+      "concepts": [
+        "git config",
+        "user.name",
+        "user.email",
+        "main"
+      ],
+      "raw_text": "Git 설치 및 설정\n\n\n                                                  Git 설치 가이드 페이지   Git을 먼저 설치해줍시다!\n\n\n\n\n\n                                                         git --version으로 버전 정보 나오면 성공!\n\n\n   Git 기본 설정을 해줍시다!\n        git config --global user.name “<user_name>”\n                                  누가 git을 사용하고 있는지 보여주기 위한 아이디 등록\n        git config --global user.email “<user_email>”\n        git config --global init.defaultBranch main     기본 branch 이름을 main으로\n        git config --global core.editor “code --wait”   기본 에디터를 VScode로 설정",
+      "visual_description": "Git 설치를 확인하고 사용자 이름·이메일, 기본 브랜치와 편집기를 전역 설정한다.",
+      "content": "Git 설치를 확인하고 사용자 이름·이메일, 기본 브랜치와 편집기를 전역 설정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "git",
+        "main_branch"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p7_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git config --global user.name / user.email / init.defaultBranch main",
+          "normalized_explanation": "전역 설정은 커밋 작성자 정보와 기본 브랜치 같은 사용자 기본값을 정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "git",
+            "main_branch"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p8_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 8,
+      "topic": "Git diff 도구 설정",
+      "concepts": [
+        "git config",
+        "difftool",
+        "VS Code"
+      ],
+      "raw_text": "Git 설치 및 설정\n\n   Git 기본 설정을 해줍시다!\n       git config --global diff.tool vscode\n       git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL\n     $REMOTE'\n       git config --global difftool.prompt false        difftool 기본 에디터를 VScode로 설정\n\n       git config --global -e             이외에도 다양한 설정값들 확인 및 수정 가능\n\n\n\n\n\n                                                                      (참고링크) git 최초 설정",
+      "visual_description": "VS Code를 diff 도구로 설정하고 전역 설정 파일을 확인한다.",
+      "content": "VS Code를 diff 도구로 설정하고 전역 설정 파일을 확인한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p9_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 9,
+      "topic": "Git 데이터 흐름",
+      "concepts": [
+        "Working Directory",
+        "Staging Area",
+        "Local Repository",
+        "Remote Repository"
+      ],
+      "raw_text": "Git의 데이터 흐름\n\n\n\n\n\n                   실제로 코드를 수정하는 곳     커밋할 변경사항을 고르는 공간                                                        내 컴퓨터에 저장된 Git 커밋 히스토리         GitHub 같은 공유 서버",
+      "visual_description": "수정은 작업 디렉터리에서 시작해 스테이징 영역을 거쳐 로컬 커밋이 되고 원격 저장소와 동기화된다.",
+      "content": "수정은 작업 디렉터리에서 시작해 스테이징 영역을 거쳐 로컬 커밋이 되고 원격 저장소와 동기화된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "working_directory",
+        "staging_area",
+        "local_repository",
+        "remote_repository",
+        "commit",
+        "push"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p9_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Working Directory → Staging Area → Local Repository → Remote Repository",
+          "normalized_explanation": "변경은 작업·선별·로컬 기록·공유 단계를 이동한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "working_directory",
+            "staging_area",
+            "local_repository",
+            "remote_repository",
+            "commit",
+            "push"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p10_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 10,
+      "topic": "Git 그래프",
+      "concepts": [
+        "commit graph",
+        "branch"
+      ],
+      "raw_text": "Git graph",
+      "visual_description": "커밋과 브랜치가 분기·병합되는 이력을 그래프로 보여준다.",
+      "content": "커밋과 브랜치가 분기·병합되는 이력을 그래프로 보여준다.",
+      "page_role": "example",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p11_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 11,
+      "topic": "Git 명령",
+      "concepts": [
+        "Git command"
+      ],
+      "raw_text": "Git command",
+      "visual_description": "Git 명령 페이지이다.",
+      "content": "Git 명령 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p12_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 12,
+      "topic": "Git 협업 시나리오",
+      "concepts": [
+        "main",
+        "clone",
+        "branch",
+        "merge"
+      ],
+      "raw_text": "Git 협업 시나리오\n\n\n\n\n  1.A가 main을 만들고 올린 뒤,\n 2.B가 main을 clone해서 새로운 브랜치에서 작업한 후 main에 merge.",
+      "visual_description": "A가 main을 올리고 B가 clone한 뒤 별도 브랜치에서 작업해 main에 병합하는 흐름이다.",
+      "content": "A가 main을 올리고 B가 clone한 뒤 별도 브랜치에서 작업해 main에 병합하는 흐름이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "main_branch",
+        "clone",
+        "branch",
+        "merge"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p12_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "main을 만들고 올린 뒤 clone해서 새로운 브랜치에서 작업한 후 main에 merge",
+          "normalized_explanation": "협업은 최신 저장소 복제, 분리된 브랜치 작업, 병합으로 진행한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "main_branch",
+            "clone",
+            "branch",
+            "merge"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p13_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 13,
+      "topic": "저장소 초기화",
+      "concepts": [
+        "git init",
+        "repository"
+      ],
+      "raw_text": "(1) git 시작\n\n로컬 프로젝트 생성 & 깃 초기화\n\n\n\n\n\n git init: 로컬 폴더를 Git 저장소로 만들기\n\n\n\n\n\n       내 컴퓨터에 프로젝트 폴더를 만들고 Git이 추적을 시작하도록 설정합니다!",
+      "visual_description": "git init은 기존 로컬 폴더를 Git 저장소로 만들고 추적을 시작한다.",
+      "content": "git init은 기존 로컬 폴더를 Git 저장소로 만들고 추적을 시작한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "git",
+        "repository"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p13_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git init: 로컬 폴더를 Git 저장소로 만들기",
+          "normalized_explanation": "init은 로컬 폴더에 Git 저장소를 초기화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "git",
+            "repository"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p14_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 14,
+      "topic": "스테이징과 커밋",
+      "concepts": [
+        "git add",
+        "git commit",
+        "git status"
+      ],
+      "raw_text": "(2) 파일 스테이징 & 커밋\n\n  add + commit\n\n                                                                git add <파일> 수정한 파일을 커밋 대상으로 올리기(스테이징)\n\n                                                                git status: 지금 작업 상태 파악 (수정/스테이징 여부)\n\n\n\n\n\n                                                                git commit -m \"메시지\" 스테이징된 변경을 로컬 저장버전으로 남기기\n\n\n\n\n\n            작업한 파일을 스테이징 영역에 올리고 커밋합니다",
+      "visual_description": "git add로 변경을 스테이징하고 commit으로 로컬 이력에 남기며 status로 상태를 확인한다.",
+      "content": "git add로 변경을 스테이징하고 commit으로 로컬 이력에 남기며 status로 상태를 확인한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "staging_area",
+        "commit",
+        "working_directory"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p14_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git add: 커밋 대상으로 올리기 / git commit: 로컬 저장버전으로 남기기 / git status: 작업 상태 파악",
+          "normalized_explanation": "add·commit·status의 역할은 서로 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "staging_area",
+            "commit",
+            "working_directory"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p15_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 15,
+      "topic": "원격 연결과 최초 push",
+      "concepts": [
+        "remote",
+        "origin",
+        "push",
+        "upstream"
+      ],
+      "raw_text": "(3) 저장소 연결 + 최초 push\n\n\n\n                                                                                      git branch -M main: 기본 브랜치 이름을 main으로 설정\n\n\n                                                                                     git remote add origin <URL>: 내 Git을 GitHub 원격 저장소와 연결\n\n\n                                                                                     git push -u origin main : 로컬 main을 GitHub main에 올리고, 이후 기본 push 대상 저장(-u)\n\n\n\n\n\n          내 컴퓨터의 기록을 GitHub 서버와 연결하고 밀어 넣습니다",
+      "visual_description": "원격 origin을 연결하고 로컬 main을 push하며 -u로 기본 추적 대상을 설정한다.",
+      "content": "원격 origin을 연결하고 로컬 main을 push하며 -u로 기본 추적 대상을 설정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "remote",
+        "origin",
+        "push",
+        "main_branch"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p15_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git remote add origin <URL> / git push -u origin main",
+          "normalized_explanation": "원격을 등록하고 최초 push에서 upstream을 설정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "remote",
+            "origin",
+            "push",
+            "main_branch"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p16_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 16,
+      "topic": "저장소 clone",
+      "concepts": [
+        "git clone",
+        "remote"
+      ],
+      "raw_text": "(4) gitHub에서 프로젝트 가져오기\n\n다른 사람이 만든프로젝트 가져오기 (B 입장)\n\n                                                                                git clone <URL>: GitHub 저장소 통째로 다운로드 + 연결까지 자동 설정\n\n\n\n\n\n           이미 시작된 프로젝트를 내 컴퓨터로 그대로 복제해옵니다",
+      "visual_description": "git clone은 원격 저장소의 이력과 파일을 내려받고 원격 연결도 설정한다.",
+      "content": "git clone은 원격 저장소의 이력과 파일을 내려받고 원격 연결도 설정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "clone",
+        "repository",
+        "remote"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p16_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git clone <URL>: 저장소 통째로 다운로드 + 연결까지 자동 설정",
+          "normalized_explanation": "clone은 파일과 이력을 받고 원격 연결도 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "clone",
+            "repository",
+            "remote"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p17_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 17,
+      "topic": "브랜치 생성",
+      "concepts": [
+        "git switch",
+        "branch"
+      ],
+      "raw_text": "(5) 새로운 브랜치 생성 & 작업\n\n  login 이라는 브랜치를 파서 작업\n\n                                                             git switch -c login: login 브랜치 새로 만들고 이동 (기능 개발 공간 확보)\n\n\n\n\n\n          안전한 코드 수정을 위해 main이 아닌 새로운 브랜치 생성!",
+      "visual_description": "git switch -c로 기능 브랜치를 만들고 이동해 main과 분리된 작업 공간을 확보한다.",
+      "content": "git switch -c로 기능 브랜치를 만들고 이동해 main과 분리된 작업 공간을 확보한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "branch",
+        "main_branch"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p17_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git switch -c login: 브랜치 새로 만들고 이동",
+          "normalized_explanation": "기능 브랜치를 생성하고 그 브랜치로 이동한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "branch",
+            "main_branch"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p18_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 18,
+      "topic": "main 갱신",
+      "concepts": [
+        "git switch",
+        "git pull",
+        "main"
+      ],
+      "raw_text": "(6) main으로 돌아가서 merge\n\n main으로 이동하여 pull\n\n\n                                                           git switch main: main 브랜치로 이동\n\n                                                           git pull origin main: GitHub 최신 main 가져와 로컬 main 업데이트\n\n\n\n\n\n        작업을 끝내고 메인 브랜치로 돌아와 최신 코드를 컴퓨터로 가져옵니다.",
+      "visual_description": "main으로 이동한 뒤 원격의 최신 main을 pull해 로컬을 갱신한다.",
+      "content": "main으로 이동한 뒤 원격의 최신 main을 pull해 로컬을 갱신한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "main_branch",
+        "pull",
+        "origin"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p18_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git switch main / git pull origin main",
+          "normalized_explanation": "main으로 이동한 뒤 원격 최신 내용을 가져와 합친다.",
+          "source_status": "verified",
+          "term_ids": [
+            "main_branch",
+            "pull",
+            "origin"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p19_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 19,
+      "topic": "병합과 push",
+      "concepts": [
+        "git merge",
+        "git push"
+      ],
+      "raw_text": "(7) merge이후 반영\n\n merge & push\n\n\n                                                                       git merge login: login 내용(main 기준) 병합 → 기능 반영\n\n\n                                                                       git push origin main: merge된 main을 GitHub에 올리기\n\n\n\n\n\n           작업 내용을 병합하고합쳐진 코드를 서버에 반영합니다.",
+      "visual_description": "기능 브랜치를 main에 병합한 뒤 갱신된 main을 원격에 push한다.",
+      "content": "기능 브랜치를 main에 병합한 뒤 갱신된 main을 원격에 push한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "merge",
+        "push",
+        "main_branch"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p19_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "git merge login / git push origin main",
+          "normalized_explanation": "기능을 main에 병합하고 원격에 공유한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "merge",
+            "push",
+            "main_branch"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p20_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 20,
+      "topic": "충돌 해결",
+      "concepts": [
+        "merge conflict",
+        "git add",
+        "git commit"
+      ],
+      "raw_text": "git merge && resolve conflict\n\n\n\n\n\n        코드를 보면서 수동으로 수정하고, conflict 해결하고 나서\n                      git add 파일명\n                      git commit -m “커밋메시지”",
+      "visual_description": "충돌 구간을 사람이 수정하고 add와 commit으로 해결 결과를 확정한다.",
+      "content": "충돌 구간을 사람이 수정하고 add와 commit으로 해결 결과를 확정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "merge_conflict",
+        "commit",
+        "staging_area"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p20_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "수동으로 수정하고 conflict 해결 후 git add, git commit",
+          "normalized_explanation": "충돌은 내용을 검토·수정하고 새 병합 커밋으로 확정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "merge_conflict",
+            "commit",
+            "staging_area"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p21_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 21,
+      "topic": "충돌 표시 읽기",
+      "concepts": [
+        "HEAD",
+        "Current Change",
+        "Incoming Change"
+      ],
+      "raw_text": "git merge && resolve conflict\n\n\n\n\n\n                  Current Change (HEAD) → 지금 브랜치(main)의 내용\n                 incoming Change → 합쳐오려는 브랜치(feature/conflict)의 내용",
+      "visual_description": "Current Change는 현재 브랜치 HEAD, Incoming Change는 병합 대상 브랜치의 내용이다.",
+      "content": "Current Change는 현재 브랜치 HEAD, Incoming Change는 병합 대상 브랜치의 내용이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "head",
+        "branch",
+        "merge_conflict"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p21_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Current Change (HEAD): 지금 브랜치 / Incoming Change: 합쳐오려는 브랜치",
+          "normalized_explanation": "충돌 표시는 현재 측과 들어오는 측을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "head",
+            "branch",
+            "merge_conflict"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p22_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 22,
+      "topic": "3-way merge",
+      "concepts": [
+        "common ancestor",
+        "HEAD",
+        "fast-forward"
+      ],
+      "raw_text": "git merge +\n\n\n                               3-way merge\n\n                                                                                     1. 공통 조상 참고 (main과 브랜치가 나뉘기 전의 커밋)\n                                                                  2. main 브랜치의 현재 상태 (HEAD)\n                                                                 3. 병합 대상 브랜치의 현재 상태\n\n                            이 세 파일들을 참고하면서 수정을 하게 됩니다.\n\n                                  참고로, main 브랜치의 현재 상태가 분기 전의 상태와\n                            같을 때의 merge의 경우 fast-foward merge라고 합니다!",
+      "visual_description": "3-way merge는 공통 조상과 양쪽 현재 상태를 비교하며, 현재 브랜치가 분기 전 상태면 fast-forward가 가능하다.",
+      "content": "3-way merge는 공통 조상과 양쪽 현재 상태를 비교하며, 현재 브랜치가 분기 전 상태면 fast-forward가 가능하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "common_ancestor",
+        "head",
+        "merge",
+        "fast_forward"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p22_u01",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "공통 조상, main 현재 상태, 병합 대상 현재 상태를 참고 / fast-forward merge",
+          "normalized_explanation": "3-way merge는 세 상태를 비교하고 조건이 맞으면 fast-forward한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "common_ancestor",
+            "head",
+            "merge",
+            "fast_forward"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p23_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 23,
+      "topic": "Rebase와 Squash 병합",
+      "concepts": [
+        "rebase",
+        "fast-forward",
+        "squash"
+      ],
+      "raw_text": "git merge ++\n\n                                     rebase and merge\n\n                            새로운 브랜치의 시작점을 메인 브랜치 끝으로 옮긴 뒤,\n                                                      fast-forward merge를 진행합니다!\n\n                                                                 git rebase main (새로운 브랜치에서)\n                                                                 git merge 브랜치 이름 (main 브랜치에서)\n\n\n                                    sqash and merge\n\n                            새로운 브랜치에 있던 애들이 main의 새로운 커밋\n                            하나로 이동합니다.\n\n                                                                 git merge --sqash 브랜치이름\n                                                                 git commit -m <커밋 메시지>",
+      "visual_description": "rebase는 브랜치 시작점을 최신 main 뒤로 옮기고, squash 병합은 여러 변경을 하나의 커밋으로 합친다.",
+      "content": "rebase는 브랜치 시작점을 최신 main 뒤로 옮기고, squash 병합은 여러 변경을 하나의 커밋으로 합친다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rebase",
+        "fast_forward",
+        "squash_merge"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p23_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "rebase: 브랜치 시작점을 main 끝으로 이동 / squash: 브랜치 커밋을 main의 새 커밋 하나로",
+          "normalized_explanation": "rebase와 squash는 이력을 정리하는 방식이 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rebase",
+            "fast_forward",
+            "squash_merge"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p24_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 24,
+      "topic": "브랜치 삭제",
+      "concepts": [
+        "git branch -d",
+        "git push --delete"
+      ],
+      "raw_text": "(8) branch 삭제\n\n\n\n\n                                                            git branch -d login: login 브랜치 삭제\n\n                                                            git push origin --delete login:\n                              원격 저장소(origin)에 있는 login 브랜치 삭제\n\n\n\n\n\n               작업이 끝난 브랜치를 삭제해줍니다",
+      "visual_description": "작업이 끝난 로컬·원격 브랜치를 각각 삭제한다.",
+      "content": "작업이 끝난 로컬·원격 브랜치를 각각 삭제한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p25_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 25,
+      "topic": "git restore",
+      "concepts": [
+        "restore",
+        "staging area",
+        "working directory"
+      ],
+      "raw_text": "(9) git restore\n\n\n\n\n\n                                                                  git restore --staged app.py:\n                                스테이징 영역에서 파일을 내림(add만 취소)\n\n                                                                  git restore app.py:\n                                파일 수정 자체를 취소\n\n\n\n\n\n        로컬 작업 공간(Working Directory)에서 발생한 실수를 되돌립니다",
+      "visual_description": "restore --staged는 스테이징만 취소하고 restore 파일명은 작업 파일 변경 자체를 되돌린다.",
+      "content": "restore --staged는 스테이징만 취소하고 restore 파일명은 작업 파일 변경 자체를 되돌린다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "restore",
+        "staging_area",
+        "working_directory"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p25_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "restore --staged: add만 취소 / restore 파일: 파일 수정 자체 취소",
+          "normalized_explanation": "restore 대상에 따라 스테이징 또는 작업 변경을 되돌린다.",
+          "source_status": "verified",
+          "term_ids": [
+            "restore",
+            "staging_area",
+            "working_directory"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p26_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 26,
+      "topic": "git revert",
+      "concepts": [
+        "revert",
+        "commit"
+      ],
+      "raw_text": "(10) git revert\n\n\n\n\n\n                                                                                  git revert <hash>:\n                                        그 커밋을 취소하는 “새 커밋”을 생성\n\n\n\n\n\n         특정 커밋의 내용을 반대로 수행하는 '취소 커밋'을 새로 생성합니다",
+      "visual_description": "revert는 기존 커밋을 지우지 않고 반대 변경을 담은 새 커밋을 만든다.",
+      "content": "revert는 기존 커밋을 지우지 않고 반대 변경을 담은 새 커밋을 만든다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "revert",
+        "commit"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p26_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "git revert <hash>: 그 커밋을 취소하는 새 커밋을 생성",
+          "normalized_explanation": "revert는 공개 이력을 보존하면서 반대 변경을 추가한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "revert",
+            "commit"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p27_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 27,
+      "topic": "Git 협업",
+      "concepts": [
+        "collaboration"
+      ],
+      "raw_text": "협업Git",
+      "visual_description": "Git 협업 페이지이다.",
+      "content": "Git 협업 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p28_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 28,
+      "topic": ".gitignore",
+      "concepts": [
+        ".gitignore",
+        "secret",
+        "cache",
+        "pattern"
+      ],
+      "raw_text": "Collaboration\n.gitignore\n\n\nGit이 추적하지 말아야 할 파일이나 폴더의 목록을 지정\n\n목적:\n  보안 정보 유출 방지: API key, 비밀번호 등\n  불필요한 파일 제외: 캐시(cache) 파일, 로그(log) 파일 등\n  개인 설정 제외: OS에서 생성하는 임시 파일(ex .DS_Store)\n\n작성규칙:\n  파일명 자체를 무시: filename 그대로 입력\n  확장자 전체를 무시: *.ext 입력\n  접두어 조건: prefix* 입력 → 해당 prefix를 가진 파일 전부 무시\n  예외 처리: !filename 이 친구만 예외적으로 추적\n  디렉토리: dirname/ 입력",
+      "visual_description": ".gitignore는 비밀정보·캐시·개인 설정 등 추적하지 않을 경로와 예외 패턴을 지정한다.",
+      "content": ".gitignore는 비밀정보·캐시·개인 설정 등 추적하지 않을 경로와 예외 패턴을 지정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "gitignore"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p28_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": ".gitignore: Git이 추적하지 말아야 할 파일이나 폴더 목록",
+          "normalized_explanation": "비밀정보·생성물·개인 설정을 추적에서 제외한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gitignore"
+          ]
+        },
+        {
+          "unit_id": "git_p28_u02",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "filename / *.ext / prefix* / !filename / dirname/",
+          "normalized_explanation": "파일·확장자·접두어·예외·디렉터리 패턴을 지정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gitignore"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p29_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 29,
+      "topic": "Pull Request 협업 예절",
+      "concepts": [
+        "branch",
+        "Pull Request",
+        "code review",
+        "commit convention"
+      ],
+      "raw_text": "Collaboration\n공공예절 - Pull Request\n\n\n\nmain 브랜치(혹은 dev 브랜치)에 바로 push하는 것은 좋은 습관이 아니에요.\n항상 브랜치를 새로 파서, main에 merge 할 때 코드 리뷰어를 꼭 등록합시다!\n\n브랜치 이름과 커밋 메시지는 동료들이 보자마자 내용을 알 수 있게 지어야 합니다.\n\n[브랜치 이름 규칙]\n   feature/기능명: 새로운 기능을 개발하는 경우\n   bugfix/버그이름: 버그 수정\n   refactor/기능명: 리팩토링 (기능 변화 X)\n   chore/이름: 설정, 빌드, 의존성 등 잡일\n   test/이름: 테스트 코드 작성 및 수정\n\n[commit 유형]\n   기능추가(feat): ex) feat: 사용자 로그인 API 구현\n  버그 수정 (fix): ex) fix: 로그인 시 세션 만료 오류 수정\n  스타일 수정 (style): ex) style: 로그인 버튼 레이아웃 수정",
+      "visual_description": "main 직접 push를 피하고 기능 브랜치와 PR·리뷰를 사용하며 의미 있는 브랜치명과 커밋 메시지를 작성한다.",
+      "content": "main 직접 push를 피하고 기능 브랜치와 PR·리뷰를 사용하며 의미 있는 브랜치명과 커밋 메시지를 작성한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "main_branch",
+        "branch",
+        "pull_request",
+        "code_review",
+        "commit"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p29_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "main에 바로 push하지 않고 브랜치를 새로 파서 코드 리뷰어를 등록",
+          "normalized_explanation": "보호 브랜치에는 PR과 리뷰를 거쳐 변경을 통합한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "main_branch",
+            "branch",
+            "pull_request",
+            "code_review"
+          ]
+        },
+        {
+          "unit_id": "git_p29_u02",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "브랜치 이름과 커밋 메시지는 동료들이 내용을 알 수 있게",
+          "normalized_explanation": "의도를 드러내는 이름과 메시지가 협업 이력을 이해하기 쉽게 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "branch",
+            "commit"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p30_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 30,
+      "topic": "리뷰 코멘트",
+      "concepts": [
+        "code review",
+        "comment"
+      ],
+      "raw_text": "Collaboration\n공공예절 - Review\n\n\n\n\n\n                                        필요한 경우 코멘트를 남겨줍시다!\n\n\n\n\n\n                                                        리뷰어도 코멘트를 남기면 좋아요!",
+      "visual_description": "PR 작성자와 리뷰어가 필요한 코멘트를 주고받는다.",
+      "content": "PR 작성자와 리뷰어가 필요한 코멘트를 주고받는다.",
+      "page_role": "example",
+      "term_ids": [
+        "code_review",
+        "pull_request"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p30_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "필요한 경우 코멘트를 남기고 리뷰어도 코멘트를 남긴다",
+          "normalized_explanation": "리뷰는 양방향 피드백 과정이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "code_review",
+            "pull_request"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p31_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 31,
+      "topic": "브랜치 ruleset",
+      "concepts": [
+        "branch ruleset",
+        "protection"
+      ],
+      "raw_text": "Collaboration\n공공예절 - Branch ruleset",
+      "visual_description": "브랜치 ruleset으로 main 변경에 리뷰·검사 같은 보호 규칙을 적용한다.",
+      "content": "브랜치 ruleset으로 main 변경에 리뷰·검사 같은 보호 규칙을 적용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ruleset",
+        "main_branch"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "git_p31_u01",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "Branch ruleset",
+          "normalized_explanation": "ruleset은 중요 브랜치에 병합 조건과 보호 규칙을 적용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ruleset",
+            "main_branch"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "git_p32_01",
+      "lecture_id": "git",
+      "lecture_name": "Git",
+      "page": 32,
+      "topic": "강의 마무리",
+      "concepts": [
+        "Git"
+      ],
+      "raw_text": "감사합니다!",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "Git 강의의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

@@ -1,0 +1,2131 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "deep_learning",
+  "lecture_name": "Deep Learning",
+  "source_file": "DL.pdf",
+  "terminology": [
+    {
+      "term_id": "deep_learning",
+      "canonical_ko": "딥러닝",
+      "canonical_en": "deep learning",
+      "abbreviations": [
+        "DL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "representation",
+      "canonical_ko": "표현",
+      "canonical_en": "representation",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "표현 학습의 결과"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "representation_learning",
+      "canonical_ko": "표현 학습",
+      "canonical_en": "representation learning",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "feature",
+      "canonical_ko": "특징",
+      "canonical_en": "feature",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "특성"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "end_to_end",
+      "canonical_ko": "종단간 학습",
+      "canonical_en": "end-to-end learning",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "엔드투엔드 학습"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "neural_network",
+      "canonical_ko": "신경망",
+      "canonical_en": "neural network",
+      "abbreviations": [
+        "NN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "neuron",
+      "canonical_ko": "뉴런",
+      "canonical_en": "neuron",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "weight",
+      "canonical_ko": "가중치",
+      "canonical_en": "weight",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "weighted_sum",
+      "canonical_ko": "가중합",
+      "canonical_en": "weighted sum",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "activation",
+      "canonical_ko": "활성화 함수",
+      "canonical_en": "activation function",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "nonlinearity",
+      "canonical_ko": "비선형성",
+      "canonical_en": "nonlinearity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "relu",
+      "canonical_ko": "ReLU",
+      "canonical_en": "rectified linear unit",
+      "abbreviations": [
+        "ReLU"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "mlp",
+      "canonical_ko": "다층 퍼셉트론",
+      "canonical_en": "multilayer perceptron",
+      "abbreviations": [
+        "MLP"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "loss",
+      "canonical_ko": "손실 함수",
+      "canonical_en": "loss function",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "target",
+      "canonical_ko": "정답값",
+      "canonical_en": "target value",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "타깃"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cross_entropy",
+      "canonical_ko": "교차 엔트로피",
+      "canonical_en": "cross entropy",
+      "abbreviations": [
+        "CE"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "likelihood",
+      "canonical_ko": "우도",
+      "canonical_en": "likelihood",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "nll",
+      "canonical_ko": "음의 로그우도",
+      "canonical_en": "negative log-likelihood",
+      "abbreviations": [
+        "NLL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "binary_classification",
+      "canonical_ko": "이진 분류",
+      "canonical_en": "binary classification",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "multiclass",
+      "canonical_ko": "다중 클래스 분류",
+      "canonical_en": "multi-class classification",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "regression",
+      "canonical_ko": "회귀",
+      "canonical_en": "regression",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "optimization",
+      "canonical_ko": "최적화",
+      "canonical_en": "optimization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "parameter",
+      "canonical_ko": "파라미터",
+      "canonical_en": "parameter",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "매개변수"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gradient",
+      "canonical_ko": "기울기",
+      "canonical_en": "gradient",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gradient_descent",
+      "canonical_ko": "경사하강법",
+      "canonical_en": "gradient descent",
+      "abbreviations": [
+        "GD"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "backpropagation",
+      "canonical_ko": "오차역전파",
+      "canonical_en": "backpropagation",
+      "abbreviations": [
+        "BP"
+      ],
+      "accepted_aliases": [
+        "역전파"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "chain_rule",
+      "canonical_ko": "연쇄법칙",
+      "canonical_en": "chain rule",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "learning_rate",
+      "canonical_ko": "학습률",
+      "canonical_en": "learning rate",
+      "abbreviations": [
+        "LR"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hyperparameter",
+      "canonical_ko": "하이퍼파라미터",
+      "canonical_en": "hyperparameter",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "newton",
+      "canonical_ko": "뉴턴 방법",
+      "canonical_en": "Newton's method",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hessian",
+      "canonical_ko": "헤시안",
+      "canonical_en": "Hessian",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "momentum",
+      "canonical_ko": "모멘텀",
+      "canonical_en": "momentum",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "adagrad",
+      "canonical_ko": "Adagrad",
+      "canonical_en": "Adagrad",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rmsprop",
+      "canonical_ko": "RMSProp",
+      "canonical_en": "RMSProp",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "adam",
+      "canonical_ko": "Adam",
+      "canonical_en": "Adam",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vanishing_gradient",
+      "canonical_ko": "기울기 소실",
+      "canonical_en": "vanishing gradient",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "exploding_gradient",
+      "canonical_ko": "기울기 폭주",
+      "canonical_en": "exploding gradient",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "xavier",
+      "canonical_ko": "Xavier 초기화",
+      "canonical_en": "Xavier initialization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "he_init",
+      "canonical_ko": "He 초기화",
+      "canonical_en": "He initialization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gradient_clipping",
+      "canonical_ko": "기울기 클리핑",
+      "canonical_en": "gradient clipping",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "skip_connection",
+      "canonical_ko": "스킵 연결",
+      "canonical_en": "skip connection",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "residual connection",
+        "잔차 연결"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "generalization",
+      "canonical_ko": "일반화",
+      "canonical_en": "generalization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "overfitting",
+      "canonical_ko": "과적합",
+      "canonical_en": "overfitting",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "regularization",
+      "canonical_ko": "정규화 기법",
+      "canonical_en": "regularization",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "규제"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "weight_decay",
+      "canonical_ko": "가중치 감쇠",
+      "canonical_en": "weight decay",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "l1",
+      "canonical_ko": "L1 정규화",
+      "canonical_en": "L1 regularization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "l2",
+      "canonical_ko": "L2 정규화",
+      "canonical_en": "L2 regularization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "batch_norm",
+      "canonical_ko": "배치 정규화",
+      "canonical_en": "batch normalization",
+      "abbreviations": [
+        "BN",
+        "BatchNorm"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "early_stopping",
+      "canonical_ko": "조기 종료",
+      "canonical_en": "early stopping",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dropout",
+      "canonical_ko": "드롭아웃",
+      "canonical_en": "dropout",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "augmentation",
+      "canonical_ko": "데이터 증강",
+      "canonical_en": "data augmentation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cnn",
+      "canonical_ko": "합성곱 신경망",
+      "canonical_en": "convolutional neural network",
+      "abbreviations": [
+        "CNN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rnn",
+      "canonical_ko": "순환 신경망",
+      "canonical_en": "recurrent neural network",
+      "abbreviations": [
+        "RNN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "transformer",
+      "canonical_ko": "트랜스포머",
+      "canonical_en": "Transformer",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gnn",
+      "canonical_ko": "그래프 신경망",
+      "canonical_en": "graph neural network",
+      "abbreviations": [
+        "GNN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "generative_model",
+      "canonical_ko": "생성 모델",
+      "canonical_en": "generative model",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "diffusion",
+      "canonical_ko": "확산 모델",
+      "canonical_en": "diffusion model",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vae",
+      "canonical_ko": "변분 오토인코더",
+      "canonical_en": "variational autoencoder",
+      "abbreviations": [
+        "VAE"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gan",
+      "canonical_ko": "생성적 적대 신경망",
+      "canonical_en": "generative adversarial network",
+      "abbreviations": [
+        "GAN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "deep_learning_p1_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 1,
+      "topic": "Deep Learning 표지",
+      "concepts": [
+        "Deep Learning 표지"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\nDeep Learning\n\n\n\n\n\n                                     28기 김아연",
+      "visual_description": "Deep Learning 표지 페이지이다.",
+      "content": "Deep Learning 표지 페이지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p2_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "강의 목차"
+      ],
+      "raw_text": "목 차\n\n\n1.  Introduction to DL\n\n2. Loss Function\n\n3. Optimization\n\n4. Generalization\n\n5. Beyond MLP",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "강의 목차 페이지이다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p3_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 3,
+      "topic": "Introduction",
+      "concepts": [
+        "Introduction"
+      ],
+      "raw_text": "Introduction",
+      "visual_description": "Introduction 페이지이다.",
+      "content": "Introduction 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p4_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 4,
+      "topic": "딥러닝 정의",
+      "concepts": [
+        "딥러닝 정의"
+      ],
+      "raw_text": "Deep Neural Network\nWhat is Deep Learning?\n\n  machine learning with multiple layers of learned representation\n\n 다층 신경망을 이용해 계층적인 표현을 자동으로 학습하는 기계학습 방법",
+      "visual_description": "딥러닝 정의의 핵심 도식과 설명을 제시한다.",
+      "content": "딥러닝은 여러 층의 학습된 표현을 이용해 계층적 representation을 자동으로 학습하는 머신러닝 방법이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "deep_learning",
+        "representation_learning",
+        "neural_network"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p4_def",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "machine learning with multiple layers of learned representation / 다층 신경망을 이용해 계층적인 표현을 자동으로 학습",
+          "normalized_explanation": "딥러닝은 여러 층으로 계층적 표현을 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "deep_learning",
+            "representation_learning",
+            "neural_network"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p5_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 5,
+      "topic": "머신러닝의 관계 학습",
+      "concepts": [
+        "머신러닝의 관계 학습"
+      ],
+      "raw_text": "Deep Neural Network\nWhat is Deep Learning?\n\n머신러닝: 데이터를 바탕으로 input과 output 간의 관계를 학습",
+      "visual_description": "머신러닝의 관계 학습의 핵심 도식과 설명을 제시한다.",
+      "content": "머신러닝은 데이터를 바탕으로 input과 output 관계를 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p6_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 6,
+      "topic": "자동 특성 학습",
+      "concepts": [
+        "자동 특성 학습"
+      ],
+      "raw_text": "Deep Neural Network\nWhat is Deep Learning?\n\n\n하지만 딥러닝은\n\n\n\n\n\n                       이 모든 것을 직접 알아서 한다",
+      "visual_description": "자동 특성 학습의 핵심 도식과 설명을 제시한다.",
+      "content": "딥러닝은 예측에 필요한 표현을 모델 내부에서 함께 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p7_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 7,
+      "topic": "Representation",
+      "concepts": [
+        "Representation"
+      ],
+      "raw_text": "Deep Neural Network\nWhat is Deep Learning?\n\n\n representation: 데이터를 표현하는 방식, 즉 특징(feature)의 구조\n\n\n\n\n\n 텍스트, 이미지 등 어떤 input이든 그 의미를 잘 담아내는 representation을\n           학습하는 것이 딥러닝의 핵심 !",
+      "visual_description": "Representation의 핵심 도식과 설명을 제시한다.",
+      "content": "Representation은 입력 데이터의 의미를 담는 특징 구조이며 딥러닝의 핵심은 유용한 표현을 학습하는 것이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "representation",
+        "feature"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p7_repr",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "representation: 데이터를 표현하는 방식, 즉 특징(feature)의 구조",
+          "normalized_explanation": "표현은 입력 의미를 담는 특징 구조다.",
+          "source_status": "verified",
+          "term_ids": [
+            "representation",
+            "feature"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p8_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 8,
+      "topic": "다층 표현과 End-to-End",
+      "concepts": [
+        "다층 표현과 End-to-End"
+      ],
+      "raw_text": "Deep Neural Network\nWhat is Deep Learning?\n\nHow?\n→   multiple layers of learned representation\n\n\n                    각 layer 별로 feature가 생성된다\n                                   input을 넣으면 여러 layer들이 feature를 뽑아\n                    내고 그 feature를 학습시켜 output을 구하는\n                                     end-to-end 방식\n                               즉, feature extraction 함수 자체도 학습한다!",
+      "visual_description": "다층 표현과 End-to-End의 핵심 도식과 설명을 제시한다.",
+      "content": "여러 층이 단계적으로 특징을 추출하고 feature extractor까지 파라미터로 함께 학습하는 end-to-end 방식이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "feature",
+        "end_to_end",
+        "representation_learning"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p8_e2e",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "각 layer 별로 feature가 생성 / end-to-end / feature extraction 함수 자체도 학습",
+          "normalized_explanation": "특징 추출기와 예측기를 함께 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "feature",
+            "end_to_end",
+            "representation_learning"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p9_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 9,
+      "topic": "딥러닝의 세 특징",
+      "concepts": [
+        "딥러닝의 세 특징"
+      ],
+      "raw_text": "Deep Neural Network\nWhat is Deep Learning?\n\n특징\n1) Representation learning (표현 학습)\n  데이터에서 특징(feature)을 스스로 뽑아낸다\n2) End-to-End learning\n  처음부터 끝까지 전부 하나의 큰 모델로 학습 중간 과정도 다 파라\n  미터로 학습됨\n3) Multi-layer parametric functions\n  층이 많고, 각 층마다 파라미터(가중치)가 있다\n  거의 대부분 이런 구조를 신경망(neural network) 이라 부름",
+      "visual_description": "딥러닝의 세 특징의 핵심 도식과 설명을 제시한다.",
+      "content": "딥러닝은 표현 학습, end-to-end 학습, 여러 층의 파라미터화 함수라는 특징을 갖는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "representation_learning",
+        "end_to_end",
+        "parameter"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p9_traits",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Representation learning / End-to-End learning / Multi-layer parametric functions",
+          "normalized_explanation": "딥러닝의 핵심 속성을 연결한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "representation_learning",
+            "end_to_end",
+            "parameter"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p10_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 10,
+      "topic": "생물학적 뉴런과 신경망",
+      "concepts": [
+        "생물학적 뉴런과 신경망"
+      ],
+      "raw_text": "Deep Neural Network\nNeural Network\n\n\n\n\n\n      뉴런 neuron           신경망 neural network",
+      "visual_description": "생물학적 뉴런과 신경망의 핵심 도식과 설명을 제시한다.",
+      "content": "생물학적 뉴런에서 착안한 인공 뉴런을 층으로 연결해 신경망을 구성한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p11_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 11,
+      "topic": "인공 뉴런 계산",
+      "concepts": [
+        "인공 뉴런 계산"
+      ],
+      "raw_text": "Deep Neural Network\nNeural Network\n\n                                          1.inputs: 여러 입력을 받아서 가중합\n                                   (weighted sum) 계산\n\n\n\n                                  2.processing\n                  활성화 함수 activation function : 발화\n                  여부 결정\n\n                                    3.outputs: 출력 전달\n                  계산된 활성화 값이 다음 층으로 전달됨",
+      "visual_description": "인공 뉴런 계산의 핵심 도식과 설명을 제시한다.",
+      "content": "뉴런은 입력의 가중합을 계산하고 활성화 함수를 적용한 출력을 다음 층으로 전달한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "neuron",
+        "weighted_sum",
+        "activation",
+        "weight"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p11_neuron",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "inputs: 가중합 / activation function / outputs: 다음 층으로 전달",
+          "normalized_explanation": "뉴런은 가중합·활성화·출력 전달로 계산한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "neuron",
+            "weighted_sum",
+            "activation",
+            "weight"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p12_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 12,
+      "topic": "신경망 유형",
+      "concepts": [
+        "신경망 유형"
+      ],
+      "raw_text": "Deep Neural Network\nNeural Network\n\n          뉴런을 층으로 쌓아 만든 모델을 통칭Neural Network란 ?                                             MLP(Fully Connected Network)\n                                                                  CNN(Convolutional Neural Network)\n                                                      RNN/LSTM/GRU\n                                                                    Transformer\n                                                            Graph Neural Network (GNN) 등등...\n\nex) MLP",
+      "visual_description": "신경망 유형의 핵심 도식과 설명을 제시한다.",
+      "content": "신경망에는 MLP, CNN, RNN·LSTM·GRU, Transformer, GNN 등이 있으며 데이터 구조에 맞는 아키텍처를 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "neural_network",
+        "mlp",
+        "cnn",
+        "rnn",
+        "transformer",
+        "gnn"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p12_types",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "MLP / CNN / RNN·LSTM·GRU / Transformer / GNN",
+          "normalized_explanation": "입력 구조에 맞는 여러 신경망 계열이 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "neural_network",
+            "mlp",
+            "cnn",
+            "rnn",
+            "transformer",
+            "gnn"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p13_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 13,
+      "topic": "신경망 구조",
+      "concepts": [
+        "신경망 구조"
+      ],
+      "raw_text": "Deep Neural Network\nNeural Network",
+      "visual_description": "신경망 구조의 핵심 도식과 설명을 제시한다.",
+      "content": "입력층·은닉층·출력층 사이 가중치 연결을 도식화한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p14_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 14,
+      "topic": "Activation Function",
+      "concepts": [
+        "Activation Function"
+      ],
+      "raw_text": "Deep Neural Network\nActivation Function\n\n각 뉴런의 weighted sum (linear output)에 nonlinearity 부여",
+      "visual_description": "Activation Function의 핵심 도식과 설명을 제시한다.",
+      "content": "활성화 함수는 뉴런의 선형 가중합에 비선형성을 부여한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "weighted_sum",
+        "activation",
+        "nonlinearity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p14_activation",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "weighted sum (linear output)에 nonlinearity 부여",
+          "normalized_explanation": "활성화 함수는 비선형성을 추가한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "weighted_sum",
+            "activation",
+            "nonlinearity"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p15_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 15,
+      "topic": "ReLU와 함수 근사",
+      "concepts": [
+        "ReLU와 함수 근사"
+      ],
+      "raw_text": "Deep Neural Network\nActivation Function\n\n비선형성이 중요한 이유: Universal Approximation\n\nReLU를 가정해보자\n\n\n\n\n\nactivation function ReLU가 켜지고 꺼지는 구간마다 기울기가 달라져 조각별\n선형 함수가 만들어짐\nhidden unit을 늘리면 꺾이는 점과 선형 구간이 더 생겨서 더 복잡한 함수를\n근사할 수 있게 된다!",
+      "visual_description": "ReLU와 함수 근사의 핵심 도식과 설명을 제시한다.",
+      "content": "ReLU 뉴런을 늘리면 조각별 선형 구간을 조합해 더 복잡한 함수를 근사할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "relu",
+        "activation",
+        "nonlinearity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p15_relu",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "ReLU가 켜지고 꺼지는 구간마다 기울기가 달라져 조각별 선형 함수 / hidden unit을 늘리면 더 복잡한 함수를 근사",
+          "normalized_explanation": "ReLU 단위를 조합해 복잡한 함수를 근사한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "relu",
+            "activation",
+            "nonlinearity"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p16_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 16,
+      "topic": "선형 층의 한계",
+      "concepts": [
+        "선형 층의 한계"
+      ],
+      "raw_text": "Deep Neural Network\nActivation Function\n\n비선형성이 중요한 이유!\n\nLinear transformation만으로 여러 layer를 쌓으면...\n\n\n\n\n→ 그냥 linear model이 되어버린다..",
+      "visual_description": "선형 층의 한계의 핵심 도식과 설명을 제시한다.",
+      "content": "활성화 없이 선형 변환만 여러 번 합성하면 하나의 선형 변환과 같아 깊이의 표현 이점이 없다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "nonlinearity",
+        "activation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p16_linear",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Linear transformation만으로 여러 layer를 쌓으면 그냥 linear model",
+          "normalized_explanation": "선형 변환 합성만으로는 비선형 표현력이 생기지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "nonlinearity",
+            "activation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p17_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 17,
+      "topic": "Deep Neural Network",
+      "concepts": [
+        "Deep Neural Network"
+      ],
+      "raw_text": "Deep Neural Network\n Deep Neural Network\n\n→  hidden layer가 2개 이상!",
+      "visual_description": "Deep Neural Network의 핵심 도식과 설명을 제시한다.",
+      "content": "강의는 여러 은닉층을 DNN으로 소개하지만 층 수 절대 경계는 관습에 따라 다를 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": [
+        {
+          "issue_id": "dl_p17_depth_boundary",
+          "source_text": "hidden layer가 2개 이상",
+          "issue_type": "overgeneralized",
+          "correction": "DNN의 층 수 경계는 문헌과 관습에 따라 달라질 수 있다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "deep_learning_p18_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 18,
+      "topic": "DNN 구조",
+      "concepts": [
+        "DNN 구조"
+      ],
+      "raw_text": "Deep Neural Network\nDeep Neural Network",
+      "visual_description": "DNN 구조의 핵심 도식과 설명을 제시한다.",
+      "content": "여러 은닉층을 거치며 표현이 단계적으로 변환되어 출력으로 이어진다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p19_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 19,
+      "topic": "ML 학습 구성",
+      "concepts": [
+        "ML 학습 구성"
+      ],
+      "raw_text": "Loss Functions\n  ML Method\n\n\n\n\n\n   1.Design a model\n\n\n\n\n2. Design loss function\n\n\n\n\n    3. Optimization",
+      "visual_description": "ML 학습 구성의 핵심 도식과 설명을 제시한다.",
+      "content": "학습은 모델, loss function, optimization의 세 요소로 구성된다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p20_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 20,
+      "topic": "Loss Function",
+      "concepts": [
+        "Loss Function"
+      ],
+      "raw_text": "Loss Functions",
+      "visual_description": "Loss Function 페이지이다.",
+      "content": "Loss Function 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p21_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 21,
+      "topic": "Loss 개념 도식",
+      "concepts": [
+        "Loss 개념 도식"
+      ],
+      "raw_text": "Loss Functions\nLoss 개념",
+      "visual_description": "Loss 개념 도식의 핵심 도식과 설명을 제시한다.",
+      "content": "예측과 target의 차이가 loss로 계산되고 학습은 이를 줄인다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p22_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 22,
+      "topic": "Loss 정의",
+      "concepts": [
+        "Loss 정의"
+      ],
+      "raw_text": "Loss Functions\nLoss 개념\n\n모델의 학습 결과가 Target value와 얼마가 차이가 나는가?\n즉, 모델이 얼마나 잘 (혹은 못) 예측하고 있는지를 수치로 표현해주는 함수",
+      "visual_description": "Loss 정의의 핵심 도식과 설명을 제시한다.",
+      "content": "손실 함수는 예측과 target의 차이를 학습 가능한 수치로 표현한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "loss",
+        "target"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p22_loss",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Target value와 얼마가 차이가 나는가 / 예측을 수치로 표현해주는 함수",
+          "normalized_explanation": "손실은 예측 오류를 최적화 가능한 수치로 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "loss",
+            "target"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p23_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 23,
+      "topic": "Cross Entropy",
+      "concepts": [
+        "Cross Entropy"
+      ],
+      "raw_text": "Loss Functions\nLoss function 종류\n\nClassification 분류 모델\n\n\n\n\n\n Cross Entropy: 두 확률 분포 간의 차이를 측정하는 지표",
+      "visual_description": "Cross Entropy의 핵심 도식과 설명을 제시한다.",
+      "content": "분류에서 cross entropy는 target 분포와 예측 확률 분포의 차이를 측정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cross_entropy",
+        "binary_classification",
+        "multiclass"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p23_ce",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Classification / Cross Entropy: 두 확률 분포 간의 차이를 측정",
+          "normalized_explanation": "교차 엔트로피는 분류 예측 확률과 정답 분포의 차이를 평가한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cross_entropy",
+            "binary_classification",
+            "multiclass"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p24_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 24,
+      "topic": "NLL과 Cross Entropy",
+      "concepts": [
+        "NLL과 Cross Entropy"
+      ],
+      "raw_text": "Loss Functions\n Loss function 종류\n\n  +) Negative Log Likelihood\n\n\n 주어진 데이터셋에 대한 likelihood:\n\n\n\n\n                                                     maximize loglikelihood\n\n\n\n                                                  minimize negative log likelihood\n\nminimizing negative log likelihood <=> minimizing cross entropy loss (binary cross entropy)",
+      "visual_description": "NLL과 Cross Entropy의 핵심 도식과 설명을 제시한다.",
+      "content": "적절한 확률모형에서 likelihood 최대화는 negative log-likelihood 최소화와 같고 분류의 cross entropy와 연결된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "likelihood",
+        "nll",
+        "cross_entropy"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p24_nll",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "maximize loglikelihood / minimize negative log likelihood / minimizing NLL <=> minimizing cross entropy loss",
+          "normalized_explanation": "해당 확률모형에서 우도 최대화와 NLL·cross entropy 최소화가 연결된다.",
+          "source_status": "verified",
+          "term_ids": [
+            "likelihood",
+            "nll",
+            "cross_entropy"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p25_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 25,
+      "topic": "이진·다중 분류",
+      "concepts": [
+        "이진·다중 분류"
+      ],
+      "raw_text": "Loss Functions\n Loss function 종류\n\n\nbinary\n\n\n\n\nmulti-class",
+      "visual_description": "이진·다중 분류의 핵심 도식과 설명을 제시한다.",
+      "content": "이진·다중 클래스 분류는 출력 확률 구조에 맞는 cross entropy를 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "binary_classification",
+        "multiclass",
+        "cross_entropy"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p25_classes",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "binary / multi-class",
+          "normalized_explanation": "출력 클래스 구조에 맞는 분류 손실을 사용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "binary_classification",
+            "multiclass",
+            "cross_entropy"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p26_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 26,
+      "topic": "회귀 손실",
+      "concepts": [
+        "회귀 손실"
+      ],
+      "raw_text": "Loss Functions\nLoss function 종류\n\nRegression 회귀 모델",
+      "visual_description": "회귀 손실의 핵심 도식과 설명을 제시한다.",
+      "content": "회귀는 연속 target과 예측값의 오차를 측정하는 손실을 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "regression",
+        "loss",
+        "target"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p26_reg",
+          "type": "comparison",
+          "source_type": "visual",
+          "source_excerpt": "Regression 회귀 모델",
+          "normalized_explanation": "회귀는 연속 target에 맞는 회귀 손실을 사용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "regression",
+            "loss",
+            "target"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p27_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 27,
+      "topic": "Optimization",
+      "concepts": [
+        "Optimization"
+      ],
+      "raw_text": "Optimization",
+      "visual_description": "Optimization 페이지이다.",
+      "content": "Optimization 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p28_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 28,
+      "topic": "최적화 정의",
+      "concepts": [
+        "최적화 정의"
+      ],
+      "raw_text": "Optimization\nOptimization이란\n\n→ loss function을 minimize하는 parameter θ를 찾는 것!\n\n\n\n\n\n                                               loss landscape 어딘가(검은색 원)에서 시작한다고 가\n                     정했을 때, θ를 잘 조정해 minimum 쪽으로 이동해야함\n\n\n\n                                       Step 1: L(θ)가 감소하는 방향 ν 찾기\n                                       Step 2: θ ← θ + αν",
+      "visual_description": "최적화 정의의 핵심 도식과 설명을 제시한다.",
+      "content": "최적화는 손실을 최소화하는 파라미터를 찾는 과정이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "optimization",
+        "loss",
+        "parameter"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p28_opt",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "loss function을 minimize하는 parameter θ를 찾는 것",
+          "normalized_explanation": "최적화는 손실 최소 파라미터를 찾는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "optimization",
+            "loss",
+            "parameter"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p29_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 29,
+      "topic": "Gradient Descent",
+      "concepts": [
+        "Gradient Descent"
+      ],
+      "raw_text": "Step 1: L(θ)가 감소하는 방향 ν 찾기    OptimizationGradient\n\n\ngradient: L(θ)를 가장 빠르게 줄여주는 방향으로\nsteepest descent라고도 불린다\n\n\n\n                         → Gradient descent 경사하강법\n                                                gradient를 구하여 optimization 하는 방법\n                                                   Optimization 알고리즘 중 가장 대표적인 예시",
+      "visual_description": "Gradient Descent의 핵심 도식과 설명을 제시한다.",
+      "content": "Gradient descent는 기울기의 반대 방향으로 파라미터를 이동해 손실을 줄인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "gradient",
+        "gradient_descent",
+        "optimization"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p29_gd",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Gradient descent 경사하강법 / gradient를 구하여 optimization",
+          "normalized_explanation": "정확한 하강 업데이트는 gradient의 반대 방향으로 이동한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "gradient",
+            "gradient_descent",
+            "optimization"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "dl_p29_gradient_direction",
+          "source_text": "gradient: L(theta)를 가장 빠르게 줄여주는 방향",
+          "issue_type": "incorrect",
+          "correction": "gradient는 가장 빠른 증가 방향이고 negative gradient가 가장 가파른 하강 방향이다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "deep_learning_p30_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 30,
+      "topic": "Backpropagation 정의",
+      "concepts": [
+        "Backpropagation 정의"
+      ],
+      "raw_text": "Step 1: L(θ)가 감소하는 방향 ν 찾기    OptimizationBackpropagation\n\n\n  하지만 신경망은 여러 층의 합성함수로 이루어져 있으며 layer가 쌓이며 parameter 수가 매우 많아지기 때문에\n                  직접 모든 미분을 구하는 것은 비효율적\n      → gradient를 효율적으로 계산하는 알고리즘: backpropagation - chain rule 사용!",
+      "visual_description": "Backpropagation 정의의 핵심 도식과 설명을 제시한다.",
+      "content": "Backpropagation은 합성함수의 chain rule을 재사용해 깊은 신경망의 gradient를 효율적으로 계산한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "backpropagation",
+        "chain_rule",
+        "gradient"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p30_bp",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "여러 층의 합성함수 / gradient를 효율적으로 계산 / backpropagation - chain rule",
+          "normalized_explanation": "역전파는 chain rule과 중간 계산 재사용으로 gradient를 구한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "backpropagation",
+            "chain_rule",
+            "gradient"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p31_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 31,
+      "topic": "Backpropagation 계산 1",
+      "concepts": [
+        "Backpropagation 계산 1"
+      ],
+      "raw_text": "Step 1: L(θ)가 감소하는 방향 ν 찾기    OptimizationBackpropagation",
+      "visual_description": "Backpropagation 계산 1의 핵심 도식과 설명을 제시한다.",
+      "content": "출력에서 입력 방향으로 국소 미분을 chain rule로 전달해 gradient를 계산한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p32_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 32,
+      "topic": "Backpropagation 계산 2",
+      "concepts": [
+        "Backpropagation 계산 2"
+      ],
+      "raw_text": "Step 1: L(θ)가 감소하는 방향 ν 찾기    OptimizationBackpropagation",
+      "visual_description": "Backpropagation 계산 2의 핵심 도식과 설명을 제시한다.",
+      "content": "역전파는 뒤층 gradient를 앞층으로 전달하며 중간 미분을 재사용한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p33_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 33,
+      "topic": "Learning Rate",
+      "concepts": [
+        "Learning Rate"
+      ],
+      "raw_text": "Step 2: θ ← θ + αν    OptimizationLearning Rate\n\n\n\n          이제 gradient를 구했으니, weight (parameter) 값들을 조정할 수 있다.\n\n                                                       learning rate\n\n\n\n\n\n          learning rate: gradient를 따라 parameter를 업데이트할 때 한 번에 얼마나 크게 움직일지 정하는 값",
+      "visual_description": "Learning Rate의 핵심 도식과 설명을 제시한다.",
+      "content": "Learning rate는 한 번의 파라미터 업데이트 크기를 정하는 하이퍼파라미터다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "learning_rate",
+        "parameter",
+        "hyperparameter"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p33_lr",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "learning rate: parameter를 업데이트할 때 한 번에 얼마나 크게 움직일지",
+          "normalized_explanation": "학습률은 update step 크기다.",
+          "source_status": "verified",
+          "term_ids": [
+            "learning_rate",
+            "parameter",
+            "hyperparameter"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p34_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 34,
+      "topic": "Learning Rate 선택",
+      "concepts": [
+        "Learning Rate 선택"
+      ],
+      "raw_text": "Step 2: θ ← θ + αν    OptimizationLearning Rate\n\n\nlearning rate는 사용자가 임의로 정할 수 있는 hyperparameter\n이때, 적절한 learning rate 값을 정하는 것이 중요!\n  너무 크면: 최솟값을 지나치거나 발산하면서 학습이 불안정해질 수 있음\n  너무 작으면: 안정적이지만 학습이 매우 느림",
+      "visual_description": "Learning Rate 선택의 핵심 도식과 설명을 제시한다.",
+      "content": "학습률이 너무 크면 진동·발산할 수 있고 너무 작으면 학습이 매우 느리다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "learning_rate"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p34_lrtrade",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "너무 크면 최솟값을 지나치거나 발산 / 너무 작으면 안정적이지만 매우 느림",
+          "normalized_explanation": "학습률은 안정성과 속도의 trade-off를 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "learning_rate"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p35_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 35,
+      "topic": "경사하강법 종류",
+      "concepts": [
+        "경사하강법 종류"
+      ],
+      "raw_text": "Optimization\nOptimization 방법\n\n앞서 optimization 방법으로 gradient descent에 대해 알아보았다.\n하지만 gradient descent 외에도 다양한 방법들이 존재!\n\n\n1) 경사하강법의 종류",
+      "visual_description": "경사하강법 종류의 핵심 도식과 설명을 제시한다.",
+      "content": "gradient 계산 데이터 범위에 따라 경사하강 변형의 비용과 잡음이 달라진다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p36_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 36,
+      "topic": "Newton과 Momentum",
+      "concepts": [
+        "Newton과 Momentum"
+      ],
+      "raw_text": "Optimization\nOptimization 방법\n\n2) 스텝 방향\n   gradient가 아닌 다른 방향으로도 움직일 수 있다\n\n\n\n\n                            ① Newton’s Method\n                                                         Gradient에 더해 Hessian(2차 미분 행렬)을 활용\n                                 연산량 증가한다는 단점\n\n                            ② Momentum\n                                 이전 gradient 방향을 누적해 관성을 주어 더 빠\n                                 르고 안정적으로 이동",
+      "visual_description": "Newton과 Momentum의 핵심 도식과 설명을 제시한다.",
+      "content": "Newton 방법은 Hessian을 사용해 계산비용이 크고 Momentum은 이전 gradient 방향을 누적해 관성을 준다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "newton",
+        "hessian",
+        "momentum",
+        "gradient"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p36_methods",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Newton: Hessian 활용·연산량 증가 / Momentum: 이전 gradient 방향 누적",
+          "normalized_explanation": "2차 정보와 관성 방식의 특성이 다르다.",
+          "source_status": "verified",
+          "term_ids": [
+            "newton",
+            "hessian",
+            "momentum",
+            "gradient"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p37_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 37,
+      "topic": "Adagrad와 학습률 감소",
+      "concepts": [
+        "Adagrad와 학습률 감소"
+      ],
+      "raw_text": "Optimization\nOptimization 방법\n\n3) 스텝 사이즈\n    learning rate처럼 고정된 하나의 값으로 보는 것이 아니라 이를 조절할 수도 있다\n\n\n                                                    Adagrad\n\n\n\n\n\n                                처음에는 큰 스텝으로 업데이트를 하다가 점차 세\n                                심하게 업데이트를 해야 global optima를 지나지\n                                않고 수렴을 할 수 있을 것\n                                → 학습이 진행됨에 따라서 점차 learning rate를\n                                작게 만들어준다.\n                                스텝이 진행됨에 따라 s_k 값이 커지기 때문에 스\n                                텝 수가 매우 커지게 된다면 udpate가 거의 이루\n                                어지지 않는 단점이 존재",
+      "visual_description": "Adagrad와 학습률 감소의 핵심 도식과 설명을 제시한다.",
+      "content": "학습률 감소와 Adagrad는 파라미터별 누적 gradient에 따라 step을 조정하지만 누적값이 계속 커지면 update가 지나치게 작아질 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "learning_rate",
+        "adagrad"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p37_adagrad",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "학습 진행에 따라 learning rate를 작게 / Adagrad / update가 거의 이루어지지 않는 단점",
+          "normalized_explanation": "Adagrad의 누적 step 조절은 장기 학습에서 지나치게 작아질 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "learning_rate",
+            "adagrad"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p38_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 38,
+      "topic": "RMSProp과 Adam",
+      "concepts": [
+        "RMSProp과 Adam"
+      ],
+      "raw_text": "Optimization\nOptimization 방법\n\n3) 스텝 사이즈\n    learning rate처럼 고정된 하나의 값으로 보는 것이 아니라 이를 조절할 수도 있다\n\n\n                                                RMSProp\n                                                   s_k가 발산하지 않도록 beta 추가\n\n\n                                    Adam\n                                                  = RMSProp + Momentum",
+      "visual_description": "RMSProp과 Adam의 핵심 도식과 설명을 제시한다.",
+      "content": "RMSProp은 누적 제곱 gradient의 이동평균을 사용하고 Adam은 적응적 step과 momentum 아이디어를 결합한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rmsprop",
+        "adam",
+        "momentum"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p38_adam",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "RMSProp / Adam = RMSProp + Momentum",
+          "normalized_explanation": "Adam은 RMSProp형 적응적 step과 momentum 아이디어를 결합한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rmsprop",
+            "adam",
+            "momentum"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p39_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 39,
+      "topic": "Gradient 문제",
+      "concepts": [
+        "Gradient 문제"
+      ],
+      "raw_text": "Optimization\nOptimization Problems\n\n1. vanishing gradient problem        2. exploding gradient problem\n기울기 소실 문제                   역전파 과정에서 큰 값이 여러 층에 걸쳐 반복적\n  역전파 과정에서 작은 미분값이 여러 층에 걸쳐    으로 곱해지며 gradient가 지나치게 커지는 현상\n  반복적으로 곱해지며 gradient가 0에 가까워지      weight가 한 번에 크게 업데이트되어 loss가 발산\n  는 현상                     하거나 NaN, inf가 발생할 수 있음\n  앞쪽 layer의 weight가 거의 업데이트되지 않    깊은 신경망, 큰 초기 weight, 긴 RNN 학습에서\n  아 깊은 신경망의 학습이 느려지거나 중단됨     주로 발생",
+      "visual_description": "Gradient 문제의 핵심 도식과 설명을 제시한다.",
+      "content": "기울기 소실은 연쇄 곱으로 gradient가 0에 가까워져 앞층 학습을 막고, 기울기 폭주는 gradient가 지나치게 커져 발산이나 NaN을 일으킨다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "vanishing_gradient",
+        "exploding_gradient",
+        "gradient"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p39_grad",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "vanishing: gradient가 0에 가까워짐 / exploding: gradient가 지나치게 커짐, loss 발산·NaN·inf",
+          "normalized_explanation": "소실과 폭주는 앞층 정체와 불안정 발산을 각각 일으킨다.",
+          "source_status": "verified",
+          "term_ids": [
+            "vanishing_gradient",
+            "exploding_gradient",
+            "gradient"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p40_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 40,
+      "topic": "Gradient 문제 해결",
+      "concepts": [
+        "Gradient 문제 해결"
+      ],
+      "raw_text": "Optimization\nSolution\n\n1. vanishing gradient problem        2. exploding gradient problem\n\n   initialization (Xaiver, He)                                 gradient clipping\n   적절한 값으로 초기화를 해서 잘 수렴하도록 하자!            gradient의 크기가 일정 기준을 넘으면 강제로 제\n     sigmoid 계열 - Xaiver/ ReLU - He            한\n   입력 데이터의 분산이 출력 데이터에서 유지되도록        weight initialization\n   초기화                                                learning rate 조절 등\n  batch normalization\n  skip connections and residual connections\n   일부 층을 건너뛰는 경로를 만들어 gradient가 앞쪽\n     layer까지 직접 전달되도록 함\n   깊은 신경망에서도 gradient가 약해지는 문제를 완화",
+      "visual_description": "Gradient 문제 해결의 핵심 도식과 설명을 제시한다.",
+      "content": "Xavier·He 초기화, BatchNorm, skip connection, gradient clipping과 적절한 learning rate는 gradient 문제를 완화한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "xavier",
+        "he_init",
+        "batch_norm",
+        "skip_connection",
+        "gradient_clipping",
+        "learning_rate"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p40_solution",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Xavier·He / batch normalization / skip connections / gradient clipping / learning rate 조절",
+          "normalized_explanation": "초기화·정규화·우회 경로·clipping·학습률로 gradient 문제를 완화한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "xavier",
+            "he_init",
+            "batch_norm",
+            "skip_connection",
+            "gradient_clipping",
+            "learning_rate"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p41_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 41,
+      "topic": "Generalization",
+      "concepts": [
+        "Generalization"
+      ],
+      "raw_text": "Generalization",
+      "visual_description": "Generalization 페이지이다.",
+      "content": "Generalization 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p42_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 42,
+      "topic": "일반화 정의",
+      "concepts": [
+        "일반화 정의"
+      ],
+      "raw_text": "Generalization\nGeneralization이란?\n\n             우리의 목표: 새로운 데이터에 대해 모델이 잘해야함.\n       모델의 훈련 성능과 테스트 성능의 차 (일반화 오류)가 작을수록 일반화 잘 된 모델\n             모델의 성능이 좋다는 것 = 일반화가 잘 되었다",
+      "visual_description": "일반화 정의의 핵심 도식과 설명을 제시한다.",
+      "content": "일반화는 학습에 보지 않은 새 데이터에서도 성능을 내는 능력이며 train과 평가 성능의 차이를 점검한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "generalization"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p42_gen",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "새로운 데이터에 대해 모델이 잘해야함 / 훈련 성능과 테스트 성능의 차",
+          "normalized_explanation": "일반화는 보지 않은 데이터 성능이며 train-evaluation gap을 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "generalization"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p43_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 43,
+      "topic": "Regularization",
+      "concepts": [
+        "Regularization"
+      ],
+      "raw_text": "Generalization\nRegularization\n\n모델의 복잡성을 제어하여 과적합을 방지하고 일반화 성능을 향상시키는 기법\n\n\n대표 예시\n   Weight decay - L1, L2 regularization\n   Batch Normalization\n   Dropout\n    Early Stopping\n   Data Augmentation 등등...",
+      "visual_description": "Regularization의 핵심 도식과 설명을 제시한다.",
+      "content": "Regularization은 모델 복잡도와 학습을 제어해 과적합을 줄이고 일반화를 높이는 방법이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "regularization",
+        "overfitting",
+        "generalization"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p43_reg",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "모델의 복잡성을 제어하여 과적합을 방지하고 일반화 성능을 향상",
+          "normalized_explanation": "정규화 기법은 과적합을 제한한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "regularization",
+            "overfitting",
+            "generalization"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p44_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 44,
+      "topic": "Weight Decay",
+      "concepts": [
+        "Weight Decay"
+      ],
+      "raw_text": "Generalization\nWeight Decay\n\n  Neural network의 특정 weight가 너무 커지는 것은 모델의 일반화 성능을 떨어뜨려 overfitting 되\n 게 하므로, weight에 규제를 걸어주는 것이 필요.\n  L1 regularization, L2 regularization 모두 기존 Loss function에 weight의 크기를 포함하여\n  weight의 크기가 작아지는 방향으로 학습하도록 규제\n\n\n\n\n\n  Lasso\n\n                     → 0: Feature Selection\n\n  Ridge\n\n\n                                                                     small bias를 추가하여 variance 감소",
+      "visual_description": "Weight Decay의 핵심 도식과 설명을 제시한다.",
+      "content": "Weight decay는 손실에 가중치 크기 패널티를 더하며 L1은 희소화, L2는 큰 가중치를 부드럽게 억제한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "weight_decay",
+        "l1",
+        "l2",
+        "weight"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p44_decay",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Loss에 weight의 크기를 포함 / L1 / L2 / L1은 0: Feature Selection",
+          "normalized_explanation": "L1은 희소화를, L2는 큰 가중치의 완만한 억제를 유도한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "weight_decay",
+            "l1",
+            "l2",
+            "weight"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p45_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 45,
+      "topic": "Batch Normalization",
+      "concepts": [
+        "Batch Normalization"
+      ],
+      "raw_text": "Generalization\n Batch Normalization\n\n  내부 공변량 변화 (internal covariance shift): 학습시 네트워크의 각 layer 또는 activation 마다 보이\n  지 않는 내부의 요인으로 인해 데이터가 왜곡되는 현상 → 이를 해결하기 위해 입력값의 분포를 조정.\n  모델이 실행될 때마다 해당 계층에서 정규화. 미니배치에 대해서 정규화 진행.\n\n→ 표준 가우시안 분포로 정규화!\n   d 차원의 입력 데이터가 있다면, 차원별로 평균과 분산을 구해서 N(0,1)로 정규화",
+      "visual_description": "Batch Normalization의 핵심 도식과 설명을 제시한다.",
+      "content": "Batch Normalization은 mini-batch 통계로 activation을 정규화한 뒤 학습 가능한 scale과 shift를 적용해 학습을 안정화한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "batch_norm",
+        "activation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p45_bn",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "미니배치에 대해서 정규화 / 차원별 평균과 분산",
+          "normalized_explanation": "BatchNorm은 batch 통계로 activation을 정규화하고 학습 가능한 변환을 적용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "batch_norm",
+            "activation"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "dl_p45_batchnorm_explanation",
+          "source_text": "internal covariance shift를 해결 / 표준 가우시안 분포로 정규화",
+          "issue_type": "overgeneralized",
+          "correction": "BatchNorm의 mini-batch 정규화와 학습 가능한 affine transformation을 중심으로 설명한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "deep_learning_p46_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 46,
+      "topic": "Early Stopping",
+      "concepts": [
+        "Early Stopping"
+      ],
+      "raw_text": "Generalization\nEarly Stopping\n\n\n                        과적합이 일어나기 전에 훈련 멈추는 정규화 기법\n                          일반적으로 학습을 너무 많이하면 특정 epoch\n                          이후에는 overftting이 발생하여 test 성능 하락\n                          이를 방지하기 위해 validation set을 이용하는\n                          등의 방법으로 overfitting이 발생하기 전에 학습\n                         을 종료",
+      "visual_description": "Early Stopping의 핵심 도식과 설명을 제시한다.",
+      "content": "Early stopping은 validation 성능이 더 이상 개선되지 않을 때 학습을 멈춰 과적합을 제한하며 test를 선택 기준으로 쓰지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "early_stopping",
+        "overfitting"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p46_es",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "validation set을 이용 / overfitting이 발생하기 전에 학습 종료",
+          "normalized_explanation": "Early stopping은 validation으로 종료 시점을 정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "early_stopping",
+            "overfitting"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "dl_p46_early_stopping_test",
+          "source_text": "test 성능 하락",
+          "issue_type": "ambiguous",
+          "correction": "종료 epoch 선택은 validation set으로 하고 test set은 최종 평가에 보존한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "deep_learning_p47_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 47,
+      "topic": "Dropout",
+      "concepts": [
+        "Dropout"
+      ],
+      "raw_text": "Generalization\nDropout",
+      "visual_description": "Dropout의 핵심 도식과 설명을 제시한다.",
+      "content": "Dropout은 학습 중 일부 뉴런 출력을 무작위로 비활성화해 특정 경로에 대한 과도한 의존을 줄인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dropout",
+        "regularization"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p47_dropout",
+          "type": "interpretation",
+          "source_type": "visual",
+          "source_excerpt": "Dropout",
+          "normalized_explanation": "학습 중 일부 activation을 무작위로 끄는 정규화 기법이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dropout",
+            "regularization"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p48_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 48,
+      "topic": "Data Augmentation",
+      "concepts": [
+        "Data Augmentation"
+      ],
+      "raw_text": "Generalization\nData Augmentation",
+      "visual_description": "Data Augmentation의 핵심 도식과 설명을 제시한다.",
+      "content": "Data augmentation은 의미를 보존하는 변환으로 학습 예시의 다양성을 늘려 일반화를 돕는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "augmentation",
+        "generalization"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p48_aug",
+          "type": "interpretation",
+          "source_type": "visual",
+          "source_excerpt": "Data Augmentation",
+          "normalized_explanation": "의미 보존 변환으로 학습 데이터 다양성을 늘린다.",
+          "source_status": "verified",
+          "term_ids": [
+            "augmentation",
+            "generalization"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p49_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 49,
+      "topic": "Summary",
+      "concepts": [
+        "Summary"
+      ],
+      "raw_text": "Summary\n\n\n\n\n\n                                        1.오차 역전파가 무엇인지 설명해주세요.\n\n                                   2.활성화 함수로 Sigmoid 함수를 사용하면 Hidden layer가\n                             여러층으로 되어있을때, Input layer로 가까워질수록 가중\n                             치가 변하지 않는 Gradient Vanishing(기울기 소실) 문제\n                             가 일어나는데, 왜 이런 문제가 일어나는지 알려주세요.\n\n                                     3.만일 f(x)=ax+ b 를 사용하면 y_1를 x_1, x_2, ... , x_784 에\n                             대한 선형 함수로 표현할 수 있나요? 가능하다면 그 이유는\n                               무엇인가요?",
+      "visual_description": "Summary의 핵심 도식과 설명을 제시한다.",
+      "content": "backpropagation, vanishing gradient와 선형 활성화의 한계를 묻는 요약 문제다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p50_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 50,
+      "topic": "Beyond MLP",
+      "concepts": [
+        "Beyond MLP"
+      ],
+      "raw_text": "Beyond MLP",
+      "visual_description": "Beyond MLP 페이지이다.",
+      "content": "Beyond MLP 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p51_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 51,
+      "topic": "MLP의 한계",
+      "concepts": [
+        "MLP의 한계"
+      ],
+      "raw_text": "Generalization\nLimitation of MLP\n\n\n이론적으로는 강력하지만 이렇게 간단한 구조로는 실제 데이터로 아무것도 할 수가 없음...\n\n\n실제 데이터\n  이미지의 공간 구조\n   시계열/순서 정보\n  맥락 정보\n         ... 와 같은 대규모, 고차원 데이터",
+      "visual_description": "MLP의 한계의 핵심 도식과 설명을 제시한다.",
+      "content": "MLP는 이미지 공간 구조, 시계열 순서, 맥락 같은 입력 구조를 명시적으로 활용하지 못하는 한계가 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "mlp",
+        "cnn",
+        "rnn",
+        "transformer"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p51_mlp",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "이미지의 공간 구조 / 시계열·순서 정보 / 맥락 정보 / 대규모 고차원 데이터",
+          "normalized_explanation": "기본 MLP는 입력 구조를 명시적으로 활용하지 못한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "mlp",
+            "cnn",
+            "rnn",
+            "transformer"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p52_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 52,
+      "topic": "Generative Model",
+      "concepts": [
+        "Generative Model"
+      ],
+      "raw_text": "Generalization\nGenerative Model",
+      "visual_description": "Generative Model의 핵심 도식과 설명을 제시한다.",
+      "content": "생성 모델은 학습 분포의 구조를 이용해 새로운 표본을 생성한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p53_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 53,
+      "topic": "생성 모델 유형",
+      "concepts": [
+        "생성 모델 유형"
+      ],
+      "raw_text": "Generalization\nGenerative Model\n\n                                            GAN               Diffusion\n\n\n\n\n\n                                                     CycleGAN\n            VAE",
+      "visual_description": "생성 모델 유형의 핵심 도식과 설명을 제시한다.",
+      "content": "생성 모델의 예로 Diffusion, VAE, GAN, CycleGAN 등이 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "generative_model",
+        "diffusion",
+        "vae",
+        "gan"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "dl_p53_genmodels",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "Diffusion / VAE / GAN / CycleGAN",
+          "normalized_explanation": "여러 생성 모델 계열이 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "generative_model",
+            "diffusion",
+            "vae",
+            "gan"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "deep_learning_p54_01",
+      "lecture_id": "deep_learning",
+      "lecture_name": "Deep Learning",
+      "page": 54,
+      "topic": "강의 마무리",
+      "concepts": [
+        "강의 마무리"
+      ],
+      "raw_text": "감사합니다",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "강의 마무리 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}
