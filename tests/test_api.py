@@ -7,7 +7,7 @@ from backend.app.integrations import mock_evaluation
 def test_review_accepts_stt_result_and_returns_evaluation(monkeypatch):
     monkeypatch.setattr(
         main,
-        "evaluate_with_rag",
+        "evaluate_selected_topic",
         lambda **kwargs: mock_evaluation(kwargs["transcript"]),
     )
     client = TestClient(main.create_app())
@@ -15,7 +15,9 @@ def test_review_accepts_stt_result_and_returns_evaluation(monkeypatch):
         "/api/reviews/submit",
         json={
             "session_id": "db-session-01",
-            "topic": "DB",
+            "topic": "기초통계",
+            "lecture_id": "basic_statistics",
+            "objective_id": "stats.hypothesis_uncertainty",
             "transcript_raw": "raw transcript",
             "transcript_corrected": "corrected transcript",
             "term_db_used": {"safe": [], "content_word_collision": [], "particle_collision": []},
@@ -28,10 +30,11 @@ def test_review_accepts_stt_result_and_returns_evaluation(monkeypatch):
     assert body["corrected_transcript"] == "corrected transcript"
     assert body["status"] == "evaluated"
     assert body["session_id"] == "db-session-01"
-    assert body["quantitative"]["scores"]["accuracy"]["max_score"] == 40
-    assert body["quantitative"]["scores"]["coverage"]["max_score"] == 40
-    assert body["quantitative"]["scores"]["structural_understanding"]["max_score"] == 20
-    assert body["qualitative"]["missing_concepts"]
+    assert body["objective_id"] == "stats.hypothesis_uncertainty"
+    assert body["quantitative"]["scores"]["essential"]["max_score"] == 60
+    assert body["quantitative"]["scores"]["supporting"]["max_score"] == 20
+    assert body["quantitative"]["scores"]["coverage"]["max_score"] == 20
+    assert body["qualitative"]["missing_claims"]
 
 
 def test_review_requires_stt_result_fields():

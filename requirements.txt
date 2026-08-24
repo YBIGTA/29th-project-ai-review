@@ -10,10 +10,9 @@ alembic>=1.14,<2
 faster-whisper>=1.2.1,<2
 requests>=2.31
 
-# RAG preprocessing, embeddings, and evaluation
+# PDF preprocessing and Rubric evaluation
 openai>=1.66.0,<3
 PyMuPDF>=1.24.0,<2
-chromadb>=1.0.0,<2
 
 # Shared configuration and schemas
 pydantic>=2.8.0,<3

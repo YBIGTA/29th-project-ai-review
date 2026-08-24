@@ -1,17 +1,21 @@
 from __future__ import annotations
 
-import json
-from pathlib import Path
 from typing import TypedDict
 
 from openai import OpenAI
 
 from src.config import Settings
-from src.evaluation import load_profile, load_rubric, score_evaluation, validate_assessment_against_rubric
-from src.evaluation_api import request_evaluation_assessment
-from src.evaluation_prompt import build_evaluation_prompt
-from src.search import search_transcript
-from src.schemas import TranscriptSearchResult
+from src.evaluation import (
+    load_branch_evidence,
+    load_branch_terminology,
+    load_rubric,
+    score_topic_assessment,
+    select_objective_branch,
+)
+from src.evaluation_api import request_validated_evaluation_assessment
+from src.evaluation_prompt import EVALUATION_SYSTEM_PROMPT, build_evaluation_prompt
+from src.transcript import segment_transcript
+
 
 class EvaluationResult(TypedDict):
     segments: list[dict[str, object]]
@@ -20,249 +24,133 @@ class EvaluationResult(TypedDict):
     qualitative: dict[str, list[str]]
 
 
-TOPIC_TO_LECTURE_ID = {
-    "기초통계": "basic_statistics",
-    "DB": "basic_statistics",
-    "크롤링": "crawling",
-    "EDA/FE": "eda_fe",
-    "시각화": "visualization",
-}
-
-
-def evaluate_with_rag(
+def evaluate_selected_topic(
     *,
     transcript: str,
-    topic: str,
+    lecture_id: str,
+    objective_id: str,
     settings: Settings,
     client: OpenAI,
 ) -> EvaluationResult:
-    lecture_id = TOPIC_TO_LECTURE_ID.get(topic)
-    if lecture_id is None:
-        raise ValueError(f"지원하지 않는 topic입니다: {topic}")
-
     evaluation_dir = settings.project_root / "data" / "evaluation"
     rubric = load_rubric(evaluation_dir / "rubrics" / f"{lecture_id}.json")
-    profile = load_profile(
-        evaluation_dir / "profiles" / f"{lecture_id}_free_recall_3min.json"
+    branch = select_objective_branch(rubric, objective_id)
+    evidence_chunks = load_branch_evidence(
+        rubric,
+        objective_id,
+        settings.processed_dir / f"{lecture_id}.json",
     )
-    scoring_policy = json.loads(
-        (evaluation_dir / "scoring_policy.json").read_text(encoding="utf-8")
+    terminology = load_branch_terminology(
+        rubric,
+        objective_id,
+        settings.processed_dir / f"{lecture_id}.json",
     )
-    search_result = search_transcript(
-        client=client,
-        settings=settings,
-        transcript=transcript,
-        lecture_id=lecture_id,
-        top_k_per_segment=5,
-        max_evidence=12,
-    )
+    segments = segment_transcript(transcript)
     prompt = build_evaluation_prompt(
         rubric=rubric,
-        profile=profile,
+        branch=branch,
         transcript=transcript,
-        search_result=search_result,
-        scoring_policy=scoring_policy,
+        segments=segments,
+        evidence_chunks=evidence_chunks,
+        terminology=terminology,
     )
-    assessment = request_evaluation_assessment(
+    assessment = request_validated_evaluation_assessment(
         client=client,
         model=settings.llm_model,
         input_messages=[
-            {"role": "system", "content": "평가 결과는 반드시 제공된 스키마로 반환하세요."},
+            {"role": "system", "content": EVALUATION_SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
         ],
         max_retries=settings.max_retries,
+        rubric=rubric,
+        valid_segments={segment.segment_id: segment.text for segment in segments},
+        transcript=transcript,
     )
-    validate_assessment_against_rubric(assessment, rubric)
-    score = score_evaluation(rubric, assessment, profile)
-    return _to_review_result(score, assessment, rubric, search_result)
+    score = score_topic_assessment(rubric, assessment)
+    return _to_review_result(score, assessment, branch, segments)
 
 
-def _to_review_result(
-    score: dict[str, object],
-    assessment: object,
-    rubric: object,
-    search_result: TranscriptSearchResult,
-) -> EvaluationResult:
-    # The public BE schema keeps the existing FE-friendly names while the RAG
-    # evaluator remains responsible for rubric-level judgment and scoring.
-    assessment_data = assessment.model_dump()
-    rubric_data = rubric.model_dump()
-    objective_titles = {
-        item["objective_id"]: item["title"]
-        for item in rubric_data["learning_objectives"]
+def _to_review_result(score, assessment, branch, segments) -> EvaluationResult:
+    claim_lookup = {
+        claim.claim_id: (claim, sub)
+        for sub in branch.sub_objectives
+        for claim in sub.claims
     }
-    claim_titles = {
-        claim["claim_id"]: claim["text"]
-        for item in rubric_data["learning_objectives"]
-        for claim in item["reference_claims"]
-    }
-    objective_by_id = {
-        item["objective_id"]: item for item in assessment_data["objective_assessments"]
-    }
-    claim_by_id = {
-        item["claim_id"]: item for item in assessment_data["claim_assessments"]
-    }
-    evidence_by_chunk = {item.chunk_id: item for item in search_result.evidence}
-    claim_reference_chunks = {
-        claim.claim_id: claim.evidence
-        for objective in rubric.learning_objectives
-        for claim in objective.reference_claims
-    }
-    rubric_pages = {
-        reference.chunk_id: reference.page
-        for references in claim_reference_chunks.values()
-        for reference in references
-    }
+    assessment_by_id = {item.claim_id: item for item in assessment.claim_assessments}
     claims = []
-    for claim_id, item in claim_by_id.items():
-        source_ids = item.get("source_chunk_ids_used") or [
-            reference.chunk_id
-            for reference in claim_reference_chunks.get(claim_id, [])
+    for item in assessment.claim_assessments:
+        claim = claim_lookup[item.claim_id][0]
+        source_ids = item.source_chunk_ids_used or [
+            evidence.chunk_id for evidence in claim.evidence
         ]
-        source_ids = list(dict.fromkeys(source_ids))
-        matched_segments = item.get("matched_segment_ids") or [
-            segment_id
-            for chunk_id in source_ids
-            if chunk_id in evidence_by_chunk
-            for segment_id in evidence_by_chunk[chunk_id].matched_segment_ids
-        ]
-        claims.append({
-            "claim_id": claim_id,
-            "judgment": item["judgment"],
-            "matched_segment_ids": list(dict.fromkeys(matched_segments)),
-            "evidence_quote": item["evidence_quote"],
-            "rationale": item["rationale"],
-            "source_chunk_ids_used": source_ids,
-            "source_chunks": [
-                {
-                    "source_chunk_id": chunk_id,
-                    "page": evidence_by_chunk[chunk_id].page
-                    if chunk_id in evidence_by_chunk
-                    else rubric_pages[chunk_id],
-                }
-                for chunk_id in source_ids
-                if chunk_id in evidence_by_chunk or chunk_id in rubric_pages
-            ],
-        })
-    relation_by_id = {
-        item["relation_id"]: item for item in assessment_data["relation_assessments"]
-    }
-    accuracy = float(score["concept_accuracy"])
-    coverage = float(score["core_fulfillment"])
-    structural = float(score["structural_understanding"])
-    accuracy_ratio = float(score["ratios"]["accuracy"])
-    coverage_ratio = float(score["ratios"]["coverage"])
-    concept_f1 = (
-        2 * accuracy_ratio * coverage_ratio / (accuracy_ratio + coverage_ratio)
-        if accuracy_ratio + coverage_ratio
-        else 0.0
-    )
-
+        page_by_chunk = {evidence.chunk_id: evidence.page for evidence in claim.evidence}
+        claims.append(
+            {
+                "claim_id": item.claim_id,
+                "judgment": item.judgment,
+                "source_chunk_ids_used": source_ids,
+                "source_chunks": [
+                    {"source_chunk_id": chunk_id, "page": page_by_chunk[chunk_id]}
+                    for chunk_id in source_ids
+                    if chunk_id in page_by_chunk
+                ],
+                "conflict_status": item.conflict_status,
+                "evidence_spans": [span.model_dump() for span in item.evidence_spans],
+                "rationale": item.rationale,
+            }
+        )
+    strengths = [
+        claim_lookup[item.claim_id][0].text
+        for item in assessment.claim_assessments
+        if item.judgment in {"correct", "mostly_correct"}
+    ]
     missing = [
-        objective_titles[item_id]
-        for item_id, item in objective_by_id.items()
-        if item["judgment"] in {"absent", "partial", "name_only"}
+        claim_lookup[item.claim_id][0].text
+        for item in assessment.claim_assessments
+        if item.judgment == "not_addressed"
     ]
     incorrect = [
-        claim_titles[item_id]
-        for item_id, item in claim_by_id.items()
-        if item["judgment"] == "incorrect"
+        f"{claim_lookup[item.claim_id][0].text} — {item.rationale}"
+        for item in assessment.claim_assessments
+        if item.judgment == "incorrect"
     ]
-    misconnected = [
-        item["rationale"]
-        for item in relation_by_id.values()
-        if item["judgment"] == "incorrect"
-    ]
-    suggestions = [
-        f"'{title}'의 핵심 내용을 다시 설명해 보세요."
-        for title in missing[:5]
-    ]
-    if misconnected:
-        suggestions.append("개념 사이의 원인·목적·순서 관계를 다시 연결해 보세요.")
-    accuracy_reason = _assessment_reason(
-        "핵심 개념별 판단",
-        [
-            f"{claim_titles.get(item['claim_id'], item['claim_id'])}: {item['judgment']}"
-            + (f" (근거: {item['evidence_quote']})" if item["evidence_quote"] else "")
-            for item in claim_by_id.values()
-            if item["judgment"] != "not_addressed"
-        ],
-        f"평가 대상 핵심 주장 {len(claim_by_id)}개 중 사용자 발화에서 확인된 내용을 기준으로 {accuracy_ratio:.0%}로 산정했습니다.",
-        accuracy_ratio,
-    )
-    coverage_reason = _assessment_reason(
-        "학습 목표별 판단",
-        [
-            f"{objective_titles.get(item['objective_id'], item['objective_id'])}: {item['judgment']}"
-            for item in objective_by_id.values()
-        ],
-        f"필수 학습 목표의 설명 충족도를 반영해 {coverage_ratio:.0%}로 산정했습니다.",
-        coverage_ratio,
-    )
-    structural_reason = _assessment_reason(
-        "개념 관계별 판단",
-        [
-            f"{item['relation_id']}: {item['judgment']}"
-            + (f" (근거: {item['evidence_quote']})" if item["evidence_quote"] else "")
-            for item in relation_by_id.values()
-        ],
-        f"개념 관계와 관계 chain의 설명 결과를 반영해 {structural / 20:.0%}로 산정했습니다.",
-        structural / 20,
-    )
+    suggestions = []
+    for sub in branch.sub_objectives:
+        essential = next(claim for claim in sub.claims if claim.role == "essential")
+        if assessment_by_id[essential.claim_id].judgment in {
+            "partial", "incorrect", "not_addressed"
+        }:
+            suggestions.append(f"'{sub.title}'의 핵심 내용을 다시 설명해 보세요.")
+
     return {
-        "segments": [
-            result.segment.model_dump() for result in search_result.segment_results
-        ],
+        "segments": [segment.model_dump() for segment in segments],
         "claims": claims,
         "quantitative": {
-            "concept_recall": coverage_ratio,
-            "concept_precision": accuracy_ratio,
-            "concept_f1": concept_f1,
             "scores": {
-                "accuracy": _score_detail(accuracy, 40, accuracy_ratio, accuracy_reason),
-                "coverage": _score_detail(coverage, 40, coverage_ratio, coverage_reason),
-                "structural_understanding": _score_detail(structural, 20, structural / 20, structural_reason),
+                "essential": _score_detail(float(score["essential_score"]), 60, "하위 목표별 essential Claim의 정확도를 반영했습니다."),
+                "supporting": _score_detail(float(score["supporting_score"]), 20, f"가장 잘 설명한 supporting Claim {branch.supporting_claim_slots}개와 실제 언급한 supporting 내용의 정확도를 함께 반영했습니다."),
+                "coverage": _score_detail(float(score["coverage_score"]), 20, "선택 주제 아래 하위 학습목표의 충족 범위를 반영했습니다."),
             },
-            "total": {
-                "score": float(score["total_score"]),
-                "max_score": 100,
-                "rubric_level": _level(float(score["total_score"])),
-                "reason": "RAG rubric의 claim, objective, relation 평가를 합산했습니다.",
-            },
+            "total": _score_detail(float(score["total_score"]), 100, "Rubric의 60+20+20 규칙으로 계산했습니다."),
+            "sub_objective_coverage": score["sub_objective_coverage"],
         },
         "qualitative": {
-            "missing_concepts": missing,
-            "incorrect_concepts": incorrect,
-            "misconnected_concepts": misconnected,
+            "strengths": strengths,
+            "missing_claims": missing,
+            "incorrect_claims": incorrect,
             "review_suggestions": suggestions,
         },
     }
 
 
-def _score_detail(
-    score: float, maximum: int, ratio: float, reason: str
-) -> dict[str, object]:
+def _score_detail(score: float, maximum: int, reason: str) -> dict[str, object]:
+    ratio = score / maximum if maximum else 0.0
     return {
         "score": round(score, 2),
         "max_score": maximum,
-        "rubric_level": _level(ratio * 4),
+        "rubric_level": max(0, min(4, round(ratio * 4))),
         "reason": reason,
     }
-
-
-def _assessment_reason(
-    title: str, details: list[str], fallback: str, ratio: float
-) -> str:
-    level = _level(ratio)
-    if not details:
-        return f"루브릭 단계: {level}/4\n- {fallback}"
-    preview = details[:3]
-    suffix = "\n- 그 외 평가 항목은 화면의 정성 피드백을 참고하세요." if len(details) > 3 else ""
-    return "\n".join([f"루브릭 단계: {level}/4", f"- {fallback}", f"- {title}"] + [f"  · {item}" for item in preview]) + suffix
-
-
-def _level(value: float) -> int:
-    return max(0, min(4, int(value * 4)))
 
 
 def mock_evaluation(transcript: str) -> EvaluationResult:
@@ -270,20 +158,18 @@ def mock_evaluation(transcript: str) -> EvaluationResult:
         "segments": [{"segment_id": "seg_01", "index": 1, "text": transcript}],
         "claims": [],
         "quantitative": {
-            "concept_recall": 0.72,
-            "concept_precision": 0.84,
-            "concept_f1": 0.77,
             "scores": {
-                "accuracy": {"score": 32, "max_score": 40, "rubric_level": 3, "reason": "핵심 개념을 대체로 정확하게 설명했습니다."},
-                "coverage": {"score": 29, "max_score": 40, "rubric_level": 3, "reason": "주요 주제를 다루었지만 일부 개념이 누락되었습니다."},
-                "structural_understanding": {"score": 14, "max_score": 20, "rubric_level": 3, "reason": "개념 간 관계를 대체로 일관되게 설명했습니다."}
+                "essential": _score_detail(48, 60, "핵심 Claim을 대체로 정확하게 설명했습니다."),
+                "supporting": _score_detail(14, 20, "보조 설명 두 가지를 연결했습니다."),
+                "coverage": _score_detail(15, 20, "하위 목표 대부분을 다뤘습니다."),
             },
-            "total": {"score": 75, "max_score": 100, "rubric_level": 3, "reason": "세 평가 영역을 종합한 Mock 결과입니다."}
+            "total": _score_detail(77, 100, "Rubric Mock 결과입니다."),
+            "sub_objective_coverage": [],
         },
         "qualitative": {
-            "missing_concepts": ["세부 근거와 예시"],
-            "incorrect_concepts": [],
-            "misconnected_concepts": [],
-            "review_suggestions": ["핵심 개념 사이의 관계를 한 문장씩 설명해 보세요."]
-        }
+            "strengths": ["핵심 개념을 정확하게 설명했습니다."],
+            "missing_claims": ["일부 보조 설명"],
+            "incorrect_claims": [],
+            "review_suggestions": ["빠진 하위 목표를 한 문장으로 보완해 보세요."],
+        },
     }

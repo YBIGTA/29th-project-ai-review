@@ -1,0 +1,334 @@
+{
+  "$defs": {
+    "Chunk": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "minLength": 1,
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "lecture_id": {
+          "minLength": 1,
+          "title": "Lecture Id",
+          "type": "string"
+        },
+        "lecture_name": {
+          "minLength": 1,
+          "title": "Lecture Name",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "topic": {
+          "minLength": 1,
+          "title": "Topic",
+          "type": "string"
+        },
+        "concepts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Concepts",
+          "type": "array"
+        },
+        "raw_text": {
+          "title": "Raw Text",
+          "type": "string"
+        },
+        "visual_description": {
+          "default": "",
+          "title": "Visual Description",
+          "type": "string"
+        },
+        "content": {
+          "minLength": 1,
+          "title": "Content",
+          "type": "string"
+        },
+        "page_role": {
+          "anyOf": [
+            {
+              "enum": [
+                "cover",
+                "table_of_contents",
+                "section_divider",
+                "core_content",
+                "example",
+                "supplementary_reference",
+                "closing"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Role"
+        },
+        "term_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Term Ids",
+          "type": "array"
+        },
+        "evidence_units": {
+          "items": {
+            "$ref": "#/$defs/EvidenceUnit"
+          },
+          "title": "Evidence Units",
+          "type": "array"
+        },
+        "source_issues": {
+          "items": {
+            "$ref": "#/$defs/SourceIssue"
+          },
+          "title": "Source Issues",
+          "type": "array"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "lecture_id",
+        "lecture_name",
+        "page",
+        "topic",
+        "raw_text",
+        "content"
+      ],
+      "title": "Chunk",
+      "type": "object"
+    },
+    "EvidenceUnit": {
+      "additionalProperties": false,
+      "properties": {
+        "unit_id": {
+          "minLength": 1,
+          "title": "Unit Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "definition",
+            "formula",
+            "procedure",
+            "relation",
+            "interpretation",
+            "assumption",
+            "warning",
+            "comparison",
+            "diagnostic",
+            "example"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "text",
+            "formula",
+            "visual",
+            "text_and_formula",
+            "text_and_visual"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        },
+        "source_excerpt": {
+          "minLength": 1,
+          "title": "Source Excerpt",
+          "type": "string"
+        },
+        "normalized_explanation": {
+          "minLength": 1,
+          "title": "Normalized Explanation",
+          "type": "string"
+        },
+        "source_status": {
+          "default": "verified",
+          "enum": [
+            "verified",
+            "needs_review",
+            "source_error"
+          ],
+          "title": "Source Status",
+          "type": "string"
+        },
+        "term_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Term Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "unit_id",
+        "type",
+        "source_type",
+        "source_excerpt",
+        "normalized_explanation"
+      ],
+      "title": "EvidenceUnit",
+      "type": "object"
+    },
+    "SourceIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "issue_id": {
+          "minLength": 1,
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "source_text": {
+          "minLength": 1,
+          "title": "Source Text",
+          "type": "string"
+        },
+        "issue_type": {
+          "enum": [
+            "typo",
+            "incorrect",
+            "overgeneralized",
+            "ambiguous"
+          ],
+          "title": "Issue Type",
+          "type": "string"
+        },
+        "correction": {
+          "minLength": 1,
+          "title": "Correction",
+          "type": "string"
+        },
+        "evaluation_policy": {
+          "default": "exclude",
+          "enum": [
+            "exclude",
+            "warn"
+          ],
+          "title": "Evaluation Policy",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_id",
+        "source_text",
+        "issue_type",
+        "correction"
+      ],
+      "title": "SourceIssue",
+      "type": "object"
+    },
+    "TerminologyEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "term_id": {
+          "minLength": 1,
+          "title": "Term Id",
+          "type": "string"
+        },
+        "canonical_ko": {
+          "minLength": 1,
+          "title": "Canonical Ko",
+          "type": "string"
+        },
+        "canonical_en": {
+          "default": "",
+          "title": "Canonical En",
+          "type": "string"
+        },
+        "abbreviations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Abbreviations",
+          "type": "array"
+        },
+        "accepted_aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Accepted Aliases",
+          "type": "array"
+        },
+        "symbols": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Symbols",
+          "type": "array"
+        },
+        "not_equivalent_to": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Not Equivalent To",
+          "type": "array"
+        }
+      },
+      "required": [
+        "term_id",
+        "canonical_ko"
+      ],
+      "title": "TerminologyEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Schema Version"
+    },
+    "lecture_id": {
+      "minLength": 1,
+      "title": "Lecture Id",
+      "type": "string"
+    },
+    "lecture_name": {
+      "minLength": 1,
+      "title": "Lecture Name",
+      "type": "string"
+    },
+    "source_file": {
+      "minLength": 1,
+      "title": "Source File",
+      "type": "string"
+    },
+    "terminology": {
+      "items": {
+        "$ref": "#/$defs/TerminologyEntry"
+      },
+      "title": "Terminology",
+      "type": "array"
+    },
+    "chunks": {
+      "items": {
+        "$ref": "#/$defs/Chunk"
+      },
+      "title": "Chunks",
+      "type": "array"
+    }
+  },
+  "required": [
+    "lecture_id",
+    "lecture_name",
+    "source_file",
+    "chunks"
+  ],
+  "title": "LectureDocument",
+  "type": "object"
+}

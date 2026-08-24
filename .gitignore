@@ -1,4 +1,5 @@
 # Python
+.DS_Store
 __pycache__/
 *.pyc
 *.egg-info/
@@ -30,6 +31,12 @@ outputs/
 !data/term_dbs/crawling.json
 !data/term_dbs/eda_fe.json
 !data/term_dbs/visualization.json
+!data/evaluation/rubrics/*.json
+!data/evaluation/*.schema.json
+!data/evaluation/gold/*_assessment.json
+!data/evaluation/gold/*_score.json
+!data/evaluation/gold/*_cases.json
+!data/processed/processed.schema.json
 !frontend/fe/package.json
 !frontend/fe/package-lock.json
 !frontend/fe/tsconfig.json

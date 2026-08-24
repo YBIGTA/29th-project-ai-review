@@ -1,0 +1,94 @@
+{
+  "lecture_id": "basic_statistics",
+  "objective_id": "stats.hypothesis_uncertainty",
+  "claim_assessments": [
+    {
+      "claim_id": "stats.test_steps",
+      "judgment": "correct",
+      "source_chunk_ids_used": ["basic_statistics_p9_01"],
+      "conflict_status": "none",
+      "evidence_spans": [{"segment_id": "transcript_full", "quote": "귀무가설과 대립가설을 세우는 것에서 시작합니다. 유의수준을 정하고, 검정통계량과 p-value를 계산한 뒤 귀무가설을 기각할지 판단합니다.", "relation": "supports"}],
+      "rationale": "가설 설정부터 p-value를 이용한 판단까지 핵심 절차를 올바른 순서로 설명했다."
+    },
+    {
+      "claim_id": "stats.test_selection",
+      "judgment": "not_addressed",
+      "source_chunk_ids_used": [],
+      "conflict_status": "none",
+      "evidence_spans": [],
+      "rationale": "자료 유형과 가정에 따른 검정법 선택은 설명하지 않았다."
+    },
+    {
+      "claim_id": "stats.type1_error",
+      "judgment": "not_addressed",
+      "source_chunk_ids_used": [],
+      "conflict_status": "none",
+      "evidence_spans": [],
+      "rationale": "1종 오류를 설명하지 않았다."
+    },
+    {
+      "claim_id": "stats.type2_error",
+      "judgment": "not_addressed",
+      "source_chunk_ids_used": [],
+      "conflict_status": "none",
+      "evidence_spans": [],
+      "rationale": "2종 오류와 검정력을 설명하지 않았다."
+    },
+    {
+      "claim_id": "stats.error_tradeoff",
+      "judgment": "not_addressed",
+      "source_chunk_ids_used": [],
+      "conflict_status": "none",
+      "evidence_spans": [],
+      "rationale": "두 오류의 trade-off를 설명하지 않았다."
+    },
+    {
+      "claim_id": "stats.p_value_definition",
+      "judgment": "incorrect",
+      "source_chunk_ids_used": ["basic_statistics_p14_01"],
+      "conflict_status": "none",
+      "evidence_spans": [{"segment_id": "transcript_full", "quote": "p-value는 귀무가설이 참일 확률입니다.", "relation": "contradicts"}],
+      "rationale": "귀무가설이 참이라는 조건 아래 데이터의 극단성을 보는 확률을 귀무가설 자체의 확률로 뒤집어 해석했다."
+    },
+    {
+      "claim_id": "stats.p_value_not_h0_probability",
+      "judgment": "incorrect",
+      "source_chunk_ids_used": ["basic_statistics_p14_01", "basic_statistics_p16_01"],
+      "conflict_status": "none",
+      "evidence_spans": [{"segment_id": "transcript_full", "quote": "p-value가 0.03이면 귀무가설이 참일 가능성이 3퍼센트입니다.", "relation": "contradicts"}],
+      "rationale": "강의에서 경계하는 대표적인 p-value 오해를 명시적으로 말했다."
+    },
+    {
+      "claim_id": "stats.sample_size_effect",
+      "judgment": "not_addressed",
+      "source_chunk_ids_used": [],
+      "conflict_status": "none",
+      "evidence_spans": [],
+      "rationale": "표본크기와 표준오차·p-value의 관계는 설명하지 않았다."
+    },
+    {
+      "claim_id": "stats.ci_repeated_sampling",
+      "judgment": "incorrect",
+      "source_chunk_ids_used": ["basic_statistics_p17_01"],
+      "conflict_status": "none",
+      "evidence_spans": [{"segment_id": "transcript_full", "quote": "95퍼센트 신뢰구간은 모수가 그 구간 안에 있을 확률이 95퍼센트라는 뜻입니다.", "relation": "contradicts"}],
+      "rationale": "반복 표집 절차가 아니라 계산된 특정 구간에 모수의 확률을 부여했다."
+    },
+    {
+      "claim_id": "stats.ci_width",
+      "judgment": "incorrect",
+      "source_chunk_ids_used": ["basic_statistics_p17_01", "basic_statistics_p18_01"],
+      "conflict_status": "none",
+      "evidence_spans": [{"segment_id": "transcript_full", "quote": "신뢰수준은 높을수록 항상 더 좋고, 구간이 넓을수록 더 정확한 추정입니다.", "relation": "contradicts"}],
+      "rationale": "신뢰수준과 구간 폭 사이의 안전성·구체성 trade-off를 반대로 해석했다."
+    },
+    {
+      "claim_id": "stats.ci_fixed_interval",
+      "judgment": "incorrect",
+      "source_chunk_ids_used": ["basic_statistics_p18_01"],
+      "conflict_status": "none",
+      "evidence_spans": [{"segment_id": "transcript_full", "quote": "모수가 그 구간 안에 있을 확률이 95퍼센트입니다.", "relation": "contradicts"}],
+      "rationale": "이미 계산된 특정 구간에 95% 확률을 직접 부여했다."
+    }
+  ]
+}

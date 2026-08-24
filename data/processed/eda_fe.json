@@ -352,7 +352,7 @@
       ],
       "raw_text": "EDA & Preprocessing\n 6. 변수 분포 & 변수-종속변수 간 관계 파악\n\n\n정규화 (Scaling)\n  이상치 없으면 Standard, 특정 범위가 필요하면 Min-Max,\n  이상치 많으면 Robust\n\n   1. Standard Scaling (Z-score Normalization)\n    표본평균과 표본 표준편차로 스케일링\n    스케일 없이 단순히 서로간의 거리만 남게 됨\n    평균을 활용하기 때문에 이상치에 취약\n 2.Min-Max Scaling\n     최대, 최소를 활용해 모든 데이터가 [0, 1] 범위에 존재\n    이상치에 강건\n  3.Robust Scaling\n    중앙값과 IQR값으로 정규화\n    이상치가 많을 때에 유용",
       "visual_description": "Z-score, Min-Max, 중앙값·IQR 기반 Robust Scaling의 수식이 세로로 비교된다.",
-      "content": "이상치가 적으면 표준화, 특정 범위가 필요하면 Min-Max, 이상치가 많으면 중앙값과 IQR을 쓰는 Robust Scaling을 고려한다. 원문에는 Min-Max가 이상치에 강건하다고 적혀 있어 팀 검토가 필요하다."
+      "content": "Standard Scaling은 평균과 표준편차로 표준화하고, Min-Max Scaling은 최솟값과 최댓값을 기준으로 보통 0과 1 사이로 변환하며, Robust Scaling은 중앙값과 IQR을 사용한다."
     },
     {
       "chunk_id": "eda_fe_p23_01",

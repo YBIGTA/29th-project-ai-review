@@ -1,0 +1,123 @@
+{
+  "$defs": {
+    "ClaimAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "minLength": 1,
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "judgment": {
+          "enum": [
+            "correct",
+            "mostly_correct",
+            "partial",
+            "incorrect",
+            "not_addressed"
+          ],
+          "title": "Judgment",
+          "type": "string"
+        },
+        "source_chunk_ids_used": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Chunk Ids Used",
+          "type": "array"
+        },
+        "conflict_status": {
+          "enum": [
+            "none",
+            "self_corrected",
+            "unresolved"
+          ],
+          "title": "Conflict Status",
+          "type": "string"
+        },
+        "evidence_spans": {
+          "description": "Claim 판정에 필요한 최소 비중복 발화 근거. 같은 의미의 반복은 가장 명확한 하나만 남기고, 보완·충돌·정정 근거는 각각 보존한다.",
+          "items": {
+            "$ref": "#/$defs/EvidenceSpan"
+          },
+          "maxItems": 4,
+          "title": "Evidence Spans",
+          "type": "array"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "judgment",
+        "conflict_status",
+        "rationale"
+      ],
+      "title": "ClaimAssessment",
+      "type": "object"
+    },
+    "EvidenceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "segment_id": {
+          "minLength": 1,
+          "title": "Segment Id",
+          "type": "string"
+        },
+        "quote": {
+          "description": "지정한 segment에 실제로 존재하는 하나의 연속 구간을 글자 그대로 복사한 인용문. 요약·수정·생략부호 결합 금지.",
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "supports",
+            "contradicts",
+            "corrects"
+          ],
+          "title": "Relation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment_id",
+        "quote",
+        "relation"
+      ],
+      "title": "EvidenceSpan",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "lecture_id": {
+      "minLength": 1,
+      "title": "Lecture Id",
+      "type": "string"
+    },
+    "objective_id": {
+      "minLength": 1,
+      "title": "Objective Id",
+      "type": "string"
+    },
+    "claim_assessments": {
+      "items": {
+        "$ref": "#/$defs/ClaimAssessment"
+      },
+      "minItems": 1,
+      "title": "Claim Assessments",
+      "type": "array"
+    }
+  },
+  "required": [
+    "lecture_id",
+    "objective_id",
+    "claim_assessments"
+  ],
+  "title": "TopicAssessment",
+  "type": "object"
+}

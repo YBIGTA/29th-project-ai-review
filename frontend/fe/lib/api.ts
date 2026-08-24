@@ -49,6 +49,8 @@ export type ReviewSubmission = {
   job_id?: string;
   session_id: string;
   topic: string;
+  lecture_id: string;
+  objective_id: string;
   transcript_raw: string;
   transcript_corrected: string;
   term_db_used?: {
@@ -61,24 +63,24 @@ export type ReviewSubmission = {
 export type ReviewReport = {
   review_id: string;
   session_id: string;
+  lecture_id: string;
+  objective_id: string;
   score: number;
   transcript: string;
   corrected_transcript: string;
   quantitative: {
-    concept_recall: number;
-    concept_precision: number;
-    concept_f1: number;
     scores: {
-      accuracy: ScoreDetail;
+      essential: ScoreDetail;
+      supporting: ScoreDetail;
       coverage: ScoreDetail;
-      structural_understanding: ScoreDetail;
     };
     total: ScoreDetail;
+    sub_objective_coverage: Array<{ sub_objective_id: string; ratio: number }>;
   };
   qualitative: {
-    missing_concepts: string[];
-    incorrect_concepts: string[];
-    misconnected_concepts: string[];
+    strengths: string[];
+    missing_claims: string[];
+    incorrect_claims: string[];
     review_suggestions: string[];
   };
   status: string;

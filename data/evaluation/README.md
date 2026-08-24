@@ -1,55 +1,42 @@
-# 구술 복습 평가 기준 데이터
+# Rubric 평가 데이터
 
-이 디렉터리의 JSON은 키워드 출현 횟수가 아니라 사용자가 표현한 의미 단위 주장,
-학습목표 충족, 개념 간 관계를 평가하기 위한 기준 데이터다.
-
-## 근거 우선순위
-
-1. `data/processed/*.json`의 페이지별 구조화 내용과 시각 정보
-2. 원본 PDF의 해당 페이지
-3. 저장소 루트의 `문장.md`, `키워드.md`, `관계.md`,
-   `관계_키워드버전.md`는 평가 아이디어와 검토 후보를 제공하는 참고자료
-
-참고 MD의 내용을 기계적으로 복사하지 않는다. 강의안과 충돌하거나 지나치게
-단정적인 주장은 `excluded_source_claims`에 기록하고 자동 채점 기준에서 제외한다.
+이 디렉터리는 2분 선택 주제 평가에 필요한 최종 데이터만 보관합니다.
 
 ## 파일
 
-- `scoring_policy.json`: 개념 정확도 40점, 핵심 개념 충족도 40점,
-  구조적 이해도 20점의 공통 판정 규칙
-- `rubrics/*.json`: 강의별 학습목표, 기준 주장, 오개념, 관계, 관계 체인
-- `profiles/*_3min.json`: 실제 서비스용 최대 3분 자유 복습 평가 범위
-- `profiles/*_demo_2min.json`: 중간발표용 최대 2분 평가 범위
-- `calibration_cases.jsonl`: 사람과 AI의 판정 일치를 점검할 대표 답변
-- `gold/`: 실제 대본을 사람이 rubric으로 판정한 평가 결과와 점수
+- `rubrics/*.json`: 네 강의의 상위 목표·하위 목표·Claim·Evidence
+- `rubric.schema.json`: Rubric JSON Schema
+- `topic_assessment.schema.json`: LLM 판정 출력 JSON Schema
+- `../processed/processed.schema.json`: processed JSON Schema
+- `gold/*_assessment.json`: 사람이 검수한 Claim 판정 예시
+- `gold/*_score.json`: 코드로 재현해야 하는 기대 점수
 
-## 핵심 원칙
+## 원칙
 
-- 키워드와 동의어는 STT 보정 및 후보 검색에만 사용한다.
-- 기준 주장은 모범답안 문구가 아니라 의미 비교를 위한 사실 단위다.
-- 표현이 달라도 의미가 같으면 인정한다.
-- 임베딩 유사도를 점수로 직접 변환하지 않는다.
-- LLM은 판정과 근거 추출을 담당하고 점수 계산은 코드가 담당한다.
-- 필수 학습목표와 관계는 검색 결과와 무관하게 전체 검사한다.
-- 자유 복습에서는 프로필이 강의의 큰 영역과 각 영역에서 반영할 최소 설명 수를
-  정의한다. 사용자가 영역 안의 어떤 개념을 선택해 설명할지는 고정하지 않는다.
-- 실제 발화 시간에는 점수를 주지 않는다. 3분과 2분 프로필은 기대 내용 범위만
-  다르다.
+- 선택한 상위 학습목표 분기만 평가합니다.
+- Rubric과 processed 데이터는 임베딩하지 않습니다.
+- 기초통계 Claim Evidence는 `chunk_id + unit_id`로 atomic evidence를 직접 조회합니다.
+- 기초통계 Claim의 `term_ids`는 한국어·영어·약어·기호를 같은 개념으로 연결합니다.
+- LLM은 Claim별 판정, 충돌 상태, 최소 비중복 원문 근거를 반환합니다.
+- 같은 의미 반복은 대표 Quote 하나만, 보완·충돌·정정은 Segment별 Quote로 보존합니다.
+- 점수는 코드가 60+20+20으로 계산하며 실제로 언급한 Supporting 오답을 버리지 않습니다.
+- 결과의 `score_breakdown`은 Claim별 기여점수와 Supporting·Coverage 계산 근거를 보여줍니다.
+- 출력 검증 실패 시 오류를 반영한 전체 판정을 한 번 재요청하며, 재검증을 통과한 결과만 채점합니다.
+- 자동 교정 후에도 실패하면 점수를 만들지 않고 마지막 응답을 `.invalid.json`으로 보존합니다.
+- 명확한 관계·비교는 `category=connection_comparison` Claim으로 평가합니다.
+- 별도 Relation, Relation Chain, 2분·3분 Profile은 사용하지 않습니다.
 
-## 평가 입력 준비
+## 검증
 
-`scripts/prepare_evaluation_input.py`는 STT 답변을 의미 단위로 검색한 뒤 다음 자료를
-하나의 평가 요청 미리보기로 조립한다.
+```bash
+python scripts/validate_evaluation_data.py
+python scripts/validate_evaluation_data.py --write-schemas
+python -m pytest tests/test_evaluation.py -q
+```
 
-- 전체 강의 Rubric과 `excluded_source_claims`
-- 선택한 2분 또는 3분 평가 프로필
-- 사용자 STT 원문과 의미 구간
-- 중복 제거된 강의안 검색 근거
-- 판정값의 의미와 구조화 출력 스키마
+기초통계의 상세 구조와 재생성 방법은 `docs/BASIC_STATISTICS_PROCESSED.md`를
+참고합니다. Evidence를 변경할 때는 원본 PDF, processed JSON, Rubric을 함께 검수해야 합니다.
 
-검색 거리와 순위는 근거 선택에만 사용하며 점수 입력으로 사용하지 않는다. 생성된
-미리보기는 `outputs/evaluation_inputs/`에 저장되고 Git에는 포함되지 않는다.
-
-`scripts/evaluate_prepared_input.py`는 이 미리보기를 OpenAI Responses API에 보내
-`EvaluationAssessment` 구조화 판정을 생성한다. 출력은 `outputs/evaluations/`에
-저장되며 Rubric ID 누락·중복·임의 추가가 있으면 실패 처리한다.
+팀원이 AI를 활용해 Gold 발화문과 사람 기준의 기대 판정을 만들 때는
+`docs/GOLD_DATASET_AUTHORING_GUIDE.md`를 따릅니다. 현재 평가기의 출력을 보기 전에
+Gold 판정을 확정하고 Calibration/Holdout을 분리해야 합니다.

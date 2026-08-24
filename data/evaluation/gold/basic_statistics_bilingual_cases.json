@@ -1,0 +1,98 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "basic_statistics",
+  "purpose": "한국어·영어·약어·기호·혼합 표현과 대표 오개념에 대한 LLM 판정 회귀 테스트",
+  "cases": [
+    {
+      "case_id": "pvalue_ko",
+      "objective_id": "stats.hypothesis_uncertainty",
+      "claim_id": "stats.p_value_definition",
+      "utterance": "p값은 귀무가설이 맞다고 놓았을 때 지금 데이터나 더 극단적인 데이터가 나올 확률입니다.",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "pvalue_en_mixed",
+      "objective_id": "stats.hypothesis_uncertainty",
+      "claim_id": "stats.p_value_definition",
+      "utterance": "The p-value is P(observed or more extreme data given H0).",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "pvalue_reversal",
+      "objective_id": "stats.hypothesis_uncertainty",
+      "claim_id": "stats.p_value_not_h0_probability",
+      "utterance": "p-value가 0.03이면 귀무가설이 참일 확률이 3퍼센트라는 뜻입니다.",
+      "expected_judgment": "incorrect"
+    },
+    {
+      "case_id": "type1_alias",
+      "objective_id": "stats.hypothesis_uncertainty",
+      "claim_id": "stats.type1_error",
+      "utterance": "Type I error는 false positive로, H0가 true인데 reject하는 경우입니다.",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "ci_repeated_sampling",
+      "objective_id": "stats.hypothesis_uncertainty",
+      "claim_id": "stats.ci_repeated_sampling",
+      "utterance": "95% CI는 동일한 interval construction을 반복하면 그 구간들 중 95%가 true parameter를 포함한다는 뜻입니다.",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "covariance_independence_error",
+      "objective_id": "stats.probability_foundations",
+      "claim_id": "stats.covariance_direction",
+      "utterance": "Covariance가 zero면 두 random variables는 항상 independent입니다.",
+      "expected_judgment": "incorrect"
+    },
+    {
+      "case_id": "correlation_causation_error",
+      "objective_id": "stats.probability_foundations",
+      "claim_id": "stats.correlation_not_causation",
+      "utterance": "상관계수가 높으면 한 변수가 다른 변수의 원인이라고 결론내릴 수 있습니다.",
+      "expected_judgment": "incorrect"
+    },
+    {
+      "case_id": "anova_formula_mixed",
+      "objective_id": "stats.anova_alternatives",
+      "claim_id": "stats.f_ratio",
+      "utterance": "F statistic은 MSB over MSW이고, 크면 between-group signal이 within-group noise보다 큰 겁니다.",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "welch_alias",
+      "objective_id": "stats.anova_alternatives",
+      "claim_id": "stats.alternative_conditions",
+      "utterance": "등분산성이 깨졌다면 웰치 ANOVA를 고려하고 자유도를 조정합니다.",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "ols_symbol",
+      "objective_id": "stats.regression_diagnostics",
+      "claim_id": "stats.ols_objective",
+      "utterance": "OLS estimates beta by minimizing the residual sum of squares in Y equals X beta plus epsilon.",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "r2_causality_error",
+      "objective_id": "stats.regression_diagnostics",
+      "claim_id": "stats.r_squared",
+      "utterance": "R-squared가 높으니까 이 모델은 out-of-sample prediction도 좋고 causal relationship도 증명합니다.",
+      "expected_judgment": "incorrect"
+    },
+    {
+      "case_id": "multicollinearity_mixed",
+      "objective_id": "stats.regression_diagnostics",
+      "claim_id": "stats.multicollinearity_diagnosis",
+      "utterance": "다중공선성은 VIF로 확인하고 PCA나 ridge를 고려할 수 있지만 variable deletion은 omitted variable bias를 만들 수 있습니다.",
+      "expected_judgment": "correct"
+    },
+    {
+      "case_id": "logistic_odds_mixed",
+      "objective_id": "stats.regression_diagnostics",
+      "claim_id": "stats.logistic_odds",
+      "utterance": "Log-odds is linear in X, so a one-unit increase in X multiplies the odds by exp beta one.",
+      "expected_judgment": "correct"
+    }
+  ]
+}

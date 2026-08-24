@@ -42,9 +42,9 @@ feat/     ●───●(FE)      ●─────────●(STT)
   - `feat/stt-faster-whisper`
   - `feat/stt-prompt-tuning`
 
-**RAG & LLM**
-- PDF Chunking, Vector DB(Chroma), LLM 평가 프롬프트
-  - `feat/rag-pdf-indexing`
+**Rubric & LLM**
+- PDF Evidence 검수, Rubric, LLM 평가 프롬프트
+  - `feat/rubric-evidence`
   - `feat/rag-eval-prompt`
 
 **BE & PM**
@@ -158,4 +158,3 @@ git push origin feat/be-mock-api
 - 브랜치 전략 관련 질문: README 또는 팀 리더에게 문의
 - 머지 컨플릭트: 팀과 함께 해결
 - 실수로 `main`에 push했다면: 즉시 팀에 보고
-
