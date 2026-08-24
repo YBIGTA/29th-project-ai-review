@@ -147,6 +147,8 @@ class ClaimAssessment(StrictModel):
     judgment: ClaimJudgment
     evidence_quote: str
     rationale: str
+    matched_segment_ids: list[str] = Field(default_factory=list)
+    source_chunk_ids_used: list[str] = Field(default_factory=list)
 
 
 class ObjectiveAssessment(StrictModel):

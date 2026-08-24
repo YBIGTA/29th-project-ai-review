@@ -1,0 +1,14 @@
+.git
+.pytest_cache
+__pycache__
+*.py[cod]
+.DS_Store
+.env
+.venv
+venv
+node_modules
+frontend/fe/node_modules
+backend/data/audio
+backend/data/materials
+vector_db
+캡쳐들

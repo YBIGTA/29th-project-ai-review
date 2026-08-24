@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 
 from sttcorrect.llm.correction import SYSTEM_INSTRUCTION
 
-from sttcorrect.llm.correction import SYSTEM_INSTRUCTION
-
 
 def _retry_wait_seconds(resp: requests.Response, attempt: int) -> float:
     """429 응답의 Retry-After 헤더를 우선 쓰고, 없으면 지수 백오프(2s, 4s, 8s...)로

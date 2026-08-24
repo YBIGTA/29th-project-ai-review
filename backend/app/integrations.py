@@ -11,8 +11,11 @@ from src.evaluation import load_profile, load_rubric, score_evaluation, validate
 from src.evaluation_api import request_evaluation_assessment
 from src.evaluation_prompt import build_evaluation_prompt
 from src.search import search_transcript
+from src.schemas import TranscriptSearchResult
 
 class EvaluationResult(TypedDict):
+    segments: list[dict[str, object]]
+    claims: list[dict[str, object]]
     quantitative: dict[str, object]
     qualitative: dict[str, list[str]]
 
@@ -71,10 +74,15 @@ def evaluate_with_rag(
     )
     validate_assessment_against_rubric(assessment, rubric)
     score = score_evaluation(rubric, assessment, profile)
-    return _to_review_result(score, assessment, rubric)
+    return _to_review_result(score, assessment, rubric, search_result)
 
 
-def _to_review_result(score: dict[str, object], assessment: object, rubric: object) -> EvaluationResult:
+def _to_review_result(
+    score: dict[str, object],
+    assessment: object,
+    rubric: object,
+    search_result: TranscriptSearchResult,
+) -> EvaluationResult:
     # The public BE schema keeps the existing FE-friendly names while the RAG
     # evaluator remains responsible for rubric-level judgment and scoring.
     assessment_data = assessment.model_dump()
@@ -94,6 +102,48 @@ def _to_review_result(score: dict[str, object], assessment: object, rubric: obje
     claim_by_id = {
         item["claim_id"]: item for item in assessment_data["claim_assessments"]
     }
+    evidence_by_chunk = {item.chunk_id: item for item in search_result.evidence}
+    claim_reference_chunks = {
+        claim.claim_id: claim.evidence
+        for objective in rubric.learning_objectives
+        for claim in objective.reference_claims
+    }
+    rubric_pages = {
+        reference.chunk_id: reference.page
+        for references in claim_reference_chunks.values()
+        for reference in references
+    }
+    claims = []
+    for claim_id, item in claim_by_id.items():
+        source_ids = item.get("source_chunk_ids_used") or [
+            reference.chunk_id
+            for reference in claim_reference_chunks.get(claim_id, [])
+        ]
+        source_ids = list(dict.fromkeys(source_ids))
+        matched_segments = item.get("matched_segment_ids") or [
+            segment_id
+            for chunk_id in source_ids
+            if chunk_id in evidence_by_chunk
+            for segment_id in evidence_by_chunk[chunk_id].matched_segment_ids
+        ]
+        claims.append({
+            "claim_id": claim_id,
+            "judgment": item["judgment"],
+            "matched_segment_ids": list(dict.fromkeys(matched_segments)),
+            "evidence_quote": item["evidence_quote"],
+            "rationale": item["rationale"],
+            "source_chunk_ids_used": source_ids,
+            "source_chunks": [
+                {
+                    "source_chunk_id": chunk_id,
+                    "page": evidence_by_chunk[chunk_id].page
+                    if chunk_id in evidence_by_chunk
+                    else rubric_pages[chunk_id],
+                }
+                for chunk_id in source_ids
+                if chunk_id in evidence_by_chunk or chunk_id in rubric_pages
+            ],
+        })
     relation_by_id = {
         item["relation_id"]: item for item in assessment_data["relation_assessments"]
     }
@@ -160,6 +210,10 @@ def _to_review_result(score: dict[str, object], assessment: object, rubric: obje
         structural / 20,
     )
     return {
+        "segments": [
+            result.segment.model_dump() for result in search_result.segment_results
+        ],
+        "claims": claims,
         "quantitative": {
             "concept_recall": coverage_ratio,
             "concept_precision": accuracy_ratio,
@@ -212,8 +266,9 @@ def _level(value: float) -> int:
 
 
 def mock_evaluation(transcript: str) -> EvaluationResult:
-    del transcript
     return {
+        "segments": [{"segment_id": "seg_01", "index": 1, "text": transcript}],
+        "claims": [],
         "quantitative": {
             "concept_recall": 0.72,
             "concept_precision": 0.84,

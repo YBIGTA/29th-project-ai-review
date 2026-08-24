@@ -47,6 +47,27 @@ class QualitativeEvaluation(BaseModel):
     review_suggestions: list[str]
 
 
+class ReviewSegment(BaseModel):
+    segment_id: str
+    index: int
+    text: str
+
+
+class SourceChunkReference(BaseModel):
+    source_chunk_id: str
+    page: int
+
+
+class ClaimEvaluation(BaseModel):
+    claim_id: str
+    judgment: str
+    matched_segment_ids: list[str]
+    evidence_quote: str
+    rationale: str
+    source_chunk_ids_used: list[str]
+    source_chunks: list[SourceChunkReference]
+
+
 class ReviewSubmitRequest(BaseModel):
     job_id: str | None = None
     session_id: str
@@ -62,6 +83,8 @@ class ReviewSubmitResponse(BaseModel):
     score: float = Field(ge=0, le=100)
     transcript: str
     corrected_transcript: str
+    segments: list[ReviewSegment]
+    claims: list[ClaimEvaluation]
     quantitative: QuantitativeEvaluation
     qualitative: QualitativeEvaluation
     status: str
@@ -103,11 +126,13 @@ class AuthResponse(BaseModel):
 
 class StudySessionCreateRequest(BaseModel):
     lecture_id: str = Field(min_length=1, max_length=100)
+    learning_objective_id: str = Field(min_length=1)
 
 
 class StudySessionResponse(BaseModel):
     id: str
     lecture_id: str
+    learning_objective_id: str
     status: str
     pass_status: str
     hint_used: bool

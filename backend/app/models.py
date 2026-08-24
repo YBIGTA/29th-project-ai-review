@@ -32,14 +32,37 @@ class AuthSession(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
 
 
+class LearningObjective(Base):
+    __tablename__ = "learning_objectives"
+    __table_args__ = (
+        CheckConstraint("level IN ('parent', 'child')"),
+        CheckConstraint("importance BETWEEN 1 AND 5"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    lecture_id: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+    parent_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("learning_objectives.id", ondelete="CASCADE")
+    )
+    title: Mapped[str] = mapped_column(String(255), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text)
+    level: Mapped[str] = mapped_column(String(10), nullable=False)
+    importance: Mapped[int] = mapped_column(Integer, nullable=False, default=3)
+    display_order: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+
+
 class StudySession(Base):
     __tablename__ = "study_sessions"
-    __table_args__ = (CheckConstraint("status IN ('created', 'processing', 'completed', 'failed')"), CheckConstraint("pass_status IN ('P', 'NP')"))
+    __table_args__ = (CheckConstraint("status IN ('created', 'processing', 'completed', 'failed')"), CheckConstraint("pass_status IN ('IN_PROGRESS', 'P', 'NP')"))
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     lecture_id: Mapped[str] = mapped_column(String(100), nullable=False)
+    learning_objective_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("learning_objectives.id", ondelete="RESTRICT"), nullable=False)
     status: Mapped[str] = mapped_column(String(30), nullable=False, default="created")
-    pass_status: Mapped[str] = mapped_column(String(2), nullable=False, default="NP")
+    pass_status: Mapped[str] = mapped_column(String(10), nullable=False, default="IN_PROGRESS")
     hint_used: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     started_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime)

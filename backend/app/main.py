@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import logging
 import hashlib
-import json
 import secrets
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -14,7 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .database import get_session
-from .models import AuthSession, AudioFile, Evaluation, Transcription, User, StudySession
+from .models import AuthSession, AudioFile, Evaluation, LearningObjective, Transcription, User, StudySession
 from sqlalchemy import select, update
 from .integrations import evaluate_with_rag
 from .schemas import (
@@ -111,8 +110,19 @@ def create_app() -> FastAPI:
     @app.post("/api/study-sessions", response_model=StudySessionResponse, status_code=status.HTTP_201_CREATED)
     def create_study_session(request: StudySessionCreateRequest, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> StudySessionResponse:
         user = _get_user_from_cookie(session_cookie)
+        objective_id = _parse_uuid(request.learning_objective_id)
+        if objective_id is None:
+            raise HTTPException(status_code=400, detail="learning_objective_id는 UUID 형식이어야 합니다.")
         with get_session() as db:
-            row = StudySession(user_id=user.id, lecture_id=request.lecture_id, status="created")
+            objective = db.scalar(select(LearningObjective).where(
+                LearningObjective.id == objective_id,
+                LearningObjective.lecture_id == request.lecture_id,
+                LearningObjective.parent_id.is_(None),
+                LearningObjective.is_active.is_(True),
+            ))
+            if objective is None:
+                raise HTTPException(status_code=400, detail="해당 lecture의 상위 학습목표를 찾을 수 없습니다.")
+            row = StudySession(user_id=user.id, lecture_id=request.lecture_id, learning_objective_id=objective_id, status="created")
             db.add(row)
             db.commit()
             db.refresh(row)
@@ -135,12 +145,14 @@ def create_app() -> FastAPI:
             study_session = db.scalar(select(StudySession).where(StudySession.id == study_session_id, StudySession.user_id == user.id))
             if study_session is None:
                 raise HTTPException(status_code=404, detail="study_session을 찾을 수 없습니다.")
-            rubric_path = Path("data/evaluation/rubrics") / f"{study_session.lecture_id}.json"
-            if not rubric_path.exists():
-                raise HTTPException(status_code=404, detail="해당 lecture의 평가 기준 파일을 찾을 수 없습니다.")
-            rubric = json.loads(rubric_path.read_text(encoding="utf-8"))
-            objectives = rubric.get("learning_objectives", [])
-            key_objectives = [item["title"] for item in objectives if item.get("importance") == 5 and item.get("title")]
+            key_objectives = db.scalars(
+                select(LearningObjective.title)
+                .where(
+                    LearningObjective.parent_id == study_session.learning_objective_id,
+                    LearningObjective.is_active.is_(True),
+                )
+                .order_by(LearningObjective.display_order)
+            ).all()
             study_session.hint_used = True
             db.commit()
         return HintResponse(session_id=str(study_session_id), lecture_id=study_session.lecture_id, key_objectives=key_objectives)
@@ -215,6 +227,8 @@ def create_app() -> FastAPI:
             score=evaluation["quantitative"]["total"]["score"],
             transcript=request.transcript_raw,
             corrected_transcript=request.transcript_corrected,
+            segments=evaluation["segments"],
+            claims=evaluation["claims"],
             quantitative=evaluation["quantitative"],
             qualitative=evaluation["qualitative"],
             status="evaluated",
@@ -325,4 +339,4 @@ def _get_user_from_cookie(session_cookie: str | None) -> User:
 
 
 def _study_session_response(row: StudySession) -> StudySessionResponse:
-    return StudySessionResponse(id=str(row.id), lecture_id=row.lecture_id, status=row.status, pass_status=row.pass_status, hint_used=row.hint_used, started_at=row.started_at.isoformat(), completed_at=row.completed_at.isoformat() if row.completed_at else None)
+    return StudySessionResponse(id=str(row.id), lecture_id=row.lecture_id, learning_objective_id=str(row.learning_objective_id), status=row.status, pass_status=row.pass_status, hint_used=row.hint_used, started_at=row.started_at.isoformat(), completed_at=row.completed_at.isoformat() if row.completed_at else None)
