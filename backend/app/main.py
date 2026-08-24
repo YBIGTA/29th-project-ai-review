@@ -28,6 +28,7 @@ from .schemas import (
     HintResponse,
     LearningObjectiveListResponse,
     LearningObjectiveResponse,
+    StudySessionDetailResponse,
     UserResponse,
 )
 from .storage import LocalStorage
@@ -161,14 +162,58 @@ def create_app() -> FastAPI:
             db.add(row)
             db.commit()
             db.refresh(row)
-            return _study_session_response(row)
+            return _study_session_response(row, objective.title, None)
 
     @app.get("/api/study-sessions", response_model=list[StudySessionResponse])
     def list_study_sessions(session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> list[StudySessionResponse]:
         user = _get_user_from_cookie(session_cookie)
         with get_session() as db:
-            rows = db.scalars(select(StudySession).where(StudySession.user_id == user.id).order_by(StudySession.created_at.desc())).all()
-            return [_study_session_response(row) for row in rows]
+            rows = db.execute(
+                select(StudySession, LearningObjective.title.label("objective_title"), Evaluation.total_score.label("total_score"))
+                .join(LearningObjective, LearningObjective.id == StudySession.learning_objective_id)
+                .outerjoin(Evaluation, Evaluation.study_session_id == StudySession.id)
+                .where(StudySession.user_id == user.id)
+                .order_by(StudySession.created_at.desc())
+            ).all()
+            return [
+                _study_session_response(row.StudySession, row.objective_title, row.total_score)
+                for row in rows
+            ]
+
+    @app.get("/api/study-sessions/{session_id}", response_model=StudySessionDetailResponse)
+    def get_study_session_detail(session_id: str, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> StudySessionDetailResponse:
+        user = _get_user_from_cookie(session_cookie)
+        study_session_id = _parse_uuid(session_id)
+        if study_session_id is None:
+            raise HTTPException(status_code=400, detail="session_id는 UUID 형식이어야 합니다.")
+        with get_session() as db:
+            study_session = db.scalar(
+                select(StudySession).where(StudySession.id == study_session_id, StudySession.user_id == user.id)
+            )
+            if study_session is None:
+                raise HTTPException(status_code=404, detail="study_session을 찾을 수 없습니다.")
+            objective = db.get(LearningObjective, study_session.learning_objective_id)
+            transcription = db.scalar(select(Transcription).where(Transcription.study_session_id == study_session_id))
+            evaluation = db.scalar(select(Evaluation).where(Evaluation.study_session_id == study_session_id))
+            if transcription is None or evaluation is None:
+                raise HTTPException(status_code=409, detail="아직 평가가 완료되지 않은 세션입니다.")
+            payload = evaluation.evaluation_json
+            return StudySessionDetailResponse(
+                id=str(study_session.id),
+                lecture_id=study_session.lecture_id,
+                objective_title=objective.title if objective is not None else "",
+                status=study_session.status,
+                pass_status=study_session.pass_status,
+                total_score=float(evaluation.total_score),
+                started_at=study_session.started_at.isoformat(),
+                completed_at=study_session.completed_at.isoformat() if study_session.completed_at else None,
+                transcript_raw=transcription.raw_text,
+                transcript_corrected=transcription.corrected_text,
+                segments=payload["segments"],
+                claims=payload["claims"],
+                quantitative=payload["quantitative"],
+                qualitative=payload["qualitative"],
+            )
 
     @app.get("/api/study-sessions/{session_id}/hint", response_model=HintResponse)
     def get_study_hint(session_id: str, session_cookie: str | None = Cookie(default=None, alias=settings.auth_cookie_name)) -> HintResponse:
@@ -269,6 +314,7 @@ def create_app() -> FastAPI:
             lecture_id=request.lecture_id,
             objective_id=request.objective_id,
             score=evaluation["quantitative"]["total"]["score"],
+            pass_status=_pass_status(float(evaluation["quantitative"]["total"]["score"])),
             transcript=request.transcript_raw,
             corrected_transcript=request.transcript_corrected,
             segments=evaluation["segments"],
@@ -318,6 +364,10 @@ def _run_transcription_job(app: FastAPI, job_id: str, audio_path: str, term_db_p
         LOGGER.exception("STT/보정 실패: job_id=%s", job_id)
 
 
+def _pass_status(total_score: float) -> str:
+    return "P" if total_score >= settings.pass_score_threshold else "NP"
+
+
 def _hash_token(token: str) -> str:
     return hashlib.sha256(token.encode()).hexdigest()
 
@@ -363,7 +413,7 @@ def _persist_evaluation(request: ReviewSubmitRequest, evaluation: dict, job: dic
         return
     scores = evaluation["quantitative"]["scores"]
     total_score = float(evaluation["quantitative"]["total"]["score"])
-    evaluation_pass_status = "P" if total_score >= settings.pass_score_threshold else "NP"
+    evaluation_pass_status = _pass_status(total_score)
     with get_session() as db:
         db.add(Evaluation(study_session_id=study_session_id, transcription_id=transcription_id, essential_score=scores["essential"]["score"], supporting_score=scores["supporting"]["score"], coverage_score=scores["coverage"]["score"], total_score=total_score, pass_status=evaluation_pass_status, evaluation_json=evaluation))
         study_session = db.get(StudySession, study_session_id)
@@ -385,5 +435,16 @@ def _get_user_from_cookie(session_cookie: str | None) -> User:
     return user
 
 
-def _study_session_response(row: StudySession) -> StudySessionResponse:
-    return StudySessionResponse(id=str(row.id), lecture_id=row.lecture_id, learning_objective_id=str(row.learning_objective_id), status=row.status, pass_status=row.pass_status, hint_used=row.hint_used, started_at=row.started_at.isoformat(), completed_at=row.completed_at.isoformat() if row.completed_at else None)
+def _study_session_response(row: StudySession, objective_title: str, total_score: float | None) -> StudySessionResponse:
+    return StudySessionResponse(
+        id=str(row.id),
+        lecture_id=row.lecture_id,
+        learning_objective_id=str(row.learning_objective_id),
+        objective_title=objective_title,
+        status=row.status,
+        pass_status=row.pass_status,
+        total_score=float(total_score) if total_score is not None else None,
+        hint_used=row.hint_used,
+        started_at=row.started_at.isoformat(),
+        completed_at=row.completed_at.isoformat() if row.completed_at else None,
+    )

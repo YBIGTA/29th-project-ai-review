@@ -1,66 +1,37 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { getTranscriptionStatus, submitReview, transcribeAudio, type ReviewReport, type TranscriptionResult, type User } from "@/lib/api";
+import {
+  createStudySession,
+  getTranscriptionStatus,
+  listLearningObjectives,
+  submitReview,
+  transcribeAudio,
+  type LearningObjective,
+  type ReviewReport,
+  type TranscriptionResult,
+  type User,
+} from "@/lib/api";
+import ReviewDetail from "@/components/ReviewDetail";
+import { TOPIC_TO_LECTURE_ID } from "@/lib/lectures";
 
-const topics = [
-  "기초통계",
-  "크롤링",
-  "EDA/FE",
-  "시각화",
-] as const;
-
-const lectureIds = {
-  "기초통계": "basic_statistics",
-  "크롤링": "crawling",
-  "EDA/FE": "eda_fe",
-  "시각화": "visualization",
-} as const;
-
-const objectives = {
-  "기초통계": [
-    ["stats.probability_foundations", "확률·통계의 기초"],
-    ["stats.hypothesis_uncertainty", "가설검정과 불확실성"],
-    ["stats.anova_alternatives", "ANOVA와 가정 위반 대안"],
-    ["stats.regression_diagnostics", "회귀분석과 진단"],
-  ],
-  "크롤링": [
-    ["crawl.foundations", "크롤링의 목적과 범위"],
-    ["crawl.html_requests", "HTML 구조와 HTTP 요청"],
-    ["crawl.tools_responsibility", "도구 선택과 책임 있는 수집"],
-  ],
-  "EDA/FE": [
-    ["eda.workflow_types", "분석 흐름과 데이터 이해"],
-    ["eda.quality_imbalance", "데이터 품질과 클래스 불균형"],
-    ["eda.relationships_preprocessing", "변수 관계와 전처리"],
-    ["eda.feature_engineering", "특성공학과 누수 방지"],
-  ],
-  "시각화": [
-    ["viz.purpose_role", "시각화의 목적과 설계"],
-    ["viz.chart_selection", "데이터 관계에 맞는 차트 선택"],
-    ["viz.color_tools_quality", "색상·도구 선택과 품질 검수"],
-    ["viz.storytelling", "분석 스토리텔링"],
-  ],
-} as const;
+const topics = Object.keys(TOPIC_TO_LECTURE_ID) as Array<keyof typeof TOPIC_TO_LECTURE_ID>;
+const lectureIds = TOPIC_TO_LECTURE_ID;
 
 type Phase = "idle" | "countdown" | "recording" | "processing" | "completed";
 type ProcessStage = "idle" | "transcribing" | "correcting" | "evaluating" | "complete";
-
-type ScoreBreakdown = {
-  label: string;
-  score: number;
-  weight: number;
-  tone: "cyan" | "violet" | "amber";
-};
 
 export default function ReviewApp({ user: _user }: { user: User }) {
   const audioStreamRef = useRef<MediaStream | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const recordedBlobRef = useRef<Blob | null>(null);
+  const studySessionIdRef = useRef<string | null>(null);
 
   const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(topics[0]);
-  const [selectedObjective, setSelectedObjective] = useState<string>(objectives[topics[0]][0][0]);
+  const [objectives, setObjectives] = useState<LearningObjective[]>([]);
+  const [selectedObjective, setSelectedObjective] = useState<LearningObjective | null>(null);
   const [phase, setPhase] = useState<Phase>("idle");
   const [processStage, setProcessStage] = useState<ProcessStage>("idle");
   const [countdown, setCountdown] = useState(3);
@@ -81,14 +52,39 @@ export default function ReviewApp({ user: _user }: { user: User }) {
     };
   }, [audioUrl]);
 
+  useEffect(() => {
+    let cancelled = false;
+    listLearningObjectives(lectureIds[selectedTopic])
+      .then((result) => {
+        if (cancelled) return;
+        setObjectives(result);
+        setSelectedObjective(result[0] ?? null);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setObjectives([]);
+        setSelectedObjective(null);
+        setStatusText("학습목표 목록을 불러오지 못했습니다.");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedTopic]);
+
   const startCountdown = async () => {
     if (!navigator.mediaDevices?.getUserMedia) {
       setStatusText("브라우저가 미디어 권한을 지원하지 않습니다.");
       return;
     }
+    if (!selectedObjective) {
+      setStatusText("학습목표를 선택해 주세요.");
+      return;
+    }
 
     try {
       const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const studySession = await createStudySession(lectureIds[selectedTopic], selectedObjective.learning_objective_id);
+      studySessionIdRef.current = studySession.id;
       const recorder = new MediaRecorder(audioStream);
       audioStreamRef.current = audioStream;
       setAudioStream(audioStream);
@@ -134,19 +130,20 @@ export default function ReviewApp({ user: _user }: { user: User }) {
           return;
         }
       }, 3500);
-    } catch {
-      setStatusText("마이크 권한을 허용해 주세요.");
+    } catch (error) {
+      console.error("녹음 준비 실패:", error);
+      setStatusText("마이크 권한을 허용하거나 잠시 후 다시 시도해 주세요.");
     }
   };
 
   const submitRecording = async () => {
-    if (!recorderRef.current) return;
+    if (!recorderRef.current || !selectedObjective || !studySessionIdRef.current) return;
 
     setPhase("processing");
     setProcessStage("transcribing");
     setStatusText("STT 전사 중입니다...");
     setIsSubmitting(true);
-    const sessionId = `session-${Date.now()}`;
+    const sessionId = studySessionIdRef.current;
 
     try {
       const recorder = recorderRef.current;
@@ -168,7 +165,7 @@ export default function ReviewApp({ user: _user }: { user: User }) {
       const response = await submitReview({
         ...transcription,
         lecture_id: lectureIds[selectedTopic],
-        objective_id: selectedObjective,
+        objective_id: selectedObjective.objective_id,
       });
 
       setReport(response);
@@ -213,18 +210,6 @@ export default function ReviewApp({ user: _user }: { user: User }) {
     }
   };
 
-  const scoreBreakdown: ScoreBreakdown[] = report
-    ? [
-        { label: "핵심 이해도", score: report.quantitative.scores.essential.score, weight: 60, tone: "cyan" },
-        { label: "보조·심화 설명", score: report.quantitative.scores.supporting.score, weight: 20, tone: "violet" },
-        { label: "하위 목표 충족도", score: report.quantitative.scores.coverage.score, weight: 20, tone: "amber" },
-      ]
-    : [
-        { label: "핵심 이해도", score: 48, weight: 60, tone: "cyan" },
-        { label: "보조·심화 설명", score: 14, weight: 20, tone: "violet" },
-        { label: "하위 목표 충족도", score: 15, weight: 20, tone: "amber" },
-      ];
-
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-7xl px-6 py-8">
@@ -233,6 +218,12 @@ export default function ReviewApp({ user: _user }: { user: User }) {
             <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">YBIGTA AI REVIEW</p>
             <h1 className="mt-2 text-3xl font-bold">구술 복습 서비스</h1>
           </div>
+          <Link
+            href="/history"
+            className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-slate-500"
+          >
+            학습 기록 보기
+          </Link>
         </header>
 
         <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
@@ -272,10 +263,7 @@ export default function ReviewApp({ user: _user }: { user: User }) {
               {topics.map((topic) => (
                 <button
                   key={topic}
-                  onClick={() => {
-                    setSelectedTopic(topic);
-                    setSelectedObjective(objectives[topic][0][0]);
-                  }}
+                  onClick={() => setSelectedTopic(topic)}
                   className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
                     selectedTopic === topic
                       ? "border-cyan-400 bg-cyan-400 text-slate-950"
@@ -288,17 +276,20 @@ export default function ReviewApp({ user: _user }: { user: User }) {
             </div>
 
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {objectives[selectedTopic].map(([objectiveId, title]) => (
+              {objectives.length === 0 && (
+                <p className="text-sm text-slate-500">학습목표를 불러오는 중입니다...</p>
+              )}
+              {objectives.map((objective) => (
                 <button
-                  key={objectiveId}
-                  onClick={() => setSelectedObjective(objectiveId)}
+                  key={objective.learning_objective_id}
+                  onClick={() => setSelectedObjective(objective)}
                   className={`rounded-xl border px-4 py-3 text-left text-sm transition ${
-                    selectedObjective === objectiveId
+                    selectedObjective?.learning_objective_id === objective.learning_objective_id
                       ? "border-violet-400 bg-violet-400/15 text-violet-100"
                       : "border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500"
                   }`}
                 >
-                  {title}
+                  {objective.title}
                 </button>
               ))}
             </div>
@@ -306,7 +297,7 @@ export default function ReviewApp({ user: _user }: { user: User }) {
             <div className="mt-6 flex flex-wrap gap-3">
               <button
                 onClick={startCountdown}
-                disabled={phase === "recording" || phase === "processing"}
+                disabled={phase === "recording" || phase === "processing" || !selectedObjective}
                 className="rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 발표 녹음 시작
@@ -340,9 +331,7 @@ export default function ReviewApp({ user: _user }: { user: User }) {
                 현재 선택 주제
               </h3>
               <p className="text-2xl font-bold text-white">{selectedTopic}</p>
-              <p className="mt-2 text-sm text-violet-200">
-                {objectives[selectedTopic].find(([id]) => id === selectedObjective)?.[1]}
-              </p>
+              <p className="mt-2 text-sm text-violet-200">{selectedObjective?.title ?? ""}</p>
             </div>
 
             <ProcessPanel stage={processStage} />
@@ -351,71 +340,19 @@ export default function ReviewApp({ user: _user }: { user: User }) {
 
         {report && (
           <section className="mt-8 rounded-3xl border border-slate-800 bg-slate-900 p-6">
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">Result Report</p>
-                <h2 className="mt-2 text-2xl font-bold">총점 {report.score}점</h2>
-              </div>
-              <div className="rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-200">
-                {report.status.toUpperCase()}
-              </div>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              {scoreBreakdown.map((item) => (
-                <MetricCard
-                  key={item.label}
-                  label={item.label}
-                  value={item.score}
-                  weight={item.weight}
-                  tone={item.tone}
-                />
-              ))}
-            </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-2">
-              <TranscriptPanel
-                title="원본 전사문"
-                description="Whisper가 음성에서 변환한 원본 텍스트입니다."
-                transcript={report.transcript}
-                tone="cyan"
-              />
-              <TranscriptPanel
-                title="보정 전사문"
-                description="전문용어와 문장 표현을 2차 보정한 텍스트입니다."
-                transcript={report.corrected_transcript}
-                tone="violet"
-              />
-            </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-2">
-              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-                <h3 className="mb-3 text-lg font-semibold text-cyan-300">정량 지표</h3>
-                <dl className="space-y-3 text-sm">
-                  <div className="flex justify-between"><dt>핵심 이해도</dt><dd>{report.quantitative.scores.essential.score} / 60</dd></div>
-                  <div className="flex justify-between"><dt>보조·심화 설명</dt><dd>{report.quantitative.scores.supporting.score} / 20</dd></div>
-                  <div className="flex justify-between"><dt>하위 목표 충족도</dt><dd>{report.quantitative.scores.coverage.score} / 20</dd></div>
-                </dl>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-                <h3 className="mb-3 text-lg font-semibold text-emerald-300">평가 근거</h3>
-                <div className="space-y-3 text-sm leading-6 text-slate-300">
-                  <div><strong className="text-slate-100">핵심 이해도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.essential.reason}</p></div>
-                  <div><strong className="text-slate-100">보조·심화 설명</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.supporting.reason}</p></div>
-                  <div><strong className="text-slate-100">하위 목표 충족도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.coverage.reason}</p></div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <FeedbackPanel title="잘 설명한 내용" items={report.qualitative.strengths} tone="emerald" />
-              <FeedbackPanel title="누락된 내용" items={report.qualitative.missing_claims} tone="amber" />
-              <FeedbackPanel title="잘못 설명한 내용" items={report.qualitative.incorrect_claims} tone="rose" />
-            </div>
-            <div className="mt-6">
-              <FeedbackPanel title="복습 방향" items={report.qualitative.review_suggestions} tone="emerald" />
-            </div>
+            <p className="mb-6 text-sm uppercase tracking-[0.2em] text-emerald-300">Result Report</p>
+            <ReviewDetail
+              data={{
+                score: report.score,
+                passStatus: report.pass_status,
+                essential: report.quantitative.scores.essential,
+                supporting: report.quantitative.scores.supporting,
+                coverage: report.quantitative.scores.coverage,
+                segments: report.segments,
+                claims: report.claims,
+                qualitative: report.qualitative,
+              }}
+            />
           </section>
         )}
       </div>
@@ -545,87 +482,3 @@ function ProcessPanel({ stage }: { stage: ProcessStage }) {
   );
 }
 
-function TranscriptPanel({
-  title,
-  description,
-  transcript,
-  tone,
-}: {
-  title: string;
-  description: string;
-  transcript: string;
-  tone: "cyan" | "violet";
-}) {
-  const titleColor = tone === "cyan" ? "text-cyan-300" : "text-violet-300";
-
-  return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-      <h3 className={`text-lg font-semibold ${titleColor}`}>{title}</h3>
-      <p className="mt-1 text-xs text-slate-500">{description}</p>
-      <p className="mt-4 max-h-56 overflow-y-auto whitespace-pre-wrap text-sm leading-7 text-slate-200">
-        {transcript || "전사 결과가 없습니다."}
-      </p>
-    </div>
-  );
-}
-
-function MetricCard({
-  label,
-  value,
-  weight,
-  tone,
-}: {
-  label: string;
-  value: number | string;
-  weight?: number;
-  tone: "cyan" | "violet" | "amber" | "rose";
-}) {
-  const colorMap = {
-    cyan: "border-cyan-400/30 bg-cyan-500/10 text-cyan-200",
-    violet: "border-violet-400/30 bg-violet-500/10 text-violet-200",
-    amber: "border-amber-400/30 bg-amber-500/10 text-amber-200",
-    rose: "border-rose-400/30 bg-rose-500/10 text-rose-200",
-  };
-
-  return (
-    <div className={`rounded-2xl border p-4 ${colorMap[tone]}`}>
-      <div className="flex items-center justify-between gap-2">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate-300">{label}</p>
-        {weight ? <span className="text-[10px] text-slate-300">가중치 {weight}</span> : null}
-      </div>
-      <p className="mt-3 text-2xl font-bold">{value}</p>
-    </div>
-  );
-}
-
-function FeedbackPanel({
-  title,
-  items,
-  tone,
-}: {
-  title: string;
-  items: string[];
-  tone: "emerald" | "amber" | "violet" | "rose";
-}) {
-  const colorMap = {
-    emerald: "border-emerald-400/30 bg-emerald-500/5 text-emerald-100",
-    amber: "border-amber-400/30 bg-amber-500/5 text-amber-100",
-    violet: "border-violet-400/30 bg-violet-500/5 text-violet-100",
-    rose: "border-rose-400/30 bg-rose-500/5 text-rose-100",
-  };
-
-  return (
-    <div className={`rounded-2xl border p-5 ${colorMap[tone]}`}>
-      <h3 className="mb-4 text-lg font-semibold">{title}</h3>
-      <ul className="space-y-3 text-sm leading-6 text-slate-200">
-        {items.length === 0 && <li className="text-slate-400">해당 항목이 발견되지 않았습니다.</li>}
-        {items.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span className="mt-1 h-2 w-2 rounded-full bg-current" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}

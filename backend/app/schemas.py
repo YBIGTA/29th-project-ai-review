@@ -38,6 +38,7 @@ class SourceChunkReference(BaseModel):
 
 class ClaimEvaluation(BaseModel):
     claim_id: str
+    claim_text: str = ""
     judgment: str
     source_chunk_ids_used: list[str]
     source_chunks: list[SourceChunkReference]
@@ -63,6 +64,7 @@ class ReviewSubmitResponse(BaseModel):
     lecture_id: str
     objective_id: str
     score: float = Field(ge=0, le=100)
+    pass_status: str
     transcript: str
     corrected_transcript: str
     segments: list[ReviewSegment]
@@ -128,11 +130,30 @@ class StudySessionResponse(BaseModel):
     id: str
     lecture_id: str
     learning_objective_id: str
+    objective_title: str
     status: str
     pass_status: str
+    total_score: float | None = None
     hint_used: bool
     started_at: str
     completed_at: str | None = None
+
+
+class StudySessionDetailResponse(BaseModel):
+    id: str
+    lecture_id: str
+    objective_title: str
+    status: str
+    pass_status: str
+    total_score: float
+    started_at: str
+    completed_at: str | None = None
+    transcript_raw: str
+    transcript_corrected: str
+    segments: list[ReviewSegment]
+    claims: list[ClaimEvaluation]
+    quantitative: QuantitativeEvaluation
+    qualitative: QualitativeEvaluation
 
 
 class HintResponse(BaseModel):
