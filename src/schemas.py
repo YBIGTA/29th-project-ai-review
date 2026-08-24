@@ -34,6 +34,65 @@ class StructuredPageResponse(StrictModel):
     chunks: list[StructuredChunk] = Field(min_length=1)
 
 
+PageRole = Literal[
+    "cover",
+    "table_of_contents",
+    "section_divider",
+    "core_content",
+    "example",
+    "supplementary_reference",
+    "closing",
+]
+EvidenceUnitType = Literal[
+    "definition",
+    "formula",
+    "procedure",
+    "relation",
+    "interpretation",
+    "assumption",
+    "warning",
+    "comparison",
+    "diagnostic",
+    "example",
+]
+EvidenceSourceType = Literal[
+    "text",
+    "formula",
+    "visual",
+    "text_and_formula",
+    "text_and_visual",
+]
+ProcessedSourceStatus = Literal["verified", "needs_review", "source_error"]
+
+
+class TerminologyEntry(StrictModel):
+    term_id: str = Field(min_length=1)
+    canonical_ko: str = Field(min_length=1)
+    canonical_en: str = ""
+    abbreviations: list[str] = Field(default_factory=list)
+    accepted_aliases: list[str] = Field(default_factory=list)
+    symbols: list[str] = Field(default_factory=list)
+    not_equivalent_to: list[str] = Field(default_factory=list)
+
+
+class EvidenceUnit(StrictModel):
+    unit_id: str = Field(min_length=1)
+    type: EvidenceUnitType
+    source_type: EvidenceSourceType
+    source_excerpt: str = Field(min_length=1)
+    normalized_explanation: str = Field(min_length=1)
+    source_status: ProcessedSourceStatus = "verified"
+    term_ids: list[str] = Field(default_factory=list)
+
+
+class SourceIssue(StrictModel):
+    issue_id: str = Field(min_length=1)
+    source_text: str = Field(min_length=1)
+    issue_type: Literal["typo", "incorrect", "overgeneralized", "ambiguous"]
+    correction: str = Field(min_length=1)
+    evaluation_policy: Literal["exclude", "warn"] = "exclude"
+
+
 class Chunk(StrictModel):
     chunk_id: str = Field(min_length=1)
     lecture_id: str = Field(min_length=1)
@@ -44,74 +103,22 @@ class Chunk(StrictModel):
     raw_text: str
     visual_description: str = ""
     content: str = Field(min_length=1)
+    page_role: PageRole | None = None
+    term_ids: list[str] = Field(default_factory=list)
+    evidence_units: list[EvidenceUnit] = Field(default_factory=list)
+    source_issues: list[SourceIssue] = Field(default_factory=list)
 
 
 class LectureDocument(StrictModel):
+    schema_version: str | None = None
     lecture_id: str = Field(min_length=1)
     lecture_name: str = Field(min_length=1)
     source_file: str = Field(min_length=1)
+    terminology: list[TerminologyEntry] = Field(default_factory=list)
     chunks: list[Chunk]
-
-
-class CoreConceptCandidate(StrictModel):
-    name: str = Field(min_length=1)
-    importance: Literal["high", "medium", "low"]
-    pages: list[int] = Field(min_length=1)
-    description: str = Field(min_length=1)
-
-    @field_validator("pages")
-    @classmethod
-    def normalize_pages(cls, values: list[int]) -> list[int]:
-        if any(page < 1 for page in values):
-            raise ValueError("페이지 번호는 1 이상이어야 합니다.")
-        return sorted(set(values))
-
-
-class CoreConceptResponse(StrictModel):
-    core_concepts: list[CoreConceptCandidate] = Field(min_length=1)
-
-
-class CoreConceptDocument(StrictModel):
-    lecture_id: str = Field(min_length=1)
-    lecture_name: str = Field(min_length=1)
-    core_concepts: list[CoreConceptCandidate]
-
-
-class SearchHit(StrictModel):
-    rank: int = Field(ge=1)
-    chunk_id: str
-    lecture_id: str
-    lecture_name: str
-    page: int
-    topic: str
-    content: str
-    distance: float
 
 
 class TranscriptSegment(StrictModel):
     segment_id: str = Field(min_length=1)
     index: int = Field(ge=1)
     text: str = Field(min_length=1)
-
-
-class SegmentSearchResult(StrictModel):
-    segment: TranscriptSegment
-    hits: list[SearchHit]
-
-
-class EvidenceHit(StrictModel):
-    rank: int = Field(ge=1)
-    chunk_id: str = Field(min_length=1)
-    lecture_id: str = Field(min_length=1)
-    lecture_name: str = Field(min_length=1)
-    page: int = Field(ge=1)
-    topic: str = Field(min_length=1)
-    content: str = Field(min_length=1)
-    best_distance: float
-    matched_segment_ids: list[str] = Field(min_length=1)
-
-
-class TranscriptSearchResult(StrictModel):
-    lecture_id: str = Field(min_length=1)
-    segment_results: list[SegmentSearchResult] = Field(min_length=1)
-    evidence: list[EvidenceHit]

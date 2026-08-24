@@ -7,13 +7,10 @@ from pathlib import Path
 from openai import OpenAI
 
 from src.config import LECTURES, Settings, resolve_pdf_path
-from src.core_concepts import generate_core_concepts
-from src.embedding import build_embedding_text, create_embeddings
 from src.io_utils import write_json
 from src.pdf_loader import PdfLoadResult, load_pdf_pages
 from src.schemas import LectureDocument
 from src.structure_lecture import structure_lecture
-from src.vector_store import LectureVectorStore
 
 
 LOGGER = logging.getLogger(__name__)
@@ -27,8 +24,6 @@ class ProcessResult:
     empty_pages: list[int]
     chunks: int
     processed_path: Path
-    core_concepts_created: bool
-    indexed_chunks: int
 
 
 def configure_logging(settings: Settings) -> None:
@@ -52,8 +47,6 @@ def process_lecture(
     settings: Settings,
     force: bool = False,
     max_pages: int | None = None,
-    create_core_concepts: bool = True,
-    build_index: bool = True,
 ) -> ProcessResult:
     if lecture_id not in LECTURES:
         raise ValueError(
@@ -62,11 +55,6 @@ def process_lecture(
         )
     if max_pages is not None and max_pages < 1:
         raise ValueError("max_pages는 1 이상이어야 합니다.")
-    if max_pages is not None and (create_core_concepts or build_index):
-        raise ValueError(
-            "일부 페이지만 처리할 때는 불완전한 평가 기준/DB 생성을 막기 위해 "
-            "핵심 개념 생성과 인덱싱을 건너뛰어야 합니다."
-        )
 
     settings.ensure_output_dirs()
     lecture = LECTURES[lecture_id]
@@ -97,28 +85,6 @@ def process_lecture(
     write_json(processed_path, document.model_dump(mode="json"))
     LOGGER.info("구조화 JSON 저장: %s (%s chunks)", processed_path, len(document.chunks))
 
-    core_created = False
-    if create_core_concepts:
-        generate_core_concepts(client=client, settings=settings, lecture=document)
-        core_created = True
-
-    indexed_chunks = 0
-    if build_index:
-        texts = [build_embedding_text(chunk) for chunk in document.chunks]
-        embeddings = create_embeddings(
-            client=client,
-            texts=texts,
-            model=settings.embedding_model,
-            batch_size=settings.embedding_batch_size,
-        )
-        store = LectureVectorStore(
-            path=settings.vector_db_path,
-            collection_name=settings.collection_name,
-            embedding_model=settings.embedding_model,
-        )
-        indexed_chunks = store.upsert_lecture(document, embeddings)
-        LOGGER.info("ChromaDB 저장: %s chunks", indexed_chunks)
-
     return ProcessResult(
         lecture_id=lecture_id,
         total_pdf_pages=loaded.total_pages,
@@ -126,8 +92,6 @@ def process_lecture(
         empty_pages=loaded.empty_pages,
         chunks=len(document.chunks),
         processed_path=processed_path,
-        core_concepts_created=core_created,
-        indexed_chunks=indexed_chunks,
     )
 
 

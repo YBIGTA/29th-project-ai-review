@@ -44,3 +44,15 @@ def test_curated_document_covers_pdf_exactly(lecture_id: str) -> None:
         assert chunk.concepts
         assert chunk.visual_description
         assert chunk.content
+
+    if lecture_id == "basic_statistics":
+        assert document.schema_version == "2.1.0"
+        assert document.terminology
+        assert sum(len(chunk.evidence_units) for chunk in document.chunks) == 75
+        assert all(
+            not chunk.evidence_units
+            for chunk in document.chunks
+            if chunk.page_role in {
+                "cover", "table_of_contents", "section_divider", "closing"
+            }
+        )

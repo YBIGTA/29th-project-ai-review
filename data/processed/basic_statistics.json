@@ -1,7 +1,812 @@
 {
+  "schema_version": "2.1.0",
   "lecture_id": "basic_statistics",
   "lecture_name": "기초통계",
-  "source_file": "기초통계.pdf",
+  "source_file": "기초통계.pdf",
+  "terminology": [
+    {
+      "term_id": "random_variable",
+      "canonical_ko": "확률변수",
+      "canonical_en": "random variable",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [
+        "X"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sample_space",
+      "canonical_ko": "표본공간",
+      "canonical_en": "sample space",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [
+        "Ω"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "expected_value",
+      "canonical_ko": "기댓값",
+      "canonical_en": "expected value",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "기대값",
+        "평균"
+      ],
+      "symbols": [
+        "E(X)"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "variance",
+      "canonical_ko": "분산",
+      "canonical_en": "variance",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [
+        "Var(X)",
+        "σ²"
+      ],
+      "not_equivalent_to": [
+        "variable"
+      ]
+    },
+    {
+      "term_id": "variable",
+      "canonical_ko": "변수",
+      "canonical_en": "variable",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": [
+        "variance"
+      ]
+    },
+    {
+      "term_id": "standard_deviation",
+      "canonical_ko": "표준편차",
+      "canonical_en": "standard deviation",
+      "abbreviations": [
+        "SD"
+      ],
+      "accepted_aliases": [],
+      "symbols": [
+        "σ"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "population",
+      "canonical_ko": "모집단",
+      "canonical_en": "population",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sample",
+      "canonical_ko": "표본",
+      "canonical_en": "sample",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sampling",
+      "canonical_ko": "표본추출",
+      "canonical_en": "sampling",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cluster_sampling",
+      "canonical_ko": "군집표본추출",
+      "canonical_en": "cluster sampling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "군집표본"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "stratified_sampling",
+      "canonical_ko": "층화표본추출",
+      "canonical_en": "stratified sampling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "층화표본"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "simple_random_sampling",
+      "canonical_ko": "단순무작위표본추출",
+      "canonical_en": "simple random sampling",
+      "abbreviations": [
+        "SRS"
+      ],
+      "accepted_aliases": [
+        "단순무작위표본"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "covariance",
+      "canonical_ko": "공분산",
+      "canonical_en": "covariance",
+      "abbreviations": [
+        "Cov"
+      ],
+      "accepted_aliases": [],
+      "symbols": [
+        "Cov(X,Y)"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "correlation",
+      "canonical_ko": "상관계수",
+      "canonical_en": "correlation coefficient",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "상관관계",
+        "피어슨 상관계수"
+      ],
+      "symbols": [
+        "ρ",
+        "r"
+      ],
+      "not_equivalent_to": [
+        "causation"
+      ]
+    },
+    {
+      "term_id": "causation",
+      "canonical_ko": "인과관계",
+      "canonical_en": "causation",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "인과성"
+      ],
+      "symbols": [],
+      "not_equivalent_to": [
+        "correlation"
+      ]
+    },
+    {
+      "term_id": "independence",
+      "canonical_ko": "독립성",
+      "canonical_en": "independence",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "통계적 독립"
+      ],
+      "symbols": [],
+      "not_equivalent_to": [
+        "zero_covariance"
+      ]
+    },
+    {
+      "term_id": "zero_covariance",
+      "canonical_ko": "공분산이 0",
+      "canonical_en": "zero covariance",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "무상관"
+      ],
+      "symbols": [],
+      "not_equivalent_to": [
+        "independence"
+      ]
+    },
+    {
+      "term_id": "conditional_probability",
+      "canonical_ko": "조건부확률",
+      "canonical_en": "conditional probability",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [
+        "P(A|B)"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "bayes_theorem",
+      "canonical_ko": "베이즈 정리",
+      "canonical_en": "Bayes' theorem",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "베이즈 규칙"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "iterated_expectation",
+      "canonical_ko": "전체기댓값법칙",
+      "canonical_en": "law of iterated expectations",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "반복기댓값법칙",
+        "tower property"
+      ],
+      "symbols": [
+        "E(X)=E(E(X|Y))"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hypothesis_testing",
+      "canonical_ko": "가설검정",
+      "canonical_en": "hypothesis testing",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "null_hypothesis",
+      "canonical_ko": "귀무가설",
+      "canonical_en": "null hypothesis",
+      "abbreviations": [
+        "H0",
+        "H₀"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "alternative_hypothesis",
+      "canonical_ko": "대립가설",
+      "canonical_en": "alternative hypothesis",
+      "abbreviations": [
+        "H1",
+        "H₁"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "significance_level",
+      "canonical_ko": "유의수준",
+      "canonical_en": "significance level",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [
+        "α"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "test_statistic",
+      "canonical_ko": "검정통계량",
+      "canonical_en": "test statistic",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "p_value",
+      "canonical_ko": "p-value",
+      "canonical_en": "p-value",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "p값",
+        "유의확률"
+      ],
+      "symbols": [
+        "p"
+      ],
+      "not_equivalent_to": [
+        "null_probability"
+      ]
+    },
+    {
+      "term_id": "null_probability",
+      "canonical_ko": "귀무가설이 참일 확률",
+      "canonical_en": "probability that the null is true",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [
+        "P(H0|data)"
+      ],
+      "not_equivalent_to": [
+        "p_value"
+      ]
+    },
+    {
+      "term_id": "type_i_error",
+      "canonical_ko": "1종 오류",
+      "canonical_en": "type I error",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "제1종 오류",
+        "false positive"
+      ],
+      "symbols": [
+        "α"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "type_ii_error",
+      "canonical_ko": "2종 오류",
+      "canonical_en": "type II error",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "제2종 오류",
+        "false negative"
+      ],
+      "symbols": [
+        "β"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "statistical_power",
+      "canonical_ko": "검정력",
+      "canonical_en": "statistical power",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "power"
+      ],
+      "symbols": [
+        "1-β"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "standard_error",
+      "canonical_ko": "표준오차",
+      "canonical_en": "standard error",
+      "abbreviations": [
+        "SE",
+        "S.E."
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "confidence_interval",
+      "canonical_ko": "신뢰구간",
+      "canonical_en": "confidence interval",
+      "abbreviations": [
+        "CI"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": [
+        "fixed_interval_probability"
+      ]
+    },
+    {
+      "term_id": "confidence_level",
+      "canonical_ko": "신뢰수준",
+      "canonical_en": "confidence level",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "fixed_interval_probability",
+      "canonical_ko": "계산된 구간에 모수가 있을 확률",
+      "canonical_en": "probability that a fixed interval contains the parameter",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": [
+        "confidence_interval"
+      ]
+    },
+    {
+      "term_id": "anova",
+      "canonical_ko": "분산분석",
+      "canonical_en": "analysis of variance",
+      "abbreviations": [
+        "ANOVA"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "between_group_variation",
+      "canonical_ko": "집단 간 변동",
+      "canonical_en": "between-group variation",
+      "abbreviations": [
+        "SSB",
+        "MSB"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "within_group_variation",
+      "canonical_ko": "집단 내 변동",
+      "canonical_en": "within-group variation",
+      "abbreviations": [
+        "SSW",
+        "MSW"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "f_statistic",
+      "canonical_ko": "F 통계량",
+      "canonical_en": "F statistic",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "F 검정통계량"
+      ],
+      "symbols": [
+        "F=MSB/MSW"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "normality",
+      "canonical_ko": "정규성",
+      "canonical_en": "normality",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "homoscedasticity",
+      "canonical_ko": "등분산성",
+      "canonical_en": "homoscedasticity",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "분산의 동질성"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "shapiro_wilk",
+      "canonical_ko": "Shapiro-Wilk 검정",
+      "canonical_en": "Shapiro-Wilk test",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "샤피로-윌크 검정"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "qq_plot",
+      "canonical_ko": "Q-Q plot",
+      "canonical_en": "quantile-quantile plot",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "Q-Q 도표",
+        "분위수-분위수 도표"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "durbin_watson",
+      "canonical_ko": "Durbin-Watson 검정",
+      "canonical_en": "Durbin-Watson test",
+      "abbreviations": [
+        "DW"
+      ],
+      "accepted_aliases": [
+        "더빈-왓슨 검정"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "levene",
+      "canonical_ko": "Levene 검정",
+      "canonical_en": "Levene's test",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "레빈 검정"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "bartlett",
+      "canonical_ko": "Bartlett 검정",
+      "canonical_en": "Bartlett's test",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "바틀렛 검정"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "kruskal_wallis",
+      "canonical_ko": "Kruskal-Wallis 검정",
+      "canonical_en": "Kruskal-Wallis test",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "크루스칼-왈리스 검정"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "welch_anova",
+      "canonical_ko": "Welch ANOVA",
+      "canonical_en": "Welch's ANOVA",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "웰치 분산분석",
+        "웰치 ANOVA"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_way_anova",
+      "canonical_ko": "일원분산분석",
+      "canonical_en": "one-way ANOVA",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "일원 ANOVA"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "two_way_anova",
+      "canonical_ko": "이원분산분석",
+      "canonical_en": "two-way ANOVA",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "이원 ANOVA"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "interaction",
+      "canonical_ko": "교호작용",
+      "canonical_en": "interaction",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "상호작용",
+        "interaction term"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tukey_hsd",
+      "canonical_ko": "Tukey HSD",
+      "canonical_en": "Tukey honestly significant difference",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "튜키 사후검정",
+        "튜키 HSD"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "regression",
+      "canonical_ko": "회귀분석",
+      "canonical_en": "regression analysis",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "linear_regression",
+      "canonical_ko": "선형회귀",
+      "canonical_en": "linear regression",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ols",
+      "canonical_ko": "최소제곱법",
+      "canonical_en": "ordinary least squares",
+      "abbreviations": [
+        "OLS"
+      ],
+      "accepted_aliases": [
+        "최소자승법"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "residual",
+      "canonical_ko": "잔차",
+      "canonical_en": "residual",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [
+        "e",
+        "ε"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "exogeneity",
+      "canonical_ko": "외생성",
+      "canonical_en": "exogeneity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "r_squared",
+      "canonical_ko": "결정계수",
+      "canonical_en": "coefficient of determination",
+      "abbreviations": [
+        "R-squared"
+      ],
+      "accepted_aliases": [],
+      "symbols": [
+        "R²"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "adjusted_r_squared",
+      "canonical_ko": "조정 결정계수",
+      "canonical_en": "adjusted R-squared",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "수정 결정계수"
+      ],
+      "symbols": [
+        "adjusted R²"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "multicollinearity",
+      "canonical_ko": "다중공선성",
+      "canonical_en": "multicollinearity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vif",
+      "canonical_ko": "분산팽창계수",
+      "canonical_en": "variance inflation factor",
+      "abbreviations": [
+        "VIF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pca",
+      "canonical_ko": "주성분분석",
+      "canonical_en": "principal component analysis",
+      "abbreviations": [
+        "PCA"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ridge",
+      "canonical_ko": "릿지 회귀",
+      "canonical_en": "ridge regression",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "Ridge"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "omitted_variable_bias",
+      "canonical_ko": "누락변수편향",
+      "canonical_en": "omitted variable bias",
+      "abbreviations": [
+        "OVB"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "glm",
+      "canonical_ko": "일반화선형모형",
+      "canonical_en": "generalized linear model",
+      "abbreviations": [
+        "GLM"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "logistic_regression",
+      "canonical_ko": "로지스틱 회귀",
+      "canonical_en": "logistic regression",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sigmoid",
+      "canonical_ko": "시그모이드 함수",
+      "canonical_en": "sigmoid function",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "로지스틱 함수"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "odds",
+      "canonical_ko": "오즈",
+      "canonical_en": "odds",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "승산"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "log_odds",
+      "canonical_ko": "로그 오즈",
+      "canonical_en": "log-odds",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "로짓",
+        "logit"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "maximum_likelihood",
+      "canonical_ko": "최대우도추정",
+      "canonical_en": "maximum likelihood estimation",
+      "abbreviations": [
+        "MLE"
+      ],
+      "accepted_aliases": [
+        "최대가능도추정"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
   "chunks": [
     {
       "chunk_id": "basic_statistics_p1_01",
@@ -14,7 +819,11 @@
       ],
       "raw_text": "2026 Summer YBIGTA\n\n\n기초 통계\n\n\n\n\n\n                               28기 전영찬",
       "visual_description": "2026 Summer YBIGTA 기초 통계 강의 표지이며 발표자는 28기 전영찬으로 표시된다.",
-      "content": "2026 Summer YBIGTA 기초 통계 강의의 표지이다."
+      "content": "2026 Summer YBIGTA 기초 통계 강의의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p2_01",
@@ -29,7 +838,14 @@
       ],
       "raw_text": "목 차\n\n 1.  Review\n\n 2. Hypothesis Testing\n\n 3. Regression Analysis",
       "visual_description": "Review, Hypothesis Testing, Regression Analysis의 세 섹션이 번호와 함께 배치되어 있다.",
-      "content": "강의는 확률·통계 복습, 가설검정, 회귀분석 순서로 구성된다."
+      "content": "강의는 확률·통계 복습, 가설검정, 회귀분석 순서로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [
+        "hypothesis_testing",
+        "regression"
+      ],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p3_01",
@@ -43,7 +859,11 @@
       ],
       "raw_text": "Review",
       "visual_description": "Review 섹션의 시작을 알리는 구분 슬라이드이다.",
-      "content": "확률변수, 표본, 공분산, 조건부확률을 복습하는 섹션의 시작 페이지이다."
+      "content": "확률변수, 표본, 공분산, 조건부확률을 복습하는 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p4_01",
@@ -59,7 +879,62 @@
       ],
       "raw_text": "주제1\nBrief Review\n\n확률변수 : 표본공간 (발생 가능한 사건의 집합)의 원소를 실수로 대응시키는 함수\n\n기댓값(Expected Value) : 어떤 시행을 무한히 반복했을 때 얻을 수 있는 값들의 평균\n\n분산 (Variable) : 데이터가 평균에서 얼마나 떨어져 있는지를 나타내는 수치",
       "visual_description": "동전 표본공간을 확률변수 값으로 대응시키는 도식, 이산·연속 기댓값 공식, 평균은 같지만 표준편차가 다른 두 정규분포 곡선이 제시된다.",
-      "content": "확률변수는 표본공간의 결과를 수치에 대응한다. 기댓값은 확률가중평균이고, 분산과 표준편차는 평균 주변의 퍼짐을 나타낸다."
+      "content": "확률변수는 표본공간의 각 결과를 실수에 대응시키는 함수다. 기댓값은 가능한 값에 확률을 가중한 평균이며, 분산은 값들이 평균에서 떨어진 정도를 나타낸다. 슬라이드는 평균은 같지만 표준편차가 다른 분포를 비교한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "random_variable",
+        "sample_space",
+        "expected_value",
+        "variance",
+        "standard_deviation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p4_u01",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "확률변수: 표본공간(발생 가능한 사건의 집합)의 원소를 실수로 대응시키는 함수",
+          "normalized_explanation": "확률변수는 표본공간의 각 결과를 실수에 대응시키는 함수다.",
+          "source_status": "verified",
+          "term_ids": [
+            "random_variable",
+            "sample_space"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p4_u02",
+          "type": "definition",
+          "source_type": "text_and_formula",
+          "source_excerpt": "기댓값(Expected Value): 어떤 시행을 무한히 반복했을 때 얻을 수 있는 값들의 평균; E(X)=Σxᵢf(xᵢ) 또는 ∫xf(x)dx",
+          "normalized_explanation": "기댓값은 반복 시행에서 얻는 값의 장기 평균이며, 이산·연속 확률변수에서 값에 확률을 가중해 계산한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "expected_value",
+            "random_variable"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p4_u03",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "분산(Variable): 데이터가 평균에서 얼마나 떨어져 있는지를 나타내는 수치; 평균이 같고 SD가 다른 두 분포",
+          "normalized_explanation": "분산은 값들이 평균에서 떨어진 정도, 표준편차는 그 퍼짐의 크기를 나타낸다.",
+          "source_status": "verified",
+          "term_ids": [
+            "variance",
+            "standard_deviation"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p4_i01",
+          "source_text": "분산 (Variable)",
+          "issue_type": "typo",
+          "correction": "분산의 영어 용어는 Variance이며 Variable은 변수다.",
+          "evaluation_policy": "warn"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p5_01",
@@ -77,7 +952,46 @@
       ],
       "raw_text": "주제1\n모집단과 표본\n\n\n                              표본추출을 통해 모집단을 “추정”한다.\n\n\n                              표본분포의 특성에 따라\n                                                                cluster sampling, stratified sampling,\n                                                        simple random sampling 등의 방법을\n                                   선택한다.\n\n\n                              일부를 통해 전체를 평가하는 것이\n                              타당한 접근인가....?????>?>>?",
       "visual_description": "큰 모집단 원 안에 작은 표본 원을 겹쳐 일부 고객으로 모든 고객을 추정하는 관계를 나타낸다.",
-      "content": "표본추출로 모집단을 추정한다. 표본분포의 특성에 따라 군집표본추출, 층화표본추출, 단순무작위표본추출 등을 선택하며 표본의 대표성을 검토해야 한다."
+      "content": "표본추출로 모집단을 추정한다. 표본분포의 특성에 따라 군집표본추출, 층화표본추출, 단순무작위표본추출 등을 선택하며 표본의 대표성을 검토해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "population",
+        "sample",
+        "sampling",
+        "cluster_sampling",
+        "stratified_sampling",
+        "simple_random_sampling"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p5_u01",
+          "type": "relation",
+          "source_type": "text_and_visual",
+          "source_excerpt": "표본추출을 통해 모집단을 ‘추정’한다.",
+          "normalized_explanation": "모집단 전체를 직접 조사하는 대신 표본을 추출해 모집단의 특성을 추정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "population",
+            "sample",
+            "sampling"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p5_u02",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "표본분포의 특성에 따라 cluster sampling, stratified sampling, simple random sampling 등의 방법을 선택한다.",
+          "normalized_explanation": "자료와 표본의 특성을 고려해 군집·층화·단순무작위 표본추출 등을 선택하고, 일부로 전체를 평가하는 타당성을 검토한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "sampling",
+            "cluster_sampling",
+            "stratified_sampling",
+            "simple_random_sampling"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p6_01",
@@ -93,7 +1007,62 @@
       ],
       "raw_text": "주제1\n공분산과 상관계수\n\nCov(x,y) = E(xy)-E(x)E(y). => 스케일링 : 상관계수\n\n  공분산이 0이면 두 확률변수는 서로 독립이다.\n  통계적 상관관계는 인과관계와 다르다 !!!!!!!!!!",
       "visual_description": "양의 관계, 음의 관계, 관계 없음의 세 산점도가 사분면별 점 분포로 비교되고 공분산과 상관계수 공식이 함께 제시된다.",
-      "content": "공분산은 두 변수의 함께 변하는 방향을 나타내고 상관계수는 이를 -1과 1 사이로 스케일링한다. 상관관계는 인과관계와 다르다. 강의안에는 공분산이 0이면 독립이라고 서술되어 있어 원문 검토가 필요하다."
+      "content": "공분산은 두 변수가 함께 변하는 방향을 나타내고, 상관계수는 공분산을 두 변수의 표준편차로 나누어 -1과 1 사이에서 관계의 방향과 강도를 나타낸다. 상관관계는 인과관계와 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "covariance",
+        "correlation",
+        "causation",
+        "independence",
+        "zero_covariance"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p6_u01",
+          "type": "formula",
+          "source_type": "text_and_visual",
+          "source_excerpt": "Cov(x,y)=E(xy)-E(x)E(y); 양의 관계·음의 관계·관계 없음 산점도",
+          "normalized_explanation": "공분산은 두 변수가 함께 변하는 방향을 나타낸다.",
+          "source_status": "verified",
+          "term_ids": [
+            "covariance"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p6_u02",
+          "type": "formula",
+          "source_type": "formula",
+          "source_excerpt": "ρ=Cov(X,Y)/√(Var(X)Var(Y)), -1≤ρ≤1",
+          "normalized_explanation": "상관계수는 공분산을 두 변수의 표준편차로 표준화하며 -1과 1 사이에서 관계의 방향과 강도를 나타낸다.",
+          "source_status": "verified",
+          "term_ids": [
+            "covariance",
+            "correlation",
+            "variance"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p6_u03",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "통계적 상관관계는 인과관계와 다르다.",
+          "normalized_explanation": "상관관계가 관찰되어도 그것만으로 인과관계를 뜻하지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "correlation",
+            "causation"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p6_i01",
+          "source_text": "공분산이 0이면 두 확률변수는 서로 독립이다.",
+          "issue_type": "incorrect",
+          "correction": "공분산 0은 무상관을 뜻하지만 일반적으로 독립을 보장하지 않는다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p7_01",
@@ -109,7 +1078,52 @@
       ],
       "raw_text": "주제1\n조건부확률과 독립성\n\n                           Bayes Theorem\n                             P(A|B)P(B) = P(B|A)P(A)\n\n                사건 간의 연결고리를 잘 생각해 보자. 어느정도 직관적\n                사고가 있으면 좋음!\n                내가 모르는 사건을 아는 사건으로 접근하는 데 도움을\n                     준다.\n                             ex. law of total probability\n                              E(X) = E(E(X|Y))\n                     => X를 모르니까.. given Y에서 X의 분포를 구하고, 이 조\n              건부 분포의 평균은 Y에 대한 식이니까, 이 식에 대한 평균\n              을 한번 더 때려주는 것 !!!",
       "visual_description": "조건부확률 공식과 A·B 사건의 벤다이어그램, 베이즈 정리와 반복기댓값 공식이 함께 배치된다.",
-      "content": "조건부확률은 알려진 사건 B 아래에서 A의 확률을 계산한다. 베이즈 정리는 조건의 방향을 바꾸고, 전체기댓값법칙은 조건부 기댓값을 다시 평균낸다."
+      "content": "조건부확률은 알려진 사건 B 아래에서 A의 확률을 계산한다. 베이즈 정리는 조건의 방향을 바꾸고, 전체기댓값법칙은 조건부 기댓값을 다시 평균낸다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "conditional_probability",
+        "bayes_theorem",
+        "iterated_expectation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p7_u01",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "P(A|B)=P(A∩B)/P(B)",
+          "normalized_explanation": "조건부확률은 사건 B가 주어졌을 때 사건 A가 일어날 확률이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conditional_probability"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p7_u02",
+          "type": "formula",
+          "source_type": "text_and_formula",
+          "source_excerpt": "Bayes Theorem: P(A|B)P(B)=P(B|A)P(A)",
+          "normalized_explanation": "베이즈 정리는 조건부확률의 조건 방향을 바꾸어 미지의 사건을 알려진 사건으로 접근하게 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "conditional_probability",
+            "bayes_theorem"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p7_u03",
+          "type": "formula",
+          "source_type": "text_and_formula",
+          "source_excerpt": "E(X)=E(E(X|Y))",
+          "normalized_explanation": "전체기댓값법칙은 Y가 주어졌을 때의 X의 조건부 기댓값을 Y에 대해 다시 평균낸다.",
+          "source_status": "verified",
+          "term_ids": [
+            "iterated_expectation",
+            "conditional_probability",
+            "expected_value"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p8_01",
@@ -122,7 +1136,13 @@
       ],
       "raw_text": "Hypothesis Testing",
       "visual_description": "Hypothesis Testing이라는 큰 제목의 구분 슬라이드이다.",
-      "content": "가설 설정, 오류, p-value, 신뢰구간과 ANOVA를 다루는 섹션의 시작 페이지이다."
+      "content": "가설 설정, 오류, p-value, 신뢰구간과 ANOVA를 다루는 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [
+        "hypothesis_testing"
+      ],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p9_01",
@@ -138,7 +1158,55 @@
       ],
       "raw_text": "주제2\nStructure\n\n                                          Step1. 귀무 대립가설 세우기\n\n                                        Step2. 유의수준 선택\n\n                                        Step3. 검정통계량 계산\n\n                                       Step4. p-value 계산\n\n                                        Step5. 귀무가설에 대한 판단\n                                            (accept? reject?)",
       "visual_description": "왼쪽에는 자료 유형과 정규성에 따른 검정법 선택 트리가 있고, 오른쪽에는 가설검정의 다섯 단계가 나열된다.",
-      "content": "가설검정은 귀무·대립가설 설정, 유의수준 선택, 검정통계량 계산, p-value 계산, 귀무가설 판단의 순서로 진행한다. 자료 특성과 가정에 따라 검정법을 선택한다."
+      "content": "가설검정은 귀무·대립가설 설정, 유의수준 선택, 검정통계량 계산, p-value 계산, 귀무가설 판단의 순서로 진행한다. 자료 특성과 가정에 따라 검정법을 선택한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "hypothesis_testing",
+        "null_hypothesis",
+        "alternative_hypothesis",
+        "significance_level",
+        "test_statistic",
+        "p_value"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p9_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Step1. 귀무·대립가설 세우기; Step2. 유의수준 선택; Step3. 검정통계량 계산; Step4. p-value 계산; Step5. 귀무가설에 대한 판단",
+          "normalized_explanation": "가설검정은 가설 설정, 유의수준 선택, 검정통계량과 p-value 계산, 귀무가설 판단 순서로 진행한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hypothesis_testing",
+            "null_hypothesis",
+            "alternative_hypothesis",
+            "significance_level",
+            "test_statistic",
+            "p_value"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p9_u02",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "자료 유형과 정규성에 따른 Hypothesis Testing 선택 트리",
+          "normalized_explanation": "자료의 연속형·범주형 여부, 정규성 등 자료 특성과 가정에 따라 검정법을 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hypothesis_testing",
+            "normality"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p9_i01",
+          "source_text": "귀무가설에 대한 판단(accept? reject?)",
+          "issue_type": "ambiguous",
+          "correction": "통상 ‘기각’ 또는 ‘기각하지 못함’으로 표현하며, 데이터가 귀무가설을 참으로 확정하지 않는다.",
+          "evaluation_policy": "warn"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p10_01",
@@ -153,7 +1221,38 @@
       ],
       "raw_text": "주제2\nWhy??\n\n왜 하필 “귀무가설을 기각“하는 구조일까?\n→ 특정 가설이 참임을 데이터로 직접 입증하는 건 논리적으로 불가능에 가깝다.\n 귀류법을 사용하여 결론의 모순을 찾는 방식으로 접근한다.\n\n\n귀무가설은 왜 “차이 없음“이 기본값인가? (H0 : mu1 - mu2 =0)\n→목표는 귀무가설 하에서 ~~~임을 보이는 것 - 귀무가설은 적어도 계산이 가능해야 한다\n   : 차이 없음 (딱 하나의 분포)으로 둠으로써 계산을 용이하게 만드는 것",
       "visual_description": "텍스트로 귀무가설을 기본값으로 두는 논리를 질문과 화살표로 설명한다.",
-      "content": "특정 가설을 직접 증명하기 어렵기 때문에 귀무가설 아래에서 관측 결과의 모순을 찾는 귀류법적 구조를 사용한다. 차이 없음은 하나의 분포로 계산 가능한 기본값 역할을 한다."
+      "content": "특정 가설을 직접 증명하기 어렵기 때문에 귀무가설 아래에서 관측 결과의 모순을 찾는 귀류법적 구조를 사용한다. 차이 없음은 하나의 분포로 계산 가능한 기본값 역할을 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "null_hypothesis",
+        "alternative_hypothesis"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p10_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "특정 가설이 참임을 데이터로 직접 입증하는 건 논리적으로 불가능에 가깝다. 귀류법을 사용하여 결론의 모순을 찾는 방식으로 접근한다.",
+          "normalized_explanation": "가설검정은 특정 가설을 직접 증명하기보다 귀무가설 아래에서 관측 결과가 얼마나 모순적인지 살피는 구조다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hypothesis_testing",
+            "null_hypothesis"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p10_u02",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "차이 없음(딱 하나의 분포)으로 둠으로써 계산을 용이하게 만드는 것",
+          "normalized_explanation": "귀무가설의 ‘차이 없음’은 계산 가능한 기준 분포를 제공한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "null_hypothesis"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p11_01",
@@ -170,7 +1269,49 @@
       ],
       "raw_text": "주제2\nType 1, 2 error\n\n\n                          1종오류 : 귀무가설이 실제로 참이지만, 귀무\n                      가설을 기각하는 오류\n                      → 실제 음성인 것을 양성으로 판정\n                      → 가설검정에서의 alpha\n\n\n                         2종오류 : 귀무가설이 실제로 거짓이지만, 귀\n                      무가설을 채택하는 오류\n                      → 실제 양성인 것을 음성으로 채택하는 오류\n                      → beta (power..)",
       "visual_description": "임신 여부를 잘못 판정하는 두 사진으로 false positive와 false negative를 대비한다.",
-      "content": "1종 오류는 참인 귀무가설을 기각하는 오류로 alpha와 연결되고, 2종 오류는 거짓 귀무가설을 기각하지 못하는 오류로 beta 및 검정력과 연결된다."
+      "content": "1종 오류는 참인 귀무가설을 기각하는 오류로 α에 대응한다. 2종 오류는 거짓인 귀무가설을 기각하지 못하는 오류로 β에 대응한다. 검정력은 β와 구분해서 해석해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "type_i_error",
+        "type_ii_error",
+        "statistical_power",
+        "null_hypothesis"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p11_u01",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "1종 오류: 귀무가설이 실제로 참이지만 귀무가설을 기각하는 오류; 실제 음성을 양성으로 판정; α",
+          "normalized_explanation": "1종 오류는 참인 귀무가설을 기각하는 오류이며 false positive와 α에 대응한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "type_i_error",
+            "null_hypothesis"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p11_u02",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "2종 오류: 귀무가설이 실제로 거짓이지만 귀무가설을 채택하는 오류; 실제 양성을 음성으로 판정; β",
+          "normalized_explanation": "2종 오류는 거짓인 귀무가설을 기각하지 못하는 오류이며 false negative와 β에 대응한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "type_ii_error",
+            "null_hypothesis"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p11_i01",
+          "source_text": "beta (power..)",
+          "issue_type": "ambiguous",
+          "correction": "β는 2종 오류 확률이고 검정력은 1-β다.",
+          "evaluation_policy": "warn"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p12_01",
@@ -186,7 +1327,27 @@
       ],
       "raw_text": "주제2\nTradeoff\n\n                        H0 : 관심없다! H1 : 그녀도 나를 좋아한다\n                        H0 기각 : 고백한다 / 채택 : 가만히 있는다\n\n                    1종오류 : 관심없는데 고백해서 차임..\n                            (H0 참, H0 기각) → 눈에 보이는 .. 즉각적인 아픔\n                   2종오류 : 그녀도 나를 좋아하는데 못 알아채고 놓침\n                            (H0 거짓, H0 채택) → 애초에 놓쳤다는 사실조차 모른다\n                                                  : 안 보이는 기회비용\n\n\n  확신이 서야만 고백한다는 기준을 빡빡하게 잡을수록, 차일 위험은 줄어들지만 (1종오류 줄어듬) 진\n  짜 기회를 놓치는 경우 (2종오류) 가 늘어난다\n  조금이라도 신호가 있으면 고백한다로 잡으면.. 차일 위험은 늘어나고 (1종오류 증가)\n  기회를 덜 놓칠 수 있다 (2종오류 감소)!!",
       "visual_description": "고백 여부와 상대의 호감 여부를 2×2 표로 나타낸 연애 비유와 두 오류의 비용이 설명된다.",
-      "content": "판정 기준을 엄격하게 잡으면 1종 오류는 줄지만 2종 오류가 늘고, 느슨하게 잡으면 반대가 된다. 어떤 오류가 더 비싼지에 따라 임계값을 정해야 한다."
+      "content": "판정 기준을 엄격하게 잡으면 1종 오류는 줄지만 2종 오류가 늘고, 느슨하게 잡으면 반대가 된다. 슬라이드는 고백 여부의 비유로 두 오류가 서로 trade-off 관계임을 설명한다.",
+      "page_role": "example",
+      "term_ids": [
+        "type_i_error",
+        "type_ii_error"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p12_u01",
+          "type": "relation",
+          "source_type": "text_and_visual",
+          "source_excerpt": "기준을 빡빡하게 잡을수록 1종 오류는 줄지만 2종 오류가 늘어난다; 기준을 느슨하게 잡으면 1종 오류는 늘고 2종 오류는 감소한다.",
+          "normalized_explanation": "같은 판정 문제에서 임계값을 엄격하게 하면 1종 오류가 줄고 2종 오류가 늘 수 있으며, 느슨하게 하면 반대 방향의 trade-off가 생긴다.",
+          "source_status": "verified",
+          "term_ids": [
+            "type_i_error",
+            "type_ii_error"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p13_01",
@@ -202,7 +1363,31 @@
       ],
       "raw_text": "주제2",
       "visual_description": "겹치는 두 종 모양 분포에서 귀무가설과 대립가설을 표시하고, 경계 양쪽의 1종 오류 영역은 빨강, 2종 오류 영역은 청록으로 칠했다.",
-      "content": "귀무가설과 대립가설의 분포가 겹치면 하나의 판정 경계에서 1종 오류와 2종 오류가 동시에 발생할 수 있으며 두 영역 사이에 트레이드오프가 생긴다."
+      "content": "귀무가설과 대립가설의 분포가 겹치면 하나의 판정 경계에서 1종 오류와 2종 오류가 동시에 발생할 수 있으며 두 영역 사이에 트레이드오프가 생긴다.",
+      "page_role": "example",
+      "term_ids": [
+        "type_i_error",
+        "type_ii_error",
+        "null_hypothesis",
+        "alternative_hypothesis"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p13_u01",
+          "type": "relation",
+          "source_type": "visual",
+          "source_excerpt": "겹치는 귀무가설·대립가설 분포와 한 판정 경계에서 표시된 Type I error 및 Type II error 영역",
+          "normalized_explanation": "귀무가설과 대립가설 분포가 겹치면 하나의 판정 경계에서 1종 오류와 2종 오류 영역이 함께 생긴다.",
+          "source_status": "verified",
+          "term_ids": [
+            "type_i_error",
+            "type_ii_error",
+            "null_hypothesis",
+            "alternative_hypothesis"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p14_01",
@@ -217,7 +1402,41 @@
       ],
       "raw_text": "주제2\nP-value는 “극단성의 척도”\n\n\n                                                           definition: 귀무가설이 참이라 가정했을 때, 지금 관측한\n                              데이터(혹은 그보다 더 극단적인 데이터) 가 나올 확률\n\n                           가정은 이미 고정된 상태에서, 데이터가 그 가정과 얼마나\n                           안 어울리는지를 재는 숫자\n\n                                       P value가 작다\n                           → (1) 진짜 귀무가설이 틀렸다\n                                                             (2) 귀무가설이 맞는데.. 우연히 드문 사건이 발생했다\n\n                                       P value가 작다는 것은, 가정과 데이터 사이에 긴장이 크\n                           다는 신호일 뿐이다.\n                           증거나 데이터가 불충분하다는 것..\n해외 법정에서.. guilty/innocent가 아니라\ngulity/ not guilty로 부르는 이유와 같다!",
       "visual_description": "귀무가설 분포의 꼬리 영역을 초록색 p-value로 표시하고 관측값 위치와 가능성이 낮은 영역을 함께 나타낸다.",
-      "content": "p-value는 귀무가설이 참이라고 가정했을 때 지금 관측한 데이터 또는 더 극단적인 데이터가 나올 확률이다. 작다는 것은 가정과 데이터 사이의 긴장이 크다는 뜻이지 귀무가설이 거짓일 확률 그 자체가 아니다."
+      "content": "p-value는 귀무가설이 참이라고 가정했을 때 지금 관측한 데이터 또는 더 극단적인 데이터가 나올 확률이다. 작다는 것은 가정과 데이터 사이의 긴장이 크다는 뜻이지 귀무가설이 거짓일 확률 그 자체가 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "p_value",
+        "null_hypothesis",
+        "null_probability"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p14_u01",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "귀무가설이 참이라 가정했을 때, 지금 관측한 데이터(혹은 그보다 더 극단적인 데이터)가 나올 확률",
+          "normalized_explanation": "p-value는 귀무가설이 참이라는 조건 아래 관측 데이터 또는 더 극단적인 데이터가 나올 확률이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "p_value",
+            "null_hypothesis"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p14_u02",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "P-value가 작다는 것은 가정과 데이터 사이에 긴장이 크다는 신호일 뿐이다.",
+          "normalized_explanation": "작은 p-value는 귀무가설과 데이터가 잘 맞지 않는다는 신호이지 귀무가설이 거짓일 확률 자체는 아니다.",
+          "source_status": "verified",
+          "term_ids": [
+            "p_value",
+            "null_hypothesis",
+            "null_probability"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p15_01",
@@ -233,7 +1452,42 @@
       ],
       "raw_text": "주제2\n그러나...\n\nBasic format of\n            =>                      표준오차 : 표본크기가 커지면, 작아진다Test statistics\n\n=> n(표본크기) up => 검정통계량 커짐 => p-value가 자연스럽게 작아질 수 밖에...\n\n\n가설검정은 만능이 아니다 - 항상 의심하고 또 의심해야 함\n\n즉,, 언제나\np-value, 신뢰구간 모두를 다 살펴보아야 한다!",
       "visual_description": "관측된 차이를 그 차이의 불확실성인 표준오차로 나누는 검정통계량 기본형이 제시된다.",
-      "content": "표본크기가 커지면 표준오차가 작아지고 검정통계량이 커져 p-value가 작아지기 쉬우므로, p-value만으로 효과의 실질적 크기를 판단하면 안 된다."
+      "content": "표본크기가 커지면 표준오차가 작아지고 같은 관측 차이에서도 검정통계량이 커져 p-value가 작아지기 쉽다. 슬라이드는 가설검정을 단독으로 해석하지 말고 p-value와 신뢰구간을 함께 살펴야 한다고 강조한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "test_statistic",
+        "standard_error",
+        "p_value",
+        "confidence_interval"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p15_u01",
+          "type": "relation",
+          "source_type": "text_and_formula",
+          "source_excerpt": "검정통계량의 기본형=관측된 차이/그 차이의 불확실성(표준오차); 표본크기가 커지면 표준오차가 작아지고 검정통계량이 커져 p-value가 작아진다.",
+          "normalized_explanation": "표본크기가 커지면 표준오차가 작아져 같은 관측 차이에서도 검정통계량이 커지고 p-value가 작아지기 쉽다.",
+          "source_status": "verified",
+          "term_ids": [
+            "test_statistic",
+            "standard_error",
+            "p_value"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p15_u02",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "가설검정은 만능이 아니다; p-value, 신뢰구간 모두를 다 살펴보아야 한다.",
+          "normalized_explanation": "p-value 하나만으로 결론내리지 말고 신뢰구간과 함께 해석한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "p_value",
+            "confidence_interval"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p16_01",
@@ -248,7 +1502,28 @@
       ],
       "raw_text": "주제2\nCommon fallacies\n\n   1. p값은 모수에 대한 확률이 아니다\n  p값을 효과가 있다는 대립가설이 틀릴 확률.. 이런 식으로 이해하면 안 된다.\n  확률은 확률변수에나 쓰는 것.. 여기서의 모수는 unknown constant이다.\n\n\n 2.p값은 귀무가설에 대한 믿음의 “정도”를 주지 않는다\n  p값이 0.03이다 <=> 귀무가설이 참일 확률이 3%다????????????????\n\n           중간 다리\n P-value : P(데이터|귀무가설)           하나 빠짐!\n\n 귀무가설이 참일 확률이 ~다 : P(귀무가설|데이터)",
       "visual_description": "P(데이터|귀무가설)과 P(귀무가설|데이터)를 큰 빨간 글씨와 밈 이미지로 구분한다.",
-      "content": "p-value는 모수에 대한 확률이나 귀무가설이 참일 믿음의 정도가 아니다. P(데이터|귀무가설)와 P(귀무가설|데이터)의 조건 방향을 바꾸어 해석하면 안 된다."
+      "content": "p-value는 모수에 대한 확률이나 귀무가설이 참일 믿음의 정도가 아니다. P(데이터|귀무가설)와 P(귀무가설|데이터)의 조건 방향을 바꾸어 해석하면 안 된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "p_value",
+        "null_probability"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p16_u01",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "P-value: P(데이터|귀무가설); 귀무가설이 참일 확률: P(귀무가설|데이터)",
+          "normalized_explanation": "p-value는 모수에 대한 확률이나 귀무가설에 대한 믿음의 정도가 아니며 P(data|H0)를 P(H0|data)로 뒤집어 해석하면 안 된다.",
+          "source_status": "verified",
+          "term_ids": [
+            "p_value",
+            "null_hypothesis",
+            "null_probability"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p17_01",
@@ -264,7 +1539,53 @@
       ],
       "raw_text": "주제2\n Confidence Interval\n\n  Definition : 이 구간을 만드는 절차를 무한히 반복했을 때, 그렇게 만들어진 구간들 중 ~~%가\n  true parameter를 포함한다.\n  점추정치는 표본이 바뀔 때 마다 값이 바뀌는 확률변수 - 추정의 확실성에 대한 정보가 없다.\n→ 신뢰구간은 추정의 불확실성을 구간의 폭으로 정량화한다.\n\n  정확도와 정보량은 서로 트레이드오프 관계\n 정확도 (신뢰수준) 을 올리면 임계값이 커져서 구간이 넓어진다 →\n 극단적으로, 100% 신뢰구간은 (-무한, 무한) : 아무 정보도 없는 구간.......... 정보량 down\n\n  두 집단 간의 신뢰구간을 비교하려면.........\n\n  V(x1-x2) = V(x1) + V(x2) - 2Cov(x1, x2) → x1,x2의 신뢰구간을 따로 보면,\n  x1-x2의 신뢰구간과 다른 결과가 나올 수도 있다.",
       "visual_description": "신뢰구간의 반복표집 정의와 정확도·정보량의 트레이드오프, 두 집단 차이의 분산 공식이 텍스트와 수식으로 제시된다.",
-      "content": "신뢰구간은 동일한 생성 절차를 무한히 반복했을 때 정해진 비율의 구간이 참 모수를 포함하도록 만드는 절차이다. 신뢰수준을 높이면 구간은 넓어지며, 두 집단 차이는 각 집단 구간을 단순 비교하지 말고 차이의 분산으로 계산해야 한다."
+      "content": "신뢰구간은 동일한 생성 절차를 무한히 반복했을 때 정해진 비율의 구간이 참 모수를 포함하도록 만드는 절차이다. 신뢰수준을 높이면 구간은 넓어지며, 두 집단 차이는 각 집단 구간을 단순 비교하지 말고 차이의 분산으로 계산해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "confidence_interval",
+        "confidence_level",
+        "fixed_interval_probability"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p17_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "이 구간을 만드는 절차를 무한히 반복했을 때, 그렇게 만들어진 구간들 중 ~~%가 true parameter를 포함한다.",
+          "normalized_explanation": "95% 신뢰구간은 같은 구간 생성 절차를 반복할 때 생성된 구간의 95%가 참 모수를 포함하도록 하는 절차다.",
+          "source_status": "verified",
+          "term_ids": [
+            "confidence_interval",
+            "confidence_level"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p17_u02",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "신뢰구간은 추정의 불확실성을 구간의 폭으로 정량화한다. 신뢰수준을 올리면 임계값이 커져 구간이 넓어진다.",
+          "normalized_explanation": "신뢰수준을 높이면 구간이 넓어져 더 안전하지만 구체성과 정보량은 낮아진다.",
+          "source_status": "verified",
+          "term_ids": [
+            "confidence_interval",
+            "confidence_level"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p17_u03",
+          "type": "warning",
+          "source_type": "text_and_formula",
+          "source_excerpt": "V(x1-x2)=V(x1)+V(x2)-2Cov(x1,x2); x1,x2의 신뢰구간을 따로 보면 x1-x2의 신뢰구간과 다른 결과가 나올 수도 있다.",
+          "normalized_explanation": "두 집단 차이는 각 집단의 신뢰구간만 따로 비교하지 말고 차이의 분산과 공분산을 반영해 계산한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "confidence_interval",
+            "variance",
+            "covariance"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p18_01",
@@ -279,7 +1600,52 @@
       ],
       "raw_text": "주제2\nCommon fallacies\n\n 이 신뢰구간에 모수가 있을 확률이 95%다 ???????????????????\n\n\n 95% 신뢰구간이 90% 신뢰구간보다 항상 더 유용하다????????????????????\n신뢰수준을 올리는 것은 더 좋은게 아니라 더 안전하지만 덜 구체적인 것\n\n 구간이 좁으면 무조건 다 좋은 추정이다?????????????????????????????\n\n신뢰수준을 고정하지 않고 폭만 비교하면 의미가 없다\n\n잘 알고 쓰는 멋진 와빅인이 됩시다..",
       "visual_description": "잘못된 해석을 질문 형식으로 제시하고 핵심 교정 문장을 빨간색으로 강조한다.",
-      "content": "계산된 특정 95% 신뢰구간에 모수가 있을 확률이 95%라고 해석하면 안 된다. 신뢰수준이 높으면 더 안전하지만 덜 구체적이고, 신뢰수준을 고정하지 않은 채 폭만 비교하는 것도 의미가 없다."
+      "content": "계산된 특정 95% 신뢰구간에 모수가 있을 확률이 95%라고 해석하면 안 된다. 신뢰수준이 높으면 더 안전하지만 덜 구체적이고, 신뢰수준을 고정하지 않은 채 폭만 비교하는 것도 의미가 없다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "confidence_interval",
+        "confidence_level",
+        "fixed_interval_probability"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p18_u01",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "이 신뢰구간에 모수가 있을 확률이 95%다?",
+          "normalized_explanation": "빈도주의 신뢰구간에서 이미 계산된 특정 95% 구간에 모수가 있을 확률이 95%라고 해석하지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "confidence_interval",
+            "fixed_interval_probability"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p18_u02",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "신뢰수준을 올리는 것은 더 좋은 게 아니라 더 안전하지만 덜 구체적인 것",
+          "normalized_explanation": "높은 신뢰수준은 더 안전하지만 구간을 넓혀 구체성을 낮추므로 언제나 더 유용한 것은 아니다.",
+          "source_status": "verified",
+          "term_ids": [
+            "confidence_interval",
+            "confidence_level"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p18_u03",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "신뢰수준을 고정하지 않고 폭만 비교하면 의미가 없다.",
+          "normalized_explanation": "신뢰구간 폭은 신뢰수준을 같게 둔 뒤 비교해야 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "confidence_interval",
+            "confidence_level"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p19_01",
@@ -294,7 +1660,41 @@
       ],
       "raw_text": "주제2\nANOVA\n              분산분석     alysis            rianceAN     Of VA\n→ 두개 이상 그룹의 평균 비교를 분산을 통해 분석한다!\n\nQ. 평균 차이를 검정하는데, 왜 분산을 쓰는데?\n그룹 평균을 직접 비교하는 것이 아니라, 데이터 전체의 변동을 두 가지로 쪼개서 비교한다\n\n그룹 간 변동 : 각 그룹의 평균들이 전체 평균으로부터 얼마나 떨어져 있는가?\n그룹 내 변동 : 같은 그룹 내에서 개별 관측치들이 그룹 평균으로부터 얼마나 떨어져 있는가?\n       (순수한 잡음)\n\n그래서 왜 분산인가 - 평균 차이 자체는 항상 존재하는데,\n“이 차이가 잡음 대비 충분히 큰가?” 를 보는 것이 중요하다\n→ 그룹 내 변동 자체가 분산이라서, 분산을 보는 것이 필요함",
       "visual_description": "ANOVA의 영문 철자를 크게 분해해 보여주고 평균 차이를 왜 분산으로 검정하는지 설명한다.",
-      "content": "ANOVA는 두 개 이상 집단의 평균 차이를 전체 변동을 집단 간 변동과 집단 내 변동으로 나누어 분석한다. 집단 간 차이가 집단 내 잡음에 비해 충분히 큰지를 본다."
+      "content": "ANOVA는 두 개 이상 집단의 평균 차이를 전체 변동을 집단 간 변동과 집단 내 변동으로 나누어 분석한다. 집단 간 차이가 집단 내 잡음에 비해 충분히 큰지를 본다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "anova",
+        "between_group_variation",
+        "within_group_variation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p19_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "두 개 이상 그룹의 평균 비교를 분산을 통해 분석한다. 데이터 전체의 변동을 그룹 간 변동과 그룹 내 변동으로 쪼개서 비교한다.",
+          "normalized_explanation": "ANOVA는 두 개 이상 집단의 평균 차이를 전체 변동의 집단 간 부분과 집단 내 부분으로 나누어 분석한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "anova",
+            "between_group_variation",
+            "within_group_variation"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p19_u02",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "이 차이가 잡음 대비 충분히 큰가를 보는 것이 중요하다.",
+          "normalized_explanation": "집단 평균 차이가 집단 내 잡음에 비해 충분히 큰지 판단한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "between_group_variation",
+            "within_group_variation"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p20_01",
@@ -311,7 +1711,43 @@
       ],
       "raw_text": "주제2\n구조\nStep1. 총변동을 분해\nSST = SSB + SSW (증명은 어렵지 않아요 ㅎㅎㅎ)\n\nStep2. 자유도로 정규화\n각 변동을 자유도로 나누어 평균적인 변동 크기로 만들어 준다.\nMSB : SSB/k-1, MSW : SSW/n-k\n\nStep3. ratio(F statistics) 계산하기\nF : MSB/MSW\n\nF가 크다 : 그룹 간 신호가 그룹 내 잡음보다 훨씬 크다\n→ 우연으로 보기 어렵다 → 유의성 판단해보자!!",
       "visual_description": "총변동 분해, 자유도 정규화, F 비율 계산을 Step 1~3으로 크게 배치한다.",
-      "content": "ANOVA는 SST=SSB+SSW로 변동을 분해하고 자유도로 나눈 MSB와 MSW를 구한다. F=MSB/MSW가 크면 집단 간 신호가 집단 내 잡음보다 크다고 판단한다."
+      "content": "ANOVA는 SST=SSB+SSW로 변동을 분해하고 자유도로 나눈 MSB와 MSW를 구한다. F=MSB/MSW가 크면 집단 간 신호가 집단 내 잡음보다 크다고 판단한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "anova",
+        "between_group_variation",
+        "within_group_variation",
+        "f_statistic"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p20_u01",
+          "type": "procedure",
+          "source_type": "text_and_formula",
+          "source_excerpt": "SST=SSB+SSW; MSB=SSB/(k-1), MSW=SSW/(n-k)",
+          "normalized_explanation": "총변동을 SST=SSB+SSW로 분해하고 각 제곱합을 자유도로 나누어 MSB와 MSW를 구한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "anova",
+            "between_group_variation",
+            "within_group_variation"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p20_u02",
+          "type": "interpretation",
+          "source_type": "text_and_formula",
+          "source_excerpt": "F=MSB/MSW; F가 크다: 그룹 간 신호가 그룹 내 잡음보다 훨씬 크다.",
+          "normalized_explanation": "F 통계량은 MSB/MSW이며 값이 크면 집단 간 신호가 집단 내 잡음보다 상대적으로 크다.",
+          "source_status": "verified",
+          "term_ids": [
+            "f_statistic",
+            "between_group_variation",
+            "within_group_variation"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p21_01",
@@ -327,7 +1763,40 @@
       ],
       "raw_text": "주제2\n Important Assumptions\n1.독립성\n 관측치끼리 서로 영향을 주면 안 된다.\n\n2.정규성\n F분포는 카이제곱분포의 비율 → 카이제곱분포는 표준정규분포의 제곱\n → 정규성이 깨지면 f test 자체가 불가능\n\n3.등분산성\n 모든 그룹의 모분산이 같아야 한다. 한 그룹이 다른 그룹을 방해해선 안 된다.",
       "visual_description": "독립성, 정규성, 등분산성의 세 가정을 번호로 나열한 텍스트 중심 슬라이드이다.",
-      "content": "ANOVA의 F 검정을 위해 관측치 독립성, 집단별 정규성, 집단 간 등분산성을 점검해야 한다."
+      "content": "ANOVA에서는 관측치 독립성, 집단별 정규성, 집단 간 등분산성을 점검한다. 슬라이드의 ‘정규성이 깨지면 F 검정 자체가 불가능하다’는 절대적 표현은 평가 근거에서 제외한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "anova",
+        "independence",
+        "normality",
+        "homoscedasticity",
+        "f_statistic"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p21_u01",
+          "type": "assumption",
+          "source_type": "text",
+          "source_excerpt": "Important Assumptions: 1. 독립성 2. 정규성 3. 등분산성",
+          "normalized_explanation": "ANOVA에서 관측치 독립성, 집단별 정규성, 집단 간 등분산성을 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "anova",
+            "independence",
+            "normality",
+            "homoscedasticity"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p21_i01",
+          "source_text": "정규성이 깨지면 f test 자체가 불가능",
+          "issue_type": "overgeneralized",
+          "correction": "정규성 위반이 F 검정을 항상 불가능하게 만드는 것은 아니며 표본크기·균형성·위반 정도와 대안을 함께 검토해야 한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p22_01",
@@ -343,7 +1812,38 @@
       ],
       "raw_text": "주제2\n검정은 어떻게?\n1.독립성\n독립성은 대부분 검정보다는 연구 설계 단계에서 확보하는 가정\n(독립성 위반 : 데이터의 수집 방식 / 인접 관측치들의 영향에서 기인함).\n\n시계열처럼 순서가 있는 경우 : Durbin-Watson 검정으로 autocorrelation 확인\n일반적인 경우 : 데이터 수집 과정 자체를 점검하자.",
       "visual_description": "독립성은 주로 연구 설계에서 확보한다는 설명과 시계열·일반 자료의 점검법이 구분되어 있다.",
-      "content": "독립성은 데이터 수집과 연구 설계에서 확보하는 것이 우선이다. 순서가 있는 시계열은 Durbin-Watson으로 자기상관을 확인하고 일반 자료는 수집 과정을 점검한다."
+      "content": "독립성은 데이터 수집과 연구 설계에서 확보하는 것이 우선이다. 순서가 있는 시계열은 Durbin-Watson으로 자기상관을 확인하고 일반 자료는 수집 과정을 점검한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "independence",
+        "durbin_watson"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p22_u01",
+          "type": "assumption",
+          "source_type": "text",
+          "source_excerpt": "독립성은 대부분 검정보다는 연구 설계 단계에서 확보하는 가정",
+          "normalized_explanation": "독립성은 통계 검정보다 데이터 수집과 연구 설계에서 우선 확보한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "independence"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p22_u02",
+          "type": "diagnostic",
+          "source_type": "text",
+          "source_excerpt": "시계열처럼 순서가 있는 경우 Durbin-Watson 검정으로 autocorrelation 확인; 일반적인 경우 데이터 수집 과정 자체를 점검",
+          "normalized_explanation": "순서가 있는 자료는 Durbin-Watson으로 자기상관을 확인하고 일반 자료는 수집 과정을 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "independence",
+            "durbin_watson"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p23_01",
@@ -359,7 +1859,40 @@
       ],
       "raw_text": "2.정규성                                                     주제2\n                        표본 크기가 작을 때 많이 쓴다  1) Shapiro-wilk test\n                          (표본이 아주 크면 아주 작은 정규성 이탈에도 유의\n    H0 : 표본의 모집단이 정규분포를 따른다\n                      함 → 검정력이 너무 좋아지기 때문)\n      Shapiro.test() 메서드를 쓴다                      근데 ? 너무 작아도 검정력이 부족해서 못 잡아냄..\n\n\n  2) Q-Q plot               내 데이터의 Quantile(분위수)와 이론적 분포의 분위수를 짝지어서\n               산점도로 나타낸 것\n               (이론적 분포의 분위수 → 모집단이 정규분포“였다면”, 이놈의 이론적 분위수는\n                        이 정도였을거다! F-1 (pi)를 구하는 것\n\n               산점도가 직선에 가까울수록 정규성 가정이 성립한다.",
       "visual_description": "Shapiro-Wilk 설명 옆에 이론적 분위수와 표본 분위수가 직선에 가까운 Q-Q plot이 제시된다.",
-      "content": "소표본에서는 Shapiro-Wilk 검정을 사용할 수 있고, Q-Q plot의 점들이 기준 직선에 가까운지 시각적으로 확인한다. 너무 큰 표본과 너무 작은 표본 모두 검정력 해석에 주의한다."
+      "content": "소표본에서는 Shapiro-Wilk 검정을 사용할 수 있고, Q-Q plot의 점들이 기준 직선에 가까운지 시각적으로 확인한다. 너무 큰 표본과 너무 작은 표본 모두 검정력 해석에 주의한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "normality",
+        "shapiro_wilk",
+        "qq_plot"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p23_u01",
+          "type": "diagnostic",
+          "source_type": "text",
+          "source_excerpt": "Shapiro-Wilk test; 표본 크기가 작을 때 많이 쓴다. 아주 크면 작은 이탈에도 유의하고 너무 작아도 검정력이 부족하다.",
+          "normalized_explanation": "Shapiro-Wilk 검정은 정규성을 검정하며 표본이 매우 크거나 매우 작을 때 검정력 해석에 주의한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "normality",
+            "shapiro_wilk"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p23_u02",
+          "type": "diagnostic",
+          "source_type": "text_and_visual",
+          "source_excerpt": "Q-Q plot: 데이터 분위수와 이론적 분포 분위수를 짝지은 산점도; 직선에 가까울수록 정규성 가정이 성립",
+          "normalized_explanation": "Q-Q plot의 점들이 기준 직선에 가까운지 보고 정규성을 시각적으로 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "normality",
+            "qq_plot"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p24_01",
@@ -375,7 +1908,29 @@
       ],
       "raw_text": "아근데정규성이없다는데요....어떠카죠...                               주제2\n\nKruskal-Wallis test를 쓰자\n\n  평균이 아니라 rank 기반으로 비교하는 비모수적 검정법\n  원 자료를 순위로 변환하면, 분포의 모양에 의존하지 않고도 그룹 간 위치를\n  검정할 수 있겠다! 라는 아이디어에서 시작한 것\n\n\n항상 분포 가정이 성립한다! 라고 단정짓기는 어렵다\n비모수적 검정법도 알아는 두면? 언젠가 쓸 상황이 오지 않을까요",
       "visual_description": "정규성이 없을 때 Kruskal-Wallis를 쓰자는 문구가 크게 강조된다.",
-      "content": "Kruskal-Wallis는 원자료를 순위로 바꿔 세 개 이상 독립 집단의 위치 차이를 비교하는 비모수 검정으로, one-way ANOVA의 대안이 될 수 있다."
+      "content": "Kruskal-Wallis는 원자료를 순위로 바꿔 세 개 이상 독립 집단의 위치 차이를 비교하는 비모수 검정으로, one-way ANOVA의 대안이 될 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "normality",
+        "kruskal_wallis",
+        "one_way_anova"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p24_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Kruskal-Wallis test: 평균이 아니라 rank 기반으로 비교하는 비모수적 검정법; 원자료를 순위로 변환해 그룹 간 위치를 검정",
+          "normalized_explanation": "정규성 가정이 어렵다면 원자료를 순위로 바꾸어 독립 집단의 위치 차이를 비교하는 Kruskal-Wallis 검정을 one-way ANOVA의 비모수 대안으로 고려한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "normality",
+            "kruskal_wallis",
+            "one_way_anova"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p25_01",
@@ -390,7 +1945,33 @@
       ],
       "raw_text": "한번\n읽어보세요!",
       "visual_description": "영문 인포그래픽이 검정의 가정, 모든 관측값 순위화, 집단별 순위합, H 통계량과 활용 예시를 한 장에 정리한다.",
-      "content": "Kruskal-Wallis 검정은 모든 집단의 관측값을 합쳐 순위를 매기고 동순위는 평균순위를 부여한 뒤 집단별 순위합으로 H 통계량을 계산한다."
+      "content": "Kruskal-Wallis 절차를 설명하는 영문 참고 이미지이지만 일부 글자와 공식이 훼손되어 있어 직접 평가 근거로 사용하지 않는다.",
+      "page_role": "supplementary_reference",
+      "term_ids": [
+        "kruskal_wallis"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p25_u01",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "Kruskal-Wallis 참고 인포그래픽: 모든 집단의 관측값을 합쳐 순위를 매기고 동순위에 평균순위를 부여한 뒤 집단별 순위합과 H 통계량을 계산",
+          "normalized_explanation": "Kruskal-Wallis 절차를 설명하는 참고 이미지지만 일부 글자가 훼손되어 있어 평가의 직접 근거로 사용하지 않는다.",
+          "source_status": "needs_review",
+          "term_ids": [
+            "kruskal_wallis"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p25_i01",
+          "source_text": "Kruskal-Wallis 영문 참고 이미지의 일부 공식·예시 문자가 훼손되어 있음",
+          "issue_type": "ambiguous",
+          "correction": "핵심 평가는 글자가 명확한 24쪽의 순위 기반 비모수 검정 설명을 사용한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p26_01",
@@ -406,7 +1987,44 @@
       ],
       "raw_text": "3.등분산성                                                   주제2\n  1) Levene’s test\n\n   각 관측치를 그룹 평균으로부터의 절댓값 편차로 변환한 뒤, 그 편차들에 대해 ANOVA를 돌린다\n\n\n\n\n  2) Bartlett’s test\n\n      Levene’s test 보다 검정력은 높다\n\n     근데.. 정규성 가정에 훨씬 민감하다\n\n     그래서.. 정규성이 의심스러우면 Levene이 좀 더 안전한 선택",
       "visual_description": "Levene 검정의 절대편차 변환 절차와 Bartlett 검정의 장단점을 위아래로 비교한다.",
-      "content": "Levene 검정은 각 관측값을 집단 평균으로부터의 절대편차로 바꾸어 ANOVA를 적용해 분산을 비교한다. Bartlett 검정은 검정력이 높지만 정규성 위반에 민감하므로 의심스러우면 Levene 검정이 안전하다."
+      "content": "Levene 검정은 각 관측값을 집단 평균으로부터의 절대편차로 바꾸어 ANOVA를 적용해 분산을 비교한다. Bartlett 검정은 검정력이 높지만 정규성 위반에 민감하므로 의심스러우면 Levene 검정이 안전하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "homoscedasticity",
+        "levene",
+        "bartlett",
+        "normality"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p26_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Levene's test: 각 관측치를 그룹 평균으로부터의 절댓값 편차로 변환한 뒤 그 편차들에 대해 ANOVA를 돌린다.",
+          "normalized_explanation": "Levene 검정은 각 관측값을 집단 중심으로부터의 절대편차로 바꾸고 그 편차를 비교해 등분산성을 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "homoscedasticity",
+            "levene",
+            "anova"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p26_u02",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Bartlett's test는 Levene's test보다 검정력은 높지만 정규성 가정에 훨씬 민감하다. 정규성이 의심스러우면 Levene이 더 안전한 선택",
+          "normalized_explanation": "Bartlett 검정은 정규성 위반에 민감하므로 정규성이 의심스러우면 Levene 검정을 고려한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "homoscedasticity",
+            "bartlett",
+            "levene",
+            "normality"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p27_01",
@@ -421,7 +2039,29 @@
       ],
       "raw_text": "아근데등분산성도없다는데..어떡함??진짜어캄??                         주제2\n\nWelch’s ANOVA\n\n\n일반 ANOVA는 SSW 계산 시 모든 그룹이 같은 분산을 공유한다고 가정\n\n웰치스는 그룹별로 분산이 다르다는 걸 이정하고, 자유도 자체를 조정한다!\n\n\n핵심은.. 같다고 가정 → 어 같지 않네? → 아 그럼 각 그룹 특성 살려서 조정하자\n\n이 아이디어..",
       "visual_description": "Welch 주스병 이미지를 말장난으로 사용하고 일반 ANOVA와 Welch ANOVA의 차이를 설명한다.",
-      "content": "등분산성이 성립하지 않으면 Welch ANOVA를 사용한다. 그룹별 분산이 다름을 인정하고 그 특성을 반영해 자유도를 조정한다."
+      "content": "등분산성이 성립하지 않으면 Welch ANOVA를 사용한다. 그룹별 분산이 다름을 인정하고 그 특성을 반영해 자유도를 조정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "homoscedasticity",
+        "welch_anova",
+        "anova"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p27_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "일반 ANOVA는 모든 그룹이 같은 분산을 공유한다고 가정; Welch's ANOVA는 그룹별 분산이 다르다는 걸 인정하고 자유도를 조정",
+          "normalized_explanation": "등분산성이 성립하지 않으면 집단별로 다른 분산을 반영하고 자유도를 조정하는 Welch ANOVA를 고려한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "homoscedasticity",
+            "welch_anova",
+            "anova"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p28_01",
@@ -437,7 +2077,39 @@
       ],
       "raw_text": "주제2\nOne-way anova, Two-way anova\n     One-way                            Two-way\n     마케팅 채널에 따라                            마케팅 채널 x 고객 연령대에 따라                 분석 질문   고객의 평균 금액이 다른가?                             평균 금액이 다른가?\n\n      마케팅 채널(1개)                               마케팅 채널, 연령대                  요인\n\n                                         각 요인 단독 + Interaction Term        TV/SNS/이메일         수준\n\n\n\n                                      Interaction 체크가\n                    필요한 상황..",
       "visual_description": "마케팅 채널 하나만 보는 질문과 채널×연령대를 보는 질문, 금액 표와 교호작용 수식을 좌우로 비교한다.",
-      "content": "One-way ANOVA는 한 요인의 수준별 평균을 비교한다. Two-way ANOVA는 두 요인의 주효과와 한 요인의 효과가 다른 요인 수준에 따라 달라지는 교호작용을 함께 검정한다."
+      "content": "One-way ANOVA는 한 요인의 수준별 평균을 비교한다. Two-way ANOVA는 두 요인의 주효과와 한 요인의 효과가 다른 요인 수준에 따라 달라지는 교호작용을 함께 검정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "one_way_anova",
+        "two_way_anova",
+        "interaction"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p28_u01",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "One-way: 마케팅 채널에 따라 고객의 평균 금액이 다른가? 요인=마케팅 채널 1개",
+          "normalized_explanation": "One-way ANOVA는 한 요인의 여러 수준에서 집단 평균을 비교한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "one_way_anova"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p28_u02",
+          "type": "definition",
+          "source_type": "text_and_visual",
+          "source_excerpt": "Two-way: 마케팅 채널×고객 연령대에 따라 평균 금액이 다른가? 각 요인 단독+Interaction Term",
+          "normalized_explanation": "Two-way ANOVA는 두 요인의 주효과와 한 요인의 효과가 다른 요인의 수준에 따라 달라지는 교호작용을 함께 살핀다.",
+          "source_status": "verified",
+          "term_ids": [
+            "two_way_anova",
+            "interaction"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p29_01",
@@ -453,7 +2125,40 @@
       ],
       "raw_text": "사후검정                                                      주제2\n\nWhy? - H1 : 적어도 하나는 다르다 ! → 뭐가 다른데?? 어디가 다른데??\n      F test는 그룹들 간 차이가 있다! 만 알려줄 뿐, 어느 쌍이 다른지는 안알려줌\n\n                              다른 방법도 있긴 있는데.. 얘를 제일 많이 씀Tukey HSD (Honestly significant Difference)\n\nKey idea : 모든 쌍 중 가장 크게 벌어진 차이를 기준으로 삼아,\n전체 오류율을 5%로 통제하면서 모든 쌍을 동시에 비교\n\n\n\n\n\n                                                                #코드는이런식으로다가..\n                                                                                                                             import pandas as pd\n                                                                                                                   from statsmodels.stats.multicomp import pairwise_tukeyhsd\n\n                                                                                        # data: 'value' 컬럼(반응변수), 'group' 컬럼(그룹 라벨)\n                                                                                                                         tukey = pairwise_tukeyhsd(endog=data['value'],\n                                                                                                                                                  groups=data['group'],\n                                                                                                                                          alpha=0.05)\n\n                                                                                                                                      print(tukey)\n                                                                                                                                tukey.plot_simultaneous() # 신뢰구간 시각화",
       "visual_description": "Tukey HSD 판단식과 statsmodels의 pairwise_tukeyhsd 코드 예시가 함께 제시된다.",
-      "content": "ANOVA의 F 검정은 차이가 존재한다는 것만 알려주므로 어떤 집단 쌍이 다른지 사후검정이 필요하다. Tukey HSD는 전체 가족오류율을 통제하며 모든 쌍을 동시에 비교한다."
+      "content": "ANOVA의 F 검정은 차이가 존재한다는 것만 알려주므로 어떤 집단 쌍이 다른지 사후검정이 필요하다. Tukey HSD는 전체 가족오류율을 통제하며 모든 쌍을 동시에 비교한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "anova",
+        "f_statistic",
+        "tukey_hsd"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p29_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "F test는 그룹들 간 차이가 있다는 것만 알려줄 뿐 어느 쌍이 다른지는 알려주지 않는다.",
+          "normalized_explanation": "ANOVA의 F 검정이 유의해도 어느 집단 쌍이 다른지는 알 수 없어 사후검정이 필요하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "anova",
+            "f_statistic",
+            "tukey_hsd"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p29_u02",
+          "type": "procedure",
+          "source_type": "text_and_formula",
+          "source_excerpt": "Tukey HSD: 모든 쌍 중 가장 크게 벌어진 차이를 기준으로 전체 오류율을 5%로 통제하면서 모든 쌍을 동시에 비교",
+          "normalized_explanation": "Tukey HSD는 모든 집단 쌍을 동시에 비교하면서 전체 가족오류율을 통제한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "tukey_hsd"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p30_01",
@@ -469,7 +2174,25 @@
       ],
       "raw_text": "Example                                                     주제2",
       "visual_description": "주피터 노트북 화면에 iris 세 종의 petal_length를 비교하는 코드와 meandiff, p-adj, 신뢰구간, reject 열의 결과표가 보인다.",
-      "content": "iris 자료의 세 species 간 petal_length 평균을 Tukey HSD로 비교한 결과 모든 쌍이 유의하며 setosa와 virginica의 평균 차이가 가장 크게 나타난다."
+      "content": "iris 자료의 세 species 간 petal_length 평균을 Tukey HSD로 비교한 결과 모든 쌍이 유의하며 setosa와 virginica의 평균 차이가 가장 크게 나타난다.",
+      "page_role": "example",
+      "term_ids": [
+        "tukey_hsd"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p30_u01",
+          "type": "example",
+          "source_type": "text_and_visual",
+          "source_excerpt": "iris의 species별 petal_length Tukey HSD 결과: 세 쌍 모두 reject=True이고 setosa-virginica 평균차이가 가장 큼",
+          "normalized_explanation": "iris 예제에서 세 종의 petal_length 평균은 모든 쌍에서 유의하게 다르고 setosa와 virginica의 평균 차이가 가장 크다.",
+          "source_status": "verified",
+          "term_ids": [
+            "tukey_hsd"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p31_01",
@@ -482,7 +2205,13 @@
       ],
       "raw_text": "Regression Analysis",
       "visual_description": "Regression Analysis라는 큰 제목의 구분 슬라이드이다.",
-      "content": "선형회귀의 원리, 가정, 진단, 다중공선성, 일반화선형모형을 다루는 섹션의 시작 페이지이다."
+      "content": "선형회귀의 원리, 가정, 진단, 다중공선성, 일반화선형모형을 다루는 섹션의 시작 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [
+        "regression"
+      ],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p32_01",
@@ -497,7 +2226,29 @@
       ],
       "raw_text": "주제3\nMotivation\n\n상관계수는 두 변수 관계의 방향과 강도만 말해줄 뿐..\nX가 1만큼 늘어나면 Y가 얼마나 변하는지? 에 대한 정량적 변화율은 말해주지 않는다.\n\n이 변화율을 추정해주는 것이 회귀분석!! 이다....",
       "visual_description": "같은 양의 관계 산점도를 상관관계와 선형회귀로 나란히 보여주며 회귀 쪽에는 적합 직선이 추가된다.",
-      "content": "상관계수는 변수 관계의 방향과 강도를 요약하지만 X가 변할 때 Y가 얼마나 변하는지 직접 말하지 않는다. 회귀분석은 이 정량적 변화율을 추정한다."
+      "content": "상관계수는 변수 관계의 방향과 강도를 요약하지만 X가 변할 때 Y가 얼마나 변하는지 직접 말하지 않는다. 회귀분석은 이 정량적 변화율을 추정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "correlation",
+        "regression",
+        "linear_regression"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p32_u01",
+          "type": "comparison",
+          "source_type": "text_and_visual",
+          "source_excerpt": "상관계수는 두 변수 관계의 방향과 강도만 말하며 X가 1만큼 늘어날 때 Y가 얼마나 변하는지에 대한 정량적 변화율은 말하지 않는다. 이 변화율을 추정하는 것이 회귀분석이다.",
+          "normalized_explanation": "상관계수는 관계의 방향과 강도를 요약하고 회귀분석은 X 변화에 따른 Y의 정량적 변화율을 추정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "correlation",
+            "regression",
+            "linear_regression"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p33_01",
@@ -513,7 +2264,56 @@
       ],
       "raw_text": "주제3\nHow?",
       "visual_description": "모델 설정, 제곱오차 목적함수, 행렬 미분과 정규방정식 해를 3단계 설명 상자로 제시한다.",
-      "content": "선형회귀는 Y=Xβ+ε로 모델을 설정하고 잔차제곱합을 최소화한다. 미분한 정규방정식에서 X'X가 가역이면 β̂=(X'X)^(-1)X'Y를 얻으며, 비가역성은 다중공선성과 연결된다."
+      "content": "선형회귀는 Y=Xβ+ε로 모델을 설정하고 잔차제곱합을 최소화한다. 미분한 정규방정식에서 X'X가 가역이면 β̂=(X'X)^(-1)X'Y를 얻으며, 비가역성은 다중공선성과 연결된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "linear_regression",
+        "ols",
+        "residual",
+        "multicollinearity",
+        "ridge"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p33_u01",
+          "type": "formula",
+          "source_type": "text_and_formula",
+          "source_excerpt": "Yᵢ=β₀+β₁Xᵢ₁+…+βₚXᵢₚ+εᵢ; ε는 관측하지 못한 모든 것을 담으며 관측된 X로 설명 가능한 부분과 그렇지 않은 부분을 분리",
+          "normalized_explanation": "선형회귀는 반응을 설명변수의 선형결합과 오차항으로 나눈다.",
+          "source_status": "verified",
+          "term_ids": [
+            "linear_regression",
+            "residual"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p33_u02",
+          "type": "formula",
+          "source_type": "text_and_formula",
+          "source_excerpt": "β̂=arg minβ Σ(Yᵢ-Xᵢᵀβ)²",
+          "normalized_explanation": "최소제곱법은 잔차제곱합을 최소화하는 회귀계수를 찾는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ols",
+            "residual",
+            "linear_regression"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p33_u03",
+          "type": "formula",
+          "source_type": "text_and_formula",
+          "source_excerpt": "XᵀXβ=XᵀY; β̂=(XᵀX)⁻¹XᵀY; (XᵀX)⁻¹이 존재해야 하며 다중공선성 문제로 이어진다.",
+          "normalized_explanation": "정규방정식에서 XᵀX가 가역이면 최소제곱 해를 얻으며, 특이하거나 거의 특이하면 해 계산이 불가능하거나 불안정해진다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ols",
+            "multicollinearity",
+            "ridge"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p34_01",
@@ -529,7 +2329,40 @@
       ],
       "raw_text": "주제3\n선형회귀",
       "visual_description": "왼쪽은 단순회귀의 SSE 미분과 기울기·절편 공식을, 오른쪽은 행렬형 다중회귀의 미분과 닫힌해를 빨간 상자로 비교한다.",
-      "content": "단순회귀와 다중회귀 모두 SSE를 계수에 대해 미분해 0으로 두는 최소제곱법으로 추정한다. 단순회귀는 기울기와 절편 공식, 다중회귀는 행렬 정규방정식으로 표현된다."
+      "content": "단순회귀와 다중회귀 모두 SSE를 계수에 대해 미분해 0으로 두는 최소제곱법으로 추정한다. 단순회귀는 기울기와 절편 공식, 다중회귀는 행렬 정규방정식으로 표현된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "linear_regression",
+        "ols",
+        "residual"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p34_u01",
+          "type": "formula",
+          "source_type": "formula",
+          "source_excerpt": "단순 선형회귀 SSE를 β₀,β₁로 미분해 0으로 두고 β̂₁=Σ(xᵢ-x̄)(yᵢ-ȳ)/Σ(xᵢ-x̄)², β̂₀=ȳ-β̂₁x̄를 얻음",
+          "normalized_explanation": "단순선형회귀는 SSE를 최소화해 기울기와 절편을 추정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "linear_regression",
+            "ols"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p34_u02",
+          "type": "formula",
+          "source_type": "formula",
+          "source_excerpt": "다중 선형회귀 J(β)=||y-Xβ||²; Xᵀ(y-Xβ)=0; β=(XᵀX)⁻¹Xᵀy",
+          "normalized_explanation": "다중선형회귀도 행렬 형태의 잔차제곱합을 최소화하는 정규방정식으로 계수를 추정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "linear_regression",
+            "ols"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p35_01",
@@ -546,7 +2379,85 @@
       ],
       "raw_text": "주제3\n가정\n\n  선형성 : y는 x에 대해 선형이다 (Y=x2 이런 것도 선형.. 파라미터에 대해 선형)\n\n  등분산성 (잔차) → 위배 시 S.E, p-value, t-stat이 다 틀리게 나옴\n\n  정규성 (잔차) → 소표본 검정에서 챙겨야 할 것 / 대표본에서는 CLT 덕분에 근사적으로\n  정규분포가 되어서 ㄱㅊ\n\n  독립성 (잔차) → 오차들끼리 서로 상관성이 없어야 한다는 것",
       "visual_description": "다섯 가정을 글머리표로 설명하고 위반 시 문제와 확인 도구를 요약한 표를 배치한다.",
-      "content": "선형회귀는 선형성, 오차의 외생성, 등분산성, 독립성, 정규성 가정을 점검한다. 위반하면 계수 왜곡, 표준오차와 p-value 오류, 해석 문제 등이 생기며 잔차도·순서도·Q-Q plot으로 진단한다."
+      "content": "선형회귀는 선형성, 오차의 외생성, 등분산성, 독립성, 정규성 가정을 점검한다. 위반하면 계수 왜곡, 표준오차와 p-value 오류, 해석 문제 등이 생기며 잔차도·순서도·Q-Q plot으로 진단한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "linear_regression",
+        "exogeneity",
+        "homoscedasticity",
+        "independence",
+        "normality",
+        "residual",
+        "standard_error",
+        "p_value",
+        "qq_plot"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p35_u01",
+          "type": "assumption",
+          "source_type": "text_and_visual",
+          "source_excerpt": "선형성: 파라미터에 대해 선형; 위반 시 왜곡된 관계를 추정; Residual vs Fitted(곡선)",
+          "normalized_explanation": "선형회귀는 파라미터에 대한 선형성을 가정하며 곡선형 잔차 패턴은 위반 신호다.",
+          "source_status": "verified",
+          "term_ids": [
+            "linear_regression",
+            "residual"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p35_u02",
+          "type": "assumption",
+          "source_type": "visual",
+          "source_excerpt": "외생성: E[ε|X]=0; 위반 시 편향됨·인과 해석 불가능; 도메인 지식/설계",
+          "normalized_explanation": "오차의 조건부 평균이 0이라는 외생성이 깨지면 계수가 편향되고 인과 해석이 어렵다.",
+          "source_status": "verified",
+          "term_ids": [
+            "exogeneity",
+            "residual"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p35_u03",
+          "type": "assumption",
+          "source_type": "text_and_visual",
+          "source_excerpt": "등분산성(잔차); 위반 시 S.E., p-value, t-stat이 틀리게 나옴; Residual vs Fitted(깔때기)",
+          "normalized_explanation": "잔차 등분산성이 깨지면 표준오차와 검정 통계량 해석이 부정확해질 수 있으며 깔때기형 잔차도로 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "homoscedasticity",
+            "residual",
+            "standard_error",
+            "p_value"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p35_u04",
+          "type": "assumption",
+          "source_type": "text_and_visual",
+          "source_excerpt": "독립성(잔차): 오차들끼리 서로 상관성이 없어야 함; Residual vs Order",
+          "normalized_explanation": "오차들 사이에 상관이 없어야 하며 관측 순서에 따른 잔차도로 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "independence",
+            "residual"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p35_u05",
+          "type": "assumption",
+          "source_type": "text_and_visual",
+          "source_excerpt": "정규성(잔차): 소표본 검정에서 챙겨야 하고 대표본에서는 CLT로 근사; QQ Plot",
+          "normalized_explanation": "잔차 정규성은 특히 소표본 추론에서 점검하며 Q-Q plot을 활용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "normality",
+            "residual",
+            "qq_plot"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p36_01",
@@ -562,7 +2473,40 @@
       ],
       "raw_text": "주제3\nResidual Plot\n\n             잔차는 “설명되지 못한” 부분 - 랜덤성을 가진다.\n\n             잔차를 plot으로 그렸을 때, 패턴이 보인다면\n             → 잔차에 대한 가정이 많이 흔들리는 것\n\n\n\n                                     Y = 결정론적 + 확률론적\n\n                        결정론적 → 우리가 만드는 모델\n                        확률론적 → 모델이 설명하지 못한 부분.. 잔차..!\n                              잔차가 어떤 패턴을 가지면 안 된다.",
       "visual_description": "좋은 무작위 잔차도와 깔때기형·곡선형의 부적절한 잔차도를 비교하며 각각 등분산성과 선형성 위반으로 표시한다.",
-      "content": "잔차는 모델이 설명하지 못한 확률적 부분이어야 하므로 잔차도에 패턴이 없어야 한다. 깔때기 모양은 이분산성, 곡선 패턴은 선형성 위반 신호이다."
+      "content": "잔차는 모델이 설명하지 못한 확률적 부분이어야 하므로 잔차도에 패턴이 없어야 한다. 깔때기 모양은 이분산성, 곡선 패턴은 선형성 위반 신호이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "residual",
+        "homoscedasticity",
+        "linear_regression"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p36_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "잔차는 ‘설명되지 못한’ 부분으로 랜덤성을 가진다. 패턴이 보인다면 잔차에 대한 가정이 흔들리는 것",
+          "normalized_explanation": "적절한 모형의 잔차는 설명되지 않은 무작위 부분이므로 잔차도에 체계적인 패턴이 없어야 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "residual"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p36_u02",
+          "type": "diagnostic",
+          "source_type": "text_and_visual",
+          "source_excerpt": "깔때기 모양: 등분산성 위배; 곡선 패턴: 선형성 위배",
+          "normalized_explanation": "깔때기형 잔차는 이분산성, 곡선형 잔차는 선형성 위반의 신호가 될 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "residual",
+            "homoscedasticity",
+            "linear_regression"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p37_01",
@@ -579,7 +2523,64 @@
       ],
       "raw_text": "주제3\n결정계수\n\nR2 : 결정계수 = SSR/SST\n\n\n\n 종속변수 분산 중 모델이 설명하는 비율\n\n 주의할 것들\n 1.변수를 추가하면 R2 는 절대 안 줄어든다 → adjusted R2 사용\n2.R2 가 높다고 예측력 / 인과관계가 보장되지 않는다 : R2 는 in-sample, 인과관계도 아님\n3.R2 는 관측된 X의 분산 범위에 의존적이다 → 다른 연구나 표본의 R2 를 단순 비교하는건 위험",
       "visual_description": "SST=SSR+SSE 분해와 R² 및 조정 R² 공식이 제시된다.",
-      "content": "R²=SSR/SST는 종속변수 분산 중 모델이 설명한 비율이다. 변수를 추가하면 감소하지 않으므로 조정 R²를 함께 보고, 높은 R²가 예측력이나 인과성을 보장하지 않으며 표본의 X 분산 범위에도 영향을 받는다는 점을 주의한다."
+      "content": "R²=SSR/SST는 종속변수 변동 중 모델이 설명한 비율이다. 변수를 추가하면 감소하지 않으므로 조정 R²를 함께 본다. 높은 R²는 표본 밖 예측력이나 인과관계를 보장하지 않고, 관측된 X의 분산 범위에도 영향을 받는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "r_squared",
+        "adjusted_r_squared",
+        "regression",
+        "causation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p37_u01",
+          "type": "definition",
+          "source_type": "text_and_formula",
+          "source_excerpt": "R²=SSR/SST=1-SSE/SST; 종속변수 분산 중 모델이 설명하는 비율",
+          "normalized_explanation": "R²는 종속변수의 전체 변동 중 회귀모형이 설명하는 비율이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "r_squared",
+            "regression"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p37_u02",
+          "type": "warning",
+          "source_type": "text_and_formula",
+          "source_excerpt": "변수를 추가하면 R²는 절대 안 줄어든다 → adjusted R² 사용",
+          "normalized_explanation": "설명변수를 추가하면 R²는 감소하지 않으므로 모형 비교에는 조정 R²도 함께 본다.",
+          "source_status": "verified",
+          "term_ids": [
+            "r_squared",
+            "adjusted_r_squared"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p37_u03",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "R²가 높다고 예측력/인과관계가 보장되지 않는다: R²는 in-sample, 인과관계도 아님",
+          "normalized_explanation": "높은 R²는 표본 밖 예측력이나 인과관계를 보장하지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "r_squared",
+            "causation"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p37_u04",
+          "type": "warning",
+          "source_type": "text_and_formula",
+          "source_excerpt": "R²는 관측된 X의 분산 범위에 의존적이다 → 다른 연구나 표본의 R²를 단순 비교하는 건 위험",
+          "normalized_explanation": "R²는 관측된 설명변수의 분산 범위에도 의존하므로 서로 다른 표본의 값을 단순 비교하면 위험하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "r_squared"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p38_01",
@@ -596,7 +2597,71 @@
       ],
       "raw_text": "주제3\n다중공선성\n\n              설명변수 간 상관관계가 높을 때 발생하는 문제\n               (설명변수들끼리 서로를 설명해 버리는 상황)\n                      XTX → nearly nonsingular... 계수 계산이 불가능하거나\n              계산이 매우 어렵다\n                                                             VIF>10이면 심각한 다중공선성이다.                      VIF로 진단\n                                             (다중공선성 없을 때 분산) * VIF = (있을 때 분산)\n\n                             Rj2 : Xj를 나머지 설명변수들로 회귀했을 때 결정계수\n\n  해결방법 : 문제는 변수 간 상관이 존재한다는 것 → 상관을 제거하자!\n  대표적인 방법이 PCA - 기존의 차원을 직교하는 주성분 차원으로 축소하는 방법\n   Ridge → 계수 공간을 축소, 분산을 줄인다 : bias up (Bias-variance tradeoff)\n  변수 제거도 방법이긴 한데 omitted variable bias의 우려가 있음",
       "visual_description": "상관행렬 히트맵과 VIF 공식이 제시되고 해결법이 글머리표로 정리된다.",
-      "content": "설명변수끼리 상관이 높으면 X'X가 거의 특이해져 계수 분산과 계산 불안정성이 커진다. VIF로 진단하고 PCA, Ridge, 변수 제거 등을 고려하되 변수 제거에는 누락변수편향 위험이 있다."
+      "content": "설명변수끼리 상관이 높으면 XᵀX가 특이하거나 거의 특이해져 계수 계산과 해석이 불안정해진다. VIF로 진단하고 PCA, Ridge, 변수 제거 등을 고려하되 Ridge의 편향-분산 trade-off와 변수 제거의 누락변수편향 위험을 검토한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "multicollinearity",
+        "vif",
+        "pca",
+        "ridge",
+        "omitted_variable_bias"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p38_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "설명변수 간 상관관계가 높을 때 발생하는 문제; XᵀX에서 계수 계산이 불가능하거나 매우 어렵다.",
+          "normalized_explanation": "다중공선성은 설명변수끼리 강하게 상관되어 XᵀX가 특이하거나 거의 특이해지고 계수 계산이 불가능하거나 불안정해지는 문제다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p38_u02",
+          "type": "diagnostic",
+          "source_type": "text_and_formula",
+          "source_excerpt": "VIF로 진단; VIFⱼ=1/(1-Rⱼ²)",
+          "normalized_explanation": "VIF는 한 설명변수를 나머지 설명변수로 회귀한 R²를 이용해 다중공선성에 따른 계수 분산 증가를 진단한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity",
+            "vif",
+            "r_squared"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p38_u03",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "해결방법: PCA, Ridge, 변수 제거; Ridge는 분산을 줄이고 bias 증가; 변수 제거는 omitted variable bias 우려",
+          "normalized_explanation": "PCA·Ridge·변수 제거 등을 고려할 수 있으나 Ridge의 bias-variance trade-off와 변수 제거의 누락변수편향 위험을 검토한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity",
+            "pca",
+            "ridge",
+            "omitted_variable_bias"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p38_i01",
+          "source_text": "XᵀX → nearly nonsingular",
+          "issue_type": "typo",
+          "correction": "다중공선성이 심하면 XᵀX는 singular 또는 nearly singular에 가까워진다.",
+          "evaluation_policy": "warn"
+        },
+        {
+          "issue_id": "basic_statistics_p38_i02",
+          "source_text": "VIF>100이면 심각한 다중공선성이다.",
+          "issue_type": "overgeneralized",
+          "correction": "VIF 임계값은 절대 기준이 아니므로 값과 분석 맥락을 함께 판단한다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p39_01",
@@ -612,7 +2677,42 @@
       ],
       "raw_text": "주제3\n예측력과 해석가능성\n  다중공선성이 있어도 계수는 여전히 unbiased estimator\n  편향이 생기는 것이 아니라, 분산이 폭증하는 것\n\n\n  결국, 다중공선성은 전체 모델의 예측력에는 크게 영향을 주지 않을 수도 있다\n\n   문제는.. 개별 계수 beta_j를 Xj 하나만의 고유한 효과로 해석하려 할 때 발생\n→ 표준오차가 커서 통계적으로 유의하지 않거나, 계수 부호가 이론적 기대와 반대일 수 있음\n\n\n(정리하면)\n예측이 목적일 때 다중공선성은 상대적으로 덜 치명적이지만,, 개별 변수의 인과적/구조적 해석이 목적\n이면 치명적이다.",
       "visual_description": "예측 목적과 개별 계수 해석 목적을 텍스트로 대비한다.",
-      "content": "다중공선성은 계수의 편향보다 분산을 키운다. 전체 예측에는 영향이 작을 수 있지만 개별 계수의 고유 효과를 인과적·구조적으로 해석하려면 치명적일 수 있어 목적에 따라 다르게 판단한다."
+      "content": "다중공선성은 계수의 편향보다 분산을 키운다. 전체 예측에는 영향이 작을 수 있지만 개별 계수의 고유 효과를 인과적·구조적으로 해석하려면 치명적일 수 있어 목적에 따라 다르게 판단한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "multicollinearity",
+        "regression",
+        "causation",
+        "standard_error"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p39_u01",
+          "type": "interpretation",
+          "source_type": "text",
+          "source_excerpt": "다중공선성이 있어도 계수는 여전히 unbiased estimator; 편향이 아니라 분산이 폭증",
+          "normalized_explanation": "다중공선성은 그 자체로 계수를 편향시키기보다 계수 분산과 표준오차를 크게 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity",
+            "standard_error"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p39_u02",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "전체 모델의 예측력에는 크게 영향을 주지 않을 수도 있지만 개별 계수를 고유한 효과로 해석할 때 문제; 예측 목적에는 덜 치명적, 인과적·구조적 해석 목적에는 치명적",
+          "normalized_explanation": "다중공선성은 전체 예측보다 개별 계수의 고유 효과를 해석할 때 더 큰 문제가 될 수 있어 분석 목적에 따라 판단한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity",
+            "regression",
+            "causation"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p40_01",
@@ -628,7 +2728,35 @@
       ],
       "raw_text": "주제3\nGLM(Genearlized Linear Model)\n  선형회귀의 가정을 만족시킬 수 없는 경우\n    (Multiple linear regression의 일반화)\n\n\n    Logistic Regression, Poisson Regression, Ordinal Regression\n    등등등......!!",
       "visual_description": "GLM 제목 아래 선형회귀 가정을 만족시키기 어려운 경우와 대표 모형들을 나열한다.",
-      "content": "일반화선형모형은 다중선형회귀를 일반화해 반응변수의 분포와 연결함수를 달리한다. 로지스틱, 포아송, 순서형 회귀 등이 포함된다."
+      "content": "일반화선형모형은 다중선형회귀를 일반화해 반응변수의 분포와 연결함수를 달리한다. 로지스틱, 포아송, 순서형 회귀 등이 포함된다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "glm",
+        "logistic_regression"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p40_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "GLM(Generalized Linear Model): 선형회귀의 가정을 만족시킬 수 없는 경우; Multiple linear regression의 일반화; Logistic, Poisson, Ordinal Regression",
+          "normalized_explanation": "GLM은 선형회귀를 일반화한 모형군으로 로지스틱·포아송·순서형 회귀 등을 포함한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "glm",
+            "logistic_regression"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "basic_statistics_p40_i01",
+          "source_text": "Genearlized Linear Model",
+          "issue_type": "typo",
+          "correction": "Generalized Linear Model",
+          "evaluation_policy": "warn"
+        }
+      ]
     },
     {
       "chunk_id": "basic_statistics_p41_01",
@@ -645,7 +2773,55 @@
       ],
       "raw_text": "주제3\n로지스틱 회귀\n                           종속변수가 Binary일 때 (0 또는 1)\n                           우리가 원하는 것은 확률 = [0,1]!! → 일반 선형회귀는\n                                               0~1 사이의 값만 정확히 뽑아내기 어렵다\n\n                                                     Solution : sigmoid\n\n\n\n\n   Odds ratio              이걸 풀면\n\n\n\n\n 좌변 : 성공 확률 대 실패 확률의 비\n                                                  계수의 추정은\n                                                                                                gradient descent나 mle로 할 수 있다\n 계수의 해석 : X가 1만큼 증가할 때, odds가    배가 된다",
       "visual_description": "선형회귀 직선과 로지스틱 S자 곡선을 비교하고 시그모이드 확률식, 로그 오즈식, 계수 해석을 수식으로 연결한다.",
-      "content": "이진 종속변수에서는 시그모이드로 예측값을 0과 1 사이 확률로 제한한다. 로그 오즈는 선형예측자와 같고 X가 1 증가하면 오즈는 exp(β1)배가 된다. 계수는 최대우도나 경사하강법으로 추정할 수 있다."
+      "content": "이진 종속변수에서는 시그모이드로 예측값을 0과 1 사이 확률로 제한한다. 로그 오즈는 선형예측자와 같고 X가 1 증가하면 오즈는 exp(β1)배가 된다. 계수는 최대우도나 경사하강법으로 추정할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "logistic_regression",
+        "sigmoid",
+        "odds",
+        "log_odds",
+        "maximum_likelihood"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "basic_statistics_p41_u01",
+          "type": "relation",
+          "source_type": "text_and_formula",
+          "source_excerpt": "종속변수가 Binary(0 또는 1)일 때 원하는 것은 확률 [0,1]; Solution: sigmoid; p=P(Y=1|X)=1/(1+e^-(β₀+β₁X))",
+          "normalized_explanation": "로지스틱 회귀는 이진 반응의 확률을 시그모이드 함수로 0과 1 사이에 제한한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "logistic_regression",
+            "sigmoid"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p41_u02",
+          "type": "interpretation",
+          "source_type": "text_and_formula",
+          "source_excerpt": "log(p/(1-p))=β₀+β₁X; X가 1만큼 증가할 때 odds가 e^β₁배",
+          "normalized_explanation": "로그 오즈는 선형예측자와 같고 X가 1 증가하면 오즈는 exp(β₁)배가 된다.",
+          "source_status": "verified",
+          "term_ids": [
+            "odds",
+            "log_odds",
+            "logistic_regression"
+          ]
+        },
+        {
+          "unit_id": "basic_statistics_p41_u03",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "계수의 추정은 gradient descent나 MLE로 할 수 있다.",
+          "normalized_explanation": "로지스틱 회귀 계수는 최대우도추정이나 이를 최적화하는 경사하강법으로 구할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "logistic_regression",
+            "maximum_likelihood"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "basic_statistics_p42_01",
@@ -658,7 +2834,11 @@
       ],
       "raw_text": "감사합니다",
       "visual_description": "'감사합니다'라는 큰 문구로 강의를 마무리한다.",
-      "content": "기초 통계 강의의 종료 페이지이다."
+      "content": "기초 통계 강의의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     }
   ]
 }

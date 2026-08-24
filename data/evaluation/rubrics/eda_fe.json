@@ -1,199 +1,811 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "lecture_id": "eda_fe",
   "lecture_name": "EDA / FE",
-  "evaluation_scope": "EDA·전처리·특성공학의 역할, 데이터 품질 문제 대응, 누수 없는 특성 설계와 검증",
-  "learning_objectives": [
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
     {
-      "objective_id": "eda.process_roles",
-      "title": "EDA·전처리·특성공학의 역할과 분석 흐름",
-      "summary": "세 작업의 목적을 구분하고 전체 데이터 분석 과정에서의 위치를 설명한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.gigo", "text": "좋은 입력 데이터가 좋은 결과의 기반이므로 EDA·전처리·특성공학은 프로젝트의 근간이 된다.", "essential": true, "weight": 1.0, "evidence": [{"page": 4, "chunk_id": "eda_fe_p4_01"}]},
-        {"claim_id": "eda.role_separation", "text": "EDA는 데이터 특성을 탐색해 방향을 정하고, 전처리는 결측·이상치·스케일·범주를 정제하며, 특성공학은 특성을 생성·제거·변형한다.", "essential": true, "weight": 1.5, "evidence": [{"page": 5, "chunk_id": "eda_fe_p5_01"}]},
-        {"claim_id": "eda.analysis_flow", "text": "분석은 문제와 목표 정의, 데이터 수집, EDA·전처리·특성공학, 모델링, 결과와 결론의 흐름으로 진행한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 6, "chunk_id": "eda_fe_p6_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.same_roles", "text": "EDA, 전처리, 특성공학은 구분 없이 모두 같은 작업이다.", "correction": "서로 반복적으로 연결되지만 탐색, 정제, 특성 개선이라는 주된 역할이 다르다.", "severity": "major"}
+      "objective_id": "eda.workflow_types",
+      "title": "분석 흐름과 데이터 이해",
+      "selection_description": "EDA·전처리·특성공학의 역할과 데이터 점검 흐름을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "eda.workflow.roles",
+          "title": "세 단계의 역할",
+          "summary": "EDA, 전처리, 특성공학의 역할을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "eda.role_separation",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "EDA는 데이터 특성을 탐색해 방향을 정하고, 전처리는 결측·이상치·스케일·범주를 정제하며, 특성공학은 특성을 생성·제거·변형한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "eda_fe_p5_01",
+                  "source_excerpt": "EDA는 구조·타입·분포·이상치를 탐색해 방향을 정하고, 전처리는 결측치·이상치·스케일·범주를 정제하며, FE는 특성을 생성·제거·변형해 성능을 높인다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.gigo",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "좋은 입력 데이터가 좋은 결과의 기반이므로 EDA·전처리·특성공학은 프로젝트의 근간이 된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "eda_fe_p4_01",
+                  "source_excerpt": "좋은 입력 데이터가 좋은 결과의 기본이다. EDA, 전처리, 특성공학은 데이터 특성을 이해하고 모델이나 사람이 학습하기 좋은 자료를 만드는 프로젝트의 근간이다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.workflow.sequence",
+          "title": "분석과 점검 순서",
+          "summary": "프로젝트 흐름과 EDA 점검 순서를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "eda.analysis_flow",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "분석은 문제와 목표 정의, 데이터 수집, EDA·전처리·특성공학, 모델링, 결과와 결론의 흐름으로 진행한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "eda_fe_p6_01",
+                  "source_excerpt": "분석은 문제와 목표 정의, 데이터 수집, EDA·전처리·FE, 모델 선정·학습·튜닝, 결과와 결론 순으로 진행한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.check_sequence",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "EDA에서는 데이터 형태, 변수 타입, 결측치·이상치, 종속변수 분포, 변수 간 및 종속변수와의 관계를 차례로 파악한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "eda_fe_p8_01",
+                  "source_excerpt": "EDA에서는 데이터 형태, 변수 타입, 결측치·이상치, 종속변수 분포, 변수 간 및 변수-종속변수 관계를 차례로 파악한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.workflow.structure",
+          "title": "구조·도메인·타입",
+          "summary": "형태와 변수 의미 및 데이터 타입을 확인한다.",
+          "claims": [
+            {
+              "claim_id": "eda.structure_domain",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "행·열 크기와 샘플 값, 변수명을 확인하고 용어집 같은 도메인 자료로 각 열의 의미를 파악한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "eda_fe_p9_01",
+                  "source_excerpt": "이후 EDA 예제에 사용하는 Statcast 선수 데이터의 전체적인 행·열 구조와 변수 구성을 보여준다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 10,
+                  "chunk_id": "eda_fe_p10_01",
+                  "source_excerpt": "데이터의 크기, 변수명과 샘플 행을 확인하고 용어집 등 도메인 자료로 각 열의 의미를 파악한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.dtype",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "변수가 수치형·범주형·날짜형 중 무엇인지와 실제 데이터 타입이 맞는지 확인하고 필요하면 변환한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "eda_fe_p12_01",
+                  "source_excerpt": "각 변수가 수치형·범주형·날짜형 중 무엇인지와 pandas 데이터 타입을 확인하고 필요하면 변환한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.workflow.encoding",
+          "title": "범주형 인코딩",
+          "summary": "순서형·명목형 범주에 맞는 인코딩을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "eda.label_for_order",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "순서가 있는 범주에는 라벨 인코딩을 고려할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "eda_fe_p11_01",
+                  "source_excerpt": "순서가 있는 범주는 라벨 인코딩, 순서 없는 범주는 원핫 인코딩을 고려한다. 더미 인코딩은 원핫 열 하나를 제거해 다중공선성을 줄이지만 기준 범주가 생긴다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.onehot_for_nominal",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "순서가 없는 범주는 원핫 인코딩으로 각 범주를 0과 1 열로 표현할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "eda_fe_p11_01",
+                  "source_excerpt": "순서가 있는 범주는 라벨 인코딩, 순서 없는 범주는 원핫 인코딩을 고려한다. 더미 인코딩은 원핫 열 하나를 제거해 다중공선성을 줄이지만 기준 범주가 생긴다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.dummy_baseline",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "더미 인코딩은 원핫 열 하나를 제거해 다중공선성을 줄이는 대신 기준 범주가 생긴다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "eda_fe_p11_01",
+                  "source_excerpt": "순서가 있는 범주는 라벨 인코딩, 순서 없는 범주는 원핫 인코딩을 고려한다. 더미 인코딩은 원핫 열 하나를 제거해 다중공선성을 줄이지만 기준 범주가 생긴다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "objective_id": "eda.exploration_workflow",
-      "title": "EDA 점검 순서와 데이터 이해",
-      "summary": "구조·타입·품질·분포·관계를 순차적으로 확인하고 도메인 의미를 결합한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.check_sequence", "text": "EDA에서는 데이터 형태, 변수 타입, 결측치·이상치, 종속변수 분포, 변수 간 및 종속변수와의 관계를 차례로 파악한다.", "essential": true, "weight": 1.5, "evidence": [{"page": 8, "chunk_id": "eda_fe_p8_01"}]},
-        {"claim_id": "eda.structure_domain", "text": "행·열 크기와 샘플 값, 변수명을 확인하고 용어집 같은 도메인 자료로 각 열의 의미를 파악한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 9, "chunk_id": "eda_fe_p9_01"}, {"page": 10, "chunk_id": "eda_fe_p10_01"}]},
-        {"claim_id": "eda.dtype", "text": "변수가 수치형·범주형·날짜형 중 무엇인지와 실제 데이터 타입이 맞는지 확인하고 필요하면 변환한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 12, "chunk_id": "eda_fe_p12_01"}]},
-        {"claim_id": "eda.distribution_relation", "text": "변수 분포와 상관관계 및 종속변수와의 관계를 탐색해 중요한 특성과 다중공선성 후보를 찾는다.", "essential": true, "weight": 1.1, "evidence": [{"page": 19, "chunk_id": "eda_fe_p19_01"}]}
-      ],
-      "misconceptions": []
-    },
-    {
-      "objective_id": "eda.missing_outliers",
-      "title": "결측치와 이상치의 원인 기반 처리",
-      "summary": "값의 원인과 도메인 의미를 먼저 확인하고 대체·변환·제거·유지 방법을 선택한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.missing_strategy", "text": "결측치는 평균·중앙값·최빈값 등으로 대체할 수 있지만 도메인과 결측 원인을 고려하고 결측 자체를 지표로 만들거나 열 삭제도 검토한다.", "essential": true, "weight": 1.4, "evidence": [{"page": 13, "chunk_id": "eda_fe_p13_01"}]},
-        {"claim_id": "eda.outlier_detection", "text": "이상치는 3시그마, IQR, 클러스터링 거리, 오토인코더 등 데이터와 목적에 맞는 방법으로 탐지할 수 있다.", "essential": true, "weight": 1.0, "evidence": [{"page": 14, "chunk_id": "eda_fe_p14_01"}]},
-        {"claim_id": "eda.outlier_judgment", "text": "탐지된 이상치가 오류인지 중요한 신호인지 먼저 판단한 뒤 제거·변환·대체 또는 유지를 결정한다.", "essential": true, "weight": 1.4, "evidence": [{"page": 14, "chunk_id": "eda_fe_p14_01"}, {"page": 15, "chunk_id": "eda_fe_p15_01"}]},
-        {"claim_id": "eda.train_only_rule", "text": "이상치 처리 기준은 학습 데이터에서 정하고 검증·테스트 데이터의 정보를 기준 설정에 사용하지 않는다.", "essential": true, "weight": 1.3, "evidence": [{"page": 15, "chunk_id": "eda_fe_p15_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.delete_all_outliers", "text": "탐지된 이상치는 모두 삭제해야 한다.", "correction": "실제 오류인지 의미 있는 신호인지 확인하고 분석 목적에 맞춰 처리한다.", "severity": "major"},
-        {"misconception_id": "eda.fit_rules_on_all_data", "text": "검증·테스트 데이터까지 함께 보고 이상치 처리 기준을 정해도 된다.", "correction": "처리 기준은 학습 데이터에서 정해 데이터 누수를 막는다.", "severity": "major"}
+      "objective_id": "eda.quality_imbalance",
+      "title": "데이터 품질과 클래스 불균형",
+      "selection_description": "결측·이상치 원인을 판단하고 불균형 데이터의 평가·학습 전략을 고른다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "eda.quality.missing",
+          "title": "결측치 처리",
+          "summary": "결측 원인과 도메인을 고려해 처리한다.",
+          "claims": [
+            {
+              "claim_id": "eda.missing_strategy",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "결측치는 평균·중앙값·최빈값 등으로 대체할 수 있지만 도메인과 결측 원인을 고려하고 결측 자체를 지표로 만들거나 열 삭제도 검토한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "eda_fe_p13_01",
+                  "source_excerpt": "연속형은 평균·중앙값, 범주형은 최빈값 등으로 대체할 수 있으나 도메인과 결측 원인을 고려한다. 결측 자체를 지표로 만들거나 관련 변수로 대체하고 결측 비율이 높으면 열 삭제도 검토한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.missing_cause",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "결측치는 단순 대체 전에 결측의 원인과 도메인 의미를 확인해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "eda_fe_p13_01",
+                  "source_excerpt": "연속형은 평균·중앙값, 범주형은 최빈값 등으로 대체할 수 있으나 도메인과 결측 원인을 고려한다. 결측 자체를 지표로 만들거나 관련 변수로 대체하고 결측 비율이 높으면 열 삭제도 검토한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.quality.outliers",
+          "title": "이상치 탐지와 판단",
+          "summary": "탐지 뒤 오류와 신호를 구분하고 누수를 피한다.",
+          "claims": [
+            {
+              "claim_id": "eda.outlier_detection",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "이상치는 3시그마, IQR, 클러스터링 거리, 오토인코더 등 데이터와 목적에 맞는 방법으로 탐지할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "eda_fe_p14_01",
+                  "source_excerpt": "이상치는 정규분포의 3시그마, boxplot의 1.5×IQR, 클러스터링 거리, 오토인코더 등으로 탐지하고 제거·변환·대체하거나 목적에 따라 유지한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.outlier_judgment",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "탐지된 이상치가 오류인지 중요한 신호인지 먼저 판단한 뒤 제거·변환·대체 또는 유지를 결정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "eda_fe_p14_01",
+                  "source_excerpt": "이상치는 정규분포의 3시그마, boxplot의 1.5×IQR, 클러스터링 거리, 오토인코더 등으로 탐지하고 제거·변환·대체하거나 목적에 따라 유지한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 15,
+                  "chunk_id": "eda_fe_p15_01",
+                  "source_excerpt": "이상치가 실제 오류인지 중요한 신호인지 먼저 판단한다. 제거 기준은 학습 데이터에서 정하고 검증·테스트 데이터 정보를 사용하지 않도록 주의한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.train_only_rule",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "이상치 처리 기준은 학습 데이터에서 정하고 검증·테스트 데이터의 정보를 기준 설정에 사용하지 않는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "eda_fe_p15_01",
+                  "source_excerpt": "이상치가 실제 오류인지 중요한 신호인지 먼저 판단한다. 제거 기준은 학습 데이터에서 정하고 검증·테스트 데이터 정보를 사용하지 않도록 주의한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.quality.metrics",
+          "title": "불균형 평가",
+          "summary": "정확도의 한계와 대체 지표를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "eda.accuracy_problem",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "클래스 불균형에서는 다수 클래스만 예측해도 정확도가 높을 수 있어 모델 성능을 과대평가할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "eda_fe_p16_01",
+                  "source_excerpt": "클래스 불균형에서는 정확도가 모델을 과대평가할 수 있다. 정밀도, 재현율, F1-score, PR AUC 등 소수 클래스 탐지 성능을 반영하는 지표를 사용한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 41,
+                  "chunk_id": "eda_fe_p41_01",
+                  "source_excerpt": "이탈 고객이 5%인 상황에서 88% 정확도만으로 모델을 신뢰할 수 없다. 전부 비이탈로 예측해도 95%가 될 수 있으므로 재현율·정밀도·F1 등을 함께 평가한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.imbalance_metrics",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "정밀도·재현율·F1·PR AUC처럼 소수 클래스 탐지 성능을 반영하는 지표를 함께 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "eda_fe_p16_01",
+                  "source_excerpt": "클래스 불균형에서는 정확도가 모델을 과대평가할 수 있다. 정밀도, 재현율, F1-score, PR AUC 등 소수 클래스 탐지 성능을 반영하는 지표를 사용한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.quality.strategies",
+          "title": "불균형 학습",
+          "summary": "샘플링과 손실 조정의 trade-off를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "eda.sampling_tradeoff",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "언더샘플링은 정보 손실과 과소적합, 오버샘플링은 왜곡과 과적합 위험을 비교해 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "eda_fe_p17_01",
+                  "source_excerpt": "언더샘플링은 다수 클래스를 줄여 정보 손실과 과소적합 위험이 있고, 오버샘플링은 소수 클래스를 늘려 왜곡과 과적합 위험이 있다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.loss_finetuning",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Focal Loss나 소수 클래스 중심 미세조정처럼 어려운·소수 예제에 더 집중하는 전략도 사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "eda_fe_p18_01",
+                  "source_excerpt": "Focal Loss는 소수·어려운 예제의 손실 가중치를 높이고, minority-aware fine tuning은 전체 데이터 학습 후 소수 클래스 중심으로 추가 학습한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "objective_id": "eda.categorical_encoding",
-      "title": "범주 성격에 맞는 인코딩",
-      "summary": "순서 유무와 다중공선성·기준 범주를 고려해 인코딩 방법을 선택한다.",
-      "importance": 4,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.label_for_order", "text": "순서가 있는 범주에는 라벨 인코딩을 고려할 수 있다.", "essential": true, "weight": 1.0, "evidence": [{"page": 11, "chunk_id": "eda_fe_p11_01"}]},
-        {"claim_id": "eda.onehot_for_nominal", "text": "순서가 없는 범주는 원핫 인코딩으로 각 범주를 0과 1 열로 표현할 수 있다.", "essential": true, "weight": 1.1, "evidence": [{"page": 11, "chunk_id": "eda_fe_p11_01"}]},
-        {"claim_id": "eda.dummy_baseline", "text": "더미 인코딩은 원핫 열 하나를 제거해 다중공선성을 줄이는 대신 기준 범주가 생긴다.", "essential": true, "weight": 1.2, "evidence": [{"page": 11, "chunk_id": "eda_fe_p11_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.label_nominal_order", "text": "순서 없는 범주를 라벨 인코딩하면 숫자 크기가 의미 있는 순서를 나타낸다.", "correction": "명목형 범주에 임의의 순서를 부여하지 않도록 원핫 인코딩 등을 고려한다.", "severity": "major"}
+      "objective_id": "eda.relationships_preprocessing",
+      "title": "변수 관계와 전처리",
+      "selection_description": "변수 관계, 스케일, 데이터 결합을 모델 목적에 맞게 처리한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "eda.preprocessing.relationships",
+          "title": "분포와 변수 관계",
+          "summary": "분포·상관을 탐색하고 다중공선성을 다룬다.",
+          "claims": [
+            {
+              "claim_id": "eda.distribution_relation",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "변수 분포와 상관관계 및 종속변수와의 관계를 탐색해 중요한 특성과 다중공선성 후보를 찾는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "eda_fe_p19_01",
+                  "source_excerpt": "각 변수 분포와 변수 간 상관관계를 탐색하고 종속변수와의 관계를 확인해 중요한 특성을 식별하며 다중공선성을 점검한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.multicollinearity",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "독립변수 간 강한 상관은 중요도와 계수 해석을 불안정하게 만들 수 있어 VIF로 진단하고 변수 제거·결합, 규제, PCA 등을 고려한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 20,
+                  "chunk_id": "eda_fe_p20_01",
+                  "source_excerpt": "독립변수 간 강한 상관은 중요도를 왜곡할 수 있다. VIF로 진단하고 변수 제거·결합, Ridge·Lasso, PCA 등을 적용하되 도메인 의미를 고려한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.preprocessing.scaling_need",
+          "title": "스케일링 필요성",
+          "summary": "거리·분산 기반 방법의 스케일 민감성을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "eda.scaling_reason",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "스케일링은 큰 단위의 특성이 거리·분산 계산을 과도하게 지배하는 것을 막기 위해 특성 범위를 맞춘다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "eda_fe_p21_01",
+                  "source_excerpt": "특성 범위를 통일하면 큰 단위의 특성이 과도하게 지배하는 것을 막는다. 거리·분산 기반 KNN, SVM, PCA, 신경망은 스케일에 민감한 반면 트리 계열은 영향이 작다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.algorithm_sensitivity",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "KNN·SVM·PCA·신경망 같은 거리·분산 기반 방법은 스케일에 민감하고 트리 계열은 영향이 상대적으로 작다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "eda_fe_p21_01",
+                  "source_excerpt": "특성 범위를 통일하면 큰 단위의 특성이 과도하게 지배하는 것을 막는다. 거리·분산 기반 KNN, SVM, PCA, 신경망은 스케일에 민감한 반면 트리 계열은 영향이 작다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.preprocessing.scalers",
+          "title": "스케일러 비교",
+          "summary": "Standard, Min-Max, Robust 변환 기준을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "eda.scaler_formulas",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Standard는 평균·표준편차, Min-Max는 최솟값·최댓값, Robust는 중앙값·IQR을 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "eda_fe_p22_01",
+                  "source_excerpt": "Standard Scaling은 평균과 표준편차로 표준화하고, Min-Max Scaling은 최솟값과 최댓값을 기준으로 보통 0과 1 사이로 변환하며, Robust Scaling은 중앙값과 IQR을 사용한다.",
+                  "source_status": "verified",
+                  "review_note": "Min-Max가 이상치에 강건하다는 슬라이드 문장은 제외했다."
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.scaler_choice",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Standard Scaling은 평균·표준편차, Min-Max Scaling은 최솟값·최댓값, Robust Scaling은 중앙값·IQR을 기준으로 변환한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "eda_fe_p22_01",
+                  "source_excerpt": "Standard Scaling은 평균과 표준편차로 표준화하고, Min-Max Scaling은 최솟값과 최댓값을 기준으로 보통 0과 1 사이로 변환하며, Robust Scaling은 중앙값과 IQR을 사용한다.",
+                  "source_status": "verified",
+                  "review_note": "Min-Max가 이상치에 강건하다는 슬라이드 문장은 제외했다."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.preprocessing.operations",
+          "title": "결합과 집계",
+          "summary": "merge와 groupby의 목적을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "eda.merge_groupby",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "pd.merge는 공통 key와 조인 방식에 따라 데이터프레임을 합치고 pd.groupby는 특정 열로 묶어 통계량을 집계한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "eda_fe_p23_01",
+                  "source_excerpt": "pd.merge는 공통 key로 데이터프레임을 합치며 조인 방식에 따라 포함 범위가 달라진다. pd.groupby는 특정 열로 묶어 평균·합계·개수 등을 계산한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.operation_choice",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "공통 key로 표를 결합할 때 merge, 그룹별 통계 집계에는 groupby를 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "eda_fe_p23_01",
+                  "source_excerpt": "pd.merge는 공통 key로 데이터프레임을 합치며 조인 방식에 따라 포함 범위가 달라진다. pd.groupby는 특정 열로 묶어 평균·합계·개수 등을 계산한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "objective_id": "eda.class_imbalance",
-      "title": "클래스 불균형의 평가와 학습 전략",
-      "summary": "정확도의 한계를 인식하고 목적에 맞는 지표와 샘플링·손실 전략을 선택한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.accuracy_problem", "text": "클래스 불균형에서는 다수 클래스만 예측해도 정확도가 높을 수 있어 모델 성능을 과대평가할 수 있다.", "essential": true, "weight": 1.4, "evidence": [{"page": 16, "chunk_id": "eda_fe_p16_01"}, {"page": 41, "chunk_id": "eda_fe_p41_01"}]},
-        {"claim_id": "eda.imbalance_metrics", "text": "정밀도·재현율·F1·PR AUC처럼 소수 클래스 탐지 성능을 반영하는 지표를 함께 사용한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 16, "chunk_id": "eda_fe_p16_01"}]},
-        {"claim_id": "eda.sampling_tradeoff", "text": "언더샘플링은 정보 손실과 과소적합, 오버샘플링은 왜곡과 과적합 위험을 비교해 선택한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 17, "chunk_id": "eda_fe_p17_01"}]},
-        {"claim_id": "eda.loss_finetuning", "text": "Focal Loss나 소수 클래스 중심 미세조정처럼 어려운·소수 예제에 더 집중하는 전략도 사용할 수 있다.", "essential": false, "weight": 0.8, "evidence": [{"page": 18, "chunk_id": "eda_fe_p18_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.accuracy_enough", "text": "클래스가 불균형해도 정확도 하나만 높으면 좋은 모델이다.", "correction": "다수 클래스 편향 가능성이 있으므로 정밀도·재현율·F1 등을 함께 본다.", "severity": "major"}
+      "objective_id": "eda.feature_engineering",
+      "title": "특성공학과 누수 방지",
+      "selection_description": "차원 축소, 선택, 파생변수, 누수 방지를 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "eda.feature.reduction",
+          "title": "선택·추출·차원 축소",
+          "summary": "선택과 추출을 구분하고 PCA trade-off를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "eda.selection_extraction",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "특성 선택은 유용한 원변수를 고르고 특성 추출은 기존 변수를 결합해 새로운 저차원 표현을 만든다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 25,
+                  "chunk_id": "eda_fe_p25_01",
+                  "source_excerpt": "특성공학은 유용한 변수를 고르는 특성 선택과 기존 변수를 결합해 차원을 줄이는 특성 추출로 구성된다. PCA는 비지도 분산 축, LDA는 지도형 클래스 구분 축을 찾는다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.curse",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "변수가 데이터에 비해 많고 모델이 복잡하면 학습 지연·과적합·다중공선성 문제가 생길 수 있어 차원을 낮춘다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 27,
+                  "chunk_id": "eda_fe_p27_01",
+                  "source_excerpt": "입력변수가 데이터보다 많고 모델이 복잡하면 학습 지연, 과적합, 다중공선성이 생길 수 있다. 중요한 변수를 선택하거나 잠재 특성을 추출해 차원을 낮춘다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.pca_tradeoff",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "PCA는 상관 구조를 반영한 직교 주성분으로 차원을 줄이지만 선형결합이어서 해석성이 낮아질 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "eda_fe_p32_01",
+                  "source_excerpt": "PCA는 상관 구조를 반영해 분산을 가장 잘 설명하는 직교 축을 만들고 차원을 줄인다. 보통 누적 설명력 80~95%를 기준으로 개수를 정하지만 선형결합이라 해석성이 낮다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.feature.methods",
+          "title": "특성 선택 방법",
+          "summary": "Filter·Wrapper·Embedded의 장단점을 비교한다.",
+          "claims": [
+            {
+              "claim_id": "eda.filter",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Filter 방식은 상관계수·카이제곱 같은 통계량으로 빠르게 선택하지만 변수 간 상호작용을 놓칠 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "eda_fe_p28_01",
+                  "source_excerpt": "Filter는 상관계수·카이제곱 등 통계량으로 빠르게 고르지만 상호작용을 놓친다. Wrapper는 RFE처럼 모델을 반복 학습해 상호작용을 반영하지만 계산비용이 크다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.wrapper",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Wrapper 방식은 RFE처럼 모델 학습을 반복해 상호작용을 반영하지만 계산비용이 크다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "eda_fe_p28_01",
+                  "source_excerpt": "Filter는 상관계수·카이제곱 등 통계량으로 빠르게 고르지만 상호작용을 놓친다. Wrapper는 RFE처럼 모델을 반복 학습해 상호작용을 반영하지만 계산비용이 크다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.embedded",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Embedded 방식은 모델 학습 안에서 특성을 선택하며 Lasso의 L1 패널티나 트리 중요도처럼 결과가 모델에 의존한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "eda_fe_p29_01",
+                  "source_excerpt": "Embedded 방식은 모델 학습 안에서 선택한다. Lasso는 L1 패널티로 계수를 0으로 만들고 트리 모델은 분기 기여도로 중요도를 계산하며 결과는 모델에 의존한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.feature.creation",
+          "title": "파생변수 생성",
+          "summary": "도메인 기반 변수를 반복적으로 만들고 검증한다.",
+          "claims": [
+            {
+              "claim_id": "eda.derived_features",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "지표 변수, 문자열·날짜 분리, 시계열 lag·이동평균·요일 등으로 원자료의 경향과 정보를 더 명확하게 표현할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "eda_fe_p30_01",
+                  "source_excerpt": "지표 변수 생성, 문자열·날짜 열 분리, 시계열 lag·이동평균·요일 같은 시간 특성 생성으로 변수의 경향과 정보를 더 명확하게 만든다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.iterative_fe",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "특성공학은 특성을 만들고 성능을 확인한 뒤 개선하는 반복 과정이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "eda_fe_p26_01",
+                  "source_excerpt": "특성공학은 특성을 생성하고 성능을 확인한 뒤 개선하는 과정을 반복한다. 데이터 정리와 조직화가 실무 시간의 큰 부분을 차지한다는 시각 자료가 제시된다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.domain_validation",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "파생변수의 유용성은 도메인 의미와 검증 성능을 함께 확인해 판단한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "eda_fe_p26_01",
+                  "source_excerpt": "특성공학은 특성을 생성하고 성능을 확인한 뒤 개선하는 과정을 반복한다. 데이터 정리와 조직화가 실무 시간의 큰 부분을 차지한다는 시각 자료가 제시된다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 37,
+                  "chunk_id": "eda_fe_p37_01",
+                  "source_excerpt": "기초 통계와 분포, 결측치, 이상치, 이탈 타깃 분포, 변수 관계, 도메인 특이사항을 순서대로 확인한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "eda.feature.leakage",
+          "title": "데이터 누수",
+          "summary": "예측 시점과 분할 경계를 지켜 누수를 방지한다.",
+          "claims": [
+            {
+              "claim_id": "eda.leakage_definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "예측 시점에 알 수 없는 테스트·미래 정보가 학습에 들어가면 검증 성능이 실제보다 부풀려진다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "eda_fe_p31_01",
+                  "source_excerpt": "예측 시점에 알 수 없는 테스트·미래 정보가 학습에 들어가면 검증 성능이 부풀려진다. Target Encoding은 자기 fold를 제외하고, 시계열 lag·rolling은 현재보다 과거 데이터만 사용한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.target_encoding",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Target Encoding은 자기 fold의 타깃 정보를 제외하는 방식으로 누수를 막는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "eda_fe_p31_01",
+                  "source_excerpt": "예측 시점에 알 수 없는 테스트·미래 정보가 학습에 들어가면 검증 성능이 부풀려진다. Target Encoding은 자기 fold를 제외하고, 시계열 lag·rolling은 현재보다 과거 데이터만 사용한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            },
+            {
+              "claim_id": "eda.time_features",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "시계열 lag와 rolling 특성은 현재보다 과거 데이터만 사용해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "eda_fe_p31_01",
+                  "source_excerpt": "예측 시점에 알 수 없는 테스트·미래 정보가 학습에 들어가면 검증 성능이 부풀려진다. Target Encoding은 자기 fold를 제외하고, 시계열 lag·rolling은 현재보다 과거 데이터만 사용한다.",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ]
+            }
+          ]
+        }
       ]
-    },
-    {
-      "objective_id": "eda.multicollinearity_scaling",
-      "title": "다중공선성과 스케일링 대응",
-      "summary": "변수 관계를 진단하고 모델 특성과 이상치에 맞춰 안정적인 입력 표현을 선택한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.multicollinearity", "text": "독립변수 간 강한 상관은 중요도와 계수 해석을 불안정하게 만들 수 있어 VIF로 진단하고 변수 제거·결합, 규제, PCA 등을 고려한다.", "essential": true, "weight": 1.4, "evidence": [{"page": 20, "chunk_id": "eda_fe_p20_01"}]},
-        {"claim_id": "eda.scaling_reason", "text": "스케일링은 큰 단위의 특성이 거리·분산 계산을 과도하게 지배하는 것을 막기 위해 특성 범위를 맞춘다.", "essential": true, "weight": 1.3, "evidence": [{"page": 21, "chunk_id": "eda_fe_p21_01"}]},
-        {"claim_id": "eda.algorithm_sensitivity", "text": "KNN·SVM·PCA·신경망 같은 거리·분산 기반 방법은 스케일에 민감하고 트리 계열은 영향이 상대적으로 작다.", "essential": true, "weight": 1.2, "evidence": [{"page": 21, "chunk_id": "eda_fe_p21_01"}]},
-        {"claim_id": "eda.scaler_choice", "text": "이상치가 적으면 Standard Scaling, 특정 범위가 필요하면 Min-Max, 이상치가 많으면 중앙값과 IQR 기반 Robust Scaling을 고려한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 22, "chunk_id": "eda_fe_p22_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.minmax_robust", "text": "Min-Max Scaling은 최솟값과 최댓값을 사용하므로 이상치에 강건하다.", "correction": "구조화 데이터에서도 원문 검토 대상으로 표시되어 자동 정답 기준에서 제외한다. 이상치가 많을 때는 강의가 제시한 Robust Scaling 선택을 기준으로 본다.", "severity": "major"},
-        {"misconception_id": "eda.all_models_need_same_scaling", "text": "모든 알고리즘이 동일한 정도로 스케일링에 민감하다.", "correction": "거리·분산 기반 방법과 트리 계열의 민감도가 다르다.", "severity": "minor"}
-      ]
-    },
-    {
-      "objective_id": "eda.feature_reduction",
-      "title": "특성 선택·추출과 차원 축소",
-      "summary": "차원의 저주를 완화하기 위해 원변수 선택과 잠재 특성 추출을 구분한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.selection_extraction", "text": "특성 선택은 유용한 원변수를 고르고 특성 추출은 기존 변수를 결합해 새로운 저차원 표현을 만든다.", "essential": true, "weight": 1.4, "evidence": [{"page": 25, "chunk_id": "eda_fe_p25_01"}]},
-        {"claim_id": "eda.curse", "text": "변수가 데이터에 비해 많고 모델이 복잡하면 학습 지연·과적합·다중공선성 문제가 생길 수 있어 차원을 낮춘다.", "essential": true, "weight": 1.3, "evidence": [{"page": 27, "chunk_id": "eda_fe_p27_01"}]},
-        {"claim_id": "eda.pca_lda", "text": "PCA는 비지도 방식으로 분산을 잘 설명하는 축을 찾고 LDA는 클래스 구분에 유리한 지도형 축을 찾는다.", "essential": false, "weight": 0.9, "evidence": [{"page": 25, "chunk_id": "eda_fe_p25_01"}]},
-        {"claim_id": "eda.pca_tradeoff", "text": "PCA는 상관 구조를 반영한 직교 주성분으로 차원을 줄이지만 선형결합이어서 해석성이 낮아질 수 있다.", "essential": true, "weight": 1.1, "evidence": [{"page": 32, "chunk_id": "eda_fe_p32_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.pca_selects_original", "text": "PCA는 기존 변수 중 일부를 그대로 선택하는 방법이다.", "correction": "PCA는 기존 변수의 선형결합으로 새로운 주성분을 만드는 특성 추출 방법이다.", "severity": "major"}
-      ]
-    },
-    {
-      "objective_id": "eda.selection_methods",
-      "title": "Filter·Wrapper·Embedded 선택 방법 비교",
-      "summary": "계산비용, 변수 상호작용, 모델 의존성의 차이로 특성 선택 방법을 비교한다.",
-      "importance": 4,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.filter", "text": "Filter 방식은 상관계수·카이제곱 같은 통계량으로 빠르게 선택하지만 변수 간 상호작용을 놓칠 수 있다.", "essential": true, "weight": 1.2, "evidence": [{"page": 28, "chunk_id": "eda_fe_p28_01"}]},
-        {"claim_id": "eda.wrapper", "text": "Wrapper 방식은 RFE처럼 모델 학습을 반복해 상호작용을 반영하지만 계산비용이 크다.", "essential": true, "weight": 1.2, "evidence": [{"page": 28, "chunk_id": "eda_fe_p28_01"}]},
-        {"claim_id": "eda.embedded", "text": "Embedded 방식은 모델 학습 안에서 특성을 선택하며 Lasso의 L1 패널티나 트리 중요도처럼 결과가 모델에 의존한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 29, "chunk_id": "eda_fe_p29_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.one_selection_best", "text": "어떤 데이터와 모델에서도 한 가지 특성 선택 방식이 항상 가장 좋다.", "correction": "계산비용, 상호작용, 모델 의존성을 비교해 목적에 맞게 선택한다.", "severity": "minor"}
-      ]
-    },
-    {
-      "objective_id": "eda.feature_creation",
-      "title": "도메인 기반 파생변수 생성",
-      "summary": "원자료의 의미를 더 잘 드러내는 분할·집계·시계열 특성을 만들고 반복 검증한다.",
-      "importance": 4,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.iterative_fe", "text": "특성공학은 특성을 만들고 성능을 확인한 뒤 개선하는 반복 과정이다.", "essential": true, "weight": 1.1, "evidence": [{"page": 26, "chunk_id": "eda_fe_p26_01"}]},
-        {"claim_id": "eda.derived_features", "text": "지표 변수, 문자열·날짜 분리, 시계열 lag·이동평균·요일 등으로 원자료의 경향과 정보를 더 명확하게 표현할 수 있다.", "essential": true, "weight": 1.4, "evidence": [{"page": 30, "chunk_id": "eda_fe_p30_01"}]},
-        {"claim_id": "eda.domain_validation", "text": "파생변수의 유용성은 도메인 의미와 검증 성능을 함께 확인해 판단한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 26, "chunk_id": "eda_fe_p26_01"}, {"page": 37, "chunk_id": "eda_fe_p37_01"}]}
-      ],
-      "misconceptions": []
-    },
-    {
-      "objective_id": "eda.data_leakage",
-      "title": "Data Leakage와 공정한 평가",
-      "summary": "예측 시점에 사용할 수 없는 정보와 검증·테스트 정보를 학습에서 차단한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "eda.leakage_definition", "text": "예측 시점에 알 수 없는 테스트·미래 정보가 학습에 들어가면 검증 성능이 실제보다 부풀려진다.", "essential": true, "weight": 1.5, "evidence": [{"page": 31, "chunk_id": "eda_fe_p31_01"}]},
-        {"claim_id": "eda.target_encoding", "text": "Target Encoding은 자기 fold의 타깃 정보를 제외하는 방식으로 누수를 막는다.", "essential": false, "weight": 0.9, "evidence": [{"page": 31, "chunk_id": "eda_fe_p31_01"}]},
-        {"claim_id": "eda.time_features", "text": "시계열 lag와 rolling 특성은 현재보다 과거 데이터만 사용해야 한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 31, "chunk_id": "eda_fe_p31_01"}]},
-        {"claim_id": "eda.target_definition_leak", "text": "타깃 정의에 직접 사용된 변수처럼 결과를 사실상 알려주는 특성은 제거해야 한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 39, "chunk_id": "eda_fe_p39_01"}]},
-        {"claim_id": "eda.split_contamination", "text": "비교 모델의 학습 데이터에 평가용 테스트 샘플이 포함되면 데이터 오염으로 성능 비교를 신뢰할 수 없다.", "essential": true, "weight": 1.3, "evidence": [{"page": 40, "chunk_id": "eda_fe_p40_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "eda.leakage_only_label", "text": "타깃 열 자체만 제거하면 데이터 누수는 모두 방지된다.", "correction": "미래 정보, 자기 fold 타깃 통계, 평가 샘플 오염, 타깃 정의에 직접 연결된 변수도 확인해야 한다.", "severity": "major"}
-      ]
-    },
-    {
-      "objective_id": "eda.data_operations_modalities",
-      "title": "데이터 결합과 비정형 데이터 표현",
-      "summary": "데이터프레임 결합·집계와 텍스트·이미지 전처리의 목적을 설명한다.",
-      "importance": 2,
-      "required": false,
-      "reference_claims": [
-        {"claim_id": "eda.merge_groupby", "text": "pd.merge는 공통 key와 조인 방식에 따라 데이터프레임을 합치고 pd.groupby는 특정 열로 묶어 통계량을 집계한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 23, "chunk_id": "eda_fe_p23_01"}]},
-        {"claim_id": "eda.text_vectorization", "text": "텍스트는 토큰화 후 BoW·TF-IDF 또는 문맥 임베딩으로 벡터화할 수 있다.", "essential": true, "weight": 1.0, "evidence": [{"page": 33, "chunk_id": "eda_fe_p33_01"}]},
-        {"claim_id": "eda.image_augmentation", "text": "이미지는 resize·crop·blur·sharpening 같은 증강으로 데이터 부족을 보완하고 일반화를 높일 수 있다.", "essential": true, "weight": 1.0, "evidence": [{"page": 33, "chunk_id": "eda_fe_p33_01"}]}
-      ],
-      "misconceptions": []
     }
   ],
-  "relations": [
-    {"relation_id": "eda.r1", "source_objective_id": "eda.process_roles", "target_objective_id": "eda.exploration_workflow", "relation_type": "sequence", "statement": "문제와 데이터를 정의한 뒤 EDA로 구조·품질·분포·관계를 이해하고 전처리와 특성공학 방향을 정한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 6, "chunk_id": "eda_fe_p6_01"}, {"page": 8, "chunk_id": "eda_fe_p8_01"}]},
-    {"relation_id": "eda.r2", "source_objective_id": "eda.exploration_workflow", "target_objective_id": "eda.missing_outliers", "relation_type": "sequence", "statement": "데이터 구조와 타입을 파악한 뒤 결측치와 이상치의 원인과 처리 필요성을 판단한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 8, "chunk_id": "eda_fe_p8_01"}, {"page": 13, "chunk_id": "eda_fe_p13_01"}]},
-    {"relation_id": "eda.r3", "source_objective_id": "eda.exploration_workflow", "target_objective_id": "eda.categorical_encoding", "relation_type": "prerequisite", "statement": "변수 타입과 순서 유무를 파악한 결과에 따라 범주형 인코딩 방식을 선택한다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 11, "chunk_id": "eda_fe_p11_01"}, {"page": 12, "chunk_id": "eda_fe_p12_01"}]},
-    {"relation_id": "eda.r4", "source_objective_id": "eda.exploration_workflow", "target_objective_id": "eda.class_imbalance", "relation_type": "condition_for", "statement": "종속변수 분포에서 클래스 불균형이 발견되면 정확도 외 지표와 학습 전략을 조정한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 8, "chunk_id": "eda_fe_p8_01"}, {"page": 16, "chunk_id": "eda_fe_p16_01"}]},
-    {"relation_id": "eda.r5", "source_objective_id": "eda.exploration_workflow", "target_objective_id": "eda.multicollinearity_scaling", "relation_type": "sequence", "statement": "변수 분포와 관계를 확인한 뒤 다중공선성과 스케일 차이에 맞는 처리를 결정한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 19, "chunk_id": "eda_fe_p19_01"}, {"page": 20, "chunk_id": "eda_fe_p20_01"}, {"page": 21, "chunk_id": "eda_fe_p21_01"}]},
-    {"relation_id": "eda.r6", "source_objective_id": "eda.multicollinearity_scaling", "target_objective_id": "eda.feature_reduction", "relation_type": "solves", "statement": "변수 간 중복과 높은 차원 문제를 변수 선택·PCA 등의 차원 축소로 완화할 수 있다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 20, "chunk_id": "eda_fe_p20_01"}, {"page": 27, "chunk_id": "eda_fe_p27_01"}]},
-    {"relation_id": "eda.r7", "source_objective_id": "eda.selection_methods", "target_objective_id": "eda.feature_reduction", "relation_type": "part_of", "statement": "Filter·Wrapper·Embedded는 원변수 중 유용한 변수를 고르는 특성 선택의 구체적인 방법이다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 28, "chunk_id": "eda_fe_p28_01"}, {"page": 29, "chunk_id": "eda_fe_p29_01"}]},
-    {"relation_id": "eda.r8", "source_objective_id": "eda.feature_creation", "target_objective_id": "eda.feature_reduction", "relation_type": "contrasts_with", "statement": "파생변수 생성은 정보를 새롭게 표현하고 특성 선택·추출은 불필요한 차원을 줄이는 서로 다른 특성공학 작업이다.", "directional": false, "importance": 4, "required": true, "evidence": [{"page": 25, "chunk_id": "eda_fe_p25_01"}, {"page": 30, "chunk_id": "eda_fe_p30_01"}]},
-    {"relation_id": "eda.r9", "source_objective_id": "eda.data_leakage", "target_objective_id": "eda.missing_outliers", "relation_type": "condition_for", "statement": "결측치·이상치 처리 기준은 학습 데이터에서 정해 검증·테스트 정보가 새어 들어오지 않게 한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 15, "chunk_id": "eda_fe_p15_01"}, {"page": 31, "chunk_id": "eda_fe_p31_01"}]},
-    {"relation_id": "eda.r10", "source_objective_id": "eda.data_leakage", "target_objective_id": "eda.feature_creation", "relation_type": "condition_for", "statement": "Target Encoding과 시계열 파생변수는 현재 행이나 미래의 타깃 정보를 사용하지 않도록 생성해야 한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 31, "chunk_id": "eda_fe_p31_01"}]},
-    {"relation_id": "eda.r11", "source_objective_id": "eda.process_roles", "target_objective_id": "eda.data_leakage", "relation_type": "condition_for", "statement": "EDA·전처리·특성공학의 전 과정은 공정한 검증을 위해 학습과 평가 데이터의 경계를 지켜야 한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 31, "chunk_id": "eda_fe_p31_01"}, {"page": 40, "chunk_id": "eda_fe_p40_01"}]}
-  ],
-  "relation_chains": [
-    {"chain_id": "eda.chain_analysis", "title": "분석 흐름에서 데이터 이해와 품질 처리까지", "relation_ids": ["eda.r1", "eda.r2"], "importance": 5, "required": true},
-    {"chain_id": "eda.chain_feature_engineering", "title": "특성 선택 방법에서 축소와 생성 비교까지", "relation_ids": ["eda.r7", "eda.r8"], "importance": 4, "required": true},
-    {"chain_id": "eda.chain_no_leakage", "title": "전 과정의 누수 방지에서 안전한 특성 생성까지", "relation_ids": ["eda.r11", "eda.r10"], "importance": 5, "required": true}
-  ],
   "excluded_source_claims": [
-    "Min-Max Scaling이 이상치에 상대적으로 강건하다는 원문 표현은 자동 정답 기준으로 사용하지 않는다.",
-    "로지스틱 회귀는 스케일링 여부에 따른 성능 변화가 없다는 절대적 표현은 자동 정답 기준으로 사용하지 않는다.",
-    "이상치 제거는 학습할 때에만 사용한다는 표현은 처리 기준을 학습 데이터에서 정한다는 의미로 제한해 해석한다."
+    {
+      "page": 22,
+      "chunk_id": "eda_fe_p22_01",
+      "source_text": "Min-Max Scaling은 이상치에 강건하다.",
+      "reason": "Min-Max는 이상치에 민감하므로 정답 근거에서 제외한다."
+    },
+    {
+      "page": 39,
+      "chunk_id": "eda_fe_p39_01",
+      "source_text": "사례의 특정 변수가 모든 문제에서 데이터 누수다.",
+      "reason": "사례의 타깃 정의에 의존하므로 일반 규칙으로 쓰지 않는다."
+    }
   ]
 }

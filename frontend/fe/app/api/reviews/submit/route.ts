@@ -4,45 +4,33 @@ const reviewStore = new Map<string, Record<string, unknown>>();
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const sessionId = body.session_id ?? `session-${Date.now()}`;
-  const topic = body.topic ?? "기초통계";
-  const transcript = body.transcript_raw ?? body.transcript_corrected ?? "";
-  const correctedTranscript = body.transcript_corrected ?? transcript;
-
-  const score = 86;
   const reviewId = `review-${Date.now()}`;
   const report = {
     review_id: reviewId,
-    session_id: sessionId,
-    score,
-    transcript,
-    corrected_transcript: correctedTranscript,
-    feedback: {
-      summary: `${topic} 주제에서 핵심 흐름을 잘 연결했습니다. 다만 사례와 비교 설명을 더 보강하면 더욱 안정적인 발표가 됩니다.`,
-      strengths: [
-        "핵심 개념을 한 문장으로 정리하는 능력이 좋습니다.",
-        "주제별 흐름이 대체로 자연스럽게 이어졌습니다.",
-      ],
-      missing_points: [
-        "실제 데이터 예시가 부족해 신뢰도가 약해졌습니다.",
-        "한계점과 가정에 대한 설명이 더 필요합니다.",
-      ],
-      suggestions: [
-        "각 개념마다 실제 사례를 1개씩 연결해 보세요.",
-        "결론에서 주요 판단 기준을 다시 정리해 보세요.",
-      ],
+    session_id: body.session_id ?? `session-${Date.now()}`,
+    lecture_id: body.lecture_id ?? "basic_statistics",
+    objective_id: body.objective_id ?? "stats.hypothesis_uncertainty",
+    score: 77,
+    transcript: body.transcript_raw ?? "",
+    corrected_transcript: body.transcript_corrected ?? body.transcript_raw ?? "",
+    quantitative: {
+      scores: {
+        essential: { score: 48, max_score: 60, rubric_level: 3, reason: "핵심 Claim을 대체로 정확하게 설명했습니다." },
+        supporting: { score: 14, max_score: 20, rubric_level: 3, reason: "보조 설명을 충분히 연결했습니다." },
+        coverage: { score: 15, max_score: 20, rubric_level: 3, reason: "하위 목표 대부분을 다뤘습니다." },
+      },
+      total: { score: 77, max_score: 100, rubric_level: 3, reason: "Rubric Mock 결과입니다." },
+      sub_objective_coverage: [],
+    },
+    qualitative: {
+      strengths: ["핵심 개념을 정확하게 설명했습니다."],
+      missing_claims: ["일부 보조 설명"],
+      incorrect_claims: [],
+      review_suggestions: ["빠진 하위 목표를 한 문장으로 보완해 보세요."],
     },
     status: "mock",
-    metrics: {
-      corrected_cer: 0.18,
-      corrected_precision: 0.84,
-      corrected_recall: 0.81,
-      corrected_f1: 0.82,
-    },
   };
-
   reviewStore.set(reviewId, report);
-
   return NextResponse.json(report, { status: 201 });
 }
 

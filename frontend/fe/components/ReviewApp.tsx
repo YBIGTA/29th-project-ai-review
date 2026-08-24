@@ -10,6 +10,39 @@ const topics = [
   "시각화",
 ] as const;
 
+const lectureIds = {
+  "기초통계": "basic_statistics",
+  "크롤링": "crawling",
+  "EDA/FE": "eda_fe",
+  "시각화": "visualization",
+} as const;
+
+const objectives = {
+  "기초통계": [
+    ["stats.probability_foundations", "확률·통계의 기초"],
+    ["stats.hypothesis_uncertainty", "가설검정과 불확실성"],
+    ["stats.anova_alternatives", "ANOVA와 가정 위반 대안"],
+    ["stats.regression_diagnostics", "회귀분석과 진단"],
+  ],
+  "크롤링": [
+    ["crawl.foundations", "크롤링의 목적과 범위"],
+    ["crawl.html_requests", "HTML 구조와 HTTP 요청"],
+    ["crawl.tools_responsibility", "도구 선택과 책임 있는 수집"],
+  ],
+  "EDA/FE": [
+    ["eda.workflow_types", "분석 흐름과 데이터 이해"],
+    ["eda.quality_imbalance", "데이터 품질과 클래스 불균형"],
+    ["eda.relationships_preprocessing", "변수 관계와 전처리"],
+    ["eda.feature_engineering", "특성공학과 누수 방지"],
+  ],
+  "시각화": [
+    ["viz.purpose_role", "시각화의 목적과 설계"],
+    ["viz.chart_selection", "데이터 관계에 맞는 차트 선택"],
+    ["viz.color_tools_quality", "색상·도구 선택과 품질 검수"],
+    ["viz.storytelling", "분석 스토리텔링"],
+  ],
+} as const;
+
 type Phase = "idle" | "countdown" | "recording" | "processing" | "completed";
 type ProcessStage = "idle" | "transcribing" | "correcting" | "evaluating" | "complete";
 
@@ -20,33 +53,6 @@ type ScoreBreakdown = {
   tone: "cyan" | "violet" | "amber";
 };
 
-const fallbackReport: ReviewReport = {
-  review_id: "review-demo-001",
-  session_id: "session-demo-001",
-  score: 86,
-  transcript: "기초통계에서는 모집단과 표본의 차이를 설명하고, 중심극한정리를 통해 추론의 근거를 제시했다.",
-  corrected_transcript:
-    "기초통계에서는 모집단과 표본의 차이를 설명하고, 중심극한정리를 통해 추론의 근거를 제시했다. 또한 데이터 분포를 확인해 분석 방향을 정리했다.",
-  quantitative: {
-    concept_recall: 0.72,
-    concept_precision: 0.84,
-    concept_f1: 0.77,
-    scores: {
-      accuracy: { score: 32, max_score: 40, rubric_level: 3, reason: "핵심 개념을 대체로 정확하게 설명했습니다." },
-      coverage: { score: 29, max_score: 40, rubric_level: 3, reason: "주요 주제를 다루었지만 일부 개념이 누락되었습니다." },
-      structural_understanding: { score: 14, max_score: 20, rubric_level: 3, reason: "개념 간 관계를 대체로 일관되게 설명했습니다." },
-    },
-    total: { score: 75, max_score: 100, rubric_level: 3, reason: "세 평가 영역을 종합한 Mock 결과입니다." },
-  },
-  qualitative: {
-    missing_concepts: ["세부 근거와 예시"],
-    incorrect_concepts: [],
-    misconnected_concepts: [],
-    review_suggestions: ["핵심 개념 사이의 관계를 한 문장씩 설명해 보세요."],
-  },
-  status: "mock",
-};
-
 export default function ReviewApp() {
   const audioStreamRef = useRef<MediaStream | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
@@ -54,6 +60,7 @@ export default function ReviewApp() {
   const recordedBlobRef = useRef<Blob | null>(null);
 
   const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(topics[0]);
+  const [selectedObjective, setSelectedObjective] = useState<string>(objectives[topics[0]][0][0]);
   const [phase, setPhase] = useState<Phase>("idle");
   const [processStage, setProcessStage] = useState<ProcessStage>("idle");
   const [countdown, setCountdown] = useState(3);
@@ -157,8 +164,12 @@ export default function ReviewApp() {
       );
       const transcription = await waitForTranscription(job.job_id);
       setProcessStage("evaluating");
-      setStatusText("RAG 모델 기반 평가 중입니다...");
-      const response = await submitReview(transcription);
+      setStatusText("Rubric 기반 평가 중입니다...");
+      const response = await submitReview({
+        ...transcription,
+        lecture_id: lectureIds[selectedTopic],
+        objective_id: selectedObjective,
+      });
 
       setReport(response);
       setStatusText("평가 완료. 결과를 확인해보세요.");
@@ -167,7 +178,7 @@ export default function ReviewApp() {
     } catch (error) {
       console.error("STT 또는 BE 요청 실패:", error);
       setReport(null);
-      setStatusText("STT 또는 RAG 평가 연결에 실패했습니다. 백엔드 로그를 확인해 주세요.");
+      setStatusText("STT 또는 Rubric 평가 연결에 실패했습니다. 백엔드 로그를 확인해 주세요.");
       setProcessStage("idle");
       setPhase("idle");
     } finally {
@@ -204,14 +215,14 @@ export default function ReviewApp() {
 
   const scoreBreakdown: ScoreBreakdown[] = report
     ? [
-        { label: "정확도", score: report.quantitative.scores.accuracy.score, weight: 40, tone: "cyan" },
-        { label: "충족도", score: report.quantitative.scores.coverage.score, weight: 40, tone: "amber" },
-        { label: "구조적 이해도", score: report.quantitative.scores.structural_understanding.score, weight: 20, tone: "violet" },
+        { label: "핵심 이해도", score: report.quantitative.scores.essential.score, weight: 60, tone: "cyan" },
+        { label: "보조·심화 설명", score: report.quantitative.scores.supporting.score, weight: 20, tone: "violet" },
+        { label: "하위 목표 충족도", score: report.quantitative.scores.coverage.score, weight: 20, tone: "amber" },
       ]
     : [
-        { label: "정확도", score: 32, weight: 40, tone: "cyan" },
-        { label: "충족도", score: 29, weight: 40, tone: "amber" },
-        { label: "구조적 이해도", score: 14, weight: 20, tone: "violet" },
+        { label: "핵심 이해도", score: 48, weight: 60, tone: "cyan" },
+        { label: "보조·심화 설명", score: 14, weight: 20, tone: "violet" },
+        { label: "하위 목표 충족도", score: 15, weight: 20, tone: "amber" },
       ];
 
   return (
@@ -261,7 +272,10 @@ export default function ReviewApp() {
               {topics.map((topic) => (
                 <button
                   key={topic}
-                  onClick={() => setSelectedTopic(topic)}
+                  onClick={() => {
+                    setSelectedTopic(topic);
+                    setSelectedObjective(objectives[topic][0][0]);
+                  }}
                   className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
                     selectedTopic === topic
                       ? "border-cyan-400 bg-cyan-400 text-slate-950"
@@ -269,6 +283,22 @@ export default function ReviewApp() {
                   }`}
                 >
                   {topic}
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              {objectives[selectedTopic].map(([objectiveId, title]) => (
+                <button
+                  key={objectiveId}
+                  onClick={() => setSelectedObjective(objectiveId)}
+                  className={`rounded-xl border px-4 py-3 text-left text-sm transition ${
+                    selectedObjective === objectiveId
+                      ? "border-violet-400 bg-violet-400/15 text-violet-100"
+                      : "border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500"
+                  }`}
+                >
+                  {title}
                 </button>
               ))}
             </div>
@@ -310,6 +340,9 @@ export default function ReviewApp() {
                 현재 선택 주제
               </h3>
               <p className="text-2xl font-bold text-white">{selectedTopic}</p>
+              <p className="mt-2 text-sm text-violet-200">
+                {objectives[selectedTopic].find(([id]) => id === selectedObjective)?.[1]}
+              </p>
             </div>
 
             <ProcessPanel stage={processStage} />
@@ -359,26 +392,26 @@ export default function ReviewApp() {
               <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
                 <h3 className="mb-3 text-lg font-semibold text-cyan-300">정량 지표</h3>
                 <dl className="space-y-3 text-sm">
-                  <div className="flex justify-between"><dt>Concept Precision</dt><dd>{report.quantitative.concept_precision.toFixed(2)}</dd></div>
-                  <div className="flex justify-between"><dt>Concept Recall</dt><dd>{report.quantitative.concept_recall.toFixed(2)}</dd></div>
-                  <div className="flex justify-between"><dt>Concept F1</dt><dd>{report.quantitative.concept_f1.toFixed(2)}</dd></div>
+                  <div className="flex justify-between"><dt>핵심 이해도</dt><dd>{report.quantitative.scores.essential.score} / 60</dd></div>
+                  <div className="flex justify-between"><dt>보조·심화 설명</dt><dd>{report.quantitative.scores.supporting.score} / 20</dd></div>
+                  <div className="flex justify-between"><dt>하위 목표 충족도</dt><dd>{report.quantitative.scores.coverage.score} / 20</dd></div>
                 </dl>
               </div>
 
               <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
                 <h3 className="mb-3 text-lg font-semibold text-emerald-300">평가 근거</h3>
                 <div className="space-y-3 text-sm leading-6 text-slate-300">
-                  <div><strong className="text-slate-100">정확도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.accuracy.reason}</p></div>
-                  <div><strong className="text-slate-100">충족도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.coverage.reason}</p></div>
-                  <div><strong className="text-slate-100">구조적 이해도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.structural_understanding.reason}</p></div>
+                  <div><strong className="text-slate-100">핵심 이해도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.essential.reason}</p></div>
+                  <div><strong className="text-slate-100">보조·심화 설명</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.supporting.reason}</p></div>
+                  <div><strong className="text-slate-100">하위 목표 충족도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.coverage.reason}</p></div>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <FeedbackPanel title="누락된 개념" items={report.qualitative.missing_concepts} tone="amber" />
-              <FeedbackPanel title="잘못 설명한 개념" items={report.qualitative.incorrect_concepts} tone="rose" />
-              <FeedbackPanel title="잘못 연결한 개념" items={report.qualitative.misconnected_concepts} tone="violet" />
+              <FeedbackPanel title="잘 설명한 내용" items={report.qualitative.strengths} tone="emerald" />
+              <FeedbackPanel title="누락된 내용" items={report.qualitative.missing_claims} tone="amber" />
+              <FeedbackPanel title="잘못 설명한 내용" items={report.qualitative.incorrect_claims} tone="rose" />
             </div>
             <div className="mt-6">
               <FeedbackPanel title="복습 방향" items={report.qualitative.review_suggestions} tone="emerald" />
@@ -476,7 +509,7 @@ function ProcessPanel({ stage }: { stage: ProcessStage }) {
   const steps: Array<{ key: Exclude<ProcessStage, "idle">; label: string }> = [
     { key: "transcribing", label: "STT 전사 중" },
     { key: "correcting", label: "LLM이 보정 중입니다" },
-    { key: "evaluating", label: "RAG 모델 기반 평가 중" },
+    { key: "evaluating", label: "Rubric 기반 평가 중" },
   ];
   const activeIndex = stage === "idle" ? -1 : stage === "complete" ? steps.length : steps.findIndex((step) => step.key === stage);
 

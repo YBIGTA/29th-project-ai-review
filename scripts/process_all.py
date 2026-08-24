@@ -15,8 +15,6 @@ from src.pipeline import configure_logging, process_lecture
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="강의 PDF 4개를 모두 처리합니다.")
     parser.add_argument("--force", action="store_true", help="페이지 캐시를 무시합니다.")
-    parser.add_argument("--skip-core-concepts", action="store_true")
-    parser.add_argument("--skip-index", action="store_true")
     return parser.parse_args()
 
 
@@ -33,12 +31,10 @@ def main() -> None:
                 client=client,
                 settings=settings,
                 force=args.force,
-                create_core_concepts=not args.skip_core_concepts,
-                build_index=not args.skip_index,
             )
             print(
                 f"완료: {lecture_id} / {result.processed_pages} pages / "
-                f"{result.chunks} chunks / {result.indexed_chunks} indexed"
+                f"{result.chunks} chunks"
             )
         except Exception as exc:
             failures.append(f"{lecture_id}: {exc}")
@@ -49,4 +45,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

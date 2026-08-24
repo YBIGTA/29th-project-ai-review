@@ -7,7 +7,7 @@ from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, UploadF
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
-from .integrations import evaluate_with_rag
+from .integrations import evaluate_selected_topic
 from .schemas import (
     ReviewSubmitRequest,
     ReviewSubmitResponse,
@@ -24,10 +24,16 @@ TERM_DB_BY_TOPIC = {
     "EDA/FE": "data/term_dbs/eda_fe.json",
     "시각화": "data/term_dbs/visualization.json",
 }
+LECTURE_ID_BY_TOPIC = {
+    "기초통계": "basic_statistics",
+    "크롤링": "crawling",
+    "EDA/FE": "eda_fe",
+    "시각화": "visualization",
+}
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="AI Review API", version="0.2.0")
+    app = FastAPI(title="AI Review API", version="2.0.0")
     app.add_middleware(CORSMiddleware, allow_origins=list(settings.allowed_origins), allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
     app.state.storage = LocalStorage("backend/data")
     app.state.transcription_jobs = {}
@@ -40,7 +46,7 @@ def create_app() -> FastAPI:
     async def transcribe_audio(
         background_tasks: BackgroundTasks,
         session_id: str = Form(...),
-        topic: str = Form("DB"),
+        topic: str = Form("기초통계"),
         audio_file: UploadFile = File(...),
     ) -> TranscriptionJobResponse:
         suffix = Path(audio_file.filename or "").suffix.lower()
@@ -78,6 +84,12 @@ def create_app() -> FastAPI:
 
     @app.post("/api/reviews/submit", response_model=ReviewSubmitResponse, status_code=status.HTTP_201_CREATED)
     def submit_review(request: ReviewSubmitRequest) -> ReviewSubmitResponse:
+        expected_lecture_id = LECTURE_ID_BY_TOPIC.get(request.topic)
+        if expected_lecture_id != request.lecture_id:
+            raise HTTPException(
+                status_code=400,
+                detail="topic과 lecture_id가 일치하지 않습니다.",
+            )
         job = app.state.transcription_jobs.get(request.job_id) if request.job_id else None
         if job is not None:
             job["status"] = "evaluating"
@@ -86,9 +98,10 @@ def create_app() -> FastAPI:
 
         try:
             rag_settings = Settings.from_env(require_api_key=True)
-            evaluation = evaluate_with_rag(
+            evaluation = evaluate_selected_topic(
                 transcript=request.transcript_corrected,
-                topic=request.topic,
+                lecture_id=request.lecture_id,
+                objective_id=request.objective_id,
                 settings=rag_settings,
                 client=OpenAI(api_key=rag_settings.openai_api_key),
             )
@@ -96,10 +109,12 @@ def create_app() -> FastAPI:
             if job is not None:
                 job["status"] = "failed"
                 job["error"] = str(exc)
-            raise HTTPException(status_code=502, detail=f"RAG 평가에 실패했습니다: {exc}") from exc
+            raise HTTPException(status_code=502, detail=f"Rubric 평가에 실패했습니다: {exc}") from exc
         response = ReviewSubmitResponse(
             review_id=f"review-{uuid4().hex[:12]}",
             session_id=request.session_id,
+            lecture_id=request.lecture_id,
+            objective_id=request.objective_id,
             score=evaluation["quantitative"]["total"]["score"],
             transcript=request.transcript_raw,
             corrected_transcript=request.transcript_corrected,
