@@ -87,6 +87,7 @@ def _to_review_result(score, assessment, branch, segments) -> EvaluationResult:
         claims.append(
             {
                 "claim_id": item.claim_id,
+                "claim_text": claim.text,
                 "judgment": item.judgment,
                 "source_chunk_ids_used": source_ids,
                 "source_chunks": [
