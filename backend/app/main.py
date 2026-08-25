@@ -130,7 +130,7 @@ def create_app() -> FastAPI:
         with get_session() as db:
             db.add(AuthSession(user_id=user.id, session_token_hash=_hash_token(raw_token), expires_at=expires_at.replace(tzinfo=None)))
             db.commit()
-        response.set_cookie(settings.auth_cookie_name, raw_token, httponly=True, secure=settings.auth_cookie_secure, samesite="lax", max_age=7 * 24 * 60 * 60)
+        response.set_cookie(settings.auth_cookie_name, raw_token, httponly=True, secure=settings.auth_cookie_secure, samesite=settings.auth_cookie_samesite, max_age=7 * 24 * 60 * 60)
         return AuthResponse(user=UserResponse(id=str(user.id), google_user_id=user.google_user_id, nickname=user.nickname, profile_image_url=user.profile_image_url), expires_at=expires_at.isoformat())
 
     @app.get("/api/auth/me", response_model=UserResponse)
