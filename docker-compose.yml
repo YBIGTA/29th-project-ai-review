@@ -6,7 +6,8 @@ services:
     environment:
       DATABASE_URL: postgresql://ai_review:ai_review@db:5432/ai_review
       VECTOR_DB_PATH: /app/vector_db
-      AUTH_COOKIE_SECURE: "false"
+      AUTH_COOKIE_SECURE: "true"
+      AUTH_COOKIE_SAMESITE: "none"
     ports:
       - "8000:8000"
     volumes:
