@@ -21,6 +21,7 @@ COPY config ./config
 COPY data ./data
 COPY docs ./docs
 COPY src ./src
+COPY scripts ./scripts
 
 RUN pip install -e .
 
