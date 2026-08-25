@@ -375,8 +375,8 @@ def _run_transcription_job(app: FastAPI, job_id: str, audio_path: str, term_db_p
 
         term_db = load_term_db(term_db_path)
         initial_prompt, hotwords = build_stt_hints(term_db)
-        LOGGER.info("STT 시작: job_id=%s audio=%s model=medium beam=5", job_id, audio_path)
-        stt = WhisperSttBackend(SttConfig(model_size="medium", beam_size=5))
+        LOGGER.info("STT 시작: job_id=%s audio=%s model=small beam=5", job_id, audio_path)
+        stt = WhisperSttBackend(SttConfig(model_size="small", beam_size=5))
         raw = stt.transcribe(audio_path, initial_prompt=initial_prompt, hotwords=hotwords)
         job["transcript_raw"] = raw
         job["status"] = "correcting"
@@ -430,7 +430,7 @@ def _persist_transcription(job: dict) -> str | None:
     if study_session_id is None or audio_file_id is None:
         return None
     with get_session() as db:
-        row = Transcription(study_session_id=study_session_id, audio_file_id=audio_file_id, raw_text=job["transcript_raw"], corrected_text=job["transcript_corrected"], stt_model="faster-whisper-medium", beam_size=5, correction_model="groq")
+        row = Transcription(study_session_id=study_session_id, audio_file_id=audio_file_id, raw_text=job["transcript_raw"], corrected_text=job["transcript_corrected"], stt_model="faster-whisper-small", beam_size=5, correction_model="groq")
         db.add(row)
         db.commit()
         return str(row.id)
