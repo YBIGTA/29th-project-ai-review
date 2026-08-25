@@ -1,0 +1,1319 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "db",
+  "lecture_name": "Database",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "db.foundations_rdbms",
+      "title": "DB·DBMS와 관계형 모델",
+      "selection_description": "Database management와 table·key·integrity를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "db.foundation.management",
+          "title": "DB와 DBMS",
+          "summary": "File 관리와 DBMS를 비교한다.",
+          "claims": [
+            {
+              "claim_id": "db.file_vs_db",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "File system만으로 관리할 때 생기는 duplicate·overwrite·concurrent access 문제를 DBMS가 integrity·consistency·shared management로 줄인다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "db_p6_01",
+                  "unit_id": "db_p6_db_value",
+                  "source_excerpt": "무결성 / 일관성 / 동시 접근과 관리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "database",
+                "dbms",
+                "file_system",
+                "data_integrity",
+                "consistency",
+                "concurrency"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "File system만으로 관리할 때 생기는 duplicate·overwrite·concurrent access 문제를 DBMS가 integrity·consistency·shared management로 줄인다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.dbms",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "DBMS는 database schema와 data의 create·read·update·delete, access와 transaction을 관리하는 software다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "db_p10_01",
+                  "unit_id": "db_p10_dbms",
+                  "source_excerpt": "데이터베이스를 관리하고 운영하는 소프트웨어 / 여러 사용자가 동시에 접근",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "database",
+                "dbms",
+                "concurrency"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "DBMS는 database schema와 data의 create·read·update·delete, access와 transaction을 관리하는 software다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.models",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "RDBMS는 relation·schema·constraint 중심이고 NoSQL은 다양한 data model과 flexible schema·distribution trade-off를 제공한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "db_p11_01",
+                  "unit_id": "db_p11_models",
+                  "source_excerpt": "RDBMS / NoSQL",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rdbms",
+                "nosql",
+                "schema",
+                "flexible_schema",
+                "scale_out"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "RDBMS는 relation·schema·constraint 중심이고 NoSQL은 다양한 data model과 flexible schema·distribution trade-off를 제공한다."
+                ],
+                "critical_errors": [
+                  "NoSQL에는 schema나 규칙이 전혀 없고 언제나 RDBMS보다 빠르다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.foundation.structure",
+          "title": "Table과 관계",
+          "summary": "Row·column·key·cardinality를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "db.table_keys",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Table은 row와 column으로 구성되고 primary key는 row를 unique하게 식별하며 foreign key는 다른 table의 candidate key를 참조한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "db_p15_01",
+                  "unit_id": "db_p15_table_keys",
+                  "source_excerpt": "Table / Row / Column / Primary Key / Foreign Key",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "table",
+                "row",
+                "column",
+                "primary_key",
+                "foreign_key",
+                "candidate_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Table은 row와 column으로 구성되고 primary key는 row를 unique하게 식별하며 foreign key는 다른 table의 candidate key를 참조한다."
+                ],
+                "critical_errors": [
+                  "Primary key가 중복되거나 NULL이어도 된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "db.relationships",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "1:1·1:N·N:M cardinality를 구분하고 N:M은 보통 두 entity key를 참조하는 junction table로 구현한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "db_p16_01",
+                  "unit_id": "db_p16_relations",
+                  "source_excerpt": "1:1 / 1:N / N:M / 교차 테이블",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "relationship",
+                "one_to_one",
+                "one_to_many",
+                "many_to_many",
+                "junction_table",
+                "foreign_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "1:1·1:N·N:M cardinality를 구분하고 N:M은 보통 두 entity key를 참조하는 junction table로 구현한다."
+                ],
+                "critical_errors": [
+                  "N:M 관계를 foreign key 하나만으로 항상 직접 표현한다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.foundation.integrity",
+          "title": "무결성과 제약",
+          "summary": "허용 data와 참조 규칙을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "db.integrity",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Entity·referential·domain·business integrity는 key 식별, valid reference, allowed domain과 업무 규칙의 일관성을 보호한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "db_p17_01",
+                  "unit_id": "db_p17_integrity",
+                  "source_excerpt": "개체 무결성 / 참조 무결성 / 도메인 무결성 / 비즈니스 무결성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "data_integrity",
+                "entity_integrity",
+                "referential_integrity",
+                "domain_integrity",
+                "business_rule"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Entity·referential·domain·business integrity는 key 식별, valid reference, allowed domain과 업무 규칙의 일관성을 보호한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.constraints",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "NOT NULL·UNIQUE·PK·FK·CHECK·DEFAULT constraint는 schema 수준에서 허용 값과 relation을 제한한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "db_p18_01",
+                  "unit_id": "db_p18_constraints",
+                  "source_excerpt": "NOT NULL / UNIQUE / PRIMARY KEY / FOREIGN KEY / CHECK / DEFAULT",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "constraint",
+                "not_null",
+                "unique",
+                "primary_key",
+                "foreign_key",
+                "check",
+                "default"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "NOT NULL·UNIQUE·PK·FK·CHECK·DEFAULT constraint는 schema 수준에서 허용 값과 relation을 제한한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.fk_actions",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Referenced row 변경·삭제 시 RESTRICT·CASCADE·SET NULL 등 foreign-key action은 선언된 constraint와 nullability에 따라 달라진다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "db_p17_01",
+                  "unit_id": "db_p17_integrity",
+                  "source_excerpt": "개체 무결성 / 참조 무결성 / 도메인 무결성 / 비즈니스 무결성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "data_integrity",
+                "entity_integrity",
+                "referential_integrity",
+                "domain_integrity",
+                "business_rule"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Referenced row 변경·삭제 시 RESTRICT·CASCADE·SET NULL 등 foreign-key action은 선언된 constraint와 nullability에 따라 달라진다."
+                ],
+                "critical_errors": [
+                  "Foreign key가 있으면 referenced row는 어떤 설정에서도 절대 변경·삭제할 수 없다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "db.normalization_transactions",
+      "title": "정규화와 트랜잭션",
+      "selection_description": "Anomaly 제거와 ACID를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "db.norm.problem",
+          "title": "중복과 이상 현상",
+          "summary": "세 anomaly를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "db.anomalies",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Redundancy는 한 사실을 여러 곳에 저장해 insertion·deletion·update anomaly와 inconsistency를 만들 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "db_p19_01",
+                  "unit_id": "db_p19_anomaly",
+                  "source_excerpt": "중복 / 일관성 / 삽입 삭제 갱신 이상",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 20,
+                  "chunk_id": "db_p20_01",
+                  "unit_id": "db_p20_insert",
+                  "source_excerpt": "삽입 이상",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 21,
+                  "chunk_id": "db_p21_01",
+                  "unit_id": "db_p21_delete",
+                  "source_excerpt": "삭제 이상",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 22,
+                  "chunk_id": "db_p22_01",
+                  "unit_id": "db_p22_update",
+                  "source_excerpt": "갱신 이상",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "redundancy",
+                "consistency",
+                "anomaly",
+                "normalization",
+                "insertion_anomaly",
+                "deletion_anomaly",
+                "update_anomaly"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Redundancy는 한 사실을 여러 곳에 저장해 insertion·deletion·update anomaly와 inconsistency를 만들 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.normalization",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Normalization은 functional dependency를 바탕으로 relation을 분해해 redundancy와 anomaly를 줄인다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "db_p23_01",
+                  "unit_id": "db_p23_normalize",
+                  "source_excerpt": "함수 종속성에 맞추어 / 보통 3NF까지",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "normalization",
+                "functional_dependency",
+                "third_normal_form"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Normalization은 functional dependency를 바탕으로 relation을 분해해 redundancy와 anomaly를 줄인다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.norm.forms12",
+          "title": "1NF와 2NF",
+          "summary": "Atomicity와 partial dependency를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "db.first_nf",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "1NF는 각 cell이 domain의 atomic value 하나를 가져 repeating group을 제거한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 25,
+                  "chunk_id": "db_p25_01",
+                  "unit_id": "db_p25_1nf",
+                  "source_excerpt": "각 속성은 원자값",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "first_normal_form",
+                "atomic_value"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "1NF는 각 cell이 domain의 atomic value 하나를 가져 repeating group을 제거한다."
+                ],
+                "critical_errors": [
+                  "1NF에서 한 cell에 여러 반복 값을 넣어도 된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "db.second_nf",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "2NF는 1NF를 만족하고 모든 non-prime attribute가 composite candidate key의 일부가 아니라 전체에 fully dependent하도록 partial dependency를 제거한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "db_p26_01",
+                  "unit_id": "db_p26_2nf",
+                  "source_excerpt": "부분적 함수 종속 제거 / 후보키 전체에 완전 함수 종속",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "second_normal_form",
+                "partial_dependency",
+                "candidate_key",
+                "functional_dependency"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "2NF는 1NF를 만족하고 모든 non-prime attribute가 composite candidate key의 일부가 아니라 전체에 fully dependent하도록 partial dependency를 제거한다."
+                ],
+                "critical_errors": [
+                  "2NF를 non-key 사이의 transitive dependency 제거라고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.norm.forms3",
+          "title": "3NF와 고차 정규형",
+          "summary": "Dependency 기준을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "db.third_nf",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "3NF는 2NF를 만족하고 non-key attribute가 다른 non-key attribute를 거쳐 key에 의존하는 transitive dependency를 제거한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "db_p28_01",
+                  "unit_id": "db_p28_3nf",
+                  "source_excerpt": "이행적 함수 종속 제거",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "third_normal_form",
+                "transitive_dependency",
+                "functional_dependency"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "3NF는 2NF를 만족하고 non-key attribute가 다른 non-key attribute를 거쳐 key에 의존하는 transitive dependency를 제거한다."
+                ],
+                "critical_errors": [
+                  "3NF를 composite key 일부에 대한 partial dependency 제거라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "db.higher_nf",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "BCNF는 모든 determinant가 superkey이도록 하며 4NF와 5NF는 각각 multivalued dependency와 join dependency를 더 엄격하게 다룬다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "db_p30_01",
+                  "unit_id": "db_p30_higher_nf",
+                  "source_excerpt": "BCNF / 4NF / 5NF",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "bcnf",
+                "fourth_normal_form",
+                "fifth_normal_form",
+                "candidate_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "BCNF는 모든 determinant가 superkey이도록 하며 4NF와 5NF는 각각 multivalued dependency와 join dependency를 더 엄격하게 다룬다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.norm.transaction",
+          "title": "Transaction과 ACID",
+          "summary": "Logical work와 네 속성을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "db.transaction",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Transaction은 함께 성공하거나 실패해야 하는 하나의 logical work unit이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "db_p31_01",
+                  "unit_id": "db_p31_acid",
+                  "source_excerpt": "Atomicity / Consistency / Isolation / Durability",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "transaction",
+                "acid",
+                "atomicity",
+                "consistency",
+                "isolation",
+                "durability"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Transaction은 함께 성공하거나 실패해야 하는 하나의 logical work unit이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.acid",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "ACID는 Atomicity·Consistency·Isolation·Durability이며 committed result가 failure 뒤에도 보존되는 성질은 Durability다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 31,
+                  "chunk_id": "db_p31_01",
+                  "unit_id": "db_p31_acid",
+                  "source_excerpt": "Atomicity / Consistency / Isolation / Durability",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "transaction",
+                "acid",
+                "atomicity",
+                "consistency",
+                "isolation",
+                "durability"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "ACID는 Atomicity·Consistency·Isolation·Durability이며 committed result가 failure 뒤에도 보존되는 성질은 Durability다."
+                ],
+                "critical_errors": [
+                  "ACID의 D를 Duration이라고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "db.sql_queries",
+      "title": "SQL 정의·조작·조회",
+      "selection_description": "Schema와 data를 바꾸고 query하는 구문을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "db.sql.categories",
+          "title": "SQL과 명령 분류",
+          "summary": "Declarative language와 category를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "db.sql_definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "SQL은 relational schema와 data를 declaratively 정의·조회·변경하는 표준 언어이며 product별 dialect 차이가 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "db_p33_01",
+                  "unit_id": "db_p33_sql",
+                  "source_excerpt": "데이터베이스에 질의하기 위한 언어 / 비절차적 언어",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "sql",
+                "database"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "SQL은 relational schema와 data를 declaratively 정의·조회·변경하는 표준 언어이며 product별 dialect 차이가 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.sql_types",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "DDL은 schema, DML은 data, DCL은 permission, TCL은 transaction을 제어하며 SELECT는 DML 또는 교육상 DQL로 분류된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 35,
+                  "chunk_id": "db_p35_01",
+                  "unit_id": "db_p35_types",
+                  "source_excerpt": "DDL / DML / DCL / TCL",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "sql",
+                "ddl",
+                "dml",
+                "dcl",
+                "tcl",
+                "dql"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "DDL은 schema, DML은 data, DCL은 permission, TCL은 transaction을 제어하며 SELECT는 DML 또는 교육상 DQL로 분류된다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.sql.modify",
+          "title": "DDL과 DML",
+          "summary": "Object·row operation을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "db.create_constraints",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "CREATE TABLE은 column type과 PK·FK·CHECK·DEFAULT constraint를 정의한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 36,
+                  "chunk_id": "db_p36_01",
+                  "unit_id": "db_p36_create",
+                  "source_excerpt": "CREATE TABLE / PRIMARY KEY / FOREIGN KEY / CHECK / DEFAULT",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ddl",
+                "create",
+                "table",
+                "primary_key",
+                "foreign_key",
+                "check",
+                "default"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CREATE TABLE은 column type과 PK·FK·CHECK·DEFAULT constraint를 정의한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.ddl_operations",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "ALTER는 schema 변경, TRUNCATE는 table structure를 남기고 row 제거, DROP은 object 자체 제거다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 37,
+                  "chunk_id": "db_p37_01",
+                  "unit_id": "db_p37_ddl",
+                  "source_excerpt": "ALTER / DESCRIBE / TRUNCATE / DROP",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ddl",
+                "alter",
+                "truncate",
+                "drop"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "ALTER는 schema 변경, TRUNCATE는 table structure를 남기고 row 제거, DROP은 object 자체 제거다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.insert",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "INSERT는 column과 VALUES를 대응해 row를 추가하며 omitted column은 default와 nullability rule을 따른다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 38,
+                  "chunk_id": "db_p38_01",
+                  "unit_id": "db_p38_insert",
+                  "source_excerpt": "INSERT INTO / VALUES",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dml",
+                "insert",
+                "default"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "INSERT는 column과 VALUES를 대응해 row를 추가하며 omitted column은 default와 nullability rule을 따른다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.update_delete",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "UPDATE와 DELETE의 WHERE를 생략하면 대상 table의 모든 row에 영향 줄 수 있어 transaction과 조건을 확인해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 39,
+                  "chunk_id": "db_p39_01",
+                  "unit_id": "db_p39_modify",
+                  "source_excerpt": "DELETE FROM ... WHERE / UPDATE ... SET ... WHERE",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dml",
+                "delete",
+                "update",
+                "where"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "UPDATE와 DELETE의 WHERE를 생략하면 대상 table의 모든 row에 영향 줄 수 있어 transaction과 조건을 확인해야 한다."
+                ],
+                "critical_errors": [
+                  "WHERE 없는 UPDATE나 DELETE가 한 row에만 영향 준다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.sql.select",
+          "title": "SELECT와 복합 query",
+          "summary": "Logical order와 aggregation을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "db.select",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "SELECT result는 derived table처럼 subquery·CTE에 사용할 수 있어 query를 단계적으로 구성할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 40,
+                  "chunk_id": "db_p40_01",
+                  "unit_id": "db_p40_select",
+                  "source_excerpt": "SELECT / DQL / Derived Table / sub-query / CTE",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "select",
+                "dql",
+                "subquery",
+                "cte"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "SELECT result는 derived table처럼 subquery·CTE에 사용할 수 있어 query를 단계적으로 구성할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.logical_order",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "SELECT logical processing은 FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY 순으로 이해한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 41,
+                  "chunk_id": "db_p41_01",
+                  "unit_id": "db_p41_order",
+                  "source_excerpt": "FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "select",
+                "where",
+                "group_by",
+                "having",
+                "order_by"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "SELECT logical processing은 FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY 순으로 이해한다."
+                ],
+                "critical_errors": [
+                  "SELECT의 logical processing이 항상 SELECT부터 시작한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "db.aggregate_subquery",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "GROUP BY는 group을 만들고 HAVING은 aggregated group을 filter하며 subquery와 CASE WHEN은 nested query와 conditional value를 표현한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 42,
+                  "chunk_id": "db_p42_01",
+                  "unit_id": "db_p42_advanced",
+                  "source_excerpt": "GROUP BY / HAVING / subquery / CASE WHEN",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "group_by",
+                "having",
+                "subquery",
+                "case_when"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "GROUP BY는 group을 만들고 HAVING은 aggregated group을 filter하며 subquery와 CASE WHEN은 nested query와 conditional value를 표현한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.sql.combine",
+          "title": "JOIN과 UNION",
+          "summary": "가로·세로 결합을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "db.join",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "INNER JOIN은 matching row, outer join은 지정한 side의 unmatched row까지, CROSS JOIN은 Cartesian product를 반환한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 44,
+                  "chunk_id": "db_p44_01",
+                  "unit_id": "db_p44_join",
+                  "source_excerpt": "CROSS JOIN / INNER JOIN / RIGHT JOIN / LEFT JOIN",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "join",
+                "cross_join",
+                "inner_join",
+                "outer_join"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "INNER JOIN은 matching row, outer join은 지정한 side의 unmatched row까지, CROSS JOIN은 Cartesian product를 반환한다."
+                ],
+                "critical_errors": [
+                  "INNER JOIN이 unmatched row도 모두 보존한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "db.union",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "UNION은 compatible query result를 세로로 합치며 duplicate를 제거하고 UNION ALL은 duplicate를 유지한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 45,
+                  "chunk_id": "db_p45_01",
+                  "unit_id": "db_p45_union",
+                  "source_excerpt": "UNION / UNION ALL",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "union",
+                "union_all",
+                "outer_join"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "UNION은 compatible query result를 세로로 합치며 duplicate를 제거하고 UNION ALL은 duplicate를 유지한다."
+                ],
+                "critical_errors": [
+                  "UNION과 UNION ALL이 duplicate를 동일하게 처리한다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "db.systems_selection",
+      "title": "OLTP·OLAP와 DB 선택",
+      "selection_description": "Workload와 data model에 맞는 system을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "db.system.workloads",
+          "title": "OLTP와 OLAP",
+          "summary": "운영·분석 workload를 비교한다.",
+          "claims": [
+            {
+              "claim_id": "db.workload_split",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Operational short read·write와 long analytical aggregation을 분리하면 resource contention과 production impact를 줄일 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 47,
+                  "chunk_id": "db_p47_01",
+                  "unit_id": "db_p47_split",
+                  "source_excerpt": "Operation과 Analysis를 분리 / 읽기 쓰기 충돌",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "oltp",
+                "olap"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Operational short read·write와 long analytical aggregation을 분리하면 resource contention과 production impact를 줄일 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.oltp",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "OLTP는 많은 짧은 real-time transaction, ACID와 row-level access를 중심으로 하며 normalized design이 흔하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 48,
+                  "chunk_id": "db_p48_01",
+                  "unit_id": "db_p48_oltp",
+                  "source_excerpt": "실시간 트랜잭션 / ACID / 정규화 / Row-oriented",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "oltp",
+                "transaction",
+                "acid",
+                "normalization",
+                "row_store"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "OLTP는 많은 짧은 real-time transaction, ACID와 row-level access를 중심으로 하며 normalized design이 흔하다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.olap",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "OLAP는 history data에 대한 complex aggregation과 multidimensional, read-heavy analysis에 최적화한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 49,
+                  "chunk_id": "db_p49_01",
+                  "unit_id": "db_p49_olap",
+                  "source_excerpt": "복잡한 분석 쿼리 / 다차원 분석 / 읽기 최적화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "olap"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "OLAP는 history data에 대한 complex aggregation과 multidimensional, read-heavy analysis에 최적화한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.oltp_olap_compare",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "OLTP와 OLAP의 index 수나 storage 방식은 절대 규칙이 아니라 workload와 engine design에 따른 경향이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 47,
+                  "chunk_id": "db_p47_01",
+                  "unit_id": "db_p47_split",
+                  "source_excerpt": "Operation과 Analysis를 분리 / 읽기 쓰기 충돌",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 48,
+                  "chunk_id": "db_p48_01",
+                  "unit_id": "db_p48_oltp",
+                  "source_excerpt": "실시간 트랜잭션 / ACID / 정규화 / Row-oriented",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 49,
+                  "chunk_id": "db_p49_01",
+                  "unit_id": "db_p49_olap",
+                  "source_excerpt": "복잡한 분석 쿼리 / 다차원 분석 / 읽기 최적화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "oltp",
+                "olap",
+                "transaction",
+                "acid",
+                "normalization",
+                "row_store"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "OLTP와 OLAP의 index 수나 storage 방식은 절대 규칙이 아니라 workload와 engine design에 따른 경향이다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.system.nosql",
+          "title": "RDBMS 한계와 NoSQL",
+          "summary": "Alternative 선택 이유를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "db.rdbms_limits",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Rigid schema change, horizontal scale, massive semi/unstructured data 요구에서는 RDBMS trade-off를 평가하고 alternative model을 검토한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 51,
+                  "chunk_id": "db_p51_01",
+                  "unit_id": "db_p51_limits",
+                  "source_excerpt": "Scale-out / Schema 변경 / 대용량 / 비정형",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rdbms",
+                "scale_out",
+                "schema",
+                "nosql"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Rigid schema change, horizontal scale, massive semi/unstructured data 요구에서는 RDBMS trade-off를 평가하고 alternative model을 검토한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.nosql",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "NoSQL은 ruleless database가 아니라 document·key-value 등 model과 flexible schema·scale-out 특성을 제공하며 validation과 consistency 선택이 필요하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 52,
+                  "chunk_id": "db_p52_01",
+                  "unit_id": "db_p52_nosql",
+                  "source_excerpt": "유연한 스키마 / Scale-out",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "nosql",
+                "flexible_schema",
+                "scale_out"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "NoSQL은 ruleless database가 아니라 document·key-value 등 model과 flexible schema·scale-out 특성을 제공하며 validation과 consistency 선택이 필요하다."
+                ],
+                "critical_errors": [
+                  "NoSQL은 schema validation이나 consistency rule을 가질 수 없다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "db.system.models",
+          "title": "NoSQL 모델",
+          "summary": "Access pattern별 강점을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "db.nosql_models",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Document는 nested document, key-value는 direct key lookup, wide-column은 distributed sparse data, graph는 relation traversal에 강점이 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 53,
+                  "chunk_id": "db_p53_01",
+                  "unit_id": "db_p53_models1",
+                  "source_excerpt": "Document Store / Key-Value Store",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 54,
+                  "chunk_id": "db_p54_01",
+                  "unit_id": "db_p54_models2",
+                  "source_excerpt": "Wide-column Store / Graph DB",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "document_store",
+                "key_value_store",
+                "nosql",
+                "wide_column_store",
+                "graph_database"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Document는 nested document, key-value는 direct key lookup, wide-column은 distributed sparse data, graph는 relation traversal에 강점이 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "db.vector_search",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Vector search는 embedding similarity로 neighbor를 찾으며 FAISS는 library/index, Elasticsearch는 search engine with vector support, Milvus·Pinecone 등은 vector system 범주로 구분한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 55,
+                  "chunk_id": "db_p55_01",
+                  "unit_id": "db_p55_vector",
+                  "source_excerpt": "Embedding / Vector DB / 유사도",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vector_database",
+                "embedding",
+                "similarity_search"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Vector search는 embedding similarity로 neighbor를 찾으며 FAISS는 library/index, Elasticsearch는 search engine with vector support, Milvus·Pinecone 등은 vector system 범주로 구분한다."
+                ],
+                "critical_errors": [
+                  "FAISS 자체를 persistence·transaction을 완비한 full database product라고 단정"
+                ]
+              }
+            },
+            {
+              "claim_id": "db.selection",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "DB는 transaction·constraint, query pattern, data shape, scale와 operations requirement를 기준으로 선택하며 한 model이 모든 문제에 최적이지 않다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 56,
+                  "chunk_id": "db_p56_01",
+                  "unit_id": "db_p56_selection",
+                  "source_excerpt": "문제에 맞는 DB 선택",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "database",
+                "rdbms",
+                "nosql",
+                "oltp",
+                "olap"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "DB는 transaction·constraint, query pattern, data shape, scale와 operations requirement를 기준으로 선택하며 한 model이 모든 문제에 최적이지 않다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": [
+    {
+      "page": 11,
+      "chunk_id": "db_p11_01",
+      "source_text": "NoSQL: 규칙 없음 / Speed 빠름 / Scalability 좋음",
+      "reason": "NoSQL에도 schema·validation·consistency 선택이 있으며 성능은 workload와 implementation에 따라 달라짐"
+    },
+    {
+      "page": 17,
+      "chunk_id": "db_p17_01",
+      "source_text": "FK가 PK를 참조하면 PK 변경·삭제 불가",
+      "reason": "RESTRICT·CASCADE·SET NULL 등 referential action 설정에 따라 동작이 달라짐"
+    },
+    {
+      "page": 31,
+      "chunk_id": "db_p31_01",
+      "source_text": "D (Duration)",
+      "reason": "ACID의 D는 Durability의 오기"
+    },
+    {
+      "page": 49,
+      "chunk_id": "db_p49_01",
+      "source_text": "OLTP index 적음 / OLAP index 많음",
+      "reason": "Index 전략은 workload와 engine 설계에 따른 경향이지 정의 조건이 아님"
+    },
+    {
+      "page": 52,
+      "chunk_id": "db_p52_01",
+      "source_text": "NoSQL은 schema 없음",
+      "reason": "Schema-flexible이 정확하며 validation이 application 또는 DB layer에 존재할 수 있음"
+    },
+    {
+      "page": 55,
+      "chunk_id": "db_p55_01",
+      "source_text": "Vector DB 예시: Elasticsearch, ChromaDB, FAISS, Milvus, Pinecone",
+      "reason": "FAISS는 similarity search library/index이고 Elasticsearch는 vector 기능을 포함한 search engine이므로 product category를 구분"
+    }
+  ]
+}

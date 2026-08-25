@@ -1,0 +1,2286 @@
+{
+  "course_id": null,
+  "topic": "AI Agent",
+  "entries": [
+    {
+      "term": "Simple Start",
+      "korean_variants": [
+        "심플 스타트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Anthropic Harness",
+      "korean_variants": [
+        "앤트로픽 하니스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Module",
+      "korean_variants": [
+        "모듈"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DB",
+      "korean_variants": [
+        "디비"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Components",
+      "korean_variants": [
+        "컴포넌트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Persona",
+      "korean_variants": [
+        "퍼소나"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MCP",
+      "korean_variants": [
+        "엠씨피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Window",
+      "korean_variants": [
+        "윈도우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "User Query",
+      "korean_variants": [
+        "유저 쿼리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "AITP",
+      "korean_variants": [
+        "에이아이티피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Fallback",
+      "korean_variants": [
+        "폴백"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Start",
+      "korean_variants": [
+        "스타트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Instruction",
+      "korean_variants": [
+        "인스트럭션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Elastic",
+      "korean_variants": [
+        "엘라스틱"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LCEL",
+      "korean_variants": [
+        "엘시엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "GitHub",
+      "korean_variants": [
+        "깃허브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Single",
+      "korean_variants": [
+        "싱글"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DS",
+      "korean_variants": [
+        "디에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "ParentGraph",
+      "korean_variants": [
+        "페어런트 그래프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Heat",
+      "korean_variants": [
+        "히트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Expression",
+      "korean_variants": [
+        "익스프레션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SubGraph",
+      "korean_variants": [
+        "서브 그래프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agent Protocols",
+      "korean_variants": [
+        "에이전트 프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Cursor",
+      "korean_variants": [
+        "커서"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Code",
+      "korean_variants": [
+        "코드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MultiAgent",
+      "korean_variants": [
+        "멀티에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Vertex",
+      "korean_variants": [
+        "버텍스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "QA",
+      "korean_variants": [
+        "큐에이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "E2E",
+      "korean_variants": [
+        "이투이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Card",
+      "korean_variants": [
+        "카드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Rolling Buffer",
+      "korean_variants": [
+        "롤링 버퍼"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Term",
+      "korean_variants": [
+        "텀"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Contributors",
+      "korean_variants": [
+        "컨트리뷰터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "P2P",
+      "korean_variants": [
+        "피투피"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Tools",
+      "korean_variants": [
+        "툴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Frameworks",
+      "korean_variants": [
+        "프레임워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Design",
+      "korean_variants": [
+        "디자인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "How",
+      "korean_variants": [
+        "하우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language",
+      "korean_variants": [
+        "랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Output Schema",
+      "korean_variants": [
+        "아웃풋 스키마"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Tactics",
+      "korean_variants": [
+        "택틱스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Context",
+      "korean_variants": [
+        "컨텍스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ReACT",
+      "korean_variants": [
+        "리액트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "A2A",
+      "korean_variants": [
+        "에이투에이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "LlmAgent",
+      "korean_variants": [
+        "엘엘엠 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "IBM",
+      "korean_variants": [
+        "아이비엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Feedback",
+      "korean_variants": [
+        "피드백"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Node",
+      "korean_variants": [
+        "노드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CLAUDE",
+      "korean_variants": [
+        "클로드"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Agent Communication Protocol",
+      "korean_variants": [
+        "에이전트 커뮤니케이션 프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Why MCP",
+      "korean_variants": [
+        "와이 엠씨피"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Google Developers Blog",
+      "korean_variants": [
+        "구글 디벨로퍼스 블로그"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Scaling",
+      "korean_variants": [
+        "스케일링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Framework",
+      "korean_variants": [
+        "프레임워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Outline",
+      "korean_variants": [
+        "아웃라인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Detection",
+      "korean_variants": [
+        "디텍션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Evaluation",
+      "korean_variants": [
+        "이밸류에이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Act",
+      "korean_variants": [
+        "액트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Prompt Engineering",
+      "korean_variants": [
+        "프롬프트 엔지니어링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "FIFO",
+      "korean_variants": [
+        "파이프"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CustomAgent",
+      "korean_variants": [
+        "커스텀 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Niklas",
+      "korean_variants": [
+        "니클라스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RULES",
+      "korean_variants": [
+        "룰스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Blog",
+      "korean_variants": [
+        "블로그"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Structured",
+      "korean_variants": [
+        "스트럭처드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LangChain",
+      "korean_variants": [
+        "랭체인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "USB",
+      "korean_variants": [
+        "유에스비"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "BeeAI",
+      "korean_variants": [
+        "비에이아이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "System",
+      "korean_variants": [
+        "시스템"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Context Engineering",
+      "korean_variants": [
+        "컨텍스트 엔지니어링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "AGENT",
+      "korean_variants": [
+        "에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Git",
+      "korean_variants": [
+        "깃"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Template",
+      "korean_variants": [
+        "템플릿"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PaLM",
+      "korean_variants": [
+        "팜"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tool",
+      "korean_variants": [
+        "툴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Windsurf",
+      "korean_variants": [
+        "윈드서프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LMOS",
+      "korean_variants": [
+        "엘엠오에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "ADK",
+      "korean_variants": [
+        "에이디케이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Medium",
+      "korean_variants": [
+        "미디엄"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "HTTP",
+      "korean_variants": [
+        "에이치티피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Working",
+      "korean_variants": [
+        "워킹"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Triage",
+      "korean_variants": [
+        "트리아지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Function Description",
+      "korean_variants": [
+        "펑션 디스크립션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "AI Agents",
+      "korean_variants": [
+        "에이아이 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Agent Protocol",
+      "korean_variants": [
+        "에이전트 프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "LD",
+      "korean_variants": [
+        "엘디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Input",
+      "korean_variants": [
+        "인풋"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MemoryOS",
+      "korean_variants": [
+        "메모리오에스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LPM",
+      "korean_variants": [
+        "엘피엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Network",
+      "korean_variants": [
+        "네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Flow",
+      "korean_variants": [
+        "플로우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Protocols",
+      "korean_variants": [
+        "프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Cloud",
+      "korean_variants": [
+        "클라우드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Gemini CLI",
+      "korean_variants": [
+        "제미니 씨엘아이"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "MemGPT",
+      "korean_variants": [
+        "멤지피티"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Harness Engineering",
+      "korean_variants": [
+        "하니스 엔지니어링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Manus",
+      "korean_variants": [
+        "매너스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Why",
+      "korean_variants": [
+        "와이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Prompt",
+      "korean_variants": [
+        "프롬프트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AZoAi",
+      "korean_variants": [
+        "에이조에이아이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Importance",
+      "korean_variants": [
+        "임포턴스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Pydantic",
+      "korean_variants": [
+        "파이덱틱"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Structured Output",
+      "korean_variants": [
+        "스트럭처드 아웃풋"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Super Agent",
+      "korean_variants": [
+        "슈퍼 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RAM",
+      "korean_variants": [
+        "램"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Operating",
+      "korean_variants": [
+        "오퍼레이팅"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ParallelAgent",
+      "korean_variants": [
+        "패럴렐 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Dart",
+      "korean_variants": [
+        "다트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hot",
+      "korean_variants": [
+        "핫"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Flows",
+      "korean_variants": [
+        "플로우즈"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Research",
+      "korean_variants": [
+        "리서치"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Crawling",
+      "korean_variants": [
+        "크롤링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Schema",
+      "korean_variants": [
+        "스키마"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Transaction",
+      "korean_variants": [
+        "트랜잭션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agent Development Guidelines",
+      "korean_variants": [
+        "에이전트 개발 가이드라인"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Auto Scaling",
+      "korean_variants": [
+        "오토 스케일링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Web",
+      "korean_variants": [
+        "웹"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DID",
+      "korean_variants": [
+        "디아이디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "You",
+      "korean_variants": [
+        "유"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DeepSeek",
+      "korean_variants": [
+        "딥시크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SWE",
+      "korean_variants": [
+        "에스더블유이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Storage",
+      "korean_variants": [
+        "스토리지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ACP",
+      "korean_variants": [
+        "에이씨피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Simple",
+      "korean_variants": [
+        "심플"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DE",
+      "korean_variants": [
+        "디이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Verification",
+      "korean_variants": [
+        "베리피케이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CoT",
+      "korean_variants": [
+        "코트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Evaluator",
+      "korean_variants": [
+        "이밸루에이터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "MTM",
+      "korean_variants": [
+        "엠티엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Searching",
+      "korean_variants": [
+        "서칭"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Lookup",
+      "korean_variants": [
+        "룩업"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Niklas Heidloff",
+      "korean_variants": [
+        "니클라스 하이드로프"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Protocol",
+      "korean_variants": [
+        "프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature",
+      "korean_variants": [
+        "피처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ML",
+      "korean_variants": [
+        "엠엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Based Storage",
+      "korean_variants": [
+        "베이스드 스토리지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Web Searching",
+      "korean_variants": [
+        "웹 서칭"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Separation",
+      "korean_variants": [
+        "세퍼레이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Heidloff",
+      "korean_variants": [
+        "하이드로프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Reasoning",
+      "korean_variants": [
+        "리즈닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Human",
+      "korean_variants": [
+        "휴먼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Model Context Protocol",
+      "korean_variants": [
+        "모델 컨텍스트 프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "AI Agent",
+      "korean_variants": [
+        "에이아이 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Agents",
+      "korean_variants": [
+        "에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AI Agent Frameworks",
+      "korean_variants": [
+        "에이아이 에이전트 프레임워크스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "SOTA",
+      "korean_variants": [
+        "소타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "AI Agent Engineering",
+      "korean_variants": [
+        "에이아이 에이전트 엔지니어링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "AI",
+      "korean_variants": [
+        "에이아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "XML",
+      "korean_variants": [
+        "엑스엠엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "n8n",
+      "korean_variants": [
+        "엔에이트엔"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Edge",
+      "korean_variants": [
+        "엣지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Interaction",
+      "korean_variants": [
+        "인터랙션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLM OS",
+      "korean_variants": [
+        "엘엘엠 오에스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Anthropic",
+      "korean_variants": [
+        "앤트로픽"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Kit",
+      "korean_variants": [
+        "킷"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Parsing",
+      "korean_variants": [
+        "파싱"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Binance",
+      "korean_variants": [
+        "바이낸스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Twitter",
+      "korean_variants": [
+        "트위터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Third Party API",
+      "korean_variants": [
+        "서드 파티 API"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Output Parsing Module",
+      "korean_variants": [
+        "아웃풋 파싱 모듈"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Trimming",
+      "korean_variants": [
+        "트리밍"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Calling",
+      "korean_variants": [
+        "콜링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Code Agent",
+      "korean_variants": [
+        "코드 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Manus AI",
+      "korean_variants": [
+        "매너스 에이아이"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Jules",
+      "korean_variants": [
+        "줄스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Descope",
+      "korean_variants": [
+        "디스코프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Google Cloud",
+      "korean_variants": [
+        "구글 클라우드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Model",
+      "korean_variants": [
+        "모델"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Super",
+      "korean_variants": [
+        "슈퍼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Memory",
+      "korean_variants": [
+        "메모리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Party",
+      "korean_variants": [
+        "파티"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vertex AI",
+      "korean_variants": [
+        "버텍스 에이아이"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Chain",
+      "korean_variants": [
+        "체인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Working Memory Separation",
+      "korean_variants": [
+        "워킹 메모리 세퍼레이션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Codex",
+      "korean_variants": [
+        "코덱스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GOAT",
+      "korean_variants": [
+        "고트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "IBM Research",
+      "korean_variants": [
+        "아이비엠 리서치"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Agent Interaction",
+      "korean_variants": [
+        "에이전트 인터랙션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "NEAR AI",
+      "korean_variants": [
+        "니어 에이아이"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Based",
+      "korean_variants": [
+        "베이스드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SequentialAgent",
+      "korean_variants": [
+        "시퀀셜 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Genspark",
+      "korean_variants": [
+        "젠스파크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Handoff",
+      "korean_variants": [
+        "핸드오프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Term Memory",
+      "korean_variants": [
+        "텀 메모리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "LangChain StructuredOutputParser",
+      "korean_variants": [
+        "랭체인 스트럭처드 아웃풋 파서"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Mid",
+      "korean_variants": [
+        "미드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "IMPORTANT",
+      "korean_variants": [
+        "임포턴트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Elastic Search",
+      "korean_variants": [
+        "엘라스틱 서치"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Buffer",
+      "korean_variants": [
+        "버퍼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Core Components",
+      "korean_variants": [
+        "코어 컴포넌트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Evidence",
+      "korean_variants": [
+        "에비던스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agent Development Kit",
+      "korean_variants": [
+        "에이전트 개발 키트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "LangGraph",
+      "korean_variants": [
+        "랭그래프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agent Network Protocol",
+      "korean_variants": [
+        "에이전트 네트워크 프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Gemini",
+      "korean_variants": [
+        "제미니"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Think",
+      "korean_variants": [
+        "씽크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "StructuredOutputParser",
+      "korean_variants": [
+        "스트럭처드 아웃풋 파서"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Crews",
+      "korean_variants": [
+        "크루즈"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Prompt Template",
+      "korean_variants": [
+        "프롬프트 템플릿"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "File",
+      "korean_variants": [
+        "파일"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DL",
+      "korean_variants": [
+        "디엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Output",
+      "korean_variants": [
+        "아웃풋"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "API",
+      "korean_variants": [
+        "에이피아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "AIbase",
+      "korean_variants": [
+        "에이아이베이스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Long",
+      "korean_variants": [
+        "롱"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Guidelines",
+      "korean_variants": [
+        "가이드라인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Cache",
+      "korean_variants": [
+        "캐시"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Orchestrator",
+      "korean_variants": [
+        "오케스트레이터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Reason",
+      "korean_variants": [
+        "리즌"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agora",
+      "korean_variants": [
+        "아고라"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Workflow",
+      "korean_variants": [
+        "워크플로우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Playwright MCP",
+      "korean_variants": [
+        "플레이라이트 MCP"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "LangChain Expression Language",
+      "korean_variants": [
+        "랭체인 익스프레션 랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RAG",
+      "korean_variants": [
+        "래그"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Development",
+      "korean_variants": [
+        "디벨롭먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GCP",
+      "korean_variants": [
+        "지씨피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Agora Protocol",
+      "korean_variants": [
+        "아고라 프로토콜"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "EDA",
+      "korean_variants": [
+        "이디에이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Engineering",
+      "korean_variants": [
+        "엔지니어링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Filtering",
+      "korean_variants": [
+        "필터링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Core",
+      "korean_variants": [
+        "코어"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Short",
+      "korean_variants": [
+        "쇼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DAG",
+      "korean_variants": [
+        "디에이쥐"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "State",
+      "korean_variants": [
+        "스테이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "UI",
+      "korean_variants": [
+        "유아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Sliding",
+      "korean_variants": [
+        "슬라이딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Goal",
+      "korean_variants": [
+        "골"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Update",
+      "korean_variants": [
+        "업데이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLM",
+      "korean_variants": [
+        "엘엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Drag",
+      "korean_variants": [
+        "드래그"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "High",
+      "korean_variants": [
+        "하이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Task",
+      "korean_variants": [
+        "태스크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Event",
+      "korean_variants": [
+        "이벤트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Developers",
+      "korean_variants": [
+        "디벨로퍼스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vector",
+      "korean_variants": [
+        "벡터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "OS",
+      "korean_variants": [
+        "오에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Third",
+      "korean_variants": [
+        "서드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Token",
+      "korean_variants": [
+        "토큰"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Prompting",
+      "korean_variants": [
+        "프롬프팅"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LRU",
+      "korean_variants": [
+        "엘알유"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CLI",
+      "korean_variants": [
+        "씨엘아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Auto",
+      "korean_variants": [
+        "오토"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "System Instruction",
+      "korean_variants": [
+        "시스템 인스트럭션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "STM",
+      "korean_variants": [
+        "에스티엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CrewAI",
+      "korean_variants": [
+        "크루에이아이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vector DB",
+      "korean_variants": [
+        "벡터 디비"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Google",
+      "korean_variants": [
+        "구글"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Single Agent",
+      "korean_variants": [
+        "싱글 에이전트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Description",
+      "korean_variants": [
+        "디스크립션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Thought",
+      "korean_variants": [
+        "쏘트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Markdown",
+      "korean_variants": [
+        "마크다운"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "DeepSeek AI",
+      "korean_variants": [
+        "딥시크 에이아이"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "NoSQL",
+      "korean_variants": [
+        "노에스큐엘"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Function",
+      "korean_variants": [
+        "펑션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Playwright",
+      "korean_variants": [
+        "플레이라이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Rolling",
+      "korean_variants": [
+        "롤링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Agent Card",
+      "korean_variants": [
+        "에이전트 카드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Agent Development",
+      "korean_variants": [
+        "에이전트 디벨롭먼트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Extraction",
+      "korean_variants": [
+        "익스트랙션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Up",
+      "korean_variants": [
+        "업"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "REST",
+      "korean_variants": [
+        "레스트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Crew",
+      "korean_variants": [
+        "크루"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Communication",
+      "korean_variants": [
+        "커뮤니케이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NEAR",
+      "korean_variants": [
+        "니어"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Harness",
+      "korean_variants": [
+        "하네스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language Model Operating",
+      "korean_variants": [
+        "랭귀지 모델 오퍼레이팅"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Sliding Window",
+      "korean_variants": [
+        "슬라이딩 윈도우"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "JSON",
+      "korean_variants": [
+        "제이슨"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "FP8",
+      "korean_variants": [
+        "에프피8"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Hook",
+      "korean_variants": [
+        "훅"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Phi",
+      "korean_variants": [
+        "파이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Control",
+      "korean_variants": [
+        "컨트롤"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Disk",
+      "korean_variants": [
+        "디스크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Query",
+      "korean_variants": [
+        "쿼리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PydanticOutputParser",
+      "korean_variants": [
+        "파이덱틱 아웃풋 파서"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "User",
+      "korean_variants": [
+        "유저"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Search",
+      "korean_variants": [
+        "서치"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "ANP",
+      "korean_variants": [
+        "에이엔피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Party API",
+      "korean_variants": [
+        "파티 에이피아이"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "ADG",
+      "korean_variants": [
+        "에이디지"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "WMS",
+      "korean_variants": [
+        "더블유엠에스"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "GDB",
+      "korean_variants": [
+        "지디비"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "AET",
+      "korean_variants": [
+        "에이이티"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "OPM",
+      "korean_variants": [
+        "오피엠"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    }
+  ]
+}

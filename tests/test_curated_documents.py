@@ -14,6 +14,21 @@ EXPECTED_PAGE_COUNTS = {
     "crawling": 21,
     "eda_fe": 42,
     "visualization": 39,
+    "cs_basics": 44,
+    "git": 32,
+    "python_environment": 61,
+    "web": 29,
+    "network_basics": 28,
+    "machine_learning": 51,
+    "deep_learning": 54,
+    "computer_vision": 42,
+    "nlp": 52,
+    "docker": 36,
+    "llm": 73,
+    "aws": 25,
+    "db": 57,
+    "ai_agent": 53,
+    "rag": 35,
 }
 
 
@@ -44,3 +59,35 @@ def test_curated_document_covers_pdf_exactly(lecture_id: str) -> None:
         assert chunk.concepts
         assert chunk.visual_description
         assert chunk.content
+
+    if lecture_id in {
+        "basic_statistics",
+        "crawling",
+        "eda_fe",
+        "visualization",
+        "cs_basics",
+        "git",
+        "python_environment",
+        "web",
+        "network_basics",
+        "machine_learning",
+        "deep_learning",
+        "computer_vision",
+        "nlp",
+        "docker",
+        "llm",
+        "aws",
+        "db",
+        "ai_agent",
+        "rag",
+    }:
+        assert document.schema_version == "2.1.0"
+        assert document.terminology
+        assert sum(len(chunk.evidence_units) for chunk in document.chunks) > 0
+        assert all(
+            not chunk.evidence_units
+            for chunk in document.chunks
+            if chunk.page_role in {
+                "cover", "table_of_contents", "section_divider", "closing"
+            }
+        )

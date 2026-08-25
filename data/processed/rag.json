@@ -1,0 +1,1822 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "rag",
+  "lecture_name": "Retrieval-Augmented Generation",
+  "source_file": "RAG.pdf",
+  "terminology": [
+    {
+      "term_id": "rag",
+      "canonical_ko": "검색 증강 생성",
+      "canonical_en": "Retrieval-Augmented Generation",
+      "abbreviations": [
+        "RAG"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "retrieval",
+      "canonical_ko": "검색",
+      "canonical_en": "retrieval",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "generation",
+      "canonical_ko": "생성",
+      "canonical_en": "generation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "retriever",
+      "canonical_ko": "검색기",
+      "canonical_en": "retriever",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "generator",
+      "canonical_ko": "생성기",
+      "canonical_en": "generator",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "knowledge_base",
+      "canonical_ko": "지식 베이스",
+      "canonical_en": "knowledge base",
+      "abbreviations": [
+        "KB"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "corpus",
+      "canonical_ko": "말뭉치",
+      "canonical_en": "corpus",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "context",
+      "canonical_ko": "문맥",
+      "canonical_en": "context",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "grounding",
+      "canonical_ko": "근거화",
+      "canonical_en": "grounding",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "근거 기반 생성"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hallucination",
+      "canonical_ko": "환각",
+      "canonical_en": "hallucination",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "outdated_information",
+      "canonical_ko": "오래된 정보",
+      "canonical_en": "outdated information",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sparse_retrieval",
+      "canonical_ko": "희소 검색",
+      "canonical_en": "sparse retrieval",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "inverted_index",
+      "canonical_ko": "역색인",
+      "canonical_en": "inverted index",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tfidf",
+      "canonical_ko": "단어 빈도-역문서 빈도",
+      "canonical_en": "Term Frequency-Inverse Document Frequency",
+      "abbreviations": [
+        "TF-IDF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dense_retrieval",
+      "canonical_ko": "밀집 검색",
+      "canonical_en": "dense retrieval",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "embedding",
+      "canonical_ko": "임베딩",
+      "canonical_en": "embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "query_embedding",
+      "canonical_ko": "질의 임베딩",
+      "canonical_en": "query embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "document_embedding",
+      "canonical_ko": "문서 임베딩",
+      "canonical_en": "document embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "similarity",
+      "canonical_ko": "유사도",
+      "canonical_en": "similarity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cosine_similarity",
+      "canonical_ko": "코사인 유사도",
+      "canonical_en": "cosine similarity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dot_product",
+      "canonical_ko": "내적",
+      "canonical_en": "dot product",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "inner product"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "euclidean_distance",
+      "canonical_ko": "유클리드 거리",
+      "canonical_en": "Euclidean distance",
+      "abbreviations": [
+        "L2"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "distance_concentration",
+      "canonical_ko": "거리 집중 현상",
+      "canonical_en": "distance concentration",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "representation_learning",
+      "canonical_ko": "표현 학습",
+      "canonical_en": "representation learning",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "self_supervised_learning",
+      "canonical_ko": "자기지도학습",
+      "canonical_en": "self-supervised learning",
+      "abbreviations": [
+        "SSL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "word2vec",
+      "canonical_ko": "Word2Vec",
+      "canonical_en": "Word2Vec",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cbow",
+      "canonical_ko": "연속 단어 가방",
+      "canonical_en": "Continuous Bag of Words",
+      "abbreviations": [
+        "CBOW"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "skipgram",
+      "canonical_ko": "스킵그램",
+      "canonical_en": "Skip-gram",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "contextual_embedding",
+      "canonical_ko": "문맥 임베딩",
+      "canonical_en": "contextual embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "elmo",
+      "canonical_ko": "ELMo",
+      "canonical_en": "Embeddings from Language Models",
+      "abbreviations": [
+        "ELMo"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "bert",
+      "canonical_ko": "BERT",
+      "canonical_en": "Bidirectional Encoder Representations from Transformers",
+      "abbreviations": [
+        "BERT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "gpt",
+      "canonical_ko": "GPT",
+      "canonical_en": "Generative Pre-trained Transformer",
+      "abbreviations": [
+        "GPT"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sentence_embedding",
+      "canonical_ko": "문장 임베딩",
+      "canonical_en": "sentence embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pooling",
+      "canonical_ko": "풀링",
+      "canonical_en": "pooling",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "contrastive_learning",
+      "canonical_ko": "대조 학습",
+      "canonical_en": "contrastive learning",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "positive_pair",
+      "canonical_ko": "양성 쌍",
+      "canonical_en": "positive pair",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "negative_pair",
+      "canonical_ko": "음성 쌍",
+      "canonical_en": "negative pair",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "anisotropy",
+      "canonical_ko": "비등방성",
+      "canonical_en": "anisotropy",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "isotropy",
+      "canonical_ko": "등방성",
+      "canonical_en": "isotropy",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vector_database",
+      "canonical_ko": "벡터 데이터베이스",
+      "canonical_en": "vector database",
+      "abbreviations": [
+        "Vector DB"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ann",
+      "canonical_ko": "근사 최근접 이웃",
+      "canonical_en": "Approximate Nearest Neighbor",
+      "abbreviations": [
+        "ANN"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hnsw",
+      "canonical_ko": "계층적 탐색 가능 소세계 그래프",
+      "canonical_en": "Hierarchical Navigable Small World",
+      "abbreviations": [
+        "HNSW"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pq",
+      "canonical_ko": "곱 양자화",
+      "canonical_en": "Product Quantization",
+      "abbreviations": [
+        "PQ"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "centroid",
+      "canonical_ko": "중심점",
+      "canonical_en": "centroid",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "quantization",
+      "canonical_ko": "양자화",
+      "canonical_en": "quantization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "mteb",
+      "canonical_ko": "대규모 텍스트 임베딩 벤치마크",
+      "canonical_en": "Massive Text Embedding Benchmark",
+      "abbreviations": [
+        "MTEB"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "top_k",
+      "canonical_ko": "상위 K개",
+      "canonical_en": "top-k",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "precision",
+      "canonical_ko": "정밀도",
+      "canonical_en": "precision",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "recall",
+      "canonical_ko": "재현율",
+      "canonical_en": "recall",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "chunk",
+      "canonical_ko": "청크",
+      "canonical_en": "chunk",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "semantic_chunking",
+      "canonical_ko": "의미 기반 청킹",
+      "canonical_en": "semantic chunking",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "overlap",
+      "canonical_ko": "중첩",
+      "canonical_en": "overlap",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "graph_chunking",
+      "canonical_ko": "그래프 기반 청킹",
+      "canonical_en": "graph-based chunking",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "graph_rag",
+      "canonical_ko": "그래프 RAG",
+      "canonical_en": "Graph RAG",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "entity",
+      "canonical_ko": "개체",
+      "canonical_en": "entity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "relationship",
+      "canonical_ko": "관계",
+      "canonical_en": "relationship",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "community",
+      "canonical_ko": "커뮤니티",
+      "canonical_en": "community",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hybrid_rag",
+      "canonical_ko": "하이브리드 RAG",
+      "canonical_en": "Hybrid RAG",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "knowledge_graph",
+      "canonical_ko": "지식 그래프",
+      "canonical_en": "knowledge graph",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "self_rag",
+      "canonical_ko": "자기 교정형 RAG",
+      "canonical_en": "self-reflective RAG",
+      "abbreviations": [
+        "Self-RAG"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "query_rewrite",
+      "canonical_ko": "질의 재작성",
+      "canonical_en": "query rewriting",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "feedback_loop",
+      "canonical_ko": "피드백 루프",
+      "canonical_en": "feedback loop",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "contextual_retrieval",
+      "canonical_ko": "문맥 검색",
+      "canonical_en": "contextual retrieval",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "situated_context",
+      "canonical_ko": "위치 문맥",
+      "canonical_en": "situated context",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "chunk_prepending",
+      "canonical_ko": "청크 앞 문맥 추가",
+      "canonical_en": "chunk prepending",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "hybrid_search",
+      "canonical_ko": "하이브리드 검색",
+      "canonical_en": "hybrid search",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rank_fusion",
+      "canonical_ko": "순위 융합",
+      "canonical_en": "rank fusion",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "reranking",
+      "canonical_ko": "재순위화",
+      "canonical_en": "reranking",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "citation",
+      "canonical_ko": "출처 인용",
+      "canonical_en": "citation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "rag_p1_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 1,
+      "topic": "RAG 강의 표지",
+      "concepts": [
+        "RAG 강의 표지"
+      ],
+      "raw_text": "2025-2 YBIGTA\n\nRAG\n\n\n\n\n\n                        26기 DE 윤희찬\n                        26기 DE 손재훈",
+      "visual_description": "RAG 강의 표지 페이지이다.",
+      "content": "Retrieval-Augmented Generation 강의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p2_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "강의 목차"
+      ],
+      "raw_text": "목 차                                                               2025-2 YBIGTA\n\n\n\n 1.  Intro\n\n 2. Architecture\n\n 3. Techniques\n\n 4. Contextual Retrieval",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "강의는 RAG 소개, architecture, retrieval representation·vector DB, generator와 advanced technique 순으로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p3_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 3,
+      "topic": "RAG 소개",
+      "concepts": [
+        "RAG 소개"
+      ],
+      "raw_text": "Intro",
+      "visual_description": "RAG 소개 페이지이다.",
+      "content": "RAG 개념 도입 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p4_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 4,
+      "topic": "RAG 질문",
+      "concepts": [
+        "RAG 질문"
+      ],
+      "raw_text": "Intro\nIntro\n\n\n2024년 이후 모든 AI 서비스의 기본 옵션으로 따라붙는 이름 -\n → RAG(Retrieval Augmented Generation)\n\n이번 세션에서는 이런 질문에 답해봅시다:\n\n  RAG가 등장한 배경은 무엇인지,\n  RAG을 하기 위해서 어떤 설계가 필요한지,\n  RAG 파이프라인은 어떻게 되어 있는지,\n  한계점은 무엇이고 이를 어떻게 극복할 수 있는지\n\n함께 알아봅시다!",
+      "visual_description": "RAG 질문의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "LLM이 학습 이후의 정보나 private domain knowledge를 어떻게 답하고, 답변 근거를 어떻게 제시할지 질문한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p5_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 5,
+      "topic": "LLM의 한계",
+      "concepts": [
+        "LLM의 한계"
+      ],
+      "raw_text": "Intro\nProblems with LLMs\n\n\n     LLM의 한계\n  환각 (Hallucination)\n  오래된 정보 (Outdated information)\n  지식을 매개변수화(parameterizing\n   knowledge)하는 데 효율성이 낮음                               언어모델이 참고할 수 있는 데이터를\n  전문 분야에 대한 심층적 지식 부족                                  정확하고,\n  약한 추론 능력                             효율적으로\n    실제 요구 사항                               가져오는 방법!\n  도메인 별 정확한 답변\n  빈번한 데이터 업데이트\n  생성된 컨텐츠의 추적성 및 설명성\n  통제 가능한 비용\n  데이터의 개인정보 보호",
+      "visual_description": "LLM의 한계의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Parametric knowledge만 사용하는 LLM은 최신성, private data 접근, 사실 근거와 hallucination 측면에서 한계가 있다. Fine-tuning과 prompt만으로 모든 지식 갱신·출처 문제를 해결할 수는 없다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "hallucination",
+        "outdated_information",
+        "knowledge_base"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p5_limits",
+          "type": "diagnostic",
+          "source_type": "text",
+          "source_excerpt": "LLM의 한계 / 최신 정보 / Private Data / Hallucination",
+          "normalized_explanation": "Parametric LLM만으로 최신·private·근거 문제를 해결하기 어렵다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hallucination",
+            "outdated_information",
+            "knowledge_base"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p6_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 6,
+      "topic": "RAG 정의",
+      "concepts": [
+        "RAG 정의"
+      ],
+      "raw_text": "Intro\nRAG\nRetrieval Augmented Generation\n\nRAG란\n\n외부 문서(지식 베이스 등)을 검색(Retrieve)한 후\n해당 내용을 바탕으로 응답을 생성(Generate)하는 방식\n\n  정보를 학습하지 않아도 되어 비용도 낮고\n  최신/신뢰 가능한 문서를 기반으로 답변해서 정확도도 높다!",
+      "visual_description": "RAG 정의의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "RAG는 query와 관련된 external knowledge를 검색해 context로 제공한 뒤 model이 이를 사용해 답을 생성하는 구조다. Retrieval 품질과 grounding 지시가 최종 답의 품질을 좌우한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rag",
+        "retrieval",
+        "generation",
+        "knowledge_base",
+        "context",
+        "grounding"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p6_definition",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "외부 지식 베이스에서 관련 정보를 검색하고 이를 바탕으로 답변을 생성",
+          "normalized_explanation": "RAG의 retrieval-then-generation 정의다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rag",
+            "retrieval",
+            "generation",
+            "knowledge_base",
+            "context",
+            "grounding"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p7_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 7,
+      "topic": "RAG 아키텍처",
+      "concepts": [
+        "RAG 아키텍처"
+      ],
+      "raw_text": "Architecture",
+      "visual_description": "RAG 아키텍처 페이지이다.",
+      "content": "RAG architecture 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p8_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 8,
+      "topic": "전체 RAG 흐름",
+      "concepts": [
+        "전체 RAG 흐름"
+      ],
+      "raw_text": "Architecture\nArchitecture for RAG",
+      "visual_description": "전체 RAG 흐름의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Document corpus를 chunk·embedding해 index에 저장하고, query를 같은 representation space로 변환해 relevant chunk를 찾은 뒤 generator prompt에 넣어 response를 만드는 end-to-end 흐름이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "corpus",
+        "chunk",
+        "embedding",
+        "vector_database",
+        "retriever",
+        "generator",
+        "top_k"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p8_pipeline",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "Documents → Chunking → Embedding → Vector DB / Query → Retrieval → LLM → Answer",
+          "normalized_explanation": "Indexing과 query-time generation을 잇는 전체 흐름이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "corpus",
+            "chunk",
+            "embedding",
+            "vector_database",
+            "retriever",
+            "generator",
+            "top_k"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p9_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 9,
+      "topic": "Retriever",
+      "concepts": [
+        "Retriever"
+      ],
+      "raw_text": "Architecture\nRetriever",
+      "visual_description": "Retriever의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Retriever는 user query와 knowledge base 사이에서 candidate document·chunk를 찾으며 sparse 또는 dense retrieval과 vector database를 사용할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "retriever",
+        "retrieval",
+        "knowledge_base"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p9_retriever",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Query와 관련된 문서를 Knowledge Base에서 검색",
+          "normalized_explanation": "Retriever의 candidate selection 역할이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "retriever",
+            "retrieval",
+            "knowledge_base"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p10_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 10,
+      "topic": "Sparse Retrieval",
+      "concepts": [
+        "Sparse Retrieval"
+      ],
+      "raw_text": "Architecture\nRetriever\nEmbedding - Sparse\n\n지식을 가져오기 위해서는 우선 키워드 기반 검색을 생각할 수 있어요\n\n  사용자의 입력 텍스트를 기준으로 관련 키워드를 설정한 후\n  역색인 구조로 설계된 지식 베이스에서 문서를 가져오고\n  해당 문서에 대한 점수화를 통해서\n  선정된 문서를 가져오면 됩니다!\n\n장점:\n  속도가 빠름\n  구현이 간단하며 해석이 쉬움\n\n한계:\n  의미 가반 유사도에는 약함",
+      "visual_description": "Sparse Retrieval의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Sparse retrieval은 term occurrence를 기반으로 TF-IDF 같은 weight와 inverted index를 사용해 query keyword와 document를 matching한다. Exact term에는 강하지만 synonym·paraphrase에는 약할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "sparse_retrieval",
+        "tfidf",
+        "inverted_index"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p10_sparse",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Sparse Retrieval / TF-IDF / Inverted Index / Keyword",
+          "normalized_explanation": "Lexical sparse retrieval의 특징이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "sparse_retrieval",
+            "tfidf",
+            "inverted_index"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p11_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 11,
+      "topic": "Dense Retrieval",
+      "concepts": [
+        "Dense Retrieval"
+      ],
+      "raw_text": "Architecture\nRetriever\nEmbedding - Dense를 하기 전에...\n\n의미 기반 검색을 하려면 어떻게 할까요?\n\n그렇다면 기계도 문서의 의미를 이해할 수 있어야 하겠죠?\n기계는 벡터로 “이 문서는 어떤 문서다~”라 말합니다.\n\n사용자의 요청을 벡터로 변환하고 나면\n그 벡터와 유사한 문서 벡터들을 찾아서\n해당 문서를 반환해주면 됩니다.\n\n그런데...\n  “유사하다”는 어떻게 판단하나요?\n  이런 벡터는 어떻게 만들어지나요?",
+      "visual_description": "Dense Retrieval의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Dense retrieval은 query와 document를 embedding vector로 바꾸고 semantic similarity로 이웃을 찾는다. Paraphrase를 찾을 수 있지만 embedding model·domain과 index quality에 의존한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dense_retrieval",
+        "query_embedding",
+        "document_embedding",
+        "embedding",
+        "similarity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p11_dense",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Dense Retrieval / Query Embedding / Document Embedding / Semantic Similarity",
+          "normalized_explanation": "Semantic dense retrieval의 특징이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dense_retrieval",
+            "query_embedding",
+            "document_embedding",
+            "embedding",
+            "similarity"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p12_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 12,
+      "topic": "유사도와 거리",
+      "concepts": [
+        "유사도와 거리"
+      ],
+      "raw_text": "Architecture\nRetriever\nSimilarity\n\n두 벡터가 같음을 알 수 있는 방법으로 우선 벡터 간 거리를 생각해보면 돼요.\n전형적인 L2 norm을 사용하면 되겠죠?\n\n그러나 언어를 벡터로 표현하려면, 낮은 차원으로는 어렵겠죠.\n그래서 높은 차원을 가진 벡터를 기본적으로 생각할 수밖에 없어요.\n\n고차원 공간에서는 모든 벡터 간 거리가 비슷하게 수렴하는,\nDistance Concentration 문제가 생깁니다.\n그렇다면 같은 것과 다른 것을 의미 있게 구분하기는 어려울 것 같아요.\n또 L2 norm은 방향보다는 크기에 민감하기도 하고요.\n\n그래서 Cosine Similarity을 대안으로 사용합니다!\nL2 norm에 비해안정적이며,\n임베딩된 언어 벡터들의 의미적 유사성은 “방향”에 더 큰 영향을 받기 때문이죠.\n\n                                   요즘은 inner product로 유사도를 판단한다고 합니다!",
+      "visual_description": "유사도와 거리의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Vector 비교에는 cosine similarity, dot product, Euclidean distance 등이 있다. 적합한 metric은 embedding의 training objective와 normalization·index 설정에 맞춰야 하며, 고차원 거리 집중이 Euclidean distance를 언제나 무효화하는 것은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "cosine_similarity",
+        "dot_product",
+        "euclidean_distance",
+        "distance_concentration",
+        "similarity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p12_metrics",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Cosine Similarity / Inner Product / Euclidean Distance",
+          "normalized_explanation": "Embedding 조건에 맞춰 similarity metric을 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "cosine_similarity",
+            "dot_product",
+            "euclidean_distance",
+            "distance_concentration",
+            "similarity"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "rag_p12_euclidean",
+          "source_text": "Euclidean Distance 사용 불가",
+          "issue_type": "overgeneralized",
+          "correction": "Metric은 embedding training·normalization·index 조건에 맞춰 선택한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "rag_p13_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 13,
+      "topic": "표현 학습",
+      "concepts": [
+        "표현 학습"
+      ],
+      "raw_text": "Architecture\nRetriever\nRepresentation of Vector\n\n벡터 간 유사도를 통해서 의미 유사도를 확인하는 것까지는 이해했을 겁니다.\n그러면 그 벡터는 어떻게 만들어지나요?\n\n를 알기 위해서\n    Representation Learning\n   Word2Vec\n    Contextual Embedding\n   Sentence Embedding\n    Constrastive Learning\n\n을 알아보도록 합시다!",
+      "visual_description": "표현 학습의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Text representation을 sparse vector에서 distributed embedding으로 확장하는 섹션 도입이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p14_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 14,
+      "topic": "Representation Learning",
+      "concepts": [
+        "Representation Learning"
+      ],
+      "raw_text": "Architecture\nRepresentation Learning\n\n원래의 ML 테스크를 생각해볼까요?\n“A는 B이다“를 바탕으로, 사람이 만든 피처와 레이블을 바탕으로 모델이 학습하는 구조였죠. 그러나\n  라벨링을 위해서는 높은 비용이 들고\n  피처를 설계하기가 너무 어려웠어요.\n\n따라서 입력된 데이터에 대해서 스스로 좋은 feature를 학습할 수 있으면 어떨까요?\n  사람이 설계하지 않아도 중요한 정보를 자동으로 추출하여\n  더 잘 일반화된 모델을 만들 수 있겠죠.\n\n어떻게 “좋은 표현”을 학습할까요? 답은 Self-Supervised Learning!\n  이미지를 조각으로 나눈 후, 다시 순서를 맞추게 한다거나\n  흑백으로 색깔을 두고 복원을 시키거나\n  일부러 노이즈를 추가하고 복원시키면\n학습 과정에서 기계가 대상을 올바르게 이해할 수 있을 것 같아요.\n\n이렇게 데이터를 스스로 기계가 이해할 수 있는 벡터로 변환하는 것을\nRepresentation Learning이라 합니다!",
+      "visual_description": "Representation Learning의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Representation learning은 task에 유용한 feature를 data로부터 학습하며 self-supervised objective는 label 없이 input structure에서 training signal을 만든다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "representation_learning",
+        "self_supervised_learning"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p14_representation",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Representation Learning / Self-Supervised Learning",
+          "normalized_explanation": "Data structure에서 useful representation을 학습한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "representation_learning",
+            "self_supervised_learning"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p15_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 15,
+      "topic": "Word2Vec",
+      "concepts": [
+        "Word2Vec"
+      ],
+      "raw_text": "Architecture\nWord2Vec\n\n이전 슬라이드에는 이미지에 대한 Representation Learning을 보았어요.\n\n그렇다면 언어에 대한 표현은 어떻게 학습하나요?\n\n과제로 한 Word2Vec도 사실은 Representation Learning입니다!\n주변 단어들을 통해서 주어진 단어를 예측하는 CBOW,\n주어진 단어를 바탕으로 주변 단어들을 예측하는 Skip-gram도\n모두 문맥을 보면서 학습을 하고, 단어를 임베딩으로 변환시켜줍니다.\n\n하지만 Word2Vec는 단어마다 하나의 고정된 벡터만 제공합니다.\n예를 들어서, “I record a record”에서, 두 record라는 단어는 분명히 다름에도,\n같은 벡터로 표현된다는 문제가 있습니다.\n\n그래서 우리는 이제 Contextual Embedding이라는 개념으로 나아가게 됩니다.",
+      "visual_description": "Word2Vec의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Word2Vec의 CBOW는 주변 단어로 중심 단어를, Skip-gram은 중심 단어로 주변 단어를 예측해 static word vector를 학습한다. 같은 단어는 문맥이 달라도 하나의 vector를 공유한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "word2vec",
+        "cbow",
+        "skipgram",
+        "embedding"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p15_word2vec",
+          "type": "comparison",
+          "source_type": "visual",
+          "source_excerpt": "CBOW: Context → Target / Skip-gram: Target → Context",
+          "normalized_explanation": "Word2Vec objective와 static embedding 한계다.",
+          "source_status": "verified",
+          "term_ids": [
+            "word2vec",
+            "cbow",
+            "skipgram",
+            "embedding"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p16_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 16,
+      "topic": "Contextual Embedding",
+      "concepts": [
+        "Contextual Embedding"
+      ],
+      "raw_text": "Architecture\nContextual Embedding\n\n우리가 원하는 것은 단어를 의미 있는 벡터로 바꾸는 것이에요.\n그런데 문맥에 따라 단어의 의미는 달라지니, 벡터 또한 문맥에 따라 달라져야만 합니다!\n\nELMo, BERT, GPT가 어떻게 학습되고, 문맥을 반영하는지 알아봅시다!\n   ELMo: LSTM 기반 Foward/Backward 예측 → 두 방향의 hidden state 합쳐서 임베딩 생성\n   BERT: Self-Attention 기반 MLM 학습 → 문장 내 모든 단어를 서로 Attention, 단어의 문맥 임베딩 생성\n   GPT: Masked self-Attention 기반 Auto-Regressive 학습 → 이전 단어를 바탕으로 다음 단어의 문맥 임베딩 생성\n\n이렇게 문장을 스스로 예측하면서 학습하는 방식을 통해,\n모델은 문맥에 따라 의미를 바꾸는 단어의 진짜 의미를 학습하게 됩니다!\n\n그리고 그것이 우리가 말하는 Contextual Embedding,\n즉 문맥 기반 표현 학습입니다.",
+      "visual_description": "Contextual Embedding의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "ELMo·BERT·GPT 같은 contextual model은 주변 token context에 따라 token representation을 달리한다. Bidirectional·causal 등 context 사용 방식은 architecture와 objective마다 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "contextual_embedding",
+        "elmo",
+        "bert",
+        "gpt"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p16_contextual",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "ELMo / BERT / GPT / Contextualized Embedding",
+          "normalized_explanation": "Context-dependent token representation이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "contextual_embedding",
+            "elmo",
+            "bert",
+            "gpt"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p17_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 17,
+      "topic": "Sentence Embedding",
+      "concepts": [
+        "Sentence Embedding"
+      ],
+      "raw_text": "Architecture\nSentence Embedding\n\n아직까지는 단어의 임베딩에 대해서만 다루었어요. 문장에 대한 임베딩은 어떻게 다룰 수 있을까요?\n\n같은 단어로 이루어진 문장이라도 순서나 구조에 따라 의미는 달라집니다.\n그렇다면 문장 자체를 하나의 벡터로 표현하려면 어떤 방식이 필요할까요?\n\n옛날에는 단어마다 embedding을 생성해서, pooling하는 방법을 썼다고 합니다.\n현재는 문장 자체를 모델에 넣으면 그대로 문장 임베딩 벡터가 나오는 구조를 사용하고 있습니다.\n대표적인 예시로는 OpenAI의 text-embedding-3가 있습니다.\n\n문장을 결국 벡터로 표현하기 때문에, 표현 학습이 되는데...\n어떻게 하면 더욱 잘 표현할 수 있을까요?\n그리고 문장 간 유사도를 잘 반영할 수 있도록 학습하는 방법은 무엇일까요?\n\n이제 Constrastive Learning으로 넘어가봅시다.",
+      "visual_description": "Sentence Embedding의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Sentence embedding은 문장 전체를 fixed-size vector로 표현한다. Token representation pooling 또는 sentence-level objective를 사용할 수 있으며 모든 language model이 입력 문장을 자동으로 좋은 retrieval vector로 만드는 것은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "sentence_embedding",
+        "pooling",
+        "embedding"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p17_sentence",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Sentence Embedding / 문장 전체를 하나의 벡터",
+          "normalized_explanation": "Sentence-level fixed-size representation이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "sentence_embedding",
+            "pooling",
+            "embedding"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "rag_p17_sentence",
+          "source_text": "문장 자체를 넣으면 바로 벡터가 나옴",
+          "issue_type": "overgeneralized",
+          "correction": "Pooling 또는 sentence-level objective와 model choice가 retrieval quality를 좌우한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "rag_p18_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 18,
+      "topic": "Contrastive Learning",
+      "concepts": [
+        "Contrastive Learning"
+      ],
+      "raw_text": "Architecture\nConstrastive Learning\nAnisotropic → Isotropic\n\n아직까지 설명한 Representation Learning에는 살짝 문제가 있어요.\n\n  문장 임베딩들이 embedding space의 일부 방향에만 몰려 있어(anisotropy)\n  문장 간 의미 차이를 잘 반영하지 못하고 있어요.\n\n따라서 의미가 비슷한 문장은 가깝게, 의미가 다른 문장은 멀게 만들면\n  문장 임베딩들이 embedding space에 고르게 퍼져 있고(isotropy)\n  문장 간 의미 차이를 잘 반영할 수 있는 embedding을 만들 수 있어요.\n\n어떻게 학습할 수 있나요?\n→ Loss Term에 같은 것(positive pair)과 다른 것(negative pair)를 구분할 수 있도록\n제약 조건을 추가해주면 되겠죠!",
+      "visual_description": "Contrastive Learning의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Contrastive learning은 related positive pair는 가깝게, unrelated negative pair는 멀게 학습해 retrieval space를 개선한다. Representation anisotropy를 줄일 수 있지만 완전한 isotropy를 보장하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "contrastive_learning",
+        "positive_pair",
+        "negative_pair",
+        "anisotropy",
+        "isotropy"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p18_contrastive",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Positive Pair는 가깝게 / Negative Pair는 멀게",
+          "normalized_explanation": "Contrastive objective로 retrieval space를 조정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "contrastive_learning",
+            "positive_pair",
+            "negative_pair",
+            "anisotropy",
+            "isotropy"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "rag_p18_isotropy",
+          "source_text": "모든 방향으로 균일하게 분포",
+          "issue_type": "overgeneralized",
+          "correction": "Contrastive objective가 anisotropy를 완화할 수 있으나 perfect isotropy를 보장하지 않는다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "rag_p19_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 19,
+      "topic": "검색 벡터 요약",
+      "concepts": [
+        "검색 벡터 요약"
+      ],
+      "raw_text": "Architecture\nTL;DR\n\n\n정리하면,\n  기계는 문장의 의미를 벡터로 표현하는 법을 학습한다.\n  이 벡터는 문장 간 의미 유사도를 반영해야 하며,\n  이를 위해 유사한 문장은 가까이, 다른 문장은 멀게 만드는 방식으로 학습한다.\n    Contrastive Loss는 이러한 유사도 기반 구조를 학습하는 핵심 도구다!\n\n이렇게 학습된 모델을 사용하면 제 요청사항을 벡터로 변환해서, 문서들의 “벡터”와 대조하며\n높은 유사도를 가지는 데이터를 가져올 수 있겠네요!\n\n당연히 문서들은 제가 요청할 때마다 벡터화가 되어 있는 것이 아니라,\n미리 변환되어서 어딘가에 저장된 상태겠죠?\n\n그러면 어떻게 저장이 되나요? 이제는 Vector Database에 대해서 알아보는 시간을 가집시다.",
+      "visual_description": "검색 벡터 요약의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Corpus document와 query를 compatible vector로 표현하고 similarity top-k를 찾는 retrieval 요약이다. Corpus embedding은 미리 계산할 수 있고 model·preprocessing version을 함께 관리해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p20_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 20,
+      "topic": "Vector Database",
+      "concepts": [
+        "Vector Database"
+      ],
+      "raw_text": "Architecture\nVector Database\n\n\nVector Database란\n  문장, 문서, 이미지 등 의미를 담은 고차원 벡터들을 저장하고,\n  유사도 기반으로 빠르게 검색할 수 있도록 만들어진 특수한 데이터베이스입니다.\n일반적인 데이터베이스랑은 확실히 다를 것 같아요.\n\n이번에는 Vector Database의 핵심 기술\n  HNSW (Hierarchical Navigate Small World)\n  PQ (Product Quantization)\n에 대해서 알아보는 시간을 가집시다!",
+      "visual_description": "Vector Database의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Vector database는 embedding과 metadata를 저장하고 ANN index로 nearest-neighbor search를 지원한다. HNSW와 Product Quantization은 각각 빠른 graph search와 memory compression에 쓰인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "vector_database",
+        "ann",
+        "hnsw",
+        "pq"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p20_vectordb",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Vector Database / HNSW / Product Quantization",
+          "normalized_explanation": "Vector DB와 ANN·compression index를 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "vector_database",
+            "ann",
+            "hnsw",
+            "pq"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p21_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 21,
+      "topic": "HNSW",
+      "concepts": [
+        "HNSW"
+      ],
+      "raw_text": "Architecture\nHNSW\n빠른 탐색을 위한 그래프 기반 인덱싱\n\n각 벡터를 node로 보고,\n가까운 벡터끼리 연결(edge)합니다!\n\n그리고 몇몇 벡터는 하위 레벨에도 저장되며,\n하위 레벨로 갈수록 더욱 dense하게 저장됩니다.\n\n이렇게 하면 탐색 과정에서,\n  1.가장 높은 레벨에서 임의의 노드 선택\n  2.query 벡터와 가장 가까운 이웃을 찾아 이동\n 3.더 이상 가까운 노드가 없으면 하위 레벨로 이동\n 4.최하위 레벨에서는 정밀 탐색 (priority queue)\n 5.Top-k 가까운 벡터 변환\n\n이로써 정확도를 유지하면서 비교 횟수는 O(logN)으로 만듭니다!\n                                                                                                                           https://pangyoalto.com/faiss-1-hnsw/",
+      "visual_description": "HNSW의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "HNSW는 여러 layer의 proximity graph에서 상위 layer로 coarse navigation 후 하위 layer에서 candidate를 확장하는 ANN 방식이다. 빠른 empirical search와 recall-memory trade-off를 제공하지만 모든 data에서 strict O(log N) 또는 exact accuracy를 보장하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "hnsw",
+        "ann",
+        "recall"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p21_hnsw",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "상위 레이어부터 탐색하고 하위 레이어에서 정교하게 검색",
+          "normalized_explanation": "HNSW의 hierarchical graph navigation이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hnsw",
+            "ann",
+            "recall"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "rag_p21_complexity",
+          "source_text": "정확도 유지 / O(log N)",
+          "issue_type": "overgeneralized",
+          "correction": "Approximate recall과 empirical speed는 parameter·dataset에 따라 달라진다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "rag_p22_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 22,
+      "topic": "Product Quantization",
+      "concepts": [
+        "Product Quantization"
+      ],
+      "raw_text": "Architecture\nPQ\n메모리 사용량을 낮추자",
+      "visual_description": "Product Quantization의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Product Quantization은 vector를 subvector로 나누고 각 부분을 codebook centroid ID로 치환하는 lossy compression이다. Memory와 distance computation을 줄이는 대신 quantization error와 recall 손실이 생길 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pq",
+        "quantization",
+        "centroid",
+        "recall"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p22_pq",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "1024차원 벡터를 8개의 Subvector로 분할 / Centroid ID로 저장",
+          "normalized_explanation": "PQ의 lossy subvector quantization 예다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pq",
+            "quantization",
+            "centroid",
+            "recall"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p23_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 23,
+      "topic": "Embedding Benchmark",
+      "concepts": [
+        "Embedding Benchmark"
+      ],
+      "raw_text": "Architecture\nEmbedding Model\n“좋은” 임베딩 모델은 무엇인가!\n\n임베딩이 만들어지고 학습되는 방법도 배웠고,\n벡터 데이터베이스에 대해서 간략히 들었고...\n\n그런데 그러면 어떤 임베딩 모델을 사용해야 하죠?\n다시 말해서, 좋은 임베딩 모델은 무엇일까요?\n그러한 “좋은 임베딩”모델의 평가 기준을 제공하는,\nMTEB를 이번에 알아봅시다!\n                                                                                                               https://huggingface.co/spaces/mteb/leaderboard\n\nMTEB(Massive Text Embedding Benchmark)는 다양한 임베딩 작업에서,\n  분류 (Classification)\n  군집화 (Clustering)\n  검색 (Retrieval)\n등의 테스크 성능을 종합적으로 판단할 수 있는 벤치마크입니다.\n\nRAG 서비스를 구축하기 전에, 사용하려는 임베딩 모델의 성능을 확인해보면 좋겠죠?",
+      "visual_description": "Embedding Benchmark의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "MTEB는 retrieval·classification·clustering 등 여러 embedding task를 비교하는 benchmark다. Leaderboard 순위만 보지 말고 target language, domain, task, latency·cost를 자체 data로 검증해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "mteb",
+        "embedding",
+        "retrieval"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p23_mteb",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "MTEB / Embedding Model Leaderboard",
+          "normalized_explanation": "Target task·language·domain에 맞춰 embedding model을 평가한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "mteb",
+            "embedding",
+            "retrieval"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p24_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 24,
+      "topic": "Generator",
+      "concepts": [
+        "Generator"
+      ],
+      "raw_text": "Architecture\nGenerator",
+      "visual_description": "Generator 페이지이다.",
+      "content": "Generator 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p25_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 25,
+      "topic": "근거 기반 생성",
+      "concepts": [
+        "근거 기반 생성"
+      ],
+      "raw_text": "Architecture\nGenerator\nLLM + Context\n\nRetriever가 데이터를 가져왔어요.\n\n이제 LLM이 가지고 있는 것은\n  사용자의 요청에 관련된 내용\n  기존에 가지고 있는 지식\n   Retriever가 가져온 데이터\n로 답변을 생성하기에 충분한 것 같아요.\n\n이제 이 Generator은 사용자의 요청에 대해서\n구체적이고 유의미한 답변을 제공합니다~!",
+      "visual_description": "근거 기반 생성의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Generator는 retrieved chunk와 query를 prompt context로 받아 answer를 만든다. Retrieved context도 부정확할 수 있으므로 source attribution, conflict handling과 answer grounding이 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "generator",
+        "context",
+        "grounding",
+        "citation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p25_generator",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "Query + Retrieved Documents → LLM → Answer",
+          "normalized_explanation": "Generator가 retrieved context를 사용해 grounded answer를 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "generator",
+            "context",
+            "grounding",
+            "citation"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p26_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 26,
+      "topic": "RAG Techniques",
+      "concepts": [
+        "RAG Techniques"
+      ],
+      "raw_text": "Techniques",
+      "visual_description": "RAG Techniques 페이지이다.",
+      "content": "RAG technique 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p27_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 27,
+      "topic": "Basic RAG 한계",
+      "concepts": [
+        "Basic RAG 한계"
+      ],
+      "raw_text": "Techniques\n그냥 RAG로는 부족해\n\n\n지금까지 배운 내용을 정리하면,\n사용자의 질문을 임베딩으로 변환한 뒤,\n벡터 데이터베이스에서 유사한 문서를 검색하고,\n Generator가 이 문서들을 context로 활용해 답변을 생성합니다.\n\n하지만 이 과정이 항상 완벽한 것은 아닙니다.\n   Retriever가 부정확한 문서를 가져올 수도 있고,\n  문서를 어떻게 나누느냐(chunking)에 따라 성능이 크게 달라지기도 하죠.\n\n\n오히려 잘못된 정보를 가져오면 LLM이 더 그럴듯한 ‘틀린’ 답을 생성하는 문제가 생길 수도 있습니다.\n그래서 이번에는 이러한 문제를 극복하고 RAG의 성능을 높이기 위한 다양한 확장 방법들에 대해 알아보겠습니다.",
+      "visual_description": "Basic RAG 한계의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Basic RAG는 query를 한 번 검색해 top-k context로 답하지만 bad chunk boundary, query-document mismatch, irrelevant retrieval과 context overload로 성능이 떨어질 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "retrieval",
+        "chunk",
+        "precision",
+        "recall"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p27_basic_limit",
+          "type": "diagnostic",
+          "source_type": "text",
+          "source_excerpt": "Retrieval Quality가 낮으면 잘못된 Context / Chunking이 부적절하면 정보 손실",
+          "normalized_explanation": "Basic RAG의 retrieval·chunking failure mode다.",
+          "source_status": "verified",
+          "term_ids": [
+            "retrieval",
+            "chunk",
+            "precision",
+            "recall"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p28_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 28,
+      "topic": "Graph RAG",
+      "concepts": [
+        "Graph RAG"
+      ],
+      "raw_text": "Techniques\nGraph RAG\n\n\n기존 RAG는 문서들을 단순한 텍스트로 취급하고,\n벡터 유사도 기반으로만 관련 문서를 검색하죠.\n\n하지만 실제 세계의 문서들은 서로 관계를 가지기도 하죠.\n\n따라서 Graph RAG는 문서들 간의 구조적 관계를 그래프 형태로 표현하고,\nNode-Edge 구조를 활용해 더 의미 있는 컨텍스트를 구성합니다.\n\n\n  데이터 분할: Corpus를 TextUnit 분석 단위로 분할\n  엔티티 및 관계 추출: LLM을 활용하여 TextUnit에서 모든 엔티티, 관계, 주요 주장 추출\n  계층적 클러스터링: 엔티티 간의 커뮤니티(관련된 노드들의 그룹) 생성 및 커뮤니티 요약 생성",
+      "visual_description": "Graph RAG의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Graph RAG는 text에서 entity와 relationship을 추출해 graph를 만들고 community·subgraph 정보를 활용해 multi-hop 또는 global relation question을 검색한다. Extraction·entity linking 비용과 오류를 관리해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "graph_rag",
+        "entity",
+        "relationship",
+        "knowledge_graph",
+        "community"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p28_graph",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Entity·Relationship 추출 → Graph 구축 → Community Detection",
+          "normalized_explanation": "Graph RAG가 relation structure를 검색에 사용한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "graph_rag",
+            "entity",
+            "relationship",
+            "knowledge_graph",
+            "community"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p29_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 29,
+      "topic": "Hybrid RAG",
+      "concepts": [
+        "Hybrid RAG"
+      ],
+      "raw_text": "Techniques\nHybrid RAG\nVector RAG + Graph RAG\n\nVector RAG는 데이터를 하나의 청크로 인식할 뿐,\n그 안의 데이터 구조 및 관계를 파악하는 것은 잘 하지 못합니다.\n\nGraph RAG는 사용자의 쿼리에서 구축된 그래프의 엔티티를\n직접 언급하지 않으면 잘 작동하지 않는다는 문제점이 있습니다.\n\n그래서 Hybrid RAG는 Vector RAG와 Graph RAG를 둘 다 활용하여,\n벡터 데이터베이스와 지식 그래프 모두에서 관련 정보를 가져와서\n더 나은 답변을 가져올 수 있습니다!",
+      "visual_description": "Hybrid RAG의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Hybrid RAG는 vector semantic retrieval과 knowledge graph의 explicit relation 탐색을 결합한다. Graph query가 반드시 entity 문자열을 직접 포함해야 하는 것은 아니며 entity linking과 query planning 방식에 따라 달라진다. 출처가 없는 benchmark 수치는 평가 근거에서 제외한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "hybrid_rag",
+        "vector_database",
+        "knowledge_graph",
+        "entity",
+        "relationship"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p29_hybrid",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Vector DB + Knowledge Graph",
+          "normalized_explanation": "Hybrid RAG는 semantic vector와 explicit graph relation을 결합한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hybrid_rag",
+            "vector_database",
+            "knowledge_graph",
+            "entity",
+            "relationship"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "rag_p29_entity",
+          "source_text": "명시적인 Entity 정보가 있어야 작동",
+          "issue_type": "overgeneralized",
+          "correction": "Entity linking과 query planning으로 implicit entity도 연결할 수 있다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "rag_p30_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 30,
+      "topic": "Self-Reflective RAG",
+      "concepts": [
+        "Self-Reflective RAG"
+      ],
+      "raw_text": "Techniques\nSelf-RAG\nRAG with Feedback\n\nRAG을 수행하다 보면 관련 없는 문서임에도\n유사도 점수가 높게 나와 언어모델에 잘못된 컨텍스트를 줄 수 있죠.\n\n그렇다면 가져오는 문서를 평가하는 절차를 거치면 좋을 것 같아요.\n구조는 다음과 같습니다:\n  첫 쿼리로 문서 검색\n  문서를 읽고 평가\n  문서 품질이 낮다고 판단하는 경우 → 쿼리 수정 + 재검색\n  가져올 최소 문서 개수 만족 또는 최대 반복 횟수에 도달하면 응답 생성\n\n\n재시도를 통해서 보다 정확하고 관련도 높은 문서를 확보할 수 있으며\n사람이 개입하지 않아 작업이 자동화되어 에이전트에도 적합하네요!",
+      "visual_description": "Self-Reflective RAG의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "강의의 Self-RAG는 initial retrieval·answer를 평가해 부족하면 query rewrite와 re-retrieval을 반복하는 corrective feedback pattern으로 설명된다. 실제 구현에는 quality criterion, retry budget과 stop condition이 필요하며 특정 논문의 고유 algorithm과 동일하다고 단정하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "self_rag",
+        "query_rewrite",
+        "feedback_loop",
+        "retrieval"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p30_feedback",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Answer 평가 → Query Rewrite → Retrieval 재수행",
+          "normalized_explanation": "Corrective/self-reflective retrieval loop다.",
+          "source_status": "verified",
+          "term_ids": [
+            "self_rag",
+            "query_rewrite",
+            "feedback_loop",
+            "retrieval"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "rag_p30_name",
+          "source_text": "Self-RAG",
+          "issue_type": "ambiguous",
+          "correction": "이 강의에서는 corrective/self-reflective feedback pattern 범위로 판정한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "rag_p31_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 31,
+      "topic": "Chunking",
+      "concepts": [
+        "Chunking"
+      ],
+      "raw_text": "Techniques\nChunking\n좋은 임베딩 생성을 위해\n\nRAG의 낮은 성능의 요인으로는\n 1.임베딩 모델 성능의 한계\n 2.임베딩 대상 문서의 Chunk 품질 저하\n가 있죠. 단순히 고정된 길이로 문서를 분할하는 것은 RAG 성능 저하로 이어질 것 같아요.\n\n올바른 Chunk를 위해서는 어떤 방법이 있을까요?\n\n   Semantic Chunking: 의미 단위(문단/문장/의미 단락)로 분할하여, 문맥을 자연스럽게 보존\n\n   Overlapping Chunks: Chunk 간 일부 토큰이나 문장을 중복 포함시켜\n  정보 단절 없이 이어질 수 있도록 처리\n\n   Graph-based Chunking: 문서 내 엔티티 및 관계를 그래프로 구성하고, 관련 노드/서브그래프를 중심으로\n  의미 있는 chunk 생성",
+      "visual_description": "Chunking의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Chunking은 document를 retrieval unit으로 나누는 과정이다. Semantic boundary, overlap, graph-based grouping 등 방법이 있으며 chunk size·overlap은 recall, precision, context continuity, duplication과 cost 사이의 trade-off다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "chunk",
+        "semantic_chunking",
+        "overlap",
+        "graph_chunking",
+        "precision",
+        "recall"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p31_chunking",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Semantic Chunking / Overlap / Graph-based Chunking",
+          "normalized_explanation": "Chunk boundary와 overlap의 trade-off다.",
+          "source_status": "verified",
+          "term_ids": [
+            "chunk",
+            "semantic_chunking",
+            "overlap",
+            "graph_chunking",
+            "precision",
+            "recall"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p32_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 32,
+      "topic": "Contextual Retrieval",
+      "concepts": [
+        "Contextual Retrieval"
+      ],
+      "raw_text": "Techniques\nContextual Retrieval\n\n\n문서를 단순히 청킹하는 것보다\n청크 앞에 “Situated Context”를 삽입하는 Chunk Prepending을 하면\n검색 정확도를 향상시킬 수 있습니다!\n\n\n\n\n\n  원본 청크: “회사의 수익은 전 분기 대비 3% 증가했습니다.”\n  컨텍스트 추가 후의 청크: “이 정보는 ACME 기업의 2023년 2분기 SEC 보고서에서 발췌되었습니다. 이전 분\n  기의 수익은 3억 1400만 달러였습니다. 회사의 수익은 전 분기 대비 3% 증가했습니다.”",
+      "visual_description": "Contextual Retrieval의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Contextual retrieval은 각 chunk 앞에 document 안에서의 위치와 주제를 설명하는 short situated context를 붙여 독립 chunk가 잃은 배경을 보완한다. 추가 context가 사실과 맞고 query를 압도하지 않도록 검증해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "contextual_retrieval",
+        "situated_context",
+        "chunk_prepending",
+        "chunk"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p32_contextual",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "각 Chunk 앞에 문서 내 위치·맥락을 설명하는 짧은 Context 추가",
+          "normalized_explanation": "Situated context를 chunk에 prepend한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "contextual_retrieval",
+            "situated_context",
+            "chunk_prepending",
+            "chunk"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p33_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 33,
+      "topic": "Hybrid Search와 Reranking",
+      "concepts": [
+        "Hybrid Search와 Reranking"
+      ],
+      "raw_text": "Techniques\nContextual Retrieval\n\n\n더 좋은 효율을 위해 다음과 같은 아키텍처를 포함합시다:\n\n   Contextual Hybrid Search: 벡터 임베딩 기반 의미론적\n  검색과 TF-IDF 기반 키워드 검색을 결합\n\n   Reranking: 검색 결과 재정렬을 통해 가장 관련성이 높은\n  청크만 선별하여 모델에 전달",
+      "visual_description": "Hybrid Search와 Reranking의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Hybrid search는 sparse lexical score와 dense semantic score를 결합하고 rank fusion으로 candidate를 합친다. Reranker는 query-chunk pair를 더 정밀하게 재평가해 generator에 줄 문맥을 좁힌다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "hybrid_search",
+        "sparse_retrieval",
+        "dense_retrieval",
+        "rank_fusion",
+        "reranking"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p33_hybrid_search",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Sparse + Dense Retrieval → Rank Fusion → Reranking",
+          "normalized_explanation": "Lexical·semantic candidate를 합치고 reranker로 정제한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "hybrid_search",
+            "sparse_retrieval",
+            "dense_retrieval",
+            "rank_fusion",
+            "reranking"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p34_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 34,
+      "topic": "Contextual RAG 전체 흐름",
+      "concepts": [
+        "Contextual RAG 전체 흐름"
+      ],
+      "raw_text": "Techniques\nContextual Retrieval",
+      "visual_description": "Contextual RAG 전체 흐름의 component·flow·comparison을 diagram과 text로 제시한다.",
+      "content": "Corpus를 chunking한 뒤 situated context를 생성하고 embedding index와 TF-IDF index를 함께 만든다. Query 때 두 검색 결과를 rank fusion하고 top candidate를 reranking해 generator context로 전달한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "contextual_retrieval",
+        "tfidf",
+        "embedding",
+        "rank_fusion",
+        "reranking",
+        "generator"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "rag_p34_contextual_flow",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "Contextual Chunk → Embedding·TF-IDF Index → Rank Fusion → Reranker → Generator",
+          "normalized_explanation": "Contextual hybrid RAG의 indexing과 query flow다.",
+          "source_status": "verified",
+          "term_ids": [
+            "contextual_retrieval",
+            "tfidf",
+            "embedding",
+            "rank_fusion",
+            "reranking",
+            "generator"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "rag_p35_01",
+      "lecture_id": "rag",
+      "lecture_name": "Retrieval-Augmented Generation",
+      "page": 35,
+      "topic": "강의 마무리",
+      "concepts": [
+        "강의 마무리"
+      ],
+      "raw_text": "감사합니다!",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "RAG 강의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

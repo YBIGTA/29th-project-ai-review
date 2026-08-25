@@ -1,0 +1,370 @@
+{
+  "$defs": {
+    "AssessmentConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "const": "selected_topic_recall",
+          "default": "selected_topic_recall",
+          "title": "Mode",
+          "type": "string"
+        },
+        "target_seconds": {
+          "default": 120,
+          "minimum": 30,
+          "title": "Target Seconds",
+          "type": "integer"
+        },
+        "max_seconds": {
+          "default": 120,
+          "minimum": 30,
+          "title": "Max Seconds",
+          "type": "integer"
+        },
+        "score_policy": {
+          "$ref": "#/$defs/ScorePolicy"
+        }
+      },
+      "title": "AssessmentConfig",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "minLength": 1,
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "essential",
+            "supporting"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "core_understanding",
+            "explanation_application",
+            "connection_comparison"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "term_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Term Ids",
+          "type": "array"
+        },
+        "weight": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Weight",
+          "type": "number"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "evaluation_criteria": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EvaluationCriteria"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "claim_id",
+        "role",
+        "category",
+        "text",
+        "evidence"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "EvaluationCriteria": {
+      "additionalProperties": false,
+      "properties": {
+        "required_elements": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Elements",
+          "type": "array"
+        },
+        "critical_errors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Critical Errors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "required_elements"
+      ],
+      "title": "EvaluationCriteria",
+      "type": "object"
+    },
+    "EvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "minLength": 1,
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "unit_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Id"
+        },
+        "source_excerpt": {
+          "minLength": 1,
+          "title": "Source Excerpt",
+          "type": "string"
+        },
+        "source_status": {
+          "default": "verified",
+          "enum": [
+            "verified",
+            "needs_review",
+            "source_error"
+          ],
+          "title": "Source Status",
+          "type": "string"
+        },
+        "review_note": {
+          "default": "",
+          "title": "Review Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "page",
+        "chunk_id",
+        "source_excerpt"
+      ],
+      "title": "EvidenceRef",
+      "type": "object"
+    },
+    "ExcludedSourceClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "minLength": 1,
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "source_text": {
+          "minLength": 1,
+          "title": "Source Text",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "page",
+        "chunk_id",
+        "source_text",
+        "reason"
+      ],
+      "title": "ExcludedSourceClaim",
+      "type": "object"
+    },
+    "ScorePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "essential_points": {
+          "default": 60,
+          "title": "Essential Points",
+          "type": "integer"
+        },
+        "supporting_points": {
+          "default": 20,
+          "title": "Supporting Points",
+          "type": "integer"
+        },
+        "coverage_points": {
+          "default": 20,
+          "title": "Coverage Points",
+          "type": "integer"
+        }
+      },
+      "title": "ScorePolicy",
+      "type": "object"
+    },
+    "SubObjective": {
+      "additionalProperties": false,
+      "properties": {
+        "sub_objective_id": {
+          "minLength": 1,
+          "title": "Sub Objective Id",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "summary": {
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "maxItems": 4,
+          "minItems": 2,
+          "title": "Claims",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sub_objective_id",
+        "title",
+        "summary",
+        "claims"
+      ],
+      "title": "SubObjective",
+      "type": "object"
+    },
+    "TopLevelObjective": {
+      "additionalProperties": false,
+      "properties": {
+        "objective_id": {
+          "minLength": 1,
+          "title": "Objective Id",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "selection_description": {
+          "minLength": 1,
+          "title": "Selection Description",
+          "type": "string"
+        },
+        "supporting_claim_slots": {
+          "maximum": 3,
+          "minimum": 2,
+          "title": "Supporting Claim Slots",
+          "type": "integer"
+        },
+        "sub_objectives": {
+          "items": {
+            "$ref": "#/$defs/SubObjective"
+          },
+          "maxItems": 4,
+          "minItems": 3,
+          "title": "Sub Objectives",
+          "type": "array"
+        }
+      },
+      "required": [
+        "objective_id",
+        "title",
+        "selection_description",
+        "supporting_claim_slots",
+        "sub_objectives"
+      ],
+      "title": "TopLevelObjective",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "lecture_id": {
+      "minLength": 1,
+      "title": "Lecture Id",
+      "type": "string"
+    },
+    "lecture_name": {
+      "minLength": 1,
+      "title": "Lecture Name",
+      "type": "string"
+    },
+    "assessment": {
+      "$ref": "#/$defs/AssessmentConfig"
+    },
+    "top_level_objectives": {
+      "items": {
+        "$ref": "#/$defs/TopLevelObjective"
+      },
+      "maxItems": 4,
+      "minItems": 3,
+      "title": "Top Level Objectives",
+      "type": "array"
+    },
+    "excluded_source_claims": {
+      "items": {
+        "$ref": "#/$defs/ExcludedSourceClaim"
+      },
+      "title": "Excluded Source Claims",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "lecture_id",
+    "lecture_name",
+    "assessment",
+    "top_level_objectives"
+  ],
+  "title": "LectureRubric",
+  "type": "object"
+}

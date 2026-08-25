@@ -1,0 +1,1030 @@
+{
+  "course_id": null,
+  "topic": "NLP",
+  "entries": [
+    {
+      "term": "Classical",
+      "korean_variants": [
+        "클래시컬"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Continuous",
+      "korean_variants": [
+        "컨티뉴어스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Query",
+      "korean_variants": [
+        "쿼리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Soft",
+      "korean_variants": [
+        "소프트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Query Key Value",
+      "korean_variants": [
+        "쿼리 키 밸류"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Rule",
+      "korean_variants": [
+        "룰"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Classical NLP",
+      "korean_variants": [
+        "클래시컬 NLP"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Gate",
+      "korean_variants": [
+        "게이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feedforward",
+      "korean_variants": [
+        "피드포워드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sub",
+      "korean_variants": [
+        "서브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Large Language",
+      "korean_variants": [
+        "라지 랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "GRU",
+      "korean_variants": [
+        "지알유"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "ML",
+      "korean_variants": [
+        "ML"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Neural",
+      "korean_variants": [
+        "뉴럴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Foundation",
+      "korean_variants": [
+        "파운데이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "IDF",
+      "korean_variants": [
+        "IDF"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Cross",
+      "korean_variants": [
+        "크로스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sparse",
+      "korean_variants": [
+        "스파스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RNN",
+      "korean_variants": [
+        "RNN"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Tuning",
+      "korean_variants": [
+        "튜닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "h1",
+      "korean_variants": [
+        "h1"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "PKI",
+      "korean_variants": [
+        "PKI"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Key",
+      "korean_variants": [
+        "키"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "DL",
+      "korean_variants": [
+        "DL"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Word2Vec",
+      "korean_variants": [
+        "워드투벡"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "One",
+      "korean_variants": [
+        "원"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Rule Base",
+      "korean_variants": [
+        "룰 베이스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Positional Encoding",
+      "korean_variants": [
+        "포지셔널 인코딩"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Position",
+      "korean_variants": [
+        "포지션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Attention",
+      "korean_variants": [
+        "어텐션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Value",
+      "korean_variants": [
+        "밸류"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sequence",
+      "korean_variants": [
+        "시퀀스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language",
+      "korean_variants": [
+        "랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Why",
+      "korean_variants": [
+        "와이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sentiment",
+      "korean_variants": [
+        "센티멘트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Term",
+      "korean_variants": [
+        "텀"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Mini",
+      "korean_variants": [
+        "미니"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "FE",
+      "korean_variants": [
+        "FE"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "X1",
+      "korean_variants": [
+        "X1"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "LSTM GRU",
+      "korean_variants": [
+        "LSTM GRU"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Tokenizer",
+      "korean_variants": [
+        "토크나이저"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Many",
+      "korean_variants": [
+        "매니"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Embedding",
+      "korean_variants": [
+        "임베딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PMI",
+      "korean_variants": [
+        "피엠아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Large",
+      "korean_variants": [
+        "라지"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Cbow",
+      "korean_variants": [
+        "시보우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Natural",
+      "korean_variants": [
+        "내추럴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Roberta",
+      "korean_variants": [
+        "로베르타"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Self",
+      "korean_variants": [
+        "셀프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Modeling",
+      "korean_variants": [
+        "모델링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Recursive",
+      "korean_variants": [
+        "리커시브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Large Language Model",
+      "korean_variants": [
+        "라지 랭귀지 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "SVM",
+      "korean_variants": [
+        "에스브이엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Cosine",
+      "korean_variants": [
+        "코사인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Inverse",
+      "korean_variants": [
+        "인버스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "They",
+      "korean_variants": [
+        "데이"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Processing",
+      "korean_variants": [
+        "프로세싱"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLaMa",
+      "korean_variants": [
+        "라마"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Analysis",
+      "korean_variants": [
+        "애널리시스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Seq2Seq",
+      "korean_variants": [
+        "시퀀스투시퀀스"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Clustering",
+      "korean_variants": [
+        "클러스터링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SVD",
+      "korean_variants": [
+        "에스브이디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "FineTune",
+      "korean_variants": [
+        "파인튜닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Pre",
+      "korean_variants": [
+        "프리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Task",
+      "korean_variants": [
+        "태스크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bert",
+      "korean_variants": [
+        "버트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tree",
+      "korean_variants": [
+        "트리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Base",
+      "korean_variants": [
+        "베이스"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "DL Recap",
+      "korean_variants": [
+        "디엘 리캡"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "POS",
+      "korean_variants": [
+        "피오에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Neural Network",
+      "korean_variants": [
+        "뉴럴 네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Contextualization",
+      "korean_variants": [
+        "컨텍스추얼라이제이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GPT",
+      "korean_variants": [
+        "지피티"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Corpus",
+      "korean_variants": [
+        "코퍼스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AutoRegressive",
+      "korean_variants": [
+        "오토레그레시브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Regression",
+      "korean_variants": [
+        "리그레션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NLP",
+      "korean_variants": [
+        "엔엘피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Entropy",
+      "korean_variants": [
+        "엔트로피"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Term Frequency",
+      "korean_variants": [
+        "텀 프리퀀시"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Output",
+      "korean_variants": [
+        "아웃풋"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Matrix",
+      "korean_variants": [
+        "매트릭스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Self Attention",
+      "korean_variants": [
+        "셀프 어텐션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Invalid",
+      "korean_variants": [
+        "인밸리드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bag",
+      "korean_variants": [
+        "백"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Similarity",
+      "korean_variants": [
+        "시밀러리티"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bow",
+      "korean_variants": [
+        "보우"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sentiment Analysis",
+      "korean_variants": [
+        "센티멘트 애널리시스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "X2",
+      "korean_variants": [
+        "엑스투"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Word",
+      "korean_variants": [
+        "워드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "EDA",
+      "korean_variants": [
+        "이디에이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Sequence Modeling",
+      "korean_variants": [
+        "시퀀스 모델링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "h2",
+      "korean_variants": [
+        "에이치투"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Recap",
+      "korean_variants": [
+        "리캡"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Language Model",
+      "korean_variants": [
+        "랭귀지 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Data",
+      "korean_variants": [
+        "데이터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Foundation Model",
+      "korean_variants": [
+        "파운데이션 모델"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Target",
+      "korean_variants": [
+        "타깃"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "TF",
+      "korean_variants": [
+        "티에프"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Rule Base NLP",
+      "korean_variants": [
+        "룰 베이스 엔엘피"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Transformer",
+      "korean_variants": [
+        "트랜스포머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LSTM",
+      "korean_variants": [
+        "엘에스티엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Positional",
+      "korean_variants": [
+        "포지셔널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PreTrain",
+      "korean_variants": [
+        "프리트레인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Loss",
+      "korean_variants": [
+        "로스"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Encoding",
+      "korean_variants": [
+        "인코딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Fine",
+      "korean_variants": [
+        "파인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Co",
+      "korean_variants": [
+        "코"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "NLP Recap",
+      "korean_variants": [
+        "엔엘피 리캡"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Sparse Vector",
+      "korean_variants": [
+        "스파스 벡터"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RGB",
+      "korean_variants": [
+        "알지비"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "She",
+      "korean_variants": [
+        "쉬"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Document",
+      "korean_variants": [
+        "도큐먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Frequency",
+      "korean_variants": [
+        "프리퀀시"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Network",
+      "korean_variants": [
+        "네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Wordnet",
+      "korean_variants": [
+        "워드넷"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLM",
+      "korean_variants": [
+        "엘엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Skipgram",
+      "korean_variants": [
+        "스킵그램"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Model",
+      "korean_variants": [
+        "모델"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Negative",
+      "korean_variants": [
+        "네거티브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Context",
+      "korean_variants": [
+        "컨텍스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "TD",
+      "korean_variants": [
+        "티디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Natural Language",
+      "korean_variants": [
+        "내추럴 랭귀지"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "PPMI",
+      "korean_variants": [
+        "피피엠아이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Recurrent",
+      "korean_variants": [
+        "리커런트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Vector",
+      "korean_variants": [
+        "벡터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Recursive Neural",
+      "korean_variants": [
+        "리커시브 뉴럴"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "QKV",
+      "korean_variants": [
+        "큐케이브이"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    }
+  ]
+}

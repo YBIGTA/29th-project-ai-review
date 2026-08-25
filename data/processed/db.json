@@ -1,0 +1,2628 @@
+{
+  "schema_version": "2.1.0",
+  "lecture_id": "db",
+  "lecture_name": "Database",
+  "source_file": "DB.pdf",
+  "terminology": [
+    {
+      "term_id": "database",
+      "canonical_ko": "데이터베이스",
+      "canonical_en": "database",
+      "abbreviations": [
+        "DB"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dbms",
+      "canonical_ko": "데이터베이스 관리 시스템",
+      "canonical_en": "Database Management System",
+      "abbreviations": [
+        "DBMS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rdbms",
+      "canonical_ko": "관계형 데이터베이스 관리 시스템",
+      "canonical_en": "Relational Database Management System",
+      "abbreviations": [
+        "RDBMS"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "nosql",
+      "canonical_ko": "NoSQL 데이터베이스",
+      "canonical_en": "NoSQL database",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "file_system",
+      "canonical_ko": "파일 시스템",
+      "canonical_en": "file system",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "data_integrity",
+      "canonical_ko": "데이터 무결성",
+      "canonical_en": "data integrity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "consistency",
+      "canonical_ko": "일관성",
+      "canonical_en": "consistency",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "concurrency",
+      "canonical_ko": "동시성",
+      "canonical_en": "concurrency",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "schema",
+      "canonical_ko": "스키마",
+      "canonical_en": "schema",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "table",
+      "canonical_ko": "테이블",
+      "canonical_en": "table",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "row",
+      "canonical_ko": "행",
+      "canonical_en": "row",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "레코드",
+        "record"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "column",
+      "canonical_ko": "열",
+      "canonical_en": "column",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "속성",
+        "attribute"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "primary_key",
+      "canonical_ko": "기본 키",
+      "canonical_en": "primary key",
+      "abbreviations": [
+        "PK"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "foreign_key",
+      "canonical_ko": "외래 키",
+      "canonical_en": "foreign key",
+      "abbreviations": [
+        "FK"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "candidate_key",
+      "canonical_ko": "후보 키",
+      "canonical_en": "candidate key",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "relationship",
+      "canonical_ko": "관계",
+      "canonical_en": "relationship",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_to_one",
+      "canonical_ko": "일대일 관계",
+      "canonical_en": "one-to-one",
+      "abbreviations": [
+        "1:1"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_to_many",
+      "canonical_ko": "일대다 관계",
+      "canonical_en": "one-to-many",
+      "abbreviations": [
+        "1:N"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "many_to_many",
+      "canonical_ko": "다대다 관계",
+      "canonical_en": "many-to-many",
+      "abbreviations": [
+        "N:M"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "junction_table",
+      "canonical_ko": "연결 테이블",
+      "canonical_en": "junction table",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "교차 테이블"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "entity_integrity",
+      "canonical_ko": "개체 무결성",
+      "canonical_en": "entity integrity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "referential_integrity",
+      "canonical_ko": "참조 무결성",
+      "canonical_en": "referential integrity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "domain_integrity",
+      "canonical_ko": "도메인 무결성",
+      "canonical_en": "domain integrity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "business_rule",
+      "canonical_ko": "비즈니스 규칙",
+      "canonical_en": "business rule",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "constraint",
+      "canonical_ko": "제약 조건",
+      "canonical_en": "constraint",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "not_null",
+      "canonical_ko": "NOT NULL",
+      "canonical_en": "NOT NULL",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "unique",
+      "canonical_ko": "UNIQUE",
+      "canonical_en": "UNIQUE",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "check",
+      "canonical_ko": "CHECK",
+      "canonical_en": "CHECK",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "default",
+      "canonical_ko": "DEFAULT",
+      "canonical_en": "DEFAULT",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "redundancy",
+      "canonical_ko": "데이터 중복",
+      "canonical_en": "redundancy",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "anomaly",
+      "canonical_ko": "이상 현상",
+      "canonical_en": "anomaly",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "insertion_anomaly",
+      "canonical_ko": "삽입 이상",
+      "canonical_en": "insertion anomaly",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "deletion_anomaly",
+      "canonical_ko": "삭제 이상",
+      "canonical_en": "deletion anomaly",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "update_anomaly",
+      "canonical_ko": "갱신 이상",
+      "canonical_en": "update anomaly",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "normalization",
+      "canonical_ko": "정규화",
+      "canonical_en": "normalization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "functional_dependency",
+      "canonical_ko": "함수 종속",
+      "canonical_en": "functional dependency",
+      "abbreviations": [
+        "FD"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "partial_dependency",
+      "canonical_ko": "부분 함수 종속",
+      "canonical_en": "partial dependency",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "transitive_dependency",
+      "canonical_ko": "이행 함수 종속",
+      "canonical_en": "transitive dependency",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "atomic_value",
+      "canonical_ko": "원자값",
+      "canonical_en": "atomic value",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "first_normal_form",
+      "canonical_ko": "제1정규형",
+      "canonical_en": "first normal form",
+      "abbreviations": [
+        "1NF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "second_normal_form",
+      "canonical_ko": "제2정규형",
+      "canonical_en": "second normal form",
+      "abbreviations": [
+        "2NF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "third_normal_form",
+      "canonical_ko": "제3정규형",
+      "canonical_en": "third normal form",
+      "abbreviations": [
+        "3NF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "bcnf",
+      "canonical_ko": "보이스-코드 정규형",
+      "canonical_en": "Boyce-Codd normal form",
+      "abbreviations": [
+        "BCNF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "fourth_normal_form",
+      "canonical_ko": "제4정규형",
+      "canonical_en": "fourth normal form",
+      "abbreviations": [
+        "4NF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "fifth_normal_form",
+      "canonical_ko": "제5정규형",
+      "canonical_en": "fifth normal form",
+      "abbreviations": [
+        "5NF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "transaction",
+      "canonical_ko": "트랜잭션",
+      "canonical_en": "transaction",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "acid",
+      "canonical_ko": "ACID",
+      "canonical_en": "Atomicity Consistency Isolation Durability",
+      "abbreviations": [
+        "ACID"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "atomicity",
+      "canonical_ko": "원자성",
+      "canonical_en": "atomicity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "isolation",
+      "canonical_ko": "격리성",
+      "canonical_en": "isolation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "durability",
+      "canonical_ko": "지속성",
+      "canonical_en": "durability",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "sql",
+      "canonical_ko": "구조화 질의 언어",
+      "canonical_en": "Structured Query Language",
+      "abbreviations": [
+        "SQL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "ddl",
+      "canonical_ko": "데이터 정의어",
+      "canonical_en": "Data Definition Language",
+      "abbreviations": [
+        "DDL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dml",
+      "canonical_ko": "데이터 조작어",
+      "canonical_en": "Data Manipulation Language",
+      "abbreviations": [
+        "DML"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dql",
+      "canonical_ko": "데이터 질의어",
+      "canonical_en": "Data Query Language",
+      "abbreviations": [
+        "DQL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dcl",
+      "canonical_ko": "데이터 제어어",
+      "canonical_en": "Data Control Language",
+      "abbreviations": [
+        "DCL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tcl",
+      "canonical_ko": "트랜잭션 제어어",
+      "canonical_en": "Transaction Control Language",
+      "abbreviations": [
+        "TCL"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "create",
+      "canonical_ko": "CREATE",
+      "canonical_en": "CREATE",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "alter",
+      "canonical_ko": "ALTER",
+      "canonical_en": "ALTER",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "drop",
+      "canonical_ko": "DROP",
+      "canonical_en": "DROP",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "truncate",
+      "canonical_ko": "TRUNCATE",
+      "canonical_en": "TRUNCATE",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "insert",
+      "canonical_ko": "INSERT",
+      "canonical_en": "INSERT",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "update",
+      "canonical_ko": "UPDATE",
+      "canonical_en": "UPDATE",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "delete",
+      "canonical_ko": "DELETE",
+      "canonical_en": "DELETE",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "select",
+      "canonical_ko": "SELECT",
+      "canonical_en": "SELECT",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "where",
+      "canonical_ko": "WHERE",
+      "canonical_en": "WHERE",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "group_by",
+      "canonical_ko": "GROUP BY",
+      "canonical_en": "GROUP BY",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "having",
+      "canonical_ko": "HAVING",
+      "canonical_en": "HAVING",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "order_by",
+      "canonical_ko": "ORDER BY",
+      "canonical_en": "ORDER BY",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "subquery",
+      "canonical_ko": "서브쿼리",
+      "canonical_en": "subquery",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cte",
+      "canonical_ko": "공통 테이블 표현식",
+      "canonical_en": "common table expression",
+      "abbreviations": [
+        "CTE"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "case_when",
+      "canonical_ko": "CASE WHEN",
+      "canonical_en": "CASE WHEN",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "join",
+      "canonical_ko": "조인",
+      "canonical_en": "join",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "inner_join",
+      "canonical_ko": "내부 조인",
+      "canonical_en": "inner join",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "outer_join",
+      "canonical_ko": "외부 조인",
+      "canonical_en": "outer join",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "cross_join",
+      "canonical_ko": "교차 조인",
+      "canonical_en": "cross join",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "union",
+      "canonical_ko": "UNION",
+      "canonical_en": "UNION",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "union_all",
+      "canonical_ko": "UNION ALL",
+      "canonical_en": "UNION ALL",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "oltp",
+      "canonical_ko": "온라인 트랜잭션 처리",
+      "canonical_en": "Online Transaction Processing",
+      "abbreviations": [
+        "OLTP"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "olap",
+      "canonical_ko": "온라인 분석 처리",
+      "canonical_en": "Online Analytical Processing",
+      "abbreviations": [
+        "OLAP"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "row_store",
+      "canonical_ko": "행 지향 저장",
+      "canonical_en": "row-oriented storage",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "document_store",
+      "canonical_ko": "문서형 데이터베이스",
+      "canonical_en": "document store",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "key_value_store",
+      "canonical_ko": "키-값 데이터베이스",
+      "canonical_en": "key-value store",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "wide_column_store",
+      "canonical_ko": "와이드 컬럼 데이터베이스",
+      "canonical_en": "wide-column store",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "graph_database",
+      "canonical_ko": "그래프 데이터베이스",
+      "canonical_en": "graph database",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vector_database",
+      "canonical_ko": "벡터 데이터베이스",
+      "canonical_en": "vector database",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "embedding",
+      "canonical_ko": "임베딩",
+      "canonical_en": "embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "similarity_search",
+      "canonical_ko": "유사도 검색",
+      "canonical_en": "similarity search",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "scale_out",
+      "canonical_ko": "스케일 아웃",
+      "canonical_en": "scale out",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "flexible_schema",
+      "canonical_ko": "유연한 스키마",
+      "canonical_en": "flexible schema",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "db_p1_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 1,
+      "topic": "DB 표지",
+      "concepts": [
+        "DB 표지"
+      ],
+      "raw_text": "2026 Summer YBIGTA\n\n\nDB\n\n\n\n\n\n                        28기 박준범",
+      "visual_description": "DB 표지 페이지이다.",
+      "content": "DB 강의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p2_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 2,
+      "topic": "강의 목차",
+      "concepts": [
+        "강의 목차"
+      ],
+      "raw_text": "목 차\n\n\n 1.  Intro\n 2. DB와 DBMS\n 3. RDBMS\n 4. SQL\n 5. OLTP vs OLAP\n 6. Beyond RDBMS",
+      "visual_description": "강의 목차 페이지이다.",
+      "content": "강의는 DB·DBMS, RDBMS, SQL, OLTP·OLAP, Beyond RDBMS 순으로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p3_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 3,
+      "topic": "Introduction",
+      "concepts": [
+        "Introduction"
+      ],
+      "raw_text": "Intro",
+      "visual_description": "Introduction 페이지이다.",
+      "content": "DB 도입 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p4_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 4,
+      "topic": "파일 시스템의 한계",
+      "concepts": [
+        "파일 시스템의 한계"
+      ],
+      "raw_text": "Intro\nIntro\n\n\n\n\n                              데이터 관련 팀 프로젝트를 진행하실 때마다\n                                                                  final_v2.csv, 찐최종.xlsx와 같은 파일을 공유\n                              했던 경험이 있으실 겁니다.\n\n                              누군가 실수로 파일을 지우거나, 데이터를 잘\n                              못 덮어쓰면 복구할 수 없는 현실..\n\n                              거대한 데이터를 다루려면 파일 기반 시스템\n                              에서 벗어나 진짜 데이터베이스를 다루는 역\n                              량이 필요합니다!",
+      "visual_description": "파일 시스템의 한계의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "File만으로 data를 관리하면 중복 version, 실수에 의한 overwrite·deletion, 대용량 검색과 동시 접근 관리가 어렵다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p5_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 5,
+      "topic": "데이터 직무와 DB",
+      "concepts": [
+        "데이터 직무와 DB"
+      ],
+      "raw_text": "왜 DB를 배워야 하나요?\n\nDA\n  자신이 원하는 데이터를 직접, 즉시 꺼내볼 수 있는\n  능력이 곧 DA의 경쟁력 (feat. SQL)\n  대용량의 데이터를 다루려면 DB는 선택이 아닌 필수\n\nDS\n  좋은 모델은 좋은 데이터에서 비롯\n  모델링 시간의 80%는 데이터를 찾고 다듬는 전처리\n  시간에 투자\n  필요한 학습 데이터를 DB에서 직접 가공해서 가져오\n  는 것이 모델링의 첫 단추!\nDE                                                   기하급수적으로 늘어나는 데이터 속에서,\n  데이터가 흐르는 파이프라인의 저장소를 짓는 파트                  DB를 다루는 능력이 점점 중요해지고 있습니다.\n  데이터를 어떻게 저장해야 가장 빠르고 안전할지\n  사실상 여러분의 본진입니다.",
+      "visual_description": "데이터 직무와 DB의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Data analyst·scientist·engineer 모두 data를 안정적으로 저장하고 조회하는 DB 기초가 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p6_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 6,
+      "topic": "DB와 파일 비교",
+      "concepts": [
+        "DB와 파일 비교"
+      ],
+      "raw_text": "Intro\n왜 DB여야 하나요?\n\n                                 DB가 File 시스템에 비해 가지는 장점 3가지!\n\n                        데이터 무결성 (Integrity)\n                            파일로 데이터를 관리하면 나이가 -20살이 되거나, 이\n                            메일 칸에 전화번호가 들어가도 막을 수 없음\n                            → DB는 규칙을 통해 데이터 값을 정확한 상태로 유지\n\n                        데이터 정합성 (Consistency)\n                            파일이 여러 개로 쪼개져 있으면, 한쪽만 수정했을 때 정\n                            보가 불일치하는 모순(갱신 이상)이 발생\n                            → DB는 데이터 중복을 최소화해 일치 정보 제공\n\n                        동시성 및 관리 효율\n                                 DB는 여러 명이 동시에 하나의 데이터를 안전하게 수\n                           정 및 조회 가능\n\n                                                  여기서 등장하는 용어들은 뒤쪽 RDBMS 파트에서\n                                                  좀 더 자세히 다뤄보겠습니다!",
+      "visual_description": "DB와 파일 비교의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Database와 DBMS는 integrity·consistency·concurrent access·central management를 제공해 단순 file 관리의 한계를 줄인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "database",
+        "dbms",
+        "file_system",
+        "data_integrity",
+        "consistency",
+        "concurrency"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p6_db_value",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "무결성 / 일관성 / 동시 접근과 관리",
+          "normalized_explanation": "DBMS가 file system 대비 제공하는 관리 기능이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "database",
+            "dbms",
+            "file_system",
+            "data_integrity",
+            "consistency",
+            "concurrency"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p7_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 7,
+      "topic": "DB 기반 시스템",
+      "concepts": [
+        "DB 기반 시스템"
+      ],
+      "raw_text": "Intro\n데이터와 정보\n\n\n\n\n\n                 데이터베이스는 단순한 저장소가 아니라,\n       데이터를 정보로 바꾸는 기반 + 정보를 안전하게 저장하고 빠르게 꺼내주는 핵심 시스템\n      → 이를 효율적으로 다루기 위해 DBMS(Database Management System) 사용",
+      "visual_description": "DB 기반 시스템의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Database는 application과 분석 system이 data를 공유하는 기반이고 DBMS가 저장·조회·변경·권한·transaction을 관리한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p8_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 8,
+      "topic": "DB와 DBMS",
+      "concepts": [
+        "DB와 DBMS"
+      ],
+      "raw_text": "DB와 DBMS",
+      "visual_description": "DB와 DBMS 페이지이다.",
+      "content": "Database와 DBMS 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p9_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 9,
+      "topic": "Database 정의",
+      "concepts": [
+        "Database 정의"
+      ],
+      "raw_text": "DB와 DBMS\nDatabase란\n\n\n\n                            데이터베이스를 한 마디로 정의하면\n             “데이터의 집합”\n\n\n                            데이터베이스에는 일상생활의 대부분의 정보\n                            가 저장되고 관리됩니다. 예를 들어...\n                              오늘 보내거나 받은 카카오톡 메시지\n                              인스타그램에 포스트한 사진\n                                버스/지하철에서 찍은 교통카드\n                              카페에서 구매한 아아 정보 등등",
+      "visual_description": "Database 정의의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Database는 관련 data를 구조적으로 모아 저장한 collection이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p10_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 10,
+      "topic": "DBMS 정의",
+      "concepts": [
+        "DBMS 정의"
+      ],
+      "raw_text": "DB와 DBMS\nDBMS (Database Management System)\n\n                               DBMS란?\n                             데이터베이스를 관리하고 운영하는 소프트웨어\n\n                                  DB는 여러 명의 사용자나 응용 프로그램과\n                            공유 및 동시 접근이 가능해야 합니다.\n\n                          예시를 통해 살펴봅시다\n                             여러 명의 예금 계좌 정보를 모아놓은 것\n                                               = 데이터베이스\n\n                             은행이 가지고 있는 예금 계좌 DB에는 여러 명\n                             동시 접근 가능\n                             → DBMS가 존재하기 때문에 가능한 일!",
+      "visual_description": "DBMS 정의의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "DBMS는 database를 생성·조회·변경하고 여러 사용자의 shared access와 protection을 관리하는 software다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "database",
+        "dbms",
+        "concurrency"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p10_dbms",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "데이터베이스를 관리하고 운영하는 소프트웨어 / 여러 사용자가 동시에 접근",
+          "normalized_explanation": "DBMS의 역할이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "database",
+            "dbms",
+            "concurrency"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p11_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 11,
+      "topic": "RDBMS와 NoSQL",
+      "concepts": [
+        "RDBMS와 NoSQL"
+      ],
+      "raw_text": "DB와 DBMS\nDBMS의 분류\n과거에는 계층형, 네트워크형 DBMS 같은 형태가 존재했지만, 현재는 저장형태에 따라 RDBMS와 NoSQL로 분류\n\nRDBMS                           NoSQL\n\n\n\n\n\n  특징: 규칙 엄격, 데이터 정확성 좋음               특징: 규칙 없음, 속도 빠름, 확장성 좋음\n  용도: 은행, 결제, 고객 정보 등 대부분의 중요 데이터     용도: 인스타 피드, 로그, 실시간 채팅\n    ex) MySQL, PostgreSQL, Oracle                       ex) MongoDB, Redis",
+      "visual_description": "RDBMS와 NoSQL의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "RDBMS는 table과 relation, defined schema와 constraint를 중심으로 한다. NoSQL은 document·key-value·wide-column·graph 등 다양한 model과 flexible schema를 제공하지만 rule이 없는 system도, 언제나 더 빠른 system도 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rdbms",
+        "nosql",
+        "schema",
+        "flexible_schema",
+        "scale_out"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p11_models",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "RDBMS / NoSQL",
+          "normalized_explanation": "Relational과 NoSQL model의 trade-off다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rdbms",
+            "nosql",
+            "schema",
+            "flexible_schema",
+            "scale_out"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "db_p11_nosql",
+          "source_text": "NoSQL: 규칙 없음 / Speed 빠름 / Scalability 좋음",
+          "issue_type": "overgeneralized",
+          "correction": "NoSQL도 schema·validation·consistency rule을 가지며 성능은 workload에 따라 다르다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "db_p12_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 12,
+      "topic": "DBMS 분류",
+      "concepts": [
+        "DBMS 분류"
+      ],
+      "raw_text": "DB와 DBMS\nDBMS의 분류",
+      "visual_description": "DBMS 분류의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Database system을 relational과 여러 NoSQL model로 분류하는 도식이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p13_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 13,
+      "topic": "RDBMS",
+      "concepts": [
+        "RDBMS"
+      ],
+      "raw_text": "RDBMS",
+      "visual_description": "RDBMS 페이지이다.",
+      "content": "RDBMS 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p14_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 14,
+      "topic": "관계형 데이터베이스",
+      "concepts": [
+        "관계형 데이터베이스"
+      ],
+      "raw_text": "RDBMS\nRDBMS란 무엇인가?\n\n\n\n\n\n                         RDBMS → Relational DataBase Management System\n\n                       데이터를 테이블 형태로 저장하고, 테이블 간의 관계\n                                            (Relationship)을 설정하여 데이터를 효율적으로 관리하는 시스템\n\n\n                       엑셀 시트처럼 행과 열로 데이터를 저장하고, 이 시트들 간\n                       에 연결고리를 만드는 시스템이라고 이해하면 됨!",
+      "visual_description": "관계형 데이터베이스의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Relational database는 data를 table에 저장하고 key로 table 사이 relation을 표현한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p15_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 15,
+      "topic": "Table·Row·Column·Key",
+      "concepts": [
+        "Table·Row·Column·Key"
+      ],
+      "raw_text": "RDBMS\nRDBMS의 핵심 구성 요소\n\n                                     Table: 데이터를 저장하는 기본 단위\n                                Row(행): 하나의 데이터 항목\n                       열 (col)\n                                Column(열): 데이터의 속성\n                                       <student table>\n                                                                                                              <major table>\n                                              Student_id       name           age           major_id\n                                                                                                                              major_id             name\n\n\n\n                                                     2020122062      이응통              26                  122          행 (row)                                                                                                                                 121            응용통계학과\n\n\n\n                                                                                                                                                               122            경제학과                                                           2021121753       김경제              24                    121\n\n\n\n                                                                                                                                                              123            경영학과\n                                                       2023123891      박경영              22                 123\n                     PK                                 FK\n  Primary Key(PK, 기본키)                 Foreign Key(FK, 외래키)\n 테이블에서 각 행을 유일하게 식별하는 Column     다른 테이블의 기본키를 참조함으로써 두 테이블\n 중복 불가, NULL 불가                사이의 관계를 정의하고, 데이터 무결성을 강제\n\n\n\n                                                   자료에 도움주신 DE 선배님들 감사드립니다~",
+      "visual_description": "Table·Row·Column·Key의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Table은 row와 column으로 구성된다. Primary key는 row를 유일하게 식별하고 null일 수 없으며, foreign key는 다른 table의 candidate 또는 primary key를 참조해 relation과 referential integrity를 표현한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "table",
+        "row",
+        "column",
+        "primary_key",
+        "foreign_key",
+        "candidate_key"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p15_table_keys",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Table / Row / Column / Primary Key / Foreign Key",
+          "normalized_explanation": "Relational table과 key를 정의한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "table",
+            "row",
+            "column",
+            "primary_key",
+            "foreign_key",
+            "candidate_key"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p16_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 16,
+      "topic": "관계의 Cardinality",
+      "concepts": [
+        "관계의 Cardinality"
+      ],
+      "raw_text": "RDBMS\n테이블 간의 관계\n\n\n1:1 관계(One-to-One)\n  한 테이블의 레코드가 다른 테이블의 한 레코드와만 연결됨\n    ex) 1개의 학교에는 교장선생님이 1명 존재함\n\n1:N 관계(One-to-Many)\n  한 테이블의 한 레코드가 다른 테이블의 여러 레코드와 연결됨\n    ex) 1개의 학교에는 여러 명의 선생님이 존재함\n\nN:M 관계(Many-to-Many)\n  다대다 관계는 중간 테이블을 사용하여 구현\n  중간 테이블에는 두 테이블의 기본키가 각각 외래키로 저장됨\n    ex) 여러 명의 학생들이 여러 개의 수업 수강 가능",
+      "visual_description": "관계의 Cardinality의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "1:1은 양쪽 한 row씩, 1:N은 한 row가 여러 row와, N:M은 양쪽 여러 row가 연결된다. N:M은 보통 두 foreign key를 가진 junction table로 구현한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "relationship",
+        "one_to_one",
+        "one_to_many",
+        "many_to_many",
+        "junction_table",
+        "foreign_key"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p16_relations",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "1:1 / 1:N / N:M / 교차 테이블",
+          "normalized_explanation": "Cardinality와 junction table 구현이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "relationship",
+            "one_to_one",
+            "one_to_many",
+            "many_to_many",
+            "junction_table",
+            "foreign_key"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p17_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 17,
+      "topic": "데이터 무결성",
+      "concepts": [
+        "데이터 무결성"
+      ],
+      "raw_text": "RDBMS\n데이터 무결성\n\n데이터베이스 설계 시 데이터 무결성을 엄격하게 지키는 것은 매우 중요합니다.\n\n데이터 무결성(Data Integrity)이란?\n  데이터의 정확성, 유효성, 일관성을 유지하고 보증하는 것\n  데이터의 잘못된 입력, 수정, 삭제로부터 보호\n  입력한 데이터와 데이터베이스에 저장된 데이터 일치\n\n데이터 무결성의 종류\n\n유형            설명\n개체 무결성           기본키(PK)열은 고유 / NULL값을 가질 수 없음\n참조 무결성           외래키(FK)가 있는 테이블은 기본키와 관계 유지 / 참조하는 외래키가 존재하면 기본키 변경, 행 삭제 불가\n도메인 무결성       데이터 형태, 범위, 기본값, 유일성에 대한 제한 / 주어진 속성 값은 정의된 도메인에 속한 값\n비즈니스 무결성      사용자의 업무 특성과 규칙에 따른 제약 조건 / 제약 조건, DEFAULT, TRIGGER 등의 사용자 정의",
+      "visual_description": "데이터 무결성의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Integrity에는 entity, referential, domain, business rule이 있다. Foreign key가 가리키는 row의 변경·삭제 동작은 RESTRICT·CASCADE·SET NULL 등 constraint 설정에 따라 달라진다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "data_integrity",
+        "entity_integrity",
+        "referential_integrity",
+        "domain_integrity",
+        "business_rule"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p17_integrity",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "개체 무결성 / 참조 무결성 / 도메인 무결성 / 비즈니스 무결성",
+          "normalized_explanation": "Data integrity 유형이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "data_integrity",
+            "entity_integrity",
+            "referential_integrity",
+            "domain_integrity",
+            "business_rule"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "db_p17_fk",
+          "source_text": "FK가 PK를 참조하면 PK 변경·삭제 불가",
+          "issue_type": "overgeneralized",
+          "correction": "Referential action 설정에 따라 RESTRICT·CASCADE·SET NULL 등이 가능하다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "db_p18_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 18,
+      "topic": "제약 조건",
+      "concepts": [
+        "제약 조건"
+      ],
+      "raw_text": "RDBMS\n제약 조건\n\n\n\n제약 조건                 설명                   예시\nNOT NULL               필수 값 (NULL 금지)           학생 이름, 학번 등 필수 정보\nUNIQUE                 중복 금지                      학번, 이메일 등\nPRIMARY KEY              유일성과 NOT NULL을 동시에 보장       학번(PK), 주민번호 등\nFOREIGN KEY              다른 테이블의 값을 참조           학생.학과번호 → 학과.학과번호\nCHECK                 도메인 무결성 (값의 범위 등 제약)      나이 ≥ 0, 급여 ≤ 10억 등\nDEFAULT                값이 없을 경우 기본값 지정         가입일 → 오늘 날짜\n\n\n        정해진 규칙에 적합한 데이터만 입력 가능, 그 외에는 모두 거부하여 무결성 유지!",
+      "visual_description": "제약 조건의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, DEFAULT 같은 constraint는 허용 data와 relation을 제한한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "constraint",
+        "not_null",
+        "unique",
+        "primary_key",
+        "foreign_key",
+        "check",
+        "default"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p18_constraints",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "NOT NULL / UNIQUE / PRIMARY KEY / FOREIGN KEY / CHECK / DEFAULT",
+          "normalized_explanation": "Schema constraint의 역할이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "constraint",
+            "not_null",
+            "unique",
+            "primary_key",
+            "foreign_key",
+            "check",
+            "default"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p19_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 19,
+      "topic": "일관성과 이상 현상",
+      "concepts": [
+        "일관성과 이상 현상"
+      ],
+      "raw_text": "RDBMS\n데이터 정합성\n\n데이터 무결성과 함께 정합성 또한 중요합니다.\n\n\n데이터 정합성(Data Consistency)이란?\n  데이터들이 서로 일치하는 상태를 뜻함\n  데이터가 서로 모순없이 일치해야 함\n  중복데이터가 제거되지 않은 비정규형을 사용하여 이\n  상현상이 발생한다면 정합성이 깨지게 됨\n    ex) 사원정보 테이블의 사원번호를 1에서 -1로 변경하\n  였는데 부서정보 테이블의 사원번호가 변경되지 않았\n  을 경우, 데이터의 정합성이 깨짐\n\n                                   술을 마시고(음주여부:Y) 운전을 했지만(운전여부:Y) 음주운전을 하지 않았다(?).\n                                      (음주여부와 운전여부가 모두 Y이면 음주운전 여부도 Y가 되어야함 → No 정합성)그렇다면 우리가 맞이할 이상현상에는\n어떤 것이 있을까요?",
+      "visual_description": "일관성과 이상 현상의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "중복 data는 insertion·deletion·update anomaly와 inconsistency를 만들 수 있어 normalization이 필요하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "redundancy",
+        "consistency",
+        "anomaly",
+        "normalization"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p19_anomaly",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "중복 / 일관성 / 삽입 삭제 갱신 이상",
+          "normalized_explanation": "Redundancy가 anomaly를 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "redundancy",
+            "consistency",
+            "anomaly",
+            "normalization"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p20_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 20,
+      "topic": "삽입 이상",
+      "concepts": [
+        "삽입 이상"
+      ],
+      "raw_text": "RDBMS\n이상현상(1) : 삽입 이상",
+      "visual_description": "삽입 이상의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "삽입 이상은 한 사실을 추가하기 위해 아직 없는 다른 사실까지 억지로 입력해야 하거나 삽입이 불가능한 문제다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "insertion_anomaly",
+        "anomaly"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p20_insert",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "삽입 이상",
+          "normalized_explanation": "Insertion anomaly의 사례다.",
+          "source_status": "verified",
+          "term_ids": [
+            "insertion_anomaly",
+            "anomaly"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p21_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 21,
+      "topic": "삭제 이상",
+      "concepts": [
+        "삭제 이상"
+      ],
+      "raw_text": "RDBMS\n이상현상(2) : 삭제 이상",
+      "visual_description": "삭제 이상의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "삭제 이상은 한 row 삭제가 보존해야 할 다른 사실까지 함께 잃게 하는 문제다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "deletion_anomaly",
+        "anomaly"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p21_delete",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "삭제 이상",
+          "normalized_explanation": "Deletion anomaly의 사례다.",
+          "source_status": "verified",
+          "term_ids": [
+            "deletion_anomaly",
+            "anomaly"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p22_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 22,
+      "topic": "갱신 이상",
+      "concepts": [
+        "갱신 이상"
+      ],
+      "raw_text": "RDBMS\n이상현상(3) : 갱신 이상",
+      "visual_description": "갱신 이상의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "갱신 이상은 중복된 같은 사실을 일부 row에서만 수정해 값이 불일치하는 문제다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "update_anomaly",
+        "anomaly"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p22_update",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "갱신 이상",
+          "normalized_explanation": "Update anomaly의 사례다.",
+          "source_status": "verified",
+          "term_ids": [
+            "update_anomaly",
+            "anomaly"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p23_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 23,
+      "topic": "정규화",
+      "concepts": [
+        "정규화"
+      ],
+      "raw_text": "RDBMS\n정규화\n\n정규화(Normalization)란?\n중복데이터와 이상현상을 제거하기 위해 테이블(Relation)을 함수종속성 기반으로 분해하는 과정\n\n\n\n                           각 정규형에 맞춰주는 것을 정규화라고 합니다.\n                           보통 3단계까지의 정규화 과정만 진행됩니다.\n                           오늘은 이렇게만 알아봅시다!!",
+      "visual_description": "정규화의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Normalization은 functional dependency를 기준으로 table을 분해해 redundancy와 anomaly를 줄이는 설계 과정이며 실무에서는 주로 3NF 또는 BCNF까지 검토한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "normalization",
+        "functional_dependency",
+        "third_normal_form"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p23_normalize",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "함수 종속성에 맞추어 / 보통 3NF까지",
+          "normalized_explanation": "Normalization과 functional dependency다.",
+          "source_status": "verified",
+          "term_ids": [
+            "normalization",
+            "functional_dependency",
+            "third_normal_form"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p24_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 24,
+      "topic": "정규형 요약",
+      "concepts": [
+        "정규형 요약"
+      ],
+      "raw_text": "RDBMS\n정규화\n\n\n\n\n\n                    한 셀에는 하나의 값만!   기본키의 일부에만 종속된 속성을 제거     키가 아닌 속성에 종속된 속성을 제거\n\n\n\n\n\n                       모든 결정자가 후보키어야 한다! 하나의 키가 여러 독립적인 값을 가지면 분리  분해된 테이블을 조인할 때 의미가 유지되어야 함\n\n\n\n\n                                                                                                                         ????????????????",
+      "visual_description": "정규형 요약의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "1NF는 atomic value, 2NF는 partial dependency 제거, 3NF는 transitive dependency 제거, BCNF는 모든 determinant가 candidate key가 되도록 한다. 4NF와 5NF는 multivalued·join dependency를 다룬다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p25_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 25,
+      "topic": "1NF",
+      "concepts": [
+        "1NF"
+      ],
+      "raw_text": "RDBMS\n제1정규화",
+      "visual_description": "1NF의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "1NF는 한 cell에 반복 group이나 여러 값을 넣지 않고 domain의 atomic value 하나만 저장한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "first_normal_form",
+        "atomic_value"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p25_1nf",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "각 속성은 원자값",
+          "normalized_explanation": "1NF는 atomic value를 요구한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "first_normal_form",
+            "atomic_value"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p26_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 26,
+      "topic": "2NF 개념",
+      "concepts": [
+        "2NF 개념"
+      ],
+      "raw_text": "RDBMS\n제2정규화",
+      "visual_description": "2NF 개념의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "2NF는 1NF를 만족하고 non-prime attribute가 composite candidate key 전체에 fully functionally dependent해야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "second_normal_form",
+        "partial_dependency",
+        "candidate_key",
+        "functional_dependency"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p26_2nf",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "부분적 함수 종속 제거 / 후보키 전체에 완전 함수 종속",
+          "normalized_explanation": "2NF 조건이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "second_normal_form",
+            "partial_dependency",
+            "candidate_key",
+            "functional_dependency"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p27_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 27,
+      "topic": "2NF 예시",
+      "concepts": [
+        "2NF 예시"
+      ],
+      "raw_text": "RDBMS\n제2정규화\n\n\n\n\n\n                                                  교수는 학번에 의존하지 않는다\n                                                        학과(이때는 수업)은 학번에 의존하지 않는다",
+      "visual_description": "2NF 예시의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Composite key 일부에만 의존하는 attribute를 별도 table로 분리해 partial dependency를 제거한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p28_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 28,
+      "topic": "3NF 개념",
+      "concepts": [
+        "3NF 개념"
+      ],
+      "raw_text": "RDBMS\n제3정규화\n\n\n\n\n\n           이행적 함수 종속 제거: 키가 아닌 속성에 종속된 속성을 제거",
+      "visual_description": "3NF 개념의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "3NF는 2NF를 만족하며 non-key attribute가 다른 non-key attribute를 거쳐 key에 transitive하게 의존하지 않게 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "third_normal_form",
+        "transitive_dependency",
+        "functional_dependency"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p28_3nf",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "이행적 함수 종속 제거",
+          "normalized_explanation": "3NF 조건이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "third_normal_form",
+            "transitive_dependency",
+            "functional_dependency"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p29_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 29,
+      "topic": "3NF 예시",
+      "concepts": [
+        "3NF 예시"
+      ],
+      "raw_text": "RDBMS\n제3정규화\n\n\n교수가 결정되면, 학과는 결정된다!\n그러면 학과는 교수에게도 종속적이고 과목번호에도 종속적이니, 이를 이행적 함수 종속성이라 하는 것!\n그러면 또 테이블(릴레이션)을 분리하는 것이 좋겠다!",
+      "visual_description": "3NF 예시의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Professor가 department를 결정하는 예에서 professor와 department relation을 분리해 transitive dependency를 제거한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p30_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 30,
+      "topic": "BCNF·4NF·5NF",
+      "concepts": [
+        "BCNF·4NF·5NF"
+      ],
+      "raw_text": "RDBMS\n나머지 정규화 과정\n\n\n\n\n정규형             핵심 개념            문제 상황 예시         해결 방법\n\n                                학과이름 → 학과장, 교수이름 →                                                후보키가 아닌 결정자가 다른 속성 BCNF(Boyce-Codd Normal Form)    모든 결정자는 후보키여야 한다     연구실 → 후보키가 아닌 속성이                                                을 결정할 경우, 테이블을 분해                                결정자가 됨\n                                학생 → 전화번호학생 → 동아리                     다치 종속(Multivalued Dependency)                 다치 종속된 속성들을 분리하여 각 4NF(Fourth Normal Form)                    → 전화번호와 동아리가 서로 독립                     제거                              각의 테이블로 나눔                                적\n\n                                제품 → 부품, 공급업체, 지역 간의 관계를 완전하게 분해하고, 자연\n 5NF(Fifth Normal Form)        조인 종속(Join Dependency) 제거    3방 관계→ 일부 조인만으로는 전 조인으로 정확히 복원 가능한 구조\n                                체 관계 표현 불가        로 나눔",
+      "visual_description": "BCNF·4NF·5NF의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "BCNF는 모든 nontrivial functional dependency의 determinant가 superkey이도록 한다. 4NF는 independent multivalued dependency, 5NF는 join dependency를 다룬다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "bcnf",
+        "fourth_normal_form",
+        "fifth_normal_form",
+        "candidate_key"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p30_higher_nf",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "BCNF / 4NF / 5NF",
+          "normalized_explanation": "Higher normal form의 핵심 기준이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "bcnf",
+            "fourth_normal_form",
+            "fifth_normal_form",
+            "candidate_key"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p31_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 31,
+      "topic": "트랜잭션과 ACID",
+      "concepts": [
+        "트랜잭션과 ACID"
+      ],
+      "raw_text": "RDBMS\n트랜잭션\n\n트랜잭션(Transaction)이란?\n  여러 개의 SQL 명령어를 하나의 논리적인 작업 단위로 묶어\n  처리하는 기술\n  하나의 트랜잭션은 commit 되거나 Rollback됨\n    ex) 계좌 이체 시, ‘A 계좌에서 출금’과 ‘B 계좌로 입금'이 함께\n  실행되어야 하며, 하나라도 실패하면 전체가 취소돼야\n  → 트랜잭션으로 처리\n\n트랜잭션의 4가지 특성(ACID)\n\nA (Atomicity, 원자성)   전부 실행하거나, 전부 안 하거나 (All or Nothing)\n\nC (Consistency, 일관성) 무결성 제약조건을 항상 만족하는 상태 유지, 트랜잭션 이전과 이후, 데이터베이스의 상태는 이전과 유효\n\n I (Isolation, 고립성)   각 트랜잭션이 동시에 실행돼도 서로 간섭 없이 독립적으로 처리\n\nD (Duration, 지속성)   트랜잭션 완료 후, 결과는 영구 반영됨 (전원 꺼져도 보존)",
+      "visual_description": "트랜잭션과 ACID의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Transaction은 하나의 logical work unit이다. ACID는 Atomicity, Consistency, Isolation, Durability이며 Durability는 commit된 결과가 failure 뒤에도 보존됨을 뜻한다. 실제 isolation 수준과 동시성 trade-off는 DB 설정에 따라 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "transaction",
+        "acid",
+        "atomicity",
+        "consistency",
+        "isolation",
+        "durability"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p31_acid",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Atomicity / Consistency / Isolation / Durability",
+          "normalized_explanation": "Transaction의 ACID property다.",
+          "source_status": "verified",
+          "term_ids": [
+            "transaction",
+            "acid",
+            "atomicity",
+            "consistency",
+            "isolation",
+            "durability"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "db_p31_duration",
+          "source_text": "D (Duration)",
+          "issue_type": "incorrect",
+          "correction": "ACID의 D는 Durability다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "db_p32_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 32,
+      "topic": "SQL",
+      "concepts": [
+        "SQL"
+      ],
+      "raw_text": "SQL",
+      "visual_description": "SQL 페이지이다.",
+      "content": "SQL 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p33_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 33,
+      "topic": "SQL 정의",
+      "concepts": [
+        "SQL 정의"
+      ],
+      "raw_text": "SQL\nSQL이란?\n\n\n                               SQL → Structured Query Language\n\n                                   DBMS에 데이터를 구축, 관리, 활용하기 위해서 사용\n                            되는 언어\n                                            즉, SQL은 데이터베이스용 프로그래밍 언어\n                                     SQL은 구조화된 쿼리 언어이며, 데이터베이스에 쿼\n                            리를 보내 원하는 데이터를 가져오거나 삽입할 수 있음\n                                 비절차적, 선언적\n\n                             잠깐, 쿼리는 뭐지?\n                            쿼리 = 질의문\n                            검색 시, 기존에 존재하는 데이터를 검색어를 바탕으로\n                            필터링\n                            쿼리는 저장되어 있는 데이터를 필터하기 위한 질의문",
+      "visual_description": "SQL 정의의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "SQL은 relational database의 schema와 data를 선언적으로 정의·조회·변경하는 언어다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "sql",
+        "database"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p33_sql",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "데이터베이스에 질의하기 위한 언어 / 비절차적 언어",
+          "normalized_explanation": "SQL은 declarative relational language다.",
+          "source_status": "verified",
+          "term_ids": [
+            "sql",
+            "database"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p34_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 34,
+      "topic": "SQL 표준과 구현",
+      "concepts": [
+        "SQL 표준과 구현"
+      ],
+      "raw_text": "SQL\nSQL이란?",
+      "visual_description": "SQL 표준과 구현의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "ANSI/ISO SQL standard가 있지만 product별 dialect와 supported syntax가 다를 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p35_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 35,
+      "topic": "SQL 명령어 종류",
+      "concepts": [
+        "SQL 명령어 종류"
+      ],
+      "raw_text": "SQL\nSQL 명령어 종류\n                                                      Data Control Language\n                                  → 데이터 제어어\n\nData Definition Language\n→ 데이터 정의어\n\n\n\n\n\n                                                                              Transaction Control Language\n                                             → 트랜잭션 제어어\n                                   Data Manipulation Language\n                      → 데이터 조작어",
+      "visual_description": "SQL 명령어 종류의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "SQL은 DDL, DML, DCL, TCL로 구분하며 SELECT는 DML에 포함되거나 교육상 DQL로 별도 분류하기도 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "sql",
+        "ddl",
+        "dml",
+        "dcl",
+        "tcl",
+        "dql"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p35_types",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "DDL / DML / DCL / TCL",
+          "normalized_explanation": "SQL command category다.",
+          "source_status": "verified",
+          "term_ids": [
+            "sql",
+            "ddl",
+            "dml",
+            "dcl",
+            "tcl",
+            "dql"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p36_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 36,
+      "topic": "DDL CREATE",
+      "concepts": [
+        "DDL CREATE"
+      ],
+      "raw_text": "SQL\nDDL: 데이터베이스 구조(스키마)를 정의/변경하는 명령어\n\n#1. create: table 생성",
+      "visual_description": "DDL CREATE의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "CREATE TABLE은 column type, default, primary·foreign key와 constraint를 포함해 schema를 정의한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ddl",
+        "create",
+        "table",
+        "primary_key",
+        "foreign_key",
+        "check",
+        "default"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p36_create",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "CREATE TABLE / PRIMARY KEY / FOREIGN KEY / CHECK / DEFAULT",
+          "normalized_explanation": "DDL로 schema와 constraint를 정의한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ddl",
+            "create",
+            "table",
+            "primary_key",
+            "foreign_key",
+            "check",
+            "default"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p37_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 37,
+      "topic": "DDL 변경·삭제",
+      "concepts": [
+        "DDL 변경·삭제"
+      ],
+      "raw_text": "SQL\nDDL: 데이터베이스 구조(스키마)를 정의/변경하는 명령어\n#2. alter(구조 변경), drop(삭제), truncate(내용만 삭제)\n\nALTER statement: TABLE 구조를 바꿈\n\n\n\n\nDESCRIBE statement: TABLE 의 정보를 보여줌(alias로 DESC 사용가능)\n\n\nTRUNCATE statement: TABLE 구조의 모든 row를 삭제. table자체는 삭제 하지 않음\n\n\nDROP statement: TABLE 자체를 삭제(IF EXIST 는 옵션)",
+      "visual_description": "DDL 변경·삭제의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "ALTER는 table structure를 변경하고 TRUNCATE는 row를 제거하되 table structure는 남기며 DROP은 object 자체를 제거한다. DESCRIBE와 일부 ALTER·LIMIT syntax는 DBMS dialect에 따라 다르다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "ddl",
+        "alter",
+        "truncate",
+        "drop"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p37_ddl",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "ALTER / DESCRIBE / TRUNCATE / DROP",
+          "normalized_explanation": "DDL 계열 operation을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "ddl",
+            "alter",
+            "truncate",
+            "drop"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "db_p37_dialect",
+          "source_text": "DESCRIBE / ALTER syntax",
+          "issue_type": "ambiguous",
+          "correction": "DESCRIBE와 일부 syntax는 DBMS dialect-specific임을 명시한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "db_p38_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 38,
+      "topic": "DML INSERT",
+      "concepts": [
+        "DML INSERT"
+      ],
+      "raw_text": "SQL\nDML: 데이터 조작어\n#1. INSERT\n\n\n\n\n\n                                                                       INTO 부분에서 일부 컬럼 생략 시 default 값이\n                                             있으면 default, 없으면 null\n\n\n                                                                       INTO 부분에서 모든 컬럼을 생략하면 table에서\n                                             정의된 순서대로 빠짐없이 명시하기\n\n\n\n                                             한 번에 여러 값도 넣을 수 있다!",
+      "visual_description": "DML INSERT의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "INSERT는 지정한 column에 한 개 또는 여러 row를 추가한다. Column을 생략하면 default 또는 null 가능 여부와 table definition을 따라야 한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dml",
+        "insert",
+        "default"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p38_insert",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "INSERT INTO / VALUES",
+          "normalized_explanation": "Row insertion과 column mapping이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dml",
+            "insert",
+            "default"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p39_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 39,
+      "topic": "DML DELETE·UPDATE",
+      "concepts": [
+        "DML DELETE·UPDATE"
+      ],
+      "raw_text": "SQL\nDML: 데이터 조작어\n#2. DELETE, UPDATE",
+      "visual_description": "DML DELETE·UPDATE의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "DELETE는 조건에 맞는 row를 제거하고 UPDATE는 SET으로 값을 변경한다. WHERE를 빠뜨리면 전체 row에 영향을 줄 수 있어 주의한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "dml",
+        "delete",
+        "update",
+        "where"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p39_modify",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "DELETE FROM ... WHERE / UPDATE ... SET ... WHERE",
+          "normalized_explanation": "WHERE 없는 DML의 범위 위험을 설명한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dml",
+            "delete",
+            "update",
+            "where"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p40_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 40,
+      "topic": "DQL SELECT",
+      "concepts": [
+        "DQL SELECT"
+      ],
+      "raw_text": "SQL\nDQL: 데이터 조회\n#1. SELECT\n\n\n\n\n\n                                SELECT문은 DML에 포함되는 명령어이지만,\n                        워낙 중요하기 때문에 학술적으로는 따로 떼서\n                               DQL(Data Query Language)로 칭하기도 합니다.\n\n                        데이터를 조회하는데 필수적인 구문이고, 가장 많이 쓰이는 쿼리\n\n                            SELECT의 결과도 Table(Derived Table) 이라는 개념을 잡으면\n                        복잡한 쿼리를 작성하는 방법들(sub-query, common table expression[cte])\n                        을 쉽게 받아들일 수 있습니다!",
+      "visual_description": "DQL SELECT의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "SELECT는 data를 조회하며 result도 derived table로 취급할 수 있어 subquery와 CTE로 복잡한 query를 구성한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "select",
+        "dql",
+        "subquery",
+        "cte"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p40_select",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "SELECT / DQL / Derived Table / sub-query / CTE",
+          "normalized_explanation": "Query result와 nested query를 설명한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "select",
+            "dql",
+            "subquery",
+            "cte"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p41_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 41,
+      "topic": "SELECT 기본",
+      "concepts": [
+        "SELECT 기본"
+      ],
+      "raw_text": "SQL\nDQL: 데이터 조회\n#1. SELECT: 기초적인 임플란트 1\n\n                                                                   student 테이블의 모든 열과 모든 행을 조회!\n\n                                                                   student 테이블의 이름과 나이만 조회\n\n\n                                    나이가 21세 이상인 학생만 조회\n\n\n\n                                                                                구문        설명\n                                    나이 순으로 내림차순 정렬\n                                                                                                                            SELECT      조회할 컬럼 지정\n\n                                                                                          조회 대상 테이블 지                                                                                                           FROM                                                                                          정\n                                                                  별칭(alias) 사용\n                                                                                                           WHERE      조건 지정 (필터링)\n\n                                                                                                                ORDER BY     정렬\n\n                                    상위 일부만 조회                   LIMIT       개수 제한\n\n                                                                                                                          AS         컬럼 이름 별칭 지정\n\n          실제 실행 순서: FROM(테이블 가져오기) ➡ WHERE(거르기) ➡ GROUP BY(뭉치기) ➡ HAVING(뭉친거 거르기) ➡ SELECT(출력할거 고르기) ➡ ORDER BY(줄세우기)",
+      "visual_description": "SELECT 기본의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "SELECT·FROM·WHERE·GROUP BY·HAVING·ORDER BY는 작성 순서와 logical processing order가 다르다. FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY 순으로 이해하면 alias와 aggregation을 해석하기 쉽다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "select",
+        "where",
+        "group_by",
+        "having",
+        "order_by"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p41_order",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY",
+          "normalized_explanation": "SELECT logical processing order다.",
+          "source_status": "verified",
+          "term_ids": [
+            "select",
+            "where",
+            "group_by",
+            "having",
+            "order_by"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p42_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 42,
+      "topic": "집계·서브쿼리·CASE",
+      "concepts": [
+        "집계·서브쿼리·CASE"
+      ],
+      "raw_text": "SQL\nDQL: 데이터 조회\n#1. SELECT: 기초적인 임플란트 2\n\n                                 학생 수가 3명 이상인 전공의 학생 수와 평균 나\n                                 이 집계\n\n\n\n                                 서브쿼리 만들기\n                                 전체 학생 평균보다 나이가 많은 학생들만 조회\n\n\n\n\n\n                                                CASE WHEN 조건 분기",
+      "visual_description": "집계·서브쿼리·CASE의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "GROUP BY는 group을 만들고 HAVING은 aggregate 후 group을 거른다. Subquery는 query 안의 query이고 CASE WHEN은 조건별 값을 만든다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "group_by",
+        "having",
+        "subquery",
+        "case_when"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p42_advanced",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "GROUP BY / HAVING / subquery / CASE WHEN",
+          "normalized_explanation": "Aggregation과 conditional query다.",
+          "source_status": "verified",
+          "term_ids": [
+            "group_by",
+            "having",
+            "subquery",
+            "case_when"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p43_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 43,
+      "topic": "JOIN과 UNION",
+      "concepts": [
+        "JOIN과 UNION"
+      ],
+      "raw_text": "SQL\nDQL: 데이터 조회\n#2. JOIN/UNION 테이블 합치기",
+      "visual_description": "JOIN과 UNION의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "JOIN은 관련 column을 기준으로 table을 가로로 결합하고 UNION은 compatible한 query result를 세로로 합친다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p44_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 44,
+      "topic": "JOIN 종류",
+      "concepts": [
+        "JOIN 종류"
+      ],
+      "raw_text": "SQL\nDQL: 데이터 조회",
+      "visual_description": "JOIN 종류의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "INNER JOIN은 matching row, LEFT·RIGHT OUTER JOIN은 한쪽의 unmatched row까지 보존하고 CROSS JOIN은 Cartesian product를 만든다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "join",
+        "cross_join",
+        "inner_join",
+        "outer_join"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p44_join",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "CROSS JOIN / INNER JOIN / RIGHT JOIN / LEFT JOIN",
+          "normalized_explanation": "Join type별 matching과 preservation이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "join",
+            "cross_join",
+            "inner_join",
+            "outer_join"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p45_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 45,
+      "topic": "UNION과 UNION ALL",
+      "concepts": [
+        "UNION과 UNION ALL"
+      ],
+      "raw_text": "SQL\nDQL: 데이터 조회",
+      "visual_description": "UNION과 UNION ALL의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "UNION은 compatible column의 result를 합치며 duplicate를 제거하고 UNION ALL은 duplicate를 유지한다. FULL OUTER JOIN을 지원하지 않는 dialect에서는 LEFT·RIGHT 결과를 조합할 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "union",
+        "union_all",
+        "outer_join"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p45_union",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "UNION / UNION ALL",
+          "normalized_explanation": "Set combination에서 duplicate 처리 차이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "union",
+            "union_all",
+            "outer_join"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p46_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 46,
+      "topic": "OLTP와 OLAP",
+      "concepts": [
+        "OLTP와 OLAP"
+      ],
+      "raw_text": "OLTP vs OLAP",
+      "visual_description": "OLTP와 OLAP 페이지이다.",
+      "content": "OLTP와 OLAP 섹션의 구분 페이지이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p47_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 47,
+      "topic": "운영과 분석 분리",
+      "concepts": [
+        "운영과 분석 분리"
+      ],
+      "raw_text": "OLTP vs OLAP\nOLTP vs OLAP\n\n\n데이터를 다루는 작업에는 근본적으로 다른 두 가지 성격이 존재!\n→ 서비스 운영과 데이터 분석 및 인사이트 도출\n\n서비스 운영 작업은 수강신청을 하거나 결제를 하는 것처럼\n아주 찰나의 순간에 데이터를 정확하게 기록해야 합니다.\n즉, 속도가 생명입니다.\n\n데이터 분석 작업은 수백만 건의 데이터를 한번에 읽어서\n계산해야 합니다.\n\n대용량 분석(Read)이 실시간 운영(Write) 자원과 충돌하\n여 발생하는 서비스 장애를 막기 위해 두 시스템을 물리\n적으로 분리할 필요가 있음!",
+      "visual_description": "운영과 분석 분리의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "운영 transaction과 대규모 분석 query를 분리하면 짧은 read·write와 긴 aggregation이 resource를 두고 충돌하는 것을 줄일 수 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "oltp",
+        "olap"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p47_split",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Operation과 Analysis를 분리 / 읽기 쓰기 충돌",
+          "normalized_explanation": "OLTP와 OLAP workload를 분리하는 이유다.",
+          "source_status": "verified",
+          "term_ids": [
+            "oltp",
+            "olap"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p48_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 48,
+      "topic": "OLTP",
+      "concepts": [
+        "OLTP"
+      ],
+      "raw_text": "OLTP vs OLAP\nOLTP (Online Transaction Processing)\nOLTP는 실시간으로 대량의 트랜잭션 작업을 처리해,\n일상적인 비즈니스 운영에 필요한 데이터의 일관성과 신뢰성을 보장함!\n\n\n  시스템이 사용자 요청에 즉각 반응하는 처리를 뜻하기도 함\n  무수히 많이 발생되는 각각의 작업 요청을 오류없이 처리 → 그 결과\n  값을 실시간으로 확인시켜줘야 하는 특징이 있음\n\n\nKey Features\n   ACID 준수: 트랜잭션의 All or Nothing 보장\n  정규화: 데이터 중복 제거, 정합성 높이기 위해 테이블 쪼갬\n   Row-oriented: 빠른 생성과 수정에 최적화된 저장 구조\nex) 은행의 입출금 및 조회, 증권 거래, 회원정보 관리, 쇼핑몰 주문 및\n발송 관리, 게시판 기능 등\n\n\n                                                         OLTP는 수많은 요청이 실시간으로 들어올 때 처리가 용이하다.",
+      "visual_description": "OLTP의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "OLTP는 많은 짧은 transaction을 실시간 처리하며 ACID, normalized schema, row-oriented access가 일반적이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "oltp",
+        "transaction",
+        "acid",
+        "normalization",
+        "row_store"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p48_oltp",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "실시간 트랜잭션 / ACID / 정규화 / Row-oriented",
+          "normalized_explanation": "OLTP workload 특성이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "oltp",
+            "transaction",
+            "acid",
+            "normalization",
+            "row_store"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p49_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 49,
+      "topic": "OLAP",
+      "concepts": [
+        "OLAP"
+      ],
+      "raw_text": "OLTP vs OLAP\nOLAP (Online Analytical Processing)\nOLAP는 복잡한 쿼리와 데이터 분석을 위해 설계되었으며,\n기업이 다차원 분석을 통해 방대한 데이터셋에서 인사이트를 도출하는데 주로 사용됨!\n\nOLAP이 필요한 이유\n   1. 기존 OLTP DB의 정규화(3NF)된 구조는 복잡한 JOIN 연산 유발\n  → 자원 과다 소모\n  2. OLTP는 Write 최적화 → 인덱스* 적음\n  3. but, 분석은 Read 최적화 → 인덱스 많음\n  4. OLTP에서 무거운 분석 쿼리 수행 시, 트랜잭션 Lock 발생 → 서비\n  스 속도 저하 및 분석 속도 저하\n\nKey Features\n  기존 OLTP 성능에 영향 없이 독립적 수행\n  다차원 분석 및 복잡한 모델링 고속 처리\nex) 1년간 주요 인기 상품 트렌드, 한달 간의 항목별 수입 및 지출 분석\n\n                                                          *인덱스는 책의 목차/색인과 같은 개념",
+      "visual_description": "OLAP의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "OLAP는 history data에 대한 complex aggregation과 multidimensional analysis를 위해 read-heavy workload와 분석 구조를 최적화한다. Index 수 같은 특성은 system 설계에 따라 달라진다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "olap"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p49_olap",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "복잡한 분석 쿼리 / 다차원 분석 / 읽기 최적화",
+          "normalized_explanation": "OLAP workload 특성이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "olap"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "db_p49_index",
+          "source_text": "OLTP index 적음 / OLAP index 많음",
+          "issue_type": "overgeneralized",
+          "correction": "Index strategy는 workload와 engine 설계에 따라 달라진다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "db_p50_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 50,
+      "topic": "Beyond RDBMS",
+      "concepts": [
+        "Beyond RDBMS"
+      ],
+      "raw_text": "Beyond RDBMS",
+      "visual_description": "Beyond RDBMS 페이지이다.",
+      "content": "RDBMS 너머의 database를 다루는 섹션이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p51_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 51,
+      "topic": "RDBMS의 한계",
+      "concepts": [
+        "RDBMS의 한계"
+      ],
+      "raw_text": "Beyond RDBMS\nRDBMS의 한계\n\n\nRDBMS의 한계점\n   1. Scale-Out의 어려움\n  2. 복잡한 스키마 변경\n  3. 대량 데이터 처리의 비효율성\n  4. 비정형 데이터 처리의 한계\n\n\n\nExample\nCase 1) 인스타그램 피드, 로그 파일, 게임 아이템은 고정된 엑셀\n표(Schema)에 담기 너무 복잡하거나 자주 변함\nCase 2) 초당 수십만 건의 ‘좋아요' 트래픽을 RDBMS가 혼자 받아\n내기엔 너무 느림(디스크 I/O의 한계)",
+      "visual_description": "RDBMS의 한계의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "RDBMS는 rigid schema change, horizontal scaling, massive semi/unstructured data에서 trade-off가 있어 workload에 따라 다른 model을 검토한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "rdbms",
+        "scale_out",
+        "schema",
+        "nosql"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p51_limits",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Scale-out / Schema 변경 / 대용량 / 비정형",
+          "normalized_explanation": "RDBMS trade-off와 alternative 검토 조건이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "rdbms",
+            "scale_out",
+            "schema",
+            "nosql"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p52_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 52,
+      "topic": "NoSQL의 특징",
+      "concepts": [
+        "NoSQL의 특징"
+      ],
+      "raw_text": "Beyond RDBMS\nNoSQL (Not Only SQL)\n\n\n\nNoSQL이란?\nNoSQL은 RDBMS와 달리,\n테이블 기반이 아닌 다양한 데이터 모델을 지원하는 DB\n스키마 고정 X → 대규모 데이터와 비정형 데이터 처리에 적합\n\nNoSQL의 장점\n  스키마가 없어 유연한 데이터 구조를 가짐\n  따라서, 언제든 데이터 조정 및 새로운 필드 추가 가능\n  성능 향상을 위해 Scale-up, Scale-out 모두 가능",
+      "visual_description": "NoSQL의 특징의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "NoSQL은 schema-flexible model과 distributed scale-out을 지원할 수 있지만 schema validation이 사라지는 것이 아니며 application 또는 DB 기능으로 constraint를 관리한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "nosql",
+        "flexible_schema",
+        "scale_out"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p52_nosql",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "유연한 스키마 / Scale-out",
+          "normalized_explanation": "NoSQL의 schema와 scale 특성이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "nosql",
+            "flexible_schema",
+            "scale_out"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "db_p52_schema",
+          "source_text": "NoSQL은 schema 없음",
+          "issue_type": "overgeneralized",
+          "correction": "Schema-flexible이며 validation이 존재할 수 있다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
+    },
+    {
+      "chunk_id": "db_p53_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 53,
+      "topic": "Document·Key-Value",
+      "concepts": [
+        "Document·Key-Value"
+      ],
+      "raw_text": "Beyond RDBMS\nNoSQL DB\n\nDocument Store                      Key-Value Store\n\n\n\n\n\n  계층적 트리 데이터 방식으로 저장 (XML, JSON)       key를 통해 value에 접근 하는 가장 기본 구조\n  스키마 사전 별도 정의 X                                       List, Set 등 모든 데이터 타입 저장 가능\n   Document 그 자체가 스키마             테이블 간 JOIN 고려 안하므로, RDB와 같이 외부\n  여러 서버 분산 저장 가능 → 장애 대응 유리       키나 컬럼별 제약조건이 필요하지 않음\n    ex) MongoDB, CouchDB, Couchbase                ex) Redis, AWS DynamoDB",
+      "visual_description": "Document·Key-Value의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Document store는 JSON-like document, key-value store는 key로 value를 직접 조회하는 model이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "document_store",
+        "key_value_store",
+        "nosql"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p53_models1",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Document Store / Key-Value Store",
+          "normalized_explanation": "NoSQL data model을 구분한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "document_store",
+            "key_value_store",
+            "nosql"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p54_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 54,
+      "topic": "Wide-column·Graph",
+      "concepts": [
+        "Wide-column·Graph"
+      ],
+      "raw_text": "Beyond RDBMS\nNoSQL DB\n\nWide-Column Store (Column Family)    Graph Store\n\n\n\n\n\n  대용량 데이터, 읽기와 쓰기 용이, 고가용성       노드는 key-value 값을 가지고 있음\n   Column과 Row를 사용해 스키마 정의         노드는 하나 이상의 레이블 구성 가능\n  여러 개의 Column 묶음의 형태               레이블: 노드를 세트로 그룹화할 수 있는 요소\n  스키마 X → 원하는 시점에 Column 추가 가능      노드 그룹화 → 쿼리 쉽게 작성, 효율적 실행\n    ex) Cassandra, Google BigTable                     ex) Neo4j, Titan",
+      "visual_description": "Wide-column·Graph의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Wide-column store는 row key와 column family 기반의 sparse distributed data에, graph database는 node·edge relation traversal에 적합하다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "wide_column_store",
+        "graph_database",
+        "nosql"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p54_models2",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Wide-column Store / Graph DB",
+          "normalized_explanation": "NoSQL model별 query strength다.",
+          "source_status": "verified",
+          "term_ids": [
+            "wide_column_store",
+            "graph_database",
+            "nosql"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p55_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 55,
+      "topic": "Vector 검색",
+      "concepts": [
+        "Vector 검색"
+      ],
+      "raw_text": "Beyond RDBMS\nVector DB\n\nRDB와 NoSQL은 정형, 반정형 데이터를 처리하는데 강점을 가짐.. 하지만 비정형 데이터는?\n\n\n\nVector DB는 비정형 데이터, 특히 고차원 벡터 데이\n터 처리에 최적화된 DB\n\n주로 유사도 검색을 위해 설계되었고, 임베딩된 벡터 데이터\n를 효율적으로 저장하고 빠르게 검색할 수 있는 기능\n→ 자연어 처리(NLP), 이미지 검색과 같은 복잡한 검색 작업\n에 유리\n\nex) Elastic Search, ChromaDB, FAISS, Milvus, Pinecone",
+      "visual_description": "Vector 검색의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Vector search는 embedding의 distance 또는 similarity로 가까운 item을 찾는다. Milvus·Pinecone 등은 vector DB/service이고 FAISS는 similarity search library/index이며 Elasticsearch는 vector 기능을 포함한 search engine이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "vector_database",
+        "embedding",
+        "similarity_search"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p55_vector",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "Embedding / Vector DB / 유사도",
+          "normalized_explanation": "Vector similarity search와 tool category를 설명한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "vector_database",
+            "embedding",
+            "similarity_search"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "db_p55_faiss",
+          "source_text": "FAISS를 Vector DB 예시에 포함",
+          "issue_type": "ambiguous",
+          "correction": "FAISS는 similarity search library/index로 구분한다.",
+          "evaluation_policy": "warn"
+        }
+      ]
+    },
+    {
+      "chunk_id": "db_p56_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 56,
+      "topic": "DB 선택",
+      "concepts": [
+        "DB 선택"
+      ],
+      "raw_text": "Beyond RDBMS\n어떤 DB를 사용해야 할까요?\n\n                       최근에는 DB의 기능적 구분이 점차 모호화 되는 추세..\n\n                    해결하려는 문제와 데이터 성격에 부합한 최적의 도구를 찾\n                       아내는게 중요하다고 생각합니다!\n\n                       선택한 DB가 분석의 속도를, 파이프라인의 안정성을, 모델\n                    의 성능을 결정짓기에, 적재적소에 DB를 잘 활용해보도록 합\n                              시다!",
+      "visual_description": "DB 선택의 table·query·비교 구조를 예시와 도식으로 제시한다.",
+      "content": "Database는 relational constraint, transaction, query pattern, scale, data shape와 operation requirement를 기준으로 선택하며 한 product가 모든 problem에 최적인 것은 아니다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "database",
+        "rdbms",
+        "nosql",
+        "oltp",
+        "olap"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "db_p56_selection",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "문제에 맞는 DB 선택",
+          "normalized_explanation": "Data shape·transaction·query·scale에 맞춰 DB를 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "database",
+            "rdbms",
+            "nosql",
+            "oltp",
+            "olap"
+          ]
+        }
+      ],
+      "source_issues": []
+    },
+    {
+      "chunk_id": "db_p57_01",
+      "lecture_id": "db",
+      "lecture_name": "Database",
+      "page": 57,
+      "topic": "강의 마무리",
+      "concepts": [
+        "강의 마무리"
+      ],
+      "raw_text": "감사합니다!",
+      "visual_description": "강의 마무리 페이지이다.",
+      "content": "DB 강의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
+    }
+  ]
+}

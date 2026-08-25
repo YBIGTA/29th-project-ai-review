@@ -1,7 +1,562 @@
 {
+  "schema_version": "2.1.0",
   "lecture_id": "eda_fe",
   "lecture_name": "EDA / FE",
   "source_file": "EDA&FE.pdf",
+  "terminology": [
+    {
+      "term_id": "eda",
+      "canonical_ko": "탐색적 데이터 분석",
+      "canonical_en": "exploratory data analysis",
+      "abbreviations": [
+        "EDA"
+      ],
+      "accepted_aliases": [
+        "탐색적 분석"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "preprocessing",
+      "canonical_ko": "데이터 전처리",
+      "canonical_en": "data preprocessing",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "전처리"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "feature_engineering",
+      "canonical_ko": "특성공학",
+      "canonical_en": "feature engineering",
+      "abbreviations": [
+        "FE"
+      ],
+      "accepted_aliases": [
+        "피처 엔지니어링"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "data_type",
+      "canonical_ko": "데이터 타입",
+      "canonical_en": "data type",
+      "abbreviations": [
+        "dtype"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "label_encoding",
+      "canonical_ko": "라벨 인코딩",
+      "canonical_en": "label encoding",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "순서형 인코딩",
+        "ordinal encoding"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "one_hot_encoding",
+      "canonical_ko": "원핫 인코딩",
+      "canonical_en": "one-hot encoding",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "one hot encoding"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dummy_encoding",
+      "canonical_ko": "더미 인코딩",
+      "canonical_en": "dummy encoding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "missing_value",
+      "canonical_ko": "결측치",
+      "canonical_en": "missing value",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "NA",
+        "NaN",
+        "null"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "imputation",
+      "canonical_ko": "결측치 대체",
+      "canonical_en": "imputation",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "대체"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "outlier",
+      "canonical_ko": "이상치",
+      "canonical_en": "outlier",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "이상값"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "standard_deviation_rule",
+      "canonical_ko": "3시그마 규칙",
+      "canonical_en": "three-sigma rule",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "3 sigma rule"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "iqr",
+      "canonical_ko": "사분위 범위",
+      "canonical_en": "interquartile range",
+      "abbreviations": [
+        "IQR"
+      ],
+      "accepted_aliases": [],
+      "symbols": [
+        "Q3-Q1"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "class_imbalance",
+      "canonical_ko": "클래스 불균형",
+      "canonical_en": "class imbalance",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "불균형 데이터"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "accuracy",
+      "canonical_ko": "정확도",
+      "canonical_en": "accuracy",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "precision",
+      "canonical_ko": "정밀도",
+      "canonical_en": "precision",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "recall",
+      "canonical_ko": "재현율",
+      "canonical_en": "recall",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "sensitivity"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "f1",
+      "canonical_ko": "F1 점수",
+      "canonical_en": "F1-score",
+      "abbreviations": [
+        "F1"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pr_auc",
+      "canonical_ko": "PR AUC",
+      "canonical_en": "precision-recall area under curve",
+      "abbreviations": [
+        "PR-AUC"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "undersampling",
+      "canonical_ko": "언더샘플링",
+      "canonical_en": "undersampling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "under sampling"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "oversampling",
+      "canonical_ko": "오버샘플링",
+      "canonical_en": "oversampling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "over sampling"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "smote",
+      "canonical_ko": "SMOTE",
+      "canonical_en": "synthetic minority over-sampling technique",
+      "abbreviations": [
+        "SMOTE"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "focal_loss",
+      "canonical_ko": "포컬 로스",
+      "canonical_en": "focal loss",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "multicollinearity",
+      "canonical_ko": "다중공선성",
+      "canonical_en": "multicollinearity",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vif",
+      "canonical_ko": "분산팽창계수",
+      "canonical_en": "variance inflation factor",
+      "abbreviations": [
+        "VIF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [
+        "1/(1-R²)"
+      ],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "scaling",
+      "canonical_ko": "스케일링",
+      "canonical_en": "feature scaling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "정규화",
+        "표준화"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "standard_scaler",
+      "canonical_ko": "표준 스케일링",
+      "canonical_en": "standard scaling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "Z-score normalization",
+        "standardization"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "minmax_scaler",
+      "canonical_ko": "최소-최대 스케일링",
+      "canonical_en": "min-max scaling",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "normalization"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "robust_scaler",
+      "canonical_ko": "로버스트 스케일링",
+      "canonical_en": "robust scaling",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "merge",
+      "canonical_ko": "데이터 병합",
+      "canonical_en": "merge",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "join",
+        "pd.merge"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "groupby",
+      "canonical_ko": "그룹화",
+      "canonical_en": "group by",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "groupby",
+        "pd.groupby"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "feature_selection",
+      "canonical_ko": "특성 선택",
+      "canonical_en": "feature selection",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "feature_extraction",
+      "canonical_ko": "특성 추출",
+      "canonical_en": "feature extraction",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "dimensionality_reduction",
+      "canonical_ko": "차원 축소",
+      "canonical_en": "dimensionality reduction",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "curse_dimensionality",
+      "canonical_ko": "차원의 저주",
+      "canonical_en": "curse of dimensionality",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "filter_method",
+      "canonical_ko": "필터 방식",
+      "canonical_en": "filter method",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "wrapper_method",
+      "canonical_ko": "래퍼 방식",
+      "canonical_en": "wrapper method",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "rfe",
+      "canonical_ko": "재귀적 특성 제거",
+      "canonical_en": "recursive feature elimination",
+      "abbreviations": [
+        "RFE"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "embedded_method",
+      "canonical_ko": "임베디드 방식",
+      "canonical_en": "embedded method",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "lasso",
+      "canonical_ko": "라쏘",
+      "canonical_en": "Lasso",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "L1 regularization"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "derived_feature",
+      "canonical_ko": "파생변수",
+      "canonical_en": "derived feature",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "파생 특성"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "lag",
+      "canonical_ko": "지연 변수",
+      "canonical_en": "lag feature",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "lag"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "moving_average",
+      "canonical_ko": "이동평균",
+      "canonical_en": "moving average",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "rolling mean"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "data_leakage",
+      "canonical_ko": "데이터 누수",
+      "canonical_en": "data leakage",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "누수",
+        "leakage"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "target_encoding",
+      "canonical_ko": "타깃 인코딩",
+      "canonical_en": "target encoding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "train_test_contamination",
+      "canonical_ko": "훈련-테스트 오염",
+      "canonical_en": "train-test contamination",
+      "abbreviations": [],
+      "accepted_aliases": [
+        "train test contamination"
+      ],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "pca",
+      "canonical_ko": "주성분분석",
+      "canonical_en": "principal component analysis",
+      "abbreviations": [
+        "PCA"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "lda",
+      "canonical_ko": "선형판별분석",
+      "canonical_en": "linear discriminant analysis",
+      "abbreviations": [
+        "LDA"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tokenization",
+      "canonical_ko": "토큰화",
+      "canonical_en": "tokenization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "vectorization",
+      "canonical_ko": "벡터화",
+      "canonical_en": "vectorization",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "tfidf",
+      "canonical_ko": "TF-IDF",
+      "canonical_en": "term frequency-inverse document frequency",
+      "abbreviations": [
+        "TF-IDF"
+      ],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "embedding",
+      "canonical_ko": "임베딩",
+      "canonical_en": "embedding",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    },
+    {
+      "term_id": "augmentation",
+      "canonical_ko": "데이터 증강",
+      "canonical_en": "data augmentation",
+      "abbreviations": [],
+      "accepted_aliases": [],
+      "symbols": [],
+      "not_equivalent_to": []
+    }
+  ],
   "chunks": [
     {
       "chunk_id": "eda_fe_p1_01",
@@ -16,7 +571,11 @@
       ],
       "raw_text": "2026 Summer YBIGTA\n\n\nEDA & FE\n\n\n\n\n\n                               28기 양진완",
       "visual_description": "2026 Summer YBIGTA EDA & FE 표지이며 발표자는 28기 양진완이다.",
-      "content": "EDA, 데이터 전처리, 특성공학 강의의 표지이다."
+      "content": "EDA, 데이터 전처리, 특성공학 강의의 표지이다.",
+      "page_role": "cover",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p2_01",
@@ -33,7 +592,11 @@
       ],
       "raw_text": "목 차\n\n\n\n 1.  Introduction\n\n 2. EDA & Preprocessing\n\n 3. FE\n\n 4. DA Interview",
       "visual_description": "Introduction, EDA & Preprocessing, FE, DA Interview의 네 섹션을 번호로 제시한다.",
-      "content": "강의는 소개, EDA와 전처리, 특성공학, 데이터 분석 면접 문제 순으로 구성된다."
+      "content": "강의는 소개, EDA와 전처리, 특성공학, 데이터 분석 면접 문제 순으로 구성된다.",
+      "page_role": "table_of_contents",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p3_01",
@@ -46,7 +609,11 @@
       ],
       "raw_text": "Introduction",
       "visual_description": "Introduction 섹션의 시작을 알리는 구분 슬라이드이다.",
-      "content": "EDA·전처리·특성공학의 필요성을 소개하는 섹션의 시작이다."
+      "content": "EDA·전처리·특성공학의 필요성을 소개하는 섹션의 시작이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p4_01",
@@ -62,7 +629,29 @@
       ],
       "raw_text": "Introduction\n Introduction\n\n\n\n“Garbage in, Garbage out”\n\n  좋은 입력 데이터가 좋은 결과의 기본!\n  아무리 좋은 모델이라도 입력 데이터가 잘 정제되어 있어야 한다.\n\n  따라서 EDA, 데이터 전처리, Feature Engineering은 모든 프로젝트의\n  근간이다.\n  각 데이터의 특성을 이해하고, 그 특성들에 맞게 정제해서 모델이 (혹은\n  사람이) 잘 학습할 수 있는 데이터를 준비하는 작업.",
       "visual_description": "쓰레기봉투 옆 구형 컴퓨터에 Garbage in, garbage out 문구가 있는 삽화가 배치된다.",
-      "content": "좋은 입력 데이터가 좋은 결과의 기본이다. EDA, 전처리, 특성공학은 데이터 특성을 이해하고 모델이나 사람이 학습하기 좋은 자료를 만드는 프로젝트의 근간이다."
+      "content": "좋은 입력 데이터가 좋은 결과의 기본이다. EDA, 전처리, 특성공학은 데이터 특성을 이해하고 모델이나 사람이 학습하기 좋은 자료를 만드는 프로젝트의 근간이다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "eda",
+        "preprocessing",
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p4_u01",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "Garbage in, Garbage out; 좋은 입력 데이터가 좋은 결과의 기본",
+          "normalized_explanation": "모델이 좋아도 입력 품질이 나쁘면 결과가 나빠지므로 EDA·전처리·특성공학이 필요하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "eda",
+            "preprocessing",
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p5_01",
@@ -77,7 +666,29 @@
       ],
       "raw_text": "Introduction\nIntroduction\n\n\n\n  EDA(Exploratory Data Analysis): 이게 무슨 데이터고, 어떻게 써먹어야 하나?\n   주요 작업: 데이터 구조 파악, 변수 타입 및 분포 확인, 이상치 탐색, etc...\n    EDA를 통해서 진행 방향을 결정\n\n 데이터 전처리: 실제로 데이터를 쓰기 위해 정제를 해보자~\n   주요 작업: 결측치 처리, 이상치 제거, 정규화, 범주형 데이터 인코딩, etc...\n\n  FE(Feature Engineering): 모델 성능 개선을 위해 데이터를 변형하고 새로운 특성을 만들어보자~\n   주요 작업: 특성 생성, 특성 제거, 데이터 변형, etc...",
       "visual_description": "세 작업의 정의와 주요 작업을 글머리표로 구분한다.",
-      "content": "EDA는 구조·타입·분포·이상치를 탐색해 방향을 정하고, 전처리는 결측치·이상치·스케일·범주를 정제하며, FE는 특성을 생성·제거·변형해 성능을 높인다."
+      "content": "EDA는 구조·타입·분포·이상치를 탐색해 방향을 정하고, 전처리는 결측치·이상치·스케일·범주를 정제하며, FE는 특성을 생성·제거·변형해 성능을 높인다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "eda",
+        "preprocessing",
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p5_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "EDA: 데이터 구조·타입·분포·이상치 탐색으로 방향 결정 / 전처리: 결측치·이상치·정규화·인코딩 / FE: 특성 생성·제거·변형",
+          "normalized_explanation": "EDA는 이해와 방향 설정, 전처리는 정제, FE는 정보력 있는 특성 구성을 담당한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "eda",
+            "preprocessing",
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p6_01",
@@ -95,7 +706,29 @@
       ],
       "raw_text": "Introduction\n데이터 분석 프로세스\n\n\n\n                                   EDA\n                         데이터 전처리\n       문제 정의     데이터 수집         FE       분석/모델링\n\n                                                결과/결론\n\n         해결하고자 하는 문제 선정   크롤링, API, 공공데이터 etc...                 모델 선정\n         데이터 분석의 목표                                   학습\n                                                    하이퍼 파라미터 튜닝",
       "visual_description": "문제 정의에서 데이터 수집, EDA·전처리·FE, 분석·모델링, 결과·결론으로 이어지는 수평 타임라인이 그려져 있다.",
-      "content": "분석은 문제와 목표 정의, 데이터 수집, EDA·전처리·FE, 모델 선정·학습·튜닝, 결과와 결론 순으로 진행한다."
+      "content": "분석은 문제와 목표 정의, 데이터 수집, EDA·전처리·FE, 모델 선정·학습·튜닝, 결과와 결론 순으로 진행한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "eda",
+        "preprocessing",
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p6_u01",
+          "type": "procedure",
+          "source_type": "text_and_visual",
+          "source_excerpt": "문제 정의 → 데이터 수집 → EDA·전처리·FE → 분석/모델링 → 결과/결론",
+          "normalized_explanation": "분석은 문제와 목표를 정하고 데이터를 수집·탐색·정제·가공한 뒤 모델링과 결론으로 이어진다.",
+          "source_status": "verified",
+          "term_ids": [
+            "eda",
+            "preprocessing",
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p7_01",
@@ -109,7 +742,11 @@
       ],
       "raw_text": "EDA & Preprocessing",
       "visual_description": "EDA & Preprocessing이라는 큰 제목의 구분 슬라이드이다.",
-      "content": "탐색적 데이터 분석과 전처리 방법을 다루는 섹션의 시작이다."
+      "content": "탐색적 데이터 분석과 전처리 방법을 다루는 섹션의 시작이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p8_01",
@@ -127,7 +764,35 @@
       ],
       "raw_text": "EDA & Preprocessing\nEDA 과정\n\n\n1. 데이터 형태 파악\n    데이터의 크기 (행과 열), 변수 이름, 샘플데이터 확인\n    데이터 구조(데이터프레임, 배열 등)을 이해\n\n2. 변수 타입 파악\n    변수들이 숫자형, 범주형, 날짜형인지 확인\n    각 변수의 데이터 타입(int, float, object 등) 검토\n\n3. 결측치, 이상치 확인\n    결측치 비율 파악 및 처리 방안 계획\n    이상치 탐지 및 처리\n\n4. 종속변수의 분포 확인\n    예측 또는 분류 모델에서 목표로 하는 종속변수의 분포 분석\n    분포가 비대칭적일 경우 sampling 등으로 불균형 해소\n\n5. 변수 간 분포 & 변수-종속변수 간 관계 파악\n    각 변수 간 분포 및 상관관계를 탐색하여 데이터 패턴과 특성을 이해",
       "visual_description": "EDA의 다섯 단계를 번호와 설명으로 나열한다.",
-      "content": "EDA에서는 데이터 형태, 변수 타입, 결측치·이상치, 종속변수 분포, 변수 간 및 변수-종속변수 관계를 차례로 파악한다."
+      "content": "EDA에서는 데이터 형태, 변수 타입, 결측치·이상치, 종속변수 분포, 변수 간 및 변수-종속변수 관계를 차례로 파악한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "eda",
+        "data_type",
+        "missing_value",
+        "outlier",
+        "class_imbalance",
+        "multicollinearity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p8_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "데이터 형태 → 변수 타입 → 결측치·이상치 → 종속변수 분포 → 변수 간 및 변수-종속변수 관계 파악",
+          "normalized_explanation": "EDA에서는 구조·타입·품질·타깃 분포·변수 관계를 체계적으로 점검한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "eda",
+            "data_type",
+            "missing_value",
+            "outlier",
+            "class_imbalance",
+            "multicollinearity"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p9_01",
@@ -142,7 +807,11 @@
       ],
       "raw_text": "출처:                                                       EDA & Preprocessing",
       "visual_description": "Savant 출처 표시와 함께 선수명, 타석, 삼진율, 타구속도 등 많은 열을 가진 2025 야구 통계 표가 제시된다.",
-      "content": "이후 EDA 예제에 사용하는 Statcast 선수 데이터의 전체적인 행·열 구조와 변수 구성을 보여준다."
+      "content": "이후 EDA 예제에 사용하는 Statcast 선수 데이터의 전체적인 행·열 구조와 변수 구성을 보여준다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p10_01",
@@ -158,7 +827,27 @@
       ],
       "raw_text": "EDA & Preprocessing\n1. 데이터 형태 파악",
       "visual_description": "df.head() 출력과 Statcast 용어집 화면을 함께 배치해 값과 변수 의미를 연결한다.",
-      "content": "데이터의 크기, 변수명과 샘플 행을 확인하고 용어집 등 도메인 자료로 각 열의 의미를 파악한다."
+      "content": "데이터의 크기, 변수명과 샘플 행을 확인하고 용어집 등 도메인 자료로 각 열의 의미를 파악한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "eda",
+        "data_type"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p10_u01",
+          "type": "procedure",
+          "source_type": "visual",
+          "source_excerpt": "데이터의 행·열 크기, 변수명, 샘플 행과 용어집을 확인하는 예시",
+          "normalized_explanation": "행·열, 변수명, 샘플 값을 보고 용어집·도메인 자료로 각 열의 의미를 파악한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "eda",
+            "data_type"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p11_01",
@@ -173,7 +862,42 @@
       ],
       "raw_text": "EDA & Preprocessing\n1. 데이터 형태 파악\n\n범주형 데이터 인코딩\n    Label Encoding\n         0,1,2,3 할당\n     장점: 간단하다\n     단점: 자칫하면 모델이 잘못된 가중치를 줄 수도 있다\n        ex) ‘등급’과 같이 순서가 있는 범주형 데이터\n   One-hot Encoding\n    각 범주별로 하나의 column 할당 (0,1)\n     장점: 잘못된 가중치로부터 자유로움\n     단점: 차원이 급격하게 커짐\n        ex) ‘색상’처럼 순서 없는 범주형 데이터\n   Dummy Encoding\n      One-hot에서 column 하나 제거\n     장점: 다중공선성 해결\n     단점: 기준이 되는 범주가 생김(전부 0인 범주)",
       "visual_description": "색상 열이 정수 라벨과 여러 0·1 더미 열로 바뀌는 표를 사용해 인코딩 방식을 비교한다.",
-      "content": "순서가 있는 범주는 라벨 인코딩, 순서 없는 범주는 원핫 인코딩을 고려한다. 더미 인코딩은 원핫 열 하나를 제거해 다중공선성을 줄이지만 기준 범주가 생긴다."
+      "content": "순서가 있는 범주는 라벨 인코딩, 순서 없는 범주는 원핫 인코딩을 고려한다. 더미 인코딩은 원핫 열 하나를 제거해 다중공선성을 줄이지만 기준 범주가 생긴다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "label_encoding",
+        "one_hot_encoding",
+        "dummy_encoding",
+        "multicollinearity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p11_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Label Encoding: 0,1,2,3 할당; 등급처럼 순서가 있는 범주 / One-hot: 각 범주별 0,1 열; 색상처럼 순서 없는 범주",
+          "normalized_explanation": "순서형 범주는 라벨 인코딩, 명목형 범주는 원핫 인코딩을 고려한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "label_encoding",
+            "one_hot_encoding"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p11_u02",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Dummy Encoding: One-hot에서 column 하나 제거; 다중공선성 해결; 기준 범주가 생김",
+          "normalized_explanation": "더미 인코딩은 원핫 열 하나를 제거해 완전 다중공선성을 피하는 대신 기준 범주가 생긴다.",
+          "source_status": "verified",
+          "term_ids": [
+            "dummy_encoding",
+            "one_hot_encoding",
+            "multicollinearity"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p12_01",
@@ -188,7 +912,25 @@
       ],
       "raw_text": "EDA & Preprocessing\n2. 변수 타입 파악",
       "visual_description": "df.dtypes 출력 화면에서 object, int64, float64 형식이 열별로 표시된다.",
-      "content": "각 변수가 수치형·범주형·날짜형 중 무엇인지와 pandas 데이터 타입을 확인하고 필요하면 변환한다."
+      "content": "각 변수가 수치형·범주형·날짜형 중 무엇인지와 pandas 데이터 타입을 확인하고 필요하면 변환한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "data_type"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p12_u01",
+          "type": "diagnostic",
+          "source_type": "visual",
+          "source_excerpt": "변수의 숫자형·범주형·날짜형 의미와 int·float·object 등 실제 dtype을 확인하는 예시",
+          "normalized_explanation": "변수의 개념적 타입과 저장된 dtype을 확인하고 불일치하면 변환한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "data_type"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p13_01",
@@ -204,7 +946,27 @@
       ],
       "raw_text": "EDA & Preprocessing\n3. 결측치 확인\n\n                             결측치 대체 (Imputation)\n                               대표값으로 대체\n                                                i.연속형: 중앙값, 평균값\n                                                    ii.범주형: 최빈값\n\n                             도메인 지식이 필요\n                                                            (ex: ‘흡연여부’가 0이면 ‘흡연 담배 개수’도 0일 것)\n\n                             결측치 자체가 정보를 제공할 수도 있음\n                                                            (ex: ‘흡연 담배 개수’가 결측인 데이터에 대해\n                                     ‘비흡연자’ 컬럼을 새롭게 만들어 사용할 수 있음)\n\n                             상관관계가 높은 변수들을 사용해서 대체\n                                                            (ex: ‘기온’은 ‘시간’이 비슷한 애들의 구간평균 사용)\n\n                             결측치 비율이 너무 높은 컬럼의 경우 컬럼을 삭제하\n                             는 것도 방법임",
       "visual_description": "df.isnull().sum()과 결측 행 출력 화면 옆에 대체 전략이 나열된다.",
-      "content": "연속형은 평균·중앙값, 범주형은 최빈값 등으로 대체할 수 있으나 도메인과 결측 원인을 고려한다. 결측 자체를 지표로 만들거나 관련 변수로 대체하고 결측 비율이 높으면 열 삭제도 검토한다."
+      "content": "연속형은 평균·중앙값, 범주형은 최빈값 등으로 대체할 수 있으나 도메인과 결측 원인을 고려한다. 결측 자체를 지표로 만들거나 관련 변수로 대체하고 결측 비율이 높으면 열 삭제도 검토한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "missing_value",
+        "imputation"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p13_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "연속형은 중앙값·평균값, 범주형은 최빈값; 도메인 지식, 결측 지표, 관련 변수, 결측 비율이 높은 열 삭제를 고려",
+          "normalized_explanation": "대표값 대체만 자동 적용하지 말고 도메인·원인·결측 자체의 정보성·관련 변수·삭제 비용을 비교한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "missing_value",
+            "imputation"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p14_01",
@@ -221,7 +983,40 @@
       ],
       "raw_text": "EDA & Preprocessing\n4. 이상치 확인\n                                               [탐지 방법]\n                                                                          1.Standard Deviation (3시그마 규칙)\n                                          데이터가 정규분포와 흡사할 때\n                                          평균으로부터 표준편차의 3배 이상 떨어진 데이터는 이상치\n                                                               2.Boxplot으로 IQR 확인\n                                                                     IQR = Q3 - Q1\n                                                      하한: Q1 - 1.5×IQR / 상한: 상한 = Q3 + 1.5×IQR\n                                          극단적으로 크거나 작은 값의 영향을 덜 받는다\n                                                    3.클러스터링(KNN, DBSCAN)\n                                          클러스터링 결과에서 멀리 떨어져있으면 이상치로 간주\n                                                                  4.AutoEncoder\n                                          딥러닝으로 알아서 이상치 판별하기\n\n                                             [이상치 처리]\n                                        제거\n                                        변환\n                                          로그 변환, 제곱근 변환, etc.\n                                        대체\n                                                       평균, 최빈값, etc.\n                                        그대로 활용해도 됨!\n                                          사실 이상치가 아닌 경우도 있음\n                                          혹은 이상치가 문제해결에 필요할수도\n                                                                                        (ex: 이상탐지 모델 개발)",
       "visual_description": "여러 야구 변수의 boxplot 그리드와 3시그마·IQR·클러스터링·오토인코더 탐지법을 나란히 제시한다.",
-      "content": "이상치는 정규분포의 3시그마, boxplot의 1.5×IQR, 클러스터링 거리, 오토인코더 등으로 탐지하고 제거·변환·대체하거나 목적에 따라 유지한다."
+      "content": "이상치는 정규분포의 3시그마, boxplot의 1.5×IQR, 클러스터링 거리, 오토인코더 등으로 탐지하고 제거·변환·대체하거나 목적에 따라 유지한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "outlier",
+        "standard_deviation_rule",
+        "iqr"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p14_u01",
+          "type": "diagnostic",
+          "source_type": "text",
+          "source_excerpt": "3시그마, Boxplot IQR(Q1-1.5×IQR, Q3+1.5×IQR), 클러스터링, AutoEncoder로 이상치 탐지",
+          "normalized_explanation": "분포와 목적에 맞게 3시그마·IQR·클러스터링·오토인코더 등으로 이상치 후보를 찾는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "outlier",
+            "standard_deviation_rule",
+            "iqr"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p14_u02",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "이상치 처리: 제거, 로그·제곱근 변환, 대체, 그대로 활용; 이상탐지에서는 필요할 수 있음",
+          "normalized_explanation": "후보가 오류인지 의미 있는 신호인지 판단한 뒤 제거·변환·대체·유지를 선택한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "outlier"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p15_01",
@@ -236,7 +1031,25 @@
       ],
       "raw_text": "EDA & Preprocessing\n4. 이상치 확인\n                                               [탐지 방법]\n                                                                          1.Standard Deviation (3시그마 규칙)\n                                          데이터가 정규분포와 흡사할 때\n                                          평균으로부터 표준편차의 3배 이상 떨어진 데이터는 이상치\n                                                               2.Boxplot으로 IQR 확인\n                                          중앙값 기준으로 데이터 흩어진 정도 파악\n                                          비대칭적 분포, 치우친 분포 모양 쉽게 발견\n                                                    3.클러스터링(KNN, DBSCAN)\n                                                                  4.AutoEncoder       !!주의!!\n\n                                             [이상치 처리]\n                                  이상치 제거는 학습할 때에만 사용                                        제거\n                                        변환\n                                          로그 변환, 제곱근 변환, etc.\n                                        대체\n                                                       평균, 최빈값, etc.\n                                        그대로 활용해도 됨!\n                                          사실 이상치가 아닌 경우도 있음\n                                          혹은 이상치가 문제해결에 필요할수도\n                                                                                        (ex: 이상탐지 모델 개발)",
       "visual_description": "같은 boxplot 그리드 옆에 '이상치 제거는 학습할 때에만 사용'이라는 회색 경고 상자가 크게 보인다.",
-      "content": "이상치가 실제 오류인지 중요한 신호인지 먼저 판단한다. 제거 기준은 학습 데이터에서 정하고 검증·테스트 데이터 정보를 사용하지 않도록 주의한다."
+      "content": "이상치가 오류인지 의미 있는 신호인지 판단한다. 이상치 제거는 훈련 데이터에만 적용하고 검증·테스트 관측치를 성능 평가 전에 제거하지 않는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "outlier"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p15_u01",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "주의: 이상치 제거는 학습할 때에만 사용",
+          "normalized_explanation": "이상치 제거는 훈련 데이터에 적용하고 검증·테스트 관측치를 성능 평가 전에 제거해 평가 분포를 바꾸지 않는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "outlier"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p16_01",
@@ -254,7 +1067,46 @@
       ],
       "raw_text": "EDA & Preprocessing\n5. 종속변수의 분포 확인\n\n\n                 [클래스 불균형]\n                 분류 문제의 출력변수 class에 불균형 존재\n                 전처리를 잘 거쳐도 성능이 좋지 않은 원인\n                                   (ex: False가 많으니 전부 False로 예측해도 모델 성능은 좋아보임)\n                 따라서 sampling을 통한 조절 필요\n\n                  [평가 지표 선정]\n                 평가 지표로 정확도 (accuracy)를 사용하면 모델을 잘못 평가할 수 있음\n\n                 정밀도 (Precision): 모델이 '이상치'라고 예측한 것 중, 실제 이상치의 비율\n                 재현율 (Recall): 실제 '이상치' 전체 중에서, 모델이 제대로 찾아낸 비율\n                               F1-Score: 정밀도와 재현율의 조화평균\n                        PR AUC: X축에는 Recall(재현율)을, Y축에는 Precision(정밀도)을 놓고 임계값\n                 변화에 따라 두 값이 어떻게 변하는지 그린 곡선(PR Curve) 아래의 면적",
       "visual_description": "MVP 여부 막대그래프에서 False가 압도적으로 많고 오른쪽에 대안 평가 지표가 설명된다.",
-      "content": "클래스 불균형에서는 정확도가 모델을 과대평가할 수 있다. 정밀도, 재현율, F1-score, PR AUC 등 소수 클래스 탐지 성능을 반영하는 지표를 사용한다."
+      "content": "클래스 불균형에서는 정확도가 모델을 과대평가할 수 있다. 정밀도, 재현율, F1-score, PR AUC 등 소수 클래스 탐지 성능을 반영하는 지표를 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "class_imbalance",
+        "accuracy",
+        "precision",
+        "recall",
+        "f1",
+        "pr_auc"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p16_u01",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "클래스 불균형에서는 모두 다수 class로 예측해도 성능이 좋아 보이므로 accuracy는 잘못 평가할 수 있음",
+          "normalized_explanation": "불균형 분류에서 정확도만 보면 다수 클래스 예측 모델을 과대평가할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "class_imbalance",
+            "accuracy"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p16_u02",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Precision, Recall, F1-Score, PR AUC로 소수 클래스 탐지 성능 평가",
+          "normalized_explanation": "정밀도·재현율·F1·PR AUC 등을 문제의 오류 비용에 맞게 함께 본다.",
+          "source_status": "verified",
+          "term_ids": [
+            "precision",
+            "recall",
+            "f1",
+            "pr_auc",
+            "class_imbalance"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p17_01",
@@ -271,7 +1123,31 @@
       ],
       "raw_text": "EDA & Preprocessing\n5. 종속변수의 분포 확인\n\n\n                 [불균형 데이터]\n                           [Under분류Sampling]문제의 출력변수 class에 불균형 존재[Over Sampling]\n                     다수 class를 줄이기                 소수 class를 늘리기                 전처리를 잘 거쳐도 성능이 좋지 않은 원인\n                                           ex: Random, TomekLinks, etc.                 Random, SMOTE, ADASYN, etc.\n                                   (ex: False가 많으니 전부 False로 예측해도 모델 성능은 좋아보임)                     정보 손실 및 데이터 수 부족으로 인한 과소적합 우려  데이터 왜곡 및 과적합 우려\n                 따라서 sampling을 통한 조절 필요",
       "visual_description": "다수 클래스를 줄이는 그림과 소수 클래스를 복제하는 그림을 좌우로 비교한다.",
-      "content": "언더샘플링은 다수 클래스를 줄여 정보 손실과 과소적합 위험이 있고, 오버샘플링은 소수 클래스를 늘려 왜곡과 과적합 위험이 있다."
+      "content": "언더샘플링은 다수 클래스를 줄여 정보 손실과 과소적합 위험이 있고, 오버샘플링은 소수 클래스를 늘려 왜곡과 과적합 위험이 있다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "class_imbalance",
+        "undersampling",
+        "oversampling",
+        "smote"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p17_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Under Sampling은 다수 class를 줄여 정보 손실·과소적합 우려 / Over Sampling은 소수 class를 늘려 왜곡·과적합 우려",
+          "normalized_explanation": "언더샘플링의 정보 손실과 오버샘플링의 왜곡·과적합 위험을 데이터 크기와 모델에 맞게 비교한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "class_imbalance",
+            "undersampling",
+            "oversampling",
+            "smote"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p18_01",
@@ -286,7 +1162,27 @@
       ],
       "raw_text": "EDA & Preprocessing\n5. 종속변수의 분포 확인\n\n\n                 [불균형 데이터]\n                               [Focal Loss]\n                 분류 문제의 출력변수 class에 불균형 존재                     소수 class에 대한 loss를 가중치를 더욱 부여\n                 전처리를 잘 거쳐도 성능이 좋지 않은 원인\n                             [Minority-aware fine tuning]                                   (ex: False가 많으니 전부 False로 예측해도 모델 성능은 좋아보임)\n                     전체 데이터로 모델 학습 후, 소수 클래스 중심으로 학습하기                 따라서 sampling을 통한 조절 필요\n\n\n\n\n\n                                                                                                                         Lin et al., 2017, Focal Loss for Dense Object Detection\n                                                         Buda et al., 2018, A systematic study of the class imbalance problem in convolutional neural networks",
       "visual_description": "불균형 막대그래프와 샘플링 그림 위에 Focal Loss와 소수 클래스 중심 미세조정 전략을 강조한다.",
-      "content": "Focal Loss는 소수·어려운 예제의 손실 가중치를 높이고, minority-aware fine tuning은 전체 데이터 학습 후 소수 클래스 중심으로 추가 학습한다."
+      "content": "Focal Loss는 소수·어려운 예제의 손실 가중치를 높이고, minority-aware fine tuning은 전체 데이터 학습 후 소수 클래스 중심으로 추가 학습한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "class_imbalance",
+        "focal_loss"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p18_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "Focal Loss: 소수 class에 대한 loss 가중치 부여 / Minority-aware fine tuning: 전체 학습 후 소수 클래스 중심 학습",
+          "normalized_explanation": "샘플링 외에도 어려운·소수 예제에 더 집중하는 손실함수나 추가 학습을 사용할 수 있다.",
+          "source_status": "verified",
+          "term_ids": [
+            "class_imbalance",
+            "focal_loss"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p19_01",
@@ -302,7 +1198,25 @@
       ],
       "raw_text": "EDA & Preprocessing\n6. 변수 분포 & 변수-종속변수 간 관계 파악\n\n  각 변수 간의 분포 및 상관관계를 탐색하여 데이터의 패턴과 특성 이해\n    변수와 종속변수 간 관계를 확인하여 중요한 변수(Feature) 식별\n    다중공선성 해결\n\n\n\n\n\n             [변수들 분포]                                           [다중공선성]",
       "visual_description": "여러 변수 히스토그램 그리드와 상관계수 히트맵을 함께 보여준다.",
-      "content": "각 변수 분포와 변수 간 상관관계를 탐색하고 종속변수와의 관계를 확인해 중요한 특성을 식별하며 다중공선성을 점검한다."
+      "content": "각 변수 분포와 변수 간 상관관계를 탐색하고 종속변수와의 관계를 확인해 중요한 특성을 식별하며 다중공선성을 점검한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "multicollinearity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p19_u01",
+          "type": "diagnostic",
+          "source_type": "text",
+          "source_excerpt": "변수 분포·변수 간 상관관계·변수-종속변수 관계를 탐색해 중요 특성과 다중공선성을 파악",
+          "normalized_explanation": "분포와 상관, 타깃과의 관계를 통해 중요 특성과 다중공선성 후보를 찾는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p20_01",
@@ -319,7 +1233,42 @@
       ],
       "raw_text": "EDA & Preprocessing\n 6. 변수 분포 & 변수-종속변수 간 관계 파악\n\n다중공선성\n  독립변수들 간에 강한 상관관계가 존재하는 현상\n  다중공선성이 존재하는 변수를 함께 사용하면 feature importance가 왜곡될 수 있음\n\nVIF (Variance Inflation Factor)\n  공식: VIF = 1 / (1 - R²)\n  일반적으로 VIF 값이 10 이상이면 다중공선성이 있다고 판단하지만,\n  절대적인 것은 아님\n\n해결 방법\n  변수 제거: 상관관계 높은 두 변수 중 도메인 중요도 낮은 것 제거\n  변수 결합: 두 변수를 하나의 파생 변수로 합치기 (ex: 평균, 비율)\n  정규화 회귀: Ridge, Lasso 등으로 계수 크기 자체를 제어\n   PCA: 상관된 변수들을 주성분으로 축소 (뒤 FE 파트와 연결)",
       "visual_description": "VIF 설명 옆에 Ridge의 원형 제약과 Lasso의 마름모 제약에서 해가 닿는 모습을 비교한다.",
-      "content": "독립변수 간 강한 상관은 중요도를 왜곡할 수 있다. VIF로 진단하고 변수 제거·결합, Ridge·Lasso, PCA 등을 적용하되 도메인 의미를 고려한다."
+      "content": "독립변수 간 강한 상관은 중요도를 왜곡할 수 있다. VIF로 진단하고 변수 제거·결합, Ridge·Lasso, PCA 등을 적용하되 도메인 의미를 고려한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "multicollinearity",
+        "vif",
+        "pca",
+        "lasso"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p20_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "다중공선성: 독립변수들 간에 강한 상관관계; feature importance가 왜곡될 수 있음",
+          "normalized_explanation": "다중공선성은 설명변수 간 강한 관계로 계수·중요도 해석을 불안정하게 만든다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p20_u02",
+          "type": "procedure",
+          "source_type": "text_and_formula",
+          "source_excerpt": "VIF=1/(1-R²); 일반적으로 10 이상을 참고하지만 절대적이지 않음; 변수 제거·결합, Ridge·Lasso, PCA",
+          "normalized_explanation": "VIF를 맥락적으로 해석하고 변수 제거·결합·규제·PCA 등의 대안을 비교한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "multicollinearity",
+            "vif",
+            "pca",
+            "lasso"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p21_01",
@@ -336,7 +1285,44 @@
       ],
       "raw_text": "EDA & Preprocessing\n6. 변수 분포 & 변수-종속변수 간 관계 파악\n\n정규화 (Scaling)\n  각 특성들을 일정한 범위로 통일하는 것\n  특성마다 값의 범위가 크게 다르면 모델이 큰 범위의 특성을 지나치게 중요시 할 수도\n\n   KNN, SVM, PCA, ANN 등에서 반드시 해야하는 작업\n   거리, 분산 등에 기반하는 알고리즘에서 매우 중요(Scale에 민감)\n  반면 Decision Tree, 로지스틱 회귀, Bagging/Boosting 등에서는 성능의 변화 없음",
       "visual_description": "MinMaxScaler와 StandardScaler 사용 코드 화면이 제시된다.",
-      "content": "특성 범위를 통일하면 큰 단위의 특성이 과도하게 지배하는 것을 막는다. 거리·분산 기반 KNN, SVM, PCA, 신경망은 스케일에 민감한 반면 트리 계열은 영향이 작다."
+      "content": "특성 범위를 통일하면 큰 단위가 거리·분산 계산을 지배하는 것을 막는다. KNN·SVM·PCA·신경망은 스케일에 민감하고 트리 계열은 상대적으로 덜 민감하다. 로지스틱 회귀가 항상 영향을 받지 않는다는 원문의 절대적 표현은 평가 근거에서 제외한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "scaling"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p21_u01",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "특성마다 범위가 크게 다르면 큰 범위의 특성을 과도하게 중요시할 수 있음",
+          "normalized_explanation": "스케일링은 특성 단위·범위가 거리·분산 계산을 과도하게 지배하는 것을 막는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "scaling"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p21_u02",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "KNN, SVM, PCA, ANN 등 거리·분산 기반 알고리즘은 scale에 민감; Decision Tree 계열은 영향이 작음",
+          "normalized_explanation": "KNN·SVM·PCA·신경망은 스케일에 민감하고 트리 계열은 상대적으로 덜 민감하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "scaling"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "eda_fe_p21_i01",
+          "source_text": "로지스틱 회귀에서는 성능의 변화 없음",
+          "issue_type": "overgeneralized",
+          "correction": "규제, 최적화, 수치 안정성에 따라 로지스틱 회귀도 스케일링의 영향을 받을 수 있다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
     },
     {
       "chunk_id": "eda_fe_p22_01",
@@ -352,7 +1338,53 @@
       ],
       "raw_text": "EDA & Preprocessing\n 6. 변수 분포 & 변수-종속변수 간 관계 파악\n\n\n정규화 (Scaling)\n  이상치 없으면 Standard, 특정 범위가 필요하면 Min-Max,\n  이상치 많으면 Robust\n\n   1. Standard Scaling (Z-score Normalization)\n    표본평균과 표본 표준편차로 스케일링\n    스케일 없이 단순히 서로간의 거리만 남게 됨\n    평균을 활용하기 때문에 이상치에 취약\n 2.Min-Max Scaling\n     최대, 최소를 활용해 모든 데이터가 [0, 1] 범위에 존재\n    이상치에 강건\n  3.Robust Scaling\n    중앙값과 IQR값으로 정규화\n    이상치가 많을 때에 유용",
       "visual_description": "Z-score, Min-Max, 중앙값·IQR 기반 Robust Scaling의 수식이 세로로 비교된다.",
-      "content": "이상치가 적으면 표준화, 특정 범위가 필요하면 Min-Max, 이상치가 많으면 중앙값과 IQR을 쓰는 Robust Scaling을 고려한다. 원문에는 Min-Max가 이상치에 강건하다고 적혀 있어 팀 검토가 필요하다."
+      "content": "Standard Scaling은 평균·표준편차, Min-Max Scaling은 최소·최대, Robust Scaling은 중앙값·IQR를 사용한다. Min-Max는 일반적으로 이상치에 민감하므로 원문의 ‘이상치에 강건’ 표현은 평가 근거에서 제외한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "scaling",
+        "standard_scaler",
+        "minmax_scaler",
+        "robust_scaler",
+        "iqr"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p22_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Standard: 평균·표준편차 / Min-Max: 최소·최대로 [0,1] / Robust: 중앙값·IQR",
+          "normalized_explanation": "Standard는 평균·표준편차, Min-Max는 최소·최대, Robust는 중앙값·IQR로 변환한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "standard_scaler",
+            "minmax_scaler",
+            "robust_scaler",
+            "iqr"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p22_u02",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "이상치가 없으면 Standard, 특정 범위가 필요하면 Min-Max, 이상치가 많으면 Robust",
+          "normalized_explanation": "분포, 이상치, 필요 값 범위를 고려해 스케일러를 선택한다. Min-Max는 최소·최대를 쓰므로 일반적으로 이상치에 민감하다.",
+          "source_status": "verified",
+          "term_ids": [
+            "standard_scaler",
+            "minmax_scaler",
+            "robust_scaler"
+          ]
+        }
+      ],
+      "source_issues": [
+        {
+          "issue_id": "eda_fe_p22_i01",
+          "source_text": "Min-Max Scaling: 이상치에 강건",
+          "issue_type": "incorrect",
+          "correction": "Min-Max Scaling은 최솟값과 최댓값을 사용하므로 일반적으로 이상치에 민감하다.",
+          "evaluation_policy": "exclude"
+        }
+      ]
     },
     {
       "chunk_id": "eda_fe_p23_01",
@@ -369,7 +1401,27 @@
       ],
       "raw_text": "EDA & Preprocessing\nMerge, Grouping\n\n       Data Merge - pd.merge()                   Data Grouping - pd.groupby()\n\n\n\n\n\n  Data Merge (조인) — pd.merge()\n   두 개 이상의 데이터프레임을 공통된 key(기준 컬럼)를 기준으로 하나로 합치는 작업\n      Inner / Outer / Left / Right 방식에 따라 합쳐지는 범위가 달라짐\n  Data Grouping — pd.groupby()\n   특정 컬럼의 값을 기준으로 데이터를 그룹으로 묶고, 그룹별로 집계(평균, 합계, 개수 등)를 계산하는 작업",
       "visual_description": "Inner·Outer·Left·Right 조인의 결과표와 이름별 점수를 그룹화해 평균내는 흐름도가 좌우에 있다.",
-      "content": "pd.merge는 공통 key로 데이터프레임을 합치며 조인 방식에 따라 포함 범위가 달라진다. pd.groupby는 특정 열로 묶어 평균·합계·개수 등을 계산한다."
+      "content": "pd.merge는 공통 key로 데이터프레임을 합치며 조인 방식에 따라 포함 범위가 달라진다. pd.groupby는 특정 열로 묶어 평균·합계·개수 등을 계산한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "merge",
+        "groupby"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p23_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "pd.merge: 공통 key와 Inner/Outer/Left/Right로 데이터프레임 병합 / pd.groupby: 특정 열로 묶어 평균·합계·개수 집계",
+          "normalized_explanation": "merge는 키를 기준으로 표를 결합하고 groupby는 그룹별 통계를 집계한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "merge",
+            "groupby"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p24_01",
@@ -382,7 +1434,11 @@
       ],
       "raw_text": "Feature Engineering",
       "visual_description": "Feature Engineering이라는 큰 제목의 구분 슬라이드이다.",
-      "content": "특성 선택, 특성 추출과 데이터 누수를 다루는 섹션의 시작이다."
+      "content": "특성 선택, 특성 추출과 데이터 누수를 다루는 섹션의 시작이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p25_01",
@@ -399,7 +1455,33 @@
       ],
       "raw_text": "FE\nFE(Feature Engineering)\n\n\n\n\n\n                                          FE는 Feature Selection + Feature Extraction의 과정\n                                얼마나 잘 선택하고 얼마나 잘 합치는가\n\n                                                    PCA: 레이블 없이 분산이 최대인 축을 찾는 비지도 방법\n                                                     LDA: 클래스 구분력이 최대인 축을 찾는 지도 방법\"",
       "visual_description": "Feature Selection과 Feature Extraction을 두 단계 상자로 나누고 PCA·SVD·LDA를 하위 방법으로 표시한다.",
-      "content": "특성공학은 유용한 변수를 고르는 특성 선택과 기존 변수를 결합해 차원을 줄이는 특성 추출로 구성된다. PCA는 비지도 분산 축, LDA는 지도형 클래스 구분 축을 찾는다."
+      "content": "특성공학은 유용한 변수를 고르는 특성 선택과 기존 변수를 결합해 차원을 줄이는 특성 추출로 구성된다. PCA는 비지도 분산 축, LDA는 지도형 클래스 구분 축을 찾는다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "feature_engineering",
+        "feature_selection",
+        "feature_extraction",
+        "pca",
+        "lda"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p25_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "FE는 Feature Selection + Feature Extraction; PCA는 레이블 없이 분산이 최대인 축, LDA는 클래스 구분력이 최대인 축",
+          "normalized_explanation": "특성 선택은 원변수를 고르고 특성 추출은 새 표현을 만든다. PCA는 비지도 분산, LDA는 지도 클래스 분리를 기준으로 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "feature_engineering",
+            "feature_selection",
+            "feature_extraction",
+            "pca",
+            "lda"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p26_01",
@@ -414,7 +1496,25 @@
       ],
       "raw_text": "FE\nFE(Feature Engineering)\n\n\n\n\n\n                     FE는 \"특징 생성 → 성능 확인 → 개선\"을 반복하는 과정",
       "visual_description": "데이터 과학자의 시간 사용 원그래프와 특성 테스트·결정·생성·작동 확인·개선이 순환하는 도식이 함께 있다.",
-      "content": "특성공학은 특성을 생성하고 성능을 확인한 뒤 개선하는 과정을 반복한다. 데이터 정리와 조직화가 실무 시간의 큰 부분을 차지한다는 시각 자료가 제시된다."
+      "content": "특성공학은 특성을 생성하고 성능을 확인한 뒤 개선하는 과정을 반복한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "feature_engineering"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p26_u01",
+          "type": "procedure",
+          "source_type": "text",
+          "source_excerpt": "FE는 ‘특징 생성 → 성능 확인 → 개선’을 반복하는 과정",
+          "normalized_explanation": "특성공학은 특성을 설계하고 검증 성능을 확인한 뒤 개선하는 반복 과정이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "feature_engineering"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p27_01",
@@ -430,7 +1530,33 @@
       ],
       "raw_text": "FE\nFE(Feature Engineering)\n\n\n  FE의 목적\n      [Problem] 차원의 저주 (Curse of Dimensionality)\n      데이터보다 입력변수가 많아 모델이 복잡할 때 발생\n      학습 느려지고 과적합 발생\n      다중공선성 발생으로 인해 모델이 불안정해짐\n\n      [Solving] 차원 축소 (Dimensionality Reduction) : 모델의 복잡도(차원)을 낮춰 모델 성능을 개선\n\n     [How to]\n          Feature Selection (특징 선택) : 중요한 변수를 선택\n          Feature Extraction (특징 추출) : 기존 변수들을 조합하여 새로운 특성(잠재변수) 생성",
       "visual_description": "문제, 해결, 방법을 굵은 소제목으로 나눠 설명한다.",
-      "content": "입력변수가 데이터보다 많고 모델이 복잡하면 학습 지연, 과적합, 다중공선성이 생길 수 있다. 중요한 변수를 선택하거나 잠재 특성을 추출해 차원을 낮춘다."
+      "content": "입력변수가 데이터보다 많고 모델이 복잡하면 학습 지연, 과적합, 다중공선성이 생길 수 있다. 중요한 변수를 선택하거나 잠재 특성을 추출해 차원을 낮춘다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "curse_dimensionality",
+        "dimensionality_reduction",
+        "feature_selection",
+        "feature_extraction",
+        "multicollinearity"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p27_u01",
+          "type": "relation",
+          "source_type": "text",
+          "source_excerpt": "데이터보다 입력변수가 많아 모델이 복잡하면 학습 지연·과적합·다중공선성; 특성 선택·추출로 차원 축소",
+          "normalized_explanation": "차원에 비해 표본이 부족하면 복잡도·과적합·불안정성이 커지므로 선택·추출로 차원을 줄인다.",
+          "source_status": "verified",
+          "term_ids": [
+            "curse_dimensionality",
+            "dimensionality_reduction",
+            "feature_selection",
+            "feature_extraction",
+            "multicollinearity"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p28_01",
@@ -446,7 +1572,31 @@
       ],
       "raw_text": "FE\nFeature Selection - Filter, Wrapper, Embedded\n\n       Filter\n\n\n\n\n    모델 없이 통계적 지표(상관계수, 카이제곱 검정 등)만으로 변수 선택\n      장점: 빠르고 계산 비용 낮음 / 단점: 변수 간 상호작용 고려 못함\n\n     Wrapper\n\n\n\n\n\n    실제 모델을 반복 학습시켜가며 변수 조합 성능 비교\n       RFE (Recursive Feature Elimination): 가장 덜 중요한 변수를 하나씩 제거하며 재학습\n      장점: 변수 간 상호작용까지 고려한 최적 조합 / 단점: 계산 비용 매우 높음 (변수 많을수록 느려짐)",
       "visual_description": "Filter는 한 번 통과하는 흐름, Wrapper는 변수 집합과 모델 학습을 반복하는 흐름으로 비교된다.",
-      "content": "Filter는 상관계수·카이제곱 등 통계량으로 빠르게 고르지만 상호작용을 놓친다. Wrapper는 RFE처럼 모델을 반복 학습해 상호작용을 반영하지만 계산비용이 크다."
+      "content": "Filter는 상관계수·카이제곱 등 통계량으로 빠르게 고르지만 상호작용을 놓친다. Wrapper는 RFE처럼 모델을 반복 학습해 상호작용을 반영하지만 계산비용이 크다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "feature_selection",
+        "filter_method",
+        "wrapper_method",
+        "rfe"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p28_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Filter는 상관계수·카이제곱 등으로 빠르지만 상호작용을 못 보고, Wrapper는 RFE 등 모델 반복 학습으로 상호작용을 보지만 계산 비용이 큼",
+          "normalized_explanation": "Filter는 빠른 단변량 기준, Wrapper는 비용이 큰 모델 성능 기준이므로 상호작용 반영과 계산량을 비교한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "feature_selection",
+            "filter_method",
+            "wrapper_method",
+            "rfe"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p29_01",
@@ -463,7 +1613,29 @@
       ],
       "raw_text": "FE\nFeature Selection - Filter, Wrapper, Embedded\n    Embedded\n\n\n\n\n\n    모델 학습 과정 자체에 변수 선택이 내장됨\n        Lasso: L1 penalty로 계수를 0으로 만들며 자동 선택 (앞 슬라이드 참고)\n    트리 기반 Feature Importance: Random Forest, XGBoost 등에서 분기 기여도로 중요도 산출\n     장점: 학습과 동시에 진행되어 효율적 / 단점: 모델 종류에 따라 결과가 달라질 수 있음",
       "visual_description": "학습과 선택이 순환하는 Embedded 흐름도와 Filter·Wrapper·Embedded 비교표가 제시된다.",
-      "content": "Embedded 방식은 모델 학습 안에서 선택한다. Lasso는 L1 패널티로 계수를 0으로 만들고 트리 모델은 분기 기여도로 중요도를 계산하며 결과는 모델에 의존한다."
+      "content": "Embedded 방식은 모델 학습 안에서 선택한다. Lasso는 L1 패널티로 계수를 0으로 만들고 트리 모델은 분기 기여도로 중요도를 계산하며 결과는 모델에 의존한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "feature_selection",
+        "embedded_method",
+        "lasso"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p29_u01",
+          "type": "comparison",
+          "source_type": "text",
+          "source_excerpt": "Embedded는 모델 학습에 변수 선택이 내장; Lasso는 L1 penalty로 계수를 0, Random Forest·XGBoost는 분기 기여도; 결과는 모델에 의존",
+          "normalized_explanation": "Embedded는 학습과 선택을 같이 하여 효율적이지만 선택 결과가 모델에 의존한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "feature_selection",
+            "embedded_method",
+            "lasso"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p30_01",
@@ -479,7 +1651,29 @@
       ],
       "raw_text": "FE\nFeature Extraction - 파생변수 생성\n\n\n\n  변수의 경향성이 더 뚜렷해지도록 재범주화 하는 과정\n\n  [지표 변수] : 지표가 되는 feature를 새로 생성\n       ex) ‘나이’를 범주화 하여 ‘young’, ‘middle-aged’, ‘old’로 구분\n        ‘시간’을 범주화 하여 ‘오전’, ‘오후’로 구분\n\n    [Feature Split] : column 값들을 더 세분화하여 분리\n       ex) ‘이름’에서 ‘성’을 분리\n          ‘date’를 ‘year’, ‘month’, ‘day’로 분리\n\n  [시계열 변수] : 시간의 흐름 정보를 반영한 변수 생성\n       ex) 특정 시점의 값과 이전 시점의 값을 비교하는 'lag' 변수 생성\n     최근 N일간의 흐름을 요약하는 '이동평균' 변수 생성\n     날짜로부터 '요일', '주말 여부' 파생",
       "visual_description": "나이를 young/middle 등으로 범주화한 표와 날짜를 year·month·day로 나눈 표가 예시로 있다.",
-      "content": "지표 변수 생성, 문자열·날짜 열 분리, 시계열 lag·이동평균·요일 같은 시간 특성 생성으로 변수의 경향과 정보를 더 명확하게 만든다."
+      "content": "지표 변수 생성, 문자열·날짜 열 분리, 시계열 lag·이동평균·요일 같은 시간 특성 생성으로 변수의 경향과 정보를 더 명확하게 만든다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "derived_feature",
+        "lag",
+        "moving_average"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p30_u01",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "나이·시간 범주화, 이름·날짜 분리, lag·이동평균·요일·주말 여부 생성",
+          "normalized_explanation": "범주화·열 분리·시계열 요약으로 원자료의 경향과 도메인 정보를 파생변수로 표현한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "derived_feature",
+            "lag",
+            "moving_average"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p31_01",
@@ -496,7 +1690,42 @@
       ],
       "raw_text": "FE\nData Leakage\n\n  모델이 실제 예측 시점에는 알 수 없는 정보(주로 test/미래 데이터)가 학습 과정에 새어 들어가,\n  검증 성능이 실제 성능보다 부풀려지는 현상\n\n\n  Target Encoding Leakage\n   범주형 변수를 \"카테고리별 target 평균\"으로 인코딩할 때(차원이 클 때)\n   그 행 자신의 target이 평균 계산에 포함되면 → 사실상 정답을 feature로 주는 셈\n    해결: K-fold target encoding (자기 자신이 속한 fold는 제외하고 평균 계산)\n\n\n 시계열 Lag/Rolling Feature Leakage\n    \"최근 7일 평균 매출\" 같은 feature를 만들 때 계산 시점이 예측하려는 시점보다\n   미래 데이터를 포함하면 안 됨\n    해결: 항상 \"현재 시점 이전\" 데이터만 사용\n\n 이외에도 다양한 형태의 Leakage가 존재함",
       "visual_description": "누수 전 전체 평균 인코딩과 자기 행을 제외한 K-fold 인코딩을 빨강·초록 표로 비교한다.",
-      "content": "예측 시점에 알 수 없는 테스트·미래 정보가 학습에 들어가면 검증 성능이 부풀려진다. Target Encoding은 자기 fold를 제외하고, 시계열 lag·rolling은 현재보다 과거 데이터만 사용한다."
+      "content": "예측 시점에 알 수 없는 테스트·미래 정보가 학습에 들어가면 검증 성능이 부풀려진다. Target Encoding은 자기 fold를 제외하고, 시계열 lag·rolling은 현재보다 과거 데이터만 사용한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "data_leakage",
+        "target_encoding",
+        "lag",
+        "moving_average"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p31_u01",
+          "type": "definition",
+          "source_type": "text",
+          "source_excerpt": "실제 예측 시점에 알 수 없는 test·미래 정보가 학습에 새어 들어가 검증 성능이 부풀려지는 현상",
+          "normalized_explanation": "데이터 누수는 배포 시점에 사용할 수 없는 정답·미래·테스트 정보가 학습에 들어가 평가를 과대하는 현상이다.",
+          "source_status": "verified",
+          "term_ids": [
+            "data_leakage"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p31_u02",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "Target Encoding은 자기 fold를 제외하고 평균 계산; Lag/Rolling은 현재 시점 이전 데이터만 사용",
+          "normalized_explanation": "타깃 인코딩은 out-of-fold로, 시계열 특성은 과거 데이터로만 계산해 누수를 막는다.",
+          "source_status": "verified",
+          "term_ids": [
+            "data_leakage",
+            "target_encoding",
+            "lag",
+            "moving_average"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p32_01",
@@ -512,7 +1741,41 @@
       ],
       "raw_text": "FE\nFeature Extraction - PCA\n\n    PCA (Principal Component Analysis, 주성분 분석)\n    대규모 데이터 세트의 차원 수를 원본 정보의 대부분을 유지하는 주성분으로 줄인다\n\n                          PCA의 직관적 이해\n                         원본 데이터가 타원형을 그림 → 변수 간 상관관계가 존재\n                         상관관계를 반영하여 분산을 가장 잘 설명하는 축(주성분)을 그리고,\n                        직교하는 축들 중 분산을 다음으로 잘 설명하는 축(주성분)을 생성\n                    주성분 선정 기준\n                         각 주성분이 전체 분산 중 몇 %를 설명하는지를 그래프로 그려볼 수 있다.\n                         일반적으로 누적 설명력 80~95% 지점에서 주성분 개수를 결정한다.\n                    주의사항\n                                                PC1, PC2는 원래 변수들의 선형결합이라 \"이게 무슨 의미인지\" 직관적으\n                         로 설명하기 어려움\n                                              Feature Selection과 달리 원본 변수를 그대로 유지하지 않음 → 해석이\n                         중요한 도메인(의료, 금융 등)에서는 신중히 사용",
       "visual_description": "3차원 타원형 점군을 PC1·PC2로 낮추는 도식과 주성분별·누적 설명분산 그래프가 있다.",
-      "content": "PCA는 상관 구조를 반영해 분산을 가장 잘 설명하는 직교 축을 만들고 차원을 줄인다. 보통 누적 설명력 80~95%를 기준으로 개수를 정하지만 선형결합이라 해석성이 낮다."
+      "content": "PCA는 상관 구조를 반영해 분산을 가장 잘 설명하는 직교 축을 만들고 차원을 줄인다. 보통 누적 설명력 80~95%를 기준으로 개수를 정하지만 선형결합이라 해석성이 낮다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "pca",
+        "feature_extraction",
+        "dimensionality_reduction"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p32_u01",
+          "type": "procedure",
+          "source_type": "text_and_visual",
+          "source_excerpt": "PCA는 상관관계를 반영해 분산을 가장 잘 설명하는 직교 축을 순서대로 생성; 누적 설명력 80~95% 참고",
+          "normalized_explanation": "PCA는 원변수의 상관 구조를 선형결합한 직교 주성분으로 요약하고 누적 설명분산을 보고 개수를 정한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pca",
+            "feature_extraction",
+            "dimensionality_reduction"
+          ]
+        },
+        {
+          "unit_id": "eda_fe_p32_u02",
+          "type": "warning",
+          "source_type": "text",
+          "source_excerpt": "PC1, PC2는 원래 변수의 선형결합이어서 의미 해석이 어려움; 원본 변수를 유지하지 않음",
+          "normalized_explanation": "PCA는 차원을 줄이지만 원변수를 유지하지 않고 주성분 해석이 어려워 해석성이 중요한 도메인에서 신중해야 한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "pca",
+            "feature_extraction"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p33_01",
@@ -530,7 +1793,11 @@
       ],
       "raw_text": "FE\n데이터 형식에 따른 전처리\n\n 텍스트 데이터\n     Tokenization: 텍스트를 모델에게 input으로 줄 단위(token)로 분리\n      (ex: [“텍스트”, “데이터”, “를”, “전”, “처리”, “합니다”])\n\n     Vectorization: 텍스트를 모델이 이해할 수 있게 벡터화\n        1) BoW, TF-IDF: 단어의 발생 빈도를 기반으로 벡터화 (문맥 정보 고려X)\n      2) Embedding: 문맥 정보를 고려하여 단어를 벡터화 (ex: BERT)\n\n 이미지 데이터\n     Data Augmentation - Resize, Crop, Blur, Sharpening, etc.\n    - 데이터 부족 문제 해결\n    - 모델 일반화 성능 향상",
       "visual_description": "로봇 원본 사진을 회전·흐림·색상변환한 여러 증강 이미지로 확장하는 예가 있다.",
-      "content": "텍스트는 토큰화 후 BoW·TF-IDF 또는 문맥 임베딩으로 벡터화한다. 이미지는 resize, crop, blur, sharpening 등 증강으로 데이터 부족을 보완하고 일반화를 높인다."
+      "content": "텍스트는 토큰화 후 BoW·TF-IDF 또는 문맥 임베딩으로 벡터화한다. 이미지는 resize, crop, blur, sharpening 등 증강으로 데이터 부족을 보완하고 일반화를 높인다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p34_01",
@@ -547,7 +1814,11 @@
       ],
       "raw_text": "끝!\nWrap-up\n\n\n  EDA의 목적: 데이터를 이해하고, 분석 계획을 수립하기 위한 과정\n  Preprocessing의 목적: 모델 학습이나 분석의 성과를 높이기 위한 정제 작업\n  FE의 목적: 변수들 사이에 숨어있는 정보들을 뽑아내서 모델 학습이나 분석의 성과를 높이기 위한 작업\n\n 적용 순서\n 1. EDA (데이터 탐색 및 시각화)\n2.데이터 정제\n 3.Feature Split\n 4.Feature Selection/Extraction",
       "visual_description": "Wrap-up 제목 아래 목적과 적용 순서를 글머리표로 정리한다.",
-      "content": "EDA로 데이터를 이해하고 계획을 세운 뒤 정제, Feature Split, Feature Selection·Extraction 순으로 적용해 분석과 학습 성과를 높인다."
+      "content": "EDA로 데이터를 이해하고 계획을 세운 뒤 정제, Feature Split, Feature Selection·Extraction 순으로 적용해 분석과 학습 성과를 높인다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p35_01",
@@ -560,7 +1831,11 @@
       ],
       "raw_text": "DA Interview Question",
       "visual_description": "DA Interview Question이라는 큰 제목의 구분 슬라이드이다.",
-      "content": "고객 이탈 데이터를 바탕으로 EDA·FE 판단을 묻는 면접 문제 섹션의 시작이다."
+      "content": "고객 이탈 데이터를 바탕으로 EDA·FE 판단을 묻는 면접 문제 섹션의 시작이다.",
+      "page_role": "section_divider",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p36_01",
@@ -575,7 +1850,11 @@
       ],
       "raw_text": "DA INTERVIEW\n면접 문제지",
       "visual_description": "10만 고객 데이터의 5개 샘플 행과 구매·인구통계·이탈여부 열이 큰 표로 제시된다.",
-      "content": "마지막 구매 후 180일 이상 구매가 없으면 이탈로 정의한 쇼핑몰 데이터를 사용해 고객 이탈 예측을 위한 EDA와 FE 과정을 설명하는 문제이다."
+      "content": "마지막 구매 후 180일 이상 구매가 없으면 이탈로 정의한 쇼핑몰 데이터를 사용해 고객 이탈 예측을 위한 EDA와 FE 과정을 설명하는 문제이다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p37_01",
@@ -592,7 +1871,11 @@
       ],
       "raw_text": "DA INTERVIEW\n면접 문제지 - EDA\n\n\n\n\n  1. 기초 통계량 및 분포 확인\n\n 2. 결측치 파악\n\n 3. 이상치 탐지\n\n 4. 타겟변수(이탈여부) 분포 확인\n\n 5. 변수 간 관계 파악\n\n 6. 데이터의 맥락(도메인) 특이사항 확인",
       "visual_description": "상관행렬, 결측률 막대그래프, 금액 분포 그래프를 답안 목록 옆에 배치한다.",
-      "content": "기초 통계와 분포, 결측치, 이상치, 이탈 타깃 분포, 변수 관계, 도메인 특이사항을 순서대로 확인한다."
+      "content": "기초 통계와 분포, 결측치, 이상치, 이탈 타깃 분포, 변수 관계, 도메인 특이사항을 순서대로 확인한다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p38_01",
@@ -607,7 +1890,11 @@
       ],
       "raw_text": "DA INTERVIEW\n면접 문제지 - FE\n\n\n\n\n\n       이상치                           결측치\n\n   나이가 음숫값 → 데이터 분포의 중앙값/평균값으로 대    결측치가 발생한 이유 파악: 단순 누락, 쿠폰을 사용하지\n   체하거나 행을 제외함                         않음, 구매 이력 부실 등\n   월 방문 횟수 580회는 오류일 가능성이 높으므로 변수에    쿠폰 사용률은 0%로, 평군 구매 단가 결측치는 삭제 혹\n   상한선을 두거나 별도로 처리해야 함            은 연간 구매 금액과 월평균 방문 횟수 등을 고려해 대체\n                               할 수 있음\n                               결측치가 그 자체로서 의미를 가지는가?",
       "visual_description": "샘플 표에서 나이 -5와 방문 580은 빨간 테두리, 쿠폰·구매단가 결측은 파란 테두리로 표시된다.",
-      "content": "음수 나이와 월 580회 방문은 오류 가능성을 검토해 대체·제외·상한 처리한다. 결측 원인을 파악하고 쿠폰사용률은 0, 구매단가는 관련 변수로 대체하거나 삭제하며 결측 자체의 의미도 본다."
+      "content": "음수 나이와 월 580회 방문은 오류 가능성을 검토해 대체·제외·상한 처리한다. 결측 원인을 파악하고 쿠폰사용률은 0, 구매단가는 관련 변수로 대체하거나 삭제하며 결측 자체의 의미도 본다.",
+      "page_role": "core_content",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p39_01",
@@ -623,7 +1910,29 @@
       ],
       "raw_text": "DA INTERVIEW\n면접 문제지 - FE\n\n                         Target Leakage\n                 이탈 여부는 마지막 구매 이후 180일 이상 구매 이력이 없는 경우 ‘있음’으로 정의\n                 여기서 ‘마지막 구매 후 경과일’ 컬럼을 제거하지 않으면 Target Leakage 발생\n\n              범주형 변수 인코딩\n                       성별, 추천인코드 발급여부: 이진(0/1) 인코딩\n                    회원등급: 일반 - 실버 - 골드 -플래티넘의 순서 정보가 있으므로 순서형(Ordinal) 인\n                 코딩\n                    거주지역: One-hot encoding 사용, 차원이 지나치게 커지는 걸 방지하기 위해\n                     시/도 단위로 그룹화 후 인코딩 하는 걸 생각해볼 수 있음\n\n              파생변수 생성\n                 방문당 평균 구매단가, 쿠폰사용률과 반품횟수를 결합한 \"구매 신뢰도\" 지표 등\n\n              스케일링\n                    연간구매금액(단위: 만원)과 평균구매단가(단위: 원)처럼 스케일 차이가 큰 변수들은\n                              표준화(Standardization) 또는 정규화(Min-Max Scaling)를 적용한다.",
       "visual_description": "마지막 구매 후 경과일 열을 빨간 테두리로 강조하고 범주별 인코딩·파생변수·스케일링 전략을 설명한다.",
-      "content": "타깃 정의에 직접 쓰인 마지막 구매 후 경과일은 제거한다. 이진·순서형·원핫 인코딩을 변수 성격에 맞게 쓰고 구매 신뢰도 등 파생변수를 만들며 큰 스케일 차이를 조정한다."
+      "content": "타깃 정의에 직접 쓰인 마지막 구매 후 경과일은 제거한다. 이진·순서형·원핫 인코딩을 변수 성격에 맞게 쓰고 구매 신뢰도 등 파생변수를 만들며 큰 스케일 차이를 조정한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "data_leakage",
+        "label_encoding",
+        "one_hot_encoding",
+        "derived_feature",
+        "scaling"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p39_u01",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "이탈 정의에 직접 쓴 ‘마지막 구매 후 경과일’을 제거하지 않으면 Target Leakage",
+          "normalized_explanation": "타깃을 정의한 정보를 특성으로 그대로 주면 정답 누수가 발생한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "data_leakage"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p40_01",
@@ -638,7 +1947,27 @@
       ],
       "raw_text": "DA INTERVIEW\n면접 문제지 - Train-Test Contamination\n\n   분석가 A: 10만 개의 데이터를 9:1로 random split하고, 9만 개의 데이터를 train set으로 하여 예측 모델 생성\n   분석가 B: 동일한 데이터를 9.5:0.5로 random split한 후, 9.5만 개의 데이터를 train set으로 하여 예측 모델 생성\n    A의 Test set을 활용하여 A, B 두 모델을 평가했더니 B의 성능이 월등하게 높게 나왔다. 이 결과를 신뢰할 수 있는가?\n\n\n\n\n\n                   A와 B는 \"같은 10만명\"을 무작위로 나눈 것이기 때문에,\n              A의 test set(빨강)에 있던 데이터가 B의 train set(초록)에 들어갈 수 있다.",
       "visual_description": "A의 9:1 분할과 B의 9.5:0.5 분할에서 A test 고객 일부가 B train으로 이동하는 색상 블록 도식이 있다.",
-      "content": "동일 모집단을 서로 다르게 무작위 분할하면 A의 test 샘플이 B의 train에 포함될 수 있다. A test로 둘을 비교한 B의 성능은 데이터 오염 때문에 신뢰할 수 없다."
+      "content": "동일 모집단을 서로 다르게 무작위 분할하면 A의 test 샘플이 B의 train에 포함될 수 있다. A test로 둘을 비교한 B의 성능은 데이터 오염 때문에 신뢰할 수 없다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "train_test_contamination",
+        "data_leakage"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p40_u01",
+          "type": "example",
+          "source_type": "text_and_visual",
+          "source_excerpt": "A의 test set 데이터가 B의 train set에 들어갈 수 있어 A test로 두 모델을 비교한 결과를 신뢰할 수 없음",
+          "normalized_explanation": "공통 테스트 샘플이 비교 대상 모델의 훈련에 포함되면 훈련-테스트 오염으로 성능 비교가 무효해진다.",
+          "source_status": "verified",
+          "term_ids": [
+            "train_test_contamination",
+            "data_leakage"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p41_01",
@@ -656,7 +1985,33 @@
       ],
       "raw_text": "DA INTERVIEW\n면접 문제지 - Class Imbalance\n\n  모델의 정확도(Accuracy)가 88%니, 신뢰할 수 있는 모델이라고 말할 수 있는가?\n\n\n\n                                                        Accuracy = (100+8700)/10000 = 88%는 맞지만...\n                                 신뢰할 수 있는 모델이라고 이야기할 수는 없음\n\n\n\n 클래스 불균형(Class Imbalance)\n\n   실제 이탈 고객은 500명(5%), 비이탈 고객은 9500명(95%)으로 데이터가 심하게 불균형함.\n   이런 상황에서는 모든 고객을 \"이탈하지 않음\"으로 예측하는 더미 모델조차 정확도 95%를 기록함.\n   따라서 정확도 하나만으로는 이 모델이 실제로 유의미한 예측력을 갖는지 전혀 판단할 수 없다.\n\n → 클래스 불균형이 존재할 때 Accuracy는 좋은 평가 지표가 아니며,\n      Recall, Precision, F1-Score 등의 지표를 사용하여 모델을 평가해야 한다.",
       "visual_description": "이탈·비이탈 2×2 혼동행렬과 88% 정확도 계산, 5% 대 95% 클래스 비율이 함께 제시된다.",
-      "content": "이탈 고객이 5%인 상황에서 88% 정확도만으로 모델을 신뢰할 수 없다. 전부 비이탈로 예측해도 95%가 될 수 있으므로 재현율·정밀도·F1 등을 함께 평가한다."
+      "content": "이탈 고객이 5%인 상황에서 88% 정확도만으로 모델을 신뢰할 수 없다. 전부 비이탈로 예측해도 95%가 될 수 있으므로 재현율·정밀도·F1 등을 함께 평가한다.",
+      "page_role": "core_content",
+      "term_ids": [
+        "class_imbalance",
+        "accuracy",
+        "precision",
+        "recall",
+        "f1"
+      ],
+      "evidence_units": [
+        {
+          "unit_id": "eda_fe_p41_u01",
+          "type": "example",
+          "source_type": "text",
+          "source_excerpt": "이탈 5%인 불균형에서 모두 비이탈로 예측해도 95%; 88% accuracy만으로 신뢰 불가, Recall·Precision·F1 필요",
+          "normalized_explanation": "다수 클래스 비율보다 낮은 정확도도 나올 수 있으므로 정밀도·재현율·F1으로 소수 클래스 성능을 확인한다.",
+          "source_status": "verified",
+          "term_ids": [
+            "class_imbalance",
+            "accuracy",
+            "precision",
+            "recall",
+            "f1"
+          ]
+        }
+      ],
+      "source_issues": []
     },
     {
       "chunk_id": "eda_fe_p42_01",
@@ -670,7 +2025,11 @@
       ],
       "raw_text": "감사합니다!",
       "visual_description": "'감사합니다!'라는 큰 문구로 강의를 마무리한다.",
-      "content": "EDA와 특성공학 강의의 종료 페이지이다."
+      "content": "EDA와 특성공학 강의의 종료 페이지이다.",
+      "page_role": "closing",
+      "term_ids": [],
+      "evidence_units": [],
+      "source_issues": []
     }
   ]
 }

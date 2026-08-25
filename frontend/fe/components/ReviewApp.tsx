@@ -1,59 +1,43 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { getTranscriptionStatus, submitReview, transcribeAudio, type ReviewReport, type TranscriptionResult } from "@/lib/api";
+import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  createStudySession,
+  getTranscriptionStatus,
+  listLearningObjectives,
+  listStudySessions,
+  logout,
+  submitReview,
+  transcribeAudio,
+  type LearningObjective,
+  type ReviewReport,
+  type StudySessionSummary,
+  type TranscriptionResult,
+  type User,
+} from "@/lib/api";
+import ReviewDetail from "@/components/ReviewDetail";
+import { STT_SUPPORTED_TOPICS, TOPIC_TO_LECTURE_ID } from "@/lib/lectures";
 
-const topics = [
-  "기초통계",
-  "크롤링",
-  "EDA/FE",
-  "시각화",
-] as const;
+const topics = Object.keys(TOPIC_TO_LECTURE_ID) as Array<keyof typeof TOPIC_TO_LECTURE_ID>;
+const lectureIds = TOPIC_TO_LECTURE_ID;
 
 type Phase = "idle" | "countdown" | "recording" | "processing" | "completed";
 type ProcessStage = "idle" | "transcribing" | "correcting" | "evaluating" | "complete";
 
-type ScoreBreakdown = {
-  label: string;
-  score: number;
-  weight: number;
-  tone: "cyan" | "violet" | "amber";
-};
-
-const fallbackReport: ReviewReport = {
-  review_id: "review-demo-001",
-  session_id: "session-demo-001",
-  score: 86,
-  transcript: "기초통계에서는 모집단과 표본의 차이를 설명하고, 중심극한정리를 통해 추론의 근거를 제시했다.",
-  corrected_transcript:
-    "기초통계에서는 모집단과 표본의 차이를 설명하고, 중심극한정리를 통해 추론의 근거를 제시했다. 또한 데이터 분포를 확인해 분석 방향을 정리했다.",
-  quantitative: {
-    concept_recall: 0.72,
-    concept_precision: 0.84,
-    concept_f1: 0.77,
-    scores: {
-      accuracy: { score: 32, max_score: 40, rubric_level: 3, reason: "핵심 개념을 대체로 정확하게 설명했습니다." },
-      coverage: { score: 29, max_score: 40, rubric_level: 3, reason: "주요 주제를 다루었지만 일부 개념이 누락되었습니다." },
-      structural_understanding: { score: 14, max_score: 20, rubric_level: 3, reason: "개념 간 관계를 대체로 일관되게 설명했습니다." },
-    },
-    total: { score: 75, max_score: 100, rubric_level: 3, reason: "세 평가 영역을 종합한 Mock 결과입니다." },
-  },
-  qualitative: {
-    missing_concepts: ["세부 근거와 예시"],
-    incorrect_concepts: [],
-    misconnected_concepts: [],
-    review_suggestions: ["핵심 개념 사이의 관계를 한 문장씩 설명해 보세요."],
-  },
-  status: "mock",
-};
-
-export default function ReviewApp() {
+export default function ReviewApp({ user }: { user: User }) {
   const audioStreamRef = useRef<MediaStream | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const recordedBlobRef = useRef<Blob | null>(null);
+  const studySessionIdRef = useRef<string | null>(null);
 
   const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(topics[0]);
+  const [objectives, setObjectives] = useState<LearningObjective[]>([]);
+  const [isLoadingObjectives, setIsLoadingObjectives] = useState(false);
+  const [objectivesByLecture, setObjectivesByLecture] = useState<Record<string, LearningObjective[]>>({});
+  const [studySessions, setStudySessions] = useState<StudySessionSummary[]>([]);
+  const [selectedObjective, setSelectedObjective] = useState<LearningObjective | null>(null);
   const [phase, setPhase] = useState<Phase>("idle");
   const [processStage, setProcessStage] = useState<ProcessStage>("idle");
   const [countdown, setCountdown] = useState(3);
@@ -62,6 +46,21 @@ export default function ReviewApp() {
   const [statusText, setStatusText] = useState("주제를 선택하고 발표 녹음을 시작해보세요.");
   const [audioStream, setAudioStream] = useState<MediaStream | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const isSttSupported = STT_SUPPORTED_TOPICS.includes(selectedTopic as (typeof STT_SUPPORTED_TOPICS)[number]);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+      window.location.assign("/");
+    } catch (error) {
+      console.error("로그아웃 실패:", error);
+      setIsLoggingOut(false);
+      setStatusText("로그아웃에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    }
+  };
 
   useEffect(() => {
     return () => {
@@ -74,14 +73,74 @@ export default function ReviewApp() {
     };
   }, [audioUrl]);
 
+  useEffect(() => {
+    let cancelled = false;
+    setIsLoadingObjectives(true);
+    setObjectives([]);
+    setSelectedObjective(null);
+    setReport(null);
+    setProcessStage("idle");
+    listLearningObjectives(lectureIds[selectedTopic])
+      .then((result) => {
+        if (cancelled) return;
+        setObjectives(result);
+        setObjectivesByLecture((current) => ({ ...current, [lectureIds[selectedTopic]]: result }));
+        setSelectedObjective(result[0] ?? null);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setObjectives([]);
+        setSelectedObjective(null);
+        setStatusText("학습목표 목록을 불러오지 못했습니다.");
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoadingObjectives(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedTopic]);
+
+  const loadLearningProgress = useCallback(async () => {
+    const lectureEntries = Object.entries(lectureIds);
+    const [objectiveResults, sessions] = await Promise.all([
+      Promise.all(lectureEntries.map(([, lectureId]) => listLearningObjectives(lectureId))),
+      listStudySessions(),
+    ]);
+    setObjectivesByLecture(
+      Object.fromEntries(lectureEntries.map(([, lectureId], index) => [lectureId, objectiveResults[index]])),
+    );
+    setStudySessions(sessions);
+  }, []);
+
+  useEffect(() => {
+    void loadLearningProgress().catch((error) => {
+      console.error("학습 진행 현황 조회 실패:", error);
+    });
+  }, [loadLearningProgress]);
+
   const startCountdown = async () => {
+    if (!isSttSupported) {
+      setStatusText("이 주제는 아직 STT 용어 DB가 준비되지 않아 녹음을 시작할 수 없습니다.");
+      return;
+    }
     if (!navigator.mediaDevices?.getUserMedia) {
       setStatusText("브라우저가 미디어 권한을 지원하지 않습니다.");
+      return;
+    }
+    if (isLoadingObjectives || !selectedObjective) {
+      setStatusText("학습목표를 선택해 주세요.");
+      return;
+    }
+    if (!objectives.some((objective) => objective.learning_objective_id === selectedObjective.learning_objective_id)) {
+      setStatusText("선택한 주제의 학습목표를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.");
       return;
     }
 
     try {
       const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const studySession = await createStudySession(lectureIds[selectedTopic], selectedObjective.learning_objective_id);
+      studySessionIdRef.current = studySession.id;
       const recorder = new MediaRecorder(audioStream);
       audioStreamRef.current = audioStream;
       setAudioStream(audioStream);
@@ -127,19 +186,20 @@ export default function ReviewApp() {
           return;
         }
       }, 3500);
-    } catch {
-      setStatusText("마이크 권한을 허용해 주세요.");
+    } catch (error) {
+      console.error("녹음 준비 실패:", error);
+      setStatusText("마이크 권한을 허용하거나 잠시 후 다시 시도해 주세요.");
     }
   };
 
   const submitRecording = async () => {
-    if (!recorderRef.current) return;
+    if (!recorderRef.current || !selectedObjective || !studySessionIdRef.current) return;
 
     setPhase("processing");
     setProcessStage("transcribing");
     setStatusText("STT 전사 중입니다...");
     setIsSubmitting(true);
-    const sessionId = `session-${Date.now()}`;
+    const sessionId = studySessionIdRef.current;
 
     try {
       const recorder = recorderRef.current;
@@ -157,17 +217,24 @@ export default function ReviewApp() {
       );
       const transcription = await waitForTranscription(job.job_id);
       setProcessStage("evaluating");
-      setStatusText("RAG 모델 기반 평가 중입니다...");
-      const response = await submitReview(transcription);
+      setStatusText("Rubric 기반 평가 중입니다...");
+      const response = await submitReview({
+        ...transcription,
+        lecture_id: lectureIds[selectedTopic],
+        objective_id: selectedObjective.objective_id,
+      });
 
       setReport(response);
       setStatusText("평가 완료. 결과를 확인해보세요.");
       setProcessStage("complete");
       setPhase("completed");
+      void loadLearningProgress().catch((error) => {
+        console.error("학습 진행 현황 갱신 실패:", error);
+      });
     } catch (error) {
       console.error("STT 또는 BE 요청 실패:", error);
       setReport(null);
-      setStatusText("STT 또는 RAG 평가 연결에 실패했습니다. 백엔드 로그를 확인해 주세요.");
+      setStatusText("STT 또는 Rubric 평가 연결에 실패했습니다. 백엔드 로그를 확인해 주세요.");
       setProcessStage("idle");
       setPhase("idle");
     } finally {
@@ -202,25 +269,67 @@ export default function ReviewApp() {
     }
   };
 
-  const scoreBreakdown: ScoreBreakdown[] = report
-    ? [
-        { label: "정확도", score: report.quantitative.scores.accuracy.score, weight: 40, tone: "cyan" },
-        { label: "충족도", score: report.quantitative.scores.coverage.score, weight: 40, tone: "amber" },
-        { label: "구조적 이해도", score: report.quantitative.scores.structural_understanding.score, weight: 20, tone: "violet" },
-      ]
-    : [
-        { label: "정확도", score: 32, weight: 40, tone: "cyan" },
-        { label: "충족도", score: 29, weight: 40, tone: "amber" },
-        { label: "구조적 이해도", score: 14, weight: 20, tone: "violet" },
-      ];
-
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main
+      className="min-h-screen bg-slate-950 text-white"
+      onClickCapture={(event) => {
+        if (isSubmitting) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }}
+    >
       <div className="mx-auto max-w-7xl px-6 py-8">
         <header className="mb-8 flex items-center justify-between gap-4">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">YBIGTA AI REVIEW</p>
-            <h1 className="mt-2 text-3xl font-bold">구술 복습 서비스</h1>
+            <p className="text-sm font-semibold text-cyan-300">YBIGTA 29th - AI 구술 복습 서비스</p>
+            <h1 className="mt-2 text-3xl font-bold">오늘은 어떤 내용을 복습해볼까요?</h1>
+          </div>
+          <div className="relative flex items-center gap-3">
+            <Link
+              href="/history"
+              className="rounded-lg border border-slate-700 bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-slate-500"
+            >
+              학습 기록 보기
+            </Link>
+            <button
+              type="button"
+              aria-expanded={isProfileOpen}
+              aria-haspopup="menu"
+              onClick={() => setIsProfileOpen((open) => !open)}
+              className="flex max-w-[220px] items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-2 py-1.5 text-left transition hover:border-cyan-400/60"
+            >
+              {user.profile_image_url ? (
+                <img
+                  src={user.profile_image_url}
+                  alt=""
+                  className="h-8 w-8 rounded-full object-cover"
+                />
+              ) : (
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cyan-400 font-semibold text-slate-950">
+                  {(user.nickname || "U").slice(0, 1).toUpperCase()}
+                </span>
+              )}
+              <span className="truncate pr-2 text-sm font-medium text-slate-200">
+                {user.nickname || "사용자"}
+              </span>
+            </button>
+            {isProfileOpen && (
+              <div
+                role="menu"
+                className="absolute right-0 top-full z-20 mt-2 w-44 rounded-2xl border border-slate-700 bg-slate-900 p-2 shadow-xl shadow-slate-950/50"
+              >
+                <button
+                  type="button"
+                  role="menuitem"
+                  disabled={isLoggingOut}
+                  onClick={() => void handleLogout()}
+                  className="w-full rounded-xl px-3 py-2 text-left text-sm text-slate-200 transition hover:bg-rose-400/10 hover:text-rose-200 disabled:opacity-50"
+                >
+                  {isLoggingOut ? "로그아웃 중..." : "로그아웃하기"}
+                </button>
+              </div>
+            )}
           </div>
         </header>
 
@@ -239,7 +348,6 @@ export default function ReviewApp() {
             >
               <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-300">Audio visualizer</p>
                   <p className="mt-1 text-sm text-slate-400">
                     {phase === "recording" ? "음성을 녹음하고 있습니다" : "녹음 준비가 되면 시작하세요"}
                   </p>
@@ -257,26 +365,51 @@ export default function ReviewApp() {
               )}
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {topics.map((topic) => (
-                <button
+                <TopicBattery
                   key={topic}
-                  onClick={() => setSelectedTopic(topic)}
-                  className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
-                    selectedTopic === topic
-                      ? "border-cyan-400 bg-cyan-400 text-slate-950"
-                      : "border-slate-700 bg-slate-800 text-slate-200 hover:border-slate-500"
-                  }`}
-                >
-                  {topic}
-                </button>
+                  topic={topic}
+                  lectureId={lectureIds[topic]}
+                  objectives={objectivesByLecture[lectureIds[topic]] ?? []}
+                  sessions={studySessions}
+                  selected={selectedTopic === topic}
+                  onSelect={() => setSelectedTopic(topic)}
+                />
               ))}
+            </div>
+
+            <div className="mt-4">
+              <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="learning-objective">
+                상위 학습목표
+              </label>
+              <select
+                id="learning-objective"
+                value={selectedObjective?.learning_objective_id ?? ""}
+                onChange={(event) => {
+                  setSelectedObjective(
+                    objectives.find((objective) => objective.learning_objective_id === event.target.value) ?? null,
+                  );
+                }}
+                disabled={objectives.length === 0}
+                className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-violet-400 disabled:cursor-not-allowed disabled:text-slate-500"
+              >
+                {objectives.length === 0 ? (
+                  <option value="">학습목표를 불러오는 중입니다...</option>
+                ) : (
+                  objectives.map((objective) => (
+                    <option key={objective.learning_objective_id} value={objective.learning_objective_id}>
+                      {objective.title}
+                    </option>
+                  ))
+                )}
+              </select>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <button
                 onClick={startCountdown}
-                disabled={phase === "recording" || phase === "processing"}
+                disabled={phase === "recording" || phase === "processing" || !selectedObjective || !isSttSupported}
                 className="rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 발표 녹음 시작
@@ -310,6 +443,10 @@ export default function ReviewApp() {
                 현재 선택 주제
               </h3>
               <p className="text-2xl font-bold text-white">{selectedTopic}</p>
+              <p className="mt-2 text-sm text-violet-200">{selectedObjective?.title ?? ""}</p>
+              {!isSttSupported && (
+                <p className="mt-3 text-xs text-amber-300">STT 용어 DB 준비 전</p>
+              )}
             </div>
 
             <ProcessPanel stage={processStage} />
@@ -318,75 +455,80 @@ export default function ReviewApp() {
 
         {report && (
           <section className="mt-8 rounded-3xl border border-slate-800 bg-slate-900 p-6">
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">Result Report</p>
-                <h2 className="mt-2 text-2xl font-bold">총점 {report.score}점</h2>
-              </div>
-              <div className="rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-200">
-                {report.status.toUpperCase()}
-              </div>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              {scoreBreakdown.map((item) => (
-                <MetricCard
-                  key={item.label}
-                  label={item.label}
-                  value={item.score}
-                  weight={item.weight}
-                  tone={item.tone}
-                />
-              ))}
-            </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-2">
-              <TranscriptPanel
-                title="원본 전사문"
-                description="Whisper가 음성에서 변환한 원본 텍스트입니다."
-                transcript={report.transcript}
-                tone="cyan"
-              />
-              <TranscriptPanel
-                title="보정 전사문"
-                description="전문용어와 문장 표현을 2차 보정한 텍스트입니다."
-                transcript={report.corrected_transcript}
-                tone="violet"
-              />
-            </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-2">
-              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-                <h3 className="mb-3 text-lg font-semibold text-cyan-300">정량 지표</h3>
-                <dl className="space-y-3 text-sm">
-                  <div className="flex justify-between"><dt>Concept Precision</dt><dd>{report.quantitative.concept_precision.toFixed(2)}</dd></div>
-                  <div className="flex justify-between"><dt>Concept Recall</dt><dd>{report.quantitative.concept_recall.toFixed(2)}</dd></div>
-                  <div className="flex justify-between"><dt>Concept F1</dt><dd>{report.quantitative.concept_f1.toFixed(2)}</dd></div>
-                </dl>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-                <h3 className="mb-3 text-lg font-semibold text-emerald-300">평가 근거</h3>
-                <div className="space-y-3 text-sm leading-6 text-slate-300">
-                  <div><strong className="text-slate-100">정확도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.accuracy.reason}</p></div>
-                  <div><strong className="text-slate-100">충족도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.coverage.reason}</p></div>
-                  <div><strong className="text-slate-100">구조적 이해도</strong><p className="mt-1 whitespace-pre-line">{report.quantitative.scores.structural_understanding.reason}</p></div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <FeedbackPanel title="누락된 개념" items={report.qualitative.missing_concepts} tone="amber" />
-              <FeedbackPanel title="잘못 설명한 개념" items={report.qualitative.incorrect_concepts} tone="rose" />
-              <FeedbackPanel title="잘못 연결한 개념" items={report.qualitative.misconnected_concepts} tone="violet" />
-            </div>
-            <div className="mt-6">
-              <FeedbackPanel title="복습 방향" items={report.qualitative.review_suggestions} tone="emerald" />
-            </div>
+            <p className="mb-6 text-sm uppercase tracking-[0.2em] text-emerald-300">Result Report</p>
+            <ReviewDetail
+              data={{
+                score: report.score,
+                passStatus: report.pass_status,
+                essential: report.quantitative.scores.essential,
+                supporting: report.quantitative.scores.supporting,
+                coverage: report.quantitative.scores.coverage,
+                segments: report.segments,
+                claims: report.claims,
+                qualitative: report.qualitative,
+              }}
+            />
           </section>
         )}
       </div>
     </main>
+  );
+}
+
+type TopicBatteryProps = {
+  topic: string;
+  lectureId: string;
+  objectives: LearningObjective[];
+  sessions: StudySessionSummary[];
+  selected: boolean;
+  onSelect: () => void;
+};
+
+function TopicBattery({ topic, lectureId, objectives, sessions, selected, onSelect }: TopicBatteryProps) {
+  const statusByObjective = new Map<string, "passed" | "not-passed" | "unstarted">();
+
+  for (const objective of objectives) {
+    const attempts = sessions.filter(
+      (session) => session.lecture_id === lectureId
+        && session.learning_objective_id === objective.learning_objective_id
+        && session.status === "completed",
+    );
+    statusByObjective.set(
+      objective.learning_objective_id,
+      attempts.some((session) => session.pass_status === "P")
+        ? "passed"
+        : attempts.some((session) => session.pass_status === "NP")
+          ? "not-passed"
+          : "unstarted",
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-pressed={selected}
+      className={`rounded-2xl border p-4 text-left transition ${
+        selected
+          ? "border-cyan-400 bg-cyan-400/10"
+          : "border-slate-700 bg-slate-800/80 hover:border-slate-500"
+      }`}
+    >
+      <span className="block text-sm font-semibold text-slate-100">{topic}</span>
+      <span className="mt-1 block text-xs text-slate-400">상위 목표 {objectives.length || "-"}개</span>
+      <span className="mt-3 flex h-3 gap-1" aria-label={`${topic} 학습 진행도`}>
+        {objectives.map((objective) => {
+          const progress = statusByObjective.get(objective.learning_objective_id) ?? "unstarted";
+          const color = progress === "passed"
+            ? "bg-emerald-400"
+            : progress === "not-passed"
+              ? "bg-rose-400"
+              : "bg-slate-600";
+          return <span key={objective.learning_objective_id} className={`min-w-0 flex-1 rounded-sm ${color}`} />;
+        })}
+        {objectives.length === 0 && <span className="w-full rounded-sm bg-slate-700" />}
+      </span>
+    </button>
   );
 }
 
@@ -402,6 +544,7 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
     const analyser = audioContext.createAnalyser();
     const source = audioContext.createMediaStreamSource(stream);
     let animationFrame = 0;
+    let displayedAmplitude = 0;
 
     analyser.fftSize = 256;
     analyser.smoothingTimeConstant = 0.72;
@@ -416,10 +559,10 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
         context.fillStyle = "#020617";
         context.fillRect(0, 0, width, height);
         analyser.getByteTimeDomainData(values);
-        // Render the recent time-domain samples from left to right. This makes
-        // both ends respond to the microphone instead of mapping frequency
-        // bins to the horizontal position.
-        const barCount = 96;
+        // Render a calm, vertically symmetric waveform around the center line.
+        // Smoothing prevents individual microphone samples from making the
+        // visualizer jump too aggressively.
+        const barCount = 64;
         const barWidth = width / barCount;
 
         for (let index = 0; index < barCount; index += 1) {
@@ -434,9 +577,8 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
             energy += normalized * normalized;
           }
           const amplitude = Math.sqrt(energy / (end - start));
-          // Keep a visible bar in every horizontal slot while preserving the
-          // relative movement of quiet and loud portions of the input.
-          const barHeight = Math.min(height * 0.86, 12 + amplitude * height * 1.8);
+          displayedAmplitude = displayedAmplitude * 0.82 + amplitude * 0.18;
+          const barHeight = Math.min(height * 0.78, 4 + displayedAmplitude * height * 1.45);
           const gradient = context.createLinearGradient(0, height / 2, 0, height / 2 - barHeight / 2);
           gradient.addColorStop(0, active ? "#fb7185" : "#22d3ee");
           gradient.addColorStop(1, active ? "#fda4af" : "#a5f3fc");
@@ -476,7 +618,7 @@ function ProcessPanel({ stage }: { stage: ProcessStage }) {
   const steps: Array<{ key: Exclude<ProcessStage, "idle">; label: string }> = [
     { key: "transcribing", label: "STT 전사 중" },
     { key: "correcting", label: "LLM이 보정 중입니다" },
-    { key: "evaluating", label: "RAG 모델 기반 평가 중" },
+    { key: "evaluating", label: "Rubric 기반 평가 중" },
   ];
   const activeIndex = stage === "idle" ? -1 : stage === "complete" ? steps.length : steps.findIndex((step) => step.key === stage);
 
@@ -508,91 +650,6 @@ function ProcessPanel({ stage }: { stage: ProcessStage }) {
           );
         })}
       </ol>
-    </div>
-  );
-}
-
-function TranscriptPanel({
-  title,
-  description,
-  transcript,
-  tone,
-}: {
-  title: string;
-  description: string;
-  transcript: string;
-  tone: "cyan" | "violet";
-}) {
-  const titleColor = tone === "cyan" ? "text-cyan-300" : "text-violet-300";
-
-  return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-      <h3 className={`text-lg font-semibold ${titleColor}`}>{title}</h3>
-      <p className="mt-1 text-xs text-slate-500">{description}</p>
-      <p className="mt-4 max-h-56 overflow-y-auto whitespace-pre-wrap text-sm leading-7 text-slate-200">
-        {transcript || "전사 결과가 없습니다."}
-      </p>
-    </div>
-  );
-}
-
-function MetricCard({
-  label,
-  value,
-  weight,
-  tone,
-}: {
-  label: string;
-  value: number | string;
-  weight?: number;
-  tone: "cyan" | "violet" | "amber" | "rose";
-}) {
-  const colorMap = {
-    cyan: "border-cyan-400/30 bg-cyan-500/10 text-cyan-200",
-    violet: "border-violet-400/30 bg-violet-500/10 text-violet-200",
-    amber: "border-amber-400/30 bg-amber-500/10 text-amber-200",
-    rose: "border-rose-400/30 bg-rose-500/10 text-rose-200",
-  };
-
-  return (
-    <div className={`rounded-2xl border p-4 ${colorMap[tone]}`}>
-      <div className="flex items-center justify-between gap-2">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate-300">{label}</p>
-        {weight ? <span className="text-[10px] text-slate-300">가중치 {weight}</span> : null}
-      </div>
-      <p className="mt-3 text-2xl font-bold">{value}</p>
-    </div>
-  );
-}
-
-function FeedbackPanel({
-  title,
-  items,
-  tone,
-}: {
-  title: string;
-  items: string[];
-  tone: "emerald" | "amber" | "violet" | "rose";
-}) {
-  const colorMap = {
-    emerald: "border-emerald-400/30 bg-emerald-500/5 text-emerald-100",
-    amber: "border-amber-400/30 bg-amber-500/5 text-amber-100",
-    violet: "border-violet-400/30 bg-violet-500/5 text-violet-100",
-    rose: "border-rose-400/30 bg-rose-500/5 text-rose-100",
-  };
-
-  return (
-    <div className={`rounded-2xl border p-5 ${colorMap[tone]}`}>
-      <h3 className="mb-4 text-lg font-semibold">{title}</h3>
-      <ul className="space-y-3 text-sm leading-6 text-slate-200">
-        {items.length === 0 && <li className="text-slate-400">해당 항목이 발견되지 않았습니다.</li>}
-        {items.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span className="mt-1 h-2 w-2 rounded-full bg-current" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

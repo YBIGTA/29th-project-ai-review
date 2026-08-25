@@ -32,12 +32,74 @@ LECTURES: dict[str, LectureConfig] = {
     "eda_fe": LectureConfig(
         lecture_id="eda_fe",
         lecture_name="EDA / FE",
-        source_names=("eda_fe.pdf", "EDA&FE.pdf", "EDA_FE.pdf"),
+        source_names=("eda_fe.pdf", "EDA&FE.pdf", "EDA_FE.pdf", "EDA:FE.pdf"),
     ),
     "visualization": LectureConfig(
         lecture_id="visualization",
         lecture_name="시각화",
         source_names=("visualization.pdf", "시각화.pdf"),
+    ),
+    "cs_basics": LectureConfig(
+        lecture_id="cs_basics",
+        lecture_name="CS 기초",
+        source_names=("cs_basics.pdf", "CS기초.pdf", "CS_기초.pdf", "CS.pdf"),
+    ),
+    "git": LectureConfig(
+        lecture_id="git",
+        lecture_name="Git",
+        source_names=("git.pdf", "Git.pdf"),
+    ),
+    "python_environment": LectureConfig(
+        lecture_id="python_environment",
+        lecture_name="Python / 개발환경",
+        source_names=("python_environment.pdf", "Python개발환경.pdf", "Python_개발환경.pdf"),
+    ),
+    "web": LectureConfig(
+        lecture_id="web", lecture_name="Web", source_names=("web.pdf", "Web.pdf"),
+    ),
+    "network_basics": LectureConfig(
+        lecture_id="network_basics", lecture_name="네트워크 기초",
+        source_names=("network_basics.pdf", "네트워크 기초.pdf", "네트워크기초.pdf"),
+    ),
+    "machine_learning": LectureConfig(
+        lecture_id="machine_learning", lecture_name="Machine Learning",
+        source_names=("machine_learning.pdf", "ML.pdf"),
+    ),
+    "deep_learning": LectureConfig(
+        lecture_id="deep_learning", lecture_name="Deep Learning",
+        source_names=("deep_learning.pdf", "DL.pdf"),
+    ),
+    "computer_vision": LectureConfig(
+        lecture_id="computer_vision", lecture_name="Computer Vision",
+        source_names=("computer_vision.pdf", "CV.pdf"),
+    ),
+    "nlp": LectureConfig(
+        lecture_id="nlp", lecture_name="Natural Language Processing",
+        source_names=("nlp.pdf", "NLP.pdf"),
+    ),
+    "docker": LectureConfig(
+        lecture_id="docker", lecture_name="Docker",
+        source_names=("docker.pdf", "Docker.pdf"),
+    ),
+    "llm": LectureConfig(
+        lecture_id="llm", lecture_name="Large Language Models",
+        source_names=("llm.pdf", "LLM.pdf"),
+    ),
+    "aws": LectureConfig(
+        lecture_id="aws", lecture_name="AWS",
+        source_names=("aws.pdf", "AWS.pdf"),
+    ),
+    "db": LectureConfig(
+        lecture_id="db", lecture_name="Database",
+        source_names=("db.pdf", "DB.pdf"),
+    ),
+    "ai_agent": LectureConfig(
+        lecture_id="ai_agent", lecture_name="AI Agent",
+        source_names=("ai_agent.pdf", "AI AGENT.pdf", "AI_AGENT.pdf"),
+    ),
+    "rag": LectureConfig(
+        lecture_id="rag", lecture_name="Retrieval-Augmented Generation",
+        source_names=("rag.pdf", "RAG.pdf"),
     ),
 }
 
@@ -49,16 +111,10 @@ class Settings:
     legacy_data_dir: Path
     processed_dir: Path
     cache_dir: Path
-    core_concepts_dir: Path
     logs_dir: Path
-    vector_db_path: Path
-    collection_name: str
     openai_api_key: str | None
     llm_model: str
-    embedding_model: str
-    top_k: int
     max_retries: int
-    embedding_batch_size: int
     max_page_chars: int
     page_render_dpi: int
     vision_detail: str
@@ -72,28 +128,16 @@ class Settings:
                 "OPENAI_API_KEY가 없습니다. project/.env에 설정한 뒤 다시 실행하세요."
             )
 
-        vector_path = Path(os.getenv("VECTOR_DB_PATH", "./vector_db"))
-        if not vector_path.is_absolute():
-            vector_path = PROJECT_ROOT / vector_path
-
         return cls(
             project_root=PROJECT_ROOT,
             raw_data_dir=PROJECT_ROOT / "data" / "raw",
             legacy_data_dir=PROJECT_ROOT / "data",
             processed_dir=PROJECT_ROOT / "data" / "processed",
             cache_dir=PROJECT_ROOT / "outputs" / "cache",
-            core_concepts_dir=PROJECT_ROOT / "outputs" / "core_concepts",
             logs_dir=PROJECT_ROOT / "outputs" / "logs",
-            vector_db_path=vector_path,
-            collection_name=os.getenv("CHROMA_COLLECTION", "lecture_chunks"),
             openai_api_key=api_key,
             llm_model=os.getenv("LLM_MODEL", "gpt-5.6-luna"),
-            embedding_model=os.getenv(
-                "EMBEDDING_MODEL", "text-embedding-3-small"
-            ),
-            top_k=_positive_int("TOP_K", 5),
             max_retries=_positive_int("MAX_RETRIES", 3),
-            embedding_batch_size=_positive_int("EMBEDDING_BATCH_SIZE", 64),
             max_page_chars=_positive_int("MAX_PAGE_CHARS", 16_000),
             page_render_dpi=_positive_int("PAGE_RENDER_DPI", 160),
             vision_detail=_vision_detail(),
@@ -104,9 +148,7 @@ class Settings:
             self.raw_data_dir,
             self.processed_dir,
             self.cache_dir,
-            self.core_concepts_dir,
             self.logs_dir,
-            self.vector_db_path,
         ):
             path.mkdir(parents=True, exist_ok=True)
 
@@ -134,7 +176,11 @@ def _normalized(value: str) -> str:
 
 
 def resolve_pdf_path(settings: Settings, lecture: LectureConfig) -> Path:
-    search_dirs = (settings.raw_data_dir, settings.legacy_data_dir)
+    search_dirs = (
+        settings.raw_data_dir,
+        settings.project_root / "data" / "pdfs",
+        settings.legacy_data_dir,
+    )
     expected = {_normalized(name) for name in lecture.source_names}
     for directory in search_dirs:
         if not directory.exists():

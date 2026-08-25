@@ -1,0 +1,1065 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "network_basics",
+  "lecture_name": "네트워크 기초",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "network.foundations",
+      "title": "네트워크와 패킷 통신",
+      "selection_description": "구성요소·범위·패킷 교환·계층화를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "network.foundation.components",
+          "title": "네트워크 구성요소",
+          "summary": "호스트·장비·링크·메시지를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "net.definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "컴퓨터 네트워크는 여러 장치가 링크로 연결되어 정보를 주고받는 통신망이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "network_basics_p4_01",
+                  "unit_id": "net_p4",
+                  "source_excerpt": "여러 장치가 그물처럼 연결 / 호스트·네트워크 장비·통신 매체·메세지",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "network",
+                "host",
+                "node",
+                "link",
+                "message"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "컴퓨터 네트워크는 여러 장치가 링크로 연결되어 정보를 주고받는 통신망이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "net.components",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "가장자리 host는 데이터를 만들고 소비하며 중간 network device는 전달하고 link는 노드를 연결하며 message는 교환 정보다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "network_basics_p4_01",
+                  "unit_id": "net_p4",
+                  "source_excerpt": "여러 장치가 그물처럼 연결 / 호스트·네트워크 장비·통신 매체·메세지",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "network",
+                "host",
+                "node",
+                "link",
+                "message"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "가장자리 host는 데이터를 만들고 소비하며 중간 network device는 전달하고 link는 노드를 연결하며 message는 교환 정보다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.foundation.scope",
+          "title": "LAN과 WAN",
+          "summary": "범위와 관리 주체를 비교한다.",
+          "claims": [
+            {
+              "claim_id": "net.lan_wan",
+              "role": "essential",
+              "category": "connection_comparison",
+              "text": "LAN은 가정·기업·학교처럼 가까운 범위를, WAN은 먼 지역의 여러 네트워크를 연결한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "network_basics_p5_01",
+                  "unit_id": "net_p5",
+                  "source_excerpt": "LAN: 가까운 지역·개발자 관리 / WAN: 먼 지역·ISP 관리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "lan",
+                "wan",
+                "isp"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LAN은 가정·기업·학교처럼 가까운 범위를, WAN은 먼 지역의 여러 네트워크를 연결한다."
+                ],
+                "critical_errors": [
+                  "LAN과 WAN의 범위와 관리 주체를 완전히 뒤바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.lan_management",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "LAN은 일반적으로 조직·개발자가 관리할 수 있는 규모이고 WAN은 ISP가 운영하는 광역 인프라를 이용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "network_basics_p5_01",
+                  "unit_id": "net_p5",
+                  "source_excerpt": "LAN: 가까운 지역·개발자 관리 / WAN: 먼 지역·ISP 관리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "lan",
+                "wan",
+                "isp"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LAN은 일반적으로 조직·개발자가 관리할 수 있는 규모이고 WAN은 ISP가 운영하는 광역 인프라를 이용한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.foundation.packet",
+          "title": "패킷 교환",
+          "summary": "분할 전송과 중간 장비를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "net.packet_switching",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "패킷 교환은 메시지를 작은 packet으로 나누어 각 패킷을 네트워크로 송수신한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "network_basics_p6_01",
+                  "unit_id": "net_p6",
+                  "source_excerpt": "메세지를 패킷으로 쪼개 송수신 / 라우터·스위치가 경로·송수신지 식별",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "packet",
+                "packet_switching",
+                "router",
+                "switch"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "패킷 교환은 메시지를 작은 packet으로 나누어 각 패킷을 네트워크로 송수신한다."
+                ],
+                "critical_errors": [
+                  "패킷 교환은 전체 메시지가 하나의 고정 회선을 독점해야만 전송된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.switches",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "router와 switch 같은 packet switch는 목적지를 식별하고 적절한 전달 경로를 결정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "network_basics_p6_01",
+                  "unit_id": "net_p6",
+                  "source_excerpt": "메세지를 패킷으로 쪼개 송수신 / 라우터·스위치가 경로·송수신지 식별",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "packet",
+                "packet_switching",
+                "router",
+                "switch"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "router와 switch 같은 packet switch는 목적지를 식별하고 적절한 전달 경로를 결정한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "net.layering",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "네트워크 참조 모델은 통신 과정을 계층으로 나눠 설계·구현과 문제 진단을 쉽게 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "network_basics_p7_01",
+                  "unit_id": "net_p7",
+                  "source_excerpt": "통신 과정을 계층으로 나누면 구성·설계·문제 진단과 해결이 용이",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "reference_model",
+                "layer"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "네트워크 참조 모델은 통신 과정을 계층으로 나눠 설계·구현과 문제 진단을 쉽게 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "network.ip_transport",
+      "title": "IP·NAT와 전송 프로토콜",
+      "selection_description": "주소·포트·NAT·TCP/UDP를 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "network.ip.protocol",
+          "title": "프로토콜과 주소",
+          "summary": "IP·ARP·IPv4·IPv6를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "net.protocol",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "프로토콜은 노드 간 정보를 올바르게 주고받기 위해 합의한 규칙과 방법이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "network_basics_p9_01",
+                  "unit_id": "net_p9",
+                  "source_excerpt": "프로토콜은 합의된 규칙 / IP는 패킷 전달 / ARP는 IP 주소를 MAC 주소로 대응",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "protocol",
+                "ip",
+                "arp",
+                "ip_address",
+                "mac_address"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "프로토콜은 노드 간 정보를 올바르게 주고받기 위해 합의한 규칙과 방법이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "net.ip_arp",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "IP는 패킷을 수신지까지 전달하고 ARP는 같은 네트워크에서 IP 주소를 MAC 주소에 대응시킨다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "network_basics_p9_01",
+                  "unit_id": "net_p9",
+                  "source_excerpt": "프로토콜은 합의된 규칙 / IP는 패킷 전달 / ARP는 IP 주소를 MAC 주소로 대응",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "protocol",
+                "ip",
+                "arp",
+                "ip_address",
+                "mac_address"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "IP는 패킷을 수신지까지 전달하고 ARP는 같은 네트워크에서 IP 주소를 MAC 주소에 대응시킨다."
+                ],
+                "critical_errors": [
+                  "ARP가 도메인 이름을 IP 주소로 변환한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.ip_versions",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "IPv4는 주소 수 제한이 있고 IPv6는 주소 부족을 해결하기 위해 등장했으며 현재 함께 사용된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "network_basics_p10_01",
+                  "unit_id": "net_p10",
+                  "source_excerpt": "IP 주소는 네트워크 고유 주소 / Port는 애플리케이션 프로세스 식별 / IPv4 고갈·IPv6",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ip_address",
+                "ipv4",
+                "ipv6",
+                "port"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "IPv4는 주소 수 제한이 있고 IPv6는 주소 부족을 해결하기 위해 등장했으며 현재 함께 사용된다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.ip.addressing",
+          "title": "IP·Port·NAT",
+          "summary": "호스트·프로세스 주소와 변환을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "net.ip_port",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "IP 주소는 네트워크의 호스트를, port는 그 호스트 안에서 통신할 애플리케이션 프로세스를 식별한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "network_basics_p10_01",
+                  "unit_id": "net_p10",
+                  "source_excerpt": "IP 주소는 네트워크 고유 주소 / Port는 애플리케이션 프로세스 식별 / IPv4 고갈·IPv6",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ip_address",
+                "ipv4",
+                "ipv6",
+                "port"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "IP 주소는 네트워크의 호스트를, port는 그 호스트 안에서 통신할 애플리케이션 프로세스를 식별한다."
+                ],
+                "critical_errors": [
+                  "포트가 인터넷에서 컴퓨터 자체를 유일하게 식별하는 주소라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.nat",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "NAT는 내부 사설 IP와 외부 공인 IP를 변환해 제한된 IPv4 공인 주소를 여러 기기가 공유하게 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "network_basics_p11_01",
+                  "unit_id": "net_p11",
+                  "source_excerpt": "사설 IP를 외부 통신 시 공인 IP로 변환 / IPv4 주소 고갈",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "nat",
+                "private_ip",
+                "public_ip",
+                "ipv4"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "NAT는 내부 사설 IP와 외부 공인 IP를 변환해 제한된 IPv4 공인 주소를 여러 기기가 공유하게 한다."
+                ],
+                "critical_errors": [
+                  "NAT가 사설 IP를 인터넷에서 직접 전역 라우팅 가능하게 만든다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.private_public",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "사설 IP는 내부 네트워크에서 쓰여 인터넷에서 직접 접근할 수 없고 공인 IP는 인터넷에서 식별된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "network_basics_p11_01",
+                  "unit_id": "net_p11",
+                  "source_excerpt": "사설 IP를 외부 통신 시 공인 IP로 변환 / IPv4 주소 고갈",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "nat",
+                "private_ip",
+                "public_ip",
+                "ipv4"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "사설 IP는 내부 네트워크에서 쓰여 인터넷에서 직접 접근할 수 없고 공인 IP는 인터넷에서 식별된다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "net.port_forwarding",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "포트 포워딩은 외부의 특정 IP·port로 온 패킷을 미리 정한 내부 host·port로 전달한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "network_basics_p13_01",
+                  "unit_id": "net_p13",
+                  "source_excerpt": "특정 호스트에 IP 주소와 포트 번호를 할당하고 해당 호스트에게 패킷 전달",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "port_forwarding",
+                "host",
+                "port",
+                "packet"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "포트 포워딩은 외부의 특정 IP·port로 온 패킷을 미리 정한 내부 host·port로 전달한다."
+                ],
+                "critical_errors": [
+                  "포트 포워딩과 NAT가 모든 내부 호스트를 같은 목적지로 무조건 전달한다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.ip.transport",
+          "title": "TCP와 UDP",
+          "summary": "신뢰성과 속도 trade-off를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "net.tcp_udp",
+              "role": "essential",
+              "category": "connection_comparison",
+              "text": "TCP는 연결·순서 보장·유실 재전송으로 신뢰성이 높고 UDP는 연결 없이 오버헤드가 작아 빠르지만 같은 보장을 제공하지 않는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "network_basics_p14_01",
+                  "unit_id": "net_p14",
+                  "source_excerpt": "TCP 연결 O·신뢰성 높음·상대적으로 느림 / UDP 연결 X·신뢰성 낮음·빠름 / TCP 순서·재전송",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "tcp",
+                "udp",
+                "connection",
+                "retransmission"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "TCP는 연결·순서 보장·유실 재전송으로 신뢰성이 높고 UDP는 연결 없이 오버헤드가 작아 빠르지만 같은 보장을 제공하지 않는다."
+                ],
+                "critical_errors": [
+                  "TCP가 순서·재전송을 제공하지 않고 UDP가 연결 기반 신뢰 전송을 보장한다고 뒤바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.transport_forwarding",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "패킷이 전송계층 프로토콜을 이용해 이동할 때 중간 라우터와 스위치는 목적지 방향으로 전달한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "network_basics_p6_01",
+                  "unit_id": "net_p6",
+                  "source_excerpt": "메세지를 패킷으로 쪼개 송수신 / 라우터·스위치가 경로·송수신지 식별",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "packet",
+                "packet_switching",
+                "router",
+                "switch"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "패킷이 전송계층 프로토콜을 이용해 이동할 때 중간 라우터와 스위치는 목적지 방향으로 전달한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "network.dns_http",
+      "title": "DNS에서 HTTP 응답까지",
+      "selection_description": "도메인 해석과 TCP 위 HTTP 요청 흐름을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "network.dns.naming",
+          "title": "DNS와 도메인",
+          "summary": "사람 이름을 네트워크 주소로 바꾼다.",
+          "claims": [
+            {
+              "claim_id": "net.dns",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "DNS는 사람이 읽는 domain name을 통신에 사용할 IP 주소로 변환한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "network_basics_p18_01",
+                  "unit_id": "net_p18",
+                  "source_excerpt": "Domain Name은 IP 주소와 대응되는 문자열 / DNS는 도메인을 IP로 변환",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dns",
+                "domain_name",
+                "ip_address"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "DNS는 사람이 읽는 domain name을 통신에 사용할 IP 주소로 변환한다."
+                ],
+                "critical_errors": [
+                  "DNS가 HTTP 본문을 암호화하는 시스템이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.domain",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "domain name은 호스트의 IP 주소와 대응되는 문자열 형태의 호스트 식별 정보다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "network_basics_p18_01",
+                  "unit_id": "net_p18",
+                  "source_excerpt": "Domain Name은 IP 주소와 대응되는 문자열 / DNS는 도메인을 IP로 변환",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dns",
+                "domain_name",
+                "ip_address"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "domain name은 호스트의 IP 주소와 대응되는 문자열 형태의 호스트 식별 정보다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "net.multi_ip",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "하나의 도메인이 여러 IP로 해석될 수 있으며 트래픽 분산과 장애 대비에 활용된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 27,
+                  "chunk_id": "network_basics_p27_01",
+                  "unit_id": "net_p27",
+                  "source_excerpt": "IP가 여러 개 나오는 이유: 트래픽 분산, 장애 대비",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dns",
+                "ip_address"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "하나의 도메인이 여러 IP로 해석될 수 있으며 트래픽 분산과 장애 대비에 활용된다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.http.exchange",
+          "title": "HTTP 요청·응답",
+          "summary": "TCP 위 애플리케이션 교환을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "net.http",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "HTTP는 TCP 연결 위에서 요청과 응답으로 웹 데이터를 교환하는 애플리케이션 계층 프로토콜이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "network_basics_p19_01",
+                  "unit_id": "net_p19",
+                  "source_excerpt": "HTTP는 TCP 연결 위의 애플리케이션 계층 프로토콜 / Request↔Response / Status·Headers·Body",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "http",
+                "tcp",
+                "request",
+                "response",
+                "status_code",
+                "header",
+                "body"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "HTTP는 TCP 연결 위에서 요청과 응답으로 웹 데이터를 교환하는 애플리케이션 계층 프로토콜이다."
+                ],
+                "critical_errors": [
+                  "HTTP가 전송계층에서 TCP를 대체하는 프로토콜이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.client_server",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "클라이언트는 서버에 request를 보내고 서버는 처리 결과를 response로 돌려준다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "network_basics_p18_01",
+                  "unit_id": "net_p18b",
+                  "source_excerpt": "클라이언트 요청, 서버 응답",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "request",
+                "response"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "클라이언트는 서버에 request를 보내고 서버는 처리 결과를 response로 돌려준다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "net.http_response",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "HTTP response는 성공·실패를 나타내는 status code, 메타정보 header, 실제 데이터 body를 포함한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "network_basics_p19_01",
+                  "unit_id": "net_p19",
+                  "source_excerpt": "HTTP는 TCP 연결 위의 애플리케이션 계층 프로토콜 / Request↔Response / Status·Headers·Body",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "http",
+                "tcp",
+                "request",
+                "response",
+                "status_code",
+                "header",
+                "body"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "HTTP response는 성공·실패를 나타내는 status code, 메타정보 header, 실제 데이터 body를 포함한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.http.flow",
+          "title": "전체 요청 흐름",
+          "summary": "이름 해석부터 응답까지 순서를 연결한다.",
+          "claims": [
+            {
+              "claim_id": "net.request_flow",
+              "role": "essential",
+              "category": "connection_comparison",
+              "text": "도메인 입력 후 DNS로 IP를 찾고 IP·port로 대상을 정한 뒤 TCP 연결을 만들고 그 위에서 HTTP를 교환해 서버 응답을 받는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 20,
+                  "chunk_id": "network_basics_p20_01",
+                  "unit_id": "net_p20",
+                  "source_excerpt": "도메인→DNS→IP 주소·포트→TCP 연결→HTTP 교환→서버 응답",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "domain_name",
+                "dns",
+                "ip_address",
+                "port",
+                "tcp",
+                "http",
+                "response"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "도메인 입력 후 DNS로 IP를 찾고 IP·port로 대상을 정한 뒤 TCP 연결을 만들고 그 위에서 HTTP를 교환해 서버 응답을 받는다."
+                ],
+                "critical_errors": [
+                  "HTTP 교환 뒤에야 DNS로 목적지 IP를 찾는다고 순서를 뒤바꿔 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.flow_addressing",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "전체 요청에서 IP는 대상 컴퓨터를, port는 그 컴퓨터의 웹 서비스 프로세스를 지정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "network_basics_p10_01",
+                  "unit_id": "net_p10",
+                  "source_excerpt": "IP 주소는 네트워크 고유 주소 / Port는 애플리케이션 프로세스 식별 / IPv4 고갈·IPv6",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ip_address",
+                "ipv4",
+                "ipv6",
+                "port"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "전체 요청에서 IP는 대상 컴퓨터를, port는 그 컴퓨터의 웹 서비스 프로세스를 지정한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "network.security",
+      "title": "네트워크 암호화와 HTTPS",
+      "selection_description": "대칭키·공개키·인증서·TLS의 결합을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "network.security.symmetric",
+          "title": "대칭키 암호화",
+          "summary": "성능과 키 공유 문제를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "net.symmetric",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "대칭키 암호화는 암호화와 복호화에 같은 비밀키를 사용해 빠르다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "network_basics_p22_01",
+                  "unit_id": "net_p22",
+                  "source_excerpt": "암호화와 복호화에 동일한 키 / 안전하게 키 공유하기 어려움",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "symmetric_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "대칭키 암호화는 암호화와 복호화에 같은 비밀키를 사용해 빠르다."
+                ],
+                "critical_errors": [
+                  "대칭키 암호화가 암호화와 복호화에 서로 다른 키를 사용한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.key_problem",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "대칭키 방식은 통신 전에 같은 비밀키를 상대에게 안전하게 전달하기 어렵다는 문제가 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "network_basics_p22_01",
+                  "unit_id": "net_p22",
+                  "source_excerpt": "암호화와 복호화에 동일한 키 / 안전하게 키 공유하기 어려움",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "symmetric_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "대칭키 방식은 통신 전에 같은 비밀키를 상대에게 안전하게 전달하기 어렵다는 문제가 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.security.public",
+          "title": "공개키와 세션키",
+          "summary": "키 쌍과 혼합 방식을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "net.public_key",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "공개키 암호화는 공개 가능한 public key와 비밀로 보관하는 private key의 쌍을 사용해 안전한 키 공유를 돕지만 연산이 느리다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "network_basics_p23_01",
+                  "unit_id": "net_p23",
+                  "source_excerpt": "대칭키는 빠르나 키 전송 어려움 / 공개키는 느리나 키 안전 공유 / 세션 키",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "symmetric_key",
+                "asymmetric_key",
+                "public_key",
+                "private_key",
+                "session_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "공개키 암호화는 공개 가능한 public key와 비밀로 보관하는 private key의 쌍을 사용해 안전한 키 공유를 돕지만 연산이 느리다."
+                ],
+                "critical_errors": [
+                  "공개키와 개인키 중 개인키를 누구에게나 배포한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.hybrid",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "실제 통신은 공개키 방식으로 session key를 안전하게 합의하고 빠른 대칭키로 본문을 암호화하는 혼합 방식을 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "network_basics_p23_01",
+                  "unit_id": "net_p23",
+                  "source_excerpt": "대칭키는 빠르나 키 전송 어려움 / 공개키는 느리나 키 안전 공유 / 세션 키",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "symmetric_key",
+                "asymmetric_key",
+                "public_key",
+                "private_key",
+                "session_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "실제 통신은 공개키 방식으로 session key를 안전하게 합의하고 빠른 대칭키로 본문을 암호화하는 혼합 방식을 사용한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "network.security.trust",
+          "title": "인증서·서명·HTTPS",
+          "summary": "서버 신뢰와 암호화 채널을 연결한다.",
+          "claims": [
+            {
+              "claim_id": "net.certificate",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "공개키 인증서는 공개키와 그 유효성을 담고 CA 서명 검증으로 공개키의 주체를 신뢰하게 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 24,
+                  "chunk_id": "network_basics_p24_01",
+                  "unit_id": "net_p24",
+                  "source_excerpt": "공개키 인증서는 공개키 유효성을 입증 / CA 서명으로 검증 / 디지털 서명은 개인키와 공개키로 신원 증명",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "certificate",
+                "ca",
+                "digital_signature",
+                "public_key",
+                "private_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "공개키 인증서는 공개키와 그 유효성을 담고 CA 서명 검증으로 공개키의 주체를 신뢰하게 한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "net.signature",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "디지털 서명은 개인키로 만든 서명을 대응하는 공개키로 검증해 서명자와 메시지 무결성을 확인한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 24,
+                  "chunk_id": "network_basics_p24_01",
+                  "unit_id": "net_p24",
+                  "source_excerpt": "공개키 인증서는 공개키 유효성을 입증 / CA 서명으로 검증 / 디지털 서명은 개인키와 공개키로 신원 증명",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "certificate",
+                "ca",
+                "digital_signature",
+                "public_key",
+                "private_key"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "디지털 서명은 개인키로 만든 서명을 대응하는 공개키로 검증해 서명자와 메시지 무결성을 확인한다."
+                ],
+                "critical_errors": [
+                  "디지털 서명 검증에 서명자의 개인키를 클라이언트에게 공개해야 한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "net.https",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "HTTPS는 인증서와 공개키 방식으로 신뢰·키 교환을 지원하고 세션 대칭키로 HTTP 통신을 보호하는 TLS 기반 프로토콜이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 25,
+                  "chunk_id": "network_basics_p25_01",
+                  "unit_id": "net_p25",
+                  "source_excerpt": "대칭키·공개키·인증서를 기반으로 SSL/TLS / HTTPS는 HTTP over TLS",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "symmetric_key",
+                "asymmetric_key",
+                "certificate",
+                "ssl",
+                "tls",
+                "https",
+                "http"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "HTTPS는 인증서와 공개키 방식으로 신뢰·키 교환을 지원하고 세션 대칭키로 HTTP 통신을 보호하는 TLS 기반 프로토콜이다."
+                ],
+                "critical_errors": [
+                  "HTTPS가 인증·암호화 없이 단순히 HTTP 포트 번호만 바꾼 것이라고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": []
+}

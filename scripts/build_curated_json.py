@@ -31,18 +31,18 @@ CURATION: dict[str, dict[int, list[dict[str, object]]]] = {
         1: curated("기초 통계 강의 표지", ["기초 통계"], "2026 Summer YBIGTA 기초 통계 강의 표지이며 발표자는 28기 전영찬으로 표시된다.", "2026 Summer YBIGTA 기초 통계 강의의 표지이다."),
         2: curated("기초 통계 강의 목차", ["확률 복습", "가설검정", "회귀분석"], "Review, Hypothesis Testing, Regression Analysis의 세 섹션이 번호와 함께 배치되어 있다.", "강의는 확률·통계 복습, 가설검정, 회귀분석 순서로 구성된다."),
         3: curated("확률·통계 복습", ["확률", "통계"], "Review 섹션의 시작을 알리는 구분 슬라이드이다.", "확률변수, 표본, 공분산, 조건부확률을 복습하는 섹션의 시작 페이지이다."),
-        4: curated("확률변수와 기댓값·분산", ["확률변수", "기댓값", "분산", "표준편차"], "동전 표본공간을 확률변수 값으로 대응시키는 도식, 이산·연속 기댓값 공식, 평균은 같지만 표준편차가 다른 두 정규분포 곡선이 제시된다.", "확률변수는 표본공간의 결과를 수치에 대응한다. 기댓값은 확률가중평균이고, 분산과 표준편차는 평균 주변의 퍼짐을 나타낸다."),
+        4: curated("확률변수와 기댓값·분산", ["확률변수", "기댓값", "분산", "표준편차"], "동전 표본공간을 확률변수 값으로 대응시키는 도식, 이산·연속 기댓값 공식, 평균은 같지만 표준편차가 다른 두 정규분포 곡선이 제시된다.", "확률변수는 표본공간의 각 결과를 실수에 대응시키는 함수다. 기댓값은 가능한 값에 확률을 가중한 평균이며, 분산은 값들이 평균에서 떨어진 정도를 나타낸다. 슬라이드는 평균은 같지만 표준편차가 다른 분포를 비교한다."),
         5: curated("모집단과 표본", ["모집단", "표본", "표본추출", "군집표본", "층화표본", "단순무작위표본"], "큰 모집단 원 안에 작은 표본 원을 겹쳐 일부 고객으로 모든 고객을 추정하는 관계를 나타낸다.", "표본추출로 모집단을 추정한다. 표본분포의 특성에 따라 군집표본추출, 층화표본추출, 단순무작위표본추출 등을 선택하며 표본의 대표성을 검토해야 한다."),
-        6: curated("공분산과 상관계수", ["공분산", "상관계수", "상관관계", "인과관계"], "양의 관계, 음의 관계, 관계 없음의 세 산점도가 사분면별 점 분포로 비교되고 공분산과 상관계수 공식이 함께 제시된다.", "공분산은 두 변수의 함께 변하는 방향을 나타내고 상관계수는 이를 -1과 1 사이로 스케일링한다. 상관관계는 인과관계와 다르다. 강의안에는 공분산이 0이면 독립이라고 서술되어 있어 원문 검토가 필요하다."),
+        6: curated("공분산과 상관계수", ["공분산", "상관계수", "상관관계", "인과관계"], "양의 관계, 음의 관계, 관계 없음의 세 산점도가 사분면별 점 분포로 비교되고 공분산과 상관계수 공식이 함께 제시된다.", "공분산은 두 변수가 함께 변하는 방향을 나타내고, 상관계수는 공분산을 두 변수의 표준편차로 나누어 -1과 1 사이에서 관계의 방향과 강도를 나타낸다. 상관관계는 인과관계와 다르다."),
         7: curated("조건부확률과 베이즈 정리", ["조건부확률", "베이즈 정리", "전체확률법칙", "전체기댓값법칙"], "조건부확률 공식과 A·B 사건의 벤다이어그램, 베이즈 정리와 반복기댓값 공식이 함께 배치된다.", "조건부확률은 알려진 사건 B 아래에서 A의 확률을 계산한다. 베이즈 정리는 조건의 방향을 바꾸고, 전체기댓값법칙은 조건부 기댓값을 다시 평균낸다."),
         8: curated("가설검정 섹션", ["가설검정"], "Hypothesis Testing이라는 큰 제목의 구분 슬라이드이다.", "가설 설정, 오류, p-value, 신뢰구간과 ANOVA를 다루는 섹션의 시작 페이지이다."),
         9: curated("가설검정 절차", ["귀무가설", "유의수준", "검정통계량", "p-value"], "왼쪽에는 자료 유형과 정규성에 따른 검정법 선택 트리가 있고, 오른쪽에는 가설검정의 다섯 단계가 나열된다.", "가설검정은 귀무·대립가설 설정, 유의수준 선택, 검정통계량 계산, p-value 계산, 귀무가설 판단의 순서로 진행한다. 자료 특성과 가정에 따라 검정법을 선택한다."),
         10: curated("귀무가설을 기각하는 구조", ["귀무가설", "대립가설", "귀류법"], "텍스트로 귀무가설을 기본값으로 두는 논리를 질문과 화살표로 설명한다.", "특정 가설을 직접 증명하기 어렵기 때문에 귀무가설 아래에서 관측 결과의 모순을 찾는 귀류법적 구조를 사용한다. 차이 없음은 하나의 분포로 계산 가능한 기본값 역할을 한다."),
         11: curated("1종 오류와 2종 오류", ["1종 오류", "2종 오류", "alpha", "beta", "검정력"], "임신 여부를 잘못 판정하는 두 사진으로 false positive와 false negative를 대비한다.", "1종 오류는 참인 귀무가설을 기각하는 오류로 alpha와 연결되고, 2종 오류는 거짓 귀무가설을 기각하지 못하는 오류로 beta 및 검정력과 연결된다."),
-        12: curated("오류의 트레이드오프", ["1종 오류", "2종 오류", "의사결정 임계값", "트레이드오프"], "고백 여부와 상대의 호감 여부를 2×2 표로 나타낸 연애 비유와 두 오류의 비용이 설명된다.", "판정 기준을 엄격하게 잡으면 1종 오류는 줄지만 2종 오류가 늘고, 느슨하게 잡으면 반대가 된다. 어떤 오류가 더 비싼지에 따라 임계값을 정해야 한다."),
+        12: curated("오류의 트레이드오프", ["1종 오류", "2종 오류", "의사결정 임계값", "트레이드오프"], "고백 여부와 상대의 호감 여부를 2×2 표로 나타낸 연애 비유와 두 오류의 비용이 설명된다.", "판정 기준을 엄격하게 잡으면 1종 오류는 줄지만 2종 오류가 늘고, 느슨하게 잡으면 반대가 된다. 슬라이드는 고백 여부의 비유로 두 오류가 서로 trade-off 관계임을 설명한다."),
         13: curated("1종·2종 오류의 분포 표현", ["귀무가설 분포", "대립가설 분포", "1종 오류", "2종 오류"], "겹치는 두 종 모양 분포에서 귀무가설과 대립가설을 표시하고, 경계 양쪽의 1종 오류 영역은 빨강, 2종 오류 영역은 청록으로 칠했다.", "귀무가설과 대립가설의 분포가 겹치면 하나의 판정 경계에서 1종 오류와 2종 오류가 동시에 발생할 수 있으며 두 영역 사이에 트레이드오프가 생긴다."),
         14: curated("p-value의 정의와 해석", ["p-value", "귀무가설", "극단성"], "귀무가설 분포의 꼬리 영역을 초록색 p-value로 표시하고 관측값 위치와 가능성이 낮은 영역을 함께 나타낸다.", "p-value는 귀무가설이 참이라고 가정했을 때 지금 관측한 데이터 또는 더 극단적인 데이터가 나올 확률이다. 작다는 것은 가정과 데이터 사이의 긴장이 크다는 뜻이지 귀무가설이 거짓일 확률 그 자체가 아니다."),
-        15: curated("검정통계량과 표본크기", ["검정통계량", "표준오차", "표본크기", "p-value"], "관측된 차이를 그 차이의 불확실성인 표준오차로 나누는 검정통계량 기본형이 제시된다.", "표본크기가 커지면 표준오차가 작아지고 검정통계량이 커져 p-value가 작아지기 쉬우므로, p-value만으로 효과의 실질적 크기를 판단하면 안 된다."),
+        15: curated("검정통계량과 표본크기", ["검정통계량", "표준오차", "표본크기", "p-value"], "관측된 차이를 그 차이의 불확실성인 표준오차로 나누는 검정통계량 기본형이 제시된다.", "표본크기가 커지면 표준오차가 작아지고 같은 관측 차이에서도 검정통계량이 커져 p-value가 작아지기 쉽다. 슬라이드는 가설검정을 단독으로 해석하지 말고 p-value와 신뢰구간을 함께 살펴야 한다고 강조한다."),
         16: curated("p-value의 흔한 오류", ["p-value", "조건부확률", "통계적 유의성"], "P(데이터|귀무가설)과 P(귀무가설|데이터)를 큰 빨간 글씨와 밈 이미지로 구분한다.", "p-value는 모수에 대한 확률이나 귀무가설이 참일 믿음의 정도가 아니다. P(데이터|귀무가설)와 P(귀무가설|데이터)의 조건 방향을 바꾸어 해석하면 안 된다."),
         17: curated("신뢰구간", ["신뢰구간", "점추정", "불확실성", "신뢰수준"], "신뢰구간의 반복표집 정의와 정확도·정보량의 트레이드오프, 두 집단 차이의 분산 공식이 텍스트와 수식으로 제시된다.", "신뢰구간은 동일한 생성 절차를 무한히 반복했을 때 정해진 비율의 구간이 참 모수를 포함하도록 만드는 절차이다. 신뢰수준을 높이면 구간은 넓어지며, 두 집단 차이는 각 집단 구간을 단순 비교하지 말고 차이의 분산으로 계산해야 한다."),
         18: curated("신뢰구간의 흔한 오류", ["신뢰구간", "신뢰수준", "구간 폭"], "잘못된 해석을 질문 형식으로 제시하고 핵심 교정 문장을 빨간색으로 강조한다.", "계산된 특정 95% 신뢰구간에 모수가 있을 확률이 95%라고 해석하면 안 된다. 신뢰수준이 높으면 더 안전하지만 덜 구체적이고, 신뢰수준을 고정하지 않은 채 폭만 비교하는 것도 의미가 없다."),
@@ -64,7 +64,7 @@ CURATION: dict[str, dict[int, list[dict[str, object]]]] = {
         34: curated("단순·다중 선형회귀 해", ["단순 선형회귀", "다중 선형회귀", "SSE", "OLS"], "왼쪽은 단순회귀의 SSE 미분과 기울기·절편 공식을, 오른쪽은 행렬형 다중회귀의 미분과 닫힌해를 빨간 상자로 비교한다.", "단순회귀와 다중회귀 모두 SSE를 계수에 대해 미분해 0으로 두는 최소제곱법으로 추정한다. 단순회귀는 기울기와 절편 공식, 다중회귀는 행렬 정규방정식으로 표현된다."),
         35: curated("선형회귀 가정", ["선형성", "외생성", "등분산성", "독립성", "정규성"], "다섯 가정을 글머리표로 설명하고 위반 시 문제와 확인 도구를 요약한 표를 배치한다.", "선형회귀는 선형성, 오차의 외생성, 등분산성, 독립성, 정규성 가정을 점검한다. 위반하면 계수 왜곡, 표준오차와 p-value 오류, 해석 문제 등이 생기며 잔차도·순서도·Q-Q plot으로 진단한다."),
         36: curated("잔차도 진단", ["잔차", "잔차도", "등분산성", "선형성"], "좋은 무작위 잔차도와 깔때기형·곡선형의 부적절한 잔차도를 비교하며 각각 등분산성과 선형성 위반으로 표시한다.", "잔차는 모델이 설명하지 못한 확률적 부분이어야 하므로 잔차도에 패턴이 없어야 한다. 깔때기 모양은 이분산성, 곡선 패턴은 선형성 위반 신호이다."),
-        37: curated("결정계수", ["R²", "조정 R²", "SST", "SSR", "SSE"], "SST=SSR+SSE 분해와 R² 및 조정 R² 공식이 제시된다.", "R²=SSR/SST는 종속변수 분산 중 모델이 설명한 비율이다. 변수를 추가하면 감소하지 않으므로 조정 R²를 함께 보고, 높은 R²가 예측력이나 인과성을 보장하지 않으며 표본의 X 분산 범위에도 영향을 받는다는 점을 주의한다."),
+        37: curated("결정계수", ["R²", "조정 R²", "SST", "SSR", "SSE"], "SST=SSR+SSE 분해와 R² 및 조정 R² 공식이 제시된다.", "R²=SSR/SST는 종속변수 분산 중 모델이 설명한 비율이다. 변수를 추가하면 감소하지 않으므로 조정 R²를 함께 보고, 높은 R²가 표본 밖 예측력을 반드시 보장하지 않으며 표본의 X 분산 범위에도 영향을 받는다는 점을 주의한다."),
         38: curated("다중공선성", ["다중공선성", "VIF", "PCA", "Ridge", "누락변수편향"], "상관행렬 히트맵과 VIF 공식이 제시되고 해결법이 글머리표로 정리된다.", "설명변수끼리 상관이 높으면 X'X가 거의 특이해져 계수 분산과 계산 불안정성이 커진다. VIF로 진단하고 PCA, Ridge, 변수 제거 등을 고려하되 변수 제거에는 누락변수편향 위험이 있다."),
         39: curated("예측력과 해석가능성", ["다중공선성", "비편향 추정량", "예측", "해석"], "예측 목적과 개별 계수 해석 목적을 텍스트로 대비한다.", "다중공선성은 계수의 편향보다 분산을 키운다. 전체 예측에는 영향이 작을 수 있지만 개별 계수의 고유 효과를 인과적·구조적으로 해석하려면 치명적일 수 있어 목적에 따라 다르게 판단한다."),
         40: curated("일반화선형모형", ["GLM", "로지스틱 회귀", "포아송 회귀", "순서형 회귀"], "GLM 제목 아래 선형회귀 가정을 만족시키기 어려운 경우와 대표 모형들을 나열한다.", "일반화선형모형은 다중선형회귀를 일반화해 반응변수의 분포와 연결함수를 달리한다. 로지스틱, 포아송, 순서형 회귀 등이 포함된다."),
@@ -223,7 +223,7 @@ CURATION["eda_fe"] = {
     19: curated("변수 분포와 관계 탐색", ["분포", "상관행렬", "다중공선성", "Feature"], "여러 변수 히스토그램 그리드와 상관계수 히트맵을 함께 보여준다.", "각 변수 분포와 변수 간 상관관계를 탐색하고 종속변수와의 관계를 확인해 중요한 특성을 식별하며 다중공선성을 점검한다."),
     20: curated("다중공선성 진단과 해결", ["다중공선성", "VIF", "Ridge", "Lasso", "PCA"], "VIF 설명 옆에 Ridge의 원형 제약과 Lasso의 마름모 제약에서 해가 닿는 모습을 비교한다.", "독립변수 간 강한 상관은 중요도를 왜곡할 수 있다. VIF로 진단하고 변수 제거·결합, Ridge·Lasso, PCA 등을 적용하되 도메인 의미를 고려한다."),
     21: curated("스케일링 필요성", ["Scaling", "KNN", "SVM", "PCA", "ANN"], "MinMaxScaler와 StandardScaler 사용 코드 화면이 제시된다.", "특성 범위를 통일하면 큰 단위의 특성이 과도하게 지배하는 것을 막는다. 거리·분산 기반 KNN, SVM, PCA, 신경망은 스케일에 민감한 반면 트리 계열은 영향이 작다."),
-    22: curated("스케일링 방법 비교", ["Standard Scaling", "Min-Max Scaling", "Robust Scaling", "IQR"], "Z-score, Min-Max, 중앙값·IQR 기반 Robust Scaling의 수식이 세로로 비교된다.", "이상치가 적으면 표준화, 특정 범위가 필요하면 Min-Max, 이상치가 많으면 중앙값과 IQR을 쓰는 Robust Scaling을 고려한다. 원문에는 Min-Max가 이상치에 강건하다고 적혀 있어 팀 검토가 필요하다."),
+    22: curated("스케일링 방법 비교", ["Standard Scaling", "Min-Max Scaling", "Robust Scaling", "IQR"], "Z-score, Min-Max, 중앙값·IQR 기반 Robust Scaling의 수식이 세로로 비교된다.", "Standard Scaling은 평균과 표준편차로 표준화하고, Min-Max Scaling은 최솟값과 최댓값을 기준으로 보통 0과 1 사이로 변환하며, Robust Scaling은 중앙값과 IQR을 사용한다."),
     23: curated("데이터 병합과 그룹화", ["pd.merge", "pd.groupby", "Inner Join", "Outer Join", "집계"], "Inner·Outer·Left·Right 조인의 결과표와 이름별 점수를 그룹화해 평균내는 흐름도가 좌우에 있다.", "pd.merge는 공통 key로 데이터프레임을 합치며 조인 방식에 따라 포함 범위가 달라진다. pd.groupby는 특정 열로 묶어 평균·합계·개수 등을 계산한다."),
     24: curated("Feature Engineering 섹션", ["Feature Engineering"], "Feature Engineering이라는 큰 제목의 구분 슬라이드이다.", "특성 선택, 특성 추출과 데이터 누수를 다루는 섹션의 시작이다."),
     25: curated("특성 선택과 특성 추출", ["Feature Selection", "Feature Extraction", "PCA", "LDA", "SVD"], "Feature Selection과 Feature Extraction을 두 단계 상자로 나누고 PCA·SVD·LDA를 하위 방법으로 표시한다.", "특성공학은 유용한 변수를 고르는 특성 선택과 기존 변수를 결합해 차원을 줄이는 특성 추출로 구성된다. PCA는 비지도 분산 축, LDA는 지도형 클래스 구분 축을 찾는다."),
@@ -288,6 +288,38 @@ CURATION["visualization"] = {
     39: curated("시각화 강의 마무리", ["데이터 시각화"], "감사합니다라는 큰 문구로 강의를 마무리한다.", "데이터 시각화 강의의 종료 페이지이다."),
 }
 
+from scripts.build_cs_basics_evaluation_data import CURATION as CS_BASICS_CURATION
+from scripts.build_git_evaluation_data import CURATION as GIT_CURATION
+from scripts.build_python_environment_evaluation_data import CURATION as PYTHON_ENVIRONMENT_CURATION
+from scripts.build_web_evaluation_data import CURATION as WEB_CURATION
+from scripts.build_network_basics_evaluation_data import CURATION as NETWORK_BASICS_CURATION
+from scripts.build_ml_evaluation_data import CURATION as MACHINE_LEARNING_CURATION
+from scripts.build_dl_evaluation_data import CURATION as DEEP_LEARNING_CURATION
+from scripts.build_cv_evaluation_data import CURATION as COMPUTER_VISION_CURATION
+from scripts.build_nlp_evaluation_data import CURATION as NLP_CURATION
+from scripts.build_docker_evaluation_data import CURATION as DOCKER_CURATION
+from scripts.build_llm_evaluation_data import CURATION as LLM_CURATION
+from scripts.build_aws_evaluation_data import CURATION as AWS_CURATION
+from scripts.build_db_evaluation_data import CURATION as DB_CURATION
+from scripts.build_ai_agent_evaluation_data import CURATION as AI_AGENT_CURATION
+from scripts.build_rag_evaluation_data import CURATION as RAG_CURATION
+
+CURATION["cs_basics"] = CS_BASICS_CURATION
+CURATION["git"] = GIT_CURATION
+CURATION["python_environment"] = PYTHON_ENVIRONMENT_CURATION
+CURATION["web"] = WEB_CURATION
+CURATION["network_basics"] = NETWORK_BASICS_CURATION
+CURATION["machine_learning"] = MACHINE_LEARNING_CURATION
+CURATION["deep_learning"] = DEEP_LEARNING_CURATION
+CURATION["computer_vision"] = COMPUTER_VISION_CURATION
+CURATION["nlp"] = NLP_CURATION
+CURATION["docker"] = DOCKER_CURATION
+CURATION["llm"] = LLM_CURATION
+CURATION["aws"] = AWS_CURATION
+CURATION["db"] = DB_CURATION
+CURATION["ai_agent"] = AI_AGENT_CURATION
+CURATION["rag"] = RAG_CURATION
+
 
 def build(lecture_id: str) -> Path:
     if lecture_id not in CURATION:
@@ -333,6 +365,49 @@ def build(lecture_id: str) -> Path:
     )
     output = settings.processed_dir / f"{lecture_id}.json"
     write_json(output, document.model_dump(mode="json"))
+    if lecture_id == "basic_statistics":
+        from scripts.build_basic_statistics_evaluation_data import apply_evaluation_data
+    elif lecture_id == "crawling":
+        from scripts.build_crawling_evaluation_data import apply_evaluation_data
+    elif lecture_id == "eda_fe":
+        from scripts.build_eda_fe_evaluation_data import apply_evaluation_data
+    elif lecture_id == "visualization":
+        from scripts.build_visualization_evaluation_data import apply_evaluation_data
+    elif lecture_id == "cs_basics":
+        from scripts.build_cs_basics_evaluation_data import apply_evaluation_data
+    elif lecture_id == "git":
+        from scripts.build_git_evaluation_data import apply_evaluation_data
+    elif lecture_id == "python_environment":
+        from scripts.build_python_environment_evaluation_data import apply_evaluation_data
+    elif lecture_id == "web":
+        from scripts.build_web_evaluation_data import apply_evaluation_data
+    elif lecture_id == "network_basics":
+        from scripts.build_network_basics_evaluation_data import apply_evaluation_data
+    elif lecture_id == "machine_learning":
+        from scripts.build_ml_evaluation_data import apply_evaluation_data
+    elif lecture_id == "deep_learning":
+        from scripts.build_dl_evaluation_data import apply_evaluation_data
+    elif lecture_id == "computer_vision":
+        from scripts.build_cv_evaluation_data import apply_evaluation_data
+    elif lecture_id == "nlp":
+        from scripts.build_nlp_evaluation_data import apply_evaluation_data
+    elif lecture_id == "docker":
+        from scripts.build_docker_evaluation_data import apply_evaluation_data
+    elif lecture_id == "llm":
+        from scripts.build_llm_evaluation_data import apply_evaluation_data
+    elif lecture_id == "aws":
+        from scripts.build_aws_evaluation_data import apply_evaluation_data
+    elif lecture_id == "db":
+        from scripts.build_db_evaluation_data import apply_evaluation_data
+    elif lecture_id == "ai_agent":
+        from scripts.build_ai_agent_evaluation_data import apply_evaluation_data
+    elif lecture_id == "rag":
+        from scripts.build_rag_evaluation_data import apply_evaluation_data
+    else:
+        apply_evaluation_data = None
+
+    if apply_evaluation_data is not None:
+        apply_evaluation_data(processed_path=output)
     return output
 
 

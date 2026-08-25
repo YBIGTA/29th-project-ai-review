@@ -1,0 +1,598 @@
+{
+  "course_id": null,
+  "topic": "CS",
+  "entries": [
+    {
+      "term": "Orbstack",
+      "korean_variants": [
+        "오브스택"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Directory",
+      "korean_variants": [
+        "디렉터리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Claude",
+      "korean_variants": [
+        "클로드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Kali",
+      "korean_variants": [
+        "칼리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CaIIjmYceSs",
+      "korean_variants": [
+        "카이아이아이제이엠와이씨에스에스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Mac",
+      "korean_variants": [
+        "맥"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Distro",
+      "korean_variants": [
+        "디스트로"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "System",
+      "korean_variants": [
+        "시스템"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Kali Linux",
+      "korean_variants": [
+        "칼리 리눅스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "CSAPP",
+      "korean_variants": [
+        "씨에스에이피피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Windows",
+      "korean_variants": [
+        "윈도우즈"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "RAM",
+      "korean_variants": [
+        "램"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "BSD",
+      "korean_variants": [
+        "비에스디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Code",
+      "korean_variants": [
+        "코드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Space",
+      "korean_variants": [
+        "스페이스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Linux Distribution",
+      "korean_variants": [
+        "리눅스 디스트리뷰션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Automation",
+      "korean_variants": [
+        "오토메이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SSD",
+      "korean_variants": [
+        "에스에스디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Imformation",
+      "korean_variants": [
+        "임포메이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Operating",
+      "korean_variants": [
+        "오퍼레이팅"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Shell Scirpt",
+      "korean_variants": [
+        "쉘 스크립트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Codex",
+      "korean_variants": [
+        "코덱스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CS",
+      "korean_variants": [
+        "씨에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "HDD",
+      "korean_variants": [
+        "에이치디디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "CPU",
+      "korean_variants": [
+        "씨피유"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Torvalds",
+      "korean_variants": [
+        "토르발스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Arch Linux",
+      "korean_variants": [
+        "아치 리눅스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Ubuntu",
+      "korean_variants": [
+        "우분투"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "GUI",
+      "korean_variants": [
+        "지유아이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Arch",
+      "korean_variants": [
+        "아치"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Information",
+      "korean_variants": [
+        "인포메이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Unix",
+      "korean_variants": [
+        "유닉스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Linux",
+      "korean_variants": [
+        "리눅스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Linus",
+      "korean_variants": [
+        "리누스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VM",
+      "korean_variants": [
+        "브이엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "System Call",
+      "korean_variants": [
+        "시스템 콜"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Virtual Machine",
+      "korean_variants": [
+        "버추얼 머신"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Linus Torvalds",
+      "korean_variants": [
+        "리누스 토르발스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "GPU",
+      "korean_variants": [
+        "지피유"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Everything",
+      "korean_variants": [
+        "에브리씽"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "WSL",
+      "korean_variants": [
+        "더블유에스엘"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Scirpt",
+      "korean_variants": [
+        "스크립트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "File",
+      "korean_variants": [
+        "파일"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "python3",
+      "korean_variants": [
+        "파이썬 쓰리"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "User",
+      "korean_variants": [
+        "유저"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Kernel",
+      "korean_variants": [
+        "커널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "WSL1",
+      "korean_variants": [
+        "더블유에스엘 원"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Mac OS",
+      "korean_variants": [
+        "맥 오에스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Shell",
+      "korean_variants": [
+        "쉘"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LLM",
+      "korean_variants": [
+        "엘엘엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Windows Subsystem",
+      "korean_variants": [
+        "윈도우즈 서브시스템"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "VSCode",
+      "korean_variants": [
+        "브이에스코드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Call",
+      "korean_variants": [
+        "콜"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "서머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "AWS",
+      "korean_variants": [
+        "에이더블유에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Computation",
+      "korean_variants": [
+        "컴퓨테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "k8s",
+      "korean_variants": [
+        "케이팔"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "User Space",
+      "korean_variants": [
+        "유저 스페이스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Docker",
+      "korean_variants": [
+        "도커"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Distribution",
+      "korean_variants": [
+        "디스트리뷰션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Container",
+      "korean_variants": [
+        "컨테이너"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Subsystem",
+      "korean_variants": [
+        "서브시스템"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Guset OS",
+      "korean_variants": [
+        "구셋 오에스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Guset",
+      "korean_variants": [
+        "구셋"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "서머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "OS",
+      "korean_variants": [
+        "오에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Virtual",
+      "korean_variants": [
+        "버추얼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "WSL2",
+      "korean_variants": [
+        "더블유에스엘 투"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Operating System",
+      "korean_variants": [
+        "오퍼레이팅 시스템"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Machine",
+      "korean_variants": [
+        "머신"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Claude Code",
+      "korean_variants": [
+        "클로드 코드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Regular",
+      "korean_variants": [
+        "레귤러"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Linux Kernel",
+      "korean_variants": [
+        "리눅스 커널"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    }
+  ]
+}

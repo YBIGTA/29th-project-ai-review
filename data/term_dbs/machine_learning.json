@@ -1,0 +1,1022 @@
+{
+  "course_id": null,
+  "topic": "ML",
+  "entries": [
+    {
+      "term": "CatBoost",
+      "korean_variants": [
+        "캣부스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Accuracy",
+      "korean_variants": [
+        "액큐러시"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Search",
+      "korean_variants": [
+        "서치"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Learning",
+      "korean_variants": [
+        "러닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Boosting",
+      "korean_variants": [
+        "부스팅"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Precision",
+      "korean_variants": [
+        "프리시전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Stopping",
+      "korean_variants": [
+        "스톱핑"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Pipeline",
+      "korean_variants": [
+        "파이프라인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Cross Validation",
+      "korean_variants": [
+        "크로스 밸리데이션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Features",
+      "korean_variants": [
+        "피처스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Scale",
+      "korean_variants": [
+        "스케일"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "LightGBM",
+      "korean_variants": [
+        "라이트GBM"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Model",
+      "korean_variants": [
+        "모델"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Stacking",
+      "korean_variants": [
+        "스태킹"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "KNN",
+      "korean_variants": [
+        "케이엔엔"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Group Split",
+      "korean_variants": [
+        "그룹 스플릿"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Logistic Regression",
+      "korean_variants": [
+        "로지스틱 회귀"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Split",
+      "korean_variants": [
+        "스플릿"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Class",
+      "korean_variants": [
+        "클래스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Target Encoding",
+      "korean_variants": [
+        "타깃 인코딩"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Train",
+      "korean_variants": [
+        "트레인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Recall",
+      "korean_variants": [
+        "리콜"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Optuna",
+      "korean_variants": [
+        "옵투나"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Standard",
+      "korean_variants": [
+        "스탠다드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Standard Scaling",
+      "korean_variants": [
+        "스탠다드 스케일링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Grid",
+      "korean_variants": [
+        "그리드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "OOF",
+      "korean_variants": [
+        "오오에프"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Network",
+      "korean_variants": [
+        "네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Regularization",
+      "korean_variants": [
+        "레귤러리제이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Test",
+      "korean_variants": [
+        "테스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Random",
+      "korean_variants": [
+        "랜덤"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Time Split",
+      "korean_variants": [
+        "타임 스플릿"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "SVM",
+      "korean_variants": [
+        "에스브이엠"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Training",
+      "korean_variants": [
+        "트레이닝"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Random Search",
+      "korean_variants": [
+        "랜덤 서치"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Validation Fold",
+      "korean_variants": [
+        "밸리데이션 폴드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "F1",
+      "korean_variants": [
+        "에프원"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Fold",
+      "korean_variants": [
+        "폴드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Decision",
+      "korean_variants": [
+        "디시전"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Ordinal Encoding",
+      "korean_variants": [
+        "오디널 인코딩"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Set",
+      "korean_variants": [
+        "셋"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature",
+      "korean_variants": [
+        "피처"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Gradient",
+      "korean_variants": [
+        "그래디언트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Score",
+      "korean_variants": [
+        "스코어"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Label",
+      "korean_variants": [
+        "라벨"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Decision Tree",
+      "korean_variants": [
+        "디시전 트리"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Leaf",
+      "korean_variants": [
+        "리프"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "FE",
+      "korean_variants": [
+        "에프이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "ID",
+      "korean_variants": [
+        "아이디"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Forest",
+      "korean_variants": [
+        "포레스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Rate",
+      "korean_variants": [
+        "레이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Regression",
+      "korean_variants": [
+        "리그레션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Machine",
+      "korean_variants": [
+        "머신"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Time",
+      "korean_variants": [
+        "타임"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Class Weight",
+      "korean_variants": [
+        "클래스 웨이트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Cross",
+      "korean_variants": [
+        "크로스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bayesian Optimization",
+      "korean_variants": [
+        "베이지안 옵티마이제이션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Train Fold",
+      "korean_variants": [
+        "트레인 폴드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Feature Selection",
+      "korean_variants": [
+        "피처 셀렉션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Valid Experiment",
+      "korean_variants": [
+        "밸리드 익스페리먼트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Label Noise",
+      "korean_variants": [
+        "라벨 노이즈"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Prediction",
+      "korean_variants": [
+        "프레딕션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Selection",
+      "korean_variants": [
+        "셀렉션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Development Set",
+      "korean_variants": [
+        "디벨롭먼트 셋"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Row Sampling",
+      "korean_variants": [
+        "로우 샘플링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Test Set",
+      "korean_variants": [
+        "테스트 셋"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Imputation",
+      "korean_variants": [
+        "임퓨테이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "XGBoost",
+      "korean_variants": [
+        "엑스지부스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "EDA",
+      "korean_variants": [
+        "이디에이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Target",
+      "korean_variants": [
+        "타깃"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Anti",
+      "korean_variants": [
+        "안티"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Neural Network",
+      "korean_variants": [
+        "뉴럴 네트워크"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Comparison",
+      "korean_variants": [
+        "컴페어리슨"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tree",
+      "korean_variants": [
+        "트리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "We",
+      "korean_variants": [
+        "위"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Machine Learning",
+      "korean_variants": [
+        "머신 러닝"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Sampling Anti",
+      "korean_variants": [
+        "샘플링 안티"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "INTRO",
+      "korean_variants": [
+        "인트로"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "What We Have",
+      "korean_variants": [
+        "왓 위 해브"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Neural",
+      "korean_variants": [
+        "뉴럴"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "SMOTE",
+      "korean_variants": [
+        "에스모트"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Gradient Boosting",
+      "korean_variants": [
+        "그래디언트 부스팅"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Must",
+      "korean_variants": [
+        "머스트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Logistic",
+      "korean_variants": [
+        "로지스틱"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Training Fold",
+      "korean_variants": [
+        "트레이닝 폴드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "What We Must",
+      "korean_variants": [
+        "왓 위 머스트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "서머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Validation",
+      "korean_variants": [
+        "밸리데이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Feature Sampling",
+      "korean_variants": [
+        "피처 샘플링"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "One",
+      "korean_variants": [
+        "원"
+      ],
+      "collision_label": "content_word_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "서머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Encoding",
+      "korean_variants": [
+        "인코딩"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Baseline",
+      "korean_variants": [
+        "베이스라인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Valid",
+      "korean_variants": [
+        "밸리드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Grid Search",
+      "korean_variants": [
+        "그리드 서치"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Have",
+      "korean_variants": [
+        "해브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Hypothesis",
+      "korean_variants": [
+        "하이포시스"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "From",
+      "korean_variants": [
+        "프럼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "StandardScaler",
+      "korean_variants": [
+        "스탠다드 스케일러"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Positive",
+      "korean_variants": [
+        "포지티브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Early",
+      "korean_variants": [
+        "얼리"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Decide",
+      "korean_variants": [
+        "디사이드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Learning Rate",
+      "korean_variants": [
+        "러닝 레이트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Development",
+      "korean_variants": [
+        "디벨롭먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "CV",
+      "korean_variants": [
+        "씨브이"
+      ],
+      "collision_label": "particle_collision",
+      "source": "acronym"
+    },
+    {
+      "term": "Random Forest",
+      "korean_variants": [
+        "랜덤 포레스트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Ordinal",
+      "korean_variants": [
+        "오디널"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Threshold",
+      "korean_variants": [
+        "쓰레시홀드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "From Features",
+      "korean_variants": [
+        "프럼 피처스"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Row",
+      "korean_variants": [
+        "로우"
+      ],
+      "collision_label": "particle_collision",
+      "source": "capitalized"
+    },
+    {
+      "term": "Weight",
+      "korean_variants": [
+        "웨이트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Sampling",
+      "korean_variants": [
+        "샘플링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Group",
+      "korean_variants": [
+        "그룹"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Noise",
+      "korean_variants": [
+        "노이즈"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "OOF Prediction",
+      "korean_variants": [
+        "OOF 프레딕션"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "What",
+      "korean_variants": [
+        "왓"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Stratified",
+      "korean_variants": [
+        "스트라티파이드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Scaling",
+      "korean_variants": [
+        "스케일링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Stratified Split",
+      "korean_variants": [
+        "스트라티파이드 스플릿"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Calibration",
+      "korean_variants": [
+        "캘리브레이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Early Stopping",
+      "korean_variants": [
+        "얼리 스톱핑"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Experiment",
+      "korean_variants": [
+        "익스페리먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Optimization",
+      "korean_variants": [
+        "옵티마이제이션"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Bayesian",
+      "korean_variants": [
+        "베이지안"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "WWH",
+      "korean_variants": [
+        "더블유더블유에이치"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    },
+    {
+      "term": "WWMD",
+      "korean_variants": [
+        "더블유더블유엠디"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    }
+  ]
+}

@@ -1,100 +1,134 @@
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT))
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-from src.evaluation import (  # noqa: E402
-    load_profile,
-    load_rubric,
-    validate_profile_against_rubric,
-)
+from src.evaluation import load_rubric  # noqa: E402
+from src.evaluation_schemas import LectureRubric, TopicAssessment  # noqa: E402
+from src.schemas import LectureDocument  # noqa: E402
 
 
-def main() -> int:
-    processed_dir = PROJECT_ROOT / "data" / "processed"
-    rubric_dir = PROJECT_ROOT / "data" / "evaluation" / "rubrics"
-    profile_dir = PROJECT_ROOT / "data" / "evaluation" / "profiles"
-    errors: list[str] = []
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Rubric과 evidence 연결을 검증합니다.")
+    parser.add_argument("--write-schemas", action="store_true", help="JSON Schema도 갱신합니다.")
+    return parser.parse_args()
 
-    for rubric_path in sorted(rubric_dir.glob("*.json")):
-        rubric = load_rubric(rubric_path)
-        lecture_path = processed_dir / f"{rubric.lecture_id}.json"
-        if not lecture_path.exists():
-            errors.append(f"{rubric_path.name}: 구조화 강의 파일이 없습니다.")
-            continue
 
-        lecture = json.loads(lecture_path.read_text(encoding="utf-8"))
-        chunks = {chunk["chunk_id"]: chunk for chunk in lecture["chunks"]}
-        evidence_items = [
-            evidence
-            for objective in rubric.learning_objectives
-            for claim in objective.reference_claims
-            for evidence in claim.evidence
-        ] + [
-            evidence for relation in rubric.relations for evidence in relation.evidence
-        ]
+def main() -> None:
+    args = parse_args()
+    evaluation_dir = ROOT / "data" / "evaluation"
+    rubric_dir = evaluation_dir / "rubrics"
+    paths = sorted(rubric_dir.glob("*.json"))
+    if not paths:
+        raise SystemExit("Rubric JSON이 없습니다.")
 
-        for evidence in evidence_items:
-            chunk = chunks.get(evidence.chunk_id)
-            if chunk is None:
-                errors.append(
-                    f"{rubric_path.name}: 없는 chunk_id {evidence.chunk_id}"
-                )
-            elif chunk["page"] != evidence.page:
-                errors.append(
-                    f"{rubric_path.name}: {evidence.chunk_id} 페이지 불일치 "
-                    f"({evidence.page} != {chunk['page']})"
-                )
+    for path in paths:
+        rubric = load_rubric(path)
+        processed_path = ROOT / "data" / "processed" / f"{rubric.lecture_id}.json"
+        processed = json.loads(processed_path.read_text(encoding="utf-8"))
+        document = LectureDocument.model_validate(processed)
+        chunks = {chunk["chunk_id"]: chunk for chunk in processed["chunks"]}
+        term_ids = {term.term_id for term in document.terminology}
+        if len(term_ids) != len(document.terminology):
+            raise ValueError(f"{rubric.lecture_id}: terminology term_id 중복")
 
+        if document.schema_version == "2.1.0":
+            aliases: dict[str, str] = {}
+            for term in document.terminology:
+                for related_id in term.not_equivalent_to:
+                    if related_id not in term_ids:
+                        raise ValueError(f"{term.term_id}: 없는 not_equivalent_to {related_id}")
+                forms = [
+                    term.canonical_ko,
+                    term.canonical_en,
+                    *term.abbreviations,
+                    *term.accepted_aliases,
+                ]
+                for form in forms:
+                    key = " ".join(form.casefold().split())
+                    if not key:
+                        continue
+                    previous = aliases.get(key)
+                    if previous is not None and previous != term.term_id:
+                        raise ValueError(
+                            f"terminology alias 충돌: {form!r} -> {previous}, {term.term_id}"
+                        )
+                    aliases[key] = term.term_id
+
+            unit_ids: set[str] = set()
+            for chunk in document.chunks:
+                unknown_terms = set(chunk.term_ids) - term_ids
+                if unknown_terms:
+                    raise ValueError(f"{chunk.chunk_id}: 없는 term_id {sorted(unknown_terms)}")
+                if chunk.page_role in {
+                    "cover", "table_of_contents", "section_divider", "closing"
+                } and chunk.evidence_units:
+                    raise ValueError(f"{chunk.chunk_id}: {chunk.page_role} 페이지는 evidence가 될 수 없습니다.")
+                for unit in chunk.evidence_units:
+                    if unit.unit_id in unit_ids:
+                        raise ValueError(f"evidence unit_id 중복: {unit.unit_id}")
+                    unit_ids.add(unit.unit_id)
+                    unknown_unit_terms = set(unit.term_ids) - term_ids
+                    if unknown_unit_terms:
+                        raise ValueError(f"{unit.unit_id}: 없는 term_id {sorted(unknown_unit_terms)}")
+
+        for objective in rubric.top_level_objectives:
+            for sub in objective.sub_objectives:
+                for claim in sub.claims:
+                    unknown_claim_terms = set(claim.term_ids) - term_ids
+                    if unknown_claim_terms:
+                        raise ValueError(f"{claim.claim_id}: 없는 term_id {sorted(unknown_claim_terms)}")
+                    for evidence in claim.evidence:
+                        chunk = chunks.get(evidence.chunk_id)
+                        if chunk is None:
+                            raise ValueError(f"{claim.claim_id}: 없는 chunk {evidence.chunk_id}")
+                        if chunk["page"] != evidence.page:
+                            raise ValueError(f"{claim.claim_id}: evidence page 불일치")
+                        if document.schema_version == "2.1.0":
+                            if evidence.unit_id is None:
+                                raise ValueError(f"{claim.claim_id}: unit_id가 필요합니다.")
+                            unit = next(
+                                (
+                                    item
+                                    for item in chunk.get("evidence_units", [])
+                                    if item["unit_id"] == evidence.unit_id
+                                ),
+                                None,
+                            )
+                            if unit is None:
+                                raise ValueError(f"{claim.claim_id}: 없는 unit {evidence.unit_id}")
+                            if unit["source_excerpt"] != evidence.source_excerpt:
+                                raise ValueError(f"{claim.claim_id}: atomic source_excerpt 불일치")
+                            if unit["source_status"] != evidence.source_status:
+                                raise ValueError(f"{claim.claim_id}: source_status 불일치")
+                            if evidence.source_status != "verified":
+                                raise ValueError(f"{claim.claim_id}: 검수되지 않은 evidence 사용")
+                        elif chunk["content"] != evidence.source_excerpt:
+                            raise ValueError(f"{claim.claim_id}: source_excerpt 불일치")
         print(
-            f"OK {rubric.lecture_id}: "
-            f"objectives={len(rubric.learning_objectives)}, "
-            f"claims={sum(len(x.reference_claims) for x in rubric.learning_objectives)}, "
-            f"relations={len(rubric.relations)}, "
-            f"chains={len(rubric.relation_chains)}"
+            f"OK {rubric.lecture_id}: objectives={len(rubric.top_level_objectives)}, "
+            f"claims={sum(len(sub.claims) for obj in rubric.top_level_objectives for sub in obj.sub_objectives)}"
         )
 
-    rubrics = {
-        path.stem: load_rubric(path) for path in sorted(rubric_dir.glob("*.json"))
-    }
-    for profile_path in sorted(profile_dir.glob("*.json")):
-        profile = load_profile(profile_path)
-        rubric = rubrics.get(profile.lecture_id)
-        if rubric is None:
-            errors.append(
-                f"{profile_path.name}: lecture rubric이 없습니다: {profile.lecture_id}"
+    if args.write_schemas:
+        targets = {
+            "rubric.schema.json": LectureRubric.model_json_schema(),
+            "topic_assessment.schema.json": TopicAssessment.model_json_schema(),
+            "../processed/processed.schema.json": LectureDocument.model_json_schema(),
+        }
+        for filename, schema in targets.items():
+            (evaluation_dir / filename).write_text(
+                json.dumps(schema, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
             )
-            continue
-        try:
-            validate_profile_against_rubric(profile, rubric)
-        except ValueError as exc:
-            errors.append(f"{profile_path.name}: {exc}")
-        else:
-            expected_objectives = sum(
-                group.minimum_objectives for group in profile.objective_groups
-            )
-            expected_relations = sum(
-                group.minimum_relations for group in profile.relation_groups
-            )
-            print(
-                f"OK {profile.profile_id}: "
-                f"expected_objectives={expected_objectives}, "
-                f"expected_relations={expected_relations}, "
-                f"max_seconds={profile.max_seconds}"
-            )
-
-    if errors:
-        print("\n검증 오류:")
-        for error in errors:
-            print(f"- {error}")
-        return 1
-    return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()

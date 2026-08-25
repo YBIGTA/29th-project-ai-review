@@ -1,0 +1,1239 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "python_environment",
+  "lecture_name": "Python / 개발환경",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "python.environment_tools",
+      "title": "Python 개발환경과 도구 선택",
+      "selection_description": "Colab·Conda 계열·VS Code의 역할과 선택 기준을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "python.env.choice",
+          "title": "환경 선택 기준",
+          "summary": "개발 목적에 따른 환경 trade-off를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.env_choice",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Python 개발환경에는 하나의 정답이 없으며 접근성, 파일 관리, 협업과 프로젝트 규모에 맞춰 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "python_environment_p4_01",
+                  "unit_id": "py_p4_u01",
+                  "source_excerpt": "정답은 없지만 상황에 따라 장단점이 있다",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 5,
+                  "chunk_id": "python_environment_p5_01",
+                  "unit_id": "py_p5_u01",
+                  "source_excerpt": "구글 계정만 있으면 준비할 게 없다 / 코드 파일을 다루기엔 유연성이 아쉽다",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "development_environment",
+                "colab"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Python 개발환경에는 하나의 정답이 없으며 접근성, 파일 관리, 협업과 프로젝트 규모에 맞춰 선택한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.colab_tradeoff",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Google Colab은 계정만 있으면 빠르게 시작할 수 있지만 로컬 파일 기반 프로그램 개발에는 유연성이 부족할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "python_environment_p5_01",
+                  "unit_id": "py_p5_u01",
+                  "source_excerpt": "구글 계정만 있으면 준비할 게 없다 / 코드 파일을 다루기엔 유연성이 아쉽다",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "colab",
+                "development_environment"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Google Colab은 계정만 있으면 빠르게 시작할 수 있지만 로컬 파일 기반 프로그램 개발에는 유연성이 부족할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.anaconda_team",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Anaconda 같은 로컬 환경은 파일 기반 개발과 팀 프로젝트의 공통 환경 구성에 활용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "python_environment_p6_01",
+                  "unit_id": "py_p6_u01",
+                  "source_excerpt": "아나콘다: 로컬에서 파일 관리에 유용 / 팀프로젝트에도 공통의 환경을 조성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "anaconda",
+                "development_environment",
+                "reproducibility"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Anaconda 같은 로컬 환경은 파일 기반 개발과 팀 프로젝트의 공통 환경 구성에 활용할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.env.conda_family",
+          "title": "Conda 계열 도구",
+          "summary": "Conda·Miniconda·Anaconda를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "py.conda_family",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Conda는 패키지·환경 관리 엔진, Miniconda는 Conda와 Python 중심 최소 배포판, Anaconda는 데이터 과학 패키지를 미리 포함한 배포판이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "python_environment_p7_01",
+                  "unit_id": "py_p7_u01",
+                  "source_excerpt": "Conda 핵심 엔진 / Miniconda 최소 버전 / Anaconda 데이터 사이언스 패키지 사전 탑재",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "conda",
+                "miniconda",
+                "anaconda",
+                "package_manager",
+                "dependency"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Conda는 패키지·환경 관리 엔진, Miniconda는 Conda와 Python 중심 최소 배포판, Anaconda는 데이터 과학 패키지를 미리 포함한 배포판이다."
+                ],
+                "critical_errors": [
+                  "Conda·Miniconda·Anaconda를 모두 완전히 동일한 설치 패키지라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.miniconda_anaconda",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "Miniconda는 필요한 패키지만 선택하는 가벼운 설치에, Anaconda는 데이터 과학 도구를 바로 쓰는 큰 배포에 적합하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "python_environment_p7_01",
+                  "unit_id": "py_p7_u01",
+                  "source_excerpt": "Conda 핵심 엔진 / Miniconda 최소 버전 / Anaconda 데이터 사이언스 패키지 사전 탑재",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "conda",
+                "miniconda",
+                "anaconda",
+                "package_manager",
+                "dependency"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Miniconda는 필요한 패키지만 선택하는 가벼운 설치에, Anaconda는 데이터 과학 도구를 바로 쓰는 큰 배포에 적합하다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.env.ide",
+          "title": "VS Code와 인터프리터",
+          "summary": "IDE 기능과 실행 환경 선택을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.vscode_role",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "VS Code는 코드 편집·실행·디버깅, 터미널, Git과 Python 확장을 통합한 개발 도구다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "python_environment_p8_01",
+                  "unit_id": "py_p8_u01",
+                  "source_excerpt": "터미널 내장, Git 내장, Python extension, 코드 작성·실행·디버깅",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vscode",
+                "python_interpreter"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "VS Code는 코드 편집·실행·디버깅, 터미널, Git과 Python 확장을 통합한 개발 도구다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.interpreter_select",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Python: Select Interpreter로 현재 프로젝트가 실행과 디버깅에 사용할 Python·가상환경을 명시적으로 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "python_environment_p16_01",
+                  "unit_id": "py_p16_u01",
+                  "source_excerpt": "Python: Select Interpreter",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "vscode",
+                "python_interpreter"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Python: Select Interpreter로 현재 프로젝트가 실행과 디버깅에 사용할 Python·가상환경을 명시적으로 선택한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "python.virtual_environments",
+      "title": "가상환경과 의존성 재현",
+      "selection_description": "venv·Conda의 격리, 패키지 기록과 환경 복제를 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "python.venv.motivation",
+          "title": "가상환경의 필요성",
+          "summary": "프로젝트 격리와 재현성을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.venv_need",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "가상환경은 프로젝트마다 다른 Python·패키지 버전을 격리해 충돌을 줄이고 팀원과 미래의 실행 재현성을 높인다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "python_environment_p22_01",
+                  "unit_id": "py_p22_u01",
+                  "source_excerpt": "프로젝트마다 필요한 패키지 버전이 다름 / 팀원 환경 차이 / 업데이트 후 오류",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "virtual_environment",
+                "dependency",
+                "package_conflict",
+                "reproducibility"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "가상환경은 프로젝트마다 다른 Python·패키지 버전을 격리해 충돌을 줄이고 팀원과 미래의 실행 재현성을 높인다."
+                ],
+                "critical_errors": [
+                  "가상환경이 서로 다른 프로젝트의 패키지를 하나의 전역 공간에 합치는 도구라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.venv_definition",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "가상환경은 시스템·다른 프로젝트와 분리된 Python 실행 및 패키지 공간이며 venv는 Python 표준 도구다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "python_environment_p23_01",
+                  "unit_id": "py_p23_u01",
+                  "source_excerpt": "독립적인 프로젝트를 위한 개별적인 공간",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 24,
+                  "chunk_id": "python_environment_p24_01",
+                  "unit_id": "py_p24_u01",
+                  "source_excerpt": "Venv는 Python을 위한 가상 환경 생성 도구이며 표준 라이브러리에 포함",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "virtual_environment",
+                "venv"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "가상환경은 시스템·다른 프로젝트와 분리된 Python 실행 및 패키지 공간이며 venv는 Python 표준 도구다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.venv_features",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "venv는 가볍고 Python 전용이며 시스템 Python을 건드리지 않고 프로젝트별 의존성을 관리한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "python_environment_p29_01",
+                  "unit_id": "py_p29_u01",
+                  "source_excerpt": "경량성과 편리성 / 프로젝트별 독립성 / 시스템 Python 보호 / 패키지 버전 관리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "venv",
+                "virtual_environment",
+                "requirements"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "venv는 가볍고 Python 전용이며 시스템 Python을 건드리지 않고 프로젝트별 의존성을 관리한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.venv.workflow",
+          "title": "venv 사용 흐름",
+          "summary": "생성·활성화·설치·공유를 연결한다.",
+          "claims": [
+            {
+              "claim_id": "py.venv_create_activate",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "python -m venv로 환경을 생성하고 운영체제에 맞는 activate 스크립트를 실행해 활성화한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 24,
+                  "chunk_id": "python_environment_p24_01",
+                  "unit_id": "py_p24_u02",
+                  "source_excerpt": "python3 -m venv 환경이름 / source 환경이름/bin/activate / 환경이름\\Scripts\\activate",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "venv",
+                "activation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "python -m venv로 환경을 생성하고 운영체제에 맞는 activate 스크립트를 실행해 활성화한다."
+                ],
+                "critical_errors": [
+                  "activate 명령이 가상환경을 새로 생성한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.venv_install",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "활성화한 환경에서 pip로 설치하면 패키지가 해당 환경에 격리된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "python_environment_p26_01",
+                  "unit_id": "py_p26_u01",
+                  "source_excerpt": "source ybigta/bin/activate / pip install numpy / pip install pandas",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "venv",
+                "activation",
+                "pip"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "활성화한 환경에서 pip로 설치하면 패키지가 해당 환경에 격리된다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.requirements_export",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "pip freeze는 현재 설치된 패키지와 버전 목록을 requirements.txt에 기록하며 deactivate는 환경을 비활성화한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 27,
+                  "chunk_id": "python_environment_p27_01",
+                  "unit_id": "py_p27_u01",
+                  "source_excerpt": "pip freeze > requirements.txt / deactivate",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "pip_freeze",
+                "requirements",
+                "deactivation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "pip freeze는 현재 설치된 패키지와 버전 목록을 requirements.txt에 기록하며 deactivate는 환경을 비활성화한다."
+                ],
+                "critical_errors": [
+                  "pip freeze가 패키지 자체를 requirements.txt 안에 복사한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.requirements_restore",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "새 가상환경에서 pip install -r requirements.txt를 실행해 기록된 의존성을 설치한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "python_environment_p28_01",
+                  "unit_id": "py_p28_u01",
+                  "source_excerpt": "pip install -r requirements.txt",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "pip",
+                "requirements",
+                "reproducibility"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "새 가상환경에서 pip install -r requirements.txt를 실행해 기록된 의존성을 설치한다."
+                ],
+                "critical_errors": [
+                  "requirements.txt만 존재하면 설치 명령 없이 패키지가 자동 설치된다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.conda.workflow",
+          "title": "Conda 환경 관리",
+          "summary": "Conda 환경의 생명주기와 복제를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.conda_definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Conda는 Python뿐 아니라 여러 언어의 패키지와 가상환경, 복잡한 의존성을 함께 관리한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "python_environment_p30_01",
+                  "unit_id": "py_p30_u01",
+                  "source_excerpt": "Conda는 오픈소스 패키지 관리 시스템이자 환경 관리 시스템",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "conda",
+                "conda_env",
+                "package_manager"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Conda는 Python뿐 아니라 여러 언어의 패키지와 가상환경, 복잡한 의존성을 함께 관리한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.conda_lifecycle",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Conda 환경은 이름과 Python 버전을 지정해 만들고 activate·deactivate하며 필요하면 remove로 삭제한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "python_environment_p30_01",
+                  "unit_id": "py_p30_u02",
+                  "source_excerpt": "conda create --name 환경 python=버전 / conda activate / conda deactivate",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 35,
+                  "chunk_id": "python_environment_p35_01",
+                  "unit_id": "py_p35_u01",
+                  "source_excerpt": "conda env export > environment.yml / conda deactivate / conda env remove",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "conda",
+                "activation",
+                "deactivation",
+                "environment_yml"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Conda 환경은 이름과 Python 버전을 지정해 만들고 activate·deactivate하며 필요하면 remove로 삭제한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.conda_export",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "conda env export로 environment.yml을 만들고 conda env create -f로 환경을 재생성한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 35,
+                  "chunk_id": "python_environment_p35_01",
+                  "unit_id": "py_p35_u01",
+                  "source_excerpt": "conda env export > environment.yml / conda deactivate / conda env remove",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 36,
+                  "chunk_id": "python_environment_p36_01",
+                  "unit_id": "py_p36_u01",
+                  "source_excerpt": "conda env create -n 새환경 -f environment.yml",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "conda",
+                "environment_yml",
+                "deactivation",
+                "reproducibility"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "conda env export로 environment.yml을 만들고 conda env create -f로 환경을 재생성한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.env.compare",
+          "title": "venv와 Conda 선택",
+          "summary": "범위와 충돌 가능성을 비교한다.",
+          "claims": [
+            {
+              "claim_id": "py.venv_conda",
+              "role": "essential",
+              "category": "connection_comparison",
+              "text": "venv는 가벼운 Python 전용 프로젝트에, Conda는 복잡한 데이터 과학·다언어·시스템 의존성 관리에 더 적합하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "python_environment_p32_01",
+                  "unit_id": "py_p32_u01",
+                  "source_excerpt": "venv는 최소한 구성 / conda는 필요한 모든 패키지를 포함하며 운영체제와 독립적이고 포괄적",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 38,
+                  "chunk_id": "python_environment_p38_01",
+                  "unit_id": "py_p38_u01",
+                  "source_excerpt": "Conda: 다양한 언어·복잡한 의존성 / Venv: 파이썬 전용·경량",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "venv",
+                "conda",
+                "dependency"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "venv는 가벼운 Python 전용 프로젝트에, Conda는 복잡한 데이터 과학·다언어·시스템 의존성 관리에 더 적합하다."
+                ],
+                "critical_errors": [
+                  "venv가 Python 외 시스템 패키지까지 Conda와 동일하게 관리한다고 단정"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.conda_pip",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Conda 환경에서도 pip를 쓸 수 있지만 충돌을 줄이려면 Conda 패키지를 우선하고 없는 패키지만 pip로 보완한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 34,
+                  "chunk_id": "python_environment_p34_01",
+                  "unit_id": "py_p34_u01",
+                  "source_excerpt": "Conda 환경에서도 pip 설치 가능하지만 종속성 충돌 가능성 / conda 패키지를 먼저 설치",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "conda",
+                "pip",
+                "package_conflict"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Conda 환경에서도 pip를 쓸 수 있지만 충돌을 줄이려면 Conda 패키지를 우선하고 없는 패키지만 pip로 보완한다."
+                ],
+                "critical_errors": [
+                  "Conda 환경에서 pip와 conda를 어떤 순서로 섞어도 의존성 충돌 가능성이 전혀 없다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "python.code_quality",
+      "title": "읽기 좋은 Python 코드",
+      "selection_description": "명명·PEP 8·Typing·Docstring으로 코드 계약을 전달한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "python.quality.naming",
+          "title": "명명과 스타일",
+          "summary": "식별자 규칙과 일관된 표기를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.naming_rules",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Python 식별자는 예약어를 피하고 숫자로 시작하거나 공백을 포함할 수 없으며 언더바 외 특수문자를 피하고 의미 있는 이름을 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 41,
+                  "chunk_id": "python_environment_p41_01",
+                  "unit_id": "py_p41_u01",
+                  "source_excerpt": "Keyword 사용 불가 / 특수 문자는 언더바만 / 숫자로 시작하지 않음 / 공백 불가 / 가급적 의미 있는 이름",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "identifier",
+                "keyword"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Python 식별자는 예약어를 피하고 숫자로 시작하거나 공백을 포함할 수 없으며 언더바 외 특수문자를 피하고 의미 있는 이름을 사용한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.naming_styles",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "snake_case는 단어 사이를 언더바로 나누고 CamelCase는 단어 첫 글자를 대문자로 표시한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 43,
+                  "chunk_id": "python_environment_p43_01",
+                  "unit_id": "py_p43_u01",
+                  "source_excerpt": "Snake case는 단어 사이에 언더바 / Camel case는 단어 첫 글자를 대문자",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "snake_case",
+                "camel_case",
+                "identifier"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "snake_case는 단어 사이를 언더바로 나누고 CamelCase는 단어 첫 글자를 대문자로 표시한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.pep8_indent",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "PEP 8은 Python 들여쓰기에 스페이스 4칸을 권장하며 프로젝트 전체에서 일관되게 적용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 44,
+                  "chunk_id": "python_environment_p44_01",
+                  "unit_id": "py_p44_u01",
+                  "source_excerpt": "Python은 스페이스 4개를 들여쓰기에 권장하며 이는 PEP 8 스타일 가이드 때문",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "pep8",
+                "indentation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "PEP 8은 Python 들여쓰기에 스페이스 4칸을 권장하며 프로젝트 전체에서 일관되게 적용한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.quality.typing",
+          "title": "타입 힌트",
+          "summary": "동적 언어에서 함수 계약을 표현한다.",
+          "claims": [
+            {
+              "claim_id": "py.typing_purpose",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "타입 힌트는 변수·매개변수·반환형의 의도를 표시해 가독성, IDE 지원과 정적 검사 가능성을 높이지만 기본적으로 런타임 강제는 아니다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 45,
+                  "chunk_id": "python_environment_p45_01",
+                  "unit_id": "py_p45_u01",
+                  "source_excerpt": "typing이란 변수와 함수의 자료형을 명시해 코드의 안정성과 가독성을 높이는 방법",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "dynamic_typing",
+                "type_hint"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "타입 힌트는 변수·매개변수·반환형의 의도를 표시해 가독성, IDE 지원과 정적 검사 가능성을 높이지만 기본적으로 런타임 강제는 아니다."
+                ],
+                "critical_errors": [
+                  "Python 타입 힌트가 기본적으로 런타임 타입을 강제하고 오류를 자동 차단한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.typing_contract",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "함수의 매개변수와 반환 타입을 함께 표시하면 호출자가 함수 계약을 빠르게 이해할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 46,
+                  "chunk_id": "python_environment_p46_01",
+                  "unit_id": "py_p46_u01",
+                  "source_excerpt": "파라미터로 어떤 값이 들어와야 하는지 명시하고 리턴값 형태 표시 / IDE hover",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "type_hint"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "함수의 매개변수와 반환 타입을 함께 표시하면 호출자가 함수 계약을 빠르게 이해할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.typing_structures",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "List·Tuple·Dict와 TypedDict로 컨테이너 원소와 딕셔너리 구조를 구체적으로 표현할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 47,
+                  "chunk_id": "python_environment_p47_01",
+                  "unit_id": "py_p47_u01",
+                  "source_excerpt": "List, Tuple, Dict, Any와 TypedDict로 타입 지정",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "type_hint",
+                "typeddict"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "List·Tuple·Dict와 TypedDict로 컨테이너 원소와 딕셔너리 구조를 구체적으로 표현할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.callable",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Callable은 함수 자체를 인자로 받을 때 그 함수의 인자 타입과 반환 타입을 표현한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 48,
+                  "chunk_id": "python_environment_p48_01",
+                  "unit_id": "py_p48_u01",
+                  "source_excerpt": "Callable[[str, int], float] / Callable[..., float]",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "type_hint",
+                "callable"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Callable은 함수 자체를 인자로 받을 때 그 함수의 인자 타입과 반환 타입을 표현한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.quality.docs",
+          "title": "Docstring",
+          "summary": "코드 내부 문서화의 내용과 효과를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.docstring_purpose",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Docstring은 함수·클래스·모듈의 역할과 입출력을 코드 내부에 기록하며 __doc__과 IDE hover에서 확인할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 50,
+                  "chunk_id": "python_environment_p50_01",
+                  "unit_id": "py_p50_u01",
+                  "source_excerpt": "Docstring은 함수·클래스·모듈의 입출력 형태 등을 코드 내부에 문서화 / __doc__ 조회 / IDE hover",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "docstring"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Docstring은 함수·클래스·모듈의 역할과 입출력을 코드 내부에 기록하며 __doc__과 IDE hover에서 확인할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.docstring_structure",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "함수 Docstring은 설명·Args·Returns를, 클래스 Docstring은 Attributes·Methods 등을 구조화해 기록할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 51,
+                  "chunk_id": "python_environment_p51_01",
+                  "unit_id": "py_p51_u01",
+                  "source_excerpt": "Args, Returns / Attributes, Methods",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "docstring"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "함수 Docstring은 설명·Args·Returns를, 클래스 Docstring은 Attributes·Methods 등을 구조화해 기록할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "python.classes_oop",
+      "title": "클래스와 객체 지향",
+      "selection_description": "클래스의 상태·메서드와 OOP 원칙 및 상속을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "python.class.basics",
+          "title": "클래스와 속성",
+          "summary": "클래스·객체·인스턴스와 속성 범위를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.class_role",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "클래스는 관련 데이터인 속성과 동작인 메서드를 묶어 객체를 생성하는 설계도다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 52,
+                  "chunk_id": "python_environment_p52_01",
+                  "unit_id": "py_p52_u01",
+                  "source_excerpt": "클래스는 객체를 생성하기 위한 설계도 / 속성에 데이터 저장, 메서드로 동작 정의",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "class",
+                "object",
+                "attribute",
+                "method"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "클래스는 관련 데이터인 속성과 동작인 메서드를 묶어 객체를 생성하는 설계도다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.class_instance_attr",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "클래스 속성은 모든 인스턴스가 공유하고 인스턴스 속성은 각 객체의 고유 상태를 저장한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 53,
+                  "chunk_id": "python_environment_p53_01",
+                  "unit_id": "py_p53_u01",
+                  "source_excerpt": "class attribute: 모든 인스턴스가 같은 값 공유 / instance attribute: 인스턴스별 고유 값",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "class_attribute",
+                "instance_attribute",
+                "instance",
+                "constructor"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "클래스 속성은 모든 인스턴스가 공유하고 인스턴스 속성은 각 객체의 고유 상태를 저장한다."
+                ],
+                "critical_errors": [
+                  "인스턴스 속성이 모든 인스턴스에 항상 하나의 값으로 공유된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.constructor",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "__init__ 생성자는 인스턴스가 만들어질 때 self에 객체별 초기 상태를 설정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 53,
+                  "chunk_id": "python_environment_p53_01",
+                  "unit_id": "py_p53_u01",
+                  "source_excerpt": "class attribute: 모든 인스턴스가 같은 값 공유 / instance attribute: 인스턴스별 고유 값",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "class_attribute",
+                "instance_attribute",
+                "instance",
+                "constructor"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "__init__ 생성자는 인스턴스가 만들어질 때 self에 객체별 초기 상태를 설정한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.class.methods",
+          "title": "메서드 종류",
+          "summary": "self·cls와 상태 접근 범위를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "py.method_types",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "인스턴스 메서드는 self, 클래스 메서드는 cls를 받고 정적 메서드는 self·cls를 자동으로 받지 않는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 54,
+                  "chunk_id": "python_environment_p54_01",
+                  "unit_id": "py_p54_u01",
+                  "source_excerpt": "self는 현재 인스턴스 / cls는 현재 클래스 / static method는 self나 cls 없음",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "instance_method",
+                "class_method",
+                "static_method",
+                "self",
+                "cls"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "인스턴스 메서드는 self, 클래스 메서드는 cls를 받고 정적 메서드는 self·cls를 자동으로 받지 않는다."
+                ],
+                "critical_errors": [
+                  "정적 메서드가 자동으로 현재 인스턴스 self를 받는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.instance_method",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "인스턴스 메서드는 self를 통해 현재 객체의 인스턴스 속성에 접근하거나 변경한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 54,
+                  "chunk_id": "python_environment_p54_01",
+                  "unit_id": "py_p54_u01",
+                  "source_excerpt": "self는 현재 인스턴스 / cls는 현재 클래스 / static method는 self나 cls 없음",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "instance_method",
+                "class_method",
+                "static_method",
+                "self",
+                "cls"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "인스턴스 메서드는 self를 통해 현재 객체의 인스턴스 속성에 접근하거나 변경한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.class_static_method",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "클래스 메서드는 cls로 클래스 상태를 다루고 정적 메서드는 클래스와 관련 있지만 인스턴스·클래스 상태가 필요 없는 기능에 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 54,
+                  "chunk_id": "python_environment_p54_01",
+                  "unit_id": "py_p54_u01",
+                  "source_excerpt": "self는 현재 인스턴스 / cls는 현재 클래스 / static method는 self나 cls 없음",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "instance_method",
+                "class_method",
+                "static_method",
+                "self",
+                "cls"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "클래스 메서드는 cls로 클래스 상태를 다루고 정적 메서드는 클래스와 관련 있지만 인스턴스·클래스 상태가 필요 없는 기능에 사용한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "python.oop.principles",
+          "title": "OOP 원칙",
+          "summary": "객체 중심 설계와 네 원칙을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "py.oop_definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "객체 지향은 객체의 상태와 행동으로 프로그램을 구성해 재사용성·확장성·유지보수성을 높이는 패러다임이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 58,
+                  "chunk_id": "python_environment_p58_01",
+                  "unit_id": "py_p58_u01",
+                  "source_excerpt": "객체가 지정된 속성과 행동을 가지도록 설계하는 프로그래밍 패러다임 / 재사용성·확장성·유지보수성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "oop",
+                "object",
+                "attribute"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "객체 지향은 객체의 상태와 행동으로 프로그램을 구성해 재사용성·확장성·유지보수성을 높이는 패러다임이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "py.oop_principles",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "캡슐화는 내부 상태 은닉, 상속은 기존 클래스 확장, 다형성은 같은 인터페이스의 다른 동작, 추상화는 구현을 감추고 필요한 인터페이스를 제공하는 원칙이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 59,
+                  "chunk_id": "python_environment_p59_01",
+                  "unit_id": "py_p59_u01",
+                  "source_excerpt": "캡슐화 / 상속 / 다형성 / 추상화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "encapsulation",
+                "inheritance",
+                "polymorphism",
+                "abstraction"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "캡슐화는 내부 상태 은닉, 상속은 기존 클래스 확장, 다형성은 같은 인터페이스의 다른 동작, 추상화는 구현을 감추고 필요한 인터페이스를 제공하는 원칙이다."
+                ],
+                "critical_errors": [
+                  "상속·캡슐화·다형성·추상화의 의미를 서로 뒤바꿔 핵심 관계를 무너뜨림"
+                ]
+              }
+            },
+            {
+              "claim_id": "py.inheritance_override",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "자식 클래스는 부모를 상속해 super로 초기화·동작을 재사용하고 메서드 오버라이딩으로 동작을 확장하거나 바꿀 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 60,
+                  "chunk_id": "python_environment_p60_01",
+                  "unit_id": "py_p60_u01",
+                  "source_excerpt": "부모 클래스를 상속 / super()로 부모 속성 초기화 / introduce 메서드 오버라이딩",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "inheritance",
+                "super",
+                "override"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "자식 클래스는 부모를 상속해 super로 초기화·동작을 재사용하고 메서드 오버라이딩으로 동작을 확장하거나 바꿀 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": []
+}

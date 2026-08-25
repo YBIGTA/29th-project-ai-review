@@ -1,0 +1,1006 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "machine_learning",
+  "lecture_name": "Machine Learning",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "ml.valid_experiment",
+      "title": "유효한 문제 정의와 실험 설계",
+      "selection_description": "예측 문제를 명세하고 일반화 성능을 누수 없이 검증한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "ml.experiment.problem",
+          "title": "문제와 활용 정의",
+          "summary": "단위·시점·활용을 명확히 한다.",
+          "claims": [
+            {
+              "claim_id": "ml.project_flow",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "머신러닝 프로젝트는 문제 정의부터 데이터·검증·모델링·오류 분석과 실제 활용 결론까지 연결된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "machine_learning_p4_01",
+                  "unit_id": "ml_p4_flow",
+                  "source_excerpt": "문제 정의 → 데이터 이해/수집 → EDA → 검증 전략 → 전처리/FE → Baseline → 학습/Tuning → 평가/선택 → 해석/Error Analysis → 비즈니스 결론",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ml",
+                "eda",
+                "feature_engineering",
+                "validation",
+                "baseline"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "머신러닝 프로젝트는 문제 정의부터 데이터·검증·모델링·오류 분석과 실제 활용 결론까지 연결된다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.problem_unit",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "예측 문제는 관측 단위, 입력 관측 기간, 예측 대상 기간, 예측 시점과 결과의 사용 방식을 구체화해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "machine_learning_p7_01",
+                  "unit_id": "ml_p7_churn",
+                  "source_excerpt": "관측 단위 customer-month / 과거 90일 / 향후 30일 / 매월 1회 예측 / Risk score",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ml",
+                "threshold"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "예측 문제는 관측 단위, 입력 관측 기간, 예측 대상 기간, 예측 시점과 결과의 사용 방식을 구체화해야 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.experiment.split",
+          "title": "데이터 분할",
+          "summary": "학습·선택·평가 역할을 분리한다.",
+          "claims": [
+            {
+              "claim_id": "ml.split_roles",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "모델은 학습 세트에 적합하고 검증 세트나 학습 내부 CV로 선택하며 테스트 세트는 마지막 일반화 평가까지 보존한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "machine_learning_p12_01",
+                  "unit_id": "ml_p12_split",
+                  "source_excerpt": "Train / Validation / Test / CV는 Train 안에서 / Test는 마지막까지 보존",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "train_set",
+                "validation_set",
+                "test_set",
+                "cross_validation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "모델은 학습 세트에 적합하고 검증 세트나 학습 내부 CV로 선택하며 테스트 세트는 마지막 일반화 평가까지 보존한다."
+                ],
+                "critical_errors": [
+                  "테스트 세트를 반복적인 모델 선택과 튜닝에 사용해도 된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.split_strategy",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "반복 개체는 group split, 시간 예측은 time split을 고려하며 stratification만으로 개체·시간 누수를 해결할 수 없다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "machine_learning_p13_01",
+                  "unit_id": "ml_p13_strategy",
+                  "source_excerpt": "Random/Stratified / Group / Time split / Stratification은 leakage를 해결하지 않음",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "stratification",
+                "group_split",
+                "time_split",
+                "leakage"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "반복 개체는 group split, 시간 예측은 time split을 고려하며 stratification만으로 개체·시간 누수를 해결할 수 없다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.experiment.leakage",
+          "title": "누수 방지 Pipeline",
+          "summary": "전처리를 fold 내부에서 수행한다.",
+          "claims": [
+            {
+              "claim_id": "ml.leakage",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "분할 전에 전체 데이터로 대체·스케일링·특성 선택·SMOTE를 적합하면 검증 정보가 학습에 들어가는 누수다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "machine_learning_p14_01",
+                  "unit_id": "ml_p14_leak",
+                  "source_excerpt": "split 전에 전체 데이터로 imputer/scaler/feature selection/SMOTE fit",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "leakage",
+                "scaling",
+                "smote"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "분할 전에 전체 데이터로 대체·스케일링·특성 선택·SMOTE를 적합하면 검증 정보가 학습에 들어가는 누수다."
+                ],
+                "critical_errors": [
+                  "전체 데이터로 전처리를 적합한 뒤 교차 검증해도 누수가 아니라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.validation_boundary",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Validation은 모델 성능을 측정하는 자료이지 전체 전처리 기준을 미리 적합하는 자료가 아니다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 15,
+                  "chunk_id": "machine_learning_p15_01",
+                  "unit_id": "ml_p15_validation",
+                  "source_excerpt": "Validation은 성능을 측정하는 용도 / preprocessing 기준을 정하는 데 사용하지 않음",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "validation",
+                "validation_set",
+                "leakage"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Validation은 모델 성능을 측정하는 자료이지 전체 전처리 기준을 미리 적합하는 자료가 아니다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.fold_pipeline",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "교차 검증의 각 fold에서 전처리·샘플링·모델은 training 부분에만 fit하고 validation에는 transform과 예측만 적용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "machine_learning_p16_01",
+                  "unit_id": "ml_p16_pipe",
+                  "source_excerpt": "각 fold의 training에만 imputation/scaling/encoding/feature selection/sampling/model fit, validation에는 transform",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "pipeline",
+                "fold",
+                "cross_validation",
+                "leakage"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "교차 검증의 각 fold에서 전처리·샘플링·모델은 training 부분에만 fit하고 validation에는 transform과 예측만 적용한다."
+                ],
+                "critical_errors": [
+                  "검증 fold까지 포함해 scaler나 SMOTE를 적합한다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "ml.model_selection",
+      "title": "근거 기반 모델 선택",
+      "selection_description": "데이터·관계·해석·운영 제약에 맞는 후보를 비교한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "ml.selection.process",
+          "title": "비교 원칙",
+          "summary": "가설과 동일 조건을 사용한다.",
+          "claims": [
+            {
+              "claim_id": "ml.hypothesis_selection",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "모델 선택은 model zoo 나열이 아니라 후보가 적합할 이유를 세우고 같은 분할·지표로 비교하는 가설 기반 과정이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "machine_learning_p18_01",
+                  "unit_id": "ml_p18_hypothesis",
+                  "source_excerpt": "왜 이 모델을 비교하는가? / model zoo가 아니라 hypothesis-driven comparison",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ml",
+                "validation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "모델 선택은 model zoo 나열이 아니라 후보가 적합할 이유를 세우고 같은 분할·지표로 비교하는 가설 기반 과정이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.selection_constraints",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "데이터 크기·형태, 관계 복잡도, 변수 타입·전처리, 설명 가능성, 계산·운영 비용을 함께 고려한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 19,
+                  "chunk_id": "machine_learning_p19_01",
+                  "unit_id": "ml_p19_criteria",
+                  "source_excerpt": "데이터 크기·형태 / 관계 복잡도 / 변수 타입·전처리 / 설명 가능성 / 계산·운영 비용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "ml",
+                "feature_engineering"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "데이터 크기·형태, 관계 복잡도, 변수 타입·전처리, 설명 가능성, 계산·운영 비용을 함께 고려한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.selection.baseline",
+          "title": "Baseline과 선형 모델",
+          "summary": "복잡한 모델의 비교 출발점을 둔다.",
+          "claims": [
+            {
+              "claim_id": "ml.baseline",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "단순 baseline은 복잡한 모델이 실제로 개선했는지 판단하는 최소 비교 기준을 제공한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "machine_learning_p22_01",
+                  "unit_id": "ml_p22_baseline",
+                  "source_excerpt": "Baseline / Logistic Regression / Linear model",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "baseline",
+                "logistic_regression",
+                "linear_model"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "단순 baseline은 복잡한 모델이 실제로 개선했는지 판단하는 최소 비교 기준을 제공한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.linear_role",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "선형·로지스틱 회귀는 해석 가능한 출발점이며 관계가 단순하거나 설명 가능성이 중요할 때 유용하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "machine_learning_p22_01",
+                  "unit_id": "ml_p22_baseline",
+                  "source_excerpt": "Baseline / Logistic Regression / Linear model",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "baseline",
+                "logistic_regression",
+                "linear_model"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "선형·로지스틱 회귀는 해석 가능한 출발점이며 관계가 단순하거나 설명 가능성이 중요할 때 유용하다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.selection.trees",
+          "title": "Tree ensemble",
+          "summary": "트리 계열의 차이를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "ml.tree",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "의사결정나무는 비선형 임계값과 상호작용을 표현하지만 깊어지면 과적합하고 데이터 변화에 불안정할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "machine_learning_p23_01",
+                  "unit_id": "ml_p23_tree",
+                  "source_excerpt": "비선형 관계 / 깊은 tree는 overfitting / 데이터 변화에 불안정",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "decision_tree"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "의사결정나무는 비선형 임계값과 상호작용을 표현하지만 깊어지면 과적합하고 데이터 변화에 불안정할 수 있다."
+                ],
+                "critical_errors": [
+                  "의사결정나무는 깊어질수록 항상 일반화가 좋아진다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.random_forest",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "랜덤 포레스트는 여러 트리 예측을 평균·투표해 단일 트리의 분산과 불안정성을 줄인다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 24,
+                  "chunk_id": "machine_learning_p24_01",
+                  "unit_id": "ml_p24_rf",
+                  "source_excerpt": "여러 Decision Tree의 결과를 평균/투표",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "random_forest",
+                "decision_tree"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "랜덤 포레스트는 여러 트리 예측을 평균·투표해 단일 트리의 분산과 불안정성을 줄인다."
+                ],
+                "critical_errors": [
+                  "랜덤 포레스트가 하나의 트리만 깊게 학습하는 모델이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.boosting",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "부스팅은 앞선 모델의 잔차나 오류를 다음 약한 학습기가 순차적으로 보완한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 25,
+                  "chunk_id": "machine_learning_p25_01",
+                  "unit_id": "ml_p25_boost",
+                  "source_excerpt": "이전 모델의 residual/error를 다음 모델이 순차적으로 학습",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "boosting"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "부스팅은 앞선 모델의 잔차나 오류를 다음 약한 학습기가 순차적으로 보완한다."
+                ],
+                "critical_errors": [
+                  "부스팅의 모든 모델이 서로의 오류와 무관하게 완전히 독립 학습된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.boosting_variants",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "XGBoost·LightGBM·CatBoost는 구현과 데이터 처리 특성이 달라 데이터 규모·속도·범주형 구조에 따라 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "machine_learning_p26_01",
+                  "unit_id": "ml_p26_gbm",
+                  "source_excerpt": "XGBoost / LightGBM / CatBoost / categorical/high-cardinality",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "xgboost",
+                "lightgbm",
+                "catboost",
+                "categorical"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "XGBoost·LightGBM·CatBoost는 구현과 데이터 처리 특성이 달라 데이터 규모·속도·범주형 구조에 따라 선택한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "ml.model_specific_pipeline",
+      "title": "모델별 전처리와 특성공학",
+      "selection_description": "모델의 귀납적 편향과 데이터 구조에 맞춰 표현을 설계한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "ml.preprocess.model",
+          "title": "모델별 전처리",
+          "summary": "모든 모델에 같은 변환을 강제하지 않는다.",
+          "claims": [
+            {
+              "claim_id": "ml.model_specific_preprocessing",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "스케일링은 선형 모델·SVM에 중요하고 트리는 상대적으로 덜 민감하며 CatBoost는 범주형 변수를 직접 처리할 수 있어 전처리는 모델별로 달라야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "machine_learning_p29_01",
+                  "unit_id": "ml_p29_modelprep",
+                  "source_excerpt": "Linear/SVM: scaling 중요 / Tree: scale 영향 작음 / CatBoost: categorical 직접 처리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "linear_model",
+                "svm",
+                "decision_tree",
+                "catboost",
+                "scaling",
+                "categorical"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "스케일링은 선형 모델·SVM에 중요하고 트리는 상대적으로 덜 민감하며 CatBoost는 범주형 변수를 직접 처리할 수 있어 전처리는 모델별로 달라야 한다."
+                ],
+                "critical_errors": [
+                  "모든 모델에 동일 전처리가 언제나 필수라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.scaling_sensitivity",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "거리·내적과 계수 크기에 민감한 모델과 임계값 분기 기반 트리는 scaling 영향이 서로 다르다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 29,
+                  "chunk_id": "machine_learning_p29_01",
+                  "unit_id": "ml_p29_modelprep",
+                  "source_excerpt": "Linear/SVM: scaling 중요 / Tree: scale 영향 작음 / CatBoost: categorical 직접 처리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "linear_model",
+                "svm",
+                "decision_tree",
+                "catboost",
+                "scaling",
+                "categorical"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "거리·내적과 계수 크기에 민감한 모델과 임계값 분기 기반 트리는 scaling 영향이 서로 다르다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.preprocess.fe",
+          "title": "Feature Engineering",
+          "summary": "새 정보와 필요한 관계를 표현한다.",
+          "claims": [
+            {
+              "claim_id": "ml.fe_principle",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Feature Engineering은 특성을 무조건 늘리는 일이 아니라 도메인·시간·집계의 새 정보를 모델이 쓸 수 있게 표현하는 일이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "machine_learning_p33_01",
+                  "unit_id": "ml_p33_fe",
+                  "source_excerpt": "Feature Engineering은 많을수록 좋은 것이 아님 / 새로운 정보와 유효한 표현",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "feature_engineering"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Feature Engineering은 특성을 무조건 늘리는 일이 아니라 도메인·시간·집계의 새 정보를 모델이 쓸 수 있게 표현하는 일이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.linear_fe",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "선형 모델은 상호작용과 비선형 변환을 명시적으로 추가해야 복잡한 관계를 표현할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 34,
+                  "chunk_id": "machine_learning_p34_01",
+                  "unit_id": "ml_p34_linearfe",
+                  "source_excerpt": "Linear model은 interaction/nonlinear transform을 명시적으로 추가",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "linear_model",
+                "interaction",
+                "feature_engineering"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "선형 모델은 상호작용과 비선형 변환을 명시적으로 추가해야 복잡한 관계를 표현할 수 있다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.tree_fe",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "트리는 임계값과 일부 상호작용을 학습하므로 무분별한 binning·다항·전체 상호작용 특성은 중복과 비용을 늘릴 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 35,
+                  "chunk_id": "machine_learning_p35_01",
+                  "unit_id": "ml_p35_treefe",
+                  "source_excerpt": "Tree는 threshold/interaction을 학습 / 무분별한 polynomial·all interactions",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "decision_tree",
+                "interaction",
+                "feature_engineering"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "트리는 임계값과 일부 상호작용을 학습하므로 무분별한 binning·다항·전체 상호작용 특성은 중복과 비용을 늘릴 수 있다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.preprocess.category",
+          "title": "범주형 처리",
+          "summary": "순서·카디널리티·누수를 점검한다.",
+          "claims": [
+            {
+              "claim_id": "ml.categorical_choice",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "범주형 변수는 실제 순서의 존재와 카디널리티를 확인해 처리 전략을 정한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 39,
+                  "chunk_id": "machine_learning_p39_01",
+                  "unit_id": "ml_p39_cat",
+                  "source_excerpt": "ordered? / cardinality?",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "categorical",
+                "ordinal_encoding"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "범주형 변수는 실제 순서의 존재와 카디널리티를 확인해 처리 전략을 정한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.encoding",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "순서 없는 범주는 one-hot, 실제 순서가 있는 범주는 ordinal encoding을 고려한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 40,
+                  "chunk_id": "machine_learning_p40_01",
+                  "unit_id": "ml_p40_encoding",
+                  "source_excerpt": "One-hot Encoding / Ordinal Encoding",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "one_hot",
+                "ordinal_encoding",
+                "categorical"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "순서 없는 범주는 one-hot, 실제 순서가 있는 범주는 ordinal encoding을 고려한다."
+                ],
+                "critical_errors": [
+                  "순서 없는 범주에 임의 숫자를 부여해 그 대소관계를 의미 있는 순서로 해석"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.target_encoding",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Target encoding은 fold 내부에서 적합해 누수를 막아야 하며 식별자 열은 자동으로 유용한 범주형 특성이 아니다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 41,
+                  "chunk_id": "machine_learning_p41_01",
+                  "unit_id": "ml_p41_target",
+                  "source_excerpt": "Target Encoding / CatBoost / ID와 순서 ID는 자동으로 유용하지 않음",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "target_encoding",
+                "catboost",
+                "leakage"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Target encoding은 fold 내부에서 적합해 누수를 막아야 하며 식별자 열은 자동으로 유용한 범주형 특성이 아니다."
+                ],
+                "critical_errors": [
+                  "전체 데이터의 타깃 평균으로 인코딩한 뒤 검증해도 누수가 아니라고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "ml.evaluation_improvement",
+      "title": "평가·불균형 대응과 튜닝",
+      "selection_description": "오류 비용, 검증 변동성과 오류 분석을 바탕으로 개선한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "ml.eval.imbalance",
+          "title": "불균형 대응",
+          "summary": "샘플링 전 목적과 지표를 정한다.",
+          "claims": [
+            {
+              "claim_id": "ml.imbalance_order",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "클래스 불균형은 오류 비용과 사용 목적·지표를 정한 뒤 stratification, class weight, threshold를 검토하고 필요할 때 sampling한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 42,
+                  "chunk_id": "machine_learning_p42_01",
+                  "unit_id": "ml_p42_imb",
+                  "source_excerpt": "오류 비용·사용 목적 → metric → stratified → class weight → threshold → sampling",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "class_imbalance",
+                "stratification",
+                "class_weight",
+                "threshold",
+                "smote"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "클래스 불균형은 오류 비용과 사용 목적·지표를 정한 뒤 stratification, class weight, threshold를 검토하고 필요할 때 sampling한다."
+                ],
+                "critical_errors": [
+                  "불균형이면 목적과 지표 검토 없이 정확도와 SMOTE만 사용하면 된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.sampling_fold",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "SMOTE 같은 sampling은 training fold에만 적용하고 시간·개체 구조, 범주형 비중, 라벨 노이즈와 calibration 영향을 점검한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 43,
+                  "chunk_id": "machine_learning_p43_01",
+                  "unit_id": "ml_p43_sampling",
+                  "source_excerpt": "sampling은 training fold에만 / time·entity·categorical·label noise·calibration 주의",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "smote",
+                "fold",
+                "time_split",
+                "group_split",
+                "calibration"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "SMOTE 같은 sampling은 training fold에만 적용하고 시간·개체 구조, 범주형 비중, 라벨 노이즈와 calibration 영향을 점검한다."
+                ],
+                "critical_errors": [
+                  "검증·테스트 데이터에도 SMOTE를 적용한다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.eval.metrics",
+          "title": "평가 해석",
+          "summary": "평균 외 변동성과 fold 실패를 본다.",
+          "claims": [
+            {
+              "claim_id": "ml.metric_cost",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Accuracy·precision·recall·F1 중 실제 오류 비용과 의사결정 목적에 맞는 지표를 선택한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 45,
+                  "chunk_id": "machine_learning_p45_01",
+                  "unit_id": "ml_p45_metrics",
+                  "source_excerpt": "Accuracy / Recall / Precision / F1 / error cost",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "accuracy",
+                "recall",
+                "precision",
+                "f1"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Accuracy·precision·recall·F1 중 실제 오류 비용과 의사결정 목적에 맞는 지표를 선택한다."
+                ],
+                "critical_errors": [
+                  "모든 분류 문제에서 정확도 하나가 항상 충분하다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "ml.cv_variability",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "교차 검증 평균뿐 아니라 표준편차·최악 fold와 fold별 실패 원인을 확인한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 46,
+                  "chunk_id": "machine_learning_p46_01",
+                  "unit_id": "ml_p46_variance",
+                  "source_excerpt": "mean뿐 아니라 fold variance/std/worst fold",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "fold",
+                "cross_validation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "교차 검증 평균뿐 아니라 표준편차·최악 fold와 fold별 실패 원인을 확인한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.oof",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "OOF prediction은 각 표본의 fold 밖 예측을 모아 threshold·calibration·오류 분석에 활용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 47,
+                  "chunk_id": "machine_learning_p47_01",
+                  "unit_id": "ml_p47_oof",
+                  "source_excerpt": "OOF predictions / threshold / calibration / error analysis / stacking",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "oof",
+                "fold",
+                "threshold",
+                "calibration"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "OOF prediction은 각 표본의 fold 밖 예측을 모아 threshold·calibration·오류 분석에 활용한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "ml.eval.tuning",
+          "title": "튜닝과 조기 종료",
+          "summary": "진단 이후 검증 데이터로 개선한다.",
+          "claims": [
+            {
+              "claim_id": "ml.tuning",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "하이퍼파라미터 튜닝은 오류 진단 뒤 CV로 복잡도·학습률·규제·샘플링 같은 중요한 축에 집중한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 48,
+                  "chunk_id": "machine_learning_p48_01",
+                  "unit_id": "ml_p48_tune",
+                  "source_excerpt": "진단 후 중요한 parameter만 CV로 tuning / complexity, learning rate, regularization, sampling",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "hyperparameter",
+                "cross_validation"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "하이퍼파라미터 튜닝은 오류 진단 뒤 CV로 복잡도·학습률·규제·샘플링 같은 중요한 축에 집중한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "ml.early_stopping",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Early stopping은 test가 아닌 validation 성능으로 반복 수를 제어하며 잘못된 데이터나 검증 설계를 고치지는 못한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 50,
+                  "chunk_id": "machine_learning_p50_01",
+                  "unit_id": "ml_p50_es",
+                  "source_excerpt": "early stopping에 Test 사용 금지 / fold별 optimum / validation·data 문제를 고치지 못함",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "early_stopping",
+                "validation_set",
+                "test_set",
+                "fold"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Early stopping은 test가 아닌 validation 성능으로 반복 수를 제어하며 잘못된 데이터나 검증 설계를 고치지는 못한다."
+                ],
+                "critical_errors": [
+                  "테스트 성능을 반복 확인해 early stopping 시점을 선택한다고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": []
+}

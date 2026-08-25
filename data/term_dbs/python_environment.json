@@ -1,0 +1,326 @@
+{
+  "course_id": null,
+  "topic": "Python",
+  "entries": [
+    {
+      "term": "IDE",
+      "korean_variants": [
+        "아이디이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Ruby",
+      "korean_variants": [
+        "루비"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YbigtaMember",
+      "korean_variants": [
+        "와이빅타멤버"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Typing",
+      "korean_variants": [
+        "타이핑"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YBIGTA",
+      "korean_variants": [
+        "와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DS",
+      "korean_variants": [
+        "디에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Select",
+      "korean_variants": [
+        "셀렉트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Virtual",
+      "korean_variants": [
+        "버추얼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "OOP",
+      "korean_variants": [
+        "오오피"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Lesson",
+      "korean_variants": [
+        "레슨"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Interpreter",
+      "korean_variants": [
+        "인터프리터"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Summer",
+      "korean_variants": [
+        "썸머"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VS",
+      "korean_variants": [
+        "브이에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Environment",
+      "korean_variants": [
+        "엔바이런먼트"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Conda",
+      "korean_variants": [
+        "콘다"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "PEP",
+      "korean_variants": [
+        "펩"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "Python Guidelines",
+      "korean_variants": [
+        "파이썬 가이드라인"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Code",
+      "korean_variants": [
+        "코드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "VScode",
+      "korean_variants": [
+        "브이에스코드"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tab",
+      "korean_variants": [
+        "탭"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Real",
+      "korean_variants": [
+        "리얼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Venv",
+      "korean_variants": [
+        "벤브"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "YbigtaLeader",
+      "korean_variants": [
+        "와이빅타리더"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Virtual Environment",
+      "korean_variants": [
+        "버추얼 엔바이런먼트"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Real Python Tutorials",
+      "korean_variants": [
+        "리얼 파이썬 튜토리얼"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "What",
+      "korean_variants": [
+        "왓"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Miniconda",
+      "korean_variants": [
+        "미니콘다"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Docstring",
+      "korean_variants": [
+        "닥스트링"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "member2",
+      "korean_variants": [
+        "멤버투"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Select Interpreter",
+      "korean_variants": [
+        "셀렉트 인터프리터"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Summer YBIGTA",
+      "korean_variants": [
+        "썸머 와이빅타"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "Python",
+      "korean_variants": [
+        "파이썬"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "member1",
+      "korean_variants": [
+        "멤버원"
+      ],
+      "collision_label": "safe",
+      "source": "alphanumeric"
+    },
+    {
+      "term": "Guidelines",
+      "korean_variants": [
+        "가이드라인"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Tutorials",
+      "korean_variants": [
+        "튜토리얼"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "Anaconda",
+      "korean_variants": [
+        "아나콘다"
+      ],
+      "collision_label": "safe",
+      "source": "capitalized"
+    },
+    {
+      "term": "OS",
+      "korean_variants": [
+        "오에스"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "DE",
+      "korean_variants": [
+        "디이"
+      ],
+      "collision_label": "safe",
+      "source": "acronym"
+    },
+    {
+      "term": "VS Code",
+      "korean_variants": [
+        "브이에스 코드"
+      ],
+      "collision_label": "safe",
+      "source": "compound"
+    },
+    {
+      "term": "RPT",
+      "korean_variants": [
+        "알피티"
+      ],
+      "collision_label": "safe",
+      "source": "derived_acronym"
+    }
+  ]
+}

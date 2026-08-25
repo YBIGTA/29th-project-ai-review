@@ -1,0 +1,1178 @@
+{
+  "schema_version": "2.2.0",
+  "lecture_id": "ai_agent",
+  "lecture_name": "AI Agent",
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
+    {
+      "objective_id": "agent.core_components",
+      "title": "Agent 핵심 구성요소",
+      "selection_description": "Reasoning·tool·memory·structured output을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "agent.core.loop",
+          "title": "ReAct와 Tool",
+          "summary": "Reasoning에서 external action까지 연결한다.",
+          "claims": [
+            {
+              "claim_id": "agent.react",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "ReAct는 reasoning trace와 tool action, environment observation을 반복해 새 observation을 다음 판단에 반영한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "ai_agent_p9_01",
+                  "unit_id": "agent_p9_react",
+                  "source_excerpt": "ReACT (Reason + Act) / 생각-행동-관찰",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "cot",
+                "react",
+                "reasoning",
+                "action",
+                "observation",
+                "tool"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "ReAct는 reasoning trace와 tool action, environment observation을 반복해 새 observation을 다음 판단에 반영한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.function_calling",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Function calling에서 model은 schema에 맞는 tool name과 arguments를 제안하고 orchestrator가 실제 function을 실행한 뒤 result를 되돌린다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "ai_agent_p10_01",
+                  "unit_id": "agent_p10_call",
+                  "source_excerpt": "User Query → LLM → Tool-call JSON → Orchestrator → API → LLM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "function_calling",
+                "tool",
+                "schema",
+                "orchestrator",
+                "api"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Function calling에서 model은 schema에 맞는 tool name과 arguments를 제안하고 orchestrator가 실제 function을 실행한 뒤 result를 되돌린다."
+                ],
+                "critical_errors": [
+                  "LLM이 orchestrator 없이 third-party API를 직접 실행한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.orchestrator_boundary",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Tool execution, permission, timeout과 error handling은 model output이 아니라 orchestrator·runtime의 책임이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "ai_agent_p10_01",
+                  "unit_id": "agent_p10_call",
+                  "source_excerpt": "User Query → LLM → Tool-call JSON → Orchestrator → API → LLM",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "function_calling",
+                "tool",
+                "schema",
+                "orchestrator",
+                "api"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Tool execution, permission, timeout과 error handling은 model output이 아니라 orchestrator·runtime의 책임이다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.mcp",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "MCP는 host·client·server 사이에서 tool·resource·prompt capability를 공통 protocol로 제공하고 discovery·integration을 돕는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "ai_agent_p11_01",
+                  "unit_id": "agent_p11_mcp",
+                  "source_excerpt": "외부 도구 및 데이터 소스에 연결하기 위한 표준화된 프로토콜",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "mcp",
+                "tool",
+                "resource",
+                "prompt"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "MCP는 host·client·server 사이에서 tool·resource·prompt capability를 공통 protocol로 제공하고 discovery·integration을 돕는다."
+                ],
+                "critical_errors": [
+                  "MCP를 연결하면 tool description·permission·security·context 관리가 전혀 필요 없다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.core.memory",
+          "title": "Agent Memory",
+          "summary": "Short·long-term memory lifecycle을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "agent.short_memory",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Short-term memory는 sliding window·filtering·trimming과 working state로 제한된 current context를 관리한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 13,
+                  "chunk_id": "ai_agent_p13_01",
+                  "unit_id": "agent_p13_stm",
+                  "source_excerpt": "Sliding Window / Importance-Based Storage / Trimming / Working Memory Separation",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "short_term_memory",
+                "sliding_window",
+                "working_memory"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Short-term memory는 sliding window·filtering·trimming과 working state로 제한된 current context를 관리한다."
+                ],
+                "critical_errors": [
+                  "Short-term memory가 모든 과거 대화를 제한 없이 영구 저장한다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.long_memory",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Long-term memory는 중요한 information을 저장하고 query 시 retrieval하며 update·summary하되 privacy와 stale memory를 관리한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "ai_agent_p14_01",
+                  "unit_id": "agent_p14_ltm",
+                  "source_excerpt": "Extraction / Storage / Search / Lookup / Update",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "long_term_memory",
+                "memory_retrieval"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Long-term memory는 중요한 information을 저장하고 query 시 retrieval하며 update·summary하되 privacy와 stale memory를 관리한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.memory_hierarchy",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Hierarchical memory는 active context와 external storage 사이를 importance·recency 기준으로 이동시키는 OS-inspired design이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "ai_agent_p16_01",
+                  "unit_id": "agent_p16_os",
+                  "source_excerpt": "RAM Cache Disk / STM MTM LPM / 교체 / 맥락 스와핑",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "short_term_memory",
+                "long_term_memory",
+                "working_memory"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Hierarchical memory는 active context와 external storage 사이를 importance·recency 기준으로 이동시키는 OS-inspired design이다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.core.output",
+          "title": "Structured Output",
+          "summary": "Automation 가능한 output contract를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "agent.structured_need",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Branch·threshold·retry automation에는 자연어 형식 추측보다 explicit machine-readable schema가 필요하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "ai_agent_p17_01",
+                  "unit_id": "agent_p17_structured",
+                  "source_excerpt": "일관적으로 응답이 똑같은 형식으로 와야 자동화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "structured_output",
+                "schema"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Branch·threshold·retry automation에는 자연어 형식 추측보다 explicit machine-readable schema가 필요하다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.structured_impl",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Structured output은 schema binding 또는 parser, type validation과 validation failure retry로 구현할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "ai_agent_p18_01",
+                  "unit_id": "agent_p18_validation",
+                  "source_excerpt": "Prompt 제약 / Output Parsing / 타입 검증 및 재시도 / Schema tool binding",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "structured_output",
+                "schema",
+                "validation",
+                "retry",
+                "function_calling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Structured output은 schema binding 또는 parser, type validation과 validation failure retry로 구현할 수 있다."
+                ],
+                "critical_errors": [
+                  "JSON parsing 성공만으로 내용의 사실성과 의미 정확성까지 보장된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.semantic_validation",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Schema validation은 shape·type을 검증할 뿐 factual·semantic correctness는 별도 evidence와 evaluator로 확인해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "ai_agent_p18_01",
+                  "unit_id": "agent_p18_validation",
+                  "source_excerpt": "Prompt 제약 / Output Parsing / 타입 검증 및 재시도 / Schema tool binding",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "structured_output",
+                "schema",
+                "validation",
+                "retry",
+                "function_calling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Schema validation은 shape·type을 검증할 뿐 factual·semantic correctness는 별도 evidence와 evaluator로 확인해야 한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "agent.frameworks",
+      "title": "Agent Framework와 Workflow",
+      "selection_description": "Framework abstraction과 선택 기준을 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "agent.framework.chain",
+          "title": "LangChain과 LCEL",
+          "summary": "Sequential composition을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "agent.langchain",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "LangChain은 prompt·model·retriever·tool·memory·callback을 runnable chain과 agent로 조합하는 application framework다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 21,
+                  "chunk_id": "ai_agent_p21_01",
+                  "unit_id": "agent_p21_langchain",
+                  "source_excerpt": "프롬프트, LLM, 도구, 메모리 등을 조합 / chain / agent / callback",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "langchain",
+                "tool",
+                "prompt"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LangChain은 prompt·model·retriever·tool·memory·callback을 runnable chain과 agent로 조합하는 application framework다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.lcel",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "LCEL은 pipe composition으로 runnable sequence를 선언하고 streaming·async·batch·parallel execution을 지원한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 22,
+                  "chunk_id": "ai_agent_p22_01",
+                  "unit_id": "agent_p22_lcel",
+                  "source_excerpt": "chain = prompt | model | output_parser / streaming / 병렬 / 비동기",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "lcel",
+                "langchain",
+                "structured_output"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LCEL은 pipe composition으로 runnable sequence를 선언하고 streaming·async·batch·parallel execution을 지원한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.framework.graph",
+          "title": "LangGraph",
+          "summary": "Stateful control flow를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "agent.langgraph",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "LangGraph는 shared state를 node가 갱신하고 edge가 transition·branch를 정의하는 stateful workflow framework다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "ai_agent_p23_01",
+                  "unit_id": "agent_p23_langgraph",
+                  "source_excerpt": "State / Node / Edge / 상태 및 분기 제어",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "langgraph",
+                "state",
+                "node",
+                "edge",
+                "cycle"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LangGraph는 shared state를 node가 갱신하고 edge가 transition·branch를 정의하는 stateful workflow framework다."
+                ],
+                "critical_errors": [
+                  "LangGraph는 순환을 지원하지 않는 DAG에만 한정된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.langgraph_cycles",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "LangGraph는 retry·feedback 같은 cycle을 지원하므로 DAG에 한정되지 않으며 explicit state가 debugging과 resume에 도움을 준다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 23,
+                  "chunk_id": "ai_agent_p23_01",
+                  "unit_id": "agent_p23_langgraph",
+                  "source_excerpt": "State / Node / Edge / 상태 및 분기 제어",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "langgraph",
+                "state",
+                "node",
+                "edge",
+                "cycle"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LangGraph는 retry·feedback 같은 cycle을 지원하므로 DAG에 한정되지 않으며 explicit state가 debugging과 resume에 도움을 준다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.framework.multi",
+          "title": "ADK와 CrewAI",
+          "summary": "Multi-agent abstraction을 비교한다.",
+          "claims": [
+            {
+              "claim_id": "agent.adk",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Google ADK는 LLM agent와 workflow agent를 조합해 sequential·parallel·custom multi-agent flow를 구성한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 25,
+                  "chunk_id": "ai_agent_p25_01",
+                  "unit_id": "agent_p25_adk",
+                  "source_excerpt": "ADK는 각 스텝마다 서로 다른 역할의 에이전트",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "adk",
+                "multi_agent"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Google ADK는 LLM agent와 workflow agent를 조합해 sequential·parallel·custom multi-agent flow를 구성한다."
+                ],
+                "critical_errors": [
+                  "LangChain과 LangGraph는 multi-agent 구성이 불가능하다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.adk_types",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "LlmAgent는 model-driven task, SequentialAgent·ParallelAgent는 deterministic orchestration, CustomAgent는 custom logic을 담당한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 26,
+                  "chunk_id": "ai_agent_p26_01",
+                  "unit_id": "agent_p26_adk_types",
+                  "source_excerpt": "LlmAgent / SequentialAgent / ParallelAgent / CustomAgent",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "adk",
+                "sequential_agent",
+                "parallel_agent"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "LlmAgent는 model-driven task, SequentialAgent·ParallelAgent는 deterministic orchestration, CustomAgent는 custom logic을 담당한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.crewai",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "CrewAI는 role·goal을 가진 Agent, team orchestration인 Crew, event-driven control인 Flow를 구분한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 28,
+                  "chunk_id": "ai_agent_p28_01",
+                  "unit_id": "agent_p28_crew",
+                  "source_excerpt": "Agent / Crew / Flow",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "crewai",
+                "crew",
+                "flow",
+                "multi_agent"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "CrewAI는 role·goal을 가진 Agent, team orchestration인 Crew, event-driven control인 Flow를 구분한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.framework.selection",
+          "title": "Prototype과 선택",
+          "summary": "Requirement 기반 선택을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "agent.n8n",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "n8n은 visual node와 integration으로 prototype·automation을 빠르게 만들지만 complex agent의 control·test·observability는 별도로 설계해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 30,
+                  "chunk_id": "ai_agent_p30_01",
+                  "unit_id": "agent_p30_n8n",
+                  "source_excerpt": "Drag-and-drop / 400+ plugin / 통합 / 배포",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "n8n",
+                "tool"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "n8n은 visual node와 integration으로 prototype·automation을 빠르게 만들지만 complex agent의 control·test·observability는 별도로 설계해야 한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.framework_choice",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Framework는 sequence, stateful cycle, multi-agent role, integration speed와 team expertise에 맞춰 선택하며 하나가 항상 우월하지 않다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 44,
+                  "chunk_id": "ai_agent_p44_01",
+                  "unit_id": "agent_p44_plan",
+                  "source_excerpt": "병렬·순차 / Fallback·Feedback / 데이터 / 기술 스택",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "parallel_agent",
+                "sequential_agent",
+                "fallback",
+                "feedback_loop"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Framework는 sequence, stateful cycle, multi-agent role, integration speed와 team expertise에 맞춰 선택하며 하나가 항상 우월하지 않다."
+                ],
+                "critical_errors": [
+                  "한 framework가 모든 workflow에서 항상 최고 성능이라고 설명"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "agent.protocols_tactics",
+      "title": "Protocol과 Engineering Tactic",
+      "selection_description": "Agent 연결·위임·운영 tactic을 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "agent.protocol.integration",
+          "title": "MCP와 Agent Protocol",
+          "summary": "Tool 연결과 agent collaboration을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "agent.mcp_protocol",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "MCP는 model-facing tool·resource·prompt integration을 표준화하지만 단순 HTTP endpoint와 동일하지 않고 permission·context control이 필요하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 32,
+                  "chunk_id": "ai_agent_p32_01",
+                  "unit_id": "agent_p32_protocol",
+                  "source_excerpt": "MCP / 표준화 / 확장성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "mcp",
+                "agent_protocol"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "MCP는 model-facing tool·resource·prompt integration을 표준화하지만 단순 HTTP endpoint와 동일하지 않고 permission·context control이 필요하다."
+                ],
+                "critical_errors": [
+                  "MCP를 단순한 HTTP data endpoint 하나와 완전히 동일하다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.agent_protocol",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Agent-to-agent protocol은 capability advertisement·discovery, task/message lifecycle, delegation, identity·security와 failure handling을 다룬다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 33,
+                  "chunk_id": "ai_agent_p33_01",
+                  "unit_id": "agent_p33_a2a",
+                  "source_excerpt": "기능 광고 / 독립 판단 / 동료 에이전트 호출·위임 / 협업",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "agent_protocol",
+                "a2a",
+                "agent_card",
+                "handoff"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Agent-to-agent protocol은 capability advertisement·discovery, task/message lifecycle, delegation, identity·security와 failure handling을 다룬다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.tactic.routing",
+          "title": "Triage와 Handoff",
+          "summary": "Routing과 delegation을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "agent.triage",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Triage는 request intent·risk·required capability를 판별해 적절한 agent나 workflow로 routing하는 단계다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 36,
+                  "chunk_id": "ai_agent_p36_01",
+                  "unit_id": "agent_p36_triage",
+                  "source_excerpt": "요청을 수행할 수 있는지 판단하고 누구에게 무엇을 맡길지 결정",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "triage",
+                "handoff"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Triage는 request intent·risk·required capability를 판별해 적절한 agent나 workflow로 routing하는 단계다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.handoff",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Handoff는 task, relevant context·data, constraint, expected output과 ownership을 다음 agent에 명시적으로 전달한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 37,
+                  "chunk_id": "ai_agent_p37_01",
+                  "unit_id": "agent_p37_handoff",
+                  "source_excerpt": "세부 요청 사항과 데이터 등을 함께 전달",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "handoff",
+                "multi_agent"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Handoff는 task, relevant context·data, constraint, expected output과 ownership을 다음 agent에 명시적으로 전달한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.tactic.operations",
+          "title": "Scaling과 Persona",
+          "summary": "운영·instruction tactic의 한계를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "agent.scaling",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Auto scaling은 queue depth·latency·concurrency·resource use 같은 workload signal에 맞춰 worker 수를 조정하고 bottleneck·rate limit을 함께 고려한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 38,
+                  "chunk_id": "ai_agent_p38_01",
+                  "unit_id": "agent_p38_scale",
+                  "source_excerpt": "데이터 개수를 감지하고 인스턴스를 활성화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "autoscaling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Auto scaling은 queue depth·latency·concurrency·resource use 같은 workload signal에 맞춰 worker 수를 조정하고 bottleneck·rate limit을 함께 고려한다."
+                ],
+                "critical_errors": [
+                  "Data 개수만 늘면 instance 수를 늘리는 것만으로 latency가 언제나 선형 개선된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.persona",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Persona·role instruction은 expertise·scope·prohibition을 명확히 해 behavior consistency를 도울 수 있으나 correctness를 보장하지 않는다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 39,
+                  "chunk_id": "ai_agent_p39_01",
+                  "unit_id": "agent_p39_persona",
+                  "source_excerpt": "명확히 정의된 역할 명세 / 해야 하는 것·할 수 있는 것·하면 안 되는 것",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "persona",
+                "system_instruction"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Persona·role instruction은 expertise·scope·prohibition을 명확히 해 behavior consistency를 도울 수 있으나 correctness를 보장하지 않는다."
+                ],
+                "critical_errors": [
+                  "Persona를 붙이면 모든 task의 정확도가 반드시 향상된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "agent.prompt_structure",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Markdown heading과 XML-like delimiter는 instruction·example·data의 boundary를 명확히 하는 표현 수단이며 conflict 없는 hierarchy가 핵심이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 40,
+                  "chunk_id": "ai_agent_p40_01",
+                  "unit_id": "agent_p40_prompt",
+                  "source_excerpt": "Markdown / XML / 명시적인 구획과 태그",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "prompt",
+                "system_instruction"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Markdown heading과 XML-like delimiter는 instruction·example·data의 boundary를 명확히 하는 표현 수단이며 conflict 없는 hierarchy가 핵심이다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objective_id": "agent.design_harness",
+      "title": "Agent 설계와 Harness Engineering",
+      "selection_description": "Workflow·context·verification loop를 설계한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "agent.design.workflow",
+          "title": "Workflow Design",
+          "summary": "Input·output과 control path를 설계한다.",
+          "claims": [
+            {
+              "claim_id": "agent.design",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Agent design은 user scenario에서 input·output schema와 component boundary를 정하고 diagram으로 branch·data flow를 명시한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 43,
+                  "chunk_id": "ai_agent_p43_01",
+                  "unit_id": "agent_p43_design",
+                  "source_excerpt": "다이어그램 / Input Output 결정 / schema",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "schema",
+                "ai_agent"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Agent design은 user scenario에서 input·output schema와 component boundary를 정하고 diagram으로 branch·data flow를 명시한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.plan",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Implementation plan은 sequential·parallel path, fallback·feedback, data source·governance, technology와 evaluation을 포함한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 44,
+                  "chunk_id": "ai_agent_p44_01",
+                  "unit_id": "agent_p44_plan",
+                  "source_excerpt": "병렬·순차 / Fallback·Feedback / 데이터 / 기술 스택",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "parallel_agent",
+                "sequential_agent",
+                "fallback",
+                "feedback_loop"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Implementation plan은 sequential·parallel path, fallback·feedback, data source·governance, technology와 evaluation을 포함한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.simple_start",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Minimum end-to-end workflow부터 검증한 뒤 observation을 근거로 prompt·fallback·feedback loop를 추가한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 45,
+                  "chunk_id": "ai_agent_p45_01",
+                  "unit_id": "agent_p45_simple",
+                  "source_excerpt": "간단하게 시작 / 리팩토링 / 프롬프트 고도화 / loop 구성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "fallback",
+                "feedback_loop",
+                "prompt"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Minimum end-to-end workflow부터 검증한 뒤 observation을 근거로 prompt·fallback·feedback loop를 추가한다."
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.design.context",
+          "title": "Prompt와 Context",
+          "summary": "Behavior instruction과 information supply를 구분한다.",
+          "claims": [
+            {
+              "claim_id": "agent.prompt_context",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Prompt engineering은 desired behavior와 format을 설명하고 context engineering은 현재 action에 필요한 file·history·tool result를 적절한 시점과 양으로 공급한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 48,
+                  "chunk_id": "ai_agent_p48_01",
+                  "unit_id": "agent_p48_prompt_eng",
+                  "source_excerpt": "instruction / role / few-shot / output format / reasoning guidance",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 49,
+                  "chunk_id": "ai_agent_p49_01",
+                  "unit_id": "agent_p49_harness",
+                  "source_excerpt": "Prompt = 행동 설명 / Context = 정보 공급 / Harness = 행동→관찰→검증→재시도",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "prompt_engineering",
+                "prompt",
+                "persona",
+                "structured_output",
+                "context_engineering",
+                "harness_engineering",
+                "validation",
+                "retry"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Prompt engineering은 desired behavior와 format을 설명하고 context engineering은 현재 action에 필요한 file·history·tool result를 적절한 시점과 양으로 공급한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.harness",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Harness engineering은 model 밖의 action→observation→verification→retry execution loop와 guardrail을 설계한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 49,
+                  "chunk_id": "ai_agent_p49_01",
+                  "unit_id": "agent_p49_harness",
+                  "source_excerpt": "Prompt = 행동 설명 / Context = 정보 공급 / Harness = 행동→관찰→검증→재시도",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "prompt_engineering",
+                "context_engineering",
+                "harness_engineering",
+                "validation",
+                "retry"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Harness engineering은 model 밖의 action→observation→verification→retry execution loop와 guardrail을 설계한다."
+                ],
+                "critical_errors": [
+                  "Context engineering과 harness engineering을 같은 개념이라고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "agent.design.verify",
+          "title": "Invariant와 검증",
+          "summary": "Evidence gate와 human role을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "agent.invariants",
+              "role": "essential",
+              "category": "explanation_application",
+              "text": "Must-hold invariant는 hook·script·filesystem gate로 강제하고 state와 evidence를 durable artifact에 기록해 completion claim을 검증한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 50,
+                  "chunk_id": "ai_agent_p50_01",
+                  "unit_id": "agent_p50_invariant",
+                  "source_excerpt": "Invariant는 script·filesystem으로 강제 / State는 File·Git / Verification은 Evidence",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "harness_engineering",
+                "invariant",
+                "hook",
+                "evaluator",
+                "evidence"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Must-hold invariant는 hook·script·filesystem gate로 강제하고 state와 evidence를 durable artifact에 기록해 completion claim을 검증한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.verification",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "E2E test, code·data check와 independent evaluator를 자동 loop에 넣되 test coverage와 false result도 검토한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 51,
+                  "chunk_id": "ai_agent_p51_01",
+                  "unit_id": "agent_p51_verify",
+                  "source_excerpt": "E2E test / 코드 패턴 / 데이터 검증 / 병렬 개발",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "e2e_test",
+                "validation",
+                "evidence"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "E2E test, code·data check와 independent evaluator를 자동 loop에 넣되 test coverage와 false result도 검토한다."
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "agent.human_role",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "AI는 반복 execution·evidence collection을 돕고 human은 problem framing, risk·value judgment와 final accountability를 맡는 human-in-the-loop를 설계한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 52,
+                  "chunk_id": "ai_agent_p52_01",
+                  "unit_id": "agent_p52_roles",
+                  "source_excerpt": "사람의 역할과 AI의 역할 / 반복 작업과 방향성 제시",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "human_in_the_loop",
+                "ai_agent"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "AI는 반복 execution·evidence collection을 돕고 human은 problem framing, risk·value judgment와 final accountability를 맡는 human-in-the-loop를 설계한다."
+                ],
+                "critical_errors": [
+                  "AI는 탐색을 전혀 못하고 사람은 반복 분석을 전혀 못한다고 절대적으로 구분"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_source_claims": [
+    {
+      "page": 4,
+      "chunk_id": "ai_agent_p4_01",
+      "source_text": "2023→2025 성능·속도 수치와 product 비교",
+      "reason": "Benchmark setting·source가 불명확하고 시점 의존적이라 핵심 정답에서 제외"
+    },
+    {
+      "page": 23,
+      "chunk_id": "ai_agent_p23_01",
+      "source_text": "언어모델이 달려있는 DAG",
+      "reason": "LangGraph는 cycle을 지원하므로 일반 graph/state machine으로 정규화"
+    },
+    {
+      "page": 24,
+      "chunk_id": "ai_agent_p24_01",
+      "source_text": "가장 우수한 성능을 보이는 프레임워크는 LangGraph",
+      "reason": "주관적·workload dependent 비교"
+    },
+    {
+      "page": 25,
+      "chunk_id": "ai_agent_p25_01",
+      "source_text": "LangChain, LangGraph는 단일 LLM(Agent)으로 설계",
+      "reason": "두 framework 모두 multi-agent 구성 가능"
+    },
+    {
+      "page": 38,
+      "chunk_id": "ai_agent_p38_01",
+      "source_text": "데이터 개수에 비례하여 AI 인스턴스 활성화",
+      "reason": "Scaling signal과 latency는 queue·concurrency·rate limit·bottleneck 등 복수 조건 필요"
+    },
+    {
+      "page": 39,
+      "chunk_id": "ai_agent_p39_01",
+      "source_text": "Persona 설정이 일반 System Instruction보다 성능이 좋다",
+      "reason": "Task와 prompt에 따라 달라지는 empirical tendency이며 보장 아님"
+    }
+  ]
+}

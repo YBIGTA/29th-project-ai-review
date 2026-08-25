@@ -1,146 +1,910 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.2.0",
   "lecture_id": "crawling",
   "lecture_name": "크롤링",
-  "evaluation_scope": "웹 데이터 수집의 목적, HTML·HTTP 기초, BeautifulSoup·Selenium 선택, 책임 있는 크롤링",
-  "learning_objectives": [
+  "assessment": {
+    "mode": "selected_topic_recall",
+    "target_seconds": 120,
+    "max_seconds": 120,
+    "score_policy": {
+      "essential_points": 60,
+      "supporting_points": 20,
+      "coverage_points": 20
+    }
+  },
+  "top_level_objectives": [
     {
-      "objective_id": "crawling.purpose",
-      "title": "크롤링의 필요성과 목적",
-      "summary": "대량의 웹 정보에서 분석에 필요한 데이터를 자동 수집하는 이유를 설명한다.",
-      "importance": 4,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.automation_need", "text": "웹 정보가 매우 많을 때 필요한 정보를 일일이 찾는 대신 자동으로 수집하기 위해 크롤링을 사용한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 4, "chunk_id": "crawling_p4_01"}]},
-        {"claim_id": "crawling.data_acquisition", "text": "분석에 필요한 데이터가 없을 때 웹에서 필요한 데이터를 수집하는 것이 크롤링의 주요 목적이다.", "essential": true, "weight": 1.2, "evidence": [{"page": 5, "chunk_id": "crawling_p5_01"}]},
-        {"claim_id": "crawling.multiple_services", "text": "웹 크롤링은 여러 웹 페이지나 서비스를 돌아다니며 데이터를 수집할 수 있다.", "essential": false, "weight": 0.8, "evidence": [{"page": 6, "chunk_id": "crawling_p6_01"}]}
-      ],
-      "misconceptions": []
-    },
-    {
-      "objective_id": "crawling.scraping_comparison",
-      "title": "크롤링과 스크래핑 구분",
-      "summary": "넓은 범위를 탐색·수집하는 크롤링과 필요한 정보만 추출하는 스크래핑을 목적과 자원 관점에서 비교한다.",
-      "importance": 4,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.scraping_definition", "text": "스크래핑은 웹에서 수집 가능한 내용 중 필요한 정보만 선택해 가져오는 작업이다.", "essential": true, "weight": 1.1, "evidence": [{"page": 7, "chunk_id": "crawling_p7_01"}]},
-        {"claim_id": "crawling.scope_difference", "text": "크롤링은 페이지와 링크를 따라 콘텐츠를 폭넓게 자동 수집하고 스크래핑은 여러 소스에서 필요한 정보만 추출한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 8, "chunk_id": "crawling_p8_01"}]},
-        {"claim_id": "crawling.resource_difference", "text": "크롤링은 중복 제거와 많은 자원이 필요할 수 있고 스크래핑은 범위가 제한되는 대신 상대적으로 적은 자원을 사용할 수 있다.", "essential": false, "weight": 0.9, "evidence": [{"page": 8, "chunk_id": "crawling_p8_01"}]},
-        {"claim_id": "crawling.terms_mixed", "text": "실제 사용에서는 두 용어가 혼용되기도 하지만 원리상의 차이를 구분할 수 있어야 한다.", "essential": false, "weight": 0.6, "evidence": [{"page": 8, "chunk_id": "crawling_p8_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "crawling.same_as_scraping", "text": "크롤링과 스크래핑은 목적과 작동 방식이 완전히 동일하다.", "correction": "현업에서 혼용될 수 있지만 강의에서는 폭넓은 탐색·수집과 필요한 정보 추출의 차이로 구분한다.", "severity": "minor"}
+      "objective_id": "crawl.foundations",
+      "title": "크롤링의 목적과 범위",
+      "selection_description": "크롤링의 필요성과 스크래핑과의 차이를 설명한다.",
+      "supporting_claim_slots": 2,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "crawl.foundation.need",
+          "title": "수집 자동화의 필요",
+          "summary": "대규모 웹 정보를 자동 수집하는 이유를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.automation_need",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "웹 정보가 매우 많을 때 필요한 정보를 일일이 찾는 대신 자동으로 수집하기 위해 크롤링을 사용한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 4,
+                  "chunk_id": "crawling_p4_01",
+                  "unit_id": "crawling_p4_u01",
+                  "source_excerpt": "원하는 정보들을 모두 찾기 위해서 일일이 검색하는 것은 너무 느림… 필요한 정보들을 자동으로 수집하는 방법: 크롤링",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_crawling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "대량의 웹 정보를 일일이 찾는 비용",
+                  "필요 정보를 자동으로 수집하는 목적"
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "crawling.data_acquisition",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "분석에 필요한 데이터가 없을 때 웹에서 필요한 데이터를 수집하는 것이 크롤링의 주요 목적이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 5,
+                  "chunk_id": "crawling_p5_01",
+                  "unit_id": "crawling_p5_u01",
+                  "source_excerpt": "웹상을 기어다니며 데이터를 긁어 모은다",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 5,
+                  "chunk_id": "crawling_p5_01",
+                  "unit_id": "crawling_p5_u02",
+                  "source_excerpt": "데이터가 없다! → 크롤링을 통해 웹에서 필요한 데이터를 수집한다",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_crawling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "크롤링이 웹을 돌아다니며 데이터를 수집한다는 정의",
+                  "분석 데이터가 없을 때 웹에서 필요 데이터를 얻는 목적"
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.foundation.scope",
+          "title": "탐색과 수집 범위",
+          "summary": "여러 페이지와 링크를 순회하는 수집 범위를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.multiple_services",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "웹 크롤링은 여러 웹 페이지나 서비스를 돌아다니며 데이터를 수집할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "crawling_p6_01",
+                  "unit_id": "crawling_p6_u01",
+                  "source_excerpt": "Google에서 Naver·Daum 등 여러 웹 서비스로 이어지는 크롤링 흐름 도식",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_crawling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "여러 웹 페이지나 서비스를 돌아다닌다는 범위"
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "crawling.link_traversal",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "크롤링은 여러 웹 페이지나 서비스의 내용을 돌아다니며 수집한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 6,
+                  "chunk_id": "crawling_p6_01",
+                  "unit_id": "crawling_p6_u01",
+                  "source_excerpt": "Google에서 Naver·Daum 등 여러 웹 서비스로 이어지는 크롤링 흐름 도식",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 8,
+                  "chunk_id": "crawling_p8_01",
+                  "unit_id": "crawling_p8_u01",
+                  "source_excerpt": "웹 크롤링: 웹 페이지 및 링크를 따라가며 콘텐츠를 자동 수집 / 웹 스크래핑: 여러 소스에서 필요한 정보만 추출",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_crawling"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "페이지나 링크를 따라 폭넓게 수집하는 원리"
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.foundation.scraping",
+          "title": "스크래핑과 비교",
+          "summary": "폭넓은 수집과 필요한 정보 추출을 구분한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.scraping_definition",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "스크래핑은 웹에서 수집 가능한 내용 중 필요한 정보만 선택해 가져오는 작업이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 7,
+                  "chunk_id": "crawling_p7_01",
+                  "unit_id": "crawling_p7_u01",
+                  "source_excerpt": "우리가 필요한 정보만 가져오는 것이 바로 스크래핑",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_scraping"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "전체 원본에서 필요한 정보만 선택해 추출한다는 정의"
+                ],
+                "critical_errors": [
+                  "스크래핑을 링크를 따라 웹 전체를 폭넓게 탐색하는 것으로만 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.scope_difference",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "크롤링은 페이지와 링크를 따라 콘텐츠를 폭넓게 자동 수집하고 스크래핑은 여러 소스에서 필요한 정보만 추출한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "crawling_p8_01",
+                  "unit_id": "crawling_p8_u01",
+                  "source_excerpt": "웹 크롤링: 웹 페이지 및 링크를 따라가며 콘텐츠를 자동 수집 / 웹 스크래핑: 여러 소스에서 필요한 정보만 추출",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_crawling",
+                "web_scraping"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "크롤링의 폭넓은 자동 수집",
+                  "스크래핑의 필요 정보 선택 추출"
+                ],
+                "critical_errors": [
+                  "크롤링과 스크래핑의 폭넓은 수집과 선택 추출 차이를 뒤바꿔 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.foundation.tradeoff",
+          "title": "범위와 자원",
+          "summary": "범위·자원 차이와 실제 용어 혼용을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.resource_difference",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "크롤링은 중복 제거와 많은 자원이 필요할 수 있고 스크래핑은 범위가 제한되는 대신 상대적으로 적은 자원을 사용할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "crawling_p8_01",
+                  "unit_id": "crawling_p8_u02",
+                  "source_excerpt": "크롤링은 중복 제거 필수·서버 부하와 리소스가 큼 / 스크래핑은 적은 리소스로 원하는 정보 수집, 범위 제한",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_crawling",
+                "web_scraping"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "크롤링의 중복·부하·자원 비용",
+                  "스크래핑의 적은 자원과 제한된 범위"
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "crawling.terms_mixed",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "실제 사용에서는 두 용어가 혼용되기도 하지만 원리상의 차이를 구분할 수 있어야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 8,
+                  "chunk_id": "crawling_p8_01",
+                  "unit_id": "crawling_p8_u03",
+                  "source_excerpt": "실질적으로는 용어를 많이 혼용, 하지만 원리 차이는 알 필요가 있다",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "web_crawling",
+                "web_scraping"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "용어가 혼용되더라도 원리상 차이가 있다는 점"
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        }
       ]
     },
     {
-      "objective_id": "crawling.html_structure",
-      "title": "HTML 문서 구조 이해",
-      "summary": "태그·속성·내용·엘리먼트의 계층으로 웹 문서의 뼈대를 읽는다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.html_role", "text": "HTML은 마크업 태그로 웹 문서의 구조를 표현하고 브라우저가 이를 시각적으로 렌더링하는 마크업 언어다.", "essential": true, "weight": 1.3, "evidence": [{"page": 9, "chunk_id": "crawling_p9_01"}]},
-        {"claim_id": "crawling.tag_pair", "text": "일반적인 HTML 요소는 시작 태그와 종료 태그 사이에 내용을 둔다.", "essential": true, "weight": 1.0, "evidence": [{"page": 10, "chunk_id": "crawling_p10_01"}]},
-        {"claim_id": "crawling.attribute", "text": "속성은 시작 태그에 이름과 값의 형태로 추가되어 엘리먼트에 정보를 제공한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 11, "chunk_id": "crawling_p11_01"}]},
-        {"claim_id": "crawling.element_hierarchy", "text": "HTML 엘리먼트는 태그·속성·내용을 포함한 전체 객체이며 HTML 문서는 엘리먼트들의 중첩된 집합이다.", "essential": true, "weight": 1.2, "evidence": [{"page": 12, "chunk_id": "crawling_p12_01"}, {"page": 13, "chunk_id": "crawling_p13_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "crawling.tag_equals_element", "text": "태그 하나만이 HTML 엘리먼트 전체다.", "correction": "엘리먼트는 시작·종료 태그와 그 사이의 속성 및 내용을 포함하는 전체 객체다.", "severity": "minor"}
+      "objective_id": "crawl.html_requests",
+      "title": "HTML 구조와 HTTP 요청",
+      "selection_description": "HTML의 중첩 구조와 GET·POST·응답 상태를 설명한다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "crawl.html.document",
+          "title": "HTML 문서",
+          "summary": "마크업 구조와 브라우저 렌더링의 역할을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.html_role",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "HTML은 마크업 태그로 웹 문서의 구조를 표현하고 브라우저가 이를 시각적으로 렌더링하는 마크업 언어다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "crawling_p9_01",
+                  "unit_id": "crawling_p9_u01",
+                  "source_excerpt": "HTML(HyperText Markup Language): 웹 페이지를 위한 마크업 언어",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "html",
+                "markup_language",
+                "tag"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "HTML이 웹 문서의 구조를 표현하는 마크업 언어라는 정의"
+                ],
+                "critical_errors": [
+                  "HTML을 프로그래밍 로직을 수행하는 일반 프로그래밍 언어로 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.browser_rendering",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "브라우저는 HTML로 정의된 콘텐츠를 시각적으로 렌더링한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 9,
+                  "chunk_id": "crawling_p9_01",
+                  "unit_id": "crawling_p9_u02",
+                  "source_excerpt": "웹 브라우저는 HTML로 정의된 콘텐츠를 시각적으로 렌더링",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "html"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "브라우저가 HTML 콘텐츠를 시각적으로 렌더링한다는 역할"
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.html.tags",
+          "title": "태그와 속성",
+          "summary": "요소의 태그 쌍과 속성을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.tag_pair",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "일반적인 HTML 요소는 시작 태그와 종료 태그 사이에 내용을 둔다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 10,
+                  "chunk_id": "crawling_p10_01",
+                  "unit_id": "crawling_p10_u01",
+                  "source_excerpt": "시작 태그 <태그이름>, 종료 태그 </태그이름>, 두 태그 사이에 내용",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "tag",
+                "element"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시작 태그와 종료 태그",
+                  "두 태그 사이의 내용"
+                ],
+                "critical_errors": [
+                  "종료 태그가 시작 태그와 동일하게 슬래시 없이 표현된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.attribute",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "속성은 시작 태그에 이름과 값의 형태로 추가되어 엘리먼트에 정보를 제공한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 11,
+                  "chunk_id": "crawling_p11_01",
+                  "unit_id": "crawling_p11_u01",
+                  "source_excerpt": "<태그이름 속성이름=‘속성값’>; 엘리먼트에 추가적인 정보",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "attribute",
+                "tag",
+                "element"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "시작 태그의 속성 이름·값 형태",
+                  "엘리먼트에 추가 정보를 제공한다는 역할"
+                ],
+                "critical_errors": [
+                  "속성이 태그 밖의 별도 엘리먼트라고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.html.hierarchy",
+          "title": "엘리먼트 계층",
+          "summary": "엘리먼트와 중첩 문서 구조를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.element_hierarchy",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "HTML 엘리먼트는 태그·속성·내용을 포함한 전체 객체이며 HTML 문서는 엘리먼트들의 중첩된 집합이다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "crawling_p12_01",
+                  "unit_id": "crawling_p12_u01",
+                  "source_excerpt": "엘리먼트: 스타트 태그부터 끝마침 태그까지를 모두 포함; HTML은 엘리먼트들의 집합",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "element",
+                "tag",
+                "attribute"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "엘리먼트가 시작·종료 태그와 속성·내용을 포함한 전체 객체라는 정의"
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "crawling.nested_tree",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "HTML 문서는 엘리먼트가 서로 중첩된 계층 구조를 이룬다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 12,
+                  "chunk_id": "crawling_p12_01",
+                  "unit_id": "crawling_p12_u01",
+                  "source_excerpt": "엘리먼트: 스타트 태그부터 끝마침 태그까지를 모두 포함; HTML은 엘리먼트들의 집합",
+                  "source_status": "verified",
+                  "review_note": ""
+                },
+                {
+                  "page": 13,
+                  "chunk_id": "crawling_p13_01",
+                  "unit_id": "crawling_p13_u01",
+                  "source_excerpt": "!DOCTYPE는 문서종류의 정의; <html>은 웹페이지 전체, <body>는 보이는 내용, <h1>은 제목, <p>는 문단",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "html",
+                "element",
+                "tag"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "HTML 문서가 엘리먼트들로 구성된다는 점",
+                  "html·body·h1·p 등의 문서 구조 예시"
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.http.requests",
+          "title": "요청과 응답",
+          "summary": "GET·POST 목적과 응답 상태 확인을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.get_request",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "GET은 페이지 열람과 검색 같은 읽기 작업에 사용하며 requests.get으로 요청할 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "crawling_p14_01",
+                  "unit_id": "crawling_p14_u01",
+                  "source_excerpt": "GET 요청: 페이지 열람, 검색 등 읽기 작업; requests.get",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "get",
+                "requests",
+                "http_request"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "GET이 페이지 열람·검색 등 읽기 요청이라는 점",
+                  "requests.get 사용"
+                ],
+                "critical_errors": [
+                  "GET을 로그인·데이터 제출 전용 쓰기 요청으로 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.post_request",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "POST는 로그인이나 데이터 제출 같은 쓰기 작업과 연결된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "crawling_p14_01",
+                  "unit_id": "crawling_p14_u02",
+                  "source_excerpt": "POST 요청: 로그인, 데이터 제출 등 쓰기 작업; Selenium으로 주로 대응",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "post",
+                "selenium",
+                "http_request"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "POST가 로그인·데이터 제출과 같은 요청에 연결된다는 점"
+                ],
+                "critical_errors": [
+                  "POST를 페이지 조회 전용이라고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.status_codes",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "응답 코드 200은 정상 응답을 뜻하고 403이나 404에서는 접근 차단 또는 요청 오류 여부를 확인해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 14,
+                  "chunk_id": "crawling_p14_01",
+                  "unit_id": "crawling_p14_u03",
+                  "source_excerpt": "응답코드 200: 정상, 403/404: 차단·오류 체크 중요",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "status_code"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "200은 정상",
+                  "403·40 접근 금지와 404는 자원을 찾을 수 없음을 확인해야 한다는 점"
+                ],
+                "critical_errors": [
+                  "403과 404를 모두 정상 응답으로 설명"
+                ]
+              }
+            }
+          ]
+        }
       ]
     },
     {
-      "objective_id": "crawling.http_requests",
-      "title": "HTTP 요청과 응답 상태 이해",
-      "summary": "GET·POST의 용도와 응답 상태를 확인하는 이유를 설명한다.",
-      "importance": 4,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.get_request", "text": "GET은 페이지 열람과 검색 같은 읽기 작업에 사용하며 requests.get으로 요청할 수 있다.", "essential": true, "weight": 1.2, "evidence": [{"page": 14, "chunk_id": "crawling_p14_01"}]},
-        {"claim_id": "crawling.post_request", "text": "POST는 로그인이나 데이터 제출 같은 쓰기 작업과 연결된다.", "essential": true, "weight": 1.0, "evidence": [{"page": 14, "chunk_id": "crawling_p14_01"}]},
-        {"claim_id": "crawling.status_codes", "text": "응답 코드 200은 정상 응답을 뜻하고 403이나 404에서는 접근 차단 또는 요청 오류 여부를 확인해야 한다.", "essential": true, "weight": 1.1, "evidence": [{"page": 14, "chunk_id": "crawling_p14_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "crawling.post_requires_selenium", "text": "POST 요청은 반드시 Selenium으로만 처리할 수 있다.", "correction": "강의의 Selenium 언급은 브라우저 동작이 필요한 사례로 제한하고 POST 일반 규칙으로 채점하지 않는다.", "severity": "major"}
-      ]
-    },
-    {
-      "objective_id": "crawling.beautifulsoup_pipeline",
-      "title": "Requests와 BeautifulSoup의 역할 분담",
-      "summary": "HTML을 내려받는 단계와 문서를 파싱해 정보를 추출하는 단계를 구분한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.download_then_parse", "text": "requests나 urllib로 HTML을 내려받은 뒤 BeautifulSoup으로 문서를 파싱하고 필요한 데이터를 추출한다.", "essential": true, "weight": 1.5, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}]},
-        {"claim_id": "crawling.bs_tree", "text": "BeautifulSoup은 HTML·XML 문서를 분석 가능한 트리로 만들어 원하는 요소를 찾기 쉽게 한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}]},
-        {"claim_id": "crawling.bs_tradeoff", "text": "BeautifulSoup 방식은 코드가 간단하고 빠르지만 JavaScript로 내용이 만들어지는 동적 페이지에는 제약이 있다.", "essential": true, "weight": 1.1, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "crawling.bs_downloads_browser", "text": "BeautifulSoup 자체가 브라우저를 실행해 모든 동적 콘텐츠를 내려받는다.", "correction": "강의에서는 requests·urllib가 HTML을 받고 BeautifulSoup이 문서를 파싱하는 역할로 구분한다.", "severity": "major"}
-      ]
-    },
-    {
-      "objective_id": "crawling.selenium_automation",
-      "title": "Selenium 브라우저 자동화",
-      "summary": "동적 웹사이트에서 브라우저 상호작용을 자동화하는 Selenium의 장단점을 설명한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.selenium_role", "text": "Selenium은 실제 브라우저에서 키보드·마우스 동작을 자동화해 버튼 클릭과 스크롤 같은 상호작용을 수행한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 17, "chunk_id": "crawling_p17_01"}]},
-        {"claim_id": "crawling.dynamic_pages", "text": "Selenium은 동적으로 콘텐츠가 바뀌거나 사용자 상호작용이 필요한 웹사이트에 유리하다.", "essential": true, "weight": 1.3, "evidence": [{"page": 17, "chunk_id": "crawling_p17_01"}]},
-        {"claim_id": "crawling.selenium_cost", "text": "브라우저를 직접 구동하는 Selenium 방식은 코드가 복잡해지고 속도가 느릴 수 있다.", "essential": true, "weight": 1.0, "evidence": [{"page": 17, "chunk_id": "crawling_p17_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "crawling.selenium_always_better", "text": "Selenium은 모든 웹 수집 상황에서 BeautifulSoup보다 빠르고 간단하다.", "correction": "동적 상호작용에는 강하지만 복잡성과 실행 비용이 더 크다.", "severity": "major"}
-      ]
-    },
-    {
-      "objective_id": "crawling.tool_selection",
-      "title": "페이지 특성에 따른 도구 선택",
-      "summary": "정적 HTML과 동적 상호작용 여부를 기준으로 수집 도구를 선택한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.static_choice", "text": "서버 응답의 HTML에 필요한 내용이 있고 별도 상호작용이 없다면 requests와 BeautifulSoup 방식이 간단하고 빠르다.", "essential": true, "weight": 1.3, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}]},
-        {"claim_id": "crawling.dynamic_choice", "text": "버튼 클릭·스크롤·브라우저 실행처럼 동적 상호작용이 필요하면 Selenium을 고려한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 17, "chunk_id": "crawling_p17_01"}]},
-        {"claim_id": "crawling.cost_tradeoff", "text": "도구 선택에서는 구현 난이도와 속도, 페이지 동작 요구를 함께 비교해야 한다.", "essential": true, "weight": 1.0, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}, {"page": 17, "chunk_id": "crawling_p17_01"}]}
-      ],
-      "misconceptions": []
-    },
-    {
-      "objective_id": "crawling.responsible_collection",
-      "title": "책임 있는 크롤링",
-      "summary": "허용 범위, 서버 부하, 개인정보·유료 콘텐츠 등 기술·법적 주의를 설명한다.",
-      "importance": 5,
-      "required": true,
-      "reference_claims": [
-        {"claim_id": "crawling.robots", "text": "크롤링 전에 robots.txt 등으로 수집 허용 범위를 확인해야 한다.", "essential": true, "weight": 1.2, "evidence": [{"page": 18, "chunk_id": "crawling_p18_01"}]},
-        {"claim_id": "crawling.rate_limit", "text": "요청 사이에 간격을 두고 짧은 시간에 과도한 페이지를 요청하지 않아 사이트 부하를 줄여야 한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 18, "chunk_id": "crawling_p18_01"}]},
-        {"claim_id": "crawling.legal_privacy", "text": "개인정보·유료 서비스와 법적 이슈를 확인하고 학습·비영리 목적이라도 제한적으로 수집해야 한다.", "essential": true, "weight": 1.3, "evidence": [{"page": 18, "chunk_id": "crawling_p18_01"}]},
-        {"claim_id": "crawling.user_agent_captcha", "text": "필요하면 User-Agent를 설정하고 CAPTCHA로 접근을 제한하는 사이트는 피하는 것이 권장된다.", "essential": false, "weight": 0.7, "evidence": [{"page": 18, "chunk_id": "crawling_p18_01"}]}
-      ],
-      "misconceptions": [
-        {"misconception_id": "crawling.public_means_free", "text": "인터넷에 공개된 데이터는 제한 없이 대량 수집해도 된다.", "correction": "공개 여부와 별개로 허용 범위, 서버 부하, 개인정보와 법적 이슈를 확인해야 한다.", "severity": "major"}
+      "objective_id": "crawl.tools_responsibility",
+      "title": "도구 선택과 책임 있는 수집",
+      "selection_description": "정적·동적 페이지에 맞는 도구를 고르고 수집 원칙을 지킨다.",
+      "supporting_claim_slots": 3,
+      "sub_objectives": [
+        {
+          "sub_objective_id": "crawl.tools.beautifulsoup",
+          "title": "Requests와 BeautifulSoup",
+          "summary": "HTML 다운로드와 파싱의 역할 및 한계를 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.download_then_parse",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "requests나 urllib로 HTML을 내려받은 뒤 BeautifulSoup으로 문서를 파싱하고 필요한 데이터를 추출한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "crawling_p16_01",
+                  "unit_id": "crawling_p16_u01",
+                  "source_excerpt": "requests나 urllib을 이용해 html을 다운받고, BeautifulSoup으로 데이터를 추출",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "requests",
+                "urllib",
+                "beautifulsoup",
+                "parsing"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "requests·urllib로 HTML을 가져옴",
+                  "BeautifulSoup으로 파싱하고 필요 데이터를 추출함"
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "crawling.bs_tree",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "BeautifulSoup은 HTML·XML 문서를 분석 가능한 트리로 만들어 원하는 요소를 찾기 쉽게 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "crawling_p16_01",
+                  "unit_id": "crawling_p16_u02",
+                  "source_excerpt": "HTML과 XML 문서를 parsing하기 위한 패키지; 분석 트리 생성",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "beautifulsoup",
+                "parsing",
+                "dom_tree"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "BeautifulSoup이 HTML·XML을 탐색 가능한 분석 트리로 만든다는 역할"
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "crawling.bs_tradeoff",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "BeautifulSoup 방식은 코드가 간단하고 빠르지만 JavaScript로 내용이 만들어지는 동적 페이지에는 제약이 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 16,
+                  "chunk_id": "crawling_p16_01",
+                  "unit_id": "crawling_p16_u03",
+                  "source_excerpt": "장점: 간단한 코드, 빠른 속도 / 단점: 동적 페이지 크롤링이 까다로움",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "beautifulsoup",
+                "dynamic_page"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "간단하고 빠른 장점",
+                  "동적 페이지 처리의 제약"
+                ],
+                "critical_errors": [
+                  "BeautifulSoup이 실제 브라우저 상호작용을 자동화한다고 설명"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.tools.selenium",
+          "title": "Selenium 자동화",
+          "summary": "브라우저 상호작용의 장점과 비용을 설명한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.selenium_role",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "Selenium은 실제 브라우저에서 키보드·마우스 동작을 자동화해 버튼 클릭과 스크롤 같은 상호작용을 수행한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "crawling_p17_01",
+                  "unit_id": "crawling_p17_u01",
+                  "source_excerpt": "웹 브라우저를 이용하여 키보드와 마우스로 수행하는 동작을 자동화",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "selenium"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "Selenium이 실제 브라우저의 키보드·마우스 동작을 자동화한다는 역할"
+                ],
+                "critical_errors": [
+                  "Selenium이 HTML 파싱만 수행하고 브라우저를 제어하지 않는다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.dynamic_pages",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "Selenium은 동적으로 콘텐츠가 바뀌거나 사용자 상호작용이 필요한 웹사이트에 유리하다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "crawling_p17_01",
+                  "unit_id": "crawling_p17_u02",
+                  "source_excerpt": "버튼 클릭, 스크롤 등의 조작이 가능; 동적으로 활용하기 유리",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "selenium",
+                "dynamic_page"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "동적 콘텐츠나 버튼 클릭·스크롤이 필요할 때 Selenium이 유리함"
+                ],
+                "critical_errors": []
+              }
+            },
+            {
+              "claim_id": "crawling.selenium_cost",
+              "role": "supporting",
+              "category": "connection_comparison",
+              "text": "브라우저를 직접 구동하는 Selenium 방식은 코드가 복잡해지고 속도가 느릴 수 있다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 17,
+                  "chunk_id": "crawling_p17_01",
+                  "unit_id": "crawling_p17_u03",
+                  "source_excerpt": "장점: 버튼 클릭, 스크롤 / 단점: 복잡한 코드, 느린 속도",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "selenium"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "복잡한 코드",
+                  "브라우저 구동으로 인한 느린 속도"
+                ],
+                "critical_errors": []
+              }
+            }
+          ]
+        },
+        {
+          "sub_objective_id": "crawl.tools.responsible",
+          "title": "책임 있는 크롤링",
+          "summary": "허용 범위, 서버 부하, 법·개인정보를 고려한다.",
+          "claims": [
+            {
+              "claim_id": "crawling.robots",
+              "role": "essential",
+              "category": "core_understanding",
+              "text": "크롤링 전에 robots.txt 등으로 수집 허용 범위를 확인해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "crawling_p18_01",
+                  "unit_id": "crawling_p18_u01",
+                  "source_excerpt": "robots.txt 확인: 사이트가 크롤링을 허용하는지 여부를 명시",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "robots_txt"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "수집 전 robots.txt에서 허용 범위를 확인"
+                ],
+                "critical_errors": [
+                  "robots.txt 확인 없이 모든 경로를 자동 수집해도 된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.rate_limit",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "요청 사이에 간격을 두고 짧은 시간에 과도한 페이지를 요청하지 않아 사이트 부하를 줄여야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "crawling_p18_01",
+                  "unit_id": "crawling_p18_u02",
+                  "source_excerpt": "요청 간 시간 간격: time.sleep(1~3초) 권장; 너무 많은 페이지를 짧은 시간에 긁지 않기",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "rate_limiting"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "요청 간격을 두고 짧은 시간의 대량 요청을 피함",
+                  "사이트 부하를 줄이는 목적"
+                ],
+                "critical_errors": [
+                  "요청을 끊임없이 최대 속도로 보내는 것이 올바르다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.legal_privacy",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "개인정보·유료 서비스와 법적 이슈를 확인하고 학습·비영리 목적이라도 제한적으로 수집해야 한다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "crawling_p18_01",
+                  "unit_id": "crawling_p18_u03",
+                  "source_excerpt": "개인정보, 유료 서비스 크롤링 금지; 학습, 비영리 목적으로 제한적 사용 권장",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "개인정보·유료 서비스·법적 제약 확인",
+                  "학습·비영리라도 필요 범위로 제한"
+                ],
+                "critical_errors": [
+                  "비영리·학습 목적이면 개인정보나 유료 콘텐츠도 무제한 수집해도 된다고 설명"
+                ]
+              }
+            },
+            {
+              "claim_id": "crawling.user_agent_captcha",
+              "role": "supporting",
+              "category": "explanation_application",
+              "text": "필요하면 User-Agent를 설정하고 CAPTCHA로 접근을 제한하는 사이트는 피하는 것이 권장된다.",
+              "weight": 1.0,
+              "evidence": [
+                {
+                  "page": 18,
+                  "chunk_id": "crawling_p18_01",
+                  "unit_id": "crawling_p18_u04",
+                  "source_excerpt": "User-Agent 설정도 필요 시 고려; CAPTCHA 같은 보안 기능이 있는 사이트는 피하는 것을 추천",
+                  "source_status": "verified",
+                  "review_note": ""
+                }
+              ],
+              "term_ids": [
+                "user_agent",
+                "captcha"
+              ],
+              "evaluation_criteria": {
+                "required_elements": [
+                  "필요 시 User-Agent 설정",
+                  "CAPTCHA 같은 보안 제한을 우회하지 않음"
+                ],
+                "critical_errors": [
+                  "CAPTCHA나 보안 제한을 우회하는 방법을 권장"
+                ]
+              }
+            }
+          ]
+        }
       ]
     }
   ],
-  "relations": [
-    {"relation_id": "crawling.r1", "source_objective_id": "crawling.purpose", "target_objective_id": "crawling.scraping_comparison", "relation_type": "contrasts_with", "statement": "넓은 범위를 자동 탐색·수집하는 크롤링과 필요한 정보만 추출하는 스크래핑은 목적과 범위가 다르다.", "directional": false, "importance": 4, "required": true, "evidence": [{"page": 8, "chunk_id": "crawling_p8_01"}]},
-    {"relation_id": "crawling.r2", "source_objective_id": "crawling.html_structure", "target_objective_id": "crawling.beautifulsoup_pipeline", "relation_type": "prerequisite", "statement": "HTML의 태그·속성·엘리먼트 구조를 알아야 BeautifulSoup으로 원하는 요소를 선택해 추출할 수 있다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 12, "chunk_id": "crawling_p12_01"}, {"page": 16, "chunk_id": "crawling_p16_01"}]},
-    {"relation_id": "crawling.r3", "source_objective_id": "crawling.http_requests", "target_objective_id": "crawling.beautifulsoup_pipeline", "relation_type": "sequence", "statement": "HTTP 요청으로 HTML을 받은 뒤 BeautifulSoup으로 문서를 파싱하고 데이터를 추출한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 14, "chunk_id": "crawling_p14_01"}, {"page": 16, "chunk_id": "crawling_p16_01"}]},
-    {"relation_id": "crawling.r4", "source_objective_id": "crawling.beautifulsoup_pipeline", "target_objective_id": "crawling.selenium_automation", "relation_type": "alternative_to", "statement": "정적 HTML에는 requests·BeautifulSoup을, 동적 상호작용에는 Selenium을 선택할 수 있다.", "directional": false, "importance": 5, "required": true, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}, {"page": 17, "chunk_id": "crawling_p17_01"}]},
-    {"relation_id": "crawling.r5", "source_objective_id": "crawling.beautifulsoup_pipeline", "target_objective_id": "crawling.tool_selection", "relation_type": "supports", "statement": "BeautifulSoup의 빠르고 단순한 장점과 동적 페이지 제약이 도구 선택 기준이 된다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}]},
-    {"relation_id": "crawling.r6", "source_objective_id": "crawling.selenium_automation", "target_objective_id": "crawling.tool_selection", "relation_type": "supports", "statement": "Selenium의 상호작용 능력과 실행 비용을 함께 고려해 동적 페이지에서 사용할지 결정한다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 17, "chunk_id": "crawling_p17_01"}]},
-    {"relation_id": "crawling.r7", "source_objective_id": "crawling.purpose", "target_objective_id": "crawling.responsible_collection", "relation_type": "condition_for", "statement": "자동 데이터 수집의 필요성이 있더라도 허용 범위와 서버 부하, 법적 조건을 지켜야 한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 5, "chunk_id": "crawling_p5_01"}, {"page": 18, "chunk_id": "crawling_p18_01"}]},
-    {"relation_id": "crawling.r8", "source_objective_id": "crawling.http_requests", "target_objective_id": "crawling.responsible_collection", "relation_type": "condition_for", "statement": "HTTP 응답 상태와 요청 빈도를 확인하며 차단 신호와 사이트 부하를 고려해야 한다.", "directional": true, "importance": 4, "required": true, "evidence": [{"page": 14, "chunk_id": "crawling_p14_01"}, {"page": 18, "chunk_id": "crawling_p18_01"}]},
-    {"relation_id": "crawling.r9", "source_objective_id": "crawling.tool_selection", "target_objective_id": "crawling.responsible_collection", "relation_type": "condition_for", "statement": "수집 도구를 선택한 뒤에도 허용 범위, 요청 간격, 개인정보와 법적 조건을 지켜야 한다.", "directional": true, "importance": 5, "required": true, "evidence": [{"page": 16, "chunk_id": "crawling_p16_01"}, {"page": 17, "chunk_id": "crawling_p17_01"}, {"page": 18, "chunk_id": "crawling_p18_01"}]}
-  ],
-  "relation_chains": [
-    {"chain_id": "crawling.chain_static", "title": "HTTP 요청에서 정적 페이지 도구 선택까지", "relation_ids": ["crawling.r3", "crawling.r5"], "importance": 5, "required": true},
-    {"chain_id": "crawling.chain_tool_choice", "title": "동적 페이지 도구 선택에서 책임 있는 수집까지", "relation_ids": ["crawling.r6", "crawling.r9"], "importance": 5, "required": true}
-  ],
-  "excluded_source_claims": [
-    "POST 요청은 주로 Selenium으로 대응한다는 표현은 POST의 일반적 처리 규칙으로 채점하지 않는다.",
-    "학습·비영리 목적이면 법적 검토가 불필요하다는 식으로 확대 해석하지 않는다."
-  ]
+  "excluded_source_claims": []
 }

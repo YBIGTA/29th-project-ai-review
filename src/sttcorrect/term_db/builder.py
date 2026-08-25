@@ -1,34 +1,71 @@
 from pathlib import Path
 
+from sttcorrect.llm.base import LLMClient
 from sttcorrect.schema import TermDB, TermEntry
 from sttcorrect.term_db.collision import CollisionSeed, classify_terms, load_collision_seed
-from sttcorrect.term_db.mapping_pairs import extract_mapping_pairs
 from sttcorrect.term_db.pdf_extract import extract_and_dedup
+from sttcorrect.term_db.pronunciation import generate_pronunciations
 from sttcorrect.term_db.term_candidates import (
     ACRONYM_RE,
     ALNUM_MIXED_RE,
-    CAPITALIZED_RE,
+    COMPOUND_RE,
     extract_candidate_terms,
+    extract_derived_acronyms,
     filter_function_words,
 )
+
+_SOURCE_PRIORITY = {
+    "acronym": 0,
+    "alphanumeric": 1,
+    "capitalized": 2,
+    "compound": 3,
+    "derived_acronym": 4,
+}
 
 
 def _source_for_candidate(term: str) -> str:
     """candidate 문자열이 여러 정규식에 동시에 매치될 수 있으므로 acronym > alphanumeric >
-    capitalized 순으로 단일 source를 부여한다."""
+    compound > capitalized 순으로 단일 source를 부여한다."""
     if ACRONYM_RE.fullmatch(term):
         return "acronym"
     if ALNUM_MIXED_RE.fullmatch(term):
         return "alphanumeric"
+    if COMPOUND_RE.fullmatch(term):
+        return "compound"
     return "capitalized"
 
 
-def _build_term_db_from_text(text: str, topic: str | None, seed_path: str) -> TermDB:
+def _fold_case_variants(entries_by_term: dict[str, TermEntry]) -> dict[str, TermEntry]:
+    """term.lower() 기준으로 대소문자만 다른 entry(예: Key/KEY, Row/row)를 하나로 합친다.
+    canonical 표기는 _SOURCE_PRIORITY(acronym > alphanumeric > capitalized) 순으로 고르고,
+    동순위면 term 알파벳순 — dict/set 순회 순서(해시 랜덤화)에 의존하지 않는 결정론적
+    tie-break. korean_variants는 같은 순서로 순회하며 순서 보존 + 중복 제거로 union한다."""
+    groups: dict[str, list[TermEntry]] = {}
+    for entry in entries_by_term.values():
+        groups.setdefault(entry.term.lower(), []).append(entry)
+
+    folded: dict[str, TermEntry] = {}
+    for group in groups.values():
+        if len(group) == 1:
+            folded[group[0].term] = group[0]
+            continue
+        ordered = sorted(group, key=lambda e: (_SOURCE_PRIORITY[e.source], e.term))
+        merged_variants: list[str] = []
+        for entry in ordered:
+            for v in entry.korean_variants:
+                if v not in merged_variants:
+                    merged_variants.append(v)
+        folded[ordered[0].term] = ordered[0].model_copy(update={"korean_variants": merged_variants})
+    return folded
+
+
+def _build_term_db_from_text(
+    text: str, topic: str | None, seed_path: str, llm: LLMClient | None = None
+) -> TermDB:
     """build_term_db의 2~6단계(PDF 텍스트를 이미 확보한 이후의 로직)를 순수 함수로 분리.
     build_term_dbs가 extract_and_dedup을 한 번만 호출해 영어/한국어 DB를 함께 빌드할 수
     있도록 하기 위함."""
     candidates = filter_function_words(extract_candidate_terms(text))
-    pairs = extract_mapping_pairs(text)
 
     entries_by_term: dict[str, TermEntry] = {
         term: TermEntry(
@@ -39,21 +76,23 @@ def _build_term_db_from_text(text: str, topic: str | None, seed_path: str) -> Te
         )
         for term in candidates
     }
+    entries_by_term = _fold_case_variants(entries_by_term)
 
-    for english_term, korean_variant in pairs:
-        existing = entries_by_term.get(english_term)
-        if existing is not None:
-            if korean_variant not in existing.korean_variants:
-                entries_by_term[english_term] = existing.model_copy(
-                    update={"korean_variants": existing.korean_variants + [korean_variant]}
-                )
-        else:
-            entries_by_term[english_term] = TermEntry(
-                term=english_term,
-                korean_variants=[korean_variant],
-                collision_label="safe",
-                source="mapping_pair",
+    for acronym in extract_derived_acronyms(text):
+        if acronym not in entries_by_term:
+            entries_by_term[acronym] = TermEntry(
+                term=acronym, korean_variants=[], collision_label="safe", source="derived_acronym"
             )
+
+    if llm is None:
+        from sttcorrect.llm.groq_client import GroqLLMClient
+
+        llm = GroqLLMClient()
+    pronunciations = generate_pronunciations(list(entries_by_term.keys()), llm)
+    for term, pronunciation in pronunciations.items():
+        entries_by_term[term] = entries_by_term[term].model_copy(
+            update={"korean_variants": [pronunciation]}
+        )
 
     seed = load_collision_seed(seed_path)
     classified_entries = classify_terms(list(entries_by_term.values()), seed)
@@ -64,9 +103,10 @@ def build_term_db(
     pdf_path: str,
     topic: str | None = None,
     seed_path: str = "config/seed_collision_terms.yaml",
+    llm: LLMClient | None = None,
 ) -> TermDB:
     text = extract_and_dedup(pdf_path)
-    return _build_term_db_from_text(text, topic, seed_path)
+    return _build_term_db_from_text(text, topic, seed_path, llm)
 
 
 def merge_term_dbs(dbs: list[TermDB], seed: CollisionSeed) -> TermDB:

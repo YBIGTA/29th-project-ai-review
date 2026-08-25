@@ -4,14 +4,14 @@ from pathlib import Path
 
 @dataclass
 class SttConfig:
-    model_size: str = "small"
+    model_size: str = "medium"
     device: str = "cpu"
     compute_type: str = "int8"
     cpu_threads: int = 4
     language: str = "ko"
     vad_filter: bool = True
     condition_on_previous_text: bool = False
-    beam_size: int = 2
+    beam_size: int = 5
 
 
 class WhisperSttBackend:
