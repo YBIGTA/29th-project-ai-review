@@ -19,6 +19,7 @@ COPY alembic ./alembic
 COPY backend ./backend
 COPY config ./config
 COPY data ./data
+COPY docs ./docs
 COPY src ./src
 
 RUN pip install -e .
