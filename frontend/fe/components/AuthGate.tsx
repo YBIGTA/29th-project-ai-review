@@ -47,20 +47,19 @@ function LoginScreen({ message }: { message?: string }) {
   };
 
   return (
-    <main className="relative grid min-h-screen place-items-center overflow-hidden bg-slate-950 px-6 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.16),transparent_38%),radial-gradient(circle_at_bottom_left,rgba(251,191,36,0.12),transparent_35%)]" />
-      <section className="relative w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900/90 p-8 shadow-2xl shadow-slate-950/60">
-        <p className="text-sm uppercase tracking-[0.24em] text-cyan-300">YBIGTA AI REVIEW</p>
-        <h1 className="mt-5 text-3xl font-bold leading-tight">말로 설명하고,<br />더 오래 기억하세요.</h1>
-        <p className="mt-4 text-sm leading-6 text-slate-400">Google 계정으로 로그인하면 발표 기록과 맞춤형 복습 결과를 안전하게 관리할 수 있습니다.</p>
-        {message && <p className="mt-5 rounded-xl border border-rose-400/30 bg-rose-400/10 px-4 py-3 text-sm text-rose-200">{message}</p>}
+    <main className="grid min-h-screen place-items-center bg-slate-950 px-6 text-white">
+      <section className="w-full max-w-md rounded-xl border border-slate-800 bg-slate-900 p-8">
+        <p className="text-sm font-semibold text-cyan-300">YBIGTA 29th - AI 구술 복습 서비스</p>
+        <h1 className="mt-5 text-3xl font-bold leading-tight">힘빼지 말고,<br />우리 말로 하자.</h1>
+        <p className="mt-4 text-sm leading-6 text-slate-400">로그인해서 복습을 시작해보세요.</p>
+        {message && <p className="mt-5 rounded-lg border border-rose-400/30 bg-rose-400/10 px-4 py-3 text-sm text-rose-200">{message}</p>}
         <button
           type="button"
           onClick={startGoogleLogin}
           disabled={!googleClientId}
-          className="mt-8 flex w-full items-center justify-center gap-3 rounded-xl bg-white px-4 py-3 font-semibold text-slate-900 transition hover:bg-cyan-50 disabled:cursor-not-allowed disabled:opacity-50"
+          className="mt-8 flex w-full items-center justify-center gap-3 rounded-lg bg-white px-4 py-3 font-semibold text-slate-900 transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-cyan-400 text-xs font-black">G</span>
+          <span className="grid h-6 w-6 place-items-center rounded-full border border-slate-300 text-xs font-black">G</span>
           {googleClientId ? "Google로 로그인" : "Google 로그인 설정 필요"}
         </button>
       </section>

@@ -7,6 +7,7 @@ import {
   getTranscriptionStatus,
   listLearningObjectives,
   listStudySessions,
+  logout,
   submitReview,
   transcribeAudio,
   type LearningObjective,
@@ -24,7 +25,7 @@ const lectureIds = TOPIC_TO_LECTURE_ID;
 type Phase = "idle" | "countdown" | "recording" | "processing" | "completed";
 type ProcessStage = "idle" | "transcribing" | "correcting" | "evaluating" | "complete";
 
-export default function ReviewApp({ user: _user }: { user: User }) {
+export default function ReviewApp({ user }: { user: User }) {
   const audioStreamRef = useRef<MediaStream | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
@@ -33,6 +34,7 @@ export default function ReviewApp({ user: _user }: { user: User }) {
 
   const [selectedTopic, setSelectedTopic] = useState<(typeof topics)[number]>(topics[0]);
   const [objectives, setObjectives] = useState<LearningObjective[]>([]);
+  const [isLoadingObjectives, setIsLoadingObjectives] = useState(false);
   const [objectivesByLecture, setObjectivesByLecture] = useState<Record<string, LearningObjective[]>>({});
   const [studySessions, setStudySessions] = useState<StudySessionSummary[]>([]);
   const [selectedObjective, setSelectedObjective] = useState<LearningObjective | null>(null);
@@ -44,7 +46,21 @@ export default function ReviewApp({ user: _user }: { user: User }) {
   const [statusText, setStatusText] = useState("주제를 선택하고 발표 녹음을 시작해보세요.");
   const [audioStream, setAudioStream] = useState<MediaStream | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const isSttSupported = STT_SUPPORTED_TOPICS.includes(selectedTopic as (typeof STT_SUPPORTED_TOPICS)[number]);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+      window.location.assign("/");
+    } catch (error) {
+      console.error("로그아웃 실패:", error);
+      setIsLoggingOut(false);
+      setStatusText("로그아웃에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    }
+  };
 
   useEffect(() => {
     return () => {
@@ -59,6 +75,11 @@ export default function ReviewApp({ user: _user }: { user: User }) {
 
   useEffect(() => {
     let cancelled = false;
+    setIsLoadingObjectives(true);
+    setObjectives([]);
+    setSelectedObjective(null);
+    setReport(null);
+    setProcessStage("idle");
     listLearningObjectives(lectureIds[selectedTopic])
       .then((result) => {
         if (cancelled) return;
@@ -71,6 +92,9 @@ export default function ReviewApp({ user: _user }: { user: User }) {
         setObjectives([]);
         setSelectedObjective(null);
         setStatusText("학습목표 목록을 불러오지 못했습니다.");
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoadingObjectives(false);
       });
     return () => {
       cancelled = true;
@@ -104,8 +128,12 @@ export default function ReviewApp({ user: _user }: { user: User }) {
       setStatusText("브라우저가 미디어 권한을 지원하지 않습니다.");
       return;
     }
-    if (!selectedObjective) {
+    if (isLoadingObjectives || !selectedObjective) {
       setStatusText("학습목표를 선택해 주세요.");
+      return;
+    }
+    if (!objectives.some((objective) => objective.learning_objective_id === selectedObjective.learning_objective_id)) {
+      setStatusText("선택한 주제의 학습목표를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.");
       return;
     }
 
@@ -242,19 +270,67 @@ export default function ReviewApp({ user: _user }: { user: User }) {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main
+      className="min-h-screen bg-slate-950 text-white"
+      onClickCapture={(event) => {
+        if (isSubmitting) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }}
+    >
       <div className="mx-auto max-w-7xl px-6 py-8">
         <header className="mb-8 flex items-center justify-between gap-4">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">YBIGTA AI REVIEW</p>
-            <h1 className="mt-2 text-3xl font-bold">구술 복습 서비스</h1>
+            <p className="text-sm font-semibold text-cyan-300">YBIGTA 29th - AI 구술 복습 서비스</p>
+            <h1 className="mt-2 text-3xl font-bold">오늘은 어떤 내용을 복습해볼까요?</h1>
           </div>
-          <Link
-            href="/history"
-            className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-slate-500"
-          >
-            학습 기록 보기
-          </Link>
+          <div className="relative flex items-center gap-3">
+            <Link
+              href="/history"
+              className="rounded-lg border border-slate-700 bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-slate-500"
+            >
+              학습 기록 보기
+            </Link>
+            <button
+              type="button"
+              aria-expanded={isProfileOpen}
+              aria-haspopup="menu"
+              onClick={() => setIsProfileOpen((open) => !open)}
+              className="flex max-w-[220px] items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-2 py-1.5 text-left transition hover:border-cyan-400/60"
+            >
+              {user.profile_image_url ? (
+                <img
+                  src={user.profile_image_url}
+                  alt=""
+                  className="h-8 w-8 rounded-full object-cover"
+                />
+              ) : (
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cyan-400 font-semibold text-slate-950">
+                  {(user.nickname || "U").slice(0, 1).toUpperCase()}
+                </span>
+              )}
+              <span className="truncate pr-2 text-sm font-medium text-slate-200">
+                {user.nickname || "사용자"}
+              </span>
+            </button>
+            {isProfileOpen && (
+              <div
+                role="menu"
+                className="absolute right-0 top-full z-20 mt-2 w-44 rounded-2xl border border-slate-700 bg-slate-900 p-2 shadow-xl shadow-slate-950/50"
+              >
+                <button
+                  type="button"
+                  role="menuitem"
+                  disabled={isLoggingOut}
+                  onClick={() => void handleLogout()}
+                  className="w-full rounded-xl px-3 py-2 text-left text-sm text-slate-200 transition hover:bg-rose-400/10 hover:text-rose-200 disabled:opacity-50"
+                >
+                  {isLoggingOut ? "로그아웃 중..." : "로그아웃하기"}
+                </button>
+              </div>
+            )}
+          </div>
         </header>
 
         <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
@@ -272,7 +348,6 @@ export default function ReviewApp({ user: _user }: { user: User }) {
             >
               <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-300">Audio visualizer</p>
                   <p className="mt-1 text-sm text-slate-400">
                     {phase === "recording" ? "음성을 녹음하고 있습니다" : "녹음 준비가 되면 시작하세요"}
                   </p>
@@ -469,6 +544,7 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
     const analyser = audioContext.createAnalyser();
     const source = audioContext.createMediaStreamSource(stream);
     let animationFrame = 0;
+    let displayedAmplitude = 0;
 
     analyser.fftSize = 256;
     analyser.smoothingTimeConstant = 0.72;
@@ -483,10 +559,10 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
         context.fillStyle = "#020617";
         context.fillRect(0, 0, width, height);
         analyser.getByteTimeDomainData(values);
-        // Render the recent time-domain samples from left to right. This makes
-        // both ends respond to the microphone instead of mapping frequency
-        // bins to the horizontal position.
-        const barCount = 96;
+        // Render a calm, vertically symmetric waveform around the center line.
+        // Smoothing prevents individual microphone samples from making the
+        // visualizer jump too aggressively.
+        const barCount = 64;
         const barWidth = width / barCount;
 
         for (let index = 0; index < barCount; index += 1) {
@@ -501,9 +577,8 @@ function AudioVisualizer({ stream, active }: { stream: MediaStream | null; activ
             energy += normalized * normalized;
           }
           const amplitude = Math.sqrt(energy / (end - start));
-          // Keep a visible bar in every horizontal slot while preserving the
-          // relative movement of quiet and loud portions of the input.
-          const barHeight = Math.min(height * 0.86, 12 + amplitude * height * 1.8);
+          displayedAmplitude = displayedAmplitude * 0.82 + amplitude * 0.18;
+          const barHeight = Math.min(height * 0.78, 4 + displayedAmplitude * height * 1.45);
           const gradient = context.createLinearGradient(0, height / 2, 0, height / 2 - barHeight / 2);
           gradient.addColorStop(0, active ? "#fb7185" : "#22d3ee");
           gradient.addColorStop(1, active ? "#fda4af" : "#a5f3fc");

@@ -110,11 +110,13 @@ def _to_review_result(score, assessment, branch, segments) -> EvaluationResult:
         for item in assessment.claim_assessments
         if item.judgment == "not_addressed"
     ]
-    incorrect = [
-        f"{claim_lookup[item.claim_id][0].text} — {item.rationale}"
-        for item in assessment.claim_assessments
-        if item.judgment == "incorrect"
-    ]
+    incorrect = []
+    for item in assessment.claim_assessments:
+        has_contradiction = any(
+            span.relation == "contradicts" for span in item.evidence_spans
+        )
+        if item.judgment == "incorrect" or has_contradiction or item.conflict_status == "unresolved":
+            incorrect.append(f"{claim_lookup[item.claim_id][0].text} — {item.rationale}")
     suggestions = []
     for sub in branch.sub_objectives:
         essential = next(claim for claim in sub.claims if claim.role == "essential")
