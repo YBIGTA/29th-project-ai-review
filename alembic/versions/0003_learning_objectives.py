@@ -11,7 +11,7 @@ depends_on = None
 
 def upgrade() -> None:
     op.execute(text("""
-        CREATE TABLE learning_objectives (
+        CREATE TABLE IF NOT EXISTS learning_objectives (
             id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
             lecture_id VARCHAR(100) NOT NULL,
             parent_id UUID NULL,
@@ -32,10 +32,10 @@ def upgrade() -> None:
                 ON DELETE CASCADE
         )
     """))
-    op.execute(text("CREATE INDEX ix_learning_objectives_lecture_id ON learning_objectives (lecture_id)"))
+    op.execute(text("CREATE INDEX IF NOT EXISTS ix_learning_objectives_lecture_id ON learning_objectives (lecture_id)"))
     op.execute(text("""
         ALTER TABLE study_sessions
-        ADD COLUMN learning_objective_id UUID NULL
+        ADD COLUMN IF NOT EXISTS learning_objective_id UUID NULL
         REFERENCES learning_objectives(id) ON DELETE RESTRICT
     """))
     op.execute(text("""

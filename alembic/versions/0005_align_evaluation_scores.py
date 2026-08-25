@@ -10,11 +10,29 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.execute(text("ALTER TABLE evaluations RENAME COLUMN accuracy_score TO essential_score"))
-    op.execute(text("ALTER TABLE evaluations RENAME COLUMN structural_score TO supporting_score"))
-    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT chk_evaluations_accuracy"))
-    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT chk_evaluations_coverage"))
-    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT chk_evaluations_structural"))
+    op.execute(text("""
+        DO $$
+        BEGIN
+            IF EXISTS (
+                SELECT 1 FROM information_schema.columns
+                WHERE table_name = 'evaluations' AND column_name = 'accuracy_score'
+            ) THEN
+                ALTER TABLE evaluations RENAME COLUMN accuracy_score TO essential_score;
+            END IF;
+
+            IF EXISTS (
+                SELECT 1 FROM information_schema.columns
+                WHERE table_name = 'evaluations' AND column_name = 'structural_score'
+            ) THEN
+                ALTER TABLE evaluations RENAME COLUMN structural_score TO supporting_score;
+            END IF;
+        END $$;
+    """))
+    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT IF EXISTS chk_evaluations_accuracy"))
+    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT IF EXISTS chk_evaluations_coverage"))
+    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT IF EXISTS chk_evaluations_structural"))
+    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT IF EXISTS chk_evaluations_essential"))
+    op.execute(text("ALTER TABLE evaluations DROP CONSTRAINT IF EXISTS chk_evaluations_supporting"))
     op.execute(text("""
         ALTER TABLE evaluations
         ADD CONSTRAINT chk_evaluations_essential

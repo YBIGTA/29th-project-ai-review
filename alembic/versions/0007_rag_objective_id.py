@@ -12,7 +12,7 @@ depends_on = None
 def upgrade() -> None:
     op.execute(text("""
         ALTER TABLE learning_objectives
-        ADD COLUMN rag_objective_id VARCHAR(150) NULL
+        ADD COLUMN IF NOT EXISTS rag_objective_id VARCHAR(150) NULL
     """))
     op.execute(text("""
         UPDATE learning_objectives
@@ -26,7 +26,7 @@ def upgrade() -> None:
           AND level = 'parent'
     """))
     op.execute(text("""
-        CREATE INDEX ix_learning_objectives_rag_objective_id
+        CREATE INDEX IF NOT EXISTS ix_learning_objectives_rag_objective_id
         ON learning_objectives (rag_objective_id)
     """))
 
